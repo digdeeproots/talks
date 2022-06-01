@@ -1,8 +1,4 @@
-## Deep Roots Talks
-
-This site contains collected notes and resources for our past talks.
-
-  * [Craft 2022 Using Empathy for Easy Tests and Safe Code (by Marian Hartman)](/craft2022.md)
+[Craft 2022 Using Empathy for Easy Tests and Safe Code (by Marian Hartman)](/craft2022.md)
 
 ----
 
