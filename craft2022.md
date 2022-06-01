@@ -2,7 +2,7 @@
   * [Craft 2022 Slide Deck](/Decks/ContractTalk-Empathy.pptx)
   * [Naming as a Process Blog Series](https://www.digdeeproots.com/articles/on/naming-process/)
   * [This talk for your Product Owner](https://www.eventbrite.com/e/product-owners-managing-refactoring-well-on-your-product-1-hr-class-registration-319752677867?aff=ebdsoporgprofile)
-  * [Naming as a Process as a Practice | Workshop Registration](https://www.eventbrite.com/e/refactoring-well-naming-as-a-process-2-wk-public-class-registration-349688125597?aff=ebdsoporgprofile)
+  * [Naming as a Process as a Practice &#124; Workshop Registration](https://www.eventbrite.com/e/refactoring-well-naming-as-a-process-2-wk-public-class-registration-349688125597?aff=ebdsoporgprofile)
 
 ## Deep Roots | Read & Watch Subscriptions
   * [Newsletter Subscription](https://digdeeproots.substack.com/)
