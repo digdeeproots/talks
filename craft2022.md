@@ -1,4 +1,8 @@
-## Resources
+---
+title: Craft 2022
+---
+
+## From the Talk
   * [Craft 2022 Slide Deck](/Decks/ContractTalk-Empathy.pptx)
   * [Naming as a Process Blog Series](https://www.digdeeproots.com/articles/on/naming-process/)
   * [This talk for your Product Owner](https://www.eventbrite.com/e/product-owners-managing-refactoring-well-on-your-product-1-hr-class-registration-319752677867?aff=ebdsoporgprofile)
