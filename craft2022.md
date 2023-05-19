@@ -21,4 +21,4 @@ title: Craft 2022
 ## Who Are We
   * [More on Arlo](https://digdeeproots.substack.com/about)
   * [Deep Roots Website](https://www.digdeeproots.com/)
-  * [Validated Software Mender I Certification](https://www.digdeeproots.com/developer-advancement-program/validated-software-mender/)
+  * [Validated Software Mender I Certification](https://www.digdeeproots.com/certifications/validated-software-mender/)
