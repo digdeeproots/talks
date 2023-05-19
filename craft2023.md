@@ -4,6 +4,7 @@ title: Craft 2023 | Promiscuous Pairing
 
 ## From the Talk
   * [Slide Deck](/Decks/Craft2023-PromiscuousPairingBeginnerMind.pptx)
+  * [Original Promiscuous Pairing Paper](/resources/PromiscuousPairing.pdf)
 
 ## Read & Watch Subscriptions
   * [Newsletter Subscription](https://digdeeproots.substack.com/)
