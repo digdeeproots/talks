@@ -2,8 +2,8 @@
 title: Deep Roots Talks
 ---
 
-[Craft 2022 Promiscuous Pairing and Collaboration Effectiveness (by Arlo Belshee)](/craft2023.md)
-[Craft 2022 Using Empathy for Easy Tests and Safe Code (by Marian Hartman)](/craft2022.md)
+[Craft 2023 &emdash; Promiscuous Pairing and Collaboration Effectiveness (by Arlo Belshee)](/craft2023.md)
+[Craft 2022 &emdash; Using Empathy for Easy Tests and Safe Code (by Marian Hartman)](/craft2022.md)
 
 ----
 

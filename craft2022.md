@@ -1,5 +1,5 @@
 ---
-title: Craft 2022
+title: Craft 2022 | Refactor Contracts
 ---
 
 ## From the Talk
