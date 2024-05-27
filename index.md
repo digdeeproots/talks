@@ -2,6 +2,8 @@
 title: Deep Roots Talks
 ---
 
+| Event | Talk |
+| :--- | :--- |
 | Craft 2024 | [Prevent Rewrites - a Map from Legacy Ugliness to Modern DevSecOps (by Arlo Belshee)](/craft2024-arlo.md)
 | Craft 2023 | [Promiscuous Pairing and Collaboration Effectiveness (by Arlo Belshee)](/craft2023.md)
 | Craft 2022 |  [Using Empathy for Easy Tests and Safe Code (by Marian Hartman)](/craft2022.md)
