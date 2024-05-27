@@ -5,8 +5,8 @@ title: Craft 2022 | Refactor Contracts
 ## From the Talk
   * [Craft 2022 Slide Deck](/Decks/ContractTalk-Empathy.pptx)
   * [Naming as a Process Blog Series](https://www.digdeeproots.com/articles/on/naming-process/)
-  * [This talk for your Product Owner](https://www.eventbrite.com/e/product-owners-managing-refactoring-well-on-your-product-1-hr-class-registration-319752677867?aff=ebdsoporgprofile)
-  * [Naming as a Process as a Practice &#124; Workshop Registration](https://www.eventbrite.com/e/refactoring-well-naming-as-a-process-2-wk-public-class-registration-349688125597?aff=ebdsoporgprofile)
+  * [This talk for your Product Owner](mailto:sales@digdeeproots.com)
+  * [Naming as a Process Workshop](mailto:sales@digdeeproots.com)
 
 ## Read & Watch Subscriptions
   * [Newsletter Subscription](https://digdeeproots.substack.com/)
@@ -21,4 +21,3 @@ title: Craft 2022 | Refactor Contracts
 ## Who Are We
   * [More on Arlo](https://digdeeproots.substack.com/about)
   * [Deep Roots Website](https://www.digdeeproots.com/)
-  * [Validated Software Mender I Certification](https://www.digdeeproots.com/certifications/validated-software-mender/)
