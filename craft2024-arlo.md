@@ -3,7 +3,8 @@ title: Craft 2024 | Navigating Legacy Code
 ---
 
 ## From the Talk
-  * [Slide Deck](/Decks/Craft2023-PromiscuousPairingBeginnerMind.pptx)
+  * [Slide Deck](/Decks/Craft2024Arlo-NavigatingToDevOps.pptx)
+  * [Escape Maps from Legacy to DevOps](https://technicalfluency.com/)
 
 ## Read & Watch Subscriptions
   * [Newsletter Subscription](https://digdeeproots.substack.com/)
