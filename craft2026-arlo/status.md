@@ -2,8 +2,8 @@
 
 ## Venues
 
-1. SAS open space kick-off
-2. Craft Conference 2026
+1. **SAS open space kick-off** — seed-the-room framing. ~1000 people, 4 continents, nearly all remote. Start of day before a massive open space. Goal: get them thinking and give them vocabulary to self-organize sessions. NOT a teaching talk — a provocation.
+2. **Craft Conference 2026** — standard conference talk format, technical practitioner audience.
 
 ## Current Phase
 
