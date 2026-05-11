@@ -16,6 +16,21 @@ The iteration protocol (`.meta/workflows/pattern-iterate.md`) defines the exact 
 
 ---
 
+## Project Context and the `.meta/` Folder
+
+All persistent project context lives in the repo under `.meta/`. This is the source of truth — not external memory systems. When starting a new session, read CLAUDE.md (this file), then read any `.meta/context/` files relevant to the work.
+
+| Path | What lives here |
+| :--- | :--- |
+| `.meta/context/` | Stable facts: speaker profiles, company context, anything that applies across all talks |
+| `.meta/workflows/` | Reusable protocols and scripts |
+
+Talk-specific state (current phase, next step, log) lives in the talk's own folder, in a `status.md` file (e.g., `craft2026-arlo/status.md`).
+
+When you learn something worth keeping — a preference, a constraint, a decision — write it to the appropriate file here and commit it. Do not rely on memory that lives outside the repo.
+
+---
+
 ## Workflows
 
 Workflows live in `.meta/workflows/`. When a step file says "run pattern X", read that file and follow it.
