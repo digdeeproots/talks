@@ -63,26 +63,34 @@ Mechanism: when a bug occurs, find the hazard (what made the mistake likely?), e
 ### Refactoring as the Common Thread
 Refactoring is the mechanism that keeps code safe to change. Hazard elimination is almost always a refactoring — it makes the code structurally impossible to misuse in the same way again.
 
-### What AI Changes
-- Hazard elimination is usually refactoring — previously expensive and slow. AI makes it cheap enough to do at scale.
-- AI can identify which hazard categories dominate across the whole defect stream.
-- In brownfield, years of accumulated hazards can now be addressed category by category.
-- AI itself introduces new hazard types (hallucinations, wrong codebase assumptions) if the workflow isn't designed carefully.
+### What AI Actually Changes (corrected)
+AI has NOT changed the economics of large-scale refactoring yet. What people call "AI refactoring" is mostly remodeling — rewriting with some test support. That's risky, and too risky to delegate. True refactoring (behavior-preserving transformations) is different and remains the safe operation.
+
+The real thing AI changes: **consistency and persistence**. Zero bugs never required scale or speed — it required doing the same workflow over and over, without fatigue, drift, or "let's just fix the bug this time." Sample a problem. Improve the hazard by 15%. Repeat. Humans don't sustain that discipline. AI does.
+
+Not all hazards are design hazards — that's one big category, not the whole. Other categories exist (process, workflow, environmental).
+
+### What Minions Adds
+Minions enables higher levels of agency delegation because it enables **guaranteed-safe operations** for a class of operations. This is what makes it safe to delegate further up the maturity model. Without guaranteed-safe operations, you can't trust the system at A3+. With them, you can.
+
+Orchestration systems (Minions) magnify AI's natural capabilities: consistency, persistence, repeatable discipline.
 
 ### Connection to the Other Topics
-- Minions is effectively an AI-powered safeguarding engine: gap-driven development = systematic hazard elimination; movement branching = hazard classification per commit; telemetry = learning from the defect stream.
-- The maturity model explains the agency shift required: using AI to run safeguarding campaigns requires A3+, not just A2 code generation.
+- Maturity model: delegation requires trust; trust requires safe operations; Minions provides that for a class of operations, enabling progression from A2 to A3+.
+- Refactoring is still part of the through-line — it's the safe-operation class that makes hazard elimination trustworthy. But the bottleneck AI solves is discipline/consistency, not refactoring speed.
 
 ---
 
-## Synthesis Note
+## Synthesis Note (revised)
 
 These bodies of work form a complete story:
 - **Safeguarding** is the "what" — zero bugs means eliminating opportunities for mistakes, not testing harder.
-- **Refactoring** is the mechanism — it keeps code safe to change; every hazard elimination is a refactoring.
-- **AI** is the "why now" — hazard elimination was too expensive at scale before; AI changes that economics.
-- **Minions** is the "how" — a concrete architecture for running systematic safeguarding campaigns on brownfield code.
-- **Maturity model** is the "map" — where are you on the agency arc, and what must shift to use AI for safeguarding rather than just code generation?
+- **Consistency** is the bottleneck — the workflow is simple; what blocked teams was the discipline to do it with every single bug, forever. Not the refactoring, not the scale.
+- **AI** is the "why now" — AI is good at exactly this category of problem: persistence, repeated discipline without fatigue or drift.
+- **Guaranteed-safe operations** is the unlock for delegation — Minions enables a class of operations the AI can be trusted to run unsupervised, which is what lets you move up the agency arc.
+- **Orchestration systems** magnify AI's natural capabilities: consistency, persistence, repeatability.
+- **Maturity model** is the map — delegation requires trust requires safety. The model shows what shifts at each stage.
+- **Refactoring** is the through-line as a safe-operation class — behavior-preserving transformations are trustworthy; rewrites are not.
 
-**SAS talk** = what + why now (safeguarding + AI economics). Seeds an open space with a concrete, provocative claim.
-**Craft talk** = the how (minions as the concrete answer). Deep dive for practitioners who want to build this.
+**SAS talk** = the claim + the model (safeguarding + consistency + AI's role). Conversational, 20-25 min. Seeds open space with: "What's stopping your team from doing this workflow consistently?"
+**Craft talk** = the architecture (Minions as the concrete answer to delegation and guaranteed-safe operations). 20-25 min conversational, deep for practitioners.
