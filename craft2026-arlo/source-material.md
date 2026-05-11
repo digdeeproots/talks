@@ -51,6 +51,38 @@ Arlo's strongest material. Unique, concrete, contrarian (vs. fully-automated or 
 
 ---
 
+## Option C: Zero Bugs / Safeguarding (existing body of work)
+
+**References:** deliver:Agile 2018 (preventing bugs in code you can't test), deliver:Agile 2019 (safeguarding: using your bugs to prevent bugs and fund tech debt fixes), Agile Israel 2017 (BugsZero).
+
+### Core Idea
+Safeguarding: use your defect stream to prevent defects, not find them faster. Zero bugs has nothing to do with testing — testing finds bugs after introduction; safeguarding prevents introduction. Every bug is a handcrafted developer mistake. Systems present thousands of opportunities. Developers avoid 99%. Safeguarding eliminates the opportunities themselves.
+
+Mechanism: when a bug occurs, find the hazard (what made the mistake likely?), eliminate it. A 22-minute practice per bug. Over time, the defect stream funds systematic investment in the highest-frequency hazard categories.
+
+### Refactoring as the Common Thread
+Refactoring is the mechanism that keeps code safe to change. Hazard elimination is almost always a refactoring — it makes the code structurally impossible to misuse in the same way again.
+
+### What AI Changes
+- Hazard elimination is usually refactoring — previously expensive and slow. AI makes it cheap enough to do at scale.
+- AI can identify which hazard categories dominate across the whole defect stream.
+- In brownfield, years of accumulated hazards can now be addressed category by category.
+- AI itself introduces new hazard types (hallucinations, wrong codebase assumptions) if the workflow isn't designed carefully.
+
+### Connection to the Other Topics
+- Minions is effectively an AI-powered safeguarding engine: gap-driven development = systematic hazard elimination; movement branching = hazard classification per commit; telemetry = learning from the defect stream.
+- The maturity model explains the agency shift required: using AI to run safeguarding campaigns requires A3+, not just A2 code generation.
+
+---
+
 ## Synthesis Note
 
-These two topics are deeply connected. The maturity model is the *map* (what does it mean to delegate more?). Minions is the *territory* — a concrete answer to what A3/A4 looks like for brownfield developers. A unified talk could use the maturity model as framing and minions as the demonstration of how to actually get there.
+These bodies of work form a complete story:
+- **Safeguarding** is the "what" — zero bugs means eliminating opportunities for mistakes, not testing harder.
+- **Refactoring** is the mechanism — it keeps code safe to change; every hazard elimination is a refactoring.
+- **AI** is the "why now" — hazard elimination was too expensive at scale before; AI changes that economics.
+- **Minions** is the "how" — a concrete architecture for running systematic safeguarding campaigns on brownfield code.
+- **Maturity model** is the "map" — where are you on the agency arc, and what must shift to use AI for safeguarding rather than just code generation?
+
+**SAS talk** = what + why now (safeguarding + AI economics). Seeds an open space with a concrete, provocative claim.
+**Craft talk** = the how (minions as the concrete answer). Deep dive for practitioners who want to build this.
