@@ -40,6 +40,38 @@ Work together. Take small actions. Start engineering the worlds our minions live
 
 ---
 
+## What the Talk Is Actually For
+
+Find the other world builders. People who can align, and who can bring others into alignment. Each in a different walk of life, a different company or government, a different role.
+
+This is the audience within the audience. The talk's hidden purpose is recognition — help those people see themselves, then find each other.
+
+## Why It Must Stay Grounded
+
+Many people have spoken the vision above. Hippies and hipsters have beaten those drums for decades and been sidelined. The difference is practicality. This talk must focus on solving a hard, real problem — and then show that we are living inside the same system, and that we can change it.
+
+The grounding: things like safeguarding have been doing exactly this for decades. Decider protocol has always existed, yet most decisions got made by authority — because facilitation was hard, few knew the protocol, and one person was always willing to take power. But now you can build a simple tool that takes ownership of the decision-making process and delegates power to speak, to express a position, to vote at the right moment. It shows you how to participate in consent-based democracy. The tool makes the superior technique practical.
+
+Same thing: a RAG over every decision and conversation a company has ever had. Chat with it. Group memory becomes accessible. The tool shapes reality.
+
+## The Fractal
+
+The same principle — design the world to make right behavior the easy behavior — applies at every level:
+
+- **Agent level**: design the environment your AI lives in (what it perceives, what decisions it faces, what it can't do by accident)
+- **Human level**: design the tools you use to decide, remember, reflect, understand another's perspective
+- **Group level**: design how you align across groups, how you find groups you don't align with, how you establish the terms of interaction
+
+Engineer your agents' environments — design for carelessness, for maliciousness, for unaligned and immoral behavior. Then look at what tools *you* use to decide, to remember, to reflect, to understand someone else's perspective, to align across groups, to find groups with whom you don't align, and to establish how you interact with them.
+
+The tool shapes reality. At every scale.
+
+## The Call (revised)
+
+Not "do this technique." Not "implement this system." The call is: recognize yourself in this. Then find others.
+
+---
+
 ## The Gift (distilled)
 
 Most of what we call developer work is toil. AI can take the toil — but only if you design your AI system so you don't have to watch it constantly. Designing for carelessness is what that means. When you pull it off, you get back the hour that was always the real work. And then the real question begins.
