@@ -9,13 +9,25 @@
 
 Both: 20-25 min + Q&A/conversation. Engineer audience. Conversational format — Arlo's best work uses a model the audience explores together (he asks for thoughts, follows where they go).
 
+## Plan
+
+### Done
+- [x] Working title: *Careless by Design: AI with Zero Bugs in Ugly Code*
+- [x] Audience defined: early-market engineers using AI or about to
+- [x] Concept sort: CENTER and BOUNDARY locked
+- [x] Core insight distilled (`core-insight.md`)
+- [x] Abstract drafted and under review (`topic.md` — raw quality, in progress)
+
+### Remaining
+- [ ] Abstract: finish to internal quality
+- [ ] Key moments / stories (3-5 concrete demos or stories)
+- [ ] Content flow: narrative arc and section skeleton
+- [ ] Slide structure
+- [ ] Delivery drafts
+
 ## Current Phase
 
-Working title established. Moving toward abstract and content flow.
-
-## Next Step
-
-Draft abstract. Then content flow.
+Abstract review in progress. Next: key moments and content flow.
 
 ## Parallel Work: Decider Protocol Tool
 
