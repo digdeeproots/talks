@@ -186,9 +186,29 @@ And then — all of that, times many agents, all messaging each other.
 
 - "Design for Carelessness" as subtitle — lacks AI and brownfield angle for a title.
 - "Stop managing AI. Start designing its world." is advice, not a title.
+- "The World Your AI Lives In" — works as a through line, not a title.
 - Don't force a model. These models take hundreds of hours to create, 10-20 hours to explore thoroughly. If one emerges, good. Don't build a cheap talk-structuring construct.
 - The agency/delegation maturity model is probably *one part* of the larger model, not the whole thing.
 - The audience guides exploration — works because there is far more in the model than any single talk can cover.
+
+## Title Ranking and Constraints
+
+From first batch (ranked):
+5 > 1 > 3 >> rest
+
+5. *Zero Bugs, Careless Agents: Designing Ecosystems That Work* — best
+1. *Careless by Design: Brownfield AI That Actually Works* — second
+3. *The World Your AI Lives In* — through line, not title
+
+**What works in #5:** Names both outcomes (zero bugs + careless agents), has the tension that makes you want to understand how they go together.
+**What works in #1:** "That Actually Works" speaks directly to the pain. Brownfield is explicit.
+**What's missing in all of them:** Still not fully evocative. "Designing Ecosystems That Work" is flat.
+
+**Audience constraints:**
+- SAS: choosing whether to skip this keynote or attend. Clear, evocative, tied to their pain.
+- Craft: choosing from ~12 stages. Same.
+- These audiences care about: zero bugs (known Arlo concept), brownfield/legacy pain, AI that's actually usable, delegation without fear.
+- "Zero bugs" is a known anchor — Arlo is associated with it in these communities.
 
 ---
 
