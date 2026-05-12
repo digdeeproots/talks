@@ -19,7 +19,7 @@ Both: 20-25 min + Q&A/conversation. Engineer audience. Conversational format —
 - [x] Abstract drafted and under review (`topic.md` — raw quality, in progress)
 
 ### Remaining
-- [ ] Abstract: finish to internal quality
+- [x] Abstract: finish to internal quality
 - [ ] Key moments / stories (3-5 concrete demos or stories)
 - [ ] Content flow: narrative arc and section skeleton
 - [ ] Slide structure
@@ -28,16 +28,3 @@ Both: 20-25 min + Q&A/conversation. Engineer audience. Conversational format —
 ## Current Phase
 
 Abstract review in progress. Next: key moments and content flow.
-
-## Parallel Work: Decider Protocol Tool
-
-Arlo plans to build a decider protocol facilitation tool: tools, prompts, scripts, and a web front-end that lets Claude facilitate a group through a decision. Open source. Git as the data source / backing store. This becomes the concrete Monday action the talk points at. Target: half-built demo by May 21 (SAS).
-
-Build using Minions — meta-demonstration of the talk's thesis. Potential talk moment: showing Minions facilitating a slice of the decider tool's own development. Shows both existence proofs simultaneously.
-
-## Development Log
-
-| Date | Milestone |
-| :--- | :--- |
-| 2026-05-11 | Talk initiated; topic.md seeded |
-| 2026-05-11 | Working title: *Careless by Design: AI with Zero Bugs in Ugly Code* |
