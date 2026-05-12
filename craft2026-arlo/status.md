@@ -11,7 +11,7 @@ Both: 20-25 min + Q&A/conversation. Engineer audience. Conversational format —
 
 ## Current Phase
 
-Topic discovery. No title, abstract, or content flow yet.
+Working title established. Moving toward abstract and content flow.
 
 ## Next Step
 
@@ -22,3 +22,4 @@ Run `pattern-iterate` on `topic.md` at `raw` quality until all `??` sections are
 | Date | Milestone |
 | :--- | :--- |
 | 2026-05-11 | Talk initiated; topic.md seeded |
+| 2026-05-11 | Working title: *Careless by Design: AI with Zero Bugs in Ugly Code* |

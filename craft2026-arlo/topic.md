@@ -8,7 +8,7 @@ status: in-progress
 
 ## Working Title
 
-??
+*Careless by Design: AI with Zero Bugs in Ugly Code*
 
 ## Core Insight
 

@@ -204,6 +204,10 @@ From first batch (ranked):
 **What works in #1:** "That Actually Works" speaks directly to the pain. Brownfield is explicit.
 **What's missing in all of them:** Still not fully evocative. "Designing Ecosystems That Work" is flat.
 
+**Working title: *Careless by Design: AI with Zero Bugs in Ugly Code***
+
+"Ugly Code" beats "brownfield" — honest, colloquial, what engineers actually call it. "Careless by Design" is the counterintuitive hook. "AI with Zero Bugs" is the outcome.
+
 **Audience constraints:**
 - SAS: choosing whether to skip this keynote or attend. Clear, evocative, tied to their pain.
 - Craft: choosing from ~12 stages. Same.
