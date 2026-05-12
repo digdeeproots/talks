@@ -136,6 +136,62 @@ This is also the condition for delegation. To delegate safely, you need the dele
 
 ---
 
+## World Design — Concrete Vision (from conversation, 2026-05-11)
+
+The world an agent lives in is not static. A good orchestration system lets you change it in an instant — even mid-identity. Example workflow:
+
+1. **ChatGPT** reads the plan, figures out what the user wants.
+2. Take that history → hand to **OpenCoder + Qwen**, who explores the codebase. This agent's world: has LSPs, no editing or text search allowed, RAG running over symbols. Deliberately limited.
+3. Freeze that memory. Clone it. Start the **coder** — using Claude to create tests and code.
+4. Fork the same memory: **Qwen critiques the tests**.
+5. Another fork of the same memory: different toolset, explores **security**.
+6. When human grounding is needed: the coder forks again, **switches costumes** — becomes a master of human interaction tools, carries on a conversation with the human, teases out answers. While another clone takes on a **data spelunking toolset** and predicts user behavior.
+7. **Roll back time**: find an approach that doesn't work. Build a safety mechanism or tool that would address it. Fix a bug. Make some documentation consistent. Then roll back time and try again in a safer environment.
+
+These minions live in a world that changes at every turn.
+
+**What this illustrates:**
+- The world is a real-time design choice — not static, not set at the start.
+- Identity (memory/history) persists while the world around the agent changes.
+- Fork/clone is a design primitive: same memory, different world = different capability.
+- Tool restriction is intentional: you deliberately limit what an agent can do to keep it safe.
+- Time travel/rollback is possible: try an approach, discover it's wrong, change the world, retry from the same point.
+- Different models for different worlds: you match model strengths to world constraints.
+
+**Key reframe**: "What world should my AI live in... right now?" The emphasis on *right now* matters. The world is composable, forkable, reversible. The interesting engineering is not in the agent. It's in the world.
+
+And then — all of that, times many agents, all messaging each other.
+
+---
+
+## Angles from Scale: Many Agents Messaging Each Other
+
+- **The world designer's leverage.** One human designing worlds for a colony of agents — each with its own perception, constraints, memory, identity. The human isn't doing the work. The human is building the conditions under which work happens safely.
+
+- **Emergence from world design.** When many agents message each other in worlds you've designed, behavior emerges that nobody explicitly programmed. The interesting question isn't "what did I tell them to do?" It's "what have I made possible? What have I made impossible?"
+
+- **The failure mode of naive multi-agent systems.** Most multi-agent setups are phone calls: one agent tells another what to do, waits, receives. Fragile. Non-resumable. Non-inspectable. Dead drops are the alternative: asynchronous, persistent, observable. World design makes the difference.
+
+- **Consistency at scale.** One agent being consistent is useful. A colony of agents, each consistent in its domain, each messaging others through designed channels — that's the force multiplier. Each agent's consistency compounds.
+
+- **The ecosystem argument.** A world designed so that correct behavior is the easy behavior, at scale across a colony, starts to look like an ecosystem that produces quality as a side effect of normal operation. Not enforced. Emergent.
+
+- **What the human sees.** From inside the Throne Room, you see a colony at work. You can inspect any agent's world, fork a branch, roll back a timeline, swap a costume. You are not supervising behavior. You are gardening an environment.
+
+- **The new skill.** Software engineers know how to write code that runs in a world. The new skill is writing code that *creates* the world that other agents run in. Meta-engineering. One level up.
+
+---
+
+## Notes on Model and Talk Structure
+
+- "Design for Carelessness" as subtitle — lacks AI and brownfield angle for a title.
+- "Stop managing AI. Start designing its world." is advice, not a title.
+- Don't force a model. These models take hundreds of hours to create, 10-20 hours to explore thoroughly. If one emerges, good. Don't build a cheap talk-structuring construct.
+- The agency/delegation maturity model is probably *one part* of the larger model, not the whole thing.
+- The audience guides exploration — works because there is far more in the model than any single talk can cover.
+
+---
+
 ## The Agent's World — Angles on Perception and Design
 
 The core shift: stop asking "what can AI do?" Start asking "what does the world look like from inside the agent?" This is the new engineering discipline — designing the perceived world of your agents.
