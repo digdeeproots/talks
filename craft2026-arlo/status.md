@@ -15,7 +15,11 @@ Working title established. Moving toward abstract and content flow.
 
 ## Next Step
 
-Run `pattern-iterate` on `topic.md` at `raw` quality until all `??` sections are filled.
+Draft abstract. Then content flow.
+
+## Parallel Work: Decider Protocol Tool
+
+Arlo plans to build a decider protocol facilitation tool: tools, prompts, scripts, and a web front-end that lets Claude facilitate a group through a decision. This becomes the concrete Monday action the talk points at. Timing TBD relative to SAS beta date.
 
 ## Development Log
 
