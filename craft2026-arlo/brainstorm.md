@@ -102,6 +102,18 @@ This is also the condition for delegation. To delegate safely, you need the dele
 
 ---
 
+## Talk Format Notes (from conversation)
+
+- Intro to a space: 3-5 minutes to orient the audience enough to explore.
+- Then: open-ended exploratory model with nodes/parts. Audience steers where to go.
+- Model must fit on one screen — or have obvious movement metaphors (e.g., pan, thread, left-right growth direction).
+- Strong unifying theme required so the audience stays oriented while exploring.
+- Culture novels: indirect reference only; too few know them. Use the structure/idea, not the name.
+- Brownfield framing for this talk: sharp edges waiting to cut, not the "rich context" angle. Brownfield is actively dangerous. Greenfield feels safe because the dangers are hidden. The talk lives in the brownfield-as-danger framing, and designing for carelessness is how you dance among the traps without springing them.
+- Highest resonance so far: "deterministic code as the hero," "what does your agent's world look like?", the manager reframe (design their world, not their behavior).
+
+---
+
 ## Angles Opened by the "Design for Carelessness" Insight
 
 - **The mantra inversion.** "Be more careful" is the universal wrong answer to a bug. "Be more careless, responsibly" is the right question. Engineers don't hear that. It's immediately memorable and immediately actionable.
@@ -121,6 +133,33 @@ This is also the condition for delegation. To delegate safely, you need the dele
 - **Carelessness as a design spec.** When you design a guardrail, the spec isn't "prevent bad behavior." It's "make careless behavior succeed." These produce very different designs.
 
 - **The same methodology, twice.** Safeguarding asks: how do we redesign the codebase so developers being careless still write correct code? Minions asks: how do we redesign the agent environment so AI being careless still produces correct results? Same question. Same answer structure. Different actor.
+
+---
+
+## The Agent's World — Angles on Perception and Design
+
+The core shift: stop asking "what can AI do?" Start asking "what does the world look like from inside the agent?" This is the new engineering discipline — designing the perceived world of your agents.
+
+- **Perception as a design choice.** What the agent sees is not given — you choose it. What context do you surface? What do you hide? What you include determines what mistakes are possible. What you exclude determines what mistakes are impossible.
+
+- **Invisible vs. visible hazards.** The agent can only make mistakes about things it can perceive. If a hazard is invisible to the agent, the agent cannot spring it. This is a design lever. Deliberate blindness can be a safety mechanism.
+
+- **Choices the agent faces.** Every branch point in the agent's reasoning is an opportunity for careless error. Each one that can be moved to deterministic code is one less hazard in the agent's world. The question isn't "how do I make the agent decide better?" It's "how do I eliminate this decision from the agent's world entirely?"
+
+- **What the agent remembers.** Identity = history. An agent is defined by what it can recall. Designing memory is designing what the agent can be influenced by — and what past mistakes it can repeat or not repeat.
+
+- **Failure modes as world features.** Most engineers think about failure modes of the AI. Flip it: what are the failure modes *of the world the AI inhabits*? What happens to the agent when the context is wrong, stale, or missing? The world fails before the agent does.
+
+- **The brownfield world.** To an agent working in legacy code, the world is full of undocumented sharp edges. Interfaces that lie. Globals that mutate invisibly. Side effects hidden three layers down. Most AI tools drop the agent into that world unmodified. Minions designs a different world — one where the agent only sees what is safe to touch.
+
+- **The gardener metaphor.** You are not managing an agent. You are gardening its world. You shape the soil, remove the rocks, build the trellises. The plant grows according to its nature. Your job is to make its nature sufficient.
+
+- **Possible model structure (visual, fits one screen):**
+  - Center: the agent (small, limited, consistent)
+  - Around it: the layers of its world — perception, decisions, memory, feedback, environment
+  - Each layer has a "designed for carelessness" question
+  - The human sits outside all layers, designing them — not supervising the agent directly
+  - Movement metaphor: zoom in (what does the agent see?) / zoom out (who designed this layer?) / pan (which layer are we examining?)
 
 ---
 
