@@ -20,7 +20,9 @@ Run the blended iteration loop (workflow/pattern-iterate.md):
 
 The loop runs until the goal is met at the specified quality level, then exits. The caller picks up from there.
 
-**Commit rule:** Every edit to any listed doc — yours or the human's — gets its own commit before the next turn. Stage all listed docs together; do not batch commits across turns.
+**Commit rule:** Every turn ends in a clean git state. Before taking your turn, run `git status` and commit every modified or untracked file in the repo — not just the listed docs. Stage all changes; do not leave anything dirty. The human's turn may touch any file, not only the ones named in `doc:`.
+
+**Treat all edits as your input.** After committing the human's turn, review every changed file — not just the listed docs — for normative edits and `@ai:` commands. The set of files changed is the set of files you must review.
 
 **Multiple docs:** When `doc:` lists more than one file, treat them as a unit — stage and commit all of them together each turn. In doc review, show each file in sequence. For visual or binary files (SVG, images), describe what changed rather than showing raw content: name the elements affected, the attribute values before and after, and the visual effect.
 
