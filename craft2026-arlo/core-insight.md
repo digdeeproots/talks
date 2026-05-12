@@ -110,6 +110,22 @@ Tighter candidates:
 
 ---
 
+## The Arc (confirmed)
+
+1. **Crisis** — The crossroads. 39 of 40 hours is toil. AI can take it — but only if you stop swapping work-toil for vigilance-toil. That's the trap most teams are walking into right now.
+2. **Principle** — Design the world so right behavior is the easy behavior. For your agents. For yourself. For your organization. Same move at every scale.
+3. **Proof it's real** — Safeguarding has done this for developers for decades. Minions does it for AI agents in brownfield code today. Automated decider protocol does it for organizational decisions. Three working examples, one principle.
+4. **The open question** — How do we create abundance — where a thousand builders each elevate the others without knowing what they're building?
+5. **The call** — Find the other world builders. They're in this room.
+
+The arc is abstract. It needs constant grounding: good examples, sound technical practice, tooling, techniques. With that, it floats.
+
+## Monday Action
+
+If people do one thing differently on Monday: use automated decider protocol software on some decision they would otherwise have made by authority or argument.
+
+This is more immediately accessible than Minions. Points at the organizational-world-design scale. Same principle, lower barrier to entry.
+
 ## The Gift (distilled)
 
 Most of what we call developer work is toil. AI can take the toil — but only if you design your AI system so you don't have to watch it constantly. Designing for carelessness is what that means. When you pull it off, you get back the hour that was always the real work. And then the real question begins.
