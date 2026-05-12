@@ -19,7 +19,9 @@ Draft abstract. Then content flow.
 
 ## Parallel Work: Decider Protocol Tool
 
-Arlo plans to build a decider protocol facilitation tool: tools, prompts, scripts, and a web front-end that lets Claude facilitate a group through a decision. Open source. Git as the data source / backing store. This becomes the concrete Monday action the talk points at. Timing TBD relative to SAS beta date.
+Arlo plans to build a decider protocol facilitation tool: tools, prompts, scripts, and a web front-end that lets Claude facilitate a group through a decision. Open source. Git as the data source / backing store. This becomes the concrete Monday action the talk points at. Target: half-built demo by May 21 (SAS).
+
+Build using Minions — meta-demonstration of the talk's thesis. Potential talk moment: showing Minions facilitating a slice of the decider tool's own development. Shows both existence proofs simultaneously.
 
 ## Development Log
 
