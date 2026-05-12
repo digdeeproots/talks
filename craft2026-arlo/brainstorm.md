@@ -243,6 +243,8 @@ The core shift: stop asking "what can AI do?" Start asking "what does the world 
 
 ---
 
+@ai: trim the brainstorm. Cut the stuff that we've decided to cut from this talk's scope.
+
 ## Questions the Talk Could Leave Engineers With
 
 - What are the top three hazard categories in your codebase right now?
