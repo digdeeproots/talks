@@ -66,6 +66,30 @@ Engineer your agents' environments — design for carelessness, for maliciousnes
 
 The tool shapes reality. At every scale.
 
+## Abundance (definition)
+
+A thousand people exploring a thousand different directions in harmony, instead of cacophony. Every creation I make elevates yours, even though I don't know what you are doing and may not align with your goals.
+
+We now have the power to design the world around our agents, and also the world around ourselves. The open question: how do we create abundance, where every creation elevates every other, without coordination?
+
+Arlo has work on this (D:\_Abundance\making-abundance — "abundance cycle"). That work is the closest current effort at answering the abundance question. It does NOT go in this talk.
+
+## What This Talk Is (and Is Not)
+
+**This talk is:** Opening the question. Raising the crisis. Showing that:
+- There are real answers being built right now — some of them are *really slick*, solving a ton of currently-blocking problems
+- There remain open questions worth pursuing
+- The world builders are out there, building
+
+**This talk is not:** The answer to abundance. That's a different, longer conversation.
+
+**The "slick answers" to point at (existence proofs):**
+- Safeguarding — redesigning the human developer's world to prevent bugs. Decades old. Works.
+- Minions — redesigning the AI agent's world to enable safe delegation in brownfield code. Working now.
+- Automated decider protocol / decision-making engine — redesigning organizational decision-making so consent-based governance is the easy path. See D:\_Abundance\making-abundance\Making Abundance\sparking.
+
+These three are instances of the same principle at three different scales. The talk points at them as proof that the principle is real and buildable — not as a full tour of any one of them.
+
 ## The Call (revised)
 
 Not "do this technique." Not "implement this system." The call is: recognize yourself in this. Then find others.
