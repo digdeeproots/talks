@@ -70,8 +70,6 @@ This is also the condition for delegation. To delegate safely, you need the dele
 
 - **The delegation ladder.** At each rung, you let go of something. At A2 you stop watching every line. At A3 you stop watching every step. The ladder is well-defined. Most people are stuck at the wrong rung for the wrong reason.
 
-- **Brownfield as the rich context.** Greenfield has no history. Brownfield has years of decisions, mistakes, patterns, hazards. AI trained on your specific codebase's history is more powerful than AI on a blank slate. The defect stream is the training data.
-
 - **Platform vs. tool.** A hammer is a tool. A nail gun with a safety is a platform. AI as a tool: you command it. AI with a platform: it operates within guardrails you designed. The platform is where leverage lives.
 
 - **Consistency as the bottleneck.** Not skill. Not knowledge. Not even time. Consistency. The methodology for zero bugs is simple. Teams already know it. They just don't do it with every single bug, forever. That's the problem AI solves.
@@ -90,9 +88,7 @@ This is also the condition for delegation. To delegate safely, you need the dele
 
 - **The "brownfield is where the real work is" manifesto.** Greenfield is easy. Greenfield with AI is easier. Nobody cares. 90% of software work happens in brownfield. The AI ecosystem has been designed for the easy case. Minions is the first serious answer to the hard case.
 
-- **The "what should humans do?" question.** If AI handles consistency and persistence, what does that free humans for? Not less work — different work. The interesting, novel, high-judgment work. This reframes the fear of AI replacement.
-
-- **The orchestration as multiplication.** Most AI tools add AI to your team. Orchestration multiplies what your team can do. The difference between addition and multiplication is the platform.
+- **The "what should humans do?" question.** If AI handles consistency and persistence, what does that free humans for? Not less work — different work. The interesting, novel, high-judgment work. The 39 hours back, so you can do more with the one.
 
 - **Dead drops as a design philosophy.** Async-first agent communication isn't just an engineering choice — it's a trust architecture. You can pause, inspect, redirect at any moment. Synchronous AI call chains have none of that.
 
@@ -164,24 +160,6 @@ And then — all of that, times many agents, all messaging each other.
 
 ---
 
-## Angles from Scale: Many Agents Messaging Each Other
-
-- **The world designer's leverage.** One human designing worlds for a colony of agents — each with its own perception, constraints, memory, identity. The human isn't doing the work. The human is building the conditions under which work happens safely.
-
-- **Emergence from world design.** When many agents message each other in worlds you've designed, behavior emerges that nobody explicitly programmed. The interesting question isn't "what did I tell them to do?" It's "what have I made possible? What have I made impossible?"
-
-- **The failure mode of naive multi-agent systems.** Most multi-agent setups are phone calls: one agent tells another what to do, waits, receives. Fragile. Non-resumable. Non-inspectable. Dead drops are the alternative: asynchronous, persistent, observable. World design makes the difference.
-
-- **Consistency at scale.** One agent being consistent is useful. A colony of agents, each consistent in its domain, each messaging others through designed channels — that's the force multiplier. Each agent's consistency compounds.
-
-- **The ecosystem argument.** A world designed so that correct behavior is the easy behavior, at scale across a colony, starts to look like an ecosystem that produces quality as a side effect of normal operation. Not enforced. Emergent.
-
-- **What the human sees.** From inside the Throne Room, you see a colony at work. You can inspect any agent's world, fork a branch, roll back a timeline, swap a costume. You are not supervising behavior. You are gardening an environment.
-
-- **The new skill.** Software engineers know how to write code that runs in a world. The new skill is writing code that *creates* the world that other agents run in. Meta-engineering. One level up.
-
----
-
 ## Notes on Model and Talk Structure
 
 - "Design for Carelessness" as subtitle — lacks AI and brownfield angle for a title.
@@ -242,8 +220,6 @@ The core shift: stop asking "what can AI do?" Start asking "what does the world 
   - Movement metaphor: zoom in (what does the agent see?) / zoom out (who designed this layer?) / pan (which layer are we examining?)
 
 ---
-
-@ai: trim the brainstorm. Cut the stuff that we've decided to cut from this talk's scope.
 
 ## Questions the Talk Could Leave Engineers With
 
