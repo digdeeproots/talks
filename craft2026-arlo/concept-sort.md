@@ -45,15 +45,17 @@ You don't have to maximize delegation. The right level depends on the operation,
 **Brownfield as the hard case**
 Ugly code is the right context because it's where the real world lives, and where the hazards are visible and sharp. It makes the problem concrete. "Designing for carelessness" is most obviously necessary when the environment is actively dangerous.
 
----
-
-## BOUNDARY — May Be In or Out
-
-**The toil insight (personal scale: getting back an hour)**
+**The toil insight (personal scale: getting back 39 hours)**
 The motivating frame — AI should give you back the hour that was always the real work, not create a new kind of toil. In as motivation, but without the societal arc (crossroads, layoffs, etc. — those are future-talk).
+
+@ai: rewrite the above. This is about the idea that 39 of the 40 hours a programmer works each week is toil. There is only about an hour that leverages your unique perspective and experience. So we want to optimize that. We want to leverage that hour and give you the other 39 back.
 
 **Minions as existence proof**
 The concrete demonstration of rapidly changing agent worlds. The key thing to show: world changes sub-task to sub-task are cheap and safe when deterministic orchestration handles routing.
+
+---
+
+## BOUNDARY — May Be In or Out
 
 **The defect stream as feedback signal**
 Using what breaks to improve the environment. One concrete example of how you learn which hazards to eliminate. Only if there's space.
