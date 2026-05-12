@@ -58,18 +58,6 @@ The concrete demonstration of rapidly changing agent worlds. The key thing to sh
 **The defect stream as feedback signal**
 Using what breaks to improve the environment. One concrete example of how you learn which hazards to eliminate. Only if there's space.
 
----
+@ai: deltes are edits, and to be treated normatively. Update the process doc to make that clear. It should be as if we had never included the deleted material. Use some judgement when applying that change normatively; it might just be a tidy. But in other cases, like this one, it is meant as a way to eliminate the stuff.
 
-## DROPPED — Out (saved in future-talk archive)
-
-- The crossroads / societal transformation
-- 39 of 40 hours framing as a civilization-scale statement
-- Careless abundance
-- Find the world builders / recognition call
-- The Arbor / Making Abundance project
-- Decider protocol / consent-based governance
-- Organizational world design (human/group scale)
-- The Culture novels (even indirect)
-- Sociocracy / steward ownership
-- The abundance engine
-- Fractal principle across human/group/org scales
+@ai: that's why I wanted to make sure that you saved **everything** to the future talk - including the divergences, the insights along the way that you had recorded, etc. If you haven't, then do so now, so that we are free to edit and delete whatever we want within this talk.
