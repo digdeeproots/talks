@@ -32,7 +32,15 @@ Safeguarding. Arlo has been applying "design for carelessness" to human develope
 
 ## Abstract (draft)
 
-??
+Most engineers using AI have already found the trap: you do less work, but you watch more closely. Watching AI closely enough that nothing goes wrong is just different toil, more stressful, not less. You haven't delegated. You've relocated.
+
+Getting out of the vigilance trap requires a design shift. The goal isn't to make AI more careful. It's to design the world the AI lives in so that careless behavior still succeeds. That's a different target than most teams are aiming at.
+
+This session introduces the agency delegation model, a map from "human does everything" to "AI holds operational agency," and the principle that makes higher levels safe: design for carelessness and forgetfulness. The key insight: even a small failure rate requires constant vigilance, which defeats delegation entirely. The threshold for safe delegation isn't low risk. It's no risk within a class of operations.
+
+We'll explore what that looks like in practice: narrowing tools so certain mistakes become impossible, separating deterministic workflows from non-deterministic creative work, changing the agent's world sub-task to sub-task. We'll do this in ugly brownfield code, where the hazards are sharpest and the stakes are real.
+
+This principle is older than AI. Safeguarding has applied it to human developers for a decade: when someone makes a mistake, don't ask them to be more careful, ask what you could change so that even more careless behavior would still succeed. Now it applies to agents. When you get it right, you don't get an AI that's supervised. You get one that's trusted.
 
 ## Key Moments / Stories
 

@@ -58,6 +58,3 @@ The concrete demonstration of rapidly changing agent worlds. The key thing to sh
 **The defect stream as feedback signal**
 Using what breaks to improve the environment. One concrete example of how you learn which hazards to eliminate. Only if there's space.
 
-@ai: deltes are edits, and to be treated normatively. Update the process doc to make that clear. It should be as if we had never included the deleted material. Use some judgement when applying that change normatively; it might just be a tidy. But in other cases, like this one, it is meant as a way to eliminate the stuff.
-
-@ai: that's why I wanted to make sure that you saved **everything** to the future talk - including the divergences, the insights along the way that you had recorded, etc. If you haven't, then do so now, so that we are free to edit and delete whatever we want within this talk.
