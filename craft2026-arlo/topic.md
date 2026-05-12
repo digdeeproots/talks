@@ -34,13 +34,13 @@ Safeguarding. Arlo has been applying "design for carelessness" to human develope
 
 You swapped work-toil for vigilance-toil. Watching AI closely enough that nothing goes wrong is still toil. More stressful, less interesting toil.
 
-AIs are fast enough that even rare risks happen too often. Even a small failure rate demands constant vigilance, which defeats the point. The threshold for safe delegation isn't low risk. It's no risk within a class of operations.
+AIs are fast enough that even rare risks happen too often. Even a small failure rate demands constant vigilance, which defeats the point. Low risk isn't enough to delegate safely. We need a known class of operations with zero risk.
 
 The exit is Careless Design: build the agent's world so careless behavior still succeeds. That's different from making AI more capable.
 
 This session maps the agency delegation model, from human-does-everything to AI-holds-operational-agency. We work through what makes each level safe: narrow tools, deterministic workflows, deliberately scoped context. We do this in ugly brownfield code, where the hazards are sharpest.
 
-Safeguarding has applied this to human developers for a decade. When someone makes a mistake, don't ask them to be more careful. Ask what you could change so even more careless behavior would still succeed. Now it applies to agents.
+#ZeroBugs has applied this to human developers for a decade. When someone makes a mistake, don't ask them to be more careful. Instead, improve the environment so that even more careless behavior would still succeed. Now it applies to agents.
 
 ## Key Moments / Stories
 
