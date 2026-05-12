@@ -70,6 +70,20 @@ The tool shapes reality. At every scale.
 
 Not "do this technique." Not "implement this system." The call is: recognize yourself in this. Then find others.
 
+## Seed Question for the Open Space (working versions)
+
+Arlo's full version:
+> "What world are you living in? What tools and perception media create it? What would you like to make easy and normal? What dangers would you like to prevent? You can now build those tools — so what are the powerful changes you can make in the world of everyone at this company? And how can you all do all of those things without cacophony?"
+
+Needs to be: clearer, shorter.
+
+Tighter candidates:
+1. "You can now design the world your team lives in. What do you make easy? What do you make impossible? And how do a thousand of you do that without chaos?"
+2. "What tools shape your world? What would you rebuild? You have the power now — so what do you change, and how do a thousand builders stay in harmony?"
+3. "What creates your world? What would you make easy, what would you make safe? The tools exist. So: what do you build — and how do you all build together without cacophony?"
+4. "What world are you building? What makes the right behavior easy, the dangerous behavior hard? And how do a thousand builders align?"
+5. "What would your world look like if you designed it? You now have the tools. What do you change — and how do a thousand designers build without stepping on each other?"
+
 ---
 
 ## The Gift (distilled)
