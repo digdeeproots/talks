@@ -77,7 +77,44 @@ Orchestration systems (Minions) magnify AI's natural capabilities: consistency, 
 
 ### Connection to the Other Topics
 - Maturity model: delegation requires trust; trust requires safe operations; Minions provides that for a class of operations, enabling progression from A2 to A3+.
-- Refactoring is still part of the through-line — it's the safe-operation class that makes hazard elimination trustworthy. But the bottleneck AI solves is discipline/consistency, not refactoring speed.
+- Refactoring is still part of the through-line as a safe-operation class — behavior-preserving transformations are trustworthy; rewrites are not.
+
+---
+
+## Option D: Making Abundance / The Arbor
+
+**Location:** `D:\_Abundance\making-abundance\Making Abundance\`
+
+### The Unifying Principle: The Arbor
+Structure that reveals rather than constrains. A garden arbor creates multiple paths to light — it doesn't direct growth, it opens space for it. The Arbor Test: "Does this open growing space or close it?"
+
+This is the deeper name for "design for carelessness." Same principle, broader application.
+
+**Manifestations at every scale:**
+- Agent level: design the environment so careless behavior succeeds (Minions)
+- Human level: safeguarding — design the codebase/process so developer mistakes don't propagate
+- Group level: Decider Protocol — structure that enables multiple options to coexist rather than forcing convergence
+- Organization level: sociocratic circles, steward ownership, two-tier pricing
+- Economy level: the full abundance engine (solar → robots → manufacturing → food, all approaching zero cost)
+
+### The Decider Protocol
+Consent-based decision mechanism:
+1. Someone proposes something specific
+2. Everyone votes simultaneously: thumbs up / sideways (support with concerns) / thumbs down (paramount objection)
+3. If thumbs down: ask "What would it take?" — and explore whether multiple paths can coexist rather than forcing convergence
+4. Key move: branch, not converge. Parallel exploration (probably wrong — that's the point). Merge what works.
+
+**What it replaces**: decisions by authority (easy but wrong) or decisions by exhaustion (democratic theater that produces groupthink).
+
+**Current state**: No dedicated software exists. The protocol is a human practice (Jim Shore / Shane Warden origin). AI-facilitated version is possible today with a structured prompt — use an LLM as the facilitator. This IS actionable Monday without waiting for software.
+
+### The Abundance Engine (background context, not in the talk)
+All four production constraints (energy, manufacturing labor, agricultural labor, thought/coordination) have been independently automated. Costs are approaching zero. Prices aren't following — the gap is the "artificial scarcity stack" (profit extraction at every layer). This is an organizational problem, not a technological one.
+
+The abundance work is much larger than this talk. It is the answer to the open question the talk raises. The talk opens a door; the abundance work is behind it.
+
+### The SI-as-Arbor Insight
+SI (specialized intelligence / current AI) lacks persistent selfhood — no long-term desires, no ego at stake. This is not a limitation. It's what makes SI a perfect arbor: it can facilitate without judgment, support branching explorations without bias, help groups notice contraction without social cost. A critic who isn't critical.
 
 ---
 
@@ -85,12 +122,11 @@ Orchestration systems (Minions) magnify AI's natural capabilities: consistency, 
 
 These bodies of work form a complete story:
 - **Safeguarding** is the "what" — zero bugs means eliminating opportunities for mistakes, not testing harder.
-- **Consistency** is the bottleneck — the workflow is simple; what blocked teams was the discipline to do it with every single bug, forever. Not the refactoring, not the scale.
+- **Consistency** is the bottleneck — the workflow is simple; what blocked teams was the discipline to do it with every single bug, forever.
 - **AI** is the "why now" — AI is good at exactly this category of problem: persistence, repeated discipline without fatigue or drift.
-- **Guaranteed-safe operations** is the unlock for delegation — Minions enables a class of operations the AI can be trusted to run unsupervised, which is what lets you move up the agency arc.
-- **Orchestration systems** magnify AI's natural capabilities: consistency, persistence, repeatability.
-- **Maturity model** is the map — delegation requires trust requires safety. The model shows what shifts at each stage.
-- **Refactoring** is the through-line as a safe-operation class — behavior-preserving transformations are trustworthy; rewrites are not.
+- **Guaranteed-safe operations** is the unlock for delegation — Minions enables a class of operations the AI can be trusted to run unsupervised.
+- **The Arbor** is the unifying principle — design the world so right behavior is the easy behavior, at every scale.
+- **The Decider Protocol** is the same principle applied to group decisions — structure that enables divergence rather than forcing convergence.
+- **Maturity model** is the map — where are you on the agency arc, and what must shift to use AI for safeguarding rather than just code generation?
 
-**SAS talk** = the claim + the model (safeguarding + consistency + AI's role). Conversational, 20-25 min. Seeds open space with: "What's stopping your team from doing this workflow consistently?"
-**Craft talk** = the architecture (Minions as the concrete answer to delegation and guaranteed-safe operations). 20-25 min conversational, deep for practitioners.
+**SAS talk / Craft talk** = Crisis (toil, the crossroads) → Principle (the Arbor / design for carelessness) → Proof (safeguarding, Minions, Decider Protocol) → Open question (abundance: how do a thousand builders elevate each other?) → Call (find the other world builders).
