@@ -46,9 +46,7 @@ You don't have to maximize delegation. The right level depends on the operation,
 Ugly code is the right context because it's where the real world lives, and where the hazards are visible and sharp. It makes the problem concrete. "Designing for carelessness" is most obviously necessary when the environment is actively dangerous.
 
 **The toil insight (personal scale: getting back 39 hours)**
-The motivating frame — AI should give you back the hour that was always the real work, not create a new kind of toil. In as motivation, but without the societal arc (crossroads, layoffs, etc. — those are future-talk).
-
-@ai: rewrite the above. This is about the idea that 39 of the 40 hours a programmer works each week is toil. There is only about an hour that leverages your unique perspective and experience. So we want to optimize that. We want to leverage that hour and give you the other 39 back.
+Of the 40 hours a programmer works each week, 39 are toil. One hour leverages your unique perspective and experience. That's the hour worth keeping. AI should give you the 39 back — so you can do more with the one. In as motivation, without the societal arc (crossroads, layoffs, etc. — future-talk).
 
 **Minions as existence proof**
 The concrete demonstration of rapidly changing agent worlds. The key thing to show: world changes sub-task to sub-task are cheap and safe when deterministic orchestration handles routing.
