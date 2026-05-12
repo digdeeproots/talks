@@ -143,6 +143,8 @@ After they say they're done:
 
 **On normative completeness:** Direct edits show a direction, not necessarily a complete implementation. When the human edits one instance of a pattern, update all instances — don't wait to be told. When an `@ai:` command implies a structural change (moving something to a different section, adding a concept that should appear elsewhere), apply it fully rather than minimally.
 
+**Deletions are normative edits.** When the human deletes something, treat it as if it was never there — remove it everywhere it appears, not just where it was deleted. Use judgment: sometimes a deletion is a tidy (remove an outdated note); sometimes it means eliminating a concept from this context entirely. When in doubt, apply the deletion more broadly rather than less. Do not add back-compat stubs, references, or summaries of what was removed.
+
 **Use when:** you've made substantial changes, the document needs full-context validation, it's the first draft, or you're not sure what's wrong.
 
 ---
