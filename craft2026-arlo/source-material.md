@@ -58,7 +58,7 @@ Arlo's strongest material. Unique, concrete, contrarian (vs. fully-automated or 
 ### Core Idea
 Safeguarding: use your defect stream to prevent defects, not find them faster. Zero bugs has nothing to do with testing — testing finds bugs after introduction; safeguarding prevents introduction. Every bug is a handcrafted developer mistake. Systems present thousands of opportunities. Developers avoid 99%. Safeguarding eliminates the opportunities themselves.
 
-Mechanism: when a bug occurs, find the hazard (what made the mistake likely?), eliminate it. A 22-minute practice per bug. Over time, the defect stream funds systematic investment in the highest-frequency hazard categories.
+Mechanism: when a bug occurs, find the hazard (what made the mistake likely?), make it a little better. Not eliminate it. Not do the 20% of work with 80% of the value. Just: slightly less likely, slightly smaller impact, or slightly easier to detect next time. Small, frequent investments that amortize. Over time, the defect stream funds systematic improvement of the highest-frequency hazard categories.
 
 ### Refactoring as the Common Thread
 Refactoring is the mechanism that keeps code safe to change. Hazard elimination is almost always a refactoring — it makes the code structurally impossible to misuse in the same way again.
