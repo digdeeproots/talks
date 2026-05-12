@@ -24,8 +24,10 @@ Agents don't need to carry full context. They need exactly what's required for t
 **Rapidly changing the world around agents sub-task to sub-task**
 The agent's world isn't fixed. Good orchestration lets you change it instantly: different tools, different context, different constraints, different model — even mid-identity (memory persists while the world changes). This is what makes agents composable and trustworthy rather than monolithic and fragile.
 
-**Deterministic decisions + non-deterministic creative work**
+**Deterministic workflows + non-deterministic creative work**
 The architectural separation. Routing, sequencing, and workflow decisions belong in deterministic code. Creative work (code generation, analysis, synthesis) belongs to the agent. Mixing them is where systems break. Separating them is the move that enables trust.
+
+@ai: also deterministic actions. Eg, minimize code generation. Use deterministic tools to mold the code into a shape that makes the code gen easy. Then have the AI do easy code gen. Then mroe deterministic tools to expand on that. And use the AI to make the choices about what design would make the feature easy and how to use the deterministic tools to get there.
 
 **What's required at each agency level**
 Concrete prerequisites for advancing. Not just "trust AI more" but what specifically must be true about the environment before delegation is safe at each level.
@@ -41,35 +43,31 @@ Ugly code is the right context because it's where the real world lives, and wher
 ## BOUNDARY — May Be In or Out
 
 **Zero bugs / safeguarding as grounding example**
-Strong historical grounding — safeguarding has been doing "design for carelessness" for developers for decades. Risk: could dominate or feel like a detour. Value: proves the principle isn't new, just applied to a new actor. Probably in as a brief anchor, not a full section.
+Strong historical grounding — safeguarding has been doing "design for carelessness" for developers for a decade. Risk: could dominate or feel like a detour. Value: proves the principle isn't new, just applied to a new actor. Probably in as a brief anchor, not a full section.
+
+@ai: in. And actually, this is a process that itself should be made part of the orchestration system. Be able to detect things you don't like, then have a deterministic workflow, non-deterministic choices, and deterministic tooling to safeguard the ecosystem (tools, workflows, data, context).
 
 **The toil insight (personal scale: getting back an hour)**
 The motivating frame — AI should give you back the hour that was always the real work, not create a new kind of toil. In as motivation, but without the societal arc (crossroads, layoffs, etc. — those are future-talk).
 
+@ai: agreed.
+
 **Minions as existence proof**
 The concrete demonstration of rapidly changing agent worlds. Probably in, but depth depends on time. The key thing to show: world changes sub-task to sub-task are cheap and safe when deterministic orchestration handles routing.
+
+@agreed.
 
 **The agent's world: what can it see / what's invisible**
 What the agent perceives is a design choice. You choose what to surface, what to hide. Deliberate blindness can be a safety mechanism. This might be center — it's the practical expression of "designing for carelessness."
 
+@ai: focus more on what tools it can use. What it can see is an important choice, and the tools it has have an even larger impact. Give it narrow tools that compose to do the exact job it is trying to accomplish, but may have significant gaps for general work. Eg, the planner can't edit files, just use the planning tool (which edits files in particular ways). The refactorer also can't, but it has tools for executing deterministic code transformations.
+
 **"Be more careless responsibly"**
 The mantra from safeguarding: when someone makes a mistake, instead of "be more careful," ask "what could we change so even more careless behavior succeeds?" Probably in — it's the memorable hook for the principle.
+
+@ai: definitely in
 
 **The defect stream as feedback signal**
 Using what breaks to improve the environment. Relevant as one concrete example of how you learn which hazards to eliminate. Boundary — only if there's space.
 
----
-
-## DROPPED — Out (saved in future-talk archive)
-
-- The crossroads / societal transformation
-- 39 of 40 hours framing as a civilization-scale statement
-- Careless abundance
-- Find the world builders / recognition call
-- The Arbor / Making Abundance project
-- Decider protocol / consent-based governance
-- Organizational world design (human/group scale)
-- The Culture novels (even indirect)
-- Sociocracy / steward ownership
-- The abundance engine
-- Fractal principle across human/group/org scales
+@ai: agreed - boundary.
