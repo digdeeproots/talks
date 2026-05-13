@@ -32,9 +32,7 @@ Safeguarding. Arlo has been applying "design for carelessness" to human develope
 
 ## MC Introduction
 
-Arlo Belshee has spent two decades turning legacy code from a liability into a learning opportunity, developing practices like #ZeroBugs, Risk-aware Commit Notation, and Naming as a Process that have been adopted by teams across the industry. His core conviction: when someone makes a mistake, don't ask them to be more careful. Redesign their environment so that carelessness still succeeds. Over the last two years, he's applied that same principle to coding agents, building Minions: an orchestration system that lets AI work freely in brownfield codebases without requiring constant vigilance. Please welcome Arlo Belshee.
-
-@ai: tighten it about 25%. Keep it feeling flowing, not punchy, but remove extraneous phrasing. You might drop any part of the info that isn't serving.
+Arlo Belshee has spent two decades mending legacy code and developing practices like #ZeroBugs, Risk-aware Commit Notation, and Naming as a Process, adopted by teams across the industry. His core conviction: when someone makes a mistake, don't ask them to be more careful. Redesign their environment so carelessness still succeeds. He's applied that same principle to coding agents, building Minions: an orchestration system for AI in brownfield codebases. Please welcome Arlo Belshee.
 
 ## Backup Q&A Questions
 
