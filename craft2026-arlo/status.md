@@ -22,8 +22,9 @@ Both: 20-25 min + Q&A/conversation. Engineer audience. Conversational format —
 - [x] Abstract: finish to internal quality
 - [x] Key moments / stories (3-5 concrete demos or stories)
 - [x] Content flow: narrative arc and section skeleton
-- [ ] Slide structure
-- [ ] Delivery drafts
+- [ ] Content. Actual text. Real branches and what is said for each.
+- [ ] Supporting examples (real or made up) and demos.
+- [ ] Supporting Visuals
 
 ## Current Phase
 
