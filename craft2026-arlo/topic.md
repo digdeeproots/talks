@@ -106,6 +106,36 @@ You never have to be vigilant about whether the structure is right, whether the 
 
 ## Content Flow (skeleton)
 
-Narrative arc: what happens in what order?
+**Format:** Short setup, then extended explore — audience-guided at Craft (they can steer depth after the model is laid out), more directed at SAS (remote audience, may not be able to speak). Demos and recipes woven throughout.
 
-??
+**Exit state:** They leave asking "where can I design for carelessness?" — in their AI systems, and in the human systems they live inside. They have language for it: *careless design*, *designed carelessly*. They know it's a rigorous practice, not a shortcut.
+
+---
+
+### Emotion Arc
+
+| Phase | Feeling | What's happening |
+|-------|---------|-----------------|
+| Opening | Recognition, mild pain | "You swapped work-toil for vigilance-toil." They feel seen. This is them. |
+| Reframe | Surprise, maybe amusement | The name lands: *Careless Design*. That's rigorous? That's the point. |
+| Exploration | Curiosity, building confidence | Walk the agency model. Demos. Recipes. Audience steers the depth. |
+| Click | Expansion | This isn't just for AI. Safeguarding has done this for human developers for a decade. And: I can apply this to myself — design my own environment so I can be more careless. |
+| Exit | Agency, vocabulary | New question in hand: where can I make this more careless? |
+
+The click has two layers. First: the AI principle and the human-developer principle are the same thing — not an analogy, the same. Second: it points inward — they can apply careless design to the systems they themselves are in, not just the systems they build.
+
+---
+
+### Section Skeleton
+
+1. **The vigilance trap** — open with recognition: you relocated toil, not eliminated it. Name the problem sharply. Keep this short.
+
+2. **The principle** — careless design. Don't ask for more care; design the world so carelessness succeeds. Give it the rigor framing: this is harder and more precise than asking people to try harder.
+
+3. **The model** — agency levels, from human-does-everything to AI-holds-operational-agency. For each level: what makes it safe? What environmental transformations are required? This is the framework they'll use.
+
+4. **Demos + recipes** — concrete: migration story, git off-limits, coaching pipeline, AST-only refactoring. Recipes the audience can take home. This is the bulk of the talk. Audience steers which threads get depth.
+
+5. **The generalization** — safeguarding for human developers → safeguarding for AI agents. Same principle, decade of practice behind it. Then: you can apply this to the systems you live inside too.
+
+6. **Exit / open space** — surface the question. Where can you design for carelessness? In your AI. In your team's systems. In how you work. Leave room for the audience to explore this together.
