@@ -32,7 +32,9 @@ Safeguarding. Arlo has been applying "design for carelessness" to human develope
 
 ## MC Introduction
 
-Arlo Belshee has spent two decades turning legacy code from a liability into a learning opportunity, developing practices like #ZeroBugs, Safeguarding, and Naming as a Process that have been adopted by teams at Microsoft, Tableau, and across the industry. His core conviction: when someone makes a mistake, don't ask them to be more careful — redesign their environment so that carelessness still succeeds. Over the last two years, he's applied that same principle to coding agents, building Minions: an orchestration system that lets AI work freely in brownfield codebases without requiring constant vigilance. Please welcome Arlo Belshee.
+Arlo Belshee has spent two decades turning legacy code from a liability into a learning opportunity, developing practices like #ZeroBugs, Risk-aware Commit Notation, and Naming as a Process that have been adopted by teams across the industry. His core conviction: when someone makes a mistake, don't ask them to be more careful. Redesign their environment so that carelessness still succeeds. Over the last two years, he's applied that same principle to coding agents, building Minions: an orchestration system that lets AI work freely in brownfield codebases without requiring constant vigilance. Please welcome Arlo Belshee.
+
+@ai: tighten it about 25%. Keep it feeling flowing, not punchy, but remove extraneous phrasing. You might drop any part of the info that isn't serving.
 
 ## Backup Q&A Questions
 
@@ -152,3 +154,14 @@ The click has two layers. First: the AI principle and the human-developer princi
 5. **The generalization** — safeguarding for human developers → safeguarding for AI agents. Same principle, decade of practice behind it. Then: you can apply this to the systems you live inside too.
 
 6. **Exit / open space** — surface the question. Where can you design for carelessness? In your AI. In your team's systems. In how you work. Leave room for the audience to explore this together.
+
+---
+
+### Talk structure rules
+
+We will follow these rules at all times when creating this talk.
+
+- Follow the Green Path: hook, then story, then recipe, then concept. Never lead with concept.
+- Model exploration is great, and it still follows the flow. Just that one aspect of the model becomes the hook.
+- Integrate steps and loop. Instead of a big block introducing the model and then a big block of demos, we do little passes, each of which shows some part of the model and a demonstration - in green path order. In fact, the model may be second much of the time.
+- Introduce just enough of the model up front that the audience can orient and navigate.
