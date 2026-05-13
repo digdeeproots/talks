@@ -30,6 +30,19 @@ The single non-obvious thing: you don't make AI delegation work by making the AI
 
 Safeguarding. Arlo has been applying "design for carelessness" to human developers for decades — using defect streams to redesign environments rather than asking people to try harder. Now the same principle applies to AI agents. He's also built Minions: an orchestration system that demonstrates rapidly-changing agent worlds in brownfield code. He's not describing a theory. He's showing a practice.
 
+## MC Introduction
+
+Arlo Belshee has spent two decades turning legacy code from a liability into a learning opportunity, developing practices like #ZeroBugs, Safeguarding, and Naming as a Process that have been adopted by teams at Microsoft, Tableau, and across the industry. His core conviction: when someone makes a mistake, don't ask them to be more careful — redesign their environment so that carelessness still succeeds. Over the last two years, he's applied that same principle to coding agents, building Minions: an orchestration system that lets AI work freely in brownfield codebases without requiring constant vigilance. Please welcome Arlo Belshee.
+
+## Backup Q&A Questions
+
+Questions to seed conversation if Q&A goes short.
+
+1. What's the most surprising place you've applied careless design — something that wasn't obviously in need of it?
+2. When you first started building Minions, what did you get wrong about where to trust the AI versus the deterministic code?
+3. For someone just starting to delegate to AI, what's the one environmental change that gives the most safety per unit of effort?
+4. You said low risk isn't enough — you need zero risk within a class of operations. What does it feel like when you've actually achieved that?
+
 ## Abstract (draft)
 
 You swapped work-toil for vigilance-toil. Watching AI closely enough that nothing goes wrong is still toil. More stressful, less interesting toil.
