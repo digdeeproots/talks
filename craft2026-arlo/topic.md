@@ -46,7 +46,63 @@ This session maps the agency delegation model, from human-does-everything to AI-
 
 3-5 concrete moments, stories, or demos that will make this talk memorable.
 
-??
+### 1. The Migration That Lost Data
+
+Working on an app where Minions were creating database migrations. Yoloing them at first — it went fine for a while. Then it made a small mistake that wasn't obvious, and there was data loss.
+
+The tempting response: add more guardrails. Tell it to always save data, never lose data, blah blah. It's still going to mess up.
+
+Instead: made it more careless. Three changes.
+
+First, an archive table. Even if it screws up the migration, the pre-migration state of every data item is preserved. Always restorable.
+
+Second, after it figures out the migration, another step creates a bidirectional remapping — every value from source to destination and back. It verifies that every mapping goes somewhere. Since you still want to be able to delete things, there's a designated legacy-data slot in the schema for "not currently used." The remapping routes unused data there. Nothing is lost.
+
+Third, extracted all the migration machinery — how migrations execute, how backups happen — into a library. Debugged that library. Now the deterministic code handles execution; the AI only creates the migration itself. Narrowed the problem space enough that it does a lot better.
+
+Result: it can be careless, and it will still be OK.
+
+---
+
+### 2. Git Is Off-Limits
+
+Minions never touch git. Too many ways to screw up. Instead, there's an MCP tool with movement-based branching. The AI can start a movement, make commits along a movement, and merge a movement — but it doesn't know what those operations do internally. All the right git behaviors (merging, rebasing, branch lifecycle) are implemented in the tool.
+
+For merge conflicts: the minion that did the work gets its history cloned, handed a limited git toolset, and given just enough access to resolve the conflict on that one branch. Once resolved, it's booted out and the deterministic tool takes back over.
+
+Pre-commit hooks are integrated with the watch mode that's already running. The AI can run tests, lint, and whatever else — and get cached results fast. But when a commit happens, the deterministic tool pauses and enforces all the pre-commit requirements. The AI can't work around them.
+
+---
+
+### 3. Commit Discipline via Workflow + Revert
+
+Workflow files define a very specific thing to accomplish. When the AI finishes, the workflow assesses the result. If it did too much, it reverts and tries again — with guidance that it did too much last time and needs to stop earlier.
+
+When done, either a deterministic merge fires off (AI just summarizes what it did for the message), or the AI fires it off directly. Either way, explicit control over logical steps, with the AI making commits on each logical sub-step.
+
+---
+
+### 4. Refactoring via Safe AST Tools Only
+
+No edit-file tool for the minions. Only AST-based transformation tools — provably safe refactorings, however they're implemented internally. The AI makes design choices; deterministic code executes them. This matters especially in brownfield code where free-form edits are risky.
+
+Caveat: this depends on language and available tooling. When safe tools exist, expose them. When they don't, that's a gap worth naming.
+
+---
+
+### 5. The Coaching Workflow / do-today
+
+A daily workflow for coaching work: pull transcripts from Fireflies, do lesson planning, write the daily status email, extract techniques, build recipes, track against the week's goals.
+
+It started as just workflow files — tell Claude to read the file and follow it. That's the first step and it's enough to get going.
+
+But Claude can't clear its own context or exit itself. So Claude created a script — `do-today` — that runs one step of the day's work, does some deterministic processing, launches Claude, catches the result, and quits. Run it again for the next thing. Keep going until done. This extracted the workflow sequencing into deterministic code.
+
+Over time, more moved out of Claude's hands. Transcript fetching started via the Fireflies MCP server; now there's a fully debugged deterministic fetcher that gets the right transcript for the right day and team. On failure, it invokes Claude to help resolve — but only on failure. It knows when it screwed up, so you don't have to be vigilant.
+
+The status email is the clearest example of progressive structure. Templates define sections. Workflow files identify what goes where. Input files started as loose markdown, became structured JSON as the format solidified. The structured data maps cleanly to the templates. Claude writes a few sentences of analysis; deterministic code assembles everything else. A script generates the HTML preview in the browser. You check the wording, approve, and the script deterministically grabs the recipient list, creates the email file, and opens it. You hit send.
+
+You never have to be vigilant about whether the structure is right, whether the plan section is there, whether it will render in email clients. Those are solved. You only pay attention to the words.
 
 ## Content Flow (skeleton)
 
