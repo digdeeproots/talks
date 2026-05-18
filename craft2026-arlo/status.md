@@ -25,7 +25,3 @@ Both: 20-25 min + Q&A/conversation. Engineer audience. Conversational format —
 - [ ] Content. Actual text. Real branches and what is said for each.
 - [ ] Supporting examples (real or made up) and demos.
 - [ ] Supporting Visuals
-
-## Current Phase
-
-Content flow complete. Next: slide structure.
