@@ -14,7 +14,7 @@ Better brakes removed the need for that care. You could be careless about your s
 
 That's what brakes actually do: they don't just let you stop. They let you stop caring about stopping.
 
-AI is an engine improvement. Assurance is the brakes. Better assurance means you can be careless about a class of mistakes and still succeed — because the environment catches them. The vigilance toil you're carrying is what happens when your brakes haven't kept up with your engine.
+AI is an engine improvement. Safety is the brakes. Better safety means you can be careless about a class of mistakes and still succeed — because the environment catches them. The vigilance toil you're carrying is what happens when your brakes haven't kept up with your engine.
 
 ## Work-Toil vs. Vigilance-Toil
 
@@ -37,22 +37,22 @@ AI increases throughput. It does not reduce the existing body. So AI in brownfie
 
 The model has two axes:
 - **Agency**: who performs the work (human → AI, A0–A5)
-- **Assurance**: how easily the environment prevents unintended side effects (0–5)
+- **Careless safety**: how easily the environment prevents unintended side effects (0–5)
 
-Transferring agency without transferring assurance is the vigilance trap. The gap between the two is what costs you.
+Transferring agency without transferring safety is the vigilance trap. The gap between the two is what costs you.
 
-The safe path is a narrow diagonal through the 2D grid. Falling off it — more agency than your assurance can cover — produces vigilance toil you cannot actually sustain.
+The safe path is a narrow diagonal through the 2D grid. Falling off it — more agency than your careless safety can cover — produces vigilance toil you cannot actually sustain.
 
-## The Assurance Spectrum (0–5)
+## The Careless Safety Spectrum (0–5)
 
-- **5 — Guided correctness**: the right action is the easy action. The wrong action is hard to attempt. (Refactoring tools, compiler-backed find-all-references.)
+- **5 — Carefree & guided**: the right action is the easy action. The wrong action is hard to attempt. (Refactoring tools, compiler-backed find-all-references.)
 - **4 — Prevention**: mistakes cannot propagate past the originator. (Type systems, AST tooling enforced by workflow.)
-- **3 — Deterministic detection**: catches known classes reliably. Predictable gaps — entirely misses some categories. (Tests, linters, compilers.)
-- **2 — Non-deterministic guardian**: probabilistic detection. Unpredictable gaps. Useful for discovering new categories, then hardening to 3/4. (LLM judges, AI drift detection.)
-- **1 — Human review**: full vigilance burden. Decays with scale and attention.
-- **0 — None**.
+- **3 — Deterministic checks**: catches known classes reliably. Predictable gaps — entirely misses some categories. (Tests, linters, compilers.)
+- **2 — Probability**: probabilistic detection. Unpredictable gaps. Useful for discovering new categories, then hardening to 3/4. (LLM judges, AI drift detection.)
+- **1 — Vigilance**: full vigilance burden. Decays with scale and attention.
+- **0 — Hope**.
 
-Levels 4–5 reach zero vigilance within their scope. Levels 0–3 do not.
+Levels 4–5 reach zero vigilance within their scope. Levels 0–3 cannot.
 
 Zero risk within a bounded scope is categorically different from low risk. Low risk still requires vigilance — some fraction of the time, something goes wrong and you need to catch it. Zero risk within a scope does not.
 

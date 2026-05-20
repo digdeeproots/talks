@@ -21,11 +21,11 @@ And this isn't even an AI problem. Teams in brownfield codebases have been in th
 
 ## The Shift We're Offering
 
-A two-dimensional model for delegation — tracking both who does the work (agency) and how safely the environment prevents mistakes (assurance). With that model in hand: a design principle and a set of concrete investments for reducing vigilance toil, starting in the non-AI case and scaling to AI.
+A framework for understanding and reducing vigilance toil: what it is, where it comes from, how to measure it, and how to invest in the safety that eliminates it. Concrete recipes for creating zero-risk zones, starting in non-AI brownfield and scaling to AI. Agency opportunities open as vigilance is addressed.
 
 ## Core Insight
 
-You can only go as fast as your brakes allow. AI is an engine improvement. Assurance is the brakes. Teams obsess over the engine while neglecting the brakes. The bottleneck is never where they're looking.
+You can only go as fast as your brakes allow. AI is an engine improvement. Safety is the brakes. Teams obsess over the engine while neglecting the brakes. The bottleneck is never where they're looking.
 
 See `core-insight.md` for the full development.
 
@@ -43,11 +43,11 @@ Arlo Belshee has spent two decades mending legacy code and developing practices 
 
 You swapped work-toil for vigilance-toil. Watching AI closely enough that nothing goes wrong is still toil. More stressful, less interesting toil.
 
-Speed limits didn't go up when car engines got better. They went up when brakes got better — because good brakes mean you don't have to be careful about your speed. Early drivers were slow not because their engines were weak, but because they had to be. Better brakes made careless driving safe.
+Speed limits didn't go up when car engines got better. They went up when brakes got better, because good brakes mean you don't have to be careful about your speed. Early drivers were slow not because their engines were weak, but because they had to be. Better brakes made careless driving safe.
 
-AI is the engine. Assurance — the environment that catches mistakes so you don't have to — is the brakes. The vigilance toil you're carrying is what happens when your brakes haven't kept up.
+AI is the engine. The Safety Environment is the brakes. It prevents mistakes before you even make them. The vigilance toil you're carrying is what happens when your brakes haven't kept up.
 
-This session maps the two dimensions of delegation: who does the work (agency), and how easily the environment prevents unintended side effects (assurance). We work through what makes each level safe, starting in human brownfield teams and scaling to AI. Demos and recipes throughout.
+This session maps the two dimensions of delegation: who does the work (agency), and how easily the environment prevents unintended side effects (safety). We work through what makes each level safe, starting in human brownfield teams and scaling to AI. Demos and recipes throughout.
 
 #ZeroBugs has applied this to human developers for a decade. When someone makes a mistake, don't ask them to be more careful. Redesign the environment so that even more careless behavior still succeeds. Now it applies to agents.
 
@@ -57,11 +57,18 @@ This session maps the two dimensions of delegation: who does the work (agency), 
 
 Speed limits in the early motorcar era didn't track engine improvement. They tracked braking improvement.
 
-Early drivers weren't slow because their engines were weak. They were slow because they had to be careful. Every curve, every junction — constant attention to stopping distance, to what could go wrong. Driving required vigilance.
+Early drivers weren't slow because their engines were weak. They were slow because they had to be careful. Every curve, every junction required constant attention to stopping distance, to what could go wrong. Driving required vigilance.
 
 Better brakes didn't just let you stop faster. They let you stop being so careful. You could be careless about your speed and still be fine. Speed limits rose because brakes made careless driving safe.
 
+Well, that's an oversimplification. It wasn't just brakes. They went up with better brakes that could stop faster, then with better tires that could prevent skidding even in water, then with ABS.
+
+When engines got more powerful, people didn't get to work more quickly. Fatalities might have increased, who knows. But braking systems got people to work more quickly and with less exhaustion. They reduced vigilance.
+
 Setup for everything that follows: AI is an engine improvement. The vigilance toil you're carrying is what happens when your brakes haven't kept up.
+
+
+(slide: motorcar picture)
 
 ---
 
@@ -72,6 +79,8 @@ A brownfield team — no AI — spending most of their capacity on "keeping the 
 The vigilance toil formula: toil ∝ throughput × existing body of work. Greenfield: body ≈ 0, so toil ≈ 0. Brownfield: body is large, so every unit of new work generates vigilance toil proportional to everything that already exists.
 
 This is the recognition moment. The audience who's been in maintenance mode knows this feeling. They didn't know it had a name, a formula, or a solution.
+
+(slide: toil formula)
 
 ---
 
@@ -85,7 +94,7 @@ Instead: made it more careless. Three changes.
 
 First, an archive table. Even if it screws up the migration, the pre-migration state of every data item is preserved. Always restorable.
 
-Second, after it figures out the migration, another step creates a bidirectional remapping — every value from source to destination and back. It verifies that every mapping goes somewhere. Since you still want to be able to delete things, there's a designated legacy-data slot in the schema for "not currently used." The remapping routes unused data there. Nothing is lost.
+Second, after it figures out the migration, another step creates a bidirectional remapping — every value from source to destination and back. It verifies that every mapping goes somewhere. Since you still want to be able to delete things, there's a designated legacy-data slot in the schema for "not currently used." The remapping routes unused data there. Nothing is lost. Deterministic code can check that the mapping is allowed (meets my criteria); a test can turn the mapping into a verification of the code and run the migration to make sure that it does as the mapping says.
 
 Third, extracted all the migration machinery into a library. Debugged that library. Now the deterministic code handles execution; the AI only creates the migration itself. Narrowed the problem space enough that it does a lot better.
 
@@ -95,7 +104,7 @@ Recipe: **archive first, then deterministic execution, then narrow the AI's scop
 
 ---
 
-### 4. Git Is Off-Limits (tooling restriction = assurance level 4)
+### 4. Git Is Off-Limits (tooling restriction = safety level 4)
 
 Minions never touch git. Too many ways to screw up. Instead, there's an MCP tool with movement-based branching. The AI can start a movement, make commits, and merge — but it doesn't know what those operations do internally. All the right git behaviors are implemented in the tool.
 
@@ -103,7 +112,7 @@ For merge conflicts: the minion that did the work gets its history cloned, hande
 
 Pre-commit hooks are integrated with the watch mode already running. The AI can run tests and lint — and get cached results fast. But when a commit happens, the deterministic tool pauses and enforces all pre-commit requirements. The AI can't work around them.
 
-This is level 4 assurance: the AI cannot produce a git state that violates the invariants, because the tool makes it structurally impossible.
+This is level 4 safety: the AI cannot produce a git state that violates the invariants, because the tool makes it structurally impossible.
 
 ---
 
@@ -111,7 +120,7 @@ This is level 4 assurance: the AI cannot produce a git state that violates the i
 
 No edit-file tool for the minions. Only AST-based transformation tools — provably safe refactorings. The AI makes design choices; deterministic code executes them.
 
-The assurance split here: the tool guarantees execution correctness (behavioral safety, reversibility) within its scope, but says nothing about design correctness (whether this was the right move). Two named domains.
+The safety split here: the tool guarantees execution correctness (behavioral safety, reversibility) within its scope, but says nothing about design correctness (whether this was the right move). Two named domains.
 
 You can be wrong about the design. That's cheap to fix — the tool makes it equally easy to undo. You cannot accidentally introduce a behavior change, ever. That's free.
 
@@ -119,11 +128,11 @@ This is level 5: the right action (behaviorally safe refactoring) is the only av
 
 ---
 
-### 6. The Coaching Workflow / do-today (progressive assurance)
+### 6. The Coaching Workflow / do-today (progressive safety)
 
 A daily workflow for coaching work: pull transcripts from Fireflies, do lesson planning, write the daily status email, extract techniques, build recipes, track against the week's goals.
 
-Started as just workflow files — tell Claude to read the file and follow it. That's level 1: full vigilance burden. You watch every output.
+Started as just workflow files — tell Claude to read the file and follow it. That's safety level 1: full vigilance burden. You watch every output.
 
 Over time, more moved to deterministic code. Transcript fetching: now a fully debugged deterministic fetcher that gets the right transcript for the right day and team. On failure, it invokes Claude to help resolve — but only on failure. It knows when it screwed up, so you don't have to be vigilant.
 
@@ -139,7 +148,7 @@ Recipe: **make one thing zero-risk at a time. Each piece you solve permanently f
 
 **Format:** Short setup, then model exploration — audience-guided at Craft, more directed at SAS. Demos and recipes woven throughout. 20-25 min.
 
-**Exit state:** They leave with a two-word question: "What are my brakes?" In their AI systems, their human team systems, the systems they personally live inside. They have language for it: *vigilance toil*, *assurance level*, *careless engineering*. They know it's a rigorous practice, not a shortcut.
+**Exit state:** They leave with a four-word question: "What are my brakes?" In their AI systems, their human team systems, the systems they personally live inside. They have language for it: *vigilance toil*, *safety level*, *careless engineering*. They know it's a rigorous practice, not a shortcut.
 
 ---
 
@@ -181,11 +190,11 @@ Don't answer yet. Let it sit.
 
 Name it: vigilance toil. The cost of watching closely enough that nothing goes wrong. Different from work-toil. More stressful, less interesting.
 
-**Story: the maintenance trap (non-AI).** Brownfield team. 100% "keeping the lights on." Every new feature generates three maintenance items. Not because they're bad engineers — because the existing body is large and assurance is weak.
+**Story: the maintenance trap (non-AI).** Brownfield team. 100% "keeping the lights on." Every new feature generates three maintenance items. Not because they're bad engineers — because the existing body is large and safety is weak.
 
-The formula: **toil ∝ throughput × existing body**. Greenfield survives weak assurance. Brownfield cannot.
+The formula: **toil ∝ throughput × existing body**. Greenfield survives weak safety. Brownfield cannot.
 
-**Story: AI makes it multiplicative.** Add AI to that brownfield team. Throughput 4x. Vigilance toil 4x. If assurance was already marginal, it breaks immediately. AI didn't create the problem — it showed you the problem you already had.
+**Story: AI makes it multiplicative.** Add AI to that brownfield team. Throughput 4x. Vigilance toil 4x. If safety was already marginal, it breaks immediately. AI didn't create the problem — it showed you the problem you already had.
 
 ---
 
@@ -195,9 +204,9 @@ The formula: **toil ∝ throughput × existing body**. Greenfield survives weak 
 
 One dimension you've probably heard of: **agency**. Who does the work. Human → AI, stages A0–A5.
 
-The dimension you probably haven't named: **assurance**. How easily the environment prevents unintended side effects. Level 0–5.
+The dimension you probably haven't named: **careless safety**. How easily the environment prevents unintended side effects. Level 0–5.
 
-Introduce the 2D grid. Show the safe path — a narrow diagonal. Falling off: more agency than your assurance can cover. The result is vigilance toil you cannot sustain.
+Introduce the 2D grid. Show the safe path — a narrow diagonal. Falling off: more agency than your careless safety can cover. The result is vigilance toil you cannot sustain.
 
 Key point: most teams think they're choosing how much to delegate. They're actually choosing how much vigilance toil to generate.
 
@@ -207,7 +216,7 @@ Key point: most teams think they're choosing how much to delegate. They're actua
 
 *The model applied in the non-AI case. Stories and recipes.*
 
-Walk through what vigilance looks like in a manual brownfield codebase. Types of vigilance: capability regression, extensibility reduction, consistency violation, design drift. Each one has a body of work at risk, a cost, and assurance options.
+Walk through what vigilance looks like in a manual brownfield codebase. Types of vigilance: capability regression, extensibility reduction, consistency violation, design drift. Each one has a body of work at risk, a cost, and safety options.
 
 The zero-risk point: low risk requires constant vigilance (some fraction of the time, something goes wrong). Zero risk within a bounded scope does not. The engineering move: bound the scope, then guarantee it.
 
@@ -215,7 +224,7 @@ The zero-risk point: low risk requires constant vigilance (some fraction of the 
 
 **Story: type systems as prevention.** The type checker runs before anyone else sees your output. If it catches a class of mistakes at that point, those mistakes cannot propagate. That's level 4 — not because of when it runs, but because it blocks propagation.
 
-**Recipe: identify one error class, find its assurance level, move up one notch.** Don't try to solve everything. One zero-risk zone at a time. Each zone permanently frees vigilance budget.
+**Recipe: identify one error class, find its safety level, move up one notch.** Don't try to solve everything. One zero-risk zone at a time. Each zone permanently frees vigilance budget.
 
 ---
 
@@ -225,13 +234,13 @@ The zero-risk point: low risk requires constant vigilance (some fraction of the 
 
 Whether you 4x your team or introduce AI: throughput increases. The existing body of work doesn't change. Vigilance toil scales with the product.
 
-If your assurance was at level 1 (human review), 4x throughput means 4x the review burden. Human executive function can't sustain that. Something breaks.
+If your safety was at level 1 (vigilance), 4x throughput means 4x the review burden. Human executive function can't sustain that. Something breaks.
 
 **The "no human to blame" dynamic.** At low agency, failures get attributed to individual human error. That fiction is available — you tell yourself Bob will improve. As AI agency increases, the fiction disappears. External stakeholders raise expectations because the human excuse is gone. The same failure rate that was tolerated becomes unacceptable.
 
-Expectation rises. Assurance stayed still. Gap widens. Vigilance toil explodes.
+Expectation rises. Safety stayed still. Gap widens. Vigilance toil explodes.
 
-**What to change before adding AI:** identify the error classes with high body-at-risk and move their assurance to level 3+ first. Then let AI loose. You've already built brakes. Now the engine has somewhere to go.
+**What to change before adding AI:** identify the error classes with high body-at-risk and move their safety to level 3+ first. Then let AI loose. You've already built brakes. Now the engine has somewhere to go.
 
 ---
 
@@ -243,13 +252,13 @@ The design principle: when someone makes a mistake, don't ask them to be more ca
 
 **Story: migration that lost data.** (Full story — archive table, bidirectional remapping, extracted library.) Three investments, each creating a zero-risk zone. Together: the AI can be careless about data migration and it will still be OK.
 
-**Story: git off-limits.** Tooling restriction as level 4 assurance. The AI cannot violate git invariants because the tool makes it structurally impossible.
+**Story: git off-limits.** Tooling restriction as level 4 safety. The AI cannot violate git invariants because the tool makes it structurally impossible.
 
-**Recipe: narrow the AI's scope to what you can guarantee.** Work delegation and assurance delegation move together. For any new work you're delegating: what assurance mechanism covers it? If you don't have one, build it before you delegate.
+**Recipe: narrow the AI's scope to what you can guarantee.** Work delegation and safety delegation move together. For any new work you're delegating: what safety mechanism covers it? If you don't have one, build it before you delegate.
 
 **The agent's universe as the design surface.** Memory, context, perspective, goals, tooling, invocation timing, result handling. Each element is a design choice. Each can create or eliminate zero-risk zones.
 
-**Coaching workflow.** (Brief version — transcript fetcher, email template, the progressive migration from level 1 to level 3+ one piece at a time.)
+**Coaching workflow.** (Brief version — transcript fetcher, email template, the progressive migration from safety level 1 to level 3+ one piece at a time.)
 
 ---
 
@@ -285,7 +294,7 @@ These rules apply at all times when creating this talk.
 ## Backup Q&A Questions
 
 1. For someone in full "keep the lights on" mode, no AI, where do they start? What's the smallest brake investment that frees the most vigilance budget?
-2. When you first started building Minions, what did you get wrong about assurance? What vigilance toil did you create for yourself?
+2. When you first started building Minions, what did you get wrong about safety? What vigilance toil did you create for yourself?
 3. You said zero risk within a bounded scope is categorically different from low risk. What does it feel like when you've actually achieved that, vs. when you just have low risk?
 4. What's the most surprising place you've applied careless engineering — somewhere it wasn't obvious at first?
-5. How do you know which assurance level you're actually at? How do you diagnose where you are?
+5. How do you know which safety level you're actually at? How do you diagnose where you are?
