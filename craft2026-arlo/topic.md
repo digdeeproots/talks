@@ -39,23 +39,29 @@ The motorcar metaphor unifies Safeguarding (brakes for human developers) and Min
 
 Arlo Belshee has spent two decades mending legacy code and developing practices like #ZeroBugs, Risk-aware Commit Notation, and Naming as a Process. But each of these has a flaw: they require consistency. Now he has a core conviction: when someone is inconsistent, don't ask them to be more careful. Redesign their environment so carelessness still succeeds. He's applied that same principle to coding agents, building Minions: an orchestration system for AI in brownfield codebases. Please welcome Arlo Belshee.
 
-## Abstract (draft — needs revision for motorcar spine)
+## Abstract (draft)
 
 You swapped work-toil for vigilance-toil. Watching AI closely enough that nothing goes wrong is still toil. More stressful, less interesting toil.
 
-Speed limits didn't go up when car engines got better. They went up when brakes got better. AI is the engine. Assurance — the environment that prevents mistakes — is the brakes. You can only go as fast as your brakes allow.
+Speed limits didn't go up when car engines got better. They went up when brakes got better — because good brakes mean you don't have to be careful about your speed. Early drivers were slow not because their engines were weak, but because they had to be. Better brakes made careless driving safe.
 
-This session maps the two dimensions of delegation: who does the work (agency), and how safely the environment prevents side effects (assurance). We work through what makes each level safe, starting in human brownfield teams and scaling to AI. Demos and recipes throughout.
+AI is the engine. Assurance — the environment that catches mistakes so you don't have to — is the brakes. The vigilance toil you're carrying is what happens when your brakes haven't kept up.
 
-#ZeroBugs has applied this to human developers for a decade. When someone makes a mistake, don't ask them to be more careful. Improve the environment so that even more careless behavior still succeeds. Now it applies to agents.
+This session maps the two dimensions of delegation: who does the work (agency), and how easily the environment prevents unintended side effects (assurance). We work through what makes each level safe, starting in human brownfield teams and scaling to AI. Demos and recipes throughout.
+
+#ZeroBugs has applied this to human developers for a decade. When someone makes a mistake, don't ask them to be more careful. Redesign the environment so that even more careless behavior still succeeds. Now it applies to agents.
 
 ## Key Moments / Stories
 
 ### 1. The Motorcar (open)
 
-Speed limits in the early motorcar era didn't track engine improvement. They tracked braking improvement — the point at which you could reliably stop. The engine is irrelevant if you can't stop. The limit was always the brakes.
+Speed limits in the early motorcar era didn't track engine improvement. They tracked braking improvement.
 
-Setup for everything that follows: AI is an engine improvement. What are your brakes?
+Early drivers weren't slow because their engines were weak. They were slow because they had to be careful. Every curve, every junction — constant attention to stopping distance, to what could go wrong. Driving required vigilance.
+
+Better brakes didn't just let you stop faster. They let you stop being so careful. You could be careless about your speed and still be fine. Speed limits rose because brakes made careless driving safe.
+
+Setup for everything that follows: AI is an engine improvement. The vigilance toil you're carrying is what happens when your brakes haven't kept up.
 
 ---
 
@@ -252,13 +258,15 @@ The design principle: when someone makes a mistake, don't ask them to be more ca
 *The payoff. The exit question.*
 
 Work toil: engine improvements. Throughput, speed, capability.
-Vigilance toil: braking systems. Safety, sustainability, assurance.
+Vigilance toil: the carefulness required when your brakes aren't good enough.
 
-You obsess over the engine. But you can only go as fast as your brakes allow.
+You keep improving the engine. The vigilance toil stays. Because the vigilance toil was never about the engine — it was about the brakes.
+
+Better brakes don't just let you go faster. They let you stop being so careful. Each zero-risk zone you build is a class of mistakes you no longer have to watch for. That's the dividend.
 
 **The exit question:** "What are your brakes right now?"
 
-Not a rhetorical question. Invite them to name one: what is the highest-cost vigilance toil in their current work? What error class? What body at risk? What assurance level do they have?
+Not rhetorical. Invite them to name one: what is the highest-cost vigilance toil in their current work? What error class? What are they being careful about, every single day, that an environment investment could make unnecessary?
 
 That's where to invest. Not in a better model. In better brakes.
 

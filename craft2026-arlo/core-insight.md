@@ -6,9 +6,15 @@ quality: raw
 
 ## The Motorcar Frame
 
-Speed limits didn't go up when car engines got better. They went up when brakes got better. Capability without safety isn't speed — it's danger. You can only go as fast as you can stop.
+Speed limits didn't go up when car engines got better. They went up when brakes got better.
 
-AI is an engine improvement. Vigilance toil is what happens when your brakes don't keep up.
+Early drivers weren't slow because their engines were weak. They were slow because they had to be careful. Every curve demanded attention. You left enormous stopping distances because you couldn't trust the brakes to catch you. Driving required constant vigilance.
+
+Better brakes removed the need for that care. You could be careless about your speed and still be fine. The brakes would catch you. Speed limits rose not because engines improved, but because brakes made careless driving safe.
+
+That's what brakes actually do: they don't just let you stop. They let you stop caring about stopping.
+
+AI is an engine improvement. Assurance is the brakes. Better assurance means you can be careless about a class of mistakes and still succeed — because the environment catches them. The vigilance toil you're carrying is what happens when your brakes haven't kept up with your engine.
 
 ## Work-Toil vs. Vigilance-Toil
 
@@ -61,8 +67,10 @@ This is also the condition for delegation. The delegatee must be able to be care
 ## The Back Half of the Motorcar
 
 Work toil: engine improvements. Throughput, speed, capability.
-Vigilance toil: braking systems. Safety, sustainability, assurance.
+Vigilance toil: the carefulness required when your brakes aren't good enough.
 
-You can only go as fast as your brakes allow. Teams obsess over the engine (better AI, better prompts, more models) while neglecting the brakes (assurance investments, environment design). The bottleneck is never where they're looking.
+Teams obsess over the engine — better AI, better prompts, more models — while neglecting the brakes. They keep adding capability while continuing to be careful. The vigilance toil stays high. The bottleneck is never where they're looking.
 
-The exit: invest in brakes first. Then let the engine loose.
+The exit: invest in brakes. Not so you can go faster — so you can stop being so careful. Each zero-risk zone you create is a class of mistakes you no longer have to watch for. The vigilance budget you free up is the real dividend.
+
+Better brakes don't just let you stop. They let you stop caring about stopping.
