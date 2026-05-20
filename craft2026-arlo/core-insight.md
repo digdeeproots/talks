@@ -35,6 +35,8 @@ AI increases throughput. It does not reduce the existing body. So AI in brownfie
 
 ## The Two Dimensions
 
+@ai: this needs to be updated to match current thinking (the future design we are building the model towards for v2).
+
 The model has two axes:
 - **Agency**: who performs the work (human → AI, A0–A5)
 - **Careless safety**: how easily the environment prevents unintended side effects (0–5)
@@ -50,7 +52,7 @@ The safe path is a narrow diagonal through the 2D grid. Falling off it — more 
 - **3 — Deterministic checks**: catches known classes reliably. Predictable gaps — entirely misses some categories. (Tests, linters, compilers.)
 - **2 — Probability**: probabilistic detection. Unpredictable gaps. Useful for discovering new categories, then hardening to 3/4. (LLM judges, AI drift detection.)
 - **1 — Vigilance**: full vigilance burden. Decays with scale and attention.
-- **0 — Hope**.
+- **0 — Hope**: hey, it's free!
 
 Levels 4–5 reach zero vigilance within their scope. Levels 0–3 cannot.
 

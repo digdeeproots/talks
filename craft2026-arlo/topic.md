@@ -279,6 +279,8 @@ Not rhetorical. Invite them to name one: what is the highest-cost vigilance toil
 
 That's where to invest. Not in a better model. In better brakes.
 
+**Better brakes don't just let you stop. They let you stop caring about stopping.**
+
 ---
 
 ### Talk Structure Rules
