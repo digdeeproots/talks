@@ -803,12 +803,23 @@
     if (modelExit) modelExit.classList.remove('visible');
   }
 
+  function enterModel() {
+    if (frameGate) frameGate.classList.add('open');
+    inIframe = true;
+    if (modelExit) modelExit.classList.add('visible');
+    document.getElementById('model-iframe').focus();
+  }
+
   function go(n) {
     n = Math.max(0, Math.min(slides.length - 1, n));
     slides[current].classList.remove('active');
     current = n;
     slides[current].classList.add('active');
-    exitModel();
+    if (slides[current].classList.contains('model-slide')) {
+      enterModel();
+    } else {
+      exitModel();
+    }
     render();
   }
 
@@ -836,14 +847,9 @@
     modelExit.addEventListener('click', exitModel);
   }
 
-  // activate iframe on click
+  // gate click still works as a manual fallback
   if (frameGate) {
-    frameGate.addEventListener('click', function() {
-      frameGate.classList.add('open');
-      inIframe = true;
-      if (modelExit) modelExit.classList.add('visible');
-      document.getElementById('model-iframe').focus();
-    });
+    frameGate.addEventListener('click', enterModel);
   }
 
   // swipe
