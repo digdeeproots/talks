@@ -230,7 +230,7 @@
         <div>
           <p class="kicker" style="color: var(--accent);">brakes</p>
           <h2 class="accent">Safety</h2>
-          <p style="margin-top: 1rem; color: var(--dim);">Careless behavior. Still succeeds.</p>
+          <p style="margin-top: 1rem; color: var(--dim);">Careless behavior still succeeds.</p>
         </div>
       </div>
     </div>
@@ -341,12 +341,12 @@
     <div class="slide-content" style="text-align: left; max-width: 950px;">
       <p class="kicker" style="margin-bottom: 2rem;">Careless Safety Spectrum</p>
       <ul class="spectrum">
-        <li><span class="level-num">5</span><span><strong>Carefree &amp; Guided</strong> — right action is the easy action</span></li>
-        <li><span class="level-num">4</span><span><strong>Prevention</strong> — mistakes can't propagate past the originator</span></li>
-        <li><span class="level-num">3</span><span><strong>Deterministic Checks</strong> — catches known classes reliably; predictable gaps</span></li>
-        <li><span class="level-num">2</span><span><strong>Probability</strong> — probabilistic; unpredictable gaps</span></li>
-        <li><span class="level-num">1</span><span><strong>Vigilance</strong> — full human attention; decays with scale</span></li>
-        <li><span class="level-num">0</span><span><strong>Hope</strong> — hey, it's free!</span></li>
+        <li><span class="level-num">5</span><span><strong>Carefree &amp; Guided</strong> Right action is the easy action. YOLO!</span></li>
+        <li><span class="level-num">4</span><span><strong>Prevention</strong> Mistakes can't propagate past the originator</span></li>
+        <li><span class="level-num">3</span><span><strong>Deterministic Checks</strong> Catches known classes reliably; predictable gaps</span></li>
+        <li><span class="level-num">2</span><span><strong>Probability</strong> Probabilistic; unpredictable gaps</span></li>
+        <li><span class="level-num">1</span><span><strong>Vigilance</strong> Full human attention; decays with scale</span></li>
+        <li><span class="level-num">0</span><span><strong>Hope</strong> Hey, it's free! YOLO!</span></li>
       </ul>
     </div>
   </section>
@@ -394,7 +394,7 @@
     <!-- replace bg with: IDE with refactoring menu, or close-up of code with rename highlighted -->
     <div class="overlay"></div>
     <div class="slide-content">
-      <p class="kicker">Level 5 — Carefree &amp; Guided</p>
+      <p class="kicker">Carefree &amp; Guided (Level 5)</p>
       <h2>AST refactoring tools</h2>
       <p style="margin-top: 1.5rem;">
         Within scope: <span class="accent">zero risk</span> of behavior change.
@@ -411,7 +411,7 @@
   <!-- 30 Type systems — level 4 -->
   <section class="slide" id="s30">
     <div class="slide-content">
-      <p class="kicker">Level 4 — Prevention</p>
+      <p class="kicker">Prevention (Level 4)</p>
       <h2>The type checker runs <em>before</em><br>anyone else sees your output.</h2>
       <p style="margin-top: 2rem; color: var(--dim);">
         That class of mistake cannot propagate.<br>Not because of <em>when</em> it runs. Because it blocks propagation.
@@ -480,9 +480,9 @@
   <!-- 38 No human to blame -->
   <section class="slide" id="s38">
     <div class="slide-content">
-      <h2 class="dim italic">"At least it was Bob."</h2>
-      <p style="margin-top: 2rem; color: var(--dim);">That fiction disappears with AI agency.</p>
-      <h3 style="margin-top: 1.5rem;">Same failure rate.<br><span class="accent">No longer acceptable.</span></h3>
+      <h2 class="dim italic">"Be more careful next time, Bob."</h2>
+      <p style="margin-top: 2rem; color: var(--dim);">The "be careful" fiction disappears with AI agency.</p>
+      <h3 style="margin-top: 1.5rem;">Same failure rate is<br><span class="accent">No longer acceptable.</span></h3>
     </div>
   </section>
 
@@ -493,7 +493,7 @@
   <section class="slide" id="s40">
     <div class="slide-content">
       <p class="kicker">Before you add AI</p>
-      <h2>Move high-risk classes<br>to safety level 3+.</h2>
+      <h2>Move high-risk classes<br>to <em>Deterministic</em> safety.</h2>
       <p style="margin-top: 2rem; color: var(--dim);">
         Build the brakes. Then let the engine run.
       </p>
@@ -528,9 +528,9 @@
     <div class="slide-content">
       <p class="kicker">The migration that lost data</p>
       <div style="text-align: left; display: inline-block; max-width: 700px;">
-        <p style="margin-bottom: 1.2rem;">1. <span class="accent">Archive table</span> — always restorable</p>
-        <p style="margin-bottom: 1.2rem;">2. <span class="accent">Bidirectional remapping</span> — nothing is lost</p>
-        <p>3. <span class="accent">Narrow the scope</span> — AI writes only the migration definition</p>
+        <p style="margin-bottom: 1.2rem;">1. <span class="accent">Archive table</span> always restorable</p>
+        <p style="margin-bottom: 1.2rem;">2. <span class="accent">Bidirectional remapping</span> nothing is lost</p>
+        <p>3. <span class="accent">Narrow the scope</span> AI writes only the migration definition</p>
       </div>
       <p style="margin-top: 2rem; color: var(--dim);">It can be careless. It will still be OK.</p>
     </div>
@@ -542,7 +542,7 @@
   <!-- 46 Git is off-limits -->
   <section class="slide" id="s46">
     <div class="slide-content">
-      <p class="kicker">Level 4 — Prevention</p>
+      <p class="kicker">Prevention (Level 4)</p>
       <h2>Minions never touch <span class="accent">git.</span></h2>
       <p style="margin-top: 2rem; color: var(--dim);">
         An MCP tool handles all branching. The AI cannot produce<br>a git state that violates the invariants.
