@@ -3,7 +3,7 @@
 // Starts both servers and prints the slides URL.
 // Usage: node start.js
 
-import { spawn }             from 'child_process';
+import { spawn, spawnSync }  from 'child_process';
 import http                  from 'http';
 import { readFile }          from 'fs/promises';
 import { join, extname, resolve } from 'path';
@@ -55,6 +55,13 @@ http.createServer(async (req, res) => {
 });
 
 // ── Model dev server ───────────────────────────────────────────────────────
+
+// Install model dependencies if needed (fast no-op when already installed).
+const install = spawnSync('npm', ['install'], { cwd: modelDir, shell: true, stdio: 'inherit' });
+if (install.status !== 0) {
+  console.error('  npm install failed in ' + modelDir);
+  process.exit(1);
+}
 
 // shell: true lets Windows resolve npm → npm.cmd automatically.
 const model = spawn(
