@@ -56,15 +56,10 @@ http.createServer(async (req, res) => {
 
 // ── Model dev server ───────────────────────────────────────────────────────
 
-// On Windows npm is npm.cmd; on POSIX it is npm.
-const npm = process.platform === 'win32' ? 'npm.cmd' : 'npm';
-
-// Pass --port via VITE_PORT env var as a fallback, and also via CLI args.
-// Some Vite versions need the flag after a second '--'; others accept it directly.
+// shell: true lets Windows resolve npm → npm.cmd automatically.
 const model = spawn(
-  npm, ['run', 'dev', '--', '--port', String(MODEL_PORT), '--strictPort'],
-  { cwd: modelDir, shell: false, stdio: ['ignore', 'pipe', 'pipe'],
-    env: { ...process.env, VITE_PORT: String(MODEL_PORT) } }
+  'npm', ['run', 'dev', '--', '--port', String(MODEL_PORT), '--strictPort'],
+  { cwd: modelDir, shell: true, stdio: ['ignore', 'pipe', 'pipe'] }
 );
 
 let modelReady = false;
