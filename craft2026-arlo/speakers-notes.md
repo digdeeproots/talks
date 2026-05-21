@@ -208,22 +208,6 @@ Point at the italicized line.
 
 ---
 
-### 26 — Two dimensions
-
-Briefly introduce the model. Don't dwell.
-
-> "To talk concretely about what to do, I need two dimensions. Most people have heard of one: agency — who does the work. Human to AI on a spectrum."
-
-> "The one most people haven't named: careless safety. How easily does your environment prevent mistakes? Not 'how safe is it if you're careful' — how safe is it if the implementor is *careless*?"
-
-> "The insight: most teams think they're choosing how much to delegate. They're actually choosing how much vigilance toil to generate."
-
----
-
-### 27 — BLANK
-
----
-
 ### 28 — Careless Safety Spectrum
 
 Walk through briefly. Don't read them all.

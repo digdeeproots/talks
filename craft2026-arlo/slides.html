@@ -11,7 +11,7 @@
       --bg:     #0c0c0c;
       --fg:     #f0ede6;
       --accent: #e8a020;
-      --dim:    #999;      /* raised from #666 → 6:1 on --bg, passes WCAG AA */
+      --dim:    #aaa;      /* raised from #666 → 6:1 on --bg, passes WCAG AA */
       --kicker: #c09a60;   /* amber-tan; distinct from dim + accent; readable at small sizes */
       --subtle: rgba(255,255,255,0.08);
     }
@@ -72,28 +72,19 @@
     .bg-migration     { background-image: url('./images-fantasy/s22.jpg'); }
 
     /* per-slide images from main — all automotive */
-    .bg-s10 { background-image: url('./images/s10.jpg'); } /* blue chrome engine bay */
     .bg-s12 { background-image: url('./images-carefree/s12.jpg'); } /* juggler */
     .bg-s18 { background-image: url('./images/s18.jpg'); } /* Berliet early motorcar */
-    .bg-s16 { background-image: url('./images/s16.jpg'); } /* vintage gauges / dashboard */
     .bg-s34 { background-image: url('./images/s26.jpg'); } /* rusted abandoned car in field */
     .bg-s36 { background-image: url('./images/s36.jpg'); } /* vintage race car in motion */
     .bg-s40 { background-image: url('./images/s40.jpg'); } /* brake disc rotor */
-    .bg-s42 { background-image: url('./images/s42.jpg'); } /* view from inside car, watching road */
-    .bg-s48 { background-image: url('./images/s48.jpg'); } /* classic cars at show, hoods up */
-    .bg-s50 { background-image: url('./images/s50.jpg'); } /* old truck / bus controls */
     .bg-s54 { background-image: url('./images/s54.jpg'); } /* rally car kicking dust */
 
     /* carefree — human freedom, movement, play */
     .bg-cf-motorcar-road { background-image: url('./images-carefree/s08.jpg'); }
     .bg-cf-developer     { background-image: url('./images-carefree/developer.jpg'); }
-    .bg-cf-migration     { background-image: url('./images-carefree/migration.jpg'); }
-    .bg-cf-brakes        { background-image: url('./images-carefree/brakes.jpg'); }
 
     /* creation — cosmic, elemental, world-scale */
     .bg-cr-developer     { background-image: url('./images-creation/developer.jpg'); }
-    .bg-cr-motorcar-road { background-image: url('./images-creation/motorcar-road.jpg'); }
-    .bg-cr-maintenance   { background-image: url('./images-creation/maintenance.jpg'); }
     .bg-cr-migration     { background-image: url('./images-creation/migration.jpg'); }
 
     /* ── LAYOUTS ──────────────────────────────────────── */
@@ -259,7 +250,7 @@
     <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.82) 100%);"></div>
     <div class="slide-content">
       <p class="big-quote">
-        "Better brakes don't just let you stop.<br>
+        "Better brakes don't just let you stop.<br><br>
         They let you stop <em>caring</em> about stopping."
       </p>
     </div>
@@ -296,7 +287,7 @@
   <section class="slide img-bg bg-s12" id="s12">
     <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0.72) 100%);"></div>
     <div class="slide-content">
-      <h2>You swapped<br><span class="accent">work-toil</span> for <span class="accent">vigilance-toil</span>.</h2>
+      <h2><span class="accent">work-toil</span> became <span class="accent">vigilance-toil</span>.</h2>
       <p style="margin-top: 2rem; color: var(--dim);">
         Watching closely enough that nothing goes wrong is still toil.<br>
         More stressful. Less interesting.
@@ -316,8 +307,8 @@
   </section>
 
   <!-- 16 The formula -->
-  <section class="slide img-bg bg-s16" id="s16">
-    <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.75) 100%);"></div>
+  <section class="slide img-bg" id="s16">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">vigilance toil</p>
       <p class="formula">
@@ -329,9 +320,6 @@
       </p>
     </div>
   </section>
-
-  <!-- 17 BLANK -->
-  <section class="slide blank" id="s17"></section>
 
   <!-- 18 AI multiplies it -->
   <section class="slide img-bg bg-motorcar-road" id="s18">
@@ -361,9 +349,6 @@
     </div>
   </section>
 
-  <!-- 21 BLANK -->
-  <section class="slide blank" id="s21"></section>
-
   <!-- 22 Loop 1: Tooling — AST refactoring (non-AI) -->
   <section class="slide img-bg bg-cf-developer" id="s22">
     <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.50) 0%, rgba(0,0,0,0.88) 100%);"></div>
@@ -381,9 +366,6 @@
       </p>
     </div>
   </section>
-
-  <!-- 23 BLANK -->
-  <section class="slide blank" id="s23"></section>
 
   <!-- 24 Loop 2: Result handling — Archive table (first Minions example) -->
   <section class="slide img-bg bg-migration" id="s24">
@@ -425,9 +407,6 @@
       </ul>
     </div>
   </section>
-
-  <!-- 29 BLANK -->
-  <section class="slide blank" id="s29"></section>
 
   <!-- 30 Worries -->
   <section class="slide img-bg bg-s34" id="s30">
@@ -552,7 +531,7 @@
   </section>
 
   <!-- 42 Story -->
-  <section class="slide" id="s42">
+  <section class="slide img-bg" id="s42">
     <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.85) 100%);"></div>
     <div class="slide-content">
       <p class="kicker">Universe: Goals</p>
@@ -575,7 +554,7 @@
   <!-- ── BEAT 3: Invocation timing / Oversight gap ──────── -->
 
   <!-- 44 Setup -->
-  <section class="slide" id="s44">
+  <section class="slide img-bg" id="s44">
     <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.32) 0%, rgba(0,0,0,0.76) 100%);"></div>
     <div class="slide-content">
       <p class="kicker">Session data fetching</p>
@@ -588,7 +567,7 @@
   </section>
 
   <!-- 45 Story -->
-  <section class="slide" id="s45">
+  <section class="slide img-bg" id="s45">
     <div class="slide-content">
       <p class="kicker">Universe: Invocation timing</p>
       <div class="two-up" style="max-width: 900px; margin: 0 auto;">
@@ -615,7 +594,7 @@
   <!-- ── BEAT 4: Tooling (access) / Scope enforcement ───── -->
 
   <!-- 47 Setup -->
-  <section class="slide" id="s47">
+  <section class="slide img-bg" id="s47">
     <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.75) 100%);"></div>
     <div class="slide-content">
       <p class="kicker">Source control in an agentic codebase</p>
@@ -628,7 +607,7 @@
   </section>
 
   <!-- 48 Story -->
-  <section class="slide" id="s48">
+  <section class="slide img-bg" id="s48">
     <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.42) 0%, rgba(0,0,0,0.84) 100%);"></div>
     <div class="slide-content">
       <p class="kicker">Universe: Tooling</p>
@@ -651,7 +630,7 @@
   <!-- ── BEAT 5: Tooling (operations) / Behavior change ─── -->
 
   <!-- 50 Setup -->
-  <section class="slide" id="s50">
+  <section class="slide img-bg" id="s50">
     <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.65) 100%);"></div>
     <div class="slide-content">
       <p class="kicker">Structural refactoring in legacy code</p>
@@ -666,7 +645,7 @@
   </section>
 
   <!-- 51 Story -->
-  <section class="slide" id="s51">
+  <section class="slide img-bg" id="s51">
     <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.75) 100%);"></div>
     <div class="slide-content">
       <p class="kicker">Universe: Tooling</p>
@@ -694,7 +673,7 @@
   <!-- ── BEAT 6: Result handling / Data loss ────────────── -->
 
   <!-- 53 Setup -->
-  <section class="slide" id="s53">
+  <section class="slide img-bg" id="s53">
     <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.58) 0%, rgba(0,0,0,0.88) 100%);"></div>
     <div class="slide-content">
       <p class="kicker">Database migrations</p>
@@ -711,7 +690,7 @@
   </section>
 
   <!-- 54 Story -->
-  <section class="slide" id="s54">
+  <section class="slide img-bg" id="s54">
     <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Universe: Result handling</p>
@@ -763,16 +742,12 @@
     </div>
   </section>
 
-  <!-- 59 BLANK -->
-  <section class="slide blank" id="s59"></section>
-
   <!-- 60 Main quote payoff -->
   <section class="slide img-bg bg-s36" id="s60">
     <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.82) 100%);"></div>
     <div class="slide-content">
       <p class="big-quote">
-        "Better brakes don't just let you stop.<br>
-        They let you stop <em>caring</em> about stopping."
+        "Better brakes let you stop <em>caring</em> about stopping."
       </p>
     </div>
   </section>
