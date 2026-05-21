@@ -208,6 +208,22 @@ Point at the italicized line.
 
 ---
 
+### 26 — Two dimensions
+
+Briefly introduce the model. Don't dwell.
+
+> "To talk concretely about what to do, I need two dimensions. Most people have heard of one: agency — who does the work. Human to AI on a spectrum."
+
+> "The one most people haven't named: careless safety. How easily does your environment prevent mistakes? Not 'how safe is it if you're careful' — how safe is it if the implementor is *careless*?"
+
+> "The insight: most teams think they're choosing how much to delegate. They're actually choosing how much vigilance toil to generate."
+
+---
+
+### 27 — BLANK
+
+---
+
 ### 28 — Careless Safety Spectrum
 
 Walk through briefly. Don't read them all.
@@ -510,11 +526,17 @@ Point at the list.
 
 ---
 
-### 58 — Teams obsess over the engine
+### 58 — Formula callback
 
-> "Teams obsess over the engine. Better AI, better models, better prompts. More throughput."
+Point at the formula.
 
-> "But the vigilance toil stays. Because the vigilance toil was never about the engine. It was about the brakes."
+> "Vigilance toil is proportional to throughput times existing body. That's what you've been carrying."
+
+> "But here's the more precise way to say it: vigilance toil is having to worry about whether you can stop. Every change you make, every feature you ship — you're checking the brakes."
+
+Pause.
+
+> "We built brakes today. Six times."
 
 ---
 
@@ -522,7 +544,23 @@ Point at the list.
 
 ---
 
-### 60 — "What are your brakes right now?"
+### 60 — Main quote payoff
+
+Read it slowly. The race car is moving. Let the image and the quote sit together.
+
+> "Better brakes don't just let you stop. They let you stop *caring* about stopping."
+
+Pause. Let it land.
+
+> "That's what each zero-risk zone gives you. Not confidence that nothing will go wrong — freedom from having to think about it."
+
+---
+
+### 61 — BLANK
+
+---
+
+### 62 — "How good are your brakes?"
 
 Don't read it. Let it sit.
 
@@ -538,11 +576,9 @@ Invite responses. This is the open discussion for Craft. Let it go where it goes
 
 > "That's where to invest. Not in a better model. In better brakes."
 
-> "Better brakes don't just let you stop. They let you stop caring about stopping."
-
 ---
 
-### 61 — BLANK (Q&A)
+### 63 — BLANK (Q&A)
 *Stay here during Q&A. Black screen. You're the focus.*
 
 **Backup Q&A questions:**
@@ -566,7 +602,7 @@ Invite responses. This is the open discussion for Craft. Let it go where it goes
 | 3. Universe intro | 3–4 min | 20–25 |
 | Model | 3–4 min | 26–37 |
 | 4. Walking the Recipe | 10–12 min | 38–55 |
-| 5. Back to Motorcar | 2 min | 56–61 |
+| 5. Back to Motorcar | 2–3 min | 56–63 |
 | **Total** | **24–30 min** | |
 
 *SAS version: compress section 3 to one example, skip model iframe interaction, run beats 4–6 only (tools + result handling), ~18 min.*
