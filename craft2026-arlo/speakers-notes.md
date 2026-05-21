@@ -55,13 +55,13 @@ Pause. Then:
 
 > "Early drivers weren't slow because their engines were weak. They were slow because they had to be *careful*. Every curve demanded attention. Better brakes took away that need for care."
 
+> "They carried a lot of <strong>vigilance toil</strong>. When the braking system is insufficient, the human driver has to pick up the slack."
+
 ---
 
 ### 10 — AI = engine / Safety = brakes
 
-> "AI is the engine. Safety is the brakes."
-
-> "The vigilance toil you're carrying — watching every output, double-checking every change — is what happens when your brakes haven't kept up with your engine."
+> "AI is the engine. Safety systems are the brakes. We are early in this era, and most of us are picking up the slack for poor safety systems."
 
 ---
 
@@ -82,7 +82,7 @@ Pause. Then:
 
 > "And this isn't new. This isn't an AI problem. Teams in brownfield codebases have been in this trap for years — no AI required."
 
-> "You know what 'keeping the lights on' means. Defects, regressions, debt fires. Not building anything new. Just watching, responding, maintaining."
+> "Teams 'keeping the lights on' spend all their time on defects, regressions, debt fires. I helped rescue a project once that spent 2 weeks building new features, and then had to lock the codebase for 2.5 years to repair the damage and get releasable."
 
 Pause. Look for recognition — some will be nodding.
 
@@ -92,19 +92,21 @@ Pause. Look for recognition — some will be nodding.
 
 ### 16 — The formula
 
-> "Vigilance toil is proportional to two things multiplied together: your throughput — how fast you're making changes — and your existing body of work — how much is already there that can break."
+> "Vigilance toil is proportional to two things multiplied together. Your throughput is the frequency of events that could break stuff. And your stuff to protect is your existing functionality and customers."
 
-> "Greenfield teams have almost no existing body. So even with weak safety, toil is low. That's why new projects feel fast."
+> "Greenfield teams have almost nothing to protect. That's why new projects feel fast."
 
-> "Brownfield teams have a large existing body. Every change you make has to not break everything that already exists. Weak safety is catastrophic."
+> "Brownfield teams have value to protect. Every change you make has to not break everything that already exists. Weak safety is catastrophic."
+
+> "In Brownfield, each feature usually requires more time on Vigilance than Work."
 
 ---
 
 ### 18 — AI multiplied it
 
-> "Add AI to a brownfield codebase. Throughput goes up — maybe 4x. What happens to vigilance toil? It goes up 4x. If your safety was already marginal, it breaks immediately."
+> "Add AI with poor safety systems. Change events go up 2x to 4x. Which means vigilance toil goes up 4x. That's OK in Greenfield, but in Brownfield vigilance already cost more than the work! If your safety was marginal before, it breaks immediately."
 
-> "AI didn't create this problem. Teams had it before they touched AI. AI just made the math undeniable."
+> "This problem existed before teams touched AI. AI just made the math undeniable."
 
 ---
 
@@ -117,7 +119,7 @@ Pause. Look for recognition — some will be nodding.
 
 Read it slow. Both halves matter.
 
-> "Stop being more careful. Change the world. So even more careless behavior succeeds."
+> "Stop being more careful. Change the world. Make even more careless behavior succeed."
 
 > "This applies to humans. It applies to AI. It's the same principle. And it points at something specific: the environment. The world the implementor lives in."
 
@@ -147,13 +149,13 @@ Point at the italicized line at the bottom.
 
 ### 24 — Result handling: Archive table
 
-> "We were using Minions — our AI orchestration system — to generate database migrations. And it made a small mistake. Not obvious. And there was data loss."
+> "We were using Minions — our AI orchestration system — to generate database migrations. And it made a small mistake that caused data loss."
 
 > "The tempting response: add a guardrail. Tell it to be more careful. That doesn't work. It will still mess up."
 
 > "Instead: we added an archive table. Before any migration runs, every pre-migration row is preserved and restorable. The AI can now be careless about data loss — the environment is careful so we don't have to be."
 
-> "That's what I mean by redesigning the world. Not the AI. The world around it."
+> "That's what I mean by redesigning the world around the AI."
 
 Point at the italicized line.
 
@@ -202,8 +204,6 @@ Read a few from the list.
 
 Read them.
 
-> "Identify the kind of work. Name the Worry. Look at what safety level we're actually at. Look at what level 4 or 5 would require. Then — and this is the interesting part — figure out which part of the AI's world we need to redesign to get there."
-
 > "Step 5 is where the world-building happens. Let me show you what's available."
 
 ---
@@ -230,10 +230,8 @@ Point to each element as you name it.
 ---
 
 ### 36 — Model (iframe)
-*Click to let audience explore the model. Walk them through a Worry and its safety options.*  
-*Escape returns to deck when ready to continue.*
 
-Show in the model if interactive:
+Show in the model:
 - A kind of work (e.g. Evolving the design)
 - Its Worries (Accidental behavior change, Design regression)
 - Safety options for one Worry, and what level each reaches
@@ -246,9 +244,9 @@ Then:
 
 ### 38 — Beat 1 setup: Decision inconsistency
 
-> "Planning and scoping during iterative demos."
+> "Discovery during iterative demos."
 
-> "Here's what happens. We're working towards a plan, mid-demo we discover a new idea. That idea shifts a lot of future work. Now the code doesn't align with the plan that nominally built it."
+> "Here's what happens. We're working towards a plan, mid-demo we discover a new idea. That idea shifts a lot of future work. Now the code doesn't align with the plan that nominally built it and the plan doesn't align with what we want next."
 
 > "The Worry: decision inconsistency. 'Does this contradict something we decided earlier? Are we building on conflicting assumptions?'"
 
@@ -258,7 +256,7 @@ Then:
 
 ### 39 — Beat 1 story: Memory
 
-> "Universe aspect: Memory."
+> "Universe aspect: Memory. This one is delightfully Orwellian."
 
 > "Here's what we do. As part of every story completion, we delete the story entirely. Not mark it done. Delete it."
 
@@ -298,7 +296,7 @@ Pause.
 
 > "Claude writes sentences. Deterministic code assembles everything else — structure, recipient list, HTML rendering."
 
-> "Structure, recipients, rendering: zero-risk zones. They're solved permanently. You review the words."
+> "I gave Claude a goal that is trivial to verify, and used other techniques to create safety for the rest of the task."
 
 Pause.
 
@@ -340,7 +338,7 @@ Pause.
 
 > "Source control in an agentic codebase."
 
-> "The Worry: scope enforcement gap. 'Is the scope we defined actually enforced? Or does the agent have more access than it should?'"
+> "The Worry: policy enforcement gap. Will the agent correctly assess risk? Will it fill in the right commit notation and branch cleanly so that it plays along well with all our other systems?"
 
 > "With raw git: level 1. Watch every commit. An agent with git access can force-push, delete branches, corrupt history. You're vigilant because you have to be."
 
@@ -350,13 +348,13 @@ Pause.
 
 > "Universe aspect: Tooling."
 
-> "Minions never touch git. Not because we asked them not to — because there's no git tool in their toolbox."
+> "Minions never touch git. There's no git tool in their toolbox."
 
 > "Instead there's an MCP tool: movement-based branching. The AI can start a movement, commit, merge. But it doesn't know what git commands run underneath. All the right behaviors are implemented in the tool. None of the wrong ones are accessible."
 
-> "Pre-commit hooks are enforced by the tool, not the AI. For merge conflicts: the agent gets a limited git toolset for exactly that one branch, resolves the conflict, then the toolset is revoked."
+> "Risk is assessed by the tool, not the AI. It judges what tools the AI used and how, and makes a deterministic risk assessment."
 
-> "The AI cannot violate git invariants. Not because it's careful. Because there's nothing to route around."
+> "The AI cannot violate git invariants It lacks the tools to cheat with."
 
 Pause.
 
@@ -404,7 +402,7 @@ Point at the two-up.
 
 > "The Worry: data loss. 'Did the migration change what the data means? Can I get it back if something went wrong?'"
 
-> "We started here at level 0. No mechanism. Hope. And then one small mistake — not obvious — and there was unrecoverable data loss."
+> "We started here at level 0. No mechanism. Hope. And then one small mistake caused unrecoverable data loss."
 
 ---
 
