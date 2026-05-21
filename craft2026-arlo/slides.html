@@ -11,7 +11,8 @@
       --bg:     #0c0c0c;
       --fg:     #f0ede6;
       --accent: #e8a020;
-      --dim:    #666;
+      --dim:    #aaa;      /* raised from #666 → 6:1 on --bg, passes WCAG AA */
+      --kicker: #c09a60;   /* amber-tan; distinct from dim + accent; readable at small sizes */
       --subtle: rgba(255,255,255,0.08);
     }
 
@@ -64,26 +65,27 @@
     }
     .img-bg .slide-content { position: relative; z-index: 1; }
 
-    .bg-s02 { background-image: url('./images/motorcar-open.jpg'); }
-    .bg-s04 { background-image: url('./images/motorcar-road.jpg'); }
-    .bg-s06 { background-image: url('./images/brakes.jpg'); }
-    .bg-s08 { background-image: url('./images/s08.jpg'); }
-    .bg-s10 { background-image: url('./images/s10.jpg'); }
-    .bg-s12 { background-image: url('./images/s12.jpg'); }
-    .bg-s14 { background-image: url('./images/maintenance.jpg'); }
-    .bg-s16 { background-image: url('./images/s16.jpg'); }
-    .bg-s18 { background-image: url('./images/s18.jpg'); }
-    .bg-s26 { background-image: url('./images/s26.jpg'); }
-    .bg-s28 { background-image: url('./images/developer.jpg'); }
-    .bg-s34 { background-image: url('./images/s34.jpg'); }
-    .bg-s36 { background-image: url('./images/s36.jpg'); }
-    .bg-s40 { background-image: url('./images/s40.jpg'); }
-    .bg-s42 { background-image: url('./images/s42.jpg'); }
-    .bg-s44 { background-image: url('./images/migration.jpg'); }
-    .bg-s48 { background-image: url('./images/s48.jpg'); }
-    .bg-s50 { background-image: url('./images/s50.jpg'); }
-    .bg-s52 { background-image: url('./images/s52.jpg'); }
-    .bg-s54 { background-image: url('./images/s54.jpg'); }
+    .bg-motorcar-open { background-image: url('./images/motorcar-open.jpg'); }
+    .bg-motorcar-road { background-image: url('./images-fantasy/s18.jpg'); }
+    .bg-brakes        { background-image: url('./images/brakes.jpg'); }
+    .bg-maintenance   { background-image: url('./images/maintenance.jpg'); }
+    .bg-migration     { background-image: url('./images-fantasy/s22.jpg'); }
+
+    /* per-slide images from main — all automotive */
+    .bg-s12 { background-image: url('./images-carefree/s12.jpg'); } /* juggler */
+    .bg-s18 { background-image: url('./images/s18.jpg'); } /* Berliet early motorcar */
+    .bg-s34 { background-image: url('./images/s26.jpg'); } /* rusted abandoned car in field */
+    .bg-s36 { background-image: url('./images/s36.jpg'); } /* vintage race car in motion */
+    .bg-s40 { background-image: url('./images/s40.jpg'); } /* brake disc rotor */
+    .bg-s54 { background-image: url('./images/s54.jpg'); } /* rally car kicking dust */
+
+    /* carefree — human freedom, movement, play */
+    .bg-cf-motorcar-road { background-image: url('./images-carefree/s08.jpg'); }
+    .bg-cf-developer     { background-image: url('./images-carefree/developer.jpg'); }
+
+    /* creation — cosmic, elemental, world-scale */
+    .bg-cr-developer     { background-image: url('./images-creation/developer.jpg'); }
+    .bg-cr-migration     { background-image: url('./images-creation/migration.jpg'); }
 
     /* ── LAYOUTS ──────────────────────────────────────── */
     .two-up {
@@ -113,9 +115,15 @@
     .kicker {
       font-size: clamp(0.75rem, 1.2vw, 1.1rem);
       text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--dim);
+      letter-spacing: 0.16em;
+      color: var(--kicker);   /* amber-tan: readable at small sizes, distinct from dim */
       margin-bottom: 1.5rem;
+    }
+
+    /* On image-bg slides every text element gets a soft shadow so it
+       lifts off the image regardless of local overlay brightness. */
+    .img-bg .slide-content * {
+      text-shadow: 0 1px 6px rgba(0,0,0,0.65), 0 2px 18px rgba(0,0,0,0.45);
     }
 
     /* ── SPECTRUM ─────────────────────────────────────── */
@@ -129,9 +137,41 @@
       font-size: clamp(1rem, 1.9vw, 2rem);
       border-bottom: 1px solid var(--subtle);
     }
-    .spectrum li:first-child { color: var(--accent); }
+    .spectrum li:first-child, .spectrum li:nth-child(2) { color: var(--accent); }
     .spectrum li:last-child  { color: var(--dim); border-bottom: none; }
-    .level-num { color: var(--dim); font-size: 0.8em; text-align: right; font-weight: 300; }
+    .spectrum li strong { display: block; }
+    .level-num { color: var(--dim); font-size: 0.8em; text-align: right; font-weight: 300; display: block; margin: auto; }
+
+    /* ── RECIPE STEPS ─────────────────────────────────── */
+    .steps { list-style: none; text-align: left; max-width: 900px; margin: 0 auto; }
+    .steps li {
+      display: grid;
+      grid-template-columns: 1.5rem 1fr;
+      gap: 1.5rem;
+      align-items: baseline;
+      padding: 0.7rem 0;
+      font-size: clamp(1rem, 1.9vw, 2rem);
+      border-bottom: 1px solid var(--subtle);
+    }
+    .steps li:last-child { border-bottom: none; }
+    .step-num { color: var(--accent); font-weight: 700; font-size: 0.85em; }
+
+    /* ── STORY LIST ───────────────────────────────────── */
+    .story-list { list-style: none; text-align: left; max-width: 820px; margin: 0 auto; }
+    .story-list li {
+      position: relative;
+      padding: 0.65rem 0 0.65rem 1.8rem;
+      font-size: clamp(1rem, 1.9vw, 2rem);
+      line-height: 1.4;
+      border-bottom: 1px solid var(--subtle);
+    }
+    .story-list li::before {
+      content: '→';
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+    }
+    .story-list li:last-child { border-bottom: none; }
 
     /* ── MODEL IFRAME ─────────────────────────────────── */
     .slide.model-slide { padding: 0; }
@@ -147,6 +187,21 @@
     .frame-gate.open { opacity: 0; pointer-events: none; }
     .frame-gate p { color: #fff; font-size: 1.3rem; background: rgba(0,0,0,0.75); padding: 0.8rem 2rem; border-radius: 0.5rem; }
     .frame-gate small { margin-top: 0.75rem; color: var(--dim); font-size: 0.9rem; }
+
+    /* ── MODEL EXIT BUTTON ───────────────────────────────── */
+    #model-exit {
+      position: fixed; top: 1.2rem; left: 1.2rem;
+      z-index: 500;
+      background: rgba(0,0,0,0.72); color: var(--fg);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 2rem;
+      padding: 0.45rem 1.1rem;
+      font-family: inherit; font-size: 0.85rem; cursor: pointer;
+      display: none; align-items: center; gap: 0.5rem;
+      transition: background 0.15s;
+    }
+    #model-exit:hover { background: rgba(255,255,255,0.12); }
+    #model-exit.visible { display: flex; }
 
     /* ── CHROME ───────────────────────────────────────── */
     #progress {
@@ -170,15 +225,14 @@
 <div class="deck" id="deck">
 
   <!-- ═══════════════════════════════════════════════════
-       SECTION 0: Opening
+       OPENING
   ════════════════════════════════════════════════════ -->
 
   <!-- 01 BLANK — house lights still on -->
   <section class="slide blank" id="s1"></section>
 
   <!-- 02 TITLE -->
-  <section class="slide img-bg bg-s02" id="s2">
-    <!-- replace bg with: early motorcar on dusty road, sepia or warm tone -->
+  <section class="slide img-bg bg-motorcar-open" id="s2">
     <div class="overlay"></div>
     <div class="slide-content">
       <h1>Careless<br>by Design</h1>
@@ -186,55 +240,40 @@
     </div>
   </section>
 
-  <!-- 03 BLANK -->
-  <section class="slide blank" id="s3"></section>
-
-
   <!-- ═══════════════════════════════════════════════════
        SECTION 1: The Motorcar
   ════════════════════════════════════════════════════ -->
 
   <!-- 04 Speed limits didn't track engines -->
-  <section class="slide img-bg bg-s04" id="s4">
-    <!-- replace bg with: vintage speedometer or open road, early 1900s -->
+  <section class="slide img-bg bg-s18" id="s4">
     <div class="overlay"></div>
     <div class="slide-content">
       <h2>Speed limits didn't track<br><span class="accent">engine</span> improvements.</h2>
     </div>
   </section>
 
-  <!-- 05 BLANK -->
-  <section class="slide blank" id="s5"></section>
-
   <!-- 06 They tracked braking -->
-  <section class="slide img-bg bg-s06" id="s6">
-    <!-- replace bg with: brake disc closeup, dramatic light -->
+  <section class="slide img-bg bg-brakes" id="s6">
     <div class="overlay"></div>
     <div class="slide-content">
       <h2>They tracked <span class="accent">braking</span> improvements.</h2>
     </div>
   </section>
 
-  <!-- 07 BLANK -->
-  <section class="slide blank" id="s7"></section>
-
   <!-- 08 What brakes really do -->
-  <section class="slide img-bg bg-s08" id="s8">
-    <div class="overlay"></div>
+  <section class="slide img-bg bg-s36" id="s8">
+    <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.82) 100%);"></div>
     <div class="slide-content">
       <p class="big-quote">
-        "Better brakes don't just let you stop.<br>
+        "Better brakes don't just let you stop.<br><br>
         They let you stop <em>caring</em> about stopping."
       </p>
     </div>
   </section>
 
-  <!-- 09 BLANK -->
-  <section class="slide blank" id="s9"></section>
-
   <!-- 10 AI = engine / Safety = brakes -->
-  <section class="slide img-bg bg-s10" id="s10">
-    <div class="overlay"></div>
+  <section class="slide img-bg bg-s40" id="s10">
+    <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.22) 0%, rgba(0,0,0,0.70) 100%);"></div>
     <div class="slide-content">
       <div class="two-up">
         <div>
@@ -261,9 +300,9 @@
 
   <!-- 12 You relocated the burden -->
   <section class="slide img-bg bg-s12" id="s12">
-    <div class="overlay"></div>
+    <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0.72) 100%);"></div>
     <div class="slide-content">
-      <h2>You swapped<br><span class="accent">work-toil</span> for <span class="accent">vigilance-toil</span>.</h2>
+      <h2><span class="accent">work-toil</span> became <span class="accent">vigilance-toil</span>.</h2>
       <p style="margin-top: 2rem; color: var(--dim);">
         Watching closely enough that nothing goes wrong is still toil.<br>
         More stressful. Less interesting.
@@ -271,12 +310,8 @@
     </div>
   </section>
 
-  <!-- 13 BLANK -->
-  <section class="slide blank" id="s13"></section>
-
   <!-- 14 Keeping the lights on -->
-  <section class="slide img-bg bg-s14" id="s14">
-    <!-- replace bg with: server room, blinking lights, or legacy terminal in the dark -->
+  <section class="slide img-bg bg-maintenance" id="s14">
     <div class="overlay"></div>
     <div class="slide-content">
       <h2>"Keeping the lights on"</h2>
@@ -286,11 +321,8 @@
     </div>
   </section>
 
-  <!-- 15 BLANK -->
-  <section class="slide blank" id="s15"></section>
-
   <!-- 16 The formula -->
-  <section class="slide img-bg bg-s16" id="s16">
+  <section class="slide img-bg" id="s16">
     <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">vigilance toil</p>
@@ -304,12 +336,9 @@
     </div>
   </section>
 
-  <!-- 17 BLANK -->
-  <section class="slide blank" id="s17"></section>
-
   <!-- 18 AI multiplies it -->
-  <section class="slide img-bg bg-s18" id="s18">
-    <div class="overlay"></div>
+  <section class="slide img-bg bg-motorcar-road" id="s18">
+    <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.82) 100%);"></div>
     <div class="slide-content">
       <h2>AI didn't create the problem.</h2>
       <h2 class="accent" style="margin-top: 1rem;">It multiplied it.</h2>
@@ -321,70 +350,53 @@
 
 
   <!-- ═══════════════════════════════════════════════════
-       SECTION 3: The Model
+       SECTION 3: The Agent's Universe — Two Examples
   ════════════════════════════════════════════════════ -->
 
-  <!-- 20 Two dimensions -->
-  <section class="slide" id="s20">
+  <!-- 20 Careless design principle -->
+  <section class="slide img-bg bg-cf-motorcar-road" id="s20">
+    <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.78) 100%);"></div>
     <div class="slide-content">
-      <div class="two-up">
-        <div>
-          <p class="kicker">dimension 1</p>
-          <h3 class="accent">Agency</h3>
-          <p style="margin-top: 1rem; color: var(--dim);">
-            Who does the work.<br>
-            Human → AI, A0–A5.
-          </p>
-        </div>
-        <div>
-          <p class="kicker">dimension 2</p>
-          <h3 class="accent">Careless Safety</h3>
-          <p style="margin-top: 1rem; color: var(--dim);">
-            How easily the environment<br>prevents mistakes. Level 0–5.
-          </p>
-        </div>
-      </div>
-      <p style="margin-top: 3.5rem; color: var(--dim); font-size: clamp(1rem, 1.8vw, 1.8rem);">
-        Most teams think they're choosing how much to delegate.<br>
-        They're choosing how much vigilance toil to generate.
+      <p class="big-quote">
+        Stop <em>being more careful</em>.<br><br>
+        Change the world.<br><br>So <em>even more careless</em><br>behavior succeeds.
       </p>
     </div>
   </section>
 
-  <!-- 21 BLANK -->
-  <section class="slide blank" id="s21"></section>
-
-  <!-- 22 The spectrum -->
-  <section class="slide" id="s22">
-    <div class="slide-content" style="text-align: left; max-width: 950px;">
-      <p class="kicker" style="margin-bottom: 2rem;">Careless Safety Spectrum</p>
-      <ul class="spectrum">
-        <li><span class="level-num">5</span><span><strong>Carefree &amp; Guided</strong> Right action is the easy action. YOLO!</span></li>
-        <li><span class="level-num">4</span><span><strong>Prevention</strong> Mistakes can't propagate past the originator</span></li>
-        <li><span class="level-num">3</span><span><strong>Deterministic Checks</strong> Catches known classes reliably; predictable gaps</span></li>
-        <li><span class="level-num">2</span><span><strong>Probability</strong> Probabilistic; unpredictable gaps</span></li>
-        <li><span class="level-num">1</span><span><strong>Vigilance</strong> Full human attention; decays with scale</span></li>
-        <li><span class="level-num">0</span><span><strong>Hope</strong> Hey, it's free! YOLO!</span></li>
-      </ul>
+  <!-- 22 Loop 1: Tooling — AST refactoring (non-AI) -->
+  <section class="slide img-bg bg-cf-developer" id="s22">
+    <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.50) 0%, rgba(0,0,0,0.88) 100%);"></div>
+    <div class="slide-content">
+      <p class="kicker">Tooling</p>
+      <h2>AST refactoring tools</h2>
+      <p style="margin-top: 1.5rem;">
+        Within scope: <span class="accent">zero risk</span> of behavior change.
+      </p>
+      <p style="margin-top: 0.75rem; color: var(--dim);">
+        Wrong about the design? Undo is exactly as easy as do.
+      </p>
+      <p style="margin-top: 2rem; font-style: italic; color: var(--dim);">
+        Worry gone: "Did my refactor accidentally change behavior?"
+      </p>
     </div>
   </section>
 
-  <!-- 23 BLANK -->
-  <section class="slide blank" id="s23"></section>
-
-  <!-- 24 MODEL (iframe placeholder — wire up once model.html exists) -->
-  <section class="slide model-slide" id="s24">
-    <div class="model-wrapper">
-      <!--
-        When ready: change src to the actual model file path, e.g. src="../maturity-model/index.html"
-        The frame-gate overlay lets the audience navigate inside the model on click,
-        then press Escape to return keyboard control to the slide deck.
-      -->
-      <iframe src="about:blank" title="AI Development Maturity Model" tabindex="-1" id="model-iframe"></iframe>
-      <div class="frame-gate" id="frame-gate">
-        <p>[ Model — coming soon ]</p>
-        <small>Click to explore · Escape to return to slides</small>
-      </div>
+  <!-- 24 Loop 2: Result handling — Archive table (first Minions example) -->
+  <section class="slide img-bg bg-migration" id="s24">
+    <div class="overlay"></div>
+    <div class="slide-content">
+      <p class="kicker">Result handling</p>
+      <h2>Archive table</h2>
+      <p style="margin-top: 1.5rem;">
+        Before the migration runs: every pre-migration row preserved.
+      </p>
+      <p style="margin-top: 0.75rem; color: var(--dim);">
+        The AI can be careless about data loss.<br>The environment is careful so you don't have to be.
+      </p>
+      <p style="margin-top: 2rem; font-style: italic; color: var(--dim);">
+        Worry gone: "What if it loses data we can't recover?"
+      </p>
     </div>
   </section>
 
@@ -393,150 +405,158 @@
 
 
   <!-- ═══════════════════════════════════════════════════
-       SECTION 4: Non-AI Brownfield First
+       MODEL SLIDES
   ════════════════════════════════════════════════════ -->
 
-  <!-- 26 Non-AI first — intro -->
-  <section class="slide img-bg bg-s26" id="s26">
-    <div class="overlay"></div>
-    <div class="slide-content">
-      <p class="kicker">Before AI enters the picture</p>
-      <h2>What does vigilance<br>look like in <em>human</em> brownfield?</h2>
+  <!-- 28 The safety spectrum -->
+  <section class="slide" id="s28">
+    <div class="slide-content" style="text-align: left; max-width: 950px;">
+      <p class="kicker" style="margin-bottom: 2rem;">Careless Safety Spectrum</p>
+      <ul class="spectrum">
+        <li><span class="level-num">5</span><span><strong>Carefree</strong> Right action is easy. Wrong action is structurally hard.</span></li>
+        <li><span class="level-num">4</span><span><strong>Prevention</strong> Mistakes can't propagate past the originator</span></li>
+        <li><span class="level-num">3</span><span><strong>Deterministic</strong> Known classes caught reliably; predictable gaps</span></li>
+        <li><span class="level-num">2</span><span><strong>Probabilistic</strong> Sometimes caught; unpredictable gaps</span></li>
+        <li><span class="level-num">1</span><span><strong>Vigilance</strong> Caught only when someone is paying attention</span></li>
+        <li><span class="level-num">0</span><span><strong>Hope</strong> No mechanism. Errors propagate undetected.</span></li>
+      </ul>
     </div>
   </section>
 
-  <!-- 27 BLANK -->
-  <section class="slide blank" id="s27"></section>
-
-  <!-- 28 AST refactoring tools — level 5 -->
-  <section class="slide img-bg bg-s28" id="s28">
-    <!-- replace bg with: IDE with refactoring menu, or close-up of code with rename highlighted -->
-    <div class="overlay"></div>
+  <!-- 30 Worries -->
+  <section class="slide img-bg bg-s34" id="s30">
+    <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.58) 100%);"></div>
     <div class="slide-content">
-      <p class="kicker">Carefree &amp; Guided (Level 5)</p>
-      <h2>AST refactoring tools</h2>
-      <p style="margin-top: 1.5rem;">
-        Within scope: <span class="accent">zero risk</span> of behavior change.
+      <p class="kicker">The model names them</p>
+      <h2>Worries</h2>
+      <p style="margin-top: 1.5rem; color: var(--dim);">
+        The gut-check developers feel about a kind of work.<br>
+        Named for what experienced developers recognize.
       </p>
-      <p style="margin-top: 0.75rem; color: var(--dim);">
-        Wrong about the design? Undo it just as easily.
+      <p style="margin-top: 2rem; color: var(--dim); font-size: clamp(0.85rem, 1.4vw, 1.5rem); line-height: 1.8;">
+        Capability regression &nbsp;·&nbsp; Accidental behavior change &nbsp;·&nbsp; Data loss<br>
+        Scope enforcement gap &nbsp;·&nbsp; Decision inconsistency &nbsp;·&nbsp; Oversight mechanism gap
       </p>
-    </div>
-  </section>
-
-  <!-- 29 BLANK -->
-  <section class="slide blank" id="s29"></section>
-
-  <!-- 30 Type systems — level 4 -->
-  <section class="slide" id="s30">
-    <div class="slide-content">
-      <p class="kicker">Prevention (Level 4)</p>
-      <h2>The type checker runs <em>before</em><br>anyone else sees your output.</h2>
-      <p style="margin-top: 2rem; color: var(--dim);">
-        That class of mistake cannot propagate.<br>Not because of <em>when</em> it runs. Because it blocks propagation.
+      <p style="margin-top: 2rem;">
+        Not abstract risk — the specific thing you're being careful about, <em>every time</em>.
       </p>
     </div>
   </section>
 
-  <!-- 31 BLANK -->
-  <section class="slide blank" id="s31"></section>
-
-  <!-- 32 Zero risk vs low risk -->
+  <!-- 32 The Recipe -->
   <section class="slide" id="s32">
-    <div class="slide-content">
-      <div class="two-up">
-        <div>
-          <p class="kicker">low risk</p>
-          <h3>Still requires vigilance.</h3>
-          <p style="margin-top: 1rem; color: var(--dim);">
-            Some fraction of the time,<br>something goes wrong.
-          </p>
-        </div>
-        <div>
-          <p class="kicker" style="color: var(--accent);">zero risk within a scope</p>
-          <h3 class="accent">No vigilance needed.</h3>
-          <p style="margin-top: 1rem; color: var(--dim);">
-            Once engineered out of existence,<br>you spend nothing on it. Ever.
-          </p>
-        </div>
-      </div>
+    <div class="slide-content" style="text-align: left; max-width: 900px;">
+      <p class="kicker" style="margin-bottom: 2rem;">The Recipe</p>
+      <ol class="steps">
+        <li><span class="step-num">1</span><span>Identify an important kind of work</span></li>
+        <li><span class="step-num">2</span><span>Name the most impactful vigilance cost we're paying</span></li>
+        <li><span class="step-num">3</span><span>Look at the Worry — what safety level are we at?</span></li>
+        <li><span class="step-num">4</span><span>Look at safety options that could reach level 4 or 5</span></li>
+        <li><span class="step-num">5</span><span>Craft the AI's universe to implement the chosen option</span></li>
+      </ol>
     </div>
   </section>
 
   <!-- 33 BLANK -->
   <section class="slide blank" id="s33"></section>
 
-  <!-- 34 Recipe: one notch at a time -->
-  <section class="slide img-bg bg-s34" id="s34">
-    <div class="overlay"></div>
+  <!-- 34 Universe as design surface — step 5 lives here -->
+  <section class="slide img-bg bg-cr-developer" id="s34">
+    <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.65) 100%);"></div>
     <div class="slide-content">
-      <p class="kicker">Recipe</p>
-      <h2>Identify one error class.<br>Find its safety level.<br>Move up <span class="accent">one notch</span>.</h2>
-    </div>
-  </section>
-
-  <!-- 35 BLANK -->
-  <section class="slide blank" id="s35"></section>
-
-
-  <!-- ═══════════════════════════════════════════════════
-       SECTION 5: What Changes at 4x
-  ════════════════════════════════════════════════════ -->
-
-  <!-- 36 4x throughput = 4x toil -->
-  <section class="slide img-bg bg-s36" id="s36">
-    <div class="overlay"></div>
-    <div class="slide-content">
-      <p class="kicker">Add AI. Throughput goes up.</p>
-      <p class="formula">vigilance toil <span class="accent">× 4</span></p>
+      <p class="kicker">Step 5 lives here</p>
+      <h2>The agent's <span class="accent">universe</span></h2>
+      <p style="margin-top: 2rem; color: var(--dim); font-size: clamp(1rem, 1.8vw, 2rem); letter-spacing: 0.03em;">
+        Memory &nbsp;·&nbsp; Context &nbsp;·&nbsp; Goals &nbsp;·&nbsp; Tooling &nbsp;·&nbsp; Invocation timing &nbsp;·&nbsp; Result handling
+      </p>
       <p style="margin-top: 2rem; color: var(--dim);">
-        If safety was marginal, it breaks immediately.
+        Each is a lever. Choose which one addresses your Worry.
       </p>
     </div>
   </section>
 
-  <!-- 37 BLANK -->
-  <section class="slide blank" id="s37"></section>
+  <!-- 36 MODEL (iframe) -->
+  <section class="slide model-slide" id="s36">
+    <div class="model-wrapper">
+      <iframe src="http://localhost:5292" title="AI Development Maturity Model" tabindex="-1" id="model-iframe"></iframe>
+      <div class="frame-gate" id="frame-gate">
+        <small>Click to explore · Escape to return to slides</small>
+      </div>
+    </div>
+  </section>
 
-  <!-- 38 No human to blame -->
+  <!-- ═══════════════════════════════════════════════════
+       SECTION 4: Walking the Recipe
+  ════════════════════════════════════════════════════ -->
+
+
+  <!-- ── BEAT 1: Memory / Decision inconsistency ──────── -->
+
+  <!-- 38 Setup -->
   <section class="slide" id="s38">
     <div class="slide-content">
-      <h2 class="dim italic">"Be more careful next time, Bob."</h2>
-      <p style="margin-top: 2rem; color: var(--dim);">The "be careful" fiction disappears with AI agency.</p>
-      <h3 style="margin-top: 1.5rem;">Same failure rate is<br><span class="accent">No longer acceptable.</span></h3>
-    </div>
-  </section>
-
-  <!-- 39 BLANK -->
-  <section class="slide blank" id="s39"></section>
-
-  <!-- 40 What to change before adding AI -->
-  <section class="slide img-bg bg-s40" id="s40">
-    <div class="overlay"></div>
-    <div class="slide-content">
-      <p class="kicker">Before you add AI</p>
-      <h2>Move high-risk classes<br>to <em>Deterministic</em> safety.</h2>
+      <p class="kicker">Planning and scoping during iterative demos</p>
+      <h2>The Worry:<br><span class="accent">Decision inconsistency</span></h2>
       <p style="margin-top: 2rem; color: var(--dim);">
-        Build the brakes. Then let the engine run.
+        "Does this contradict a decision from earlier in the session?<br>
+        Are we building on conflicting assumptions?"
       </p>
     </div>
   </section>
 
-  <!-- 41 BLANK -->
-  <section class="slide blank" id="s41"></section>
-
-
-  <!-- ═══════════════════════════════════════════════════
-       SECTION 6: Reducing Vigilance Toil
-  ════════════════════════════════════════════════════ -->
-
-  <!-- 42 Careless design principle -->
-  <section class="slide img-bg bg-s42" id="s42">
-    <div class="overlay"></div>
+  <!-- 39 Story -->
+  <section class="slide" id="s39">
     <div class="slide-content">
-      <p class="big-quote">
-        Don't ask them to <em>be more careful</em>.<br><br>
-        Redesign the environment so <em>even more careless</em> behavior still succeeds.
+      <p class="kicker">Universe: Memory</p>
+      <ul class="story-list">
+        <li>Delete completed stories entirely — don't mark done, <em>delete</em></li>
+        <li>Rewrite all future stories to reflect the current direction</li>
+        <li>Reset context to the base state</li>
+      </ul>
+      <p style="margin-top: 2.5rem;">
+        The AI cannot blend old ideas with new ones.<br>
+        It has no access to old ideas.
+      </p>
+      <p style="margin-top: 1rem; color: var(--dim);">
+        The plan was always this direction. It just doesn't know otherwise.
+      </p>
+    </div>
+  </section>
+
+  <!-- 40 BLANK -->
+  <section class="slide blank" id="s40"></section>
+
+
+  <!-- ── BEAT 2: Goals / Consistency violation ─────────── -->
+
+  <!-- 41 Setup -->
+  <section class="slide" id="s41">
+    <div class="slide-content">
+      <p class="kicker">Recurring structured output</p>
+      <h2>The Worry:<br><span class="accent">Consistency violation</span></h2>
+      <p style="margin-top: 2rem; color: var(--dim);">
+        "Does this follow the same structure as last time?<br>
+        Did it invent something that drifts from the template?"
+      </p>
+      <p style="margin-top: 1.5rem; font-style: italic; color: var(--dim); font-size: clamp(0.85rem, 1.4vw, 1.5rem);">
+        Started at level 1 — "Read this file and follow it."
+      </p>
+    </div>
+  </section>
+
+  <!-- 42 Story -->
+  <section class="slide img-bg" id="s42">
+    <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.85) 100%);"></div>
+    <div class="slide-content">
+      <p class="kicker">Universe: Goals</p>
+      <h2>Structured spec replaces<br>open-ended prompt.</h2>
+      <p style="margin-top: 2rem; color: var(--dim);">
+        Claude writes sentences.<br>
+        Deterministic code assembles everything else.
+      </p>
+      <p style="margin-top: 1.5rem;">
+        Structure, recipients, rendering:<br>
+        <span class="accent">zero-risk zones. Forever.</span>
       </p>
     </div>
   </section>
@@ -544,48 +564,75 @@
   <!-- 43 BLANK -->
   <section class="slide blank" id="s43"></section>
 
-  <!-- 44 Migration story -->
-  <section class="slide img-bg bg-s44" id="s44">
-    <!-- replace bg with: database schema diagram, or server rack in dim light -->
-    <div class="overlay"></div>
+
+  <!-- ── BEAT 3: Invocation timing / Oversight gap ──────── -->
+
+  <!-- 44 Setup -->
+  <section class="slide img-bg" id="s44">
+    <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.32) 0%, rgba(0,0,0,0.76) 100%);"></div>
     <div class="slide-content">
-      <p class="kicker">The migration that lost data</p>
-      <div style="text-align: left; display: inline-block; max-width: 700px;">
-        <p style="margin-bottom: 1.2rem;">1. <span class="accent">Archive table</span> always restorable</p>
-        <p style="margin-bottom: 1.2rem;">2. <span class="accent">Bidirectional remapping</span> nothing is lost</p>
-        <p>3. <span class="accent">Narrow the scope</span> AI writes only the migration definition</p>
-      </div>
-      <p style="margin-top: 2rem; color: var(--dim);">It can be careless. It will still be OK.</p>
+      <p class="kicker">Session data fetching</p>
+      <h2>The Worry:<br><span class="accent">Oversight mechanism gap</span></h2>
+      <p style="margin-top: 2rem; color: var(--dim);">
+        "Did the AI keep going past the point<br>
+        where I should have been consulted?"
+      </p>
     </div>
   </section>
 
-  <!-- 45 BLANK -->
-  <section class="slide blank" id="s45"></section>
-
-  <!-- 46 Git is off-limits -->
-  <section class="slide" id="s46">
+  <!-- 45 Story -->
+  <section class="slide img-bg" id="s45">
     <div class="slide-content">
-      <p class="kicker">Prevention (Level 4)</p>
+      <p class="kicker">Universe: Invocation timing</p>
+      <div class="two-up" style="max-width: 900px; margin: 0 auto;">
+        <div>
+          <p class="kicker">On success</p>
+          <h3>Claude is<br>never invoked.</h3>
+        </div>
+        <div>
+          <p class="kicker" style="color: var(--accent);">On failure</p>
+          <h3 class="accent">Claude is called<br>with the failure.</h3>
+        </div>
+      </div>
+      <p style="margin-top: 2.5rem; color: var(--dim);">
+        The system decides when to call Claude —<br>
+        only when deterministic code admits it can't handle something.
+      </p>
+    </div>
+  </section>
+
+  <!-- 46 BLANK -->
+  <section class="slide blank" id="s46"></section>
+
+
+  <!-- ── BEAT 4: Tooling (access) / Scope enforcement ───── -->
+
+  <!-- 47 Setup -->
+  <section class="slide img-bg" id="s47">
+    <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.75) 100%);"></div>
+    <div class="slide-content">
+      <p class="kicker">Source control in an agentic codebase</p>
+      <h2>The Worry:<br><span class="accent">Scope enforcement gap</span></h2>
+      <p style="margin-top: 2rem; color: var(--dim);">
+        "Is the scope we defined actually enforced?<br>
+        Or does the agent have more access than it should?"
+      </p>
+    </div>
+  </section>
+
+  <!-- 48 Story -->
+  <section class="slide img-bg" id="s48">
+    <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.42) 0%, rgba(0,0,0,0.84) 100%);"></div>
+    <div class="slide-content">
+      <p class="kicker">Universe: Tooling</p>
       <h2>Minions never touch <span class="accent">git.</span></h2>
       <p style="margin-top: 2rem; color: var(--dim);">
-        An MCP tool handles all branching. The AI cannot produce<br>a git state that violates the invariants.
+        An MCP tool handles all branching.<br>
+        All the right behaviors implemented. None of the wrong ones available.
       </p>
-      <p style="margin-top: 1.5rem;">Structurally impossible. Not just unlikely.</p>
-    </div>
-  </section>
-
-  <!-- 47 BLANK -->
-  <section class="slide blank" id="s47"></section>
-
-  <!-- 48 Progressive safety (coaching workflow) -->
-  <section class="slide img-bg bg-s48" id="s48">
-    <div class="overlay"></div>
-    <div class="slide-content">
-      <p class="kicker">Progressive safety</p>
-      <h2>Make one thing <span class="accent">zero-risk</span> at a time.</h2>
-      <p style="margin-top: 2rem; color: var(--dim);">
-        Each zone permanently frees vigilance budget for the next thing.<br>
-        You only pay attention to what's left.
+      <p style="margin-top: 1.5rem;">
+        The AI cannot violate git invariants.<br>
+        because there's <span class="accent">nothing to route around.</span>
       </p>
     </div>
   </section>
@@ -593,89 +640,198 @@
   <!-- 49 BLANK -->
   <section class="slide blank" id="s49"></section>
 
-  <!-- 50 The agent's universe -->
-  <section class="slide img-bg bg-s50" id="s50">
-    <div class="overlay"></div>
+
+  <!-- ── BEAT 5: Tooling (operations) / Behavior change ─── -->
+
+  <!-- 50 Setup -->
+  <section class="slide img-bg" id="s50">
+    <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.65) 100%);"></div>
     <div class="slide-content">
-      <p class="kicker">Design surface</p>
-      <h2>The agent's <span class="accent">universe</span> is yours to design.</h2>
-      <p style="margin-top: 2rem; color: var(--dim); font-size: clamp(0.9rem, 1.6vw, 1.8rem);">
-        Memory · Context · Goals · Tooling · Invocation timing · Result handling
+      <p class="kicker">Structural refactoring in legacy code</p>
+      <h2>The Worry:<br><span class="accent">Accidental behavior change</span></h2>
+      <p style="margin-top: 2rem; color: var(--dim);">
+        "Did my restructuring change what the code actually does?"
       </p>
-      <p style="margin-top: 1.5rem; color: var(--dim);">
-        Each element is a design choice.<br>Each can create or eliminate zero-risk zones.
+      <p style="margin-top: 1.5rem; font-style: italic; color: var(--dim); font-size: clamp(0.85rem, 1.4vw, 1.5rem);">
+        AST tools solve this for human developers. What about AI?
       </p>
     </div>
   </section>
 
-  <!-- 51 BLANK -->
-  <section class="slide blank" id="s51"></section>
+  <!-- 51 Story -->
+  <section class="slide img-bg" id="s51">
+    <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.75) 100%);"></div>
+    <div class="slide-content">
+      <p class="kicker">Universe: Tooling</p>
+      <h2>No edit-file tool.<br>Only AST transformations.</h2>
+      <div class="two-up" style="margin-top: 2.5rem;">
+        <div>
+          <p class="kicker">Design correctness</p>
+          <p>AI can be wrong.<br>Undo is as easy as do.</p>
+        </div>
+        <div>
+          <p class="kicker" style="color: var(--accent);">Behavioral safety</p>
+          <p class="accent">Guaranteed by the tool.<br>Not possible to violate.</p>
+        </div>
+      </div>
+      <p style="margin-top: 2rem; color: var(--dim);">
+        Only the first failure mode remains possible.
+      </p>
+    </div>
+  </section>
+
+  <!-- 52 BLANK -->
+  <section class="slide blank" id="s52"></section>
+
+
+  <!-- ── BEAT 6: Result handling / Data loss ────────────── -->
+
+  <!-- 53 Setup -->
+  <section class="slide img-bg" id="s53">
+    <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.58) 0%, rgba(0,0,0,0.88) 100%);"></div>
+    <div class="slide-content">
+      <p class="kicker">Database migrations</p>
+      <!-- accent amber conflicts with volcanic orange lava; use --fg for legibility -->
+      <h2>The Worry:<br><span style="color: var(--fg);">Data loss</span></h2>
+      <p style="margin-top: 2rem; color: var(--dim);">
+        "Did the migration change what the data means?<br>
+        Can I recover it if something went wrong?"
+      </p>
+      <p style="margin-top: 1.5rem; font-style: italic; color: var(--dim); font-size: clamp(0.85rem, 1.4vw, 1.5rem);">
+        Level 0. One small mistake: unrecoverable data loss.
+      </p>
+    </div>
+  </section>
+
+  <!-- 54 Story -->
+  <section class="slide img-bg" id="s54">
+    <div class="overlay"></div>
+    <div class="slide-content">
+      <p class="kicker">Universe: Result handling</p>
+      <div style="text-align: left; display: inline-block; max-width: 760px;">
+        <p style="margin-bottom: 1.2rem;">1. <span class="accent">Archive table</span> — all rows preserved before migration runs</p>
+        <p style="margin-bottom: 1.2rem;">2. <span class="accent">Bidirectional remapping</span> — deterministic verification before execution</p>
+        <p>3. <span class="accent">Extracted library</span> — AI writes definition only; library executes</p>
+      </div>
+      <p style="margin-top: 2rem; color: var(--dim);">
+        Deterministic pre &nbsp;→&nbsp; <em>AI creative decision</em> &nbsp;→&nbsp; deterministic execution.
+      </p>
+    </div>
+  </section>
+
+  <!-- 55 BLANK -->
+  <section class="slide blank" id="s55"></section>
 
 
   <!-- ═══════════════════════════════════════════════════
-       SECTION 7: Back to the Motorcar
+       SECTION 5: Back to the Motorcar
   ════════════════════════════════════════════════════ -->
 
-  <!-- 52 Engine obsession -->
-  <section class="slide img-bg bg-s52" id="s52">
-    <div class="overlay"></div>
+  <!-- 56 Universe crafting synthesis -->
+  <section class="slide img-bg bg-cr-migration" id="s56">
+    <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0.72) 100%);"></div>
     <div class="slide-content">
-      <h2>Teams obsess over the <span class="accent">engine.</span></h2>
-      <p style="margin-top: 2rem; color: var(--dim);">
-        Better AI. Better prompts. More models.<br>
-        The vigilance toil stays. The bottleneck is never where they're looking.
+      <p class="kicker">What we did each time</p>
+      <h2>We didn't ask for more care.<br>We redesigned the world.</h2>
+      <p style="margin-top: 2.5rem; color: var(--dim); font-size: clamp(0.9rem, 1.6vw, 1.8rem);">
+        Memory &nbsp;·&nbsp; Goals &nbsp;·&nbsp; Invocation timing &nbsp;·&nbsp; Tooling &nbsp;·&nbsp; Result handling
+      </p>
+      <p style="margin-top: 1.5rem; color: var(--dim);">
+        Each choice created a zero-risk zone.<br>
+        Each zone permanently freed vigilance budget for the next thing.
       </p>
     </div>
   </section>
 
-  <!-- 53 BLANK -->
-  <section class="slide blank" id="s53"></section>
-
-  <!-- 54 The exit question -->
-  <section class="slide img-bg bg-s54" id="s54">
-    <div class="overlay"></div>
+  <!-- 58 Formula callback: vigilance toil is having to worry about stopping -->
+  <section class="slide" id="s58">
     <div class="slide-content">
-      <h1>What are your<br><span class="accent">brakes</span><br>right now?</h1>
+      <p class="kicker">vigilance toil</p>
+      <p class="formula">
+        toil <span class="accent">∝</span> throughput <span class="accent">×</span> existing body
+      </p>
+      <p style="margin-top: 2.5rem; color: var(--dim);">
+        Vigilance toil is the cost of having to worry<br>about whether you can stop.
+      </p>
     </div>
   </section>
 
-  <!-- 55 BLANK — Q&A -->
-  <section class="slide blank" id="s55"></section>
+  <!-- 60 Main quote payoff -->
+  <section class="slide img-bg bg-s36" id="s60">
+    <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.82) 100%);"></div>
+    <div class="slide-content">
+      <p class="big-quote">
+        "Better brakes let you stop <em>caring</em> about stopping."
+      </p>
+    </div>
+  </section>
+
+  <!-- 61 BLANK -->
+  <section class="slide blank" id="s61"></section>
+
+  <!-- 62 Exit question -->
+  <section class="slide img-bg bg-s54" id="s62">
+    <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.80) 100%);"></div>
+    <div class="slide-content">
+      <h1>How good are your<br><span class="accent">brakes</span>?</h1>
+    </div>
+  </section>
+
+  <!-- 63 BLANK — Q&A -->
+  <section class="slide blank" id="s63"></section>
 
 </div><!-- /.deck -->
 
+<button id="model-exit" title="Back to slides">← slides</button>
 <div id="progress"></div>
 <div id="slide-num"></div>
-<div id="help-hint">← → Space · Esc exits model</div>
+<div id="help-hint">← → Space</div>
 
 <script>
-  const slides = Array.from(document.querySelectorAll('.slide'));
-  const progress = document.getElementById('progress');
-  const slideNum = document.getElementById('slide-num');
+  const slides    = Array.from(document.querySelectorAll('.slide'));
+  const progress  = document.getElementById('progress');
+  const slideNum  = document.getElementById('slide-num');
   const frameGate = document.getElementById('frame-gate');
+  const modelExit = document.getElementById('model-exit');
 
   let current = 0;
   let inIframe = false;
+
+  function exitModel() {
+    inIframe = false;
+    if (frameGate) frameGate.classList.remove('open');
+    if (modelExit) modelExit.classList.remove('visible');
+  }
+
+  function enterModel() {
+    if (frameGate) frameGate.classList.add('open');
+    inIframe = true;
+    if (modelExit) modelExit.classList.add('visible');
+    document.getElementById('model-iframe').focus();
+  }
 
   function go(n) {
     n = Math.max(0, Math.min(slides.length - 1, n));
     slides[current].classList.remove('active');
     current = n;
     slides[current].classList.add('active');
-    inIframe = false;
-    if (frameGate) frameGate.classList.remove('open');
+    if (slides[current].classList.contains('model-slide')) {
+      enterModel();
+    } else {
+      exitModel();
+    }
     render();
   }
 
   function render() {
     const pct = slides.length <= 1 ? 100 : (current / (slides.length - 1)) * 100;
     progress.style.width = pct + '%';
-    slideNum.textContent = (current + 1) + ' / ' + slides.length;
+    slideNum.textContent = (current + 1) + ' / ' + slides.length;
   }
 
-  // keyboard
+  // keyboard — only fires when slides (not iframe) have focus
   document.addEventListener('keydown', function(e) {
-    if (inIframe && e.key !== 'Escape') return;
+    if (inIframe) return;
     switch (e.key) {
       case 'ArrowRight': case 'ArrowDown': case ' ': case 'PageDown':
         e.preventDefault(); go(current + 1); break;
@@ -683,20 +839,17 @@
         e.preventDefault(); go(current - 1); break;
       case 'Home': e.preventDefault(); go(0); break;
       case 'End':  e.preventDefault(); go(slides.length - 1); break;
-      case 'Escape':
-        inIframe = false;
-        if (frameGate) frameGate.classList.remove('open');
-        break;
     }
   });
 
-  // activate iframe on click
+  // floating exit button — always in the parent document, always clickable
+  if (modelExit) {
+    modelExit.addEventListener('click', exitModel);
+  }
+
+  // gate click still works as a manual fallback
   if (frameGate) {
-    frameGate.addEventListener('click', function() {
-      frameGate.classList.add('open');
-      inIframe = true;
-      document.getElementById('model-iframe').focus();
-    });
+    frameGate.addEventListener('click', enterModel);
   }
 
   // swipe

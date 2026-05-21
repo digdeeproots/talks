@@ -5,11 +5,11 @@
 
 ## How to use this file
 
-Open in a second window / monitor. Each slide is numbered to match `slides.html`.  
-Blank slides are listed but have no notes — they're intentional silence / transition space.
+Open in a second window / monitor. Each slide is numbered to match the ID in `slides.html`.  
+Blank slides are listed briefly — they're intentional pause space.
 
 Navigation: `←` `→` `Space` advances. `Home` / `End` jump to start/end.  
-Model iframe (slide 36): click to interact, `Escape` to return to deck.
+Model iframe (s36): click to interact, `Escape` to return to deck.
 
 ---
 
@@ -21,13 +21,7 @@ Model iframe (slide 36): click to interact, `Escape` to return to deck.
 ---
 
 ### 02 — Title: Careless by Design
-Introduce yourself briefly if needed. Don't read the slide.  
-Pause. Let the title land. "Careless by design" sounds wrong on purpose.
-
----
-
-### 03 — BLANK
-*Let the wrong-feeling title sit with them.*
+Don't read the slide. Pause. Let the title land — "careless by design" sounds wrong on purpose.
 
 ---
 
@@ -41,21 +35,13 @@ Let that be puzzling.
 
 ---
 
-### 05 — BLANK
-
----
-
 ### 06 — They tracked braking improvements
 
-> "They tracked braking improvements. Not better engines — better brakes."
+> "They tracked braking improvements. Not better engines — better brakes. We sped up when they invented better brake pads that could stop the wheels. Again with better tire materials. In the modern era, when ABS became standard."
 
 Pause.
 
 > "Because you can't go faster if you can't stop."
-
----
-
-### 07 — BLANK
 
 ---
 
@@ -68,10 +54,6 @@ Read the quote slowly. It's the thesis of the whole talk.
 Pause. Then:
 
 > "Early drivers weren't slow because their engines were weak. They were slow because they had to be *careful*. Every curve demanded attention. Better brakes took away that need for care."
-
----
-
-### 09 — BLANK
 
 ---
 
@@ -88,15 +70,11 @@ Pause. Then:
 
 ---
 
-### 12 — You swapped work-toil for vigilance-toil
+### 12 — work-toil became vigilance-toil
 
 > "Most of us using AI have made a swap we didn't fully notice. Work-toil — the grinding of writing code — went down. But vigilance-toil went up. Watching AI closely enough that nothing goes wrong is still toil. It's more stressful toil. Less interesting toil."
 
 > "We haven't delegated. We've relocated the burden."
-
----
-
-### 13 — BLANK
 
 ---
 
@@ -112,23 +90,13 @@ Pause. Look for recognition — some will be nodding.
 
 ---
 
-### 15 — BLANK
-
----
-
 ### 16 — The formula
-
-Write it out: **toil ∝ throughput × existing body**
 
 > "Vigilance toil is proportional to two things multiplied together: your throughput — how fast you're making changes — and your existing body of work — how much is already there that can break."
 
 > "Greenfield teams have almost no existing body. So even with weak safety, toil is low. That's why new projects feel fast."
 
 > "Brownfield teams have a large existing body. Every change you make has to not break everything that already exists. Weak safety is catastrophic."
-
----
-
-### 17 — BLANK
 
 ---
 
@@ -141,7 +109,7 @@ Write it out: **toil ∝ throughput × existing body**
 ---
 
 ### 19 — BLANK
-*Section transition. Pivot to the design principle.*
+*Pivot to the design principle.*
 
 ---
 
@@ -149,7 +117,7 @@ Write it out: **toil ∝ throughput × existing body**
 
 Read it slow. Both halves matter.
 
-> "Don't ask them to be more careful. Redesign the environment so that even more careless behavior still succeeds."
+> "Stop being more careful. Change the world. So even more careless behavior succeeds."
 
 > "This applies to humans. It applies to AI. It's the same principle. And it points at something specific: the environment. The world the implementor lives in."
 
@@ -158,10 +126,6 @@ Read it slow. Both halves matter.
 Let that question hang. Then:
 
 > "Let me show you two examples before we name the model."
-
----
-
-### 21 — BLANK
 
 ---
 
@@ -178,10 +142,6 @@ Point at the italicized line at the bottom.
 > "That worry is gone. Not reduced. Gone. Within that scope."
 
 > "The tool is part of the developer's world. Whoever designed that tool made carelessness safe — by choosing what to put in the toolbox."
-
----
-
-### 23 — BLANK
 
 ---
 
@@ -208,22 +168,6 @@ Point at the italicized line.
 
 ---
 
-### 26 — Two dimensions
-
-Briefly introduce the model. Don't dwell.
-
-> "To talk concretely about what to do, I need two dimensions. Most people have heard of one: agency — who does the work. Human to AI on a spectrum."
-
-> "The one most people haven't named: careless safety. How easily does your environment prevent mistakes? Not 'how safe is it if you're careful' — how safe is it if the implementor is *careless*?"
-
-> "The insight: most teams think they're choosing how much to delegate. They're actually choosing how much vigilance toil to generate."
-
----
-
-### 27 — BLANK
-
----
-
 ### 28 — Careless Safety Spectrum
 
 Walk through briefly. Don't read them all.
@@ -238,10 +182,6 @@ Walk through briefly. Don't read them all.
 
 ---
 
-### 29 — BLANK
-
----
-
 ### 30 — Worries
 
 > "The model gives names to what we're being careful about. It calls them Worries."
@@ -253,10 +193,6 @@ Read a few from the list.
 > "Capability regression. Accidental behavior change. Data loss. Scope enforcement gap. Decision inconsistency."
 
 > "These are things you're being careful about *right now*. Most teams have names for the failures, not the Worries. The model names the Worries so you can measure them and invest in eliminating them."
-
----
-
-### 31 — BLANK
 
 ---
 
@@ -293,10 +229,6 @@ Point to each element as you name it.
 
 ---
 
-### 35 — BLANK
-
----
-
 ### 36 — Model (iframe)
 *Click to let audience explore the model. Walk them through a Worry and its safety options.*  
 *Escape returns to deck when ready to continue.*
@@ -304,12 +236,9 @@ Point to each element as you name it.
 Show in the model if interactive:
 - A kind of work (e.g. Evolving the design)
 - Its Worries (Accidental behavior change, Design regression)
-- The safety options for one Worry, and what level each reaches
+- Safety options for one Worry, and what level each reaches
 
----
-
-### 37 — BLANK
-*Transition. Now we walk the recipe.*
+Then:
 
 > "Let's use it. Six times. Each time, a different kind of work, a different Worry, a different part of the universe."
 
@@ -343,7 +272,7 @@ Show in the model if interactive:
 
 Pause.
 
-> "Decision inconsistency: structurally impossible. Level 0 → 4."
+> "Decision inconsistency: structurally impossible."
 
 ---
 
@@ -463,8 +392,6 @@ Point at the two-up.
 
 > "'Wrong about the design' and 'introduced a bug' are now categorically different failure modes. Only the first remains possible."
 
-> "Level 0-1 → 5 within scope."
-
 ---
 
 ### 52 — BLANK
@@ -522,23 +449,39 @@ Point at the list.
 
 ---
 
-### 57 — BLANK
+### 58 — Formula callback
+
+Point at the formula.
+
+> "Vigilance toil is proportional to throughput times existing body. That's what you've been carrying."
+
+> "But here's the more precise way to say it: vigilance toil is having to worry about whether you can stop. Every change you make, every feature you ship — you're checking the brakes."
+
+Pause.
+
+> "We built brakes today. Six times."
 
 ---
 
-### 58 — Teams obsess over the engine
+### 60 — Main quote payoff
 
-> "Teams obsess over the engine. Better AI, better models, better prompts. More throughput."
+The race car is moving. Let the image and the quote sit together.
 
-> "But the vigilance toil stays. Because the vigilance toil was never about the engine. It was about the brakes."
+Read it slowly.
+
+> "Better brakes let you stop *caring* about stopping."
+
+Pause. Let it land.
+
+> "That's what each zero-risk zone gives you. Not confidence that nothing will go wrong — freedom from having to think about it."
 
 ---
 
-### 59 — BLANK
+### 61 — BLANK
 
 ---
 
-### 60 — "What are your brakes right now?"
+### 62 — "How good are your brakes?"
 
 Don't read it. Let it sit.
 
@@ -554,11 +497,9 @@ Invite responses. This is the open discussion for Craft. Let it go where it goes
 
 > "That's where to invest. Not in a better model. In better brakes."
 
-> "Better brakes don't just let you stop. They let you stop caring about stopping."
-
 ---
 
-### 61 — BLANK (Q&A)
+### 63 — BLANK (Q&A)
 *Stay here during Q&A. Black screen. You're the focus.*
 
 **Backup Q&A questions:**
@@ -576,13 +517,13 @@ Invite responses. This is the open discussion for Craft. Let it go where it goes
 
 | Section | Target | Slides |
 |---------|--------|--------|
-| Opening | — | 1–3 |
-| 1. Motorcar | 3–4 min | 4–11 |
+| Opening | — | 01–02 |
+| 1. Motorcar | 3–4 min | 04–11 |
 | 2. Vigilance Toil | 3–4 min | 12–19 |
-| 3. Universe intro | 3–4 min | 20–25 |
-| Model | 3–4 min | 26–37 |
+| 3. Universe intro | 2–3 min | 20–25 |
+| Model | 3–4 min | 28–36 |
 | 4. Walking the Recipe | 10–12 min | 38–55 |
-| 5. Back to Motorcar | 2 min | 56–61 |
-| **Total** | **24–30 min** | |
+| 5. Back to the Motorcar | 2–3 min | 56–63 |
+| **Total** | **23–30 min** | |
 
 *SAS version: compress section 3 to one example, skip model iframe interaction, run beats 4–6 only (tools + result handling), ~18 min.*

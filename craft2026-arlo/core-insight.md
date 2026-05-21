@@ -35,15 +35,39 @@ AI increases throughput. It does not reduce the existing body. So AI in brownfie
 
 ## The Two Dimensions
 
-@ai: this needs to be updated to match current thinking (the future design we are building the model towards for v2).
-
 The model has two axes:
-- **Agency**: who performs the work (human → AI, A0–A5)
-- **Careless safety**: how easily the environment prevents unintended side effects (0–5)
 
-Transferring agency without transferring safety is the vigilance trap. The gap between the two is what costs you.
+- **Agency**: who performs the work (human → AI, A0–A5). Each stage transfers more decision-making authority to the AI — from AI-assisted to AI-autonomous.
+- **Careless safety**: how easily the environment prevents unintended side effects (0–5). Not "how safe is it if you're careful" — how safe is it when the implementor is *careless*?
 
-The safe path is a narrow diagonal through the 2D grid. Falling off it — more agency than your careless safety can cover — produces vigilance toil you cannot actually sustain.
+Transferring agency without transferring safety is the vigilance trap. The gap between the two is the vigilance toil you're paying.
+
+The safe path is a narrow diagonal through the 2D grid. Falling off it — more agency than your careless safety can cover — produces vigilance toil you cannot sustain at scale.
+
+## Worries
+
+The model names what you're being careful about: **Worries**. A Worry is the gut-check an experienced developer feels about a kind of work — the specific thing they're watching for, every time.
+
+Each kind of work has one or more named Worries. Each Worry has:
+- A **worry surface**: the scope of existing product a single error instance can damage (quantifiable — you can count it for your specific system)
+- A **rate event**: the specific event that triggers the toil
+- **Safety options**: mechanisms that either shrink the worry surface or raise the safety level
+
+Vigilance toil = rate events/period × (worry surface × safety gap). Both scope-shrinking and safety-level improvements reduce it.
+
+Examples: *Capability regression*, *Accidental behavior change*, *Data loss*, *Scope enforcement gap*, *Decision inconsistency*, *Oversight mechanism gap*.
+
+## The Recipe
+
+To reduce vigilance toil for a given kind of work:
+
+1. Identify an important kind of work
+2. Name the most impactful Worry — the highest-cost vigilance cost you're paying for it
+3. Look at the Worry — what safety level are you currently at?
+4. Look at safety options that could reach level 4 or 5
+5. Craft the AI's universe to implement the chosen option
+
+Step 5 is the design move. The agent's universe — everything it perceives and can act on — is the design surface: **Memory, Context, Goals, Tooling, Invocation timing, Result handling**. Each element is a choice. Each choice can create or eliminate a zero-risk zone.
 
 ## The Careless Safety Spectrum (0–5)
 
