@@ -56,22 +56,32 @@ http.createServer(async (req, res) => {
 
 // ── Model dev server ───────────────────────────────────────────────────────
 
+// On Windows npm is npm.cmd; on POSIX it is npm.
+const npm = process.platform === 'win32' ? 'npm.cmd' : 'npm';
+
+// Pass --port via VITE_PORT env var as a fallback, and also via CLI args.
+// Some Vite versions need the flag after a second '--'; others accept it directly.
 const model = spawn(
-  'npm', ['run', 'dev', '--', '--port', String(MODEL_PORT)],
-  { cwd: modelDir, shell: true, stdio: ['ignore', 'pipe', 'pipe'] }
+  npm, ['run', 'dev', '--', '--port', String(MODEL_PORT), '--strictPort'],
+  { cwd: modelDir, shell: false, stdio: ['ignore', 'pipe', 'pipe'],
+    env: { ...process.env, VITE_PORT: String(MODEL_PORT) } }
 );
 
 let modelReady = false;
 model.stdout.on('data', (chunk) => {
-  if (modelReady) return;
-  if (/ready|Local|localhost/i.test(chunk.toString())) {
+  const txt = chunk.toString();
+  if (!modelReady && /ready|Local|localhost/i.test(txt)) {
     modelReady = true;
-    console.log('  Model ready on http://localhost:' + MODEL_PORT);
+    console.log('  Model ready  http://localhost:' + MODEL_PORT);
     console.log('  Ctrl+C to stop both.');
     console.log('');
   }
 });
-model.stderr.on('data', () => {});
+
+// Show stderr so startup errors are visible.
+model.stderr.on('data', (chunk) => {
+  process.stderr.write('  [model] ' + chunk.toString().trimEnd() + '\n');
+});
 
 model.on('exit', (code) => {
   if (code !== 0 && code !== null) {
