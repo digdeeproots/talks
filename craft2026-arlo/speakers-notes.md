@@ -47,7 +47,7 @@ Let that be puzzling.
 
 ### 06 — They tracked braking improvements
 
-> "They tracked braking improvements. Not better engines — better brakes. We sped up when they invented better brake pads that could stop the wheels. Again with better tire materials that increased traction. In the modern era, when ABS became standard."
+> "They tracked braking improvements. Not better engines — better brakes."
 
 Pause.
 
