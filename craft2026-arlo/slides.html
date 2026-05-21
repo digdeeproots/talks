@@ -188,6 +188,21 @@
     .frame-gate p { color: #fff; font-size: 1.3rem; background: rgba(0,0,0,0.75); padding: 0.8rem 2rem; border-radius: 0.5rem; }
     .frame-gate small { margin-top: 0.75rem; color: var(--dim); font-size: 0.9rem; }
 
+    /* ── MODEL EXIT BUTTON ───────────────────────────────── */
+    #model-exit {
+      position: fixed; top: 1.2rem; left: 1.2rem;
+      z-index: 500;
+      background: rgba(0,0,0,0.72); color: var(--fg);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 2rem;
+      padding: 0.45rem 1.1rem;
+      font-family: inherit; font-size: 0.85rem; cursor: pointer;
+      display: none; align-items: center; gap: 0.5rem;
+      transition: background 0.15s;
+    }
+    #model-exit:hover { background: rgba(255,255,255,0.12); }
+    #model-exit.visible { display: flex; }
+
     /* ── CHROME ───────────────────────────────────────── */
     #progress {
       position: fixed; bottom: 0; left: 0;
@@ -767,26 +782,33 @@
 
 </div><!-- /.deck -->
 
+<button id="model-exit" title="Back to slides">← slides</button>
 <div id="progress"></div>
 <div id="slide-num"></div>
-<div id="help-hint">← → Space · Esc exits model</div>
+<div id="help-hint">← → Space</div>
 
 <script>
-  const slides = Array.from(document.querySelectorAll('.slide'));
-  const progress = document.getElementById('progress');
-  const slideNum = document.getElementById('slide-num');
+  const slides    = Array.from(document.querySelectorAll('.slide'));
+  const progress  = document.getElementById('progress');
+  const slideNum  = document.getElementById('slide-num');
   const frameGate = document.getElementById('frame-gate');
+  const modelExit = document.getElementById('model-exit');
 
   let current = 0;
   let inIframe = false;
+
+  function exitModel() {
+    inIframe = false;
+    if (frameGate) frameGate.classList.remove('open');
+    if (modelExit) modelExit.classList.remove('visible');
+  }
 
   function go(n) {
     n = Math.max(0, Math.min(slides.length - 1, n));
     slides[current].classList.remove('active');
     current = n;
     slides[current].classList.add('active');
-    inIframe = false;
-    if (frameGate) frameGate.classList.remove('open');
+    exitModel();
     render();
   }
 
@@ -796,9 +818,9 @@
     slideNum.textContent = (current + 1) + ' / ' + slides.length;
   }
 
-  // keyboard
+  // keyboard — only fires when slides (not iframe) have focus
   document.addEventListener('keydown', function(e) {
-    if (inIframe && e.key !== 'Escape') return;
+    if (inIframe) return;
     switch (e.key) {
       case 'ArrowRight': case 'ArrowDown': case ' ': case 'PageDown':
         e.preventDefault(); go(current + 1); break;
@@ -806,18 +828,20 @@
         e.preventDefault(); go(current - 1); break;
       case 'Home': e.preventDefault(); go(0); break;
       case 'End':  e.preventDefault(); go(slides.length - 1); break;
-      case 'Escape':
-        inIframe = false;
-        if (frameGate) frameGate.classList.remove('open');
-        break;
     }
   });
+
+  // floating exit button — always in the parent document, always clickable
+  if (modelExit) {
+    modelExit.addEventListener('click', exitModel);
+  }
 
   // activate iframe on click
   if (frameGate) {
     frameGate.addEventListener('click', function() {
       frameGate.classList.add('open');
       inIframe = true;
+      if (modelExit) modelExit.classList.add('visible');
       document.getElementById('model-iframe').focus();
     });
   }
