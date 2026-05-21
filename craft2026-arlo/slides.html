@@ -66,19 +66,16 @@
     .img-bg .slide-content { position: relative; z-index: 1; }
 
     .bg-motorcar-open { background-image: url('./images/motorcar-open.jpg'); }
-    .bg-motorcar-road { background-image: url('./images/motorcar-road.jpg'); }
+    .bg-motorcar-road { background-image: url('./images-fantasy/s18.jpg'); }
     .bg-brakes        { background-image: url('./images/brakes.jpg'); }
     .bg-maintenance   { background-image: url('./images/maintenance.jpg'); }
-    .bg-migration     { background-image: url('./images/migration.jpg'); }
-    .bg-developer     { background-image: url('./images/developer.jpg'); }
+    .bg-migration     { background-image: url('./images-fantasy/s22.jpg'); }
 
     /* per-slide images from main — all automotive */
     .bg-s10 { background-image: url('./images/s10.jpg'); } /* blue chrome engine bay */
-    .bg-s12 { background-image: url('./images/s12.jpg'); } /* hands gripping vintage wheel */
-    .bg-s16 { background-image: url('./images/s16.jpg'); } /* vintage gauges / dashboard */
+    .bg-s12 { background-image: url('./images-carefree/s12.jpg'); } /* juggler */
     .bg-s18 { background-image: url('./images/s18.jpg'); } /* Berliet early motorcar */
-    .bg-s26 { background-image: url('./images/s26.jpg'); } /* rusted abandoned car in field */
-    .bg-s34 { background-image: url('./images/s34.jpg'); } /* dark chrome gear shift */
+    .bg-s34 { background-image: url('./images/s26.jpg'); } /* dark chrome gear shift */
     .bg-s36 { background-image: url('./images/s36.jpg'); } /* vintage race car in motion */
     .bg-s40 { background-image: url('./images/s40.jpg'); } /* brake disc rotor */
     .bg-s42 { background-image: url('./images/s42.jpg'); } /* view from inside car, watching road */
@@ -87,7 +84,7 @@
     .bg-s54 { background-image: url('./images/s54.jpg'); } /* rally car kicking dust */
 
     /* carefree — human freedom, movement, play */
-    .bg-cf-motorcar-road { background-image: url('./images-carefree/motorcar-road.jpg'); }
+    .bg-cf-motorcar-road { background-image: url('./images-carefree/s08.jpg'); }
     .bg-cf-developer     { background-image: url('./images-carefree/developer.jpg'); }
     .bg-cf-migration     { background-image: url('./images-carefree/migration.jpg'); }
     .bg-cf-brakes        { background-image: url('./images-carefree/brakes.jpg'); }
@@ -148,9 +145,10 @@
       font-size: clamp(1rem, 1.9vw, 2rem);
       border-bottom: 1px solid var(--subtle);
     }
-    .spectrum li:first-child { color: var(--accent); }
+    .spectrum li:first-child, .spectrum li:nth-child(2) { color: var(--accent); }
     .spectrum li:last-child  { color: var(--dim); border-bottom: none; }
-    .level-num { color: var(--dim); font-size: 0.8em; text-align: right; font-weight: 300; }
+    .spectrum li strong { display: block; }
+    .level-num { color: var(--dim); font-size: 0.8em; text-align: right; font-weight: 300; display: block; margin: auto; }
 
     /* ── RECIPE STEPS ─────────────────────────────────── */
     .steps { list-style: none; text-align: left; max-width: 900px; margin: 0 auto; }
@@ -235,10 +233,6 @@
     </div>
   </section>
 
-  <!-- 03 BLANK -->
-  <section class="slide blank" id="s3"></section>
-
-
   <!-- ═══════════════════════════════════════════════════
        SECTION 1: The Motorcar
   ════════════════════════════════════════════════════ -->
@@ -251,9 +245,6 @@
     </div>
   </section>
 
-  <!-- 05 BLANK -->
-  <section class="slide blank" id="s5"></section>
-
   <!-- 06 They tracked braking -->
   <section class="slide img-bg bg-brakes" id="s6">
     <div class="overlay"></div>
@@ -261,9 +252,6 @@
       <h2>They tracked <span class="accent">braking</span> improvements.</h2>
     </div>
   </section>
-
-  <!-- 07 BLANK -->
-  <section class="slide blank" id="s7"></section>
 
   <!-- 08 What brakes really do -->
   <section class="slide img-bg bg-s36" id="s8">
@@ -275,9 +263,6 @@
       </p>
     </div>
   </section>
-
-  <!-- 09 BLANK -->
-  <section class="slide blank" id="s9"></section>
 
   <!-- 10 AI = engine / Safety = brakes -->
   <section class="slide img-bg bg-s40" id="s10">
@@ -318,9 +303,6 @@
     </div>
   </section>
 
-  <!-- 13 BLANK -->
-  <section class="slide blank" id="s13"></section>
-
   <!-- 14 Keeping the lights on -->
   <section class="slide img-bg bg-maintenance" id="s14">
     <div class="overlay"></div>
@@ -331,9 +313,6 @@
       </p>
     </div>
   </section>
-
-  <!-- 15 BLANK -->
-  <section class="slide blank" id="s15"></section>
 
   <!-- 16 The formula -->
   <section class="slide img-bg bg-s16" id="s16">
@@ -375,8 +354,8 @@
     <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.78) 100%);"></div>
     <div class="slide-content">
       <p class="big-quote">
-        Don't ask them to <em>be more careful</em>.<br><br>
-        Redesign the environment so <em>even more careless</em><br>behavior still succeeds.
+        Stop <em>being more careful</em>.<br><br>
+        Change the world.<br><br>So <em>even more careless</em><br>behavior succeeds.
       </p>
     </div>
   </section>
@@ -431,37 +410,6 @@
        MODEL SLIDES
   ════════════════════════════════════════════════════ -->
 
-  <!-- 26 Two dimensions -->
-  <section class="slide img-bg bg-s26" id="s26">
-    <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.80) 100%);"></div>
-    <div class="slide-content">
-      <div class="two-up">
-        <div>
-          <p class="kicker">dimension 1</p>
-          <h3 class="accent">Agency</h3>
-          <p style="margin-top: 1rem; color: var(--dim);">
-            Who does the work.<br>
-            Human → AI, A0–A5.
-          </p>
-        </div>
-        <div>
-          <p class="kicker">dimension 2</p>
-          <h3 class="accent">Careless Safety</h3>
-          <p style="margin-top: 1rem; color: var(--dim);">
-            How easily the environment<br>prevents mistakes. Level 0–5.
-          </p>
-        </div>
-      </div>
-      <p style="margin-top: 3.5rem; color: var(--dim); font-size: clamp(1rem, 1.8vw, 1.8rem);">
-        Most teams think they're choosing how much to delegate.<br>
-        They're choosing how much vigilance toil to generate.
-      </p>
-    </div>
-  </section>
-
-  <!-- 27 BLANK -->
-  <section class="slide blank" id="s27"></section>
-
   <!-- 28 The safety spectrum -->
   <section class="slide" id="s28">
     <div class="slide-content" style="text-align: left; max-width: 950px;">
@@ -500,9 +448,6 @@
     </div>
   </section>
 
-  <!-- 31 BLANK -->
-  <section class="slide blank" id="s31"></section>
-
   <!-- 32 The Recipe -->
   <section class="slide" id="s32">
     <div class="slide-content" style="text-align: left; max-width: 900px;">
@@ -535,9 +480,6 @@
     </div>
   </section>
 
-  <!-- 35 BLANK -->
-  <section class="slide blank" id="s35"></section>
-
   <!-- 36 MODEL (iframe) -->
   <section class="slide model-slide" id="s36">
     <div class="model-wrapper">
@@ -548,10 +490,6 @@
       </div>
     </div>
   </section>
-
-  <!-- 37 BLANK -->
-  <section class="slide blank" id="s37"></section>
-
 
   <!-- ═══════════════════════════════════════════════════
        SECTION 4: Walking the Recipe
@@ -613,7 +551,7 @@
   </section>
 
   <!-- 42 Story -->
-  <section class="slide img-bg bg-cf-migration" id="s42">
+  <section class="slide" id="s42">
     <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.85) 100%);"></div>
     <div class="slide-content">
       <p class="kicker">Universe: Goals</p>
@@ -636,7 +574,7 @@
   <!-- ── BEAT 3: Invocation timing / Oversight gap ──────── -->
 
   <!-- 44 Setup -->
-  <section class="slide img-bg bg-s42" id="s44">
+  <section class="slide" id="s44">
     <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.32) 0%, rgba(0,0,0,0.76) 100%);"></div>
     <div class="slide-content">
       <p class="kicker">Session data fetching</p>
@@ -676,7 +614,7 @@
   <!-- ── BEAT 4: Tooling (access) / Scope enforcement ───── -->
 
   <!-- 47 Setup -->
-  <section class="slide img-bg bg-cr-motorcar-road" id="s47">
+  <section class="slide" id="s47">
     <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.75) 100%);"></div>
     <div class="slide-content">
       <p class="kicker">Source control in an agentic codebase</p>
@@ -689,7 +627,7 @@
   </section>
 
   <!-- 48 Story -->
-  <section class="slide img-bg bg-s48" id="s48">
+  <section class="slide" id="s48">
     <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.42) 0%, rgba(0,0,0,0.84) 100%);"></div>
     <div class="slide-content">
       <p class="kicker">Universe: Tooling</p>
@@ -700,7 +638,6 @@
       </p>
       <p style="margin-top: 1.5rem;">
         The AI cannot violate git invariants.<br>
-        Not because it's careful —<br>
         because there's <span class="accent">nothing to route around.</span>
       </p>
     </div>
@@ -713,7 +650,7 @@
   <!-- ── BEAT 5: Tooling (operations) / Behavior change ─── -->
 
   <!-- 50 Setup -->
-  <section class="slide img-bg bg-s50" id="s50">
+  <section class="slide" id="s50">
     <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.65) 100%);"></div>
     <div class="slide-content">
       <p class="kicker">Structural refactoring in legacy code</p>
@@ -728,7 +665,7 @@
   </section>
 
   <!-- 51 Story -->
-  <section class="slide img-bg bg-cf-brakes" id="s51">
+  <section class="slide" id="s51">
     <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.75) 100%);"></div>
     <div class="slide-content">
       <p class="kicker">Universe: Tooling</p>
@@ -756,7 +693,7 @@
   <!-- ── BEAT 6: Result handling / Data loss ────────────── -->
 
   <!-- 53 Setup -->
-  <section class="slide img-bg bg-cr-maintenance" id="s53">
+  <section class="slide" id="s53">
     <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.58) 0%, rgba(0,0,0,0.88) 100%);"></div>
     <div class="slide-content">
       <p class="kicker">Database migrations</p>
@@ -773,7 +710,7 @@
   </section>
 
   <!-- 54 Story -->
-  <section class="slide img-bg bg-migration" id="s54">
+  <section class="slide" id="s54">
     <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Universe: Result handling</p>
@@ -812,11 +749,9 @@
     </div>
   </section>
 
-  <!-- 57 BLANK -->
-  <section class="slide blank" id="s57"></section>
-
   <!-- 58 Teams obsess over the engine -->
   <section class="slide img-bg bg-s10" id="s58">
+    @ai: replace this slide with one about Vigilance toil is having to worry about whether you can stop. First show the formula again, then a second slide with the main quote - stop worrying about stopping.
     <div class="overlay"></div>
     <div class="slide-content">
       <h2>Teams obsess over the <span class="accent">engine.</span></h2>
@@ -827,14 +762,11 @@
     </div>
   </section>
 
-  <!-- 59 BLANK -->
-  <section class="slide blank" id="s59"></section>
-
   <!-- 60 The exit question -->
   <section class="slide img-bg bg-s54" id="s60">
     <div class="overlay" style="background: linear-gradient(160deg, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.80) 100%);"></div>
     <div class="slide-content">
-      <h1>What are your<br><span class="accent">brakes</span><br>right now?</h1>
+      <h1>How good are your<br><span class="accent">brakes</span>?</h1>
     </div>
   </section>
 
