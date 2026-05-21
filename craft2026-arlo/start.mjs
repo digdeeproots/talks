@@ -1,19 +1,21 @@
 #!/usr/bin/env node
-'use strict';
 
 // Starts both servers and prints the slides URL.
 // Usage: node start.js
 
-const { spawn } = require('child_process');
-const http      = require('http');
-const fs        = require('fs');
-const path      = require('path');
+import { spawn }             from 'child_process';
+import http                  from 'http';
+import { readFile }          from 'fs/promises';
+import { join, extname, resolve } from 'path';
+import { fileURLToPath }     from 'url';
+
+const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
 const SLIDES_PORT = 8080;
 const MODEL_PORT  = 5292;
 
 const slidesDir = __dirname;
-const modelDir  = path.resolve(__dirname, '../../maturity-model/src');
+const modelDir  = resolve(__dirname, '../../maturity-model/src');
 
 // ── Slides static file server ──────────────────────────────────────────────
 
@@ -32,21 +34,20 @@ const MIME = {
   '.woff2': 'font/woff2',
 };
 
-http.createServer((req, res) => {
+http.createServer(async (req, res) => {
   const urlPath = req.url.split('?')[0];
   const target  = urlPath === '/' ? '/slides.html' : urlPath;
-  const file    = path.join(slidesDir, target);
+  const file    = join(slidesDir, target);
 
-  fs.readFile(file, (err, data) => {
-    if (err) {
-      res.writeHead(404, { 'Content-Type': 'text/plain' });
-      res.end('Not found: ' + target);
-      return;
-    }
-    const ext = path.extname(file).toLowerCase();
+  try {
+    const data = await readFile(file);
+    const ext  = extname(file).toLowerCase();
     res.writeHead(200, { 'Content-Type': MIME[ext] || 'application/octet-stream' });
     res.end(data);
-  });
+  } catch {
+    res.writeHead(404, { 'Content-Type': 'text/plain' });
+    res.end('Not found: ' + target);
+  }
 }).listen(SLIDES_PORT, '127.0.0.1', () => {
   console.log('');
   console.log('  http://localhost:' + SLIDES_PORT + '/slides.html');
