@@ -179,36 +179,6 @@
     }
     .story-list li:last-child { border-bottom: none; }
 
-    /* ── MODEL IFRAME ─────────────────────────────────── */
-    .slide.model-slide { padding: 0; }
-    .model-wrapper { position: relative; width: 100%; height: 100%; }
-    .model-wrapper iframe { width: 100%; height: 100%; border: none; display: block; }
-    .frame-gate {
-      position: absolute; inset: 0;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      background: rgba(0,0,0,0.6);
-      cursor: pointer;
-      transition: opacity 0.25s;
-    }
-    .frame-gate.open { opacity: 0; pointer-events: none; }
-    .frame-gate p { color: #fff; font-size: 1.3rem; background: rgba(0,0,0,0.75); padding: 0.8rem 2rem; border-radius: 0.5rem; }
-    .frame-gate small { margin-top: 0.75rem; color: var(--dim); font-size: 0.9rem; }
-
-    /* ── MODEL EXIT BUTTON ───────────────────────────────── */
-    #model-exit {
-      position: fixed; top: 1.2rem; left: 1.2rem;
-      z-index: 500;
-      background: rgba(0,0,0,0.72); color: var(--fg);
-      border: 1px solid rgba(255,255,255,0.18);
-      border-radius: 2rem;
-      padding: 0.45rem 1.1rem;
-      font-family: inherit; font-size: 0.85rem; cursor: pointer;
-      display: none; align-items: center; gap: 0.5rem;
-      transition: background 0.15s;
-    }
-    #model-exit:hover { background: rgba(255,255,255,0.12); }
-    #model-exit.visible { display: flex; }
-
     /* ── CHROME ───────────────────────────────────────── */
     #progress {
       position: fixed; bottom: 0; left: 0;
@@ -409,26 +379,6 @@
     </div>
   </section>
 
-  <!-- 30 Worries -->
-  <section class="slide img-bg bg-s34" id="s30">
-    <div class="overlay"></div>
-    <div class="slide-content">
-      <p class="kicker">The model names them</p>
-      <h2>Worries</h2>
-      <p style="margin-top: 1.5rem; color: var(--dim);">
-        The gut-check developers feel about a kind of work.<br>
-        Named for what experienced developers recognize.
-      </p>
-      <p style="margin-top: 2rem; color: var(--dim); font-size: clamp(0.85rem, 1.4vw, 1.5rem); line-height: 1.8;">
-        Capability regression &nbsp;·&nbsp; Accidental behavior change &nbsp;·&nbsp; Data loss<br>
-        Scope enforcement gap &nbsp;·&nbsp; Decision inconsistency &nbsp;·&nbsp; Oversight mechanism gap
-      </p>
-      <p style="margin-top: 2rem;">
-        The specific thing you're being careful about, <em>every time</em>.
-      </p>
-    </div>
-  </section>
-
   <!-- 32 The Recipe -->
   <section class="slide" id="s32">
     <div class="slide-content" style="text-align: left; max-width: 900px;">
@@ -458,16 +408,6 @@
       <p style="margin-top: 2rem; color: var(--dim);">
         Each is a lever.
       </p>
-    </div>
-  </section>
-
-  <!-- 36 MODEL (iframe) -->
-  <section class="slide model-slide" id="s36">
-    <div class="model-wrapper">
-      <iframe src="http://localhost:5292" title="AI Development Maturity Model" tabindex="-1" id="model-iframe"></iframe>
-      <div class="frame-gate" id="frame-gate">
-        <small>Click to explore · Escape to return to slides</small>
-      </div>
     </div>
   </section>
 
@@ -794,7 +734,6 @@
 
 </div><!-- /.deck -->
 
-<button id="model-exit" title="Back to slides">← slides</button>
 <div id="progress"></div>
 <div id="slide-num"></div>
 <div id="help-hint">← → Space</div>
@@ -803,35 +742,14 @@
   const slides    = Array.from(document.querySelectorAll('.slide'));
   const progress  = document.getElementById('progress');
   const slideNum  = document.getElementById('slide-num');
-  const frameGate = document.getElementById('frame-gate');
-  const modelExit = document.getElementById('model-exit');
 
   let current = 0;
-  let inIframe = false;
-
-  function exitModel() {
-    inIframe = false;
-    if (frameGate) frameGate.classList.remove('open');
-    if (modelExit) modelExit.classList.remove('visible');
-  }
-
-  function enterModel() {
-    if (frameGate) frameGate.classList.add('open');
-    inIframe = true;
-    if (modelExit) modelExit.classList.add('visible');
-    document.getElementById('model-iframe').focus();
-  }
 
   function go(n) {
     n = Math.max(0, Math.min(slides.length - 1, n));
     slides[current].classList.remove('active');
     current = n;
     slides[current].classList.add('active');
-    if (slides[current].classList.contains('model-slide')) {
-      enterModel();
-    } else {
-      exitModel();
-    }
     render();
   }
 
@@ -841,9 +759,7 @@
     slideNum.textContent = (current + 1) + ' / ' + slides.length;
   }
 
-  // keyboard — only fires when slides (not iframe) have focus
   document.addEventListener('keydown', function(e) {
-    if (inIframe) return;
     switch (e.key) {
       case 'ArrowRight': case 'ArrowDown': case ' ': case 'PageDown':
         e.preventDefault(); go(current + 1); break;
@@ -853,16 +769,6 @@
       case 'End':  e.preventDefault(); go(slides.length - 1); break;
     }
   });
-
-  // floating exit button — always in the parent document, always clickable
-  if (modelExit) {
-    modelExit.addEventListener('click', exitModel);
-  }
-
-  // gate click still works as a manual fallback
-  if (frameGate) {
-    frameGate.addEventListener('click', enterModel);
-  }
 
   // swipe
   let tx = 0;
