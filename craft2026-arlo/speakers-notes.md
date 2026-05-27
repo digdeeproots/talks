@@ -5,10 +5,10 @@
 
 ## How to use this file
 
-Open in a second window / monitor. Each slide is numbered to match the ID in `slides.html`.  
+Open in a second window / monitor. Each slide is numbered to match the ID in `slides.html`.
 Blank slides are listed briefly — they're intentional pause space.
 
-Navigation: `←` `→` `Space` advances. `Home` / `End` jump to start/end.  
+Navigation: `←` `→` `Space` advances. `Home` / `End` jump to start/end.
 Model iframe (s36): click to interact, `Escape` to return to deck.
 
 ---
@@ -168,6 +168,23 @@ Point at the italicized line.
 ### 25 — BLANK
 *Pivot to the model.*
 
+Stuff to add; rework around.
+
+* The cost to protect is not determined by your agent's ability. It is determined by the universe around your agent. Change thee universe and you change your vigilence toil. Change the agent and you might use fewer tokens or time to do the work, but vigilence toil is unchanged. Your agent skills are irrelevant. Which agent you use is irrelevant. Your LLM is irrelevant. All that matters is the universe around your agent - what you allow it to do and what you make it capable of doing.
+* The goal is not to make a better agent. It is to make a universe in which even crappy agents will succeed. That is carelessness engineering.
+
+General flow:
+1. Bridge (without the AI / safety stuff brakes slide?)
+2. Vigilence toil (2-factor form)
+3. 2 examples
+4. Vigilence toil (3-factor form)
+5. Upshift - walk through the above. Get to the goal. Then present the rest as "how do we achieve that goal?"
+6. Universe of levers (the solo ground / design surface for post-upshift thinking, also the rubric / model to reference in the recipe - with one probe question or concrete mechanism for each).
+7. The recipe.
+8. One worked example.
+9. Close
+
+
 ---
 
 ### 28 — Careless Safety Spectrum
@@ -218,11 +235,11 @@ Read them.
 
 Point to each element as you name it.
 
-> "Memory: what it can recall, for how long, across sessions."  
-> "Context: what information is surfaced at invocation — what it can see."  
-> "Goals: how narrowly the task is defined — what it's trying to accomplish."  
-> "Tooling: what operations are in the toolbox — and crucially, what's not."  
-> "Invocation timing: when the AI runs versus when deterministic code runs."  
+> "Memory: what it can recall, for how long, across sessions."
+> "Context: what information is surfaced at invocation — what it can see."
+> "Goals: how narrowly the task is defined — what it's trying to accomplish."
+> "Tooling: what operations are in the toolbox — and crucially, what's not."
+> "Invocation timing: when the AI runs versus when deterministic code runs."
 > "Result handling: what happens between its output and the world changing."
 
 > "Each of these is a design choice. Each can create or eliminate a zero-risk zone. Step 5 of the recipe is choosing which lever to pull."
