@@ -20,10 +20,10 @@ The new direction lives in `plan.md` — that is the source of truth for where t
 - [x] Slides rearranged toward new flow
 - [x] Plan written (`plan.md`)
 - [x] Stories gathered (`stories.md`)
-- [x] Upshift sequence designed (principle → vocabulary → recipe → AST callback → universe)
 
 ### Remaining
-- [ ] Fill in the *Carelessness is a process* diagram — now means visualizing the recipe loop (name → guardian → classify → lever)
+- [ ] Design the upshift sequence (draft in review)
+- [ ] Fill in the *Carelessness is a process* diagram (transitions + recipe per transition)
 - [ ] Fill in the *Agent's Universe* diagram (settle lever names + at least one example per lever)
 - [ ] Script the first demo (movement-based branching): exact words, exact things shown
 - [ ] Script the transcript-fetcher quick story as a semi-demo
