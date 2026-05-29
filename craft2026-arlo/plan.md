@@ -96,11 +96,14 @@ Target quality: **raw-to-internal**. Roughly right order and content. Not final 
 Concretely:
 
 - Process the embedded `@ai:` directives in slides.html (currently three: s16 brownfield-math addition, upshift placeholder block, recipe rework block).
-- Rip out concepts the plan has cut: the old 5-step Recipe, the Worry noun, the Careless Safety Spectrum walk-through as a teaching slide, the 6-beat A0–A5 model walkthrough framing.
+- Rip out concepts the plan has cut: the old 5-step Recipe, the Worry noun, the 6-beat A0–A5 model walkthrough framing.
 - Replace the recipe/model block with the two-diagram TOC structure: **Carelessness is a process** + **Agent's Universe**. Diagrams themselves stay as placeholders (real content is a later session) — but the slot and the framing must exist.
 - Reorder slides to match the plan's flow: motorcar → vigilance toil (2-factor → 3-factor) → two examples (movement-based branching demo, transcript-fetcher story) → upshift placeholder → TOC slide → audience-directed back half → close.
 - Rewrite speakers-notes.md sections to match the new deck order and the new conceptual frame. Keep speaker-notes prose workmanlike, not polished.
 - The 6 Beat slides (38–54) are currently structured around Worry/Model. They become the audience-pickable lever examples in the new back half. Reframe their notes (drop "Worry", drop level-shift narration), but keep the underlying examples — they're the material the back half draws from.
+- The Careless Safety Spectrum walk-through is part of the upshift, as are the slides currently in the upshift section.
+- Make sure slide navigation works in the new sequence.
+- Extend slide navigation to allow clidking on things in the visual TOC to jump to something, then so that next from the final slide on an example comes back to the TOC. Use a faked-up TOC with the 6 beat stories as simple cards so that we can verify navigation works.
 
 ### Out of scope for this movement
 
