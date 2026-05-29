@@ -21,35 +21,39 @@ A talk for engineers using AI (or about to). One core move: **stop being more ca
 The audience leaves with:
 - A name for what they've been paying — **vigilance toil**
 - The three-factor formula and the one factor they actually control — **cost to protect**
-- Named terms and the logic underlying iterative carelessness improvement. Also the pattern that is represented in the diagram
-- Two diagrams: the **carelessness is a process** (transitions toward carelessness) and the **Agent's Universe** (levers to pull)
-- A first step: how to get started at engineering carelessness (the first transition, the pattern).
-- The recipe for iterative carelessness improvement. Focuses on having every time using the workflow make one vigilance cost more explicit, then go away. Based heavily on automation as a process - it is basically the same, but focusing on the vigilance toil instead of the work toil.
+- Named terms and the logic underlying iterative carelessness improvement
+- Two diagrams: **Carelessness is a process** (transitions toward carelessness) and the **Agent's Universe** (levers to pull)
+- A first step: how to get started at engineering carelessness (the first transition, the pattern)
+- The recipe for iterative carelessness improvement. Every pass through the workflow makes one vigilance cost more explicit, then makes it go away. Modeled on *automation as a process* — same shape, applied to vigilance toil instead of work toil.
 
 ## What has been cut
 
 These were load-bearing in prior versions and are now out:
 
 - **The "agency" dimension (A0–A5).** No more 2D model. The talk runs on one axis: vigilance toil and the universe that produces or prevents it.
+- **The agency model entirely.** The AI agency maturity model, the other repo, and the walking of that model — all gone.
 - **"Worry" as a named concept.** The audience does not need a new noun. We talk directly about *vigilance cost* and *safety options*.
 - **The 5-step recipe with "Name the Worry" as step 2.** Replaced by the two-diagram TOC and recipes-on-demand for each transition.
 - **AI = engine / Safety = brakes as opening framing.** The brake metaphor still opens, but the "AI is the engine" frame is held back until the closing payoff, where it re-emerges as "Universe = brakes."
 - **SAS open space talk.** Already given. Not a planning concern.
-- **The agency model.** The whole ai agency maturity model, that other repo, and the walking of that model. All gone entirely.
 
 ## The new flow
 
 ### Front half: get to the TOC slide fast (15-20 min)
 
 1. **Bridge — motorcar opening.** As fast as possible. Engines didn't raise speed limits; brakes did. "Better brakes let you stop *caring* about stopping." Hold back the AI mapping.
-2. **First demo.** As fast as possible. (Candidate: movement-based branching with risk-aware commit notation — a *tooling* lever.) Show, don't yet name.
-3. **Quick story.** Just enough setup for the upshift. (Candidate: the archive-table migration — a *result-handling* lever.)
-4. **Upshift.** Lands two concepts: @ai: will be more than two. We'll design this iteratively, but details can wait until we get into this section. Let's the flow right and then refine this sequence.
-   - **Carelessness is a process** — stop asking for more care; redesign the universe so even careless behavior succeeds.
-   - **Universe levers** — the agent's universe is the design surface. (Use the "big comments" already in the speaker notes around the upshift section as the spine here.)
-5. **The TOC slide.** Two diagrams side by side, walked through quickly:
-   - **The Careless Process** — incremental transitions toward more carelessness (e.g., vigilance → probabilistic → deterministic → prevention → carefree). Each transition has a recipe. @ai: we will be refining this process incrementally later as well. The sequence isn't what you've written, but that's probably good enough as a placeholder. Mark it (and the one above) as placeholder content, for us to fill in later. And have a later step in the plan to do so.
-   - **The universe** — the levers (Memory · Reachable Context · Goals · Tooling · Invocation timing · Result handling). Each lever has examples. @ai: small but important shift here: context is not about what is in the session's context. It is about what the agent can reach. Eg, which directories do we map into its search space? Are there tools that bring in other info? What info is reachable with generic search tools (like file system grep), and what is only there if you probe for it in a specific way? This one may need a new name, but it is all about what info the agent can get to, what it will stumble across, and what it can find only by looking specifically for it. Also, Result Handling may need a more generic term. This isn't only that the agent returns some result and we run it through a tool. It also includes how we handle the commits that it made, the files it changed, the MCP tool calls it did, etc. What do we do before and after it runs? Basically, here we are controlling the work product's state, and where the agent can directly modify that state or directly modify something that it thinks is the state but which we actually transform back and forth between the real state - with checks and determinism.
+2. **First demo — movement-based branching with risk-aware commit notation.** As fast as possible. A *tooling* lever. Show, don't yet name. Live demo; needs a scripted walkthrough of exactly what to say and show.
+3. **Quick story — transcript fetcher.** Told as a semi-demo: walk through some of the transition states it went through on its way from vigilance to deterministic. A *result-handling* lever.
+4. **Upshift.** *Placeholder — to be designed in a later step.* Lands at minimum: **Carelessness is a process**; **Agent's Universe** as the design surface; iterative improvement as the move. Will likely land more than these. Spine material lives in the "big comments" already in speaker notes around the upshift section.
+5. **The TOC slide.** Two diagrams side by side, walked through quickly. Both diagrams are *placeholder content* — to be filled in by a later step in this plan.
+   - **Carelessness is a process** — incremental transitions toward more carelessness. *Placeholder transitions:* vigilance → probabilistic → deterministic → prevention → carefree. The real sequence will be refined later. Each transition has a recipe.
+   - **Agent's Universe** — the levers. Each lever has examples on demand.
+     - **Memory** — what the agent recalls, for how long, across sessions.
+     - **Reachable Context** — what info the agent can get to. Not session context — *reachability*. Which directories are in its search space, which tools surface other info, what generic search (filesystem grep) will stumble across, what is only findable by probing in a specific way. *Name may change.*
+     - **Goals** — how narrowly the task is defined.
+     - **Tooling** — what operations are in the toolbox, and what is deliberately not.
+     - **Invocation timing** — when the agent runs versus when deterministic code runs.
+     - **Work-product state control** — what happens to commits, files, MCP tool calls, and other agent outputs before and after the agent runs. Where the agent can directly modify state, and where it modifies a representation that we transform back and forth from real state with checks and determinism. *Was "Result handling" — needs a name that covers this broader scope.*
 
 ### Back half: audience-directed exploration (10-15 min)
 
@@ -58,22 +62,22 @@ The TOC slide is a visual menu. Audience picks; I present.
 - **Pick a transition** → I present a recipe, maybe with an example.
 - **Pick a lever** → I present an example. Probably no recipe.
 
-Keep cycling until time pressure or a natural break. Then open to general Q&A. The audience will likely keep exploring in Q&A style anyway.
+Keep cycling. At a natural break, insert the closing sequence (see Close), then return to the TOC slide — now augmented with an *other questions* entry — for general Q&A. The audience will likely keep exploring in the same style.
 
 ### Close
 
-Universe = brakes. "Better brakes let you stop caring about stopping." Exit question: *which part of your AI's universe hasn't been designed yet?*
+Four-slide closing sequence (already working in current slides.html): synthesis → formula callback → AI/Universe = engine/brakes → "Better brakes let you stop *caring* about stopping."
 
-@ai: this includes all 4 slides in the closing sequence. That sequence seems to work well. So we'll probably insert it at some point in the TOC review, then come back to the TOC (with an extra "other questions" thing) for Q&A
+Insert this sequence into the audience-directed exploration at a natural moment, not as a final block. After the close, return to the TOC slide (with *other questions* added) for Q&A.
+
+Exit question: *which part of your AI's universe hasn't been designed yet?*
 
 ## Open questions
 
 These shape the plan but are not yet decided.
 
-- **First demo choice.** Movement-based branching is the leading candidate. Confirm it lands the *tooling* lever cleanly enough to be the only example before the upshift. @ai: confirmed
-- **Quick story choice.** Archive-table migration is the leading candidate. Could also be the transcript fetcher. @ai: transcript fetcher. As semi-demo story (story showing some of the transition states it went through).
-- **The two TOC diagrams.** Both need a clean visual form. The careless-process diagram is new — the transitions and recipes have not been laid out yet.
-- **Time risk.** 15-20 min to the TOC is tight if the demo is live. Need a fallback (recorded or staged) for when something goes wrong. @ai: I'm comfortable with a live demo. We just need to script out what I'm going to say and show.
+- **The two TOC diagrams.** Both need a clean visual form. Transition sequence and lever rubric have not been laid out yet. Planned as a later step in this plan.
+- **Lever names.** *Reachable Context* and *Work-product state control* are working names. May want shorter / sharper labels.
 - **What survives from v1.** craft2026-arlo-v1/ has older stories (migration, git, coaching workflow). Most have made it forward. Worth a sweep to confirm nothing useful was left behind.
 
 ## Doing this work
@@ -86,13 +90,23 @@ Plan-shaping and cleanup happen together in this session. The two are coupled �
 2. **Trim the other docs to match.** topic.md, core-insight.md, status.md — keep only what aligns with the new direction. Delete the rest as if it had never been there.
 3. **Leave slides.html and speakers-notes.md messy.** They get reworked in later sessions, using this plan and the same iterate pattern.
 
+### Later sessions (out of scope here, but tracked)
+
+- Design the **upshift** sequence in detail (what concepts land in what order).
+- Fill in the **Carelessness is a process** diagram: real transition sequence + a recipe per transition.
+- Fill in the **Agent's Universe** diagram: settle the lever names + at least one example per lever.
+- Script the **first demo** (movement-based branching): exact words, exact things shown.
+- Script the **transcript-fetcher story** as a semi-demo: which transition states to show.
+- Sweep craft2026-arlo-v1/ for anything useful that was left behind.
+- Rework slides.html and speakers-notes.md to match this plan.
+
 ### Out of scope for this session
 
 - Rewriting slides.html
 - Rewriting speakers-notes.md
 - Final-quality prose on any doc
-- Detailed design of the two TOC diagrams
-- Choosing among the demo / story candidates
+- Detailed design of the two TOC diagrams (tracked in *Later sessions*)
+- Detailed upshift sequence (tracked in *Later sessions*)
 
 ## Status
 
