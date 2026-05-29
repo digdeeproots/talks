@@ -78,7 +78,6 @@ These shape the plan but are not yet decided.
 
 - **The two TOC diagrams.** Both need a clean visual form. Transition sequence and lever rubric have not been laid out yet. Planned as a later step in this plan.
 - **Lever names.** *Reachable Context* and *Work-product state control* are working names. May want shorter / sharper labels.
-- **What survives from v1.** craft2026-arlo-v1/ has older stories (migration, git, coaching workflow). Most have made it forward. Worth a sweep to confirm nothing useful was left behind.
 
 ## Doing this work
 
@@ -97,7 +96,6 @@ Plan-shaping and cleanup happen together in this session. The two are coupled �
 - Fill in the **Agent's Universe** diagram: settle the lever names + at least one example per lever.
 - Script the **first demo** (movement-based branching): exact words, exact things shown.
 - Script the **transcript-fetcher story** as a semi-demo: which transition states to show.
-- Sweep craft2026-arlo-v1/ for anything useful that was left behind.
 - Rework slides.html and speakers-notes.md to match this plan.
 
 ### Out of scope for this session
@@ -113,8 +111,9 @@ Plan-shaping and cleanup happen together in this session. The two are coupled �
 | Doc | Aligned with plan? | Action |
 |-----|--------------------|--------|
 | plan.md (this) | — | Iterate to internal quality |
-| topic.md | No — A0–A5, Worry, old recipe | Trim to align |
-| core-insight.md | No — Worries, agency axis | Trim to align |
-| status.md | No — references 2D model, SAS | Trim to align |
+| topic.md | Yes — trimmed | — |
+| core-insight.md | Yes — trimmed; formula now 2→3 factor | — |
+| status.md | Yes — trimmed | — |
+| stories.md | Yes — new, gathers all story detail | — |
 | speakers-notes.md | Partial | Leave messy this session |
 | slides.html | Partial | Leave messy this session |
