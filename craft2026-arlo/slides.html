@@ -148,20 +148,6 @@
     .spectrum li strong { display: block; }
     .level-num { color: var(--dim); font-size: 0.8em; text-align: right; font-weight: 300; display: block; margin: auto; }
 
-    /* ── RECIPE STEPS ─────────────────────────────────── */
-    .steps { list-style: none; text-align: left; max-width: 900px; margin: 0 auto; }
-    .steps li {
-      display: grid;
-      grid-template-columns: 1.5rem 1fr;
-      gap: 1.5rem;
-      align-items: baseline;
-      padding: 0.7rem 0;
-      font-size: clamp(1rem, 1.9vw, 2rem);
-      border-bottom: 1px solid var(--subtle);
-    }
-    .steps li:last-child { border-bottom: none; }
-    .step-num { color: var(--accent); font-weight: 700; font-size: 0.85em; }
-
     /* ── TOC HUB ──────────────────────────────────────── */
     .toc-grid {
       display: grid;
@@ -425,21 +411,6 @@
       <p style="margin-top: 2rem; color: var(--dim);">
         Each is a lever.
       </p>
-    </div>
-  </section>
-
-  @ai: this recipe will need to change to align with the new approach. No model, no Worry concept. Just direct focus on vigilance cost, safety option, universe lever. Something to help them invent / think of which universe lever they could use to get a category of safety improvement. Perhaps I'll actually need several recipes for different level shifts? An incremental approach, where you go from vigilance to probabilistic that generates categories, to specific techniques to eliminate categories. Yeah, that pattern is a good one to provide, probably as several steps. So a diagram: carelessness is a process. Show the overall flow, name some of the transition steps, mention that I have recipes for each, but keep them out of the main talk flow - they can be another thing that the audience chooses to explore. So end up with 2 diagrams: universe levers (hear a worked example) and careless process (walk a recipe). Both available for follow-up post-talk as well as in Q&A, etc.
-  <!-- 32 The Recipe -->
-  <section class="slide" id="s32">
-    <div class="slide-content" style="text-align: left; max-width: 900px;">
-      <p class="kicker" style="margin-bottom: 2rem; text-align: center;">The Recipe</p>
-      <ol class="steps">
-        <li><span class="step-num">1</span><span>Identify an important kind of work</span></li>
-        <li><span class="step-num">2</span><span>Name our highest vigilance cost (Worry)</span></li>
-        <li><span class="step-num">3</span><span>Look at the Worry. What is our safety level?</span></li>
-        <li><span class="step-num">4</span><span>Look at safety options that could reach level 4 or 5</span></li>
-        <li><span class="step-num">5</span><span>Craft the AI's universe to implement the chosen option</span></li>
-      </ol>
     </div>
   </section>
 
