@@ -140,38 +140,6 @@ Semi-demo script is out of scope for this movement.
 
 ---
 
-### 20 — Careless design principle
-
-Read it slow. Both halves matter.
-
-> "Stop being more careful. Change the world. Make even more careless behavior succeed."
-
-> "This applies to humans. It applies to AI. It's the same principle. And it points at something specific: the environment. The world the implementor lives in."
-
-> "So what is the AI's world? What can we actually redesign?"
-
-Let that question hang. Then:
-
-> "Let me show you two examples before we name the model."
-
----
-
-### 22 — Tooling: AST refactoring tools
-
-> "You've probably used these. Rename-with-all-references. Extract method with behavioral safety guarantees."
-
-> "Within that tool's scope — within what it can do — there is zero risk of accidentally changing behavior. You can be *completely careless* about that class of mistake. The tool handles it."
-
-> "You can still be wrong about the design. That's a different domain. But execution correctness in that scope? Zero vigilance required."
-
-Point at the italicized line at the bottom.
-
-> "That cost is gone. Not reduced. Gone. Within that scope."
-
-> "The tool is part of the developer's world. Whoever designed that tool made carelessness safe — by choosing what to put in the toolbox."
-
----
-
 ### 24 — Result handling: Archive table
 
 > "We were using Minions — our AI orchestration system — to generate database migrations. And it made a small mistake that caused data loss."
@@ -180,49 +148,141 @@ Point at the italicized line at the bottom.
 
 > "Instead: we added an archive table. Before any migration runs, every pre-migration row is preserved and restorable. The AI can now be careless about data loss — the environment is careful so we don't have to be."
 
-> "That's what I mean by redesigning the world around the AI."
-
 Point at the italicized line.
 
 > "That cost is gone."
 
-> "The archive table is what happens *after* the AI acts, before the action has irreversible effects. That's a different part of the world than the toolbox. Let's call it result handling."
+---
+
+### 25 — The third factor
+
+The formula returns, with a new term: **cost to protect**.
+
+> "Three times today, you watched someone push cost-to-protect toward zero in some scope. Movement-based branching. The transcript fetcher. The archive table."
+
+> "Throughput we don't get to lower — that's the whole point of using AI. Amount to protect is what we're trying to grow — that's the business. But cost to protect? *That* we engineer. That's the factor we actually control."
+
+Then pivot:
+
+> "So what would it look like if cost to protect were the design problem?"
 
 ---
 
-### 25 — BLANK
-*Pivot to the model.*
+## Upshift
 
-Stuff to add; rework around.
-
-* The cost to protect is not determined by your agent's ability. It is determined by the universe around your agent. Change thee universe and you change your vigilence toil. Change the agent and you might use fewer tokens or time to do the work, but vigilence toil is unchanged. Your agent skills are irrelevant. Which agent you use is irrelevant. Your LLM is irrelevant. All that matters is the universe around your agent - what you allow it to do and what you make it capable of doing.
-* The goal is not to make a better agent. It is to make a universe in which even crappy agents will succeed. That is carelessness engineering.
-
-General flow:
-1. Bridge (without the AI / safety stuff brakes slide?)
-2. Vigilance toil (2-factor form)
-3. 2 examples: demo movement-based branching (risk notation), and either demo of transcript download & analysis or story tell about archive table.
-4. Vigilance toil (3-factor form)
-5. Upshift - walk through the learning sequence. Get to the goal (carelessness). Then present the rest as "how do we achieve that goal?"
-6. Universe of levers (the solo ground / design surface for post-upshift thinking, also the rubric / model to reference in the recipe - with one probe question or concrete mechanism for each).
-7. The recipe.
-8. audience-guided stories / examples: pick a lever, get a story. Or pick a process stage, get a recipe.
-9. Close
-
+The job of this block: rise to the big idea (carelessness as the goal), state how (the recipe), survey the design surface (the universe). Order: principle → vocabulary → recipe → AST callback → universe.
 
 ---
 
-### 28 — Careless Safety Spectrum
+### 20 — The big idea
+
+Read it slow. Both halves matter.
+
+> "Stop being more careful. Change the world. Make even more careless behavior succeed."
+
+> "That's the goal. Not a better agent. A world where even a careless agent succeeds."
+
+Pause.
+
+> "Which agent you use, which LLM, how good your prompts are — none of that changes the vigilance you carry. The universe around the agent does. That's where the engineering work is."
+
+Then set up what comes next:
+
+> "If carelessness is the goal, two questions follow. How carelessly? And how do we get there?"
+
+---
+
+### 28 — Sets of safety
+
+This is vocabulary, not a ladder. The audience needs names for the safety levels so the recipe has something to talk about.
 
 Walk through briefly. Don't read them all.
 
-> "Level 5: the right action is the easy action. The wrong action is structurally hard to attempt."
+> "Level 5: the right action is the easy action. The wrong action is structurally hard."
+> "Level 4: mistakes can't propagate past the originator."
+> "Level 3: known classes are caught reliably. Gaps are predictable."
+> "Level 2: probabilistic. Sometimes caught. Gaps are not predictable."
+> "Level 1: vigilance. Caught only if a human is paying attention."
+> "Level 0: hope."
 
-> "Level 4: mistakes can't propagate. The type system, the enforced workflow — it catches the class of mistake before anyone else sees it."
+Then the part most people miss:
 
-> "Levels 4 and 5 are the only ones that reach zero vigilance within their scope. Everything below still requires a human to watch."
+> "These aren't rungs you climb in order. One project lives at many of these levels at once — different domain, different rung. Refactoring might be at Level 4 because your tools enforce it. Data migration might be at Level 0 because no one wrote the archive table yet."
 
-> "Level 0: hope. It's free, but it's not cheap."
+> "And going up isn't always the move. Sometimes you choose to drop a domain to a lower level because a higher one isn't worth the engineering. The vocabulary just lets you say where you are and where you're going — per domain, deliberately."
+
+> "Adding AI typically drops the level of multiple domains at once. The math from earlier slide is what makes that expensive."
+
+---
+
+### 27 — The recipe
+
+This is the new climax of the upshift. The meta-pattern for engineering carelessness. Walk all four steps.
+
+> "Here's the move. Same shape every time."
+
+**Step 1 — Name the vigilance.**
+
+> "What are you watching for? Not 'is the work good' — what *specifically* keeps making you check? Decision inconsistency. Format drift. Data loss. Name it precisely."
+
+**Step 2 — Build a guardian.**
+
+> "Now build an AI check that watches for some of what you've been watching for. Not all of it. Some of it. The first one is always cheap and partial."
+
+**Step 3 — Read its output as signal, not verdict.**
+
+This is the step everyone gets wrong. Slow down.
+
+> "Here's the trap. People treat the guardian as if its pass means 'work is good' and its fail means 'work is bad.' That's the wrong frame. The guardian isn't grading the work. It's revealing the structure of what you've been worrying about."
+
+> "Every guardian output classifies what was checked into one of three buckets. Things it caught — those are now visible. Things it missed — you only learn this when something gets through; those are the next guardian's job. Things it verified safe — those are now a *class* you can lock down."
+
+> "The guardian's real product isn't a pass/fail. It's a classification of your vigilance into addressable buckets."
+
+**Step 4 — Lock one class in with a universe lever.**
+
+> "Pick the bucket you understand best. Then change the universe so that whole class is structurally addressed — at whatever safety level makes sense for it. Some classes you push to Level 5. Some only to Level 3. The recipe doesn't say 'go all the way.' It says 'go one level, on one class, deliberately.'"
+
+> "Now the vigilance that class produced is gone. Permanently. Your guardian gets cheaper because it has less to do. You go around again."
+
+Pause.
+
+> "This is what carelessness engineering looks like in practice. Loop the recipe. Each pass: name one cost, build the guardian, classify, lock in. The talk so far has been three passes of this loop, told as finished stories."
+
+---
+
+### 22 — You've already done this
+
+Callback. Quick.
+
+> "You've already done step 4 — for yourselves. AST refactoring tools."
+
+> "Within that tool's scope, there's zero risk of accidentally changing behavior. The recipe ran. Someone named the vigilance — 'did my rename break something?' — built guardians, classified the failures, then locked behavioral safety in with a universe lever called the AST."
+
+> "That cost is gone. For you. The talk is about doing the same thing for the AI."
+
+---
+
+### 34 — The agent's universe
+
+This slide answers "where are the levers?" — the implications of step 4.
+
+> "Step 4 says: lock the class in with a universe lever. So what are the levers?"
+
+Point to each element as you name it.
+
+> "Memory: what the agent recalls — within a session, across sessions, between projects."
+> "Context: what information is reachable — what its search, its tools, its directory layout surface."
+> "Goals: how narrowly the task is defined."
+> "Tooling: what operations are in the toolbox — and what is deliberately not."
+> "Invocation timing: when the agent runs versus when deterministic code runs."
+> "Result handling: what happens to outputs before the world changes."
+
+> "Each is a design choice. Each is a place you can push to address a class."
+
+Hand off to the TOC:
+
+> "We've got the goal, the vocabulary, the recipe, and the levers. Now let's walk a few. Pick where to start."
 
 ---
 
@@ -244,25 +304,6 @@ Cards (placeholder; real two-diagram TOC lands in a later session):
 Click a card to enter that sequence. After the sequence's last slide, next-key returns here automatically. Press `T` from anywhere to summon the TOC.
 
 Insert the closing sequence at a natural break — not necessarily after all six beats.
-
----
-
-### 34 — Universe as design surface
-
-> "The agent's universe. Everything it perceives and can act on."
-
-Point to each element as you name it.
-
-> "Memory: what it can recall, for how long, across sessions."
-> "Context: what information is surfaced at invocation — what it can see."
-> "Goals: how narrowly the task is defined — what it's trying to accomplish."
-> "Tooling: what operations are in the toolbox — and crucially, what's not."
-> "Invocation timing: when the AI runs versus when deterministic code runs."
-> "Result handling: what happens between its output and the world changing."
-
-> "Each of these is a design choice. Each can create or eliminate a zero-risk zone."
-
-Then hand off to the TOC: "Let's walk a few. Pick where to start."
 
 ---
 

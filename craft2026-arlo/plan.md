@@ -44,7 +44,7 @@ These were load-bearing in prior versions and are now out:
 1. **Bridge — motorcar opening.** As fast as possible. Engines didn't raise speed limits; brakes did. "Better brakes let you stop *caring* about stopping." Hold back the AI mapping.
 2. **First demo — movement-based branching with risk-aware commit notation.** As fast as possible. A *tooling* lever. Show, don't yet name. Live demo; needs a scripted walkthrough of exactly what to say and show.
 3. **Quick story — transcript fetcher.** Told as a semi-demo: walk through some of the transition states it went through on its way from vigilance to deterministic. A *result-handling* lever.
-4. **Upshift.** *Placeholder — to be designed in a later step.* Lands at minimum: **Carelessness is a process**; **Agent's Universe** as the design surface; iterative improvement as the move. Will likely land more than these. Spine material lives in the "big comments" already in speaker notes around the upshift section.
+4. **Upshift.** Rise to the big idea (carelessness as goal), then the recipe (how), then the universe (where the levers live). Order: principle (s20) → safety vocabulary (s28) → recipe (s27, new) → AST callback (s22) → universe (s34). The recipe is the meta-pattern: name the vigilance → build a guardian → read its output as signal (classifies into caught / missed / verified-safe) → lock one class in with a universe lever at a chosen safety level.
 5. **The TOC slide.** Two diagrams side by side, walked through quickly. Both diagrams are *placeholder content* — to be filled in by a later step in this plan.
    - **Carelessness is a process** — incremental transitions toward more carelessness. *Placeholder transitions:* vigilance → probabilistic → deterministic → prevention → carefree. The real sequence will be refined later. Each transition has a recipe.
    - **Agent's Universe** — the levers. Each lever has examples on demand.
@@ -114,8 +114,7 @@ Concretely:
 
 ### Later sessions (tracked)
 
-- Design the **upshift** sequence in detail.
-- Fill in the **Carelessness is a process** diagram.
+- Fill in the **Carelessness is a process** diagram. (Now means: visualize the recipe loop — name → guardian → classify → lever — not transitions along the spectrum.)
 - Fill in the **Agent's Universe** diagram.
 - Script the **first demo** (movement-based branching).
 - Script the **transcript-fetcher story** as a semi-demo.
@@ -135,7 +134,7 @@ Concretely:
 
 ## Current deck state (post-restructure)
 
-**Front half** (linear nav): s1, s2 → motorcar s4, s6, s8, s11 → vigilance 2-factor s12, s14, s16, s18, s19 → MBB demo placeholder **s21** → transcript-fetcher placeholder **s23** → archive table s24 → 3-factor formula s25 → upshift block (s22 AST, s28 spectrum, s20 principle, s34 universe) → TOC hub **s33**.
+**Front half** (linear nav): s1, s2 → motorcar s4, s6, s8, s11 → vigilance 2-factor s12, s14, s16, s18, s19 → MBB demo placeholder **s21** → transcript-fetcher placeholder **s23** → archive table s24 → 3-factor formula s25 → upshift (s20 principle, s28 safety vocabulary, **s27 recipe**, s22 AST callback, s34 universe) → TOC hub **s33**.
 
 **Back half** (audience-directed): TOC has 7 cards — 6 beat examples (Memory s38–s39, Goals s41–s42, Invocation timing s44–s45, Tooling s47–s48, Tooling-ops s50–s51, Result handling s53–s54) plus Synthesis/Closing (s56, s58, s10, s60). Last content slide of every sequence carries `data-return-to-toc`. T-key summons the TOC. Forward keys are disabled on the TOC; only card-clicks advance.
 

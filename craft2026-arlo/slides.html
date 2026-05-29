@@ -396,43 +396,13 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════════
-       UPSHIFT — placeholder block
-       Spectrum + Careless principle + Universe stand in for the real
-       upshift sequence (later session: name experiences → theory →
-       big idea → full universe).
+       UPSHIFT
+       Rise to the big idea (carelessness) → state how (recipe) →
+       survey the full design surface (universe).
+       Order: principle → safety vocabulary → recipe → AST callback → universe.
   ════════════════════════════════════════════════════ -->
 
-  <!-- 22 Named experience: AST refactoring (human-side tooling lever) -->
-  <section class="slide img-bg bg-cf-developer" id="s22">
-    <div class="overlay"></div>
-    <div class="slide-content">
-      <p class="kicker">Tooling</p>
-      <h2>AST refactoring tools</h2>
-      <p style="margin-top: 1.5rem;">
-        Within scope: <span class="accent">zero risk</span> of behavior change.
-      </p>
-      <p style="margin-top: 2rem; font-style: italic; text-decoration: line-through; color: var(--dim);">
-        Vigilance cost: "Did my refactor accidentally change behavior?"
-      </p>
-    </div>
-  </section>
-
-  <!-- 28 The safety spectrum -->
-  <section class="slide" id="s28">
-    <div class="slide-content" style="text-align: left; max-width: 950px;">
-      <p class="kicker" style="margin-bottom: 2rem; text-align: center;">Careless Safety Spectrum</p>
-      <ul class="spectrum">
-        <li><span class="level-num">5</span><span><strong>Carefree</strong> Right action is easy. Wrong action is structurally hard.</span></li>
-        <li><span class="level-num">4</span><span><strong>Prevention</strong> Mistakes can't propagate past the originator</span></li>
-        <li><span class="level-num">3</span><span><strong>Deterministic</strong> Known classes caught reliably; predictable gaps</span></li>
-        <li><span class="level-num">2</span><span><strong>Probabilistic</strong> Sometimes caught; unpredictable gaps</span></li>
-        <li><span class="level-num">1</span><span><strong>Vigilance</strong> Caught only when someone is paying attention</span></li>
-        <li><span class="level-num">0</span><span><strong>Hope</strong> No mechanism. Errors propagate undetected.</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- 20 Careless design principle -->
+  <!-- 20 Big idea: carelessness as the goal -->
   <section class="slide img-bg bg-cf-motorcar-road" id="s20">
     <div class="overlay"></div>
     <div class="slide-content">
@@ -444,17 +414,80 @@
     </div>
   </section>
 
-  <!-- 34 Universe as design surface — step 5 lives here -->
+  <!-- 28 Safety vocabulary — naming sets of safety, not a ladder -->
+  <section class="slide" id="s28">
+    <div class="slide-content" style="text-align: left; max-width: 950px;">
+      <p class="kicker" style="margin-bottom: 0.4rem; text-align: center;">Sets of safety</p>
+      <p class="dim" style="margin-bottom: 1.8rem; text-align: center; font-size: clamp(0.9rem, 1.4vw, 1.4rem);">
+        Each level: how much vigilance, of what kind.
+      </p>
+      <ul class="spectrum">
+        <li><span class="level-num">5</span><span><strong>Carefree</strong> Right action is easy. Wrong action is structurally hard.</span></li>
+        <li><span class="level-num">4</span><span><strong>Prevention</strong> Mistakes can't propagate past the originator.</span></li>
+        <li><span class="level-num">3</span><span><strong>Deterministic</strong> Known classes caught reliably; predictable gaps.</span></li>
+        <li><span class="level-num">2</span><span><strong>Probabilistic</strong> Sometimes caught; unpredictable gaps.</span></li>
+        <li><span class="level-num">1</span><span><strong>Vigilance</strong> Caught only when someone is paying attention.</span></li>
+        <li><span class="level-num">0</span><span><strong>Hope</strong> No mechanism. Errors propagate undetected.</span></li>
+      </ul>
+      <p class="dim" style="margin-top: 1.4rem; text-align: center; font-size: clamp(0.85rem, 1.3vw, 1.3rem); font-style: italic;">
+        One project lives at many levels at once — different domain, different rung.<br>
+        Adding AI can drop a domain a level. The vocabulary lets you say so.
+      </p>
+    </div>
+  </section>
+
+  <!-- 27 The recipe — meta-pattern for engineering carelessness -->
+  <section class="slide" id="s27">
+    <div class="slide-content">
+      <p class="kicker">The recipe</p>
+      <h2>Engineering <span class="accent">carelessness</span></h2>
+      <ol style="text-align: left; max-width: 900px; margin: 2.5rem auto 0; padding-left: 2.5rem; font-size: clamp(1rem, 1.9vw, 2rem); line-height: 1.45;">
+        <li style="margin-bottom: 1.2rem;">
+          <strong>Name the vigilance.</strong>
+          <span class="dim"> What are you watching for?</span>
+        </li>
+        <li style="margin-bottom: 1.2rem;">
+          <strong>Build a guardian.</strong>
+          <span class="dim"> An AI check for some of it.</span>
+        </li>
+        <li style="margin-bottom: 1.2rem;">
+          <strong>Read its output as signal, not verdict.</strong>
+          <span class="dim"> Pass and fail both classify what was checked: caught, missed, or verified-safe.</span>
+        </li>
+        <li>
+          <strong>Lock one class in with a <span class="accent">universe lever</span></strong>
+          <span class="dim"> at a chosen safety level.</span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 22 AST refactoring — human-side callback: you've done step 4 for yourselves -->
+  <section class="slide img-bg bg-cf-developer" id="s22">
+    <div class="overlay"></div>
+    <div class="slide-content">
+      <p class="kicker">You've already done this — for yourselves</p>
+      <h2>AST refactoring tools</h2>
+      <p style="margin-top: 1.5rem;">
+        Within scope: <span class="accent">zero risk</span> of behavior change.
+      </p>
+      <p style="margin-top: 2rem; font-style: italic; text-decoration: line-through; color: var(--dim);">
+        Vigilance cost: "Did my refactor accidentally change behavior?"
+      </p>
+    </div>
+  </section>
+
+  <!-- 34 Agent's Universe — implications of step 4: where the levers live -->
   <section class="slide img-bg bg-cr-developer" id="s34">
     <div class="overlay"></div>
     <div class="slide-content">
-      <p class="kicker">Step 5: change the universe</p>
+      <p class="kicker">Where the levers live</p>
       <h2>The agent's <span class="accent">universe</span></h2>
       <p style="margin-top: 3rem; font-size: clamp(1rem, 1.8vw, 2rem); letter-spacing: 0.03em;">
         Memory &nbsp;·&nbsp; Context &nbsp;·&nbsp; Goals &nbsp;·&nbsp; Tooling &nbsp;·&nbsp; Invocation timing &nbsp;·&nbsp; Result handling
       </p>
       <p style="margin-top: 2rem; color: var(--dim);">
-        Each is a lever.
+        Step 4's design surface.
       </p>
     </div>
   </section>
