@@ -70,8 +70,6 @@ Four-slide closing sequence (already working in current slides.html): synthesis 
 
 Insert this sequence into the audience-directed exploration at a natural moment, not as a final block. After the close, return to the TOC slide (with *other questions* added) for Q&A.
 
-Exit question: *which part of your AI's universe hasn't been designed yet?*
-
 ## Open questions
 
 These shape the plan but are not yet decided.

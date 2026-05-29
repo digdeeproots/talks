@@ -452,10 +452,6 @@ Pause. Let it land.
 
 After the closing sequence's last slide (s60), next-key returns to the TOC. Use the TOC as the Q&A backdrop — audience can keep picking levers, or ask open questions.
 
-Exit question for open discussion:
-
-> "Which part of your AI's universe hasn't been designed yet?"
-
 **Backup Q&A questions:**
 
 1. For someone in full "keep the lights on" mode, no AI — where do they start? Smallest brake investment, most vigilance freed.
