@@ -236,7 +236,9 @@ Point to each element as you name it.
 > "Invocation timing: when the AI runs versus when deterministic code runs."
 > "Result handling: what happens between its output and the world changing."
 
-> "Each of these is a design choice. Each can create or eliminate a zero-risk zone. Step 5 of the recipe is choosing which lever to pull."
+> "Each of these is a design choice. Each can create or eliminate a zero-risk zone."
+
+Then hand off to the TOC: "Let's walk a few. Pick where to start."
 
 ---
 
