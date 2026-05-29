@@ -75,7 +75,8 @@ Insert this sequence into the audience-directed exploration at a natural moment,
 These shape the plan but are not yet decided.
 
 - **The two TOC diagrams.** Both need a clean visual form. Transition sequence and lever rubric have not been laid out yet. Planned as a later step in this plan.
-- **Lever names.** *Reachable Context* and *Work-product state control* are working names. May want shorter / sharper labels.
+- **Lever names.** Plan calls them *Reachable Context* and *Work-product state control*; current slides use the shorter *Context* and *Result handling*. Pick canonical names and propagate to both.
+- **Synthesis card placement.** Closing sequence is currently a 7th TOC card. Plan originally said insert the close "at a natural moment, not as a final block" — does card-on-TOC satisfy that, or do we want a different trigger?
 
 ## Doing this work
 
@@ -85,7 +86,8 @@ Plan-shaping and cleanup happen together in this session. The two are coupled �
 
 1. **Iterate this plan to clarity.** This file is the source of truth for direction. *(done)*
 2. **Trim the other docs to match.** topic.md, core-insight.md, status.md, stories.md. *(done)*
-3. **Restructure slides.html and speakers-notes.md** to match this plan. *(this movement)*
+3. **Restructure slides.html and speakers-notes.md** to match this plan. *(done)*
+4. **Next movement(s):** any of the "Later sessions" items below.
 
 ### What "restructure" means for this movement
 
@@ -129,5 +131,21 @@ Concretely:
 | core-insight.md | Yes, trimmed; formula now 2→3 factor | — |
 | status.md | Yes, trimmed | — |
 | stories.md | Yes, new, gathers all story detail | — |
-| speakers-notes.md | No | **Restructure this movement** |
-| slides.html | Partial | **Restructure this movement** |
+| speakers-notes.md | Yes, structurally aligned | Prose pass later |
+| slides.html | Yes, structurally aligned | Diagram fill + demo scripts later |
+
+## Current deck state (post-restructure)
+
+**Front half** (linear nav): s1, s2 → motorcar s4, s6, s8, s11 → vigilance 2-factor s12, s14, s16, s18, s19 → MBB demo placeholder **s21** → transcript-fetcher placeholder **s23** → archive table s24 → 3-factor formula s25 → upshift block (s22 AST, s28 spectrum, s20 principle, s34 universe) → TOC hub **s33**.
+
+**Back half** (audience-directed): TOC has 7 cards — 6 beat examples (Memory s38–s39, Goals s41–s42, Invocation timing s44–s45, Tooling s47–s48, Tooling-ops s50–s51, Result handling s53–s54) plus Synthesis/Closing (s56, s58, s10, s60). Last content slide of every sequence carries `data-return-to-toc`. T-key summons the TOC. Forward keys are disabled on the TOC; only card-clicks advance.
+
+**Placeholders standing in for later-session work:**
+- TOC cards are simple beat titles; real two-diagram TOC (Carelessness is a process + Agent's Universe) is later.
+- s21 (MBB demo) and s23 (transcript-fetcher) are scaffolds; demo scripts are later.
+- Upshift block (s22, s28, s20, s34) is the placeholder upshift; real upshift sequence is later.
+
+**Terminology baked into deck + notes this movement:**
+- "Vigilance cost:" replaced "The Worry:" on all beat setups and the upshift's strike-through callouts.
+- "Universe lever:" replaces "Universe aspect:" in beat speaker notes.
+- A0–A5 level-shift narration ("Level 1 → 4", "Started at level 1", "Currently at level 1") is removed from beat narration. The Spectrum slide (s28) still names the levels as reference.
