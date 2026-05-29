@@ -66,7 +66,9 @@ Works the same for human developers using AST-aware refactoring tools. The lever
 
 ---
 
-## Invocation timing — Transcript fetcher *(quick story, told as semi-demo)*
+## Invocation timing + Work-product state control — Transcript fetcher *(quick story, told as semi-demo)*
+
+*This story pulls **two** levers, not one. Sequencing and when-Claude-runs are **invocation timing** moves. The schema and validation routing — controlling the shape of the analysis itself and what happens when the result doesn't conform — is **work-product state control**. Useful in the talk to show that a single workflow can be improved one lever at a time, on different levers, in sequence.*
 
 *Vigilance cost: "Did the AI keep going past the point where I should have been consulted? Did it fetch the wrong transcript and proceed to build a lesson plan on it — while I'm assuming it got the right one?"*
 
@@ -77,10 +79,10 @@ A daily coaching workflow: pull transcripts from Fireflies, do lesson planning, 
 **Show the transition states.** This is told as a semi-demo so the audience sees the path, not just the destination.
 
 1. **Start: workflow file + vigilance.** Tell Claude to read the file and follow it. Watch every output. Full vigilance burden.
-2. **Extract sequencing into deterministic code.** Claude can't clear its own context or exit itself. Claude wrote a script — `do-today` — that assesses the current state, decides what step is needed next, does deterministic processing, launches Claude, catches the result, and quits. Run again for the next step. Sequencing is no longer in Claude's hands.
-3. **Replace probabilistic fetch with deterministic.** Transcript fetching started via the Fireflies MCP server (probabilistic — the AI sometimes got it wrong). Now a fully debugged deterministic fetcher gets the right transcript for the right day and team. On success: Claude is never invoked, doesn't even know a fetch happened. On failure — wrong date, ambiguous session, network error — Claude is called with the specific failure as context.
-4. **Lock down the analysis schema.** Claude initially wrote transcript analyses as unstructured markdown. That looseness was useful — it let us discover what information actually mattered and who would consume it — but it required vigilance. Irrelevant stuff slipped in and confused later Claude calls. Important things sometimes went missing. Once the shape stabilized, we moved to structured JSON with a schema, and deterministic code now validates every analysis. When validation fails, Claude is re-called with the specific failure as context and fills the gap. This also unlocked something else: the workflow stopped being linear. Independent, re-orderable steps now read and write the same analysis, each contributing its own insights.
-5. **Result: the system decides when to call Claude.** It calls Claude only when deterministic code admits it can't handle something. You don't have to decide when to trust it. The system decides by condition.
+2. **Extract sequencing into deterministic code.** *(Invocation timing.)* Claude can't clear its own context or exit itself. Claude wrote a script — `do-today` — that assesses the current state, decides what step is needed next, does deterministic processing, launches Claude, catches the result, and quits. Run again for the next step. Sequencing is no longer in Claude's hands.
+3. **Replace probabilistic fetch with deterministic.** *(Invocation timing.)* Transcript fetching started via the Fireflies MCP server (probabilistic — the AI sometimes got it wrong). Now a fully debugged deterministic fetcher gets the right transcript for the right day and team. On success: Claude is never invoked, doesn't even know a fetch happened. On failure — wrong date, ambiguous session, network error — Claude is called with the specific failure as context.
+4. **Lock down the analysis schema.** *(Work-product state control.)* Claude initially wrote transcript analyses as unstructured markdown. That looseness was useful — it let us discover what information actually mattered and who would consume it — but it required vigilance. Irrelevant stuff slipped in and confused later Claude calls. Important things sometimes went missing. Once the shape stabilized, we moved to structured JSON with a schema, and deterministic code now validates every analysis. When validation fails, Claude is re-called with the specific failure as context and fills the gap. This also unlocked something else: the workflow stopped being linear. Independent, re-orderable steps now read and write the same analysis, each contributing its own insights.
+5. **Result: the system decides when to call Claude.** *(Invocation timing.)* It calls Claude only when deterministic code admits it can't handle something. You don't have to decide when to trust it. The system decides by condition.
 
 **Key insight for the talk:** each transition was a single increment that moved one specific vigilance cost from a lower safety level to a higher one. Together: the workflow that used to require constant attention now runs itself.
 
