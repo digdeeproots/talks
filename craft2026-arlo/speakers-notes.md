@@ -112,7 +112,31 @@ Pause. Look for recognition — some will be nodding.
 ---
 
 ### 19 — BLANK
-*Pivot to the design principle.*
+*Pivot to the two examples.*
+
+---
+
+### 21 — Demo: Movement-based branching *(placeholder)*
+
+Live demo of the MCP tool. Start a movement, do a small change, commit with risk notation, merge. Show what the agent sees vs. what runs underneath.
+
+Don't name the lever. Don't say "tooling". The audience names what they see; we name it later in the upshift.
+
+Scripted walkthrough is out of scope for this movement.
+
+---
+
+### 23 — Story: Transcript fetcher *(placeholder)*
+
+Tell the transcript-fetcher story as a semi-demo. Walk through the states it lived in:
+
+- Vigilance: AI fetched, you watched every output
+- Probabilistic: prompt tightened, sometimes wrong
+- Deterministic: code fetches; AI only called on failure
+
+Use this as the second experience the audience can recognize. Don't yet name "result handling".
+
+Semi-demo script is out of scope for this movement.
 
 ---
 
