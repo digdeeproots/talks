@@ -85,35 +85,48 @@ Plan-shaping and cleanup happen together in this session. The two are coupled �
 
 ### Order of work
 
-1. **Iterate this plan to clarity.** This file is the source of truth for direction.
-2. **Trim the other docs to match.** topic.md, core-insight.md, status.md — keep only what aligns with the new direction. Delete the rest as if it had never been there.
-3. **Leave slides.html and speakers-notes.md messy.** They get reworked in later sessions, using this plan and the same iterate pattern.
+1. **Iterate this plan to clarity.** This file is the source of truth for direction. *(done)*
+2. **Trim the other docs to match.** topic.md, core-insight.md, status.md, stories.md. *(done)*
+3. **Restructure slides.html and speakers-notes.md** to match this plan. *(this movement)*
 
-### Later sessions (out of scope here, but tracked)
+### What "restructure" means for this movement
 
-- Design the **upshift** sequence in detail (what concepts land in what order).
-- Fill in the **Carelessness is a process** diagram: real transition sequence + a recipe per transition.
-- Fill in the **Agent's Universe** diagram: settle the lever names + at least one example per lever.
-- Script the **first demo** (movement-based branching): exact words, exact things shown.
-- Script the **transcript-fetcher story** as a semi-demo: which transition states to show.
-- Rework slides.html and speakers-notes.md to match this plan.
+Target quality: **raw-to-internal**. Roughly right order and content. Not final prose.
 
-### Out of scope for this session
+Concretely:
 
-- Rewriting slides.html
-- Rewriting speakers-notes.md
-- Final-quality prose on any doc
-- Detailed design of the two TOC diagrams (tracked in *Later sessions*)
-- Detailed upshift sequence (tracked in *Later sessions*)
+- Process the embedded `@ai:` directives in slides.html (currently three: s16 brownfield-math addition, upshift placeholder block, recipe rework block).
+- Rip out concepts the plan has cut: the old 5-step Recipe, the Worry noun, the Careless Safety Spectrum walk-through as a teaching slide, the 6-beat A0–A5 model walkthrough framing.
+- Replace the recipe/model block with the two-diagram TOC structure: **Carelessness is a process** + **Agent's Universe**. Diagrams themselves stay as placeholders (real content is a later session) — but the slot and the framing must exist.
+- Reorder slides to match the plan's flow: motorcar → vigilance toil (2-factor → 3-factor) → two examples (movement-based branching demo, transcript-fetcher story) → upshift placeholder → TOC slide → audience-directed back half → close.
+- Rewrite speakers-notes.md sections to match the new deck order and the new conceptual frame. Keep speaker-notes prose workmanlike, not polished.
+- The 6 Beat slides (38–54) are currently structured around Worry/Model. They become the audience-pickable lever examples in the new back half. Reframe their notes (drop "Worry", drop level-shift narration), but keep the underlying examples — they're the material the back half draws from.
+
+### Out of scope for this movement
+
+- Final-quality prose on any doc.
+- Filling in the two TOC diagrams (transition sequence, lever rubric).
+- Detailed upshift sequence design.
+- Scripting the first demo (movement-based branching) word-for-word.
+- Scripting the transcript-fetcher semi-demo in detail.
+
+### Later sessions (tracked)
+
+- Design the **upshift** sequence in detail.
+- Fill in the **Carelessness is a process** diagram.
+- Fill in the **Agent's Universe** diagram.
+- Script the **first demo** (movement-based branching).
+- Script the **transcript-fetcher story** as a semi-demo.
+- Final prose pass on slides.html and speakers-notes.md.
 
 ## Status
 
 | Doc | Aligned with plan? | Action |
 |-----|--------------------|--------|
-| plan.md (this) | — | Iterate to internal quality |
-| topic.md | Yes — trimmed | — |
-| core-insight.md | Yes — trimmed; formula now 2→3 factor | — |
-| status.md | Yes — trimmed | — |
-| stories.md | Yes — new, gathers all story detail | — |
-| speakers-notes.md | Partial | Leave messy this session |
-| slides.html | Partial | Leave messy this session |
+| plan.md (this) | Yes | — |
+| topic.md | Yes, trimmed | — |
+| core-insight.md | Yes, trimmed; formula now 2→3 factor | — |
+| status.md | Yes, trimmed | — |
+| stories.md | Yes, new, gathers all story detail | — |
+| speakers-notes.md | No | **Restructure this movement** |
+| slides.html | Partial | **Restructure this movement** |
