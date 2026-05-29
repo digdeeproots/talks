@@ -142,7 +142,7 @@ Let that question hang. Then:
 
 Point at the italicized line at the bottom.
 
-> "That worry is gone. Not reduced. Gone. Within that scope."
+> "That cost is gone. Not reduced. Gone. Within that scope."
 
 > "The tool is part of the developer's world. Whoever designed that tool made carelessness safe — by choosing what to put in the toolbox."
 
@@ -160,7 +160,7 @@ Point at the italicized line at the bottom.
 
 Point at the italicized line.
 
-> "That worry is gone."
+> "That cost is gone."
 
 > "The archive table is what happens *after* the AI acts, before the action has irreversible effects. That's a different part of the world than the toolbox. Let's call it result handling."
 
@@ -248,15 +248,15 @@ Then hand off to the TOC: "Let's walk a few. Pick where to start."
 
 > "Here's what happens. We're working towards a plan, mid-demo we discover a new idea. That idea shifts a lot of future work. Now the code doesn't align with the plan that nominally built it and the plan doesn't align with what we want next."
 
-> "The Worry: decision inconsistency. 'Does this contradict something we decided earlier? Are we building on conflicting assumptions?'"
+> "Vigilance cost: decision inconsistency. 'Does this contradict something we decided earlier? Are we building on conflicting assumptions?'"
 
-> "Currently at level 1. Every session: re-explain the context, re-anchor intent. And the AI still sometimes picks up the old direction."
+> "Every session: re-explain the context, re-anchor intent. And the AI still sometimes picks up the old direction."
 
 ---
 
 ### 39 — Beat 1 story: Memory
 
-> "Universe aspect: Memory. This one is delightfully Orwellian."
+> "Universe lever: Memory. This one is delightfully Orwellian."
 
 > "Here's what we do. As part of every story completion, we delete the story entirely. Not mark it done. Delete it."
 
@@ -278,15 +278,15 @@ Pause.
 
 > "Recurring structured output. Specifically: the coaching workflow. Daily — pull transcripts, plan lessons, write the status email, extract techniques."
 
-> "The Worry: consistency violation. Does this email follow the same structure as last time? Did the AI invent sections? Did it change the format?"
+> "Vigilance cost: consistency violation. Does this email follow the same structure as last time? Did the AI invent sections? Did it change the format?"
 
-> "Started at level 1. 'Read this file and follow it.' Watched every output."
+> "First attempt: 'Read this file and follow it.' Watched every output."
 
 ---
 
 ### 42 — Beat 2 story: Goals
 
-> "Universe aspect: Goals."
+> "Universe lever: Goals."
 
 > "Instead of 'write the status email,' the AI receives a structured spec. This section gets two sentences of trend analysis. This section gets a named metric. This section gets one recommendation."
 
@@ -304,13 +304,13 @@ Pause.
 
 > "Session data fetching. The coaching workflow starts with: get the right transcript, for the right team, for today."
 
-> "The Worry: oversight mechanism gap. 'Did the AI keep going past the point where I should have been consulted?' Or in this case: did it fetch the wrong transcript and proceed to build a lesson plan on it — while I'm assuming it got the right one?"
+> "Vigilance cost: oversight mechanism gap. 'Did the AI keep going past the point where I should have been consulted?' Or in this case: did it fetch the wrong transcript and proceed to build a lesson plan on it — while I'm assuming it got the right one?"
 
 ---
 
 ### 45 — Beat 3 story: Invocation timing
 
-> "Universe aspect: Invocation timing."
+> "Universe lever: Invocation timing."
 
 > "Deterministic code fetches the transcript. It knows which team, which day, which session. On success: Claude is never invoked. It doesn't even know a fetch happened."
 
@@ -326,15 +326,15 @@ Pause.
 
 > "Source control in an agentic codebase."
 
-> "The Worry: policy enforcement gap. Will the agent correctly assess risk? Will it fill in the right commit notation and branch cleanly so that it plays along well with all our other systems?"
+> "Vigilance cost: policy enforcement gap. Will the agent correctly assess risk? Will it fill in the right commit notation and branch cleanly so that it plays along well with all our other systems?"
 
-> "With raw git: level 1. Watch every commit. An agent with git access can force-push, delete branches, corrupt history. You're vigilant because you have to be."
+> "With raw git: you watch every commit. An agent with git access can force-push, delete branches, corrupt history. You're vigilant because you have to be."
 
 ---
 
 ### 48 — Beat 4 story: Tooling
 
-> "Universe aspect: Tooling."
+> "Universe lever: Tooling."
 
 > "Minions never touch git. There's no git tool in their toolbox."
 
@@ -346,7 +346,7 @@ Pause.
 
 Pause.
 
-> "Level 1 → 4. Structurally impossible."
+> "Structurally impossible."
 
 ---
 
@@ -354,7 +354,7 @@ Pause.
 
 > "Structural refactoring in legacy code. Renames, extractions, relocations across a large codebase."
 
-> "The Worry: accidental behavior change. 'Did my restructuring change what the code actually does, even slightly?'"
+> "Vigilance cost: accidental behavior change. 'Did my restructuring change what the code actually does, even slightly?'"
 
 > "We showed AST tools solving this for human developers back in section three. Now the question is: what about AI?"
 
@@ -362,7 +362,7 @@ Pause.
 
 ### 51 — Beat 5 story: Tooling (operation semantics)
 
-> "Universe aspect: Tooling — but this time it's not about which tools exist. It's about what the available operations can *guarantee*."
+> "Universe lever: Tooling — but this time it's not about which tools exist. It's about what the available operations can *guarantee*."
 
 > "No edit-file tool for Minions. Only AST-based transformation tools — provably safe refactorings. The AI makes design choices; the tool executes them with behavioral safety guarantees."
 
@@ -380,15 +380,15 @@ Point at the two-up.
 
 > "Database migrations. The AI generates a migration; it runs; data changes state."
 
-> "The Worry: data loss. 'Did the migration change what the data means? Can I get it back if something went wrong?'"
+> "Vigilance cost: data loss. 'Did the migration change what the data means? Can I get it back if something went wrong?'"
 
-> "We started here at level 0. No mechanism. Hope. And then one small mistake caused unrecoverable data loss."
+> "We started with no mechanism. Hope. And then one small mistake caused unrecoverable data loss."
 
 ---
 
 ### 54 — Beat 6 story: Result handling
 
-> "Universe aspect: Result handling."
+> "Universe lever: Result handling."
 
 > "Three layers. Each intercepts between the AI's output and irreversible effect."
 
@@ -402,13 +402,13 @@ Point at each bullet as you tell it.
 
 > "Deterministic pre-processing → AI creative decision → deterministic execution. The Determinism Sandwich."
 
-> "Level 0 → 4. Data loss is structurally impossible."
+> "Data loss is structurally impossible."
 
 ---
 
 ### 56 — What we did each time
 
-> "Six kinds of work. Six Worries. Six times we walked the recipe."
+> "Six kinds of work. Six vigilance costs. Six times we redesigned a piece of the universe."
 
 > "And each time, we did the same thing: we didn't ask for more care. We didn't add more review. We looked at the world the AI lives in — and we redesigned part of it."
 
