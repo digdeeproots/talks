@@ -806,6 +806,7 @@
   }
 
   function next() {
+    if (current === tocIdx) return; // TOC has no linear next; pick a card
     if (slides[current].dataset.returnToToc === 'true' && tocIdx >= 0) {
       go(tocIdx);
     } else {
