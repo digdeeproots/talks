@@ -14,7 +14,7 @@ Better brakes removed the need for that care. You could be careless about your s
 
 That's what brakes actually do: they don't just let you stop. They let you stop caring about stopping.
 
-AI is an engine improvement. Safety is the brakes. Better safety means you can be careless about a class of mistakes and still succeed — because the environment catches them. The vigilance toil you're carrying is what happens when your brakes haven't kept up with your engine.
+(The AI = engine / Universe = brakes mapping is held back until the closing payoff.)
 
 ## Work-Toil vs. Vigilance-Toil
 
@@ -24,50 +24,21 @@ This isn't new. Teams in brownfield codebases — no AI — get into the same tr
 
 ## The Formula
 
-Vigilance toil is not proportional to throughput alone. It is proportional to:
+Vigilance toil is not proportional to throughput alone.
 
-**throughput × existing body of work**
+**Two-factor form (the immediately obvious one):**
 
-Greenfield: existing body ≈ 0. Weak assurance is survivable.
-Brownfield: existing body is large. Weak assurance is catastrophic.
+> **vigilance toil ∝ throughput × amount to protect**
 
-AI increases throughput. It does not reduce the existing body. So AI in brownfield multiplies vigilance toil by your throughput gain — unless assurance advances in step.
+Greenfield: amount to protect ≈ 0. Weak safety is survivable. Brownfield: amount to protect is large. Weak safety is catastrophic. AI increases throughput and does not reduce the amount to protect, so AI in brownfield multiplies vigilance toil by your throughput gain.
 
-## The Two Dimensions
+This is bad, because we are explicitly trying to increase both throughput and the amount to protect.
 
-The model has two axes:
+**Three-factor form (the one we build to):**
 
-- **Agency**: who performs the work (human → AI, A0–A5). Each stage transfers more decision-making authority to the AI — from AI-assisted to AI-autonomous.
-- **Careless safety**: how easily the environment prevents unintended side effects (0–5). Not "how safe is it if you're careful" — how safe is it when the implementor is *careless*?
+> **vigilance toil ∝ throughput × amount to protect × cost to protect**
 
-Transferring agency without transferring safety is the vigilance trap. The gap between the two is the vigilance toil you're paying.
-
-The safe path is a narrow diagonal through the 2D grid. Falling off it — more agency than your careless safety can cover — produces vigilance toil you cannot sustain at scale.
-
-## Worries
-
-The model names what you're being careful about: **Worries**. A Worry is the gut-check an experienced developer feels about a kind of work — the specific thing they're watching for, every time.
-
-Each kind of work has one or more named Worries. Each Worry has:
-- A **worry surface**: the scope of existing product a single error instance can damage (quantifiable — you can count it for your specific system)
-- A **rate event**: the specific event that triggers the toil
-- **Safety options**: mechanisms that either shrink the worry surface or raise the safety level
-
-Vigilance toil = rate events/period × (worry surface × safety gap). Both scope-shrinking and safety-level improvements reduce it.
-
-Examples: *Capability regression*, *Accidental behavior change*, *Data loss*, *Scope enforcement gap*, *Decision inconsistency*, *Oversight mechanism gap*.
-
-## The Recipe
-
-To reduce vigilance toil for a given kind of work:
-
-1. Identify an important kind of work
-2. Name the most impactful Worry — the highest-cost vigilance cost you're paying for it
-3. Look at the Worry — what safety level are you currently at?
-4. Look at safety options that could reach level 4 or 5
-5. Craft the AI's universe to implement the chosen option
-
-Step 5 is the design move. The agent's universe — everything it perceives and can act on — is the design surface: **Memory, Context, Goals, Tooling, Invocation timing, Result handling**. Each element is a choice. Each choice can create or eliminate a zero-risk zone.
+The third factor is the one we control. Throughput is set by what we want to build. Amount to protect is set by what we've already built. *Cost to protect* is set by the universe we design for the agent. Every careless-engineering investment moves this factor down.
 
 ## The Careless Safety Spectrum (0–5)
 
@@ -86,9 +57,13 @@ Zero risk within a bounded scope is categorically different from low risk. Low r
 
 When someone makes a mistake, the wrong response is "be more careful." The right question: what could we change about the context and system so that someone being *even more careless* than we were would still succeed?
 
+The phrase that lands hardest: **be more careless, responsibly.**
+
 This is also the condition for delegation. The delegatee must be able to be careless and still succeed. Your job isn't to make agents careful — it's to make careless behavior safe.
 
 **Careless Engineering**: designing tools, environments, workflows, and agent worlds so that careless implementors (human or AI) can thrive. Not making implementors more careful. Making carelessness safe.
+
+The question that orients the whole design surface: **what does your agent's world look like?**
 
 ## The Back Half of the Motorcar
 
