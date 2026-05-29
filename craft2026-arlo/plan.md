@@ -68,7 +68,7 @@ Keep cycling. At a natural break, insert the closing sequence (see Close), then 
 
 Four-slide closing sequence (already working in current slides.html): synthesis → formula callback → AI/Universe = engine/brakes → "Better brakes let you stop *caring* about stopping."
 
-Insert this sequence into the audience-directed exploration at a natural moment, not as a final block. After the close, return to the TOC slide (with *other questions* added) for Q&A.
+The closing sequence is a card on the TOC, alongside the six beat examples. Speaker triggers it at a natural moment by clicking the card. After the close's last slide, next-key returns to the TOC for Q&A.
 
 ## Open questions
 
@@ -76,7 +76,6 @@ These shape the plan but are not yet decided.
 
 - **The two TOC diagrams.** Both need a clean visual form. Transition sequence and lever rubric have not been laid out yet. Planned as a later step in this plan.
 - **Lever names.** Plan calls them *Reachable Context* and *Work-product state control*; current slides use the shorter *Context* and *Result handling*. Pick canonical names and propagate to both.
-- **Synthesis card placement.** Closing sequence is currently a 7th TOC card. Plan originally said insert the close "at a natural moment, not as a final block" — does card-on-TOC satisfy that, or do we want a different trigger?
 
 ## Doing this work
 
