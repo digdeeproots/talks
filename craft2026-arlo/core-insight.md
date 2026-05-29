@@ -32,6 +32,8 @@ Vigilance toil is not proportional to throughput alone.
 
 Greenfield: amount to protect ≈ 0. Weak safety is survivable. Brownfield: amount to protect is large. Weak safety is catastrophic. AI increases throughput and does not reduce the amount to protect, so AI in brownfield multiplies vigilance toil by your throughput gain.
 
+This is bad, because we are explicitly trying to increase both throughput and the amount to protect.
+
 **Three-factor form (the one we build to):**
 
 > **vigilance toil ∝ throughput × amount to protect × cost to protect**
