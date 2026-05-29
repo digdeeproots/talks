@@ -348,7 +348,7 @@
         The AI can be careless about data loss.<br>The environment is careful so you don't have to be.
       </p>
       <p style="margin-top: 2rem; font-style: italic; text-decoration: line-through; color: var(--dim);">
-        Worry: "What if it loses data we can't recover?"
+        Vigilance cost: "What if it loses data we can't recover?"
       </p>
     </div>
   </section>
@@ -471,7 +471,7 @@
         Within scope: <span class="accent">zero risk</span> of behavior change.
       </p>
       <p style="margin-top: 2rem; font-style: italic; text-decoration: line-through; color: var(--dim);">
-        Worry: "Did my refactor accidentally change behavior?"
+        Vigilance cost: "Did my refactor accidentally change behavior?"
       </p>
     </div>
   </section>
@@ -483,7 +483,7 @@
   <section class="slide" id="s38">
     <div class="slide-content">
       <p class="kicker">Discovery during demos</p>
-      <h2>The Worry:<br><span class="accent">Decision inconsistency</span></h2>
+      <h2>Vigilance cost:<br><span class="accent">Decision inconsistency</span></h2>
       <p style="margin-top: 2rem; color: var(--dim);">
         "Does this contradict a decision from earlier in the session?<br>
         Are we building on conflicting assumptions?"
@@ -516,13 +516,10 @@
   <section class="slide" id="s41">
     <div class="slide-content">
       <p class="kicker">Recurring structured output</p>
-      <h2>The Worry:<br><span class="accent">Consistency violation</span></h2>
+      <h2>Vigilance cost:<br><span class="accent">Consistency violation</span></h2>
       <p style="margin-top: 2rem; color: var(--dim);">
         "Does this follow the same structure as last time?<br>
         Did it invent something that drifts from the template?"
-      </p>
-      <p style="margin-top: 1.5rem; font-style: italic; color: var(--dim); font-size: clamp(0.85rem, 1.4vw, 1.5rem);">
-        Started at level 1 — "Read this file and follow it."
       </p>
     </div>
   </section>
@@ -551,7 +548,7 @@
     <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Session data fetching</p>
-      <h2>The Worry:<br><span class="accent">Oversight mechanism gap</span></h2>
+      <h2>Vigilance cost:<br><span class="accent">Oversight mechanism gap</span></h2>
       <p style="margin-top: 2rem; color: var(--dim);">
         "Did the AI keep going past the point<br>
         where I should have been consulted?"
@@ -587,7 +584,7 @@
     <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Source control in an agentic codebase</p>
-      <h2>The Worry:<br><span class="accent">Policy enforcement</span></h2>
+      <h2>Vigilance cost:<br><span class="accent">Policy enforcement</span></h2>
       <p style="margin-top: 2rem; color: var(--dim);">
         "Will the agent correctly follow our risk-aware commit notation policy?
       </p>
@@ -618,7 +615,7 @@
     <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Structural refactoring in legacy code</p>
-      <h2>The Worry:<br><span class="accent">Accidental behavior change</span></h2>
+      <h2>Vigilance cost:<br><span class="accent">Accidental behavior change</span></h2>
       <p style="margin-top: 2rem; color: var(--dim);">
         "Did my restructuring change what the code actually does?"
       </p>
@@ -658,13 +655,10 @@
     <div class="slide-content">
       <p class="kicker">Database migrations</p>
       <!-- accent amber conflicts with volcanic orange lava; use --fg for legibility -->
-      <h2>The Worry:<br><span style="color: var(--fg);">Data loss</span></h2>
+      <h2>Vigilance cost:<br><span style="color: var(--fg);">Data loss</span></h2>
       <p style="margin-top: 2rem; color: var(--dim);">
         "Did the migration change what the data means?<br>
         Can I recover it if something went wrong?"
-      </p>
-      <p style="margin-top: 1.5rem; font-style: italic; color: var(--dim); font-size: clamp(0.85rem, 1.4vw, 1.5rem);">
-        Level 0. One small mistake: unrecoverable data loss.
       </p>
     </div>
   </section>
