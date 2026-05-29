@@ -175,13 +175,13 @@ Stuff to add; rework around.
 
 General flow:
 1. Bridge (without the AI / safety stuff brakes slide?)
-2. Vigilence toil (2-factor form)
-3. 2 examples
-4. Vigilence toil (3-factor form)
-5. Upshift - walk through the above. Get to the goal. Then present the rest as "how do we achieve that goal?"
+2. Vigilance toil (2-factor form)
+3. 2 examples: demo movement-based branching (risk notation), and either demo of transcript download & analysis or story tell about archive table.
+4. Vigilance toil (3-factor form)
+5. Upshift - walk through the learning sequence. Get to the goal (carelessness). Then present the rest as "how do we achieve that goal?"
 6. Universe of levers (the solo ground / design surface for post-upshift thinking, also the rubric / model to reference in the recipe - with one probe question or concrete mechanism for each).
 7. The recipe.
-8. One worked example.
+8. audience-guided stories / examples: pick a lever, get a story. Or pick a process stage, get a recipe.
 9. Close
 
 
