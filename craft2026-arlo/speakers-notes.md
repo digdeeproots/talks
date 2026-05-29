@@ -9,7 +9,8 @@ Open in a second window / monitor. Each slide is numbered to match the ID in `sl
 Blank slides are listed briefly — they're intentional pause space.
 
 Navigation: `←` `→` `Space` advances. `Home` / `End` jump to start/end.
-Model iframe (s36): click to interact, `Escape` to return to deck.
+`T` jumps to the TOC hub from anywhere. On the TOC, only card clicks advance — forward keys are disabled.
+After each beat's last slide, next-key returns to the TOC. Same for the closing sequence.
 
 ---
 
@@ -201,31 +202,24 @@ Walk through briefly. Don't read them all.
 
 ---
 
-### 30 — Worries
+### 33 — TOC hub
 
-> "The model gives names to what we're being careful about. It calls them Worries."
+Land here after the upshift. This is the visual menu for the back half.
 
-> "A Worry is the gut-check — the thing an experienced developer feels when they encounter a kind of work. Not abstract risk. The specific thing you're watching for, every time."
+> "Here's where we go from here. Pick anything. We'll walk it together. Come back here, pick another."
 
-Read a few from the list.
+Cards (placeholder; real two-diagram TOC lands in a later session):
+- Memory / Decision inconsistency → s38
+- Goals / Consistency violation → s41
+- Invocation timing / Oversight gap → s44
+- Tooling / Scope enforcement → s47
+- Tooling (operations) / Accidental behavior change → s50
+- Result handling / Data loss → s53
+- Synthesis / Closing sequence → s56
 
-> "Capability regression. Accidental behavior change. Data loss. Scope enforcement gap. Decision inconsistency."
+Click a card to enter that sequence. After the sequence's last slide, next-key returns here automatically. Press `T` from anywhere to summon the TOC.
 
-> "These are things you're being careful about *right now*. Most teams have names for the failures, not the Worries. The model names the Worries so you can measure them and invest in eliminating them."
-
----
-
-### 32 — The Recipe
-
-> "Here's what we're going to do with the model. Five steps."
-
-Read them.
-
-> "Step 5 is where the world-building happens. Let me show you what's available."
-
----
-
-### 33 — BLANK
+Insert the closing sequence at a natural break — not necessarily after all six beats.
 
 ---
 
@@ -243,19 +237,6 @@ Point to each element as you name it.
 > "Result handling: what happens between its output and the world changing."
 
 > "Each of these is a design choice. Each can create or eliminate a zero-risk zone. Step 5 of the recipe is choosing which lever to pull."
-
----
-
-### 36 — Model (iframe)
-
-Show in the model:
-- A kind of work (e.g. Evolving the design)
-- Its Worries (Accidental behavior change, Design regression)
-- Safety options for one Worry, and what level each reaches
-
-Then:
-
-> "Let's use it. Six times. Each time, a different kind of work, a different Worry, a different part of the universe."
 
 ---
 
@@ -291,10 +272,6 @@ Pause.
 
 ---
 
-### 40 — BLANK
-
----
-
 ### 41 — Beat 2 setup: Consistency violation
 
 > "Recurring structured output. Specifically: the coaching workflow. Daily — pull transcripts, plan lessons, write the status email, extract techniques."
@@ -321,10 +298,6 @@ Pause.
 
 ---
 
-### 43 — BLANK
-
----
-
 ### 44 — Beat 3 setup: Oversight mechanism gap
 
 > "Session data fetching. The coaching workflow starts with: get the right transcript, for the right team, for today."
@@ -344,10 +317,6 @@ Pause.
 > "The system decides when to call Claude. It calls Claude only when deterministic code admits it can't handle something."
 
 > "You don't have to decide when to trust it. The system decides by condition."
-
----
-
-### 46 — BLANK
 
 ---
 
@@ -379,10 +348,6 @@ Pause.
 
 ---
 
-### 49 — BLANK
-
----
-
 ### 50 — Beat 5 setup: Accidental behavior change
 
 > "Structural refactoring in legacy code. Renames, extractions, relocations across a large codebase."
@@ -406,10 +371,6 @@ Point at the two-up.
 > "Behavioral safety: did it change what the code does? The tool guarantees no. Not possible to violate within scope."
 
 > "'Wrong about the design' and 'introduced a bug' are now categorically different failure modes. Only the first remains possible."
-
----
-
-### 52 — BLANK
 
 ---
 
@@ -440,11 +401,6 @@ Point at each bullet as you tell it.
 > "Deterministic pre-processing → AI creative decision → deterministic execution. The Determinism Sandwich."
 
 > "Level 0 → 4. Data loss is structurally impossible."
-
----
-
-### 55 — BLANK
-*Final transition.*
 
 ---
 
@@ -492,30 +448,13 @@ Pause. Let it land.
 
 ---
 
-### 61 — BLANK
+## Q&A
 
----
+After the closing sequence's last slide (s60), next-key returns to the TOC. Use the TOC as the Q&A backdrop — audience can keep picking levers, or ask open questions.
 
-### 62 — "How good are your brakes?"
+Exit question for open discussion:
 
-Don't read it. Let it sit.
-
-Then:
-
-> "Not rhetorical. I want you to actually answer this."
-
-> "What is the highest-cost Worry in your current work? What kind of work are you being careful about, every single day, that an environment investment could make unnecessary?"
-
-> "Which part of the universe hasn't been designed yet?"
-
-Invite responses. This is the open discussion for Craft. Let it go where it goes.
-
-> "That's where to invest. Not in a better model. In better brakes."
-
----
-
-### 63 — BLANK (Q&A)
-*Stay here during Q&A. Black screen. You're the focus.*
+> "Which part of your AI's universe hasn't been designed yet?"
 
 **Backup Q&A questions:**
 
@@ -530,15 +469,18 @@ Invite responses. This is the open discussion for Craft. Let it go where it goes
 
 ## Timing guide
 
+*Provisional. Will get rewritten when the front half restructure lands (upshift, demo, transcript-fetcher story).*
+
 | Section | Target | Slides |
 |---------|--------|--------|
 | Opening | — | 01–02 |
-| 1. Motorcar | 3–4 min | 04–11 |
-| 2. Vigilance Toil | 3–4 min | 12–19 |
-| 3. Universe intro | 2–3 min | 20–25 |
-| Model | 3–4 min | 28–36 |
-| 4. Walking the Recipe | 10–12 min | 38–55 |
-| 5. Back to the Motorcar | 2–3 min | 56–63 |
-| **Total** | **23–30 min** | |
+| Motorcar bridge | 3–4 min | 04–11 |
+| Vigilance toil (2-factor) | 3–4 min | 12–19 |
+| Two examples (tooling demo, result-handling story) | 4–5 min | 24–25, 22 |
+| Upshift → 3-factor formula | 2–3 min | 28, 20, 34 |
+| TOC hub lands | — | 33 |
+| Audience-directed back half | 10–15 min | 38–54 (cycle via TOC) |
+| Closing sequence | 2–3 min | 56, 58, 10, 60 |
+| **Total talk proper** | **~30 min** | |
 
-*SAS version: compress section 3 to one example, skip model iframe interaction, run beats 4–6 only (tools + result handling), ~18 min.*
+After s60 the deck returns to the TOC for open Q&A.
