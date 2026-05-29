@@ -1,23 +1,17 @@
 #!/usr/bin/env node
 
-// Starts both servers and prints the slides URL.
-// Usage: node start.js
+// Starts the slides server.
+// Usage: node start.mjs
 
-import { spawn, spawnSync }  from 'child_process';
 import http                  from 'http';
 import { readFile }          from 'fs/promises';
-import { join, extname, resolve } from 'path';
+import { join, extname }     from 'path';
 import { fileURLToPath }     from 'url';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
 const SLIDES_PORT = 8080;
-const MODEL_PORT  = 5292;
-
 const slidesDir = __dirname;
-const modelDir  = resolve(__dirname, '../../maturity-model/src');
-
-// ── Slides static file server ──────────────────────────────────────────────
 
 const MIME = {
   '.html':  'text/html; charset=utf-8',
@@ -51,47 +45,8 @@ http.createServer(async (req, res) => {
 }).listen(SLIDES_PORT, '127.0.0.1', () => {
   console.log('');
   console.log('  http://localhost:' + SLIDES_PORT + '/slides.html');
+  console.log('  Ctrl+C to stop.');
   console.log('');
 });
 
-// ── Model dev server ───────────────────────────────────────────────────────
-
-// Install model dependencies if needed (fast no-op when already installed).
-const install = spawnSync('npm', ['install'], { cwd: modelDir, shell: true, stdio: 'inherit' });
-if (install.status !== 0) {
-  console.error('  npm install failed in ' + modelDir);
-  process.exit(1);
-}
-
-// shell: true lets Windows resolve npm → npm.cmd automatically.
-const model = spawn(
-  'npm', ['run', 'dev', '--', '--port', String(MODEL_PORT), '--strictPort'],
-  { cwd: modelDir, shell: true, stdio: ['ignore', 'pipe', 'pipe'] }
-);
-
-let modelReady = false;
-model.stdout.on('data', (chunk) => {
-  const txt = chunk.toString();
-  if (!modelReady && /ready|Local|localhost/i.test(txt)) {
-    modelReady = true;
-    console.log('  Model ready  http://localhost:' + MODEL_PORT);
-    console.log('  Ctrl+C to stop both.');
-    console.log('');
-  }
-});
-
-// Show stderr so startup errors are visible.
-model.stderr.on('data', (chunk) => {
-  process.stderr.write('  [model] ' + chunk.toString().trimEnd() + '\n');
-});
-
-model.on('exit', (code) => {
-  if (code !== 0 && code !== null) {
-    console.error('\n  Model server exited (code ' + code + ')');
-  }
-});
-
-process.on('SIGINT', () => {
-  model.kill('SIGTERM');
-  process.exit(0);
-});
+process.on('SIGINT', () => process.exit(0));
