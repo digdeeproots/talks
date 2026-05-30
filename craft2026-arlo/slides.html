@@ -406,13 +406,32 @@
        universe (s34) → safety vocabulary (s28) → recipe (s27) →
        AST callback (s22) → blank pivot → TOC.
 
-       PENDING (next iteration): name-experiences-first rework.
-       Walk both examples in detail, categorize each transition by
-       lever / safety level / scope, then extract the formula. Will
-       restructure this whole block. See plan.md for target shape.
        Archive table (was s24) has moved out of the front-half flow;
-       its content now lives only in the Result-handling beat (s53/s54).
+       its content now lives only in the State-control beat (s53/s54).
   ════════════════════════════════════════════════════ -->
+
+  @ai: we need to name the experiences first. I want to go through both of the examples and categorize them, then extract a couple of concepts that we can name. I'm seeing the following:
+
+  1. example: risk-aware commit tool
+    * What did we change? tooling
+    * What did it change in errors? Prevented risk mis-categorization, prevented merge snarls, prevented unclear git history, prevented arbitrary change to git history. enabled carelessness around commits and sharing (decreased context filling, take higher-level actions)
+  2. Example: Get transcript and find key moments
+    1. Transition: make sequencing deterministic.
+      * What changed? invocation
+      * Impact on errors? Prevented shortcutting steps, prevented mis-sequencing, prevented over-eager step completion.
+    2. Transition: deterministic fetch
+      * Changed? invocation, goal
+      * Error impact? careless: eliminated fetch step - reduced my cognitive load and delays
+    3. Transition: lock down analysis goal
+      * Changed? goal - from "work with me to identify the important things to carry forward" to "Identify the key moments and the session pull quote. Key moment is defined as... Use iteration protocol to refine with me."
+      * Error impact? careless: generate moments that mattered. Also something about it only asking me for general reflection after providing its own example, so I don't need to try to explain everything. Also, this is where I had it start saying when it needed my attention (text to speech). So I could do something else and it would work silently, then tell me when it had something to report and I could come back when ready. This reduced my need to watch everything and be vigilent about when to respond.
+    4: Transition: lock down analysis format
+      * Changed? feedback
+      * Error impact? careless about what to include for each key moment, prevent including non-salient information
+  3. Name terms. (give me a good pithy name + concise definition for each term) One term for each common element - lever we changed, safety level, safe region scope. There were also other reductions of cognitiveload that didn't come from error prevention, but still reduced overall vigilence toil. Identify / categorize them in some clear way.
+  4. Extract theory: cost to protect
+
+  @ai-deferral-note: deferred from the prior pass. Nothing needed from the human; addressing in the next commit.
 
   <section class="slide" id="s25">
     <div class="slide-content">
@@ -434,9 +453,10 @@
     <div class="overlay"></div>
     <div class="slide-content">
       <p class="big-quote">
-        Make it so even <em>crappier AI</em> succeeds.
+        Make it so even <em>crappier AI</em> succeeds.<br><br>
+        @ai: make the rest a visual; no text. I'll say it (in speaker notes). On slide, I just want a quick visual / diagram. And I want it small. The important part is the text above.
         Stop improving the <em>engine</em>.<br>
-        Improve the <em>brakes</em>.<br><br>
+        Improve the <em>brakes</em>.
       </p>
     </div>
   </section>
@@ -542,6 +562,10 @@
   <!-- ═══════════════════════════════════════════════════
        SECTION 4: Walking the Universe (audience-directed via TOC)
   ════════════════════════════════════════════════════ -->
+
+  @ai: move archive tabgle story to a case in the toc. The things reachable from the toc are case studies, recipes, and the closing. Section them like that. So far, we haven't built any recipes yet.. structure each case study as 3 slides: 1) starting state. 2) intervention. 3) categorize / name the experience.
+
+  @ai-deferral-note: prior pass did the archive-move (s24 removed; content lives in the State-control beat at s53/s54) and the TOC sectioning (Case studies / Recipes / Closing with a greyed-out Feedback card). The 3-slide expansion for each existing case study is still outstanding. Nothing needed from the human; addressing in a subsequent commit.
 
   <!-- 33 TOC HUB — sectioned: Case studies / Recipes / Closing -->
   <section class="slide" id="s33">
