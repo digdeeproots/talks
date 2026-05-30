@@ -49,11 +49,14 @@ These were load-bearing in prior versions and are now out:
    - **Carelessness is a process** — incremental transitions toward more carelessness. *Placeholder transitions:* vigilance → probabilistic → deterministic → prevention → carefree. The real sequence will be refined later. Each transition has a recipe.
    - **Agent's Universe** — the levers. Each lever has examples on demand.
      - **Memory** — what the agent recalls, for how long, across sessions.
-     - **Reachable Context** — what info the agent can get to. Not session context — *reachability*. Which directories are in its search space, which tools surface other info, what generic search (filesystem grep) will stumble across, what is only findable by probing in a specific way. *Name may change.*
+     - **Reachable Context** — what info the agent can get to. Not session context — *reachability*. Which directories are in its search space, which tools surface other info, what generic search (filesystem grep) will stumble across, what is only findable by probing in a specific way. Slides use the shorter *Context*.
      - **Goals** — how narrowly the task is defined.
      - **Tooling** — what operations are in the toolbox, and what is deliberately not.
      - **Invocation timing** — when the agent runs versus when deterministic code runs.
-     - **Work-product state control** — what happens to commits, files, MCP tool calls, and other agent outputs before and after the agent runs. Where the agent can directly modify state, and where it modifies a representation that we transform back and forth from real state with checks and determinism. *Was "Result handling" — needs a name that covers this broader scope.*
+     - **State control** — what happens to commits, files, MCP tool calls, and other agent outputs before and after the agent runs. Where the agent can directly modify state, and where it modifies a representation that we transform back and forth from real state with checks and determinism. *Was "Result handling" / "Work-product state control"; slides settled on "State control."*
+     - **Feedback** *(new)* — closing loops for the agent: what it learns about the impact of its actions. Schema validation, test results, guess-and-check rhythms. Distinct from State control (which governs *what happens to the output*); Feedback governs *what the agent learns about that*.
+
+Full rubric per lever lives in `universe-levers.md`.
 
 ### Back half: audience-directed exploration (10-15 min)
 
@@ -75,7 +78,7 @@ The closing sequence is a card on the TOC, alongside the six beat examples. Spea
 These shape the plan but are not yet decided.
 
 - **The two TOC diagrams.** Both need a clean visual form. Transition sequence and lever rubric have not been laid out yet. Planned as a later step in this plan.
-- **Lever names.** Plan calls them *Reachable Context* and *Work-product state control*; current slides use the shorter *Context* and *Result handling*. Pick canonical names and propagate to both.
+- **Lever names.** Slides now use *Context* and *State control*. Long forms in `universe-levers.md`. Probably stable; revisit when scripting demos.
 
 ## Doing this work
 
@@ -114,7 +117,10 @@ Concretely:
 
 ### Later sessions (tracked)
 
-- Fill in the **Carelessness is a process** diagram. (Now means: visualize the recipe loop — name → guardian → classify → lever — not transitions along the spectrum.)
+- **Upshift rework: name experiences first.** Walk both examples explicitly. For each transition, categorize: lever changed, safety level reached, scope, and any non-error-prevention cognitive-load reduction. Then extract the terms (lever, safety level, scope) and the theory (cost to protect). Restructures the current upshift block.
+- **TOC case-study expansion.** Each existing case study (2 slides) becomes 3: starting state → intervention → name the experience (lever pulled, safety level reached, scope). Build at least one Feedback case study so its card stops being greyed out.
+- **Recipes section.** No recipe slides exist yet. Decide what a "recipe" looks like inside the back-half TOC versus the meta-recipe on s27 — they may be different artifacts.
+- Fill in the **Carelessness is a process** diagram. (Now means: visualize the recipe loop — name → guardian → classify → lever → decide — not transitions along the spectrum.)
 - Fill in the **Agent's Universe** diagram.
 - Script the **first demo** (movement-based branching).
 - Script the **transcript-fetcher story** as a semi-demo.
@@ -128,20 +134,24 @@ Concretely:
 | topic.md | Yes, trimmed | — |
 | core-insight.md | Yes, trimmed; formula now 2→3 factor | — |
 | status.md | Yes, trimmed | — |
-| stories.md | Yes, new, gathers all story detail | — |
+| stories.md | Yes, new, gathers all story detail | Feedback section is a stub; stories pending |
+| universe-levers.md | Yes, new, full lever rubric incl. Feedback | — |
 | speakers-notes.md | Yes, structurally aligned | Prose pass later |
-| slides.html | Yes, structurally aligned | Diagram fill + demo scripts later |
+| slides.html | Yes, structurally aligned | Diagram fill + demo scripts later; case studies expand to 3 slides later |
 
 ## Current deck state (post-restructure)
 
-**Front half** (linear nav): s1, s2 → motorcar s4, s6, s8, s11 → vigilance 2-factor s12, s14, s16, s18, s19 → MBB demo placeholder **s21** → transcript-fetcher placeholder **s23** → archive table s24 → 3-factor formula s25 → upshift (s20 principle, s28 safety vocabulary, **s27 recipe**, s22 AST callback, s34 universe) → TOC hub **s33**.
+**Front half** (linear nav): s1, s2 → motorcar s4, s6, s8, s11 → vigilance 2-factor s12, s14, s16, s18, s19 → MBB demo placeholder **s21** → transcript-fetcher placeholder **s23** → 3-factor formula s25 → upshift (s20 goal, **s26 how?**, s34 universe, s28 safety vocabulary, s27 recipe, s22 AST callback) → **s30 blank pivot** → TOC hub **s33**. (Archive table — old s24 — removed from front-half flow; story now lives only in the back-half State-control beat at s53/s54.)
 
-**Back half** (audience-directed): TOC has 7 cards — 6 beat examples (Memory s38–s39, Goals s41–s42, Invocation timing s44–s45, Tooling s47–s48, Tooling-ops s50–s51, Result handling s53–s54) plus Synthesis/Closing (s56, s58, s10, s60). Last content slide of every sequence carries `data-return-to-toc`. T-key summons the TOC. Forward keys are disabled on the TOC; only card-clicks advance.
+**Back half** (audience-directed): TOC is sectioned — **Case studies** (Memory s38–s39, Goals s41–s42, Invocation timing s44–s45, Tooling s47–s48, Tooling-ops s50–s51, State control s53–s54, plus a greyed-out **Feedback** card pending a story), **Recipes** (none built yet), **Closing** (Synthesis card → s56, s58, s10, s60). Last content slide of every sequence carries `data-return-to-toc`. T-key summons the TOC. Forward keys are disabled on the TOC; only card-clicks advance.
 
 **Placeholders standing in for later-session work:**
-- TOC cards are simple beat titles; real two-diagram TOC (Carelessness is a process + Agent's Universe) is later.
+- TOC cards are flat beat titles; real two-diagram TOC (Carelessness is a process + Agent's Universe) is later.
+- Each case study is currently 2 slides; plan is to expand to 3 (starting state → intervention → name the experience).
+- Recipes section in the TOC is empty — no recipe slides exist yet.
+- Feedback case-study card is greyed out — no story has been drafted yet.
 - s21 (MBB demo) and s23 (transcript-fetcher) are scaffolds; demo scripts are later.
-- Upshift block (s22, s28, s20, s34) is the placeholder upshift; real upshift sequence is later.
+- Upshift exists but the "name experiences first" rework (walking both examples, categorizing each transition, then extracting the formula) is pending.
 
 **Terminology baked into deck + notes this movement:**
 - "Vigilance cost:" replaced "The Worry:" on all beat setups and the upshift's strike-through callouts.

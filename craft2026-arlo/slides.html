@@ -148,6 +148,18 @@
     .spectrum li strong { display: block; }
     .level-num { color: var(--dim); font-size: 0.8em; text-align: right; font-weight: 300; display: block; margin: auto; }
 
+    .spectrum.spectrum-3col li {
+      grid-template-columns: 2rem 1.7fr 1fr;
+    }
+    .spectrum .load {
+      color: var(--dim);
+      font-size: 0.85em;
+      font-style: italic;
+      align-self: center;
+    }
+    .spectrum .load-neg { color: var(--accent); font-style: normal; font-weight: 600; }
+    .spectrum .load-zero { color: var(--fg); font-style: normal; font-weight: 500; }
+
     /* ── TOC HUB ──────────────────────────────────────── */
     .toc-grid {
       display: grid;
@@ -181,6 +193,29 @@
       color: var(--dim);
       font-size: 0.85em;
       font-style: italic;
+    }
+    .toc-section-label {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: clamp(0.75rem, 1.1vw, 1rem);
+      color: var(--accent);
+      margin-top: 2rem;
+      margin-bottom: 0.2rem;
+      text-align: left;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+      border-bottom: 1px solid rgba(232,160,32,0.25);
+      padding-bottom: 0.3rem;
+    }
+    .toc-card-pending {
+      opacity: 0.45;
+      cursor: default;
+    }
+    .toc-card-pending:hover {
+      background: var(--subtle);
+      border-color: rgba(232,160,32,0.25);
+      transform: none;
     }
 
     /* ── STORY LIST ───────────────────────────────────── */
@@ -314,8 +349,7 @@
         Brownfield: protect is large.
       </p>
       <p style="margin-top: 1.5rem;">
-        In brownfield, <span class="accent">vigilance &gt; work</span> already.<br>
-        <span class="dim">AI cuts work, raises total cost.</span>
+        In brownfield, <span class="accent">vigilance &gt; work</span> already.
       </p>
     </div>
   </section>
@@ -324,7 +358,8 @@
     <div class="overlay"></div>
     <div class="slide-content">
       <h2>AI <em>multiplied</em> the problem.</h2>
-      <p><br>Work toil down 75% <br> =&gt; 4x more events <br> =&gt; <em>4x more Vigilance Toil</em>.</p>
+      <p><br>Work toil down 75% <br> =&gt; 4x more events <br> =&gt; <em>4x more Vigilance Toil</em>.<br>
+        <span class="dim">AI cuts work, raises total cost.</span></p>
     </div>
   </section>
 
@@ -362,53 +397,22 @@
     </div>
   </section>
 
-  @ai: move archive tabgle story to a case in the toc. The things reachable from the toc are case studies, recipes, and the closing. Section them like that. So far, we haven't built any recipes yet.. structure each case study as 3 slides: 1) starting state. 2) intervention. 3) categorize / name the experience.
-
-  <!-- 24 Result handling — Archive table (now part of upshift; experience to name) -->
-  <section class="slide img-bg bg-migration" id="s24">
-    <div class="overlay"></div>
-    <div class="slide-content">
-      <p class="kicker">Result handling</p>
-      <h2>Archive table</h2>
-      <p style="margin-top: 1.5rem;">
-        Before the migration runs: every pre-migration row preserved.
-      </p>
-      <p style="margin-top: 0.75rem; color: var(--dim);">
-        The AI can be careless about data loss.<br>The environment is careful so you don't have to be.
-      </p>
-      <p style="margin-top: 2rem; font-style: italic; text-decoration: line-through; color: var(--dim);">
-        Vigilance cost: "What if it loses data we can't recover?"
-      </p>
-    </div>
-  </section>
-
   <!-- ═══════════════════════════════════════════════════
        UPSHIFT
        Rise to the big idea (carelessness) → state how (recipe) →
        survey the full design surface (universe).
-       Order: principle → safety vocabulary → recipe → AST callback → universe.
-  ════════════════════════════════════════════════════ -->
 
-  @ai: we need to name the experiences first. I want to go through both of the examples and categorize them, then extract a couple of concepts that we can name. I'm seeing the following:
-  
-  1. example: risk-aware commit tool
-    * What did we change? tooling
-    * What did it change in errors? Prevented risk mis-categorization, prevented merge snarls, prevented unclear git history, prevented arbitrary change to git history. enabled carelessness around commits and sharing (decreased context filling, take higher-level actions)
-  2. Example: Get transcript and find key moments
-    1. Transition: make sequencing deterministic.
-      * What changed? invocation
-      * Impact on errors? Prevented shortcutting steps, prevented mis-sequencing, prevented over-eager step completion. 
-    2. Transition: deterministic fetch
-      * Changed? invocation, goal
-      * Error impact? careless: eliminated fetch step - reduced my cognitive load and delays
-    3. Transition: lock down analysis goal
-      * Changed? goal - from "work with me to identify the important things to carry forward" to "Identify the key moments and the session pull quote. Key moment is defined as... Use iteration protocol to refine with me."
-      * Error impact? careless: generate moments that mattered. Also something about it only asking me for general reflection after providing its own example, so I don't need to try to explain everything. Also, this is where I had it start saying when it needed my attention (text to speech). So I could do something else and it would work silently, then tell me when it had something to report and I could come back when ready. This reduced my need to watch everything and be vigilent about when to respond.
-    4: Transition: lock down analysis format
-      * Changed? feedback
-      * Error impact? careless about what to include for each key moment, prevent including non-salient information
-  3. Name terms. (give me a good pithy name + concise definition for each term) One term for each common element - lever we changed, safety level, safe region scope. There were also other reductions of cognitiveload that didn't come from error prevention, but still reduced overall vigilence toil. Identify / categorize them in some clear way.
-  4. Extract theory: cost to protect
+       Order today: formula reveal → goal (s20) → how (s26) →
+       universe (s34) → safety vocabulary (s28) → recipe (s27) →
+       AST callback (s22) → blank pivot → TOC.
+
+       PENDING (next iteration): name-experiences-first rework.
+       Walk both examples in detail, categorize each transition by
+       lever / safety level / scope, then extract the formula. Will
+       restructure this whole block. See plan.md for target shape.
+       Archive table (was s24) has moved out of the front-half flow;
+       its content now lives only in the Result-handling beat (s53/s54).
+  ════════════════════════════════════════════════════ -->
 
   <section class="slide" id="s25">
     <div class="slide-content">
@@ -430,45 +434,55 @@
     <div class="overlay"></div>
     <div class="slide-content">
       <p class="big-quote">
-        Goal: Make <em>even more careless</em><br>behavior succeed.<br><br>
-        @ai: here, say to stop trying to improve the engine and start trying to improve the brakes. Also say and show it as directly as possible, such as "make it so that even crappier AI will succeed"
+        Make it so even <em>crappier AI</em> succeeds.
+        Stop improving the <em>engine</em>.<br>
+        Improve the <em>brakes</em>.<br><br>
       </p>
     </div>
   </section>
 
-  @ai: add a "how?" slide. 2-part answer: change the universe to increase safety for some class of errors.
+  <!-- 26 How? — bridge to the universe (the "where") and the safety levels (the "how much") -->
+  <section class="slide" id="s26">
+    <div class="slide-content">
+      <p class="kicker">How?</p>
+      <h2>Change the <span class="accent">universe</span>.<br>Raise safety on one <span class="accent">class</span> of error.</h2>
+      <p style="margin-top: 2.5rem; color: var(--dim);">
+        Not the agent. The world around it.<br>
+        Not all errors. One class at a time.
+      </p>
+    </div>
+  </section>
 
-  <!-- 34 Agent's Universe — implications of step 4: where the levers live -->
+  <!-- 34 Agent's Universe — the "where" of the two-part answer -->
   <section class="slide img-bg bg-cr-developer" id="s34">
     <div class="overlay"></div>
     <div class="slide-content">
-      <p class="kicker">Where the levers live</p>
+      <p class="kicker">Where to push</p>
       <h2>The agent's <span class="accent">universe</span></h2>
-      <p style="margin-top: 3rem; font-size: clamp(1rem, 1.8vw, 2rem); letter-spacing: 0.03em;">
-        Memory &nbsp;·&nbsp; Context &nbsp;·&nbsp; Goals &nbsp;·&nbsp; Tooling &nbsp;·&nbsp; Invocation timing &nbsp;·&nbsp; Result handling
+      <p style="margin-top: 2.5rem; font-size: clamp(1rem, 1.8vw, 2rem); letter-spacing: 0.03em;">
+        Memory &nbsp;·&nbsp; Context &nbsp;·&nbsp; Goals &nbsp;·&nbsp; Tooling<br>
+        Invocation timing &nbsp;·&nbsp; State control &nbsp;·&nbsp; Feedback
       </p>
-      <p style="margin-top: 2rem; color: var(--dim);">
-        Step 4's design surface.
+      <p style="margin-top: 1.8rem; color: var(--dim);">
+        Each one a class of error you can address.
       </p>
     </div>
   </section>
 
-  
-  @ai: make this a little more table-like (no visible table, but aligned to a grid). Add a third column for each that states the level of cognitive load required. The carefree level is actually negative (it reduces adjacent cognitive loads, usually for botht he human and the agent). Prevention is 0 load, others make your best assessment - don't just paper over with small, medium, large - be concrete and specific (and concise)
-  <!-- 28 Safety vocabulary — naming sets of safety, not a ladder -->
+  <!-- 28 Safety vocabulary — naming sets of safety; cognitive-load column added -->
   <section class="slide" id="s28">
-    <div class="slide-content" style="text-align: left; max-width: 950px;">
+    <div class="slide-content" style="text-align: left; max-width: 1050px;">
       <p class="kicker" style="margin-bottom: 0.4rem; text-align: center;">Sets of safety</p>
       <p class="dim" style="margin-bottom: 1.8rem; text-align: center; font-size: clamp(0.9rem, 1.4vw, 1.4rem);">
-        Each level: how much vigilance, of what kind.
+        Each level: how much vigilance, of what kind, at what cognitive load.
       </p>
-      <ul class="spectrum">
-        <li><span class="level-num">5</span><span><strong>Carefree</strong> Right action is easy. Wrong action is structurally hard.</span></li>
-        <li><span class="level-num">4</span><span><strong>Prevention</strong> Mistakes can't propagate past the originator.</span></li>
-        <li><span class="level-num">3</span><span><strong>Deterministic</strong> Known classes caught reliably; predictable gaps.</span></li>
-        <li><span class="level-num">2</span><span><strong>Probabilistic</strong> Sometimes caught; unpredictable gaps.</span></li>
-        <li><span class="level-num">1</span><span><strong>Vigilance</strong> Caught only when someone is paying attention.</span></li>
-        <li><span class="level-num">0</span><span><strong>Hope</strong> No mechanism. Errors propagate undetected.</span></li>
+      <ul class="spectrum spectrum-3col">
+        <li><span class="level-num">5</span><span><strong>Carefree</strong> Right action easy. Wrong action structurally hard.</span><span class="load load-neg">− Frees nearby attention too.</span></li>
+        <li><span class="level-num">4</span><span><strong>Prevention</strong> Mistakes can't propagate past the originator.</span><span class="load load-zero">0 No attention in scope.</span></li>
+        <li><span class="level-num">3</span><span><strong>Deterministic</strong> Known classes caught; predictable gaps.</span><span class="load">Spot-read the known gap.</span></li>
+        <li><span class="level-num">2</span><span><strong>Probabilistic</strong> Sometimes caught; unpredictable gaps.</span><span class="load">Random spot-checks; pace unpredictable.</span></li>
+        <li><span class="level-num">1</span><span><strong>Vigilance</strong> Caught only when someone is paying attention.</span><span class="load">Watch every action.</span></li>
+        <li><span class="level-num">0</span><span><strong>Hope</strong> No mechanism. Errors propagate undetected.</span><span class="load">None — until something fails silently.</span></li>
       </ul>
       <p class="dim" style="margin-top: 1.4rem; text-align: center; font-size: clamp(0.85rem, 1.3vw, 1.3rem); font-style: italic;">
         One project lives at many levels at once — different domain, different rung.<br>
@@ -522,17 +536,20 @@
     </div>
   </section>
 
-  @ai: add blank slide here
+  <!-- 30 BLANK — pivot from upshift to audience-directed back half -->
+  <section class="slide blank" id="s30"></section>
 
   <!-- ═══════════════════════════════════════════════════
        SECTION 4: Walking the Universe (audience-directed via TOC)
   ════════════════════════════════════════════════════ -->
 
-  <!-- 33 TOC HUB — placeholder cards for the 6 beat stories; verifies navigation -->
+  <!-- 33 TOC HUB — sectioned: Case studies / Recipes / Closing -->
   <section class="slide" id="s33">
     <div class="slide-content">
       <p class="kicker">Pick one to explore</p>
       <h2>Agent's <span class="accent">Universe</span></h2>
+
+      <p class="toc-section-label">Case studies</p>
       <div class="toc-grid">
         <div class="toc-card" data-jump-to="s38">
           <p class="kicker">Memory</p>
@@ -555,15 +572,27 @@
           <h3>Accidental behavior change</h3>
         </div>
         <div class="toc-card" data-jump-to="s53">
-          <p class="kicker">Result handling</p>
-          <h3>Data loss</h3>
+          <p class="kicker">State control</p>
+          <h3>Data loss (archive table)</h3>
         </div>
+        <div class="toc-card toc-card-pending">
+          <p class="kicker">Feedback</p>
+          <h3>Story TBD</h3>
+        </div>
+      </div>
+
+      <p class="toc-section-label">Recipes</p>
+      <p class="toc-placeholder" style="margin-top: 0.4rem;">None built yet.</p>
+
+      <p class="toc-section-label">Closing</p>
+      <div class="toc-grid" style="grid-template-columns: 1fr; max-width: 360px; margin-top: 0.6rem;">
         <div class="toc-card" data-jump-to="s56">
           <p class="kicker">Synthesis</p>
           <h3>Closing sequence</h3>
         </div>
       </div>
-      <p class="toc-placeholder">Placeholder TOC. Real two-diagram version lands in a later session.</p>
+
+      <p class="toc-placeholder">Each case study is 3 slides (starting state → intervention → name) once expanded — pending.</p>
     </div>
   </section>
 
@@ -780,7 +809,7 @@
       <p class="kicker">What we did each time</p>
       <h2>We didn't ask for more care.<br>We redesigned the world.</h2>
       <p style="margin-top: 2.5rem; color: var(--dim); font-size: clamp(0.9rem, 1.6vw, 1.8rem);">
-        Memory &nbsp;·&nbsp; Goals &nbsp;·&nbsp; Invocation timing &nbsp;·&nbsp; Tooling &nbsp;·&nbsp; Result handling
+        Memory &nbsp;·&nbsp; Goals &nbsp;·&nbsp; Invocation timing &nbsp;·&nbsp; Tooling &nbsp;·&nbsp; State control &nbsp;·&nbsp; Feedback
       </p>
       <p style="margin-top: 1.5rem; color: var(--dim);">
         Each choice created a zero-risk zone.<br>
