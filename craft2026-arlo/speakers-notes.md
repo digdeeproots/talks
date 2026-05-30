@@ -425,6 +425,16 @@ Pause.
 
 ---
 
+### 40 — Beat 1 name the experience
+
+Read the four lines. Don't elaborate.
+
+> "Lever: Memory. Safety level: 4 — Prevention. Scope: cross-session decision inconsistency. Slack: no re-explaining context every session."
+
+Then return to the TOC.
+
+---
+
 ### 41 — Beat 2 setup: Consistency violation
 
 > "Recurring structured output. Specifically: the coaching workflow. Daily — pull transcripts, plan lessons, write the status email, extract techniques."
@@ -451,6 +461,14 @@ Pause.
 
 ---
 
+### 43 — Beat 2 name the experience
+
+> "Lever: Goals — a structured spec replaced free-form prose. Safety level: 4 — structure, recipients, rendering all become zero-risk zones. Scope: format and structure drift in recurring output. Slack: you only think about the words; everything else assembles itself."
+
+Then return to the TOC.
+
+---
+
 ### 44 — Beat 3 setup: Oversight mechanism gap
 
 > "Session data fetching. The coaching workflow starts with: get the right transcript, for the right team, for today."
@@ -470,6 +488,14 @@ Pause.
 > "The system decides when to call Claude. It calls Claude only when deterministic code admits it can't handle something."
 
 > "You don't have to decide when to trust it. The system decides by condition."
+
+---
+
+### 46 — Beat 3 name the experience
+
+> "Lever: Invocation timing. Safety level: 3 going on 4 — deterministic by default, agent only on declared failure. Scope: wrong-data fetching and over-eager step completion. Slack: you don't decide when to trust the agent — the system decides by condition."
+
+Then return to the TOC.
 
 ---
 
@@ -501,6 +527,14 @@ Pause.
 
 ---
 
+### 49 — Beat 4 name the experience
+
+> "Lever: Tooling. Safety level: 4 — git invariants cannot be violated; there's nothing to route around. Scope: git operations and the risk-notation policy. Slack: risk assessment moves from human to tool."
+
+Then return to the TOC.
+
+---
+
 ### 50 — Beat 5 setup: Accidental behavior change
 
 > "Structural refactoring in legacy code. Renames, extractions, relocations across a large codebase."
@@ -524,6 +558,14 @@ Point at the two-up.
 > "Behavioral safety: did it change what the code does? The tool guarantees no. Not possible to violate within scope."
 
 > "'Wrong about the design' and 'introduced a bug' are now categorically different failure modes. Only the first remains possible."
+
+---
+
+### 52 — Beat 5 name the experience
+
+> "Lever: Tooling — operation semantics, not which tools exist. Safety level: 5 — Carefree within scope. Behavioral safety guaranteed by the tool. Scope: behavior preservation during refactoring. Slack: undo is as easy as do — wrong abstractions are cheap to reverse."
+
+Then return to the TOC.
 
 ---
 
@@ -554,6 +596,14 @@ Point at each bullet as you tell it.
 > "Deterministic pre-processing → AI creative decision → deterministic execution. The Determinism Sandwich."
 
 > "Data loss is structurally impossible."
+
+---
+
+### 55 — Beat 6 name the experience
+
+> "Lever: State control — the Determinism Sandwich. Safety level: 4 to 5 — data loss is structurally impossible. Scope: schema migrations against live data. Slack: migrations stop being scary."
+
+Then return to the TOC.
 
 ---
 

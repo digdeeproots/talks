@@ -94,6 +94,8 @@ Lever names are still settling — current canonical names are listed first, wit
 - *Transcript fetcher.* Deterministic code fetches; agent runs only on failure, with the specific error as context.
 - *do-today sequencing.* Deterministic code decides what step is needed, runs that step, exits. The agent is never asked to manage its own sequencing.
 
+@expand this to workflow. There are several levels and kinds: skills are an example of non-deterministic workflow. Process docs are non-deterministic; wrokflows that are invoked deterministically
+
 ---
 
 ## State Control *(prior name: Result handling / Work-product state control)*

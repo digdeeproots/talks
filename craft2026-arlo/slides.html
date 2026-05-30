@@ -218,6 +218,12 @@
       transform: none;
     }
 
+    /* ── NAME-THE-EXPERIENCE LIST ─────────────────────── */
+    .name-list { list-style: none; text-align: left; max-width: 920px; margin: 1.8rem auto 0; padding: 0; font-size: clamp(0.95rem, 1.55vw, 1.6rem); line-height: 1.5; }
+    .name-list li { margin-bottom: 0.9rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--subtle); }
+    .name-list li:last-child { border-bottom: none; margin-bottom: 0; }
+    .name-list li strong { display: inline-block; min-width: 9rem; }
+
     /* ── STORY LIST ───────────────────────────────────── */
     .story-list { list-style: none; text-align: left; max-width: 820px; margin: 0 auto; }
     .story-list li {
@@ -609,10 +615,6 @@
        SECTION 4: Walking the Universe (audience-directed via TOC)
   ════════════════════════════════════════════════════ -->
 
-  @ai: move archive tabgle story to a case in the toc. The things reachable from the toc are case studies, recipes, and the closing. Section them like that. So far, we haven't built any recipes yet.. structure each case study as 3 slides: 1) starting state. 2) intervention. 3) categorize / name the experience.
-
-  @ai-deferral-note: prior pass did the archive-move (s24 removed; content lives in the State-control beat at s53/s54) and the TOC sectioning (Case studies / Recipes / Closing with a greyed-out Feedback card). The 3-slide expansion for each existing case study is still outstanding. Nothing needed from the human; addressing in a subsequent commit.
-
   <!-- 33 TOC HUB — sectioned: Case studies / Recipes / Closing -->
   <section class="slide" id="s33">
     <div class="slide-content">
@@ -662,7 +664,7 @@
         </div>
       </div>
 
-      <p class="toc-placeholder">Each case study is 3 slides (starting state → intervention → name) once expanded — pending.</p>
+      <p class="toc-placeholder">Each case study is 3 slides: starting state → intervention → name the experience.</p>
     </div>
   </section>
 
@@ -680,8 +682,8 @@
     </div>
   </section>
 
-  <!-- 39 Story — last slide of beat 1; next returns to TOC -->
-  <section class="slide" id="s39" data-return-to-toc="true">
+  <!-- 39 Intervention — beat 1 -->
+  <section class="slide" id="s39">
     <div class="slide-content">
       <p class="kicker">Universe: Memory</p>
       <ul class="story-list">
@@ -699,6 +701,19 @@
     </div>
   </section>
 
+  <!-- 40 Name the experience — beat 1; next returns to TOC -->
+  <section class="slide" id="s40" data-return-to-toc="true">
+    <div class="slide-content">
+      <p class="kicker">Name the experience</p>
+      <ul class="name-list">
+        <li><strong class="accent">Lever</strong> Memory</li>
+        <li><strong class="accent">Safety level</strong> 4 — Prevention. Conflicting decisions are structurally impossible.</li>
+        <li><strong class="accent">Scope</strong> Cross-session decision inconsistency.</li>
+        <li><strong class="accent">Slack</strong> No re-explaining context every session.</li>
+      </ul>
+    </div>
+  </section>
+
   <!-- ── BEAT 2: Goals / Consistency violation ─────────── -->
 
   <!-- 41 Setup -->
@@ -713,8 +728,8 @@
     </div>
   </section>
 
-  <!-- 42 Story — last slide of beat 2; next returns to TOC -->
-  <section class="slide img-bg" id="s42" data-return-to-toc="true">
+  <!-- 42 Intervention — beat 2 -->
+  <section class="slide img-bg" id="s42">
     <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Universe: Goals</p>
@@ -727,6 +742,19 @@
         Structure, recipients, rendering:<br>
         <span class="accent">zero-risk zones. Forever.</span>
       </p>
+    </div>
+  </section>
+
+  <!-- 43 Name the experience — beat 2; next returns to TOC -->
+  <section class="slide" id="s43" data-return-to-toc="true">
+    <div class="slide-content">
+      <p class="kicker">Name the experience</p>
+      <ul class="name-list">
+        <li><strong class="accent">Lever</strong> Goals (structured spec)</li>
+        <li><strong class="accent">Safety level</strong> 4 — Prevention. Structure, recipients, rendering each become zero-risk zones.</li>
+        <li><strong class="accent">Scope</strong> Format and structure drift in recurring output.</li>
+        <li><strong class="accent">Slack</strong> You only think about the words; everything else assembles itself.</li>
+      </ul>
     </div>
   </section>
 
@@ -745,8 +773,8 @@
     </div>
   </section>
 
-  <!-- 45 Story — last slide of beat 3; next returns to TOC -->
-  <section class="slide img-bg" id="s45" data-return-to-toc="true">
+  <!-- 45 Intervention — beat 3 -->
+  <section class="slide img-bg" id="s45">
     <div class="slide-content">
       <p class="kicker">Universe: Invocation timing</p>
       <div class="two-up">
@@ -766,6 +794,19 @@
     </div>
   </section>
 
+  <!-- 46 Name the experience — beat 3; next returns to TOC -->
+  <section class="slide" id="s46" data-return-to-toc="true">
+    <div class="slide-content">
+      <p class="kicker">Name the experience</p>
+      <ul class="name-list">
+        <li><strong class="accent">Lever</strong> Invocation timing</li>
+        <li><strong class="accent">Safety level</strong> 3 / 4 — deterministic by default, agent only on declared failure.</li>
+        <li><strong class="accent">Scope</strong> Wrong-data fetching and over-eager step completion.</li>
+        <li><strong class="accent">Slack</strong> You don't decide when to trust the agent — the system decides by condition.</li>
+      </ul>
+    </div>
+  </section>
+
   <!-- ── BEAT 4: Tooling (access) / Scope enforcement ───── -->
 
   <!-- 47 Setup -->
@@ -780,8 +821,8 @@
     </div>
   </section>
 
-  <!-- 48 Story — last slide of beat 4; next returns to TOC -->
-  <section class="slide img-bg" id="s48" data-return-to-toc="true">
+  <!-- 48 Intervention — beat 4 -->
+  <section class="slide img-bg" id="s48">
     <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Universe: Tooling</p>
@@ -794,6 +835,19 @@
         The AI cannot violate git invariants.<br>
         because there's <span class="accent">nothing to route around.</span>
       </p>
+    </div>
+  </section>
+
+  <!-- 49 Name the experience — beat 4; next returns to TOC -->
+  <section class="slide" id="s49" data-return-to-toc="true">
+    <div class="slide-content">
+      <p class="kicker">Name the experience</p>
+      <ul class="name-list">
+        <li><strong class="accent">Lever</strong> Tooling</li>
+        <li><strong class="accent">Safety level</strong> 4 — Prevention. Git invariants cannot be violated; nothing to route around.</li>
+        <li><strong class="accent">Scope</strong> Git operations and the risk-notation policy.</li>
+        <li><strong class="accent">Slack</strong> Risk assessment moves from human to tool.</li>
+      </ul>
     </div>
   </section>
 
@@ -814,8 +868,8 @@
     </div>
   </section>
 
-  <!-- 51 Story — last slide of beat 5; next returns to TOC -->
-  <section class="slide img-bg" id="s51" data-return-to-toc="true">
+  <!-- 51 Intervention — beat 5 -->
+  <section class="slide img-bg" id="s51">
     <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Universe: Tooling</p>
@@ -836,6 +890,19 @@
     </div>
   </section>
 
+  <!-- 52 Name the experience — beat 5; next returns to TOC -->
+  <section class="slide" id="s52" data-return-to-toc="true">
+    <div class="slide-content">
+      <p class="kicker">Name the experience</p>
+      <ul class="name-list">
+        <li><strong class="accent">Lever</strong> Tooling (operation semantics)</li>
+        <li><strong class="accent">Safety level</strong> 5 — Carefree within scope. Behavioral safety guaranteed by the tool.</li>
+        <li><strong class="accent">Scope</strong> Behavior preservation during refactoring.</li>
+        <li><strong class="accent">Slack</strong> Undo is as easy as do — wrong abstractions are cheap to reverse.</li>
+      </ul>
+    </div>
+  </section>
+
   <!-- ── BEAT 6: Result handling / Data loss ────────────── -->
 
   <!-- 53 Setup -->
@@ -852,11 +919,11 @@
     </div>
   </section>
 
-  <!-- 54 Story — last slide of beat 6; next returns to TOC -->
-  <section class="slide img-bg" id="s54" data-return-to-toc="true">
+  <!-- 54 Intervention — beat 6 -->
+  <section class="slide img-bg" id="s54">
     <div class="overlay"></div>
     <div class="slide-content">
-      <p class="kicker">Universe: Result handling</p>
+      <p class="kicker">Universe: State control</p>
       <div style="text-align: left; display: inline-block; max-width: 760px;">
         <p style="margin-bottom: 1.2rem;">1. <span class="accent">Archive table</span> — all rows preserved before migration runs</p>
         <p style="margin-bottom: 1.2rem;">2. <span class="accent">Bidirectional remapping</span> — deterministic verification before execution</p>
@@ -865,6 +932,19 @@
       <p style="margin-top: 2rem; color: var(--dim);">
         Deterministic pre &nbsp;→&nbsp; <em>AI creative decision</em> &nbsp;→&nbsp; deterministic execution.
       </p>
+    </div>
+  </section>
+
+  <!-- 55 Name the experience — beat 6; next returns to TOC -->
+  <section class="slide" id="s55" data-return-to-toc="true">
+    <div class="slide-content">
+      <p class="kicker">Name the experience</p>
+      <ul class="name-list">
+        <li><strong class="accent">Lever</strong> State control (Determinism sandwich)</li>
+        <li><strong class="accent">Safety level</strong> 4 / 5 — Data loss is structurally impossible.</li>
+        <li><strong class="accent">Scope</strong> Schema migrations against live data.</li>
+        <li><strong class="accent">Slack</strong> Migrations stop being scary.</li>
+      </ul>
     </div>
   </section>
 

@@ -117,7 +117,7 @@ Concretely:
 
 ### Later sessions (tracked)
 
-- **TOC case-study expansion.** Each existing case study (2 slides) becomes 3: starting state → intervention → name the experience (lever pulled, safety level reached, scope). Build at least one Feedback case study so its card stops being greyed out.
+- **Feedback case study.** Build a 3-slide case study for the greyed-out Feedback card. Other levers each have a story now; Feedback only has the transcript-fetcher step-4 reference inside Example 2 — it needs a dedicated lane in the back half.
 - **Recipes section.** No recipe slides exist yet. Decide what a "recipe" looks like inside the back-half TOC versus the meta-recipe on s27 — they may be different artifacts.
 - Fill in the **Carelessness is a process** diagram. (Now means: visualize the recipe loop — name → guardian → classify → lever → decide — not transitions along the spectrum.)
 - Fill in the **Agent's Universe** diagram.
@@ -142,15 +142,24 @@ Concretely:
 
 **Front half** (linear nav): s1, s2 → motorcar s4, s6, s8, s11 → vigilance 2-factor s12, s14, s16, s18, s19 → MBB demo placeholder **s21** → transcript-fetcher placeholder **s23** → **example-1 recap s29** → **example-2 recap s31** → **terms named s32** (lever / safety level / scope / slack) → 3-factor formula s25 → upshift (s20 goal, **s26 how?**, s34 universe, s28 safety vocabulary, s27 recipe, s22 AST callback) → **s30 blank pivot** → TOC hub **s33**. (Archive table — old s24 — removed from front-half flow; story now lives only in the back-half State-control beat at s53/s54.)
 
-**Back half** (audience-directed): TOC is sectioned — **Case studies** (Memory s38–s39, Goals s41–s42, Invocation timing s44–s45, Tooling s47–s48, Tooling-ops s50–s51, State control s53–s54, plus a greyed-out **Feedback** card pending a story), **Recipes** (none built yet), **Closing** (Synthesis card → s56, s58, s10, s60). Last content slide of every sequence carries `data-return-to-toc`. T-key summons the TOC. Forward keys are disabled on the TOC; only card-clicks advance.
+**Back half** (audience-directed): TOC is sectioned — **Case studies** (each a 3-slide arc: setup → intervention → name the experience), **Recipes** (none built yet), **Closing** (Synthesis card → s56, s58, s10, s60). Last name-slide of every beat carries `data-return-to-toc`. T-key summons the TOC. Forward keys are disabled on the TOC; only card-clicks advance.
+
+Case-study sequences:
+- Memory s38 → s39 → **s40** (name)
+- Goals s41 → s42 → **s43**
+- Invocation timing s44 → s45 → **s46**
+- Tooling (access) s47 → s48 → **s49**
+- Tooling (operations) s50 → s51 → **s52**
+- State control s53 → s54 → **s55**
+- Feedback — card still greyed out, no slides yet
+
+Each name slide fills in: **Lever** / **Safety level** / **Scope** / **Slack** — the terms introduced at s32 in the upshift.
 
 **Placeholders standing in for later-session work:**
 - TOC cards are flat beat titles; real two-diagram TOC (Carelessness is a process + Agent's Universe) is later.
-- Each case study is currently 2 slides; plan is to expand to 3 (starting state → intervention → name the experience).
 - Recipes section in the TOC is empty — no recipe slides exist yet.
 - Feedback case-study card is greyed out — no story has been drafted yet.
 - s21 (MBB demo) and s23 (transcript-fetcher) are scaffolds; demo scripts are later.
-- Upshift exists but the "name experiences first" rework (walking both examples, categorizing each transition, then extracting the formula) is pending.
 
 **Terminology baked into deck + notes this movement:**
 - "Vigilance cost:" replaced "The Worry:" on all beat setups and the upshift's strike-through callouts.
