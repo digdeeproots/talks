@@ -362,6 +362,8 @@
     </div>
   </section>
 
+  @ai: move archive tabgle story to a case in the toc. The things reachable from the toc are case studies, recipes, and the closing. Section them like that. So far, we haven't built any recipes yet.. structure each case study as 3 slides: 1) starting state. 2) intervention. 3) categorize / name the experience.
+
   <!-- 24 Result handling — Archive table (now part of upshift; experience to name) -->
   <section class="slide img-bg bg-migration" id="s24">
     <div class="overlay"></div>
@@ -380,6 +382,34 @@
     </div>
   </section>
 
+  <!-- ═══════════════════════════════════════════════════
+       UPSHIFT
+       Rise to the big idea (carelessness) → state how (recipe) →
+       survey the full design surface (universe).
+       Order: principle → safety vocabulary → recipe → AST callback → universe.
+  ════════════════════════════════════════════════════ -->
+
+  @ai: we need to name the experiences first. I want to go through both of the examples and categorize them, then extract a couple of concepts that we can name. I'm seeing the following:
+  
+  1. example: risk-aware commit tool
+    * What did we change? tooling
+    * What did it change in errors? Prevented risk mis-categorization, prevented merge snarls, prevented unclear git history, prevented arbitrary change to git history. enabled carelessness around commits and sharing (decreased context filling, take higher-level actions)
+  2. Example: Get transcript and find key moments
+    1. Transition: make sequencing deterministic.
+      * What changed? invocation
+      * Impact on errors? Prevented shortcutting steps, prevented mis-sequencing, prevented over-eager step completion. 
+    2. Transition: deterministic fetch
+      * Changed? invocation, goal
+      * Error impact? careless: eliminated fetch step - reduced my cognitive load and delays
+    3. Transition: lock down analysis goal
+      * Changed? goal - from "work with me to identify the important things to carry forward" to "Identify the key moments and the session pull quote. Key moment is defined as... Use iteration protocol to refine with me."
+      * Error impact? careless: generate moments that mattered. Also something about it only asking me for general reflection after providing its own example, so I don't need to try to explain everything. Also, this is where I had it start saying when it needed my attention (text to speech). So I could do something else and it would work silently, then tell me when it had something to report and I could come back when ready. This reduced my need to watch everything and be vigilent about when to respond.
+    4: Transition: lock down analysis format
+      * Changed? feedback
+      * Error impact? careless about what to include for each key moment, prevent including non-salient information
+  3. Name terms. (give me a good pithy name + concise definition for each term) One term for each common element - lever we changed, safety level, safe region scope. There were also other reductions of cognitiveload that didn't come from error prevention, but still reduced overall vigilence toil. Identify / categorize them in some clear way.
+  4. Extract theory: cost to protect
+
   <section class="slide" id="s25">
     <div class="slide-content">
       <p class="kicker">vigilance toil</p>
@@ -395,25 +425,36 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════════
-       UPSHIFT
-       Rise to the big idea (carelessness) → state how (recipe) →
-       survey the full design surface (universe).
-       Order: principle → safety vocabulary → recipe → AST callback → universe.
-  ════════════════════════════════════════════════════ -->
-
   <!-- 20 Big idea: carelessness as the goal -->
   <section class="slide img-bg bg-cf-motorcar-road" id="s20">
     <div class="overlay"></div>
     <div class="slide-content">
       <p class="big-quote">
-        Stop <em>being more careful</em>.<br><br>
-        Change the world.<br><br>
-        Make <em>even more careless</em><br>behavior succeed.
+        Goal: Make <em>even more careless</em><br>behavior succeed.<br><br>
+        @ai: here, say to stop trying to improve the engine and start trying to improve the brakes. Also say and show it as directly as possible, such as "make it so that even crappier AI will succeed"
       </p>
     </div>
   </section>
 
+  @ai: add a "how?" slide. 2-part answer: change the universe to increase safety for some class of errors.
+
+  <!-- 34 Agent's Universe — implications of step 4: where the levers live -->
+  <section class="slide img-bg bg-cr-developer" id="s34">
+    <div class="overlay"></div>
+    <div class="slide-content">
+      <p class="kicker">Where the levers live</p>
+      <h2>The agent's <span class="accent">universe</span></h2>
+      <p style="margin-top: 3rem; font-size: clamp(1rem, 1.8vw, 2rem); letter-spacing: 0.03em;">
+        Memory &nbsp;·&nbsp; Context &nbsp;·&nbsp; Goals &nbsp;·&nbsp; Tooling &nbsp;·&nbsp; Invocation timing &nbsp;·&nbsp; Result handling
+      </p>
+      <p style="margin-top: 2rem; color: var(--dim);">
+        Step 4's design surface.
+      </p>
+    </div>
+  </section>
+
+  
+  @ai: make this a little more table-like (no visible table, but aligned to a grid). Add a third column for each that states the level of cognitive load required. The carefree level is actually negative (it reduces adjacent cognitive loads, usually for botht he human and the agent). Prevention is 0 load, others make your best assessment - don't just paper over with small, medium, large - be concrete and specific (and concise)
   <!-- 28 Safety vocabulary — naming sets of safety, not a ladder -->
   <section class="slide" id="s28">
     <div class="slide-content" style="text-align: left; max-width: 950px;">
@@ -458,6 +499,10 @@
           <strong>Lock one class in with a <span class="accent">universe lever</span></strong>
           <span class="dim"> at a chosen safety level.</span>
         </li>
+        <li>
+          <strong>Make a decision</strong>
+          <span class="dim">Choose whether to accept the agent's work or to reset and try again with your new safety lever..</span>
+        </li>
       </ol>
     </div>
   </section>
@@ -477,20 +522,11 @@
     </div>
   </section>
 
-  <!-- 34 Agent's Universe — implications of step 4: where the levers live -->
-  <section class="slide img-bg bg-cr-developer" id="s34">
-    <div class="overlay"></div>
-    <div class="slide-content">
-      <p class="kicker">Where the levers live</p>
-      <h2>The agent's <span class="accent">universe</span></h2>
-      <p style="margin-top: 3rem; font-size: clamp(1rem, 1.8vw, 2rem); letter-spacing: 0.03em;">
-        Memory &nbsp;·&nbsp; Context &nbsp;·&nbsp; Goals &nbsp;·&nbsp; Tooling &nbsp;·&nbsp; Invocation timing &nbsp;·&nbsp; Result handling
-      </p>
-      <p style="margin-top: 2rem; color: var(--dim);">
-        Step 4's design surface.
-      </p>
-    </div>
-  </section>
+  @ai: add blank slide here
+
+  <!-- ═══════════════════════════════════════════════════
+       SECTION 4: Walking the Universe (audience-directed via TOC)
+  ════════════════════════════════════════════════════ -->
 
   <!-- 33 TOC HUB — placeholder cards for the 6 beat stories; verifies navigation -->
   <section class="slide" id="s33">
@@ -530,10 +566,6 @@
       <p class="toc-placeholder">Placeholder TOC. Real two-diagram version lands in a later session.</p>
     </div>
   </section>
-
-  <!-- ═══════════════════════════════════════════════════
-       SECTION 4: Walking the Universe (audience-directed via TOC)
-  ════════════════════════════════════════════════════ -->
 
   <!-- ── BEAT 1: Memory / Decision inconsistency ──────── -->
 
