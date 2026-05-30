@@ -140,17 +140,77 @@ Semi-demo script is out of scope for this movement.
 
 ---
 
-### 25 — The third factor
+### 29 — Example 1 recap
 
-The formula returns, with a new term: **cost to protect**.
+Walk back to the first demo. The point of this slide is to *name* what changed; the audience saw it, now we attach words.
 
-> "Two times today, you watched someone push cost-to-protect toward zero in some scope. Movement-based branching. The transcript fetcher."
+> "Two demos. Let's look at what they had in common."
 
-> "Throughput we don't get to lower — that's the whole point of using AI. Amount to protect is what we're trying to grow — that's the business. But cost to protect? *That* we engineer. That's the factor we actually control."
+> "First one: the commit tool. One transition. We replaced raw git with an MCP tool. The tool owns commits, branches, and risk notation."
+
+Point to each line:
+
+> "What stopped happening: risk mis-categorization, merge snarls, unclear history, arbitrary changes to history. All those failure modes — gone."
+
+> "What got easier: committing and sharing carelessly. Less context-filling. Higher-level moves, because the lower-level stuff is no longer your job."
+
+Don't name the formal terms yet. Hold them for two slides.
+
+---
+
+### 31 — Example 2 recap
+
+Four transitions in sequence. Walk them briefly — one beat each. The audience will pattern-match before you name it.
+
+> "Second one was four moves, not one. Each move was a single, separable change."
+
+Read each:
+
+> "Sequencing became deterministic. The agent doesn't decide what step is next; deterministic code does. That alone prevented a whole class of mistakes: shortcuts, mis-sequencing, over-eager completion."
+
+> "Then the fetch became deterministic. The agent only sees fetch results when fetch fails. Notice this changed *two* things at once: invocation, *and* the goal of the agent in that step."
+
+> "Then we locked down the analysis goal. From 'work with me to find what matters' to a concrete output spec. We also added text-to-speech so the system pulls me in only when there's something to respond to. I don't have to watch."
+
+> "Then we locked down the analysis format. Schema validation tells the agent when its output doesn't conform; the agent retries. I'm careless about what each key moment includes."
+
+> "Four transitions, four levers touched."
+
+---
+
+### 32 — Naming the recurring terms
+
+This slide is the abstraction step. Each term comes out of the walk-through; don't introduce them out of context.
+
+> "Four things keep showing up. Let's name them."
+
+> "**Lever** — a facet of the agent's universe you can engineer. We touched four today: tooling, invocation, goal, feedback. There are more."
+
+> "**Safety level** — how far up the carelessness scale a class of error has been pushed. We haven't named the scale yet; we will in a moment."
+
+> "**Scope** — the class of error one intervention addresses. Always one at a time. Never 'the whole problem.' Each transition we just walked through was one class."
+
+Pause. Then the bonus:
+
+> "**Slack** — load shed beyond error prevention. The fetch step *also* disappeared. The TTS notification *also* let me work elsewhere. Those weren't error-prevention moves — they were attention-prevention moves. Bonus on top of the safety shift."
+
+Then bridge to the theory:
+
+> "Now we can say something general about the math."
+
+---
+
+### 25 — Cost to protect
+
+Cost to protect is the third factor. The walk-through just gave us the building blocks; now they assemble.
+
+> "Vigilance toil is throughput times amount to protect times *cost to protect*. Throughput we don't lower — that's why we use AI. Amount to protect is what we're trying to grow — that's the business. Cost to protect is the one we engineer."
+
+> "Cost to protect is the price of holding one scope at one safety level. Lower it on one class, lower the total. Lever × level × scope. Plus slack, when you can get it."
 
 Then pivot:
 
-> "So what would it look like if cost to protect were the design problem?"
+> "So what would it look like if cost-to-protect were the design problem?"
 
 ---
 

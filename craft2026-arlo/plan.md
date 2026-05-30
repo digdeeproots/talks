@@ -117,7 +117,6 @@ Concretely:
 
 ### Later sessions (tracked)
 
-- **Upshift rework: name experiences first.** Walk both examples explicitly. For each transition, categorize: lever changed, safety level reached, scope, and any non-error-prevention cognitive-load reduction. Then extract the terms (lever, safety level, scope) and the theory (cost to protect). Restructures the current upshift block.
 - **TOC case-study expansion.** Each existing case study (2 slides) becomes 3: starting state → intervention → name the experience (lever pulled, safety level reached, scope). Build at least one Feedback case study so its card stops being greyed out.
 - **Recipes section.** No recipe slides exist yet. Decide what a "recipe" looks like inside the back-half TOC versus the meta-recipe on s27 — they may be different artifacts.
 - Fill in the **Carelessness is a process** diagram. (Now means: visualize the recipe loop — name → guardian → classify → lever → decide — not transitions along the spectrum.)
@@ -141,7 +140,7 @@ Concretely:
 
 ## Current deck state (post-restructure)
 
-**Front half** (linear nav): s1, s2 → motorcar s4, s6, s8, s11 → vigilance 2-factor s12, s14, s16, s18, s19 → MBB demo placeholder **s21** → transcript-fetcher placeholder **s23** → 3-factor formula s25 → upshift (s20 goal, **s26 how?**, s34 universe, s28 safety vocabulary, s27 recipe, s22 AST callback) → **s30 blank pivot** → TOC hub **s33**. (Archive table — old s24 — removed from front-half flow; story now lives only in the back-half State-control beat at s53/s54.)
+**Front half** (linear nav): s1, s2 → motorcar s4, s6, s8, s11 → vigilance 2-factor s12, s14, s16, s18, s19 → MBB demo placeholder **s21** → transcript-fetcher placeholder **s23** → **example-1 recap s29** → **example-2 recap s31** → **terms named s32** (lever / safety level / scope / slack) → 3-factor formula s25 → upshift (s20 goal, **s26 how?**, s34 universe, s28 safety vocabulary, s27 recipe, s22 AST callback) → **s30 blank pivot** → TOC hub **s33**. (Archive table — old s24 — removed from front-half flow; story now lives only in the back-half State-control beat at s53/s54.)
 
 **Back half** (audience-directed): TOC is sectioned — **Case studies** (Memory s38–s39, Goals s41–s42, Invocation timing s44–s45, Tooling s47–s48, Tooling-ops s50–s51, State control s53–s54, plus a greyed-out **Feedback** card pending a story), **Recipes** (none built yet), **Closing** (Synthesis card → s56, s58, s10, s60). Last content slide of every sequence carries `data-return-to-toc`. T-key summons the TOC. Forward keys are disabled on the TOC; only card-clicks advance.
 

@@ -410,28 +410,74 @@
        its content now lives only in the State-control beat (s53/s54).
   ════════════════════════════════════════════════════ -->
 
-  @ai: we need to name the experiences first. I want to go through both of the examples and categorize them, then extract a couple of concepts that we can name. I'm seeing the following:
+  <!-- 29 Example 1 recap — single transition, name what changed -->
+  <section class="slide" id="s29">
+    <div class="slide-content">
+      <p class="kicker">Example 1 · risk-aware commit tool</p>
+      <h2>One transition.</h2>
+      <div style="text-align: left; max-width: 880px; margin: 2rem auto 0; font-size: clamp(1rem, 1.7vw, 1.8rem); line-height: 1.5;">
+        <p style="margin-bottom: 1rem;"><span class="kicker" style="display: inline-block; margin: 0; min-width: 6rem;">Changed</span> Replaced raw git with an MCP tool. Tool owns commits, branches, risk notation.</p>
+        <p style="margin-bottom: 1rem;"><span class="kicker" style="display: inline-block; margin: 0; min-width: 6rem;">Stopped</span> Risk mis-categorization. Merge snarls. Unclear history. Arbitrary history changes.</p>
+        <p><span class="kicker" style="display: inline-block; margin: 0; min-width: 6rem;">Freed</span> Commit and share carelessly. Less context-filling. Higher-level moves.</p>
+      </div>
+    </div>
+  </section>
 
-  1. example: risk-aware commit tool
-    * What did we change? tooling
-    * What did it change in errors? Prevented risk mis-categorization, prevented merge snarls, prevented unclear git history, prevented arbitrary change to git history. enabled carelessness around commits and sharing (decreased context filling, take higher-level actions)
-  2. Example: Get transcript and find key moments
-    1. Transition: make sequencing deterministic.
-      * What changed? invocation
-      * Impact on errors? Prevented shortcutting steps, prevented mis-sequencing, prevented over-eager step completion.
-    2. Transition: deterministic fetch
-      * Changed? invocation, goal
-      * Error impact? careless: eliminated fetch step - reduced my cognitive load and delays
-    3. Transition: lock down analysis goal
-      * Changed? goal - from "work with me to identify the important things to carry forward" to "Identify the key moments and the session pull quote. Key moment is defined as... Use iteration protocol to refine with me."
-      * Error impact? careless: generate moments that mattered. Also something about it only asking me for general reflection after providing its own example, so I don't need to try to explain everything. Also, this is where I had it start saying when it needed my attention (text to speech). So I could do something else and it would work silently, then tell me when it had something to report and I could come back when ready. This reduced my need to watch everything and be vigilent about when to respond.
-    4: Transition: lock down analysis format
-      * Changed? feedback
-      * Error impact? careless about what to include for each key moment, prevent including non-salient information
-  3. Name terms. (give me a good pithy name + concise definition for each term) One term for each common element - lever we changed, safety level, safe region scope. There were also other reductions of cognitiveload that didn't come from error prevention, but still reduced overall vigilence toil. Identify / categorize them in some clear way.
-  4. Extract theory: cost to protect
+  <!-- 31 Example 2 recap — four transitions, each a single increment -->
+  <section class="slide" id="s31">
+    <div class="slide-content">
+      <p class="kicker">Example 2 · find key moments in a transcript</p>
+      <h2>Four transitions.</h2>
+      <ol style="text-align: left; max-width: 1050px; margin: 1.8rem auto 0; padding-left: 2.2rem; font-size: clamp(0.95rem, 1.45vw, 1.5rem); line-height: 1.45;">
+        <li style="margin-bottom: 1rem;">
+          <strong>Sequencing → deterministic.</strong>
+          <span class="dim"> Changed: <em>invocation</em>. Stopped shortcuts, mis-sequencing, over-eager step completion.</span>
+        </li>
+        <li style="margin-bottom: 1rem;">
+          <strong>Fetch → deterministic.</strong>
+          <span class="dim"> Changed: <em>invocation</em>, <em>goal</em>. Eliminated a step I had to drive. Less waiting.</span>
+        </li>
+        <li style="margin-bottom: 1rem;">
+          <strong>Analysis goal locked down.</strong>
+          <span class="dim"> Changed: <em>goal</em>. From "work with me to find what matters" to a concrete output spec. Plus TTS notification so I can work elsewhere until called.</span>
+        </li>
+        <li>
+          <strong>Analysis format locked down.</strong>
+          <span class="dim"> Changed: <em>feedback</em>. Schema validation re-prompts on failure. Careless about what each key moment includes.</span>
+        </li>
+      </ol>
+    </div>
+  </section>
 
-  @ai-deferral-note: deferred from the prior pass. Nothing needed from the human; addressing in the next commit.
+  <!-- 32 Name the recurring terms -->
+  <section class="slide" id="s32">
+    <div class="slide-content">
+      <p class="kicker">What recurs</p>
+      <h2>Four things to name.</h2>
+      <ul style="text-align: left; max-width: 1000px; margin: 2rem auto 0; list-style: none; padding: 0; font-size: clamp(1rem, 1.65vw, 1.7rem); line-height: 1.5;">
+        <li style="margin-bottom: 1.1rem;">
+          <strong class="accent">Lever</strong>
+          &nbsp;— a facet of the agent's universe you can engineer.
+          <span class="dim">&nbsp; Seen: tooling, invocation, goal, feedback.</span>
+        </li>
+        <li style="margin-bottom: 1.1rem;">
+          <strong class="accent">Safety level</strong>
+          &nbsp;— how far a class of error has been pushed up the carelessness scale.
+          <span class="dim">&nbsp; Names coming.</span>
+        </li>
+        <li style="margin-bottom: 1.1rem;">
+          <strong class="accent">Scope</strong>
+          &nbsp;— the class of error one intervention addresses.
+          <span class="dim">&nbsp; Always one at a time. Never "the whole problem."</span>
+        </li>
+        <li>
+          <strong class="accent">Slack</strong>
+          &nbsp;— load shed beyond error prevention.
+          <span class="dim">&nbsp; Eliminated steps, shifted initiative, freed attention. Bonus on top of safety.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
 
   <section class="slide" id="s25">
     <div class="slide-content">
