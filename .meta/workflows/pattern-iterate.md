@@ -85,7 +85,7 @@ After they respond, run a cleanup pass:
 - Do not add your own words, interpretations, or completions
 - Preserve pauses, corrections, and reframings — they reveal thinking
 
-Then incorporate the cleaned result into the document. Show a brief summary: "I heard: [2-3 bullets of what you captured]." Let them correct.
+Then incorporate the cleaned result into the document. Show a brief summary: "I heard: [bullet-point summary of what you captured]." Let them correct.
 
 Once they confirm (or make corrections and confirm), commit. Use a message that describes the topic they explored and the most important points they made.
 
@@ -125,15 +125,15 @@ After they say they're done:
 
 1. **Stage and commit everything that changed.** Run `git diff HEAD` to find all modified files — the human may have edited files outside the listed `doc:` paths. Stage all of them together. Use a message that describes what the human did on their turn.
 2. **Propagate normative edits.** Every direct edit is normative. Edits may be partial — they show the direction, not necessarily the complete solution. Apply that direction fully: make the same change everywhere it applies, complete any partially-started changes, and remove anything that contradicts the new direction. No back-compatibility. Make it consistent as if the new direction were always the only direction. Announce: "You changed [X] — I applied the same pattern to [N other places]."
-3. **Process @ai: commands.** See the `@ai:` resolution protocol below.
-4. **Commit your changes.** Use a message that describes what you changed on your turn
+3. **Commit your changes.** Use a message that describes what you changed
+4. **Process @ai: commands.** See the `@ai:` resolution protocol below.
 5. **Show a diff summary.** What changed, briefly. Ask: "Anything else?"
 
 ---
 
 #### `@ai:` resolution protocol
 
-Each `@ai:` block is a directive from the human. Resolve every one before declaring the turn done. Three legal outcomes per directive:
+Scan all edited documents for `@ai:` directives. Include all of them in your work, not just ones from the human's most recent turn. Each `@ai:` block is a directive from the human. Resolve every one before declaring the turn done. Three legal outcomes per directive:
 
 **(a) Execute it now.** Carry out the instruction. Remove the `@ai:` comment in the same commit.
 

@@ -133,32 +133,21 @@
     }
 
     /* ── SPECTRUM ─────────────────────────────────────── */
-    .spectrum { list-style: none; text-align: left; max-width: 950px; width: fit-content; margin: 0 auto; }
-    .spectrum li {
-      display: grid;
-      grid-template-columns: 2rem 1fr;
-      gap: 1.5rem;
+    .spectrum { text-align: left; width: fit-content; margin: 0 auto; }
+    .spectrum {
       align-items: baseline;
-      padding: 0.75rem 0;
       font-size: clamp(1rem, 1.9vw, 2rem);
-      border-bottom: 1px solid var(--subtle);
     }
-    .spectrum li:first-child, .spectrum li:nth-child(2) { color: var(--accent); }
-    .spectrum li:last-child  { color: var(--dim); border-bottom: none; }
-    .spectrum li strong { display: block; }
-    .level-num { color: var(--dim); font-size: 0.8em; text-align: right; font-weight: 300; display: block; margin: auto; }
+    .spectrum .great { color: var(--accent); }
+    .spectrum .poor  { color: var(--dim); }
+    .spectrum strong { display: block; }
 
-    .spectrum.spectrum-3col li {
-      grid-template-columns: 2rem 1.7fr 1fr;
+    .spectrum.spectrum-grid {
+      display: grid;
+      grid-template-columns: 1.7fr 1fr;
+      gap: 3em;
+      row-gap: 2em;
     }
-    .spectrum .load {
-      color: var(--dim);
-      font-size: 0.85em;
-      font-style: italic;
-      align-self: center;
-    }
-    .spectrum .load-neg { color: var(--accent); font-style: normal; font-weight: 600; }
-    .spectrum .load-zero { color: var(--fg); font-style: normal; font-weight: 500; }
 
     /* ── TOC HUB ──────────────────────────────────────── */
     .toc-grid {
@@ -381,7 +370,6 @@
   <!-- 21 PLACEHOLDER — first demo: movement-based branching (Tooling lever) -->
   <section class="slide" id="s21">
     <div class="slide-content">
-      <p class="kicker">Demo · Tooling</p>
       <h2>Movement-based branching<br><span class="dim">with risk-aware commit notation</span></h2>
       <p style="margin-top: 2rem; color: var(--dim);">
         Live demo. Show the MCP tool. Don't name the lever yet.
@@ -390,10 +378,11 @@
     </div>
   </section>
 
+  @ai: expand / re-focus this example It is about finding key moments in a transcript.
+  
   <!-- 23 PLACEHOLDER — quick story: transcript fetcher (Result handling lever) -->
   <section class="slide" id="s23">
     <div class="slide-content">
-      <p class="kicker">Story · Result handling</p>
       <h2>Transcript fetcher</h2>
       <p style="margin-top: 2rem; color: var(--dim);">
         Semi-demo. Walk through the transitions it went through:<br>
@@ -416,13 +405,15 @@
        its content now lives only in the State-control beat (s53/s54).
   ════════════════════════════════════════════════════ -->
 
+  @ai: unify the structure of these next 2 slides. The first should show one transition in a structure; the second should show 4 transitions in the same structure. Include the freed part in the structure; on the second slide, distinguish the stopped and freed items.
+  
   <!-- 29 Example 1 recap — single transition, name what changed -->
   <section class="slide" id="s29">
     <div class="slide-content">
       <p class="kicker">Example 1 · risk-aware commit tool</p>
       <h2>One transition.</h2>
       <div style="text-align: left; max-width: 880px; margin: 2rem auto 0; font-size: clamp(1rem, 1.7vw, 1.8rem); line-height: 1.5;">
-        <p style="margin-bottom: 1rem;"><span class="kicker" style="display: inline-block; margin: 0; min-width: 6rem;">Changed</span> Replaced raw git with an MCP tool. Tool owns commits, branches, risk notation.</p>
+        <p style="margin-bottom: 1rem;"><span class="kicker" style="display: inline-block; margin: 0; min-width: 6rem;">Changed</span> <em>tool</em></p>
         <p style="margin-bottom: 1rem;"><span class="kicker" style="display: inline-block; margin: 0; min-width: 6rem;">Stopped</span> Risk mis-categorization. Merge snarls. Unclear history. Arbitrary history changes.</p>
         <p><span class="kicker" style="display: inline-block; margin: 0; min-width: 6rem;">Freed</span> Commit and share carelessly. Less context-filling. Higher-level moves.</p>
       </div>
@@ -455,6 +446,8 @@
     </div>
   </section>
 
+  @ai: remove all the dim elements. Put them in the talk track (notes), but not the slides. Also stop using emdashes in slides. Use structured formatting / position instead.
+  
   <!-- 32 Name the recurring terms -->
   <section class="slide" id="s32">
     <div class="slide-content">
@@ -513,15 +506,16 @@
     </div>
   </section>
 
+  @ai: style this better.
+  
   <!-- 26 How? — bridge to the universe (the "where") and the safety levels (the "how much") -->
   <section class="slide" id="s26">
     <div class="slide-content">
       <p class="kicker">How?</p>
-      <h2>Change the <span class="accent">universe</span>.<br>Raise safety on one <span class="accent">class</span> of error.</h2>
-      <p style="margin-top: 2.5rem; color: var(--dim);">
-        Not the agent. The world around it.<br>
-        Not all errors. One class at a time.
-      </p>
+      <ul>
+        <li>Change the <span class="accent">universe</span>.</li>
+        <li><span class="accent">Raise safety</span> on one class of error.</li>
+      </ul>
     </div>
   </section>
 
@@ -543,23 +537,16 @@
 
   <!-- 28 Safety vocabulary — naming sets of safety; cognitive-load column added -->
   <section class="slide" id="s28">
-    <div class="slide-content" style="text-align: left; max-width: 1050px;">
-      <p class="kicker" style="margin-bottom: 0.4rem; text-align: center;">Sets of safety</p>
-      <p class="dim" style="margin-bottom: 1.8rem; text-align: center; font-size: clamp(0.9rem, 1.4vw, 1.4rem);">
-        Each level: how much vigilance, of what kind, at what cognitive load.
-      </p>
-      <ul class="spectrum spectrum-3col">
-        <li><span class="level-num">5</span><span><strong>Carefree</strong> Right action easy. Wrong action structurally hard.</span><span class="load load-neg">− Frees nearby attention too.</span></li>
-        <li><span class="level-num">4</span><span><strong>Prevention</strong> Mistakes can't propagate past the originator.</span><span class="load load-zero">0 No attention in scope.</span></li>
-        <li><span class="level-num">3</span><span><strong>Deterministic</strong> Known classes caught; predictable gaps.</span><span class="load">Spot-read the known gap.</span></li>
-        <li><span class="level-num">2</span><span><strong>Probabilistic</strong> Sometimes caught; unpredictable gaps.</span><span class="load">Random spot-checks; pace unpredictable.</span></li>
-        <li><span class="level-num">1</span><span><strong>Vigilance</strong> Caught only when someone is paying attention.</span><span class="load">Watch every action.</span></li>
-        <li><span class="level-num">0</span><span><strong>Hope</strong> No mechanism. Errors propagate undetected.</span><span class="load">None — until something fails silently.</span></li>
-      </ul>
-      <p class="dim" style="margin-top: 1.4rem; text-align: center; font-size: clamp(0.85rem, 1.3vw, 1.3rem); font-style: italic;">
-        One project lives at many levels at once — different domain, different rung.<br>
-        Adding AI can drop a domain a level. The vocabulary lets you say so.
-      </p>
+    <div class="slide-content" style="text-align: left;">
+      <p class="kicker" style="margin-bottom: 0.4rem; text-align: center;">Safety Categories</p>
+      <div class="spectrum spectrum-grid">
+        <div class="great"><strong>Carefree</strong> Right action easy. Wrong action structurally hard.</div><div class="load load-neg"><strong>Negative  toil</strong> Frees nearby attention too.</div>
+        <div class="great"><strong>Prevention</strong> Mistakes can't propagate past the originator.</div><div class="load load-zero"><strong>Zero toil</strong> Safe in scope.</div>
+        <div><strong>Deterministic</strong> Catches foreseen errors and categories.</div><div class="load"><strong>Focused toil</strong> Watch for "test net gaps."</div>
+        <div><strong>Probabilistic</strong> Sometimes caught; unpredictable gaps.</div><div class="load"><strong>Constant, low-grade worry</strong>Accept errors that QA misses.</div>
+        <div><strong>Vigilance</strong> Caught only when someone is paying attention.</div><div class="load"><strong>Constant toil</strong> Watch every action.</div>
+        <div class="poor"><strong>Hope</strong> No mechanism. Errors propagate undetected.</div><div class="load"><strong>Zero toil</strong>  until something fails silently.</div>
+      </div>
     </div>
   </section>
 
