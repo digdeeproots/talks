@@ -140,16 +140,51 @@ The lever is distinct from State Control. State Control governs *what happens to
 
 ---
 
+## Per-turn invocation: 4 axes
+
+A single agent turn is fully parameterized by four things. Three are already full levers; the fourth is a candidate (Identity, below).
+
+1. **Goal** — what the agent is asked to accomplish this turn. *(Goals lever.)*
+2. **Invocation context** — when this turn fires and what workflow surrounds it. *(Invocation Timing lever.)*
+3. **Memory** — what state the agent carries forward. *(Memory lever.)*
+4. **Identity** — who is being asked: agent software (Claude / dev.ai / OpenCoder / ...), LLM, system prompt, persona framing. *(Candidate lever — see below.)*
+
+In a short-invocation model — each agent takes one turn, then stops — three of these can hot-swap between turns: goal, workflow, identity. Memory is the only thing that persists across turns, so **memory is the agent's identity in the durable sense**. Two consecutive turns with the same memory but different personas, LLMs, or agent software read as one agent reinterpreting its prior state, not two agents in conversation.
+
+This framing collapses several earlier ideas. Cross-agent messages turn out to be a special case of turn-start input — already covered by Goal + Invocation. Adjacency (parallel visibility between concurrent agents) remains genuinely different; it is about *concurrent* turns, not sequential reinterpretation.
+
+---
+
 ## Candidates worth considering
 
 Not yet promoted to full levers; surfaced here in case they earn it later.
 
-@ai: add identity. Simplify and unify. There areally are 4 axes related to per-turn invocation: 1) what do I tell it to accomplish this turn, 2) when do I invoke it / what workflow is around it, 3) what memory is it working with, and 4) who do I ask to do it (which agent, which llm, what system prompt).
+### Identity *(axis 4 above)*
 
-- **Persona / identity.** Who the agent thinks it is. The system prompt's framing affects every downstream decision. May be a sub-aspect of Goals, or distinct.
-- **Adjacency.** What other agents or humans can see the work in progress and react. Different from Feedback in that it's about *parallel* visibility, not loop closure after the fact.
+**What it is.** The agent software, the LLM, the system prompt, and the persona framing handed to this turn. Hot-swappable between turns; from the orchestrator's view, this is the choice of "who to ask."
 
-@ai: consider short-invocation agents. They take one turn, then stop. And we then choose what to do next - deterministic code, another agent with the same memory (identity), or another agent with different memories. Same for teh work product - we could swap the work product out entirely and keep the memory, etc. Personality / system prompt / agent software (claude vs dev.ai vs opencoder.ai vs ...) are all hot-swappable. Memory is truly identity, and all the rest can change instantly between agent turns, in ways that the new agent re-interprets its memories and they all seem consistent. In such a system, what are other levers? Note: agents can also send each other messages, but that's really just a special case of a turn start message. I'm not sure if I want to open up in-turn interactions (interrupts or additional messages), as these all require continual, real-time vigilance by some actor, and I *think* that anything that can be done with them can be done with one of my other levers. If so, we may need to explicitly include it in the model description, then state that it is redundant/irrelevant and explicitly cross it out.
+**Why it's a lever.** Different agents are good at different things. Different system prompts surface different failure modes. Different personas frame the same task differently. Choosing identity per turn is choosing what *kind* of thought the next turn produces. Identity is also the cheapest universe change available — no infrastructure, no tool work, just a different invocation.
+
+**Probe questions.**
+- Which agent software runs this turn? Why this one?
+- Does the system prompt frame the task narrowly enough that the agent doesn't drift into adjacent personas?
+- Would a different identity catch a failure mode the current one misses?
+
+### Adjacency
+
+What other agents or humans can see the work in progress and react in real time. Different from Feedback (which is about loop closure for the acting agent) and different from Identity (which is sequential reinterpretation). Adjacency is about *concurrent* visibility — what's watching while the work is happening, and what it can do.
+
+---
+
+## In-turn interactions — modeled and ruled out
+
+In principle, an agent could be interrupted mid-turn, or receive additional messages between its initial input and its final output. These look like new levers, but every concrete benefit they offer can be obtained via existing levers, and they require continuous real-time vigilance by some external actor — which violates the carelessness goal. They are listed here to be explicitly **crossed out** as redundant.
+
+- ~~**Mid-turn interrupts.**~~ Use Invocation Timing: stop the agent at a turn boundary and start a new turn with the new state.
+- ~~**In-flight messages.**~~ Use Feedback (synchronous tool results, real-time guardians) for signal-during-action, or Invocation Timing for new instructions.
+- ~~**Mid-turn persona change.**~~ Use Identity at the next turn boundary.
+
+If a future case appears where an in-turn interaction is genuinely irreducible to existing levers, it earns promotion. Until then: not a lever.
 
 ---
 
