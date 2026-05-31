@@ -969,23 +969,21 @@
     </div>
   </section>
 
-  <!-- ── s28 ALTERNATIVES ────────────────────────────────────────────────────
-       Three distinct ways to present safety levels + cognitive load.
-       Forward-nav: s28 → 28-alt-A → 28-alt-B → 28-alt-C.
-       Pick one; delete the others. Six fixed level names preserved.
-  ─────────────────────────────────────────────────────────────────────────── -->
+  <!-- s28 safety vocabulary — single visualization (alt-A retained as the
+       chosen design after the other alternatives were pruned). Inline per-level
+       examples (human / AI pair) and a row of cognitive-load sparkline graphs
+       are baked in below.
+  -->
 
-  @ai: add specific examples for each node. This should be small text, in the spectrum box. When possible, include one example of safety around a human process and another around an ai one. Or perhaps an example of an automated and a human version of the safety. Something in that space.
-  
   @ai: for cognitive load, include a set of sparkline graphs for each of the levels. It should be a little line chart, with a zero line near but not at the bottom (the zero lines for the charts all line up). The x axis is time (not labeled), and the y axis is vigilance toil.
-  
-  <!-- 28-ALT-A — Horizontal spectrum bar. Six color-graded segments,
-       level name above, compressed cognitive-load tag below; definitions
-       carried by speaker narration. Goal: instant gestalt of the ladder. -->
+
+  <!-- 28-ALT-A — Horizontal spectrum bar with per-level examples (human + AI)
+       inside the spectrum box, and a row of sparkline graphs for cognitive
+       load (zero lines aligned across all six). -->
   <section class="slide" id="s28-alt-a">
     <div class="slide-content">
       <p class="kicker">Safety Categories &mdash; the ladder</p>
-      <svg viewBox="0 0 1000 320" width="100%" style="max-height:60vh; display:block; margin:1.2rem auto 0;" role="img">
+      <svg viewBox="0 0 1000 380" width="100%" style="max-height:66vh; display:block; margin:0.8rem auto 0;" role="img">
         <defs>
           <linearGradient id="lvl-grad" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%"  stop-color="#3a3a3a"/>
@@ -996,35 +994,58 @@
             <stop offset="100%" stop-color="#e8a020"/>
           </linearGradient>
         </defs>
+
+        <!-- Level names -->
         <g font-size="15" fill="#f0ede6" text-anchor="middle" font-weight="700">
-          <text x="83"  y="60">Hope</text>
-          <text x="250" y="60">Vigilance</text>
-          <text x="417" y="60">Probabilistic</text>
-          <text x="583" y="60">Deterministic</text>
-          <text x="750" y="60">Prevention</text>
-          <text x="917" y="60">Carefree</text>
+          <text x="83"  y="38">Hope</text>
+          <text x="250" y="38">Vigilance</text>
+          <text x="417" y="38">Probabilistic</text>
+          <text x="583" y="38">Deterministic</text>
+          <text x="750" y="38">Prevention</text>
+          <text x="917" y="38">Carefree</text>
         </g>
-        <rect x="20" y="90" width="960" height="60" rx="6" fill="url(#lvl-grad)" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+
+        <!-- Per-level examples: human / AI pair under each name -->
+        <g font-size="9.5" text-anchor="middle" fill="rgba(240,237,230,0.7)" font-style="italic">
+          <text x="83"  y="55">ship unreviewed</text>
+          <text x="83"  y="68">accept raw LLM output</text>
+          <text x="250" y="55">watch every keystroke</text>
+          <text x="250" y="68">read every generated line</text>
+          <text x="417" y="55">manual QA + checklist</text>
+          <text x="417" y="68">sampled prompt-evals</text>
+          <text x="583" y="55">unit tests</text>
+          <text x="583" y="68">schema validation</text>
+          <text x="750" y="55">type system</text>
+          <text x="750" y="68">no edit-file (AST only)</text>
+          <text x="917" y="55">IDE rename refactor</text>
+          <text x="917" y="68">version-aware migration</text>
+        </g>
+
+        <!-- Gradient ladder bar -->
+        <rect x="20" y="90" width="960" height="56" rx="6" fill="url(#lvl-grad)" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
         <g stroke="rgba(0,0,0,0.45)" stroke-width="1.5">
-          <line x1="167" y1="90" x2="167" y2="150"/>
-          <line x1="333" y1="90" x2="333" y2="150"/>
-          <line x1="500" y1="90" x2="500" y2="150"/>
-          <line x1="667" y1="90" x2="667" y2="150"/>
-          <line x1="833" y1="90" x2="833" y2="150"/>
+          <line x1="167" y1="90" x2="167" y2="146"/>
+          <line x1="333" y1="90" x2="333" y2="146"/>
+          <line x1="500" y1="90" x2="500" y2="146"/>
+          <line x1="667" y1="90" x2="667" y2="146"/>
+          <line x1="833" y1="90" x2="833" y2="146"/>
         </g>
-        <text x="20"  y="180" font-size="11" fill="rgba(240,237,230,0.55)" font-style="italic">errors slip through</text>
-        <text x="980" y="180" font-size="11" fill="rgba(232,160,32,0.75)" text-anchor="end" font-style="italic">errors structurally impossible</text>
-        <text x="500" y="225" text-anchor="middle" font-size="11" fill="rgba(192,154,96,0.85)" font-weight="700" letter-spacing="1.6">COGNITIVE LOAD</text>
-        <g font-size="13" text-anchor="middle">
-          <text x="83"  y="255" fill="rgba(240,237,230,0.6)">Silent failure</text>
-          <text x="250" y="255" fill="#f0ede6">Watch always</text>
-          <text x="417" y="255" fill="#f0ede6">Background worry</text>
-          <text x="583" y="255" fill="#f0ede6">Focused watch</text>
-          <text x="750" y="255" fill="rgba(232,160,32,0.9)">Zero (in scope)</text>
-          <text x="917" y="255" fill="#e8a020" font-weight="700">Frees attention</text>
+        <text x="20"  y="175" font-size="11" fill="rgba(240,237,230,0.55)" font-style="italic">errors slip through</text>
+        <text x="980" y="175" font-size="11" fill="rgba(232,160,32,0.75)" text-anchor="end" font-style="italic">errors structurally impossible</text>
+
+        <!-- Cognitive-load header + compressed labels -->
+        <text x="500" y="205" text-anchor="middle" font-size="11" fill="rgba(192,154,96,0.85)" font-weight="700" letter-spacing="1.6">COGNITIVE LOAD</text>
+        <g font-size="12" text-anchor="middle">
+          <text x="83"  y="225" fill="rgba(240,237,230,0.6)">Silent failure</text>
+          <text x="250" y="225" fill="#f0ede6">Watch always</text>
+          <text x="417" y="225" fill="#f0ede6">Background worry</text>
+          <text x="583" y="225" fill="#f0ede6">Focused watch</text>
+          <text x="750" y="225" fill="rgba(232,160,32,0.9)">Zero (in scope)</text>
+          <text x="917" y="225" fill="#e8a020" font-weight="700">Frees attention</text>
         </g>
-        <text x="83"  y="285" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.4)">+ hidden cost</text>
-        <text x="917" y="285" text-anchor="middle" font-size="10" fill="rgba(232,160,32,0.55)">&minus; cost (negative toil)</text>
+
+        <text x="83"  y="368" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.4)">+ hidden cost</text>
+        <text x="917" y="368" text-anchor="middle" font-size="10" fill="rgba(232,160,32,0.55)">&minus; cost (negative toil)</text>
       </svg>
     </div>
   </section>
