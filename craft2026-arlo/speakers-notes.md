@@ -126,103 +126,251 @@ Scripted walkthrough is out of scope for this movement.
 
 ---
 
-### 23 — Story: Transcript fetcher *(placeholder)*
+### 23 — Story: Find key moments in a transcript *(placeholder)*
 
-Tell the transcript-fetcher story as a semi-demo. Walk through the states it lived in:
+Semi-demo. Walk through four transitions in sequence:
 
-- Vigilance: AI fetched, you watched every output
-- Probabilistic: prompt tightened, sometimes wrong
-- Deterministic: code fetches; AI only called on failure
-
-Use this as the second experience the audience can recognize. Don't yet name "result handling".
+1. **Sequencing → deterministic.** Deterministic code decides what step is next. Agent no longer manages its own sequence.
+2. **Fetch → deterministic.** Code fetches; agent only called on failure. Changed invocation and goal simultaneously.
+3. **Analysis goal locked down.** Concrete output spec replaces open-ended instruction. TTS notification; you work elsewhere until called.
+4. **Analysis format locked down.** Schema validation reprompts on failure. Careless about what each key moment includes.
 
 Semi-demo script is out of scope for this movement.
 
 ---
 
-### 20 — Careless design principle
+### 29 — Example 1 recap
 
-Read it slow. Both halves matter.
+Walk back to the first demo. The point of this slide is to *name* what changed; the audience saw it, now we attach words.
 
-> "Stop being more careful. Change the world. Make even more careless behavior succeed."
+> "Two demos. Let's look at what they had in common."
 
-> "This applies to humans. It applies to AI. It's the same principle. And it points at something specific: the environment. The world the implementor lives in."
+> "First one: the commit tool. One transition. We replaced raw git with an MCP tool. The tool owns commits, branches, and risk notation."
 
-> "So what is the AI's world? What can we actually redesign?"
+Point to each line:
 
-Let that question hang. Then:
+> "What stopped happening: risk mis-categorization, merge snarls, unclear history, arbitrary changes to history. All those failure modes — gone."
 
-> "Let me show you two examples before we name the model."
+> "What got easier: committing and sharing carelessly. Less context-filling. Higher-level moves, because the lower-level stuff is no longer your job."
 
----
-
-### 22 — Tooling: AST refactoring tools
-
-> "You've probably used these. Rename-with-all-references. Extract method with behavioral safety guarantees."
-
-> "Within that tool's scope — within what it can do — there is zero risk of accidentally changing behavior. You can be *completely careless* about that class of mistake. The tool handles it."
-
-> "You can still be wrong about the design. That's a different domain. But execution correctness in that scope? Zero vigilance required."
-
-Point at the italicized line at the bottom.
-
-> "That cost is gone. Not reduced. Gone. Within that scope."
-
-> "The tool is part of the developer's world. Whoever designed that tool made carelessness safe — by choosing what to put in the toolbox."
+Don't name the formal terms yet. Hold them for two slides.
 
 ---
 
-### 24 — Result handling: Archive table
+### 31 — Example 2 recap
 
-> "We were using Minions — our AI orchestration system — to generate database migrations. And it made a small mistake that caused data loss."
+Four transitions in sequence. Walk them briefly — one beat each. The audience will pattern-match before you name it.
 
-> "The tempting response: add a guardrail. Tell it to be more careful. That doesn't work. It will still mess up."
+> "Second one was four moves, not one. Each move was a single, separable change."
 
-> "Instead: we added an archive table. Before any migration runs, every pre-migration row is preserved and restorable. The AI can now be careless about data loss — the environment is careful so we don't have to be."
+Read each:
 
-> "That's what I mean by redesigning the world around the AI."
+> "Sequencing became deterministic. The agent doesn't decide what step is next; deterministic code does. That alone prevented a whole class of mistakes: shortcuts, mis-sequencing, over-eager completion."
 
-Point at the italicized line.
+> "Then the fetch became deterministic. The agent only sees fetch results when fetch fails. Notice this changed *two* things at once: invocation, *and* the goal of the agent in that step."
 
-> "That cost is gone."
+> "Then we locked down the analysis goal. From 'work with me to find what matters' to a concrete output spec. We also added text-to-speech so the system pulls me in only when there's something to respond to. I don't have to watch."
 
-> "The archive table is what happens *after* the AI acts, before the action has irreversible effects. That's a different part of the world than the toolbox. Let's call it result handling."
+> "Then we locked down the analysis format. Schema validation tells the agent when its output doesn't conform; the agent retries. I'm careless about what each key moment includes."
 
----
-
-### 25 — BLANK
-*Pivot to the model.*
-
-Stuff to add; rework around.
-
-* The cost to protect is not determined by your agent's ability. It is determined by the universe around your agent. Change thee universe and you change your vigilence toil. Change the agent and you might use fewer tokens or time to do the work, but vigilence toil is unchanged. Your agent skills are irrelevant. Which agent you use is irrelevant. Your LLM is irrelevant. All that matters is the universe around your agent - what you allow it to do and what you make it capable of doing.
-* The goal is not to make a better agent. It is to make a universe in which even crappy agents will succeed. That is carelessness engineering.
-
-General flow:
-1. Bridge (without the AI / safety stuff brakes slide?)
-2. Vigilance toil (2-factor form)
-3. 2 examples: demo movement-based branching (risk notation), and either demo of transcript download & analysis or story tell about archive table.
-4. Vigilance toil (3-factor form)
-5. Upshift - walk through the learning sequence. Get to the goal (carelessness). Then present the rest as "how do we achieve that goal?"
-6. Universe of levers (the solo ground / design surface for post-upshift thinking, also the rubric / model to reference in the recipe - with one probe question or concrete mechanism for each).
-7. The recipe.
-8. audience-guided stories / examples: pick a lever, get a story. Or pick a process stage, get a recipe.
-9. Close
-
+> "Four transitions, four levers touched."
 
 ---
 
-### 28 — Careless Safety Spectrum
+### 32 — Naming the recurring terms
 
-Walk through briefly. Don't read them all.
+This slide is the abstraction step. Each term comes out of the walk-through; don't introduce them out of context.
 
-> "Level 5: the right action is the easy action. The wrong action is structurally hard to attempt."
+> "Four things keep showing up. Let's name them."
 
-> "Level 4: mistakes can't propagate. The type system, the enforced workflow — it catches the class of mistake before anyone else sees it."
+> "**Lever** — a facet of the agent's universe you can engineer. We touched four today: tooling, invocation, goal, feedback. There are more."
 
-> "Levels 4 and 5 are the only ones that reach zero vigilance within their scope. Everything below still requires a human to watch."
+> "**Safety level** — how far up the carelessness scale a class of error has been pushed. We haven't named the scale yet; we will in a moment."
 
-> "Level 0: hope. It's free, but it's not cheap."
+> "**Scope** — the class of error one intervention addresses. Always one at a time. Never 'the whole problem.' Each transition we just walked through was one class."
+
+Pause. Then the bonus:
+
+> "**Slack** — load shed beyond error prevention. The fetch step *also* disappeared. The TTS notification *also* let me work elsewhere. Those weren't error-prevention moves — they were attention-prevention moves. Bonus on top of the safety shift."
+
+Then bridge to the theory:
+
+> "Now we can say something general about the math."
+
+---
+
+### 25 — Cost to protect
+
+Cost to protect is the third factor. The walk-through just gave us the building blocks; now they assemble.
+
+> "Vigilance toil is throughput times amount to protect times *cost to protect*. Throughput we don't lower — that's why we use AI. Amount to protect is what we're trying to grow — that's the business. Cost to protect is the one we engineer."
+
+> "Cost to protect is the price of holding one scope at one safety level. Lower it on one class, lower the total. Lever × level × scope. Plus slack, when you can get it."
+
+Then pivot:
+
+> "So what would it look like if cost-to-protect were the design problem?"
+
+---
+
+## Upshift
+
+The job of this block: rise to the big idea (carelessness as the goal), state *how* (change the universe, raise safety on one class), then walk the design surface (universe + vocabulary + recipe). Order: principle (s20) → how (s26) → universe (s34) → vocabulary (s28) → recipe (s27) → AST callback (s22) → blank pivot (s30).
+
+---
+
+### 20 — The big idea
+
+Read it slowly.
+
+> "Stop improving the engine. Improve the brakes."
+
+Pause.
+
+> "That's the move. Not 'better AI' — better world around the AI. Brakes are what let the engine matter."
+
+Then the line that lands the goal:
+
+> "Make it so even crappier AI succeeds."
+
+Pause.
+
+> "Which agent you use, which LLM, how good your prompts are — none of that changes the vigilance you carry. The universe around the agent does. That's where the engineering work is. The goal is a world where even a careless agent succeeds."
+
+Then set up what comes next:
+
+> "If that's the goal, how?"
+
+---
+
+### 26 — How?
+
+> "Two-part answer. Change the universe. Raise safety on one class of error."
+
+Point to each line:
+
+> "Not the agent — the world around it. Not all errors — one class at a time. That's the whole shape of the work."
+
+Then bridge:
+
+> "So: where is the universe? And what does 'one class, at some safety level' actually look like?"
+
+---
+
+### 34 — The agent's universe
+
+This slide answers the "where" question. Where the levers live.
+
+> "The agent's universe. Everything it perceives and can act on. Seven levers right now."
+
+Point to each as you name it.
+
+> "Memory — what the agent recalls within a session, across sessions, between projects."
+> "Context — what information is reachable, what its filesystem and tools surface."
+> "Goals — how narrowly the task is defined."
+> "Tooling — what operations are in the toolbox, and what is deliberately not."
+> "Invocation timing — when the agent runs versus when deterministic code runs."
+> "State control — what happens to outputs before the world changes."
+> "Feedback — what the agent learns about the impact of its actions."
+
+> "Each is a class of error you can address. Pick one, push there."
+
+Then hand off to the safety vocabulary:
+
+> "Now — when we push, how far do we push? That's the other half of the answer."
+
+---
+
+### 28 — Sets of safety
+
+This is vocabulary, not a ladder. The audience needs names for the safety levels so the recipe has something to talk about. The third column names the cognitive load each level costs.
+
+Walk briefly. Don't read all of it.
+
+> "Six named sets. Each one: how much vigilance, what kind, what cognitive load it costs."
+
+> "Level 5, carefree. Right action easy, wrong action structurally hard. *Negative* cognitive load — it frees nearby attention too."
+> "Level 4, prevention. Mistakes can't propagate. Zero load in scope."
+> "Level 3, deterministic. Known classes caught; you spot-read the known gap."
+> "Level 2, probabilistic. Random spot-checks, pace unpredictable."
+> "Level 1, vigilance. Watch every action."
+> "Level 0, hope. No attention paid — until something fails silently."
+
+Then the part most people miss:
+
+> "These aren't rungs you climb in order. One project lives at many of these levels at once — different domain, different rung. Refactoring might be at Level 4 because your tools enforce it. Data migration might be at Level 0 because no one wrote the archive table yet."
+
+> "And going up isn't always the move. Sometimes you choose to drop a domain to a lower level because a higher one isn't worth the engineering. The vocabulary just lets you say where you are and where you're going — per domain, deliberately."
+
+> "Adding AI typically drops the level of multiple domains at once. The math from earlier is what makes that expensive."
+
+---
+
+### 27 — The recipe
+
+The meta-pattern for engineering carelessness. Point to the diagram as you walk it.
+
+> "Here's the move. Same shape every time."
+
+**Setup (steps 1–3, done once):**
+
+Step 1: Create an empty guardian set. Define where in your workflow a guardian could run — even if that slot is empty for now.
+
+Step 2: Create a one-step workflow. The actor — agent or human — gets one instruction: "do it." No orchestration.
+
+Step 3: Create an explicit vigilance expectation. Write down every concern you can already see that a human has to watch for, and when.
+
+**Core loop (steps 4–8, repeating):**
+
+**Step 4 — Name the vigilance.**
+
+> "What specifically keeps making you check? Not 'is the work good' — what *class* of error? Decision inconsistency. Format drift. Data loss. Name it."
+
+**Step 5 — Build a spot-checker.**
+
+> "Build an AI check for some of what you've been watching for. Not all of it. The first one is always partial."
+
+**Step 6 — Identify a hole.**
+
+> "What did it miss or flag? That hole is a missing universe element. Update your vigilance list — some items just moved from 'watching' to 'understood gap'."
+
+**Step 7 — Lock one class.**
+
+> "Pick the gap you understand best. Change the universe — add a guardian or workflow step — so that whole class is structurally addressed at whatever safety level makes sense."
+
+> "Now the vigilance that class produced is gone. Permanently."
+
+**Step 8 — Adjust vigilance.**
+
+> "Remove what's now locked in. The list shrinks. Then: back to step 4 with the next vigilance item — or forward to the decision."
+
+**Exit (step 9):**
+
+**Step 9 — Make a decision.**
+
+> "Accept the work the agent did, or reset and re-run inside your safer universe. The recipe doesn't say which. It makes the risk profile legible so the choice is clean."
+
+Pause.
+
+> "This is what carelessness engineering looks like in practice. Each pass: name one cost, build the checker, identify the hole, lock it in, decide. Loop until you're careless about the thing."
+
+---
+
+### 22 — You've already done this
+
+Callback. Quick.
+
+> "You've already done step 4 — for yourselves. AST refactoring tools."
+
+> "Within that tool's scope, there's zero risk of accidentally changing behavior. The recipe ran. Someone named the vigilance — 'did my rename break something?' — built guardians, classified the failures, then locked behavioral safety in with a universe lever called the AST."
+
+> "That cost is gone. For you. The talk is about doing the same thing for the AI."
+
+---
+
+### 30 — BLANK
+
+*Pivot from the upshift to the audience-directed back half. Let the recipe and universe settle for a beat before the TOC appears.*
 
 ---
 
@@ -232,37 +380,25 @@ Land here after the upshift. This is the visual menu for the back half.
 
 > "Here's where we go from here. Pick anything. We'll walk it together. Come back here, pick another."
 
-Cards (placeholder; real two-diagram TOC lands in a later session):
+Sectioned: **Case studies** (existing 6 + a pending Feedback slot), **Recipes** (none yet), **Closing**.
+
+Case-study cards:
 - Memory / Decision inconsistency → s38
 - Goals / Consistency violation → s41
 - Invocation timing / Oversight gap → s44
 - Tooling / Scope enforcement → s47
 - Tooling (operations) / Accidental behavior change → s50
-- Result handling / Data loss → s53
+- State control / Data loss (archive table) → s53
+- Feedback / Story TBD (greyed out — no destination yet)
+
+Recipes section: empty for now. We haven't built any case-as-recipe slides yet.
+
+Closing card:
 - Synthesis / Closing sequence → s56
 
-Click a card to enter that sequence. After the sequence's last slide, next-key returns here automatically. Press `T` from anywhere to summon the TOC.
+Each case study is currently 2 slides (setup → story). The plan is to expand each to 3 (starting state → intervention → name the experience); that expansion is pending. Click a card to enter that sequence. After the sequence's last slide, next-key returns here automatically. Press `T` from anywhere to summon the TOC.
 
 Insert the closing sequence at a natural break — not necessarily after all six beats.
-
----
-
-### 34 — Universe as design surface
-
-> "The agent's universe. Everything it perceives and can act on."
-
-Point to each element as you name it.
-
-> "Memory: what it can recall, for how long, across sessions."
-> "Context: what information is surfaced at invocation — what it can see."
-> "Goals: how narrowly the task is defined — what it's trying to accomplish."
-> "Tooling: what operations are in the toolbox — and crucially, what's not."
-> "Invocation timing: when the AI runs versus when deterministic code runs."
-> "Result handling: what happens between its output and the world changing."
-
-> "Each of these is a design choice. Each can create or eliminate a zero-risk zone."
-
-Then hand off to the TOC: "Let's walk a few. Pick where to start."
 
 ---
 
@@ -298,6 +434,16 @@ Pause.
 
 ---
 
+### 40 — Beat 1 name the experience
+
+Read the four lines. Don't elaborate.
+
+> "Lever: Memory. Safety level: 4 — Prevention. Scope: cross-session decision inconsistency. Slack: no re-explaining context every session."
+
+Then return to the TOC.
+
+---
+
 ### 41 — Beat 2 setup: Consistency violation
 
 > "Recurring structured output. Specifically: the coaching workflow. Daily — pull transcripts, plan lessons, write the status email, extract techniques."
@@ -324,6 +470,14 @@ Pause.
 
 ---
 
+### 43 — Beat 2 name the experience
+
+> "Lever: Goals — a structured spec replaced free-form prose. Safety level: 4 — structure, recipients, rendering all become zero-risk zones. Scope: format and structure drift in recurring output. Slack: you only think about the words; everything else assembles itself."
+
+Then return to the TOC.
+
+---
+
 ### 44 — Beat 3 setup: Oversight mechanism gap
 
 > "Session data fetching. The coaching workflow starts with: get the right transcript, for the right team, for today."
@@ -343,6 +497,14 @@ Pause.
 > "The system decides when to call Claude. It calls Claude only when deterministic code admits it can't handle something."
 
 > "You don't have to decide when to trust it. The system decides by condition."
+
+---
+
+### 46 — Beat 3 name the experience
+
+> "Lever: Invocation timing. Safety level: 3 going on 4 — deterministic by default, agent only on declared failure. Scope: wrong-data fetching and over-eager step completion. Slack: you don't decide when to trust the agent — the system decides by condition."
+
+Then return to the TOC.
 
 ---
 
@@ -374,6 +536,14 @@ Pause.
 
 ---
 
+### 49 — Beat 4 name the experience
+
+> "Lever: Tooling. Safety level: 4 — git invariants cannot be violated; there's nothing to route around. Scope: git operations and the risk-notation policy. Slack: risk assessment moves from human to tool."
+
+Then return to the TOC.
+
+---
+
 ### 50 — Beat 5 setup: Accidental behavior change
 
 > "Structural refactoring in legacy code. Renames, extractions, relocations across a large codebase."
@@ -397,6 +567,14 @@ Point at the two-up.
 > "Behavioral safety: did it change what the code does? The tool guarantees no. Not possible to violate within scope."
 
 > "'Wrong about the design' and 'introduced a bug' are now categorically different failure modes. Only the first remains possible."
+
+---
+
+### 52 — Beat 5 name the experience
+
+> "Lever: Tooling — operation semantics, not which tools exist. Safety level: 5 — Carefree within scope. Behavioral safety guaranteed by the tool. Scope: behavior preservation during refactoring. Slack: undo is as easy as do — wrong abstractions are cheap to reverse."
+
+Then return to the TOC.
 
 ---
 
@@ -427,6 +605,14 @@ Point at each bullet as you tell it.
 > "Deterministic pre-processing → AI creative decision → deterministic execution. The Determinism Sandwich."
 
 > "Data loss is structurally impossible."
+
+---
+
+### 55 — Beat 6 name the experience
+
+> "Lever: State control — the Determinism Sandwich. Safety level: 4 to 5 — data loss is structurally impossible. Scope: schema migrations against live data. Slack: migrations stop being scary."
+
+Then return to the TOC.
 
 ---
 

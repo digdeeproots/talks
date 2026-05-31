@@ -83,6 +83,7 @@ A daily coaching workflow: pull transcripts from Fireflies, do lesson planning, 
 3. **Replace probabilistic fetch with deterministic.** *(Invocation timing.)* Transcript fetching started via the Fireflies MCP server (probabilistic — the AI sometimes got it wrong). Now a fully debugged deterministic fetcher gets the right transcript for the right day and team. On success: Claude is never invoked, doesn't even know a fetch happened. On failure — wrong date, ambiguous session, network error — Claude is called with the specific failure as context.
 4. **Lock down the analysis schema.** *(Work-product state control.)* Claude initially wrote transcript analyses as unstructured markdown. That looseness was useful — it let us discover what information actually mattered and who would consume it — but it required vigilance. Irrelevant stuff slipped in and confused later Claude calls. Important things sometimes went missing. Once the shape stabilized, we moved to structured JSON with a schema, and deterministic code now validates every analysis. When validation fails, Claude is re-called with the specific failure as context and fills the gap. This also unlocked something else: the workflow stopped being linear. Independent, re-orderable steps now read and write the same analysis, each contributing its own insights.
 5. **Result: the system decides when to call Claude.** *(Invocation timing.)* It calls Claude only when deterministic code admits it can't handle something. You don't have to decide when to trust it. The system decides by condition.
+6. **Guess-and-check rhythm.** *(Feedback.)* The system knows when to have Claude guess and when (and how) to surface the result for human check. It stops asking the human to predict or explain things up front and instead lets the human *respond* to a concrete proposal. Text-to-speech notifies the human only when there's something to respond to. The human can do other work in the meantime; the system pulls them back in when needed. This closes the loop for both sides: Claude learns from the response, the human is freed from continuous oversight.
 
 **Key insight for the talk:** each transition was a single increment that moved one specific vigilance cost from a lower safety level to a higher one. Together: the workflow that used to require constant attention now runs itself.
 
@@ -134,6 +135,14 @@ The AI is unaware of any other directions that were considered. It looks at the 
 **The plan was always this direction. It just doesn't know otherwise.**
 
 Decision inconsistency: structurally impossible.
+
+---
+
+## Feedback — *(stories TBD)*
+
+*This lever is new. The guess-and-check rhythm in the transcript-fetcher story (step 6) is one instance. Schema-validation feedback to the agent (transcript step 4) is another. Dedicated stories for the talk's case-study section are still to be drafted.*
+
+*Working definition: closing loops for the agent — bringing the impact of its actions into its visible sphere, so it can self-correct or escalate. See `universe-levers.md` for the full rubric.*
 
 ---
 
