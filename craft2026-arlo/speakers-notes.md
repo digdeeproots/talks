@@ -334,7 +334,7 @@ Step 3: Create an explicit vigilance expectation. Write down every concern you c
 
 > "What did it miss or flag? That hole is a missing universe element. Update your vigilance list — some items just moved from 'watching' to 'understood gap'."
 
-**Step 7 — Lock one class.**
+**Step 7 — Lock one error category.**
 
 > "Pick the gap you understand best. Change the universe — add a guardian or workflow step — so that whole class is structurally addressed at whatever safety level makes sense."
 
