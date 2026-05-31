@@ -312,47 +312,44 @@ The meta-pattern for engineering carelessness. Point to the diagram as you walk 
 
 > "Here's the move. Same shape every time."
 
-**Setup (steps 1–3, done once):**
+**Step 1 — Apply the vigilance-as-process template.** Done once, up front. Stand up the four scaffolds the loop will refine:
 
-Step 1: Create an empty guardian set. Define where in your workflow a guardian could run — even if that slot is empty for now.
+- **Empty guardian set.** Define where in your workflow a guardian could run — even if that slot is empty for now.
+- **One-step workflow.** The actor — agent or human — gets one instruction: "do it." No orchestration.
+- **Vigilance expectation.** Write down every concern you can already see that a human has to watch for, and when.
+- **Spot-checker.** Stand up the first AI check, partial by design. Catches some of what you've been watching for; not all of it. Subsequent loops fill it in.
 
-Step 2: Create a one-step workflow. The actor — agent or human — gets one instruction: "do it." No orchestration.
+> "That's the template. Four pieces, in place. The rest is the loop."
 
-Step 3: Create an explicit vigilance expectation. Write down every concern you can already see that a human has to watch for, and when.
+**Core loop (steps 2–5, repeating):**
 
-**Core loop (steps 4–8, repeating):**
-
-**Step 4 — Name the vigilance.**
+**Step 2 — Name the vigilance.**
 
 > "What specifically keeps making you check? Not 'is the work good' — what *class* of error? Decision inconsistency. Format drift. Data loss. Name it."
 
-**Step 5 — Build a spot-checker.**
+**Step 3 — Identify a hole.**
 
-> "Build an AI check for some of what you've been watching for. Not all of it. The first one is always partial."
+> "What did the spot-checker miss or flag? That hole is a missing universe element. Update your vigilance list — some items just moved from 'watching' to 'understood gap'."
 
-**Step 6 — Identify a hole.**
-
-> "What did it miss or flag? That hole is a missing universe element. Update your vigilance list — some items just moved from 'watching' to 'understood gap'."
-
-**Step 7 — Lock one error category.**
+**Step 4 — Lock one error category.**
 
 > "Pick the gap you understand best. Change the universe — add a guardian or workflow step — so that whole class is structurally addressed at whatever safety level makes sense."
 
 > "Now the vigilance that class produced is gone. Permanently."
 
-**Step 8 — Adjust vigilance.**
+**Step 5 — Adjust vigilance.**
 
-> "Remove what's now locked in. The list shrinks. Then: back to step 4 with the next vigilance item — or forward to the decision."
+> "Remove what's now locked in. The list shrinks. Then: back to step 2 with the next vigilance item — or forward to the decision."
 
-**Exit (step 9):**
+**Exit:**
 
-**Step 9 — Make a decision.**
+**Step 6 — Make a decision.**
 
 > "Accept the work the agent did, or reset and re-run inside your safer universe. The recipe doesn't say which. It makes the risk profile legible so the choice is clean."
 
 Pause.
 
-> "This is what carelessness engineering looks like in practice. Each pass: name one cost, build the checker, identify the hole, lock it in, decide. Loop until you're careless about the thing."
+> "This is what carelessness engineering looks like in practice. Each pass: name one cost, identify the hole, lock it in, adjust, decide. Loop until you're careless about the thing."
 
 ---
 
@@ -360,7 +357,7 @@ Pause.
 
 Callback. Quick.
 
-> "You've already done step 4 — for yourselves. AST refactoring tools."
+> "You've already done step 2 — for yourselves. AST refactoring tools."
 
 > "Within that tool's scope, there's zero risk of accidentally changing behavior. The recipe ran. Someone named the vigilance — 'did my rename break something?' — built guardians, classified the failures, then locked behavioral safety in with a universe lever called the AST."
 
