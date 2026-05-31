@@ -1299,6 +1299,167 @@
     </div>
   </section>
 
+  <!-- ═══════════════════════════════════════════════════
+       SECTION 5: Recipe mini-sequences (placeholders).
+       One pair per recipe step: 'a' = the concrete recipe,
+       'b' = a worked example. Last slide of each pair returns to TOC.
+       Reached from the clickable recipe diagram on the TOC.
+       Replace placeholder content as real recipes/examples mature.
+  ════════════════════════════════════════════════════ -->
+
+  <!-- STEP 1 — Apply the vigilance-as-process template -->
+  <section class="slide" id="s-rec-1a">
+    <div class="slide-content" style="text-align:left; max-width: 900px;">
+      <p class="kicker">Recipe &mdash; Step 1</p>
+      <h2 style="margin-bottom: 1.2rem;">Apply the vigilance-as-process template</h2>
+      <ol style="font-size: clamp(1rem, 1.7vw, 1.6rem); line-height: 1.55;">
+        <li>Pick the scope where carelessness will apply.</li>
+        <li>Stand up an <em>empty</em> guardian slot in your workflow.</li>
+        <li>Stand up a one-step workflow: in &rarr; agent &rarr; out.</li>
+        <li>Write down today's vigilance list &mdash; everything you currently watch for.</li>
+        <li>Build a partial spot-checker. Cover only what's easy to catch.</li>
+      </ol>
+    </div>
+  </section>
+  <section class="slide" id="s-rec-1b" data-return-to-toc="true">
+    <div class="slide-content" style="text-align:left; max-width: 900px;">
+      <p class="kicker">Worked example &mdash; release notes</p>
+      <h2 style="margin-bottom: 1rem;">Setting up the loop</h2>
+      <ul style="font-size: clamp(0.95rem, 1.5vw, 1.4rem); line-height: 1.6; list-style: none; padding: 0;">
+        <li><strong class="accent">Scope:</strong> release notes for the current sprint.</li>
+        <li><strong class="accent">Guardian slot:</strong> empty <code>notes-linter</code> stage in the pipeline.</li>
+        <li><strong class="accent">Workflow:</strong> changelog + ticket list &rarr; agent &rarr; draft.</li>
+        <li><strong class="accent">Vigilance list:</strong> tone drift, missed feature, leaked customer IDs, wrong version number.</li>
+        <li><strong class="accent">Spot-checker:</strong> regex that flags any line containing a customer-ID pattern.</li>
+      </ul>
+      <p style="margin-top: 1.4rem; color: var(--dim); font-size: 0.95em;">The loop is now standing. Time to start naming.</p>
+    </div>
+  </section>
+
+  <!-- STEP 2 — Name the vigilance -->
+  <section class="slide" id="s-rec-2a">
+    <div class="slide-content" style="text-align:left; max-width: 900px;">
+      <p class="kicker">Recipe &mdash; Step 2</p>
+      <h2 style="margin-bottom: 1.2rem;">Name the vigilance</h2>
+      <ol style="font-size: clamp(1rem, 1.7vw, 1.6rem); line-height: 1.55;">
+        <li>Watch yourself reviewing the agent's output.</li>
+        <li>Each correction: write the <em>why</em> in five words or fewer.</li>
+        <li>Group the why-notes into three to five error categories.</li>
+        <li>Pick the largest category. Give it a name.</li>
+      </ol>
+    </div>
+  </section>
+  <section class="slide" id="s-rec-2b" data-return-to-toc="true">
+    <div class="slide-content" style="text-align:left; max-width: 900px;">
+      <p class="kicker">Worked example &mdash; release notes</p>
+      <h2 style="margin-bottom: 1rem;">From corrections to a category</h2>
+      <ul style="font-size: clamp(0.95rem, 1.5vw, 1.4rem); line-height: 1.6; list-style: none; padding: 0;">
+        <li><strong class="accent">Tone too internal</strong> &mdash; 4 corrections.</li>
+        <li><strong class="accent">Missed feature</strong> &mdash; 3 corrections.</li>
+        <li><strong class="accent">Wrong version number</strong> &mdash; 2 corrections.</li>
+      </ul>
+      <p style="margin-top: 1.5rem; font-size: clamp(1.1rem, 2vw, 1.8rem);">Named category: <span class="accent">Tone drift</span>.</p>
+    </div>
+  </section>
+
+  <!-- STEP 3 — Identify a hole -->
+  <section class="slide" id="s-rec-3a">
+    <div class="slide-content" style="text-align:left; max-width: 900px;">
+      <p class="kicker">Recipe &mdash; Step 3</p>
+      <h2 style="margin-bottom: 1.2rem;">Identify a hole</h2>
+      <ol style="font-size: clamp(1rem, 1.7vw, 1.6rem); line-height: 1.55;">
+        <li>Run the current spot-checker on a fresh agent output.</li>
+        <li>Compare its findings against your manual review.</li>
+        <li>What you caught but it missed = a hole. Write it down.</li>
+      </ol>
+    </div>
+  </section>
+  <section class="slide" id="s-rec-3b" data-return-to-toc="true">
+    <div class="slide-content" style="text-align:left; max-width: 900px;">
+      <p class="kicker">Worked example &mdash; release notes</p>
+      <h2 style="margin-bottom: 1rem;">A hole in the tone check</h2>
+      <ul style="font-size: clamp(0.95rem, 1.5vw, 1.4rem); line-height: 1.6; list-style: none; padding: 0;">
+        <li>Spot-checker flagged tone drift in <strong class="accent">2 of 4</strong> known cases.</li>
+        <li>Common factor in the misses: features written in past tense.</li>
+        <li><strong class="accent">Hole:</strong> past-tense phrasing bypasses the current pattern.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- STEP 4 — Lock one error category -->
+  <section class="slide" id="s-rec-4a">
+    <div class="slide-content" style="text-align:left; max-width: 900px;">
+      <p class="kicker">Recipe &mdash; Step 4</p>
+      <h2 style="margin-bottom: 1.2rem;">Lock one error category</h2>
+      <ol style="font-size: clamp(1rem, 1.7vw, 1.6rem); line-height: 1.55;">
+        <li>Pick the hole you understand best.</li>
+        <li>Choose a universe lever that structurally prevents that class.</li>
+        <li>Implement the change. Re-run against every prior failure case.</li>
+      </ol>
+    </div>
+  </section>
+  <section class="slide" id="s-rec-4b" data-return-to-toc="true">
+    <div class="slide-content" style="text-align:left; max-width: 900px;">
+      <p class="kicker">Worked example &mdash; release notes</p>
+      <h2 style="margin-bottom: 1rem;">Locking tone drift with Tooling</h2>
+      <ul style="font-size: clamp(0.95rem, 1.5vw, 1.4rem); line-height: 1.6; list-style: none; padding: 0;">
+        <li><strong class="accent">Lever chosen:</strong> Tooling.</li>
+        <li>Replace the freeform draft tool with a structured template that constrains tone via the schema (verb tense fixed; allowed phrasings whitelisted).</li>
+        <li><strong class="accent">Verification:</strong> 0 of 12 prior tone-drift cases reproduce.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- STEP 5 — Adjust vigilance -->
+  <section class="slide" id="s-rec-5a">
+    <div class="slide-content" style="text-align:left; max-width: 900px;">
+      <p class="kicker">Recipe &mdash; Step 5</p>
+      <h2 style="margin-bottom: 1.2rem;">Adjust vigilance</h2>
+      <ol style="font-size: clamp(1rem, 1.7vw, 1.6rem); line-height: 1.55;">
+        <li>Remove the locked category from your vigilance list.</li>
+        <li>Re-evaluate the remaining categories &mdash; ordering, severity, frequency.</li>
+        <li>Pick the next one to attack in the next loop.</li>
+      </ol>
+    </div>
+  </section>
+  <section class="slide" id="s-rec-5b" data-return-to-toc="true">
+    <div class="slide-content" style="text-align:left; max-width: 900px;">
+      <p class="kicker">Worked example &mdash; release notes</p>
+      <h2 style="margin-bottom: 1rem;">The list shrinks</h2>
+      <ul style="font-size: clamp(0.95rem, 1.5vw, 1.4rem); line-height: 1.6; list-style: none; padding: 0;">
+        <li><span style="text-decoration: line-through; color: var(--dim);">Tone drift</span> &mdash; locked.</li>
+        <li><strong class="accent">Missed feature</strong> &mdash; now top of the list.</li>
+        <li>Wrong version number &mdash; small and easy; queue after.</li>
+      </ul>
+      <p style="margin-top: 1.4rem; color: var(--dim); font-size: 0.95em;">Next loop: name the missed-feature pattern.</p>
+    </div>
+  </section>
+
+  <!-- STEP 6 — Make a decision -->
+  <section class="slide" id="s-rec-6a">
+    <div class="slide-content" style="text-align:left; max-width: 900px;">
+      <p class="kicker">Recipe &mdash; Step 6</p>
+      <h2 style="margin-bottom: 1.2rem;">Make a decision</h2>
+      <ol style="font-size: clamp(1rem, 1.7vw, 1.6rem); line-height: 1.55;">
+        <li>Look at the universe you've built.</li>
+        <li>Decide: accept this run, or re-run inside the safer universe.</li>
+        <li>Note the risk profile of whichever you chose, in writing.</li>
+      </ol>
+    </div>
+  </section>
+  <section class="slide" id="s-rec-6b" data-return-to-toc="true">
+    <div class="slide-content" style="text-align:left; max-width: 900px;">
+      <p class="kicker">Worked example &mdash; release notes</p>
+      <h2 style="margin-bottom: 1rem;">Three loops later</h2>
+      <ul style="font-size: clamp(0.95rem, 1.5vw, 1.4rem); line-height: 1.6; list-style: none; padding: 0;">
+        <li><strong class="accent">Universe catches:</strong> tone drift, wrong version number.</li>
+        <li><strong class="accent">Residual risk:</strong> missed-feature &mdash; still at Hope level.</li>
+        <li><strong class="accent">Decision:</strong> accept this run. Residual is bounded and visible.</li>
+      </ul>
+      <p style="margin-top: 1.4rem; color: var(--dim); font-size: 0.95em;">The recipe ended. Vigilance about tone and version is gone, permanently.</p>
+    </div>
+  </section>
+
 </div><!-- /.deck -->
 
 <div id="progress"></div>
