@@ -975,7 +975,6 @@
        are baked in below.
   -->
 
-  @ai: for cognitive load, include a set of sparkline graphs for each of the levels. It should be a little line chart, with a zero line near but not at the bottom (the zero lines for the charts all line up). The x axis is time (not labeled), and the y axis is vigilance toil.
 
   <!-- 28-ALT-A — Horizontal spectrum bar with per-level examples (human + AI)
        inside the spectrum box, and a row of sparkline graphs for cognitive
@@ -1034,7 +1033,7 @@
         <text x="980" y="175" font-size="11" fill="rgba(232,160,32,0.75)" text-anchor="end" font-style="italic">errors structurally impossible</text>
 
         <!-- Cognitive-load header + compressed labels -->
-        <text x="500" y="205" text-anchor="middle" font-size="11" fill="rgba(192,154,96,0.85)" font-weight="700" letter-spacing="1.6">COGNITIVE LOAD</text>
+        <text x="500" y="205" text-anchor="middle" font-size="11" fill="rgba(192,154,96,0.85)" font-weight="700" letter-spacing="1.6">COGNITIVE LOAD &mdash; vigilance toil over time</text>
         <g font-size="12" text-anchor="middle">
           <text x="83"  y="225" fill="rgba(240,237,230,0.6)">Silent failure</text>
           <text x="250" y="225" fill="#f0ede6">Watch always</text>
@@ -1042,6 +1041,49 @@
           <text x="583" y="225" fill="#f0ede6">Focused watch</text>
           <text x="750" y="225" fill="rgba(232,160,32,0.9)">Zero (in scope)</text>
           <text x="917" y="225" fill="#e8a020" font-weight="700">Frees attention</text>
+        </g>
+
+        <!-- Cognitive-load sparklines. Each chart occupies a 150x52 box centered
+             under its column. Zero line (y_zero) sits 4px above the box bottom
+             at local y=48 (so y=302 in the global coordinate frame at top=254).
+             All zero lines align across the six. Y-axis = vigilance toil. -->
+        <g>
+          <!-- Hope @ x=83: low flat, then late spike (silent failure) -->
+          <g transform="translate(8,254)">
+            <rect x="0" y="0" width="150" height="52" rx="3" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)" stroke-width="0.8"/>
+            <line x1="0" y1="48" x2="150" y2="48" stroke="rgba(240,237,230,0.22)" stroke-width="0.8" stroke-dasharray="2,2"/>
+            <path d="M 4,46 L 110,46 L 115,8 L 120,46 L 146,46" fill="none" stroke="rgba(240,237,230,0.7)" stroke-width="1.6" stroke-linejoin="round"/>
+          </g>
+          <!-- Vigilance @ x=250: high constant -->
+          <g transform="translate(175,254)">
+            <rect x="0" y="0" width="150" height="52" rx="3" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)" stroke-width="0.8"/>
+            <line x1="0" y1="48" x2="150" y2="48" stroke="rgba(240,237,230,0.22)" stroke-width="0.8" stroke-dasharray="2,2"/>
+            <path d="M 4,12 L 146,12" fill="none" stroke="#f0ede6" stroke-width="1.6" stroke-linejoin="round"/>
+          </g>
+          <!-- Probabilistic @ x=417: mid-amplitude wavy -->
+          <g transform="translate(342,254)">
+            <rect x="0" y="0" width="150" height="52" rx="3" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)" stroke-width="0.8"/>
+            <line x1="0" y1="48" x2="150" y2="48" stroke="rgba(240,237,230,0.22)" stroke-width="0.8" stroke-dasharray="2,2"/>
+            <path d="M 4,28 Q 14,16 24,28 T 44,28 T 64,28 T 84,28 T 104,28 T 124,28 T 146,28" fill="none" stroke="#f0ede6" stroke-width="1.6" stroke-linejoin="round"/>
+          </g>
+          <!-- Deterministic @ x=583: low baseline, periodic narrow spikes -->
+          <g transform="translate(508,254)">
+            <rect x="0" y="0" width="150" height="52" rx="3" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)" stroke-width="0.8"/>
+            <line x1="0" y1="48" x2="150" y2="48" stroke="rgba(240,237,230,0.22)" stroke-width="0.8" stroke-dasharray="2,2"/>
+            <path d="M 4,46 L 24,46 L 28,18 L 32,46 L 60,46 L 64,18 L 68,46 L 96,46 L 100,18 L 104,46 L 132,46 L 136,18 L 140,46 L 146,46" fill="none" stroke="#f0ede6" stroke-width="1.6" stroke-linejoin="round"/>
+          </g>
+          <!-- Prevention @ x=750: flat on the zero line -->
+          <g transform="translate(675,254)">
+            <rect x="0" y="0" width="150" height="52" rx="3" fill="rgba(232,160,32,0.04)" stroke="rgba(232,160,32,0.18)" stroke-width="0.8"/>
+            <line x1="0" y1="48" x2="150" y2="48" stroke="rgba(240,237,230,0.22)" stroke-width="0.8" stroke-dasharray="2,2"/>
+            <path d="M 4,48 L 146,48" fill="none" stroke="rgba(232,160,32,0.9)" stroke-width="1.6" stroke-linejoin="round"/>
+          </g>
+          <!-- Carefree @ x=917: line dips below zero (negative toil) -->
+          <g transform="translate(842,254)">
+            <rect x="0" y="0" width="150" height="52" rx="3" fill="rgba(232,160,32,0.08)" stroke="rgba(232,160,32,0.28)" stroke-width="0.8"/>
+            <line x1="0" y1="48" x2="150" y2="48" stroke="rgba(240,237,230,0.22)" stroke-width="0.8" stroke-dasharray="2,2"/>
+            <path d="M 4,48 L 30,48 Q 60,48 75,52 T 120,48 L 146,48" fill="none" stroke="#e8a020" stroke-width="1.8" stroke-linejoin="round"/>
+          </g>
         </g>
 
         <text x="83"  y="368" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.4)">+ hidden cost</text>
