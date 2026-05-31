@@ -311,10 +311,6 @@
     <div class="overlay"></div>
     <div class="slide-content">
       <h2><span class="accent">work-toil</span> became <span class="accent">vigilance-toil</span>.</h2>
-      <p style="margin-top: 2rem; color: var(--dim);">
-        Watching closely enough that nothing goes wrong is still toil.<br>
-        More stressful. Less interesting.
-      </p>
     </div>
   </section>
 
@@ -323,9 +319,6 @@
     <div class="overlay"></div>
     <div class="slide-content">
       <h2>"Keeping the lights on"</h2>
-      <p style="margin-top: 2rem; color: var(--dim);">
-        Brownfield teams have been here for years.<br>No AI required.
-      </p>
     </div>
   </section>
 
@@ -339,11 +332,7 @@
         throughput
         <br><span class="accent">×</span> amt to protect
       </p>
-      <p style="margin-top: 3rem; color: var(--dim);">
-        Greenfield: protect ≈ 0.<br>
-        Brownfield: protect is large.
-      </p>
-      <p style="margin-top: 1.5rem;">
+      <p style="margin-top: 3rem;">
         In brownfield, <span class="accent">vigilance &gt; work</span> already.
       </p>
     </div>
@@ -353,8 +342,7 @@
     <div class="overlay"></div>
     <div class="slide-content">
       <h2>AI <em>multiplied</em> the problem.</h2>
-      <p><br>Work toil down 75% <br> =&gt; 4x more events <br> =&gt; <em>4x more Vigilance Toil</em>.<br>
-        <span class="dim">AI cuts work, raises total cost.</span></p>
+      <p><br>Work toil down 75% <br> =&gt; 4x more events <br> =&gt; <em>4x more Vigilance Toil</em>.</p>
     </div>
   </section>
 
@@ -370,10 +358,7 @@
   <!-- 21 PLACEHOLDER — first demo: movement-based branching (Tooling lever) -->
   <section class="slide" id="s21">
     <div class="slide-content">
-      <h2>Movement-based branching<br><span class="dim">with risk-aware commit notation</span></h2>
-      <p style="margin-top: 2rem; color: var(--dim);">
-        Live demo. Show the MCP tool. Don't name the lever yet.
-      </p>
+      <h2>Movement-based branching<br>with risk-aware commit notation</h2>
       <p class="toc-placeholder">Placeholder. Scripted walkthrough lands in a later session.</p>
     </div>
   </section>
@@ -382,9 +367,6 @@
   <section class="slide" id="s23">
     <div class="slide-content">
       <h2>Find key moments<br>in a transcript</h2>
-      <p style="margin-top: 2rem; color: var(--dim);">
-        Semi-demo. Four transitions: sequencing, fetch, goal spec, output format.
-      </p>
       <p class="toc-placeholder">Placeholder. Semi-demo script lands in a later session.</p>
     </div>
   </section>
@@ -402,17 +384,15 @@
        its content now lives only in the State-control beat (s53/s54).
   ════════════════════════════════════════════════════ -->
 
-  @ai: unify the structure of these next 2 slides. The first should show one transition in a structure; the second should show 4 transitions in the same structure. Include the freed part in the structure; on the second slide, distinguish the stopped and freed items.
-  
   <!-- 29 Example 1 recap — single transition, name what changed -->
   <section class="slide" id="s29">
     <div class="slide-content">
       <p class="kicker">Example 1 · risk-aware commit tool</p>
       <h2>One transition.</h2>
-      <div style="text-align: left; max-width: 880px; margin: 2rem auto 0; font-size: clamp(1rem, 1.7vw, 1.8rem); line-height: 1.5;">
-        <p style="margin-bottom: 1rem;"><span class="kicker" style="display: inline-block; margin: 0; min-width: 6rem;">Changed</span> <em>tool</em></p>
-        <p style="margin-bottom: 1rem;"><span class="kicker" style="display: inline-block; margin: 0; min-width: 6rem;">Stopped</span> Risk mis-categorization. Merge snarls. Unclear history. Arbitrary history changes.</p>
-        <p><span class="kicker" style="display: inline-block; margin: 0; min-width: 6rem;">Freed</span> Commit and share carelessly. Less context-filling. Higher-level moves.</p>
+      <div style="text-align: left; max-width: 880px; margin: 2rem auto 0; font-size: clamp(1rem, 1.7vw, 1.8rem); line-height: 1.6;">
+        <p style="margin-bottom: 1.1rem;"><span class="kicker" style="display: inline-block; margin: 0; min-width: 6rem;">Changed</span> <em>tool</em></p>
+        <p style="margin-bottom: 1.1rem;"><span style="display: inline-block; min-width: 6rem; font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(240,237,230,0.45);">Stopped</span> Risk mis-categorization. Merge snarls. Unclear history.</p>
+        <p><span style="display: inline-block; min-width: 6rem; font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent);">Freed</span> Commit carelessly. Less context-filling. Higher-level moves.</p>
       </div>
     </div>
   </section>
@@ -422,28 +402,34 @@
     <div class="slide-content">
       <p class="kicker">Example 2 · find key moments in a transcript</p>
       <h2>Four transitions.</h2>
-      <ol style="text-align: left; max-width: 1050px; margin: 1.8rem auto 0; padding-left: 2.2rem; font-size: clamp(0.95rem, 1.45vw, 1.5rem); line-height: 1.45;">
-        <li style="margin-bottom: 1rem;">
-          <strong>Sequencing → deterministic.</strong>
-          <span class="dim"> Changed: <em>invocation</em>. Stopped shortcuts, mis-sequencing, over-eager step completion.</span>
-        </li>
-        <li style="margin-bottom: 1rem;">
-          <strong>Fetch → deterministic.</strong>
-          <span class="dim"> Changed: <em>invocation</em>, <em>goal</em>. Eliminated a step I had to drive. Less waiting.</span>
-        </li>
-        <li style="margin-bottom: 1rem;">
-          <strong>Analysis goal locked down.</strong>
-          <span class="dim"> Changed: <em>goal</em>. From "work with me to find what matters" to a concrete output spec. Plus TTS notification so I can work elsewhere until called.</span>
-        </li>
-        <li>
-          <strong>Analysis format locked down.</strong>
-          <span class="dim"> Changed: <em>feedback</em>. Schema validation re-prompts on failure. Careless about what each key moment includes.</span>
-        </li>
-      </ol>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem 3.5rem; max-width: 1100px; margin: 1.5rem auto 0; text-align: left; font-size: clamp(0.85rem, 1.25vw, 1.3rem); line-height: 1.55;">
+        <div>
+          <p style="font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.14em; color: var(--kicker); margin-bottom: 0.6rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.3rem;">Sequencing</p>
+          <p style="margin-bottom: 0.35rem;"><span class="kicker" style="display:inline-block; margin:0; min-width:5rem;">Changed</span> <em>invocation</em></p>
+          <p style="margin-bottom: 0.35rem;"><span style="display:inline-block; min-width:5rem; font-size:0.8em; text-transform:uppercase; letter-spacing:0.12em; color:rgba(240,237,230,0.45);">Stopped</span> shortcuts, mis-sequencing</p>
+          <p><span style="display:inline-block; min-width:5rem; font-size:0.8em; text-transform:uppercase; letter-spacing:0.12em; color:var(--accent);">Freed</span> sequence is determined</p>
+        </div>
+        <div>
+          <p style="font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.14em; color: var(--kicker); margin-bottom: 0.6rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.3rem;">Fetch</p>
+          <p style="margin-bottom: 0.35rem;"><span class="kicker" style="display:inline-block; margin:0; min-width:5rem;">Changed</span> <em>invocation, goal</em></p>
+          <p style="margin-bottom: 0.35rem;"><span style="display:inline-block; min-width:5rem; font-size:0.8em; text-transform:uppercase; letter-spacing:0.12em; color:rgba(240,237,230,0.45);">Stopped</span> manual step I had to drive</p>
+          <p><span style="display:inline-block; min-width:5rem; font-size:0.8em; text-transform:uppercase; letter-spacing:0.12em; color:var(--accent);">Freed</span> less waiting</p>
+        </div>
+        <div>
+          <p style="font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.14em; color: var(--kicker); margin-bottom: 0.6rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.3rem;">Goal spec</p>
+          <p style="margin-bottom: 0.35rem;"><span class="kicker" style="display:inline-block; margin:0; min-width:5rem;">Changed</span> <em>goal</em></p>
+          <p style="margin-bottom: 0.35rem;"><span style="display:inline-block; min-width:5rem; font-size:0.8em; text-transform:uppercase; letter-spacing:0.12em; color:rgba(240,237,230,0.45);">Stopped</span> vague output spec</p>
+          <p><span style="display:inline-block; min-width:5rem; font-size:0.8em; text-transform:uppercase; letter-spacing:0.12em; color:var(--accent);">Freed</span> work elsewhere until called</p>
+        </div>
+        <div>
+          <p style="font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.14em; color: var(--kicker); margin-bottom: 0.6rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.3rem;">Output format</p>
+          <p style="margin-bottom: 0.35rem;"><span class="kicker" style="display:inline-block; margin:0; min-width:5rem;">Changed</span> <em>feedback</em></p>
+          <p style="margin-bottom: 0.35rem;"><span style="display:inline-block; min-width:5rem; font-size:0.8em; text-transform:uppercase; letter-spacing:0.12em; color:rgba(240,237,230,0.45);">Stopped</span> format drift</p>
+          <p><span style="display:inline-block; min-width:5rem; font-size:0.8em; text-transform:uppercase; letter-spacing:0.12em; color:var(--accent);">Freed</span> careless about structure</p>
+        </div>
+      </div>
     </div>
   </section>
-
-  @ai: remove all the dim elements. Put them in the talk track (notes), but not the slides. Also stop using emdashes in slides. Use structured formatting / position instead.
   
   <!-- 32 Name the recurring terms -->
   <section class="slide" id="s32">
@@ -452,24 +438,16 @@
       <h2>Four things to name.</h2>
       <ul style="text-align: left; max-width: 1000px; margin: 2rem auto 0; list-style: none; padding: 0; font-size: clamp(1rem, 1.65vw, 1.7rem); line-height: 1.5;">
         <li style="margin-bottom: 1.1rem;">
-          <strong class="accent">Lever</strong>
-          &nbsp;— a facet of the agent's universe you can engineer.
-          <span class="dim">&nbsp; Seen: tooling, invocation, goal, feedback.</span>
+          <strong class="accent">Lever:</strong> a facet of the agent's universe you can engineer.
         </li>
         <li style="margin-bottom: 1.1rem;">
-          <strong class="accent">Safety level</strong>
-          &nbsp;— how far a class of error has been pushed up the carelessness scale.
-          <span class="dim">&nbsp; Names coming.</span>
+          <strong class="accent">Safety level:</strong> how far a class of error has been pushed up the carelessness scale.
         </li>
         <li style="margin-bottom: 1.1rem;">
-          <strong class="accent">Scope</strong>
-          &nbsp;— the class of error one intervention addresses.
-          <span class="dim">&nbsp; Always one at a time. Never "the whole problem."</span>
+          <strong class="accent">Scope:</strong> the class of error one intervention addresses.
         </li>
         <li>
-          <strong class="accent">Slack</strong>
-          &nbsp;— load shed beyond error prevention.
-          <span class="dim">&nbsp; Eliminated steps, shifted initiative, freed attention. Bonus on top of safety.</span>
+          <strong class="accent">Slack:</strong> load shed beyond error prevention.
         </li>
       </ul>
     </div>
@@ -483,9 +461,6 @@
         throughput
         <br>× amt to protect
         <br>× <em>cost to protect</em>
-      </p>
-      <p style="margin-top: 2.5rem; color: var(--dim);">
-        We control the protection cost factor by building systems.
       </p>
     </div>
   </section>
@@ -525,9 +500,6 @@
       <p style="margin-top: 2.5rem; font-size: clamp(1rem, 1.8vw, 2rem); letter-spacing: 0.03em;">
         Memory &nbsp;·&nbsp; Context &nbsp;·&nbsp; Goals &nbsp;·&nbsp; Tooling<br>
         Invocation timing &nbsp;·&nbsp; State control &nbsp;·&nbsp; Feedback
-      </p>
-      <p style="margin-top: 1.8rem; color: var(--dim);">
-        Each one a class of error you can address.
       </p>
     </div>
   </section>
@@ -677,10 +649,6 @@
     <div class="slide-content">
       <p class="kicker">Discovery during demos</p>
       <h2>Vigilance cost:<br><span class="accent">Decision inconsistency</span></h2>
-      <p style="margin-top: 2rem; color: var(--dim);">
-        "Does this contradict a decision from earlier in the session?<br>
-        Are we building on conflicting assumptions?"
-      </p>
     </div>
   </section>
 
@@ -697,9 +665,6 @@
         The AI cannot blend old ideas with new ones.<br>
         It has no access to old ideas.
       </p>
-      <p style="margin-top: 1rem; color: var(--dim);">
-        This direction was always the plan. It doesn't know otherwise.
-      </p>
     </div>
   </section>
 
@@ -709,7 +674,7 @@
       <p class="kicker">Name the experience</p>
       <ul class="name-list">
         <li><strong class="accent">Lever</strong> Memory</li>
-        <li><strong class="accent">Safety level</strong> 4 — Prevention. Conflicting decisions are structurally impossible.</li>
+        <li><strong class="accent">Safety level</strong> 4: Prevention. Conflicting decisions are structurally impossible.</li>
         <li><strong class="accent">Scope</strong> Cross-session decision inconsistency.</li>
         <li><strong class="accent">Slack</strong> No re-explaining context every session.</li>
       </ul>
@@ -723,10 +688,6 @@
     <div class="slide-content">
       <p class="kicker">Recurring structured output</p>
       <h2>Vigilance cost:<br><span class="accent">Consistency violation</span></h2>
-      <p style="margin-top: 2rem; color: var(--dim);">
-        "Does this follow the same structure as last time?<br>
-        Did it invent something that drifts from the template?"
-      </p>
     </div>
   </section>
 
@@ -736,11 +697,7 @@
     <div class="slide-content">
       <p class="kicker">Universe: Goals</p>
       <h2>From "write HTML email"<br> to "json → bullet points".</h2>
-      <p style="margin-top: 2rem; color: var(--dim);">
-        Claude writes sentences.<br>
-        Deterministic code assembles everything else.
-      </p>
-      <p style="margin-top: 1.5rem;">
+      <p style="margin-top: 2rem;">
         Structure, recipients, rendering:<br>
         <span class="accent">zero-risk zones. Forever.</span>
       </p>
@@ -753,7 +710,7 @@
       <p class="kicker">Name the experience</p>
       <ul class="name-list">
         <li><strong class="accent">Lever</strong> Goals (structured spec)</li>
-        <li><strong class="accent">Safety level</strong> 4 — Prevention. Structure, recipients, rendering each become zero-risk zones.</li>
+        <li><strong class="accent">Safety level</strong> 4: Prevention. Structure, recipients, rendering each become zero-risk zones.</li>
         <li><strong class="accent">Scope</strong> Format and structure drift in recurring output.</li>
         <li><strong class="accent">Slack</strong> You only think about the words; everything else assembles itself.</li>
       </ul>
@@ -768,10 +725,6 @@
     <div class="slide-content">
       <p class="kicker">Session data fetching</p>
       <h2>Vigilance cost:<br><span class="accent">Oversight mechanism gap</span></h2>
-      <p style="margin-top: 2rem; color: var(--dim);">
-        "Did the AI keep going past the point<br>
-        where I should have been consulted?"
-      </p>
     </div>
   </section>
 
@@ -789,10 +742,6 @@
           <h3 class="accent">Claude is called<br>with the failure.</h3>
         </div>
       </div>
-      <p style="margin-top: 2.5rem; color: var(--dim);">
-        The system only calls Claude<br>
-        when deterministic code admits it can't handle something.
-      </p>
     </div>
   </section>
 
@@ -802,7 +751,7 @@
       <p class="kicker">Name the experience</p>
       <ul class="name-list">
         <li><strong class="accent">Lever</strong> Invocation timing</li>
-        <li><strong class="accent">Safety level</strong> 3 / 4 — deterministic by default, agent only on declared failure.</li>
+        <li><strong class="accent">Safety level</strong> 3/4: deterministic by default, agent only on declared failure.</li>
         <li><strong class="accent">Scope</strong> Wrong-data fetching and over-eager step completion.</li>
         <li><strong class="accent">Slack</strong> You don't decide when to trust the agent — the system decides by condition.</li>
       </ul>
@@ -817,9 +766,6 @@
     <div class="slide-content">
       <p class="kicker">Source control in an agentic codebase</p>
       <h2>Vigilance cost:<br><span class="accent">Policy enforcement</span></h2>
-      <p style="margin-top: 2rem; color: var(--dim);">
-        "Will the agent correctly follow our risk-aware commit notation policy?
-      </p>
     </div>
   </section>
 
@@ -829,13 +775,9 @@
     <div class="slide-content">
       <p class="kicker">Universe: Tooling</p>
       <h2>Minions never touch <span class="accent">git.</span></h2>
-      <p style="margin-top: 2rem; color: var(--dim);">
-        An MCP tool handles all branching.<br>
-        All the right behaviors implemented. None of the wrong ones available.
-      </p>
-      <p style="margin-top: 1.5rem;">
+      <p style="margin-top: 2rem;">
         The AI cannot violate git invariants.<br>
-        because there's <span class="accent">nothing to route around.</span>
+        There's <span class="accent">nothing to route around.</span>
       </p>
     </div>
   </section>
@@ -846,7 +788,7 @@
       <p class="kicker">Name the experience</p>
       <ul class="name-list">
         <li><strong class="accent">Lever</strong> Tooling</li>
-        <li><strong class="accent">Safety level</strong> 4 — Prevention. Git invariants cannot be violated; nothing to route around.</li>
+        <li><strong class="accent">Safety level</strong> 4: Prevention. Git invariants cannot be violated; nothing to route around.</li>
         <li><strong class="accent">Scope</strong> Git operations and the risk-notation policy.</li>
         <li><strong class="accent">Slack</strong> Risk assessment moves from human to tool.</li>
       </ul>
@@ -861,12 +803,6 @@
     <div class="slide-content">
       <p class="kicker">Structural refactoring in legacy code</p>
       <h2>Vigilance cost:<br><span class="accent">Accidental behavior change</span></h2>
-      <p style="margin-top: 2rem; color: var(--dim);">
-        "Did my restructuring change what the code actually does?"
-      </p>
-      <p style="margin-top: 1.5rem; font-style: italic; color: var(--dim); font-size: clamp(0.85rem, 1.4vw, 1.5rem);">
-        AST tools solve this for human developers. What about AI?
-      </p>
     </div>
   </section>
 
@@ -886,9 +822,6 @@
           <p class="accent">Guaranteed by the tool.<br>Not possible to violate.</p>
         </div>
       </div>
-      <p style="margin-top: 2rem; color: var(--dim);">
-        Only the first failure mode remains possible.
-      </p>
     </div>
   </section>
 
@@ -898,7 +831,7 @@
       <p class="kicker">Name the experience</p>
       <ul class="name-list">
         <li><strong class="accent">Lever</strong> Tooling (operation semantics)</li>
-        <li><strong class="accent">Safety level</strong> 5 — Carefree within scope. Behavioral safety guaranteed by the tool.</li>
+        <li><strong class="accent">Safety level</strong> 5: Carefree within scope. Behavioral safety guaranteed by the tool.</li>
         <li><strong class="accent">Scope</strong> Behavior preservation during refactoring.</li>
         <li><strong class="accent">Slack</strong> Undo is as easy as do — wrong abstractions are cheap to reverse.</li>
       </ul>
@@ -914,10 +847,6 @@
       <p class="kicker">Database migrations</p>
       <!-- accent amber conflicts with volcanic orange lava; use --fg for legibility -->
       <h2>Vigilance cost:<br><span style="color: var(--fg);">Data loss</span></h2>
-      <p style="margin-top: 2rem; color: var(--dim);">
-        "Did the migration change what the data means?<br>
-        Can I recover it if something went wrong?"
-      </p>
     </div>
   </section>
 
@@ -931,9 +860,6 @@
         <p style="margin-bottom: 1.2rem;">2. <span class="accent">Bidirectional remapping</span> — deterministic verification before execution</p>
         <p>3. <span class="accent">Extracted library</span> — AI writes definition only; library executes</p>
       </div>
-      <p style="margin-top: 2rem; color: var(--dim);">
-        Deterministic pre &nbsp;→&nbsp; <em>AI creative decision</em> &nbsp;→&nbsp; deterministic execution.
-      </p>
     </div>
   </section>
 
@@ -943,7 +869,7 @@
       <p class="kicker">Name the experience</p>
       <ul class="name-list">
         <li><strong class="accent">Lever</strong> State control (Determinism sandwich)</li>
-        <li><strong class="accent">Safety level</strong> 4 / 5 — Data loss is structurally impossible.</li>
+        <li><strong class="accent">Safety level</strong> 4/5: Data loss is structurally impossible.</li>
         <li><strong class="accent">Scope</strong> Schema migrations against live data.</li>
         <li><strong class="accent">Slack</strong> Migrations stop being scary.</li>
       </ul>
@@ -960,13 +886,6 @@
     <div class="slide-content">
       <p class="kicker">What we did each time</p>
       <h2>We didn't ask for more care.<br>We redesigned the world.</h2>
-      <p style="margin-top: 2.5rem; color: var(--dim); font-size: clamp(0.9rem, 1.6vw, 1.8rem);">
-        Memory &nbsp;·&nbsp; Goals &nbsp;·&nbsp; Invocation timing &nbsp;·&nbsp; Tooling &nbsp;·&nbsp; State control &nbsp;·&nbsp; Feedback
-      </p>
-      <p style="margin-top: 1.5rem; color: var(--dim);">
-        Each choice created a zero-risk zone.<br>
-        Each zone permanently freed vigilance budget for the next thing.
-      </p>
     </div>
   </section>
 
@@ -979,9 +898,6 @@
         <br>throughput
         <br><span class="accent">×</span> amt to protect
         <br><span class="accent">×</span> cost to protect
-      </p>
-      <p style="margin-top: 2.5rem; color: var(--dim);">
-        Vigilance toil is the cost of having to worry<br>about whether you can stop.
       </p>
     </div>
   </section>

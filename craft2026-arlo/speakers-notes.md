@@ -126,15 +126,14 @@ Scripted walkthrough is out of scope for this movement.
 
 ---
 
-### 23 — Story: Transcript fetcher *(placeholder)*
+### 23 — Story: Find key moments in a transcript *(placeholder)*
 
-Tell the transcript-fetcher story as a semi-demo. Walk through the states it lived in:
+Semi-demo. Walk through four transitions in sequence:
 
-- Vigilance: AI fetched, you watched every output
-- Probabilistic: prompt tightened, sometimes wrong
-- Deterministic: code fetches; AI only called on failure
-
-Use this as the second experience the audience can recognize. Don't yet name "result handling".
+1. **Sequencing → deterministic.** Deterministic code decides what step is next. Agent no longer manages its own sequence.
+2. **Fetch → deterministic.** Code fetches; agent only called on failure. Changed invocation and goal simultaneously.
+3. **Analysis goal locked down.** Concrete output spec replaces open-ended instruction. TTS notification; you work elsewhere until called.
+4. **Analysis format locked down.** Schema validation reprompts on failure. Careless about what each key moment includes.
 
 Semi-demo script is out of scope for this movement.
 
