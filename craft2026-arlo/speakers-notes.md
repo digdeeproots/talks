@@ -215,7 +215,7 @@ Then pivot:
 
 ## Upshift
 
-The job of this block: rise to the big idea (carelessness as the goal), state *how* (change the universe, raise safety on one class), then walk the design surface (universe + vocabulary + recipe). Order: principle (s20) → how (s26) → universe (s34) → vocabulary (s28) → recipe (s27) → AST callback (s22) → blank pivot (s30).
+The job of this block: rise to the big idea (carelessness as the goal), state *how* (change the universe, raise safety on one class), then walk the design surface (universe + vocabulary + recipe). Order: principle (s20) → how (s26) → theory (s35) → universe (s34) → vocabulary (s28) → recipe (s27) → AST callback (s22) → blank pivot (s30).
 
 ---
 
@@ -254,6 +254,30 @@ Point to each line:
 Then bridge:
 
 > "So: where is the universe? And what does 'one class, at some safety level' actually look like?"
+
+---
+
+### 35 — Theory: how a turn is made
+
+Quick theory pause before naming the levers. The point is to break the illusion that the agent is a continuous thing.
+
+> "Before we look at where to push, one piece of theory. The agent is not a thing that runs. The LLM is stateless. Each turn is a fresh API call."
+
+Point to the left column (prompt sent to the LLM).
+
+> "What the LLM actually sees, per turn: system prompt, tool definitions, a memory snapshot, conversation history, this turn's input. Concatenated. Sent once. The LLM has no memory of last turn."
+
+Point to the right column (slots).
+
+> "The illusion of an agent is something the orchestrator builds. Between turns, you choose what goes in each slot: identity — which agent software, which LLM, what persona; tooling; memory; workflow context; the goal for this turn."
+
+> "Each slot maps into a layer of the prompt. The agent is the assembly. Swap a slot, the next turn behaves as if you'd swapped agents — because in effect you have."
+
+Pause briefly.
+
+> "That's the surface the universe slides on. Every lever we're about to name is a way to manipulate one of these slots."
+
+Transition to s34.
 
 ---
 

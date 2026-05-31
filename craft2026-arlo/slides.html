@@ -497,6 +497,80 @@
     </div>
   </section>
 
+  <!-- 35 Theory — how a turn is made; the illusion of agentic history -->
+  <section class="slide" id="s35">
+    <div class="slide-content">
+      <p class="kicker">Theory — before we walk the universe</p>
+      <h2 style="margin-bottom: 0.4rem;">How a <span class="accent">turn</span> is made</h2>
+      <p style="font-size: clamp(0.9rem, 1.5vw, 1.4rem); color: var(--dim); margin-bottom: 1.4rem;">LLMs are stateless. Each turn rebuilds the agent from parts you choose.</p>
+      <svg viewBox="0 0 900 380" width="100%" style="max-height:50vh; display:block; margin:0 auto;" role="img">
+        <defs>
+          <marker id="theory-arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#e8a020" opacity="0.75"/>
+          </marker>
+        </defs>
+
+        <!-- LEFT: what gets sent to the LLM (the assembled prompt) -->
+        <text x="190" y="20" text-anchor="middle" font-size="11" fill="rgba(192,154,96,0.9)" font-weight="700" letter-spacing="1.6">PROMPT SENT TO THE LLM</text>
+        <g>
+          <rect x="40" y="40" width="300" height="42" rx="6" fill="rgba(232,160,32,0.10)" stroke="rgba(232,160,32,0.55)" stroke-width="1"/>
+          <text x="190" y="66" text-anchor="middle" font-size="13.5" fill="#f0ede6">System prompt</text>
+        </g>
+        <g>
+          <rect x="40" y="90" width="300" height="42" rx="6" fill="rgba(232,160,32,0.10)" stroke="rgba(232,160,32,0.55)" stroke-width="1"/>
+          <text x="190" y="116" text-anchor="middle" font-size="13.5" fill="#f0ede6">Tool definitions</text>
+        </g>
+        <g>
+          <rect x="40" y="140" width="300" height="42" rx="6" fill="rgba(232,160,32,0.10)" stroke="rgba(232,160,32,0.55)" stroke-width="1"/>
+          <text x="190" y="166" text-anchor="middle" font-size="13.5" fill="#f0ede6">Memory snapshot</text>
+        </g>
+        <g>
+          <rect x="40" y="190" width="300" height="42" rx="6" fill="rgba(232,160,32,0.10)" stroke="rgba(232,160,32,0.55)" stroke-width="1"/>
+          <text x="190" y="216" text-anchor="middle" font-size="13.5" fill="#f0ede6">Conversation history</text>
+        </g>
+        <g>
+          <rect x="40" y="240" width="300" height="42" rx="6" fill="rgba(232,160,32,0.10)" stroke="rgba(232,160,32,0.55)" stroke-width="1"/>
+          <text x="190" y="266" text-anchor="middle" font-size="13.5" fill="#f0ede6">This turn's input</text>
+        </g>
+        <text x="190" y="312" text-anchor="middle" font-size="11" fill="rgba(240,237,230,0.55)" font-style="italic">Concatenated. One API call. No state.</text>
+
+        <!-- RIGHT: what you control between turns (the slots) -->
+        <text x="700" y="20" text-anchor="middle" font-size="11" fill="rgba(192,154,96,0.9)" font-weight="700" letter-spacing="1.6">SLOTS YOU CONTROL PER TURN</text>
+        <g>
+          <rect x="550" y="40" width="310" height="42" rx="6" fill="rgba(255,255,255,0.05)" stroke="rgba(240,237,230,0.45)" stroke-width="1"/>
+          <text x="705" y="66" text-anchor="middle" font-size="13.5" fill="#f0ede6">Identity &mdash; agent / LLM / persona</text>
+        </g>
+        <g>
+          <rect x="550" y="90" width="310" height="42" rx="6" fill="rgba(255,255,255,0.05)" stroke="rgba(240,237,230,0.45)" stroke-width="1"/>
+          <text x="705" y="116" text-anchor="middle" font-size="13.5" fill="#f0ede6">Tooling</text>
+        </g>
+        <g>
+          <rect x="550" y="140" width="310" height="42" rx="6" fill="rgba(255,255,255,0.05)" stroke="rgba(240,237,230,0.45)" stroke-width="1"/>
+          <text x="705" y="166" text-anchor="middle" font-size="13.5" fill="#f0ede6">Memory</text>
+        </g>
+        <g>
+          <rect x="550" y="190" width="310" height="42" rx="6" fill="rgba(255,255,255,0.05)" stroke="rgba(240,237,230,0.45)" stroke-width="1"/>
+          <text x="705" y="216" text-anchor="middle" font-size="13.5" fill="#f0ede6">Workflow context</text>
+        </g>
+        <g>
+          <rect x="550" y="240" width="310" height="42" rx="6" fill="rgba(255,255,255,0.05)" stroke="rgba(240,237,230,0.45)" stroke-width="1"/>
+          <text x="705" y="266" text-anchor="middle" font-size="13.5" fill="#f0ede6">Goal &mdash; what to accomplish</text>
+        </g>
+        <text x="705" y="312" text-anchor="middle" font-size="11" fill="rgba(240,237,230,0.55)" font-style="italic">Hot-swap any of these between turns.</text>
+
+        <!-- Mapping arrows: right slot → assembled layer on the left -->
+        <line x1="545" y1="61" x2="345" y2="61" stroke="#e8a020" stroke-width="1" opacity="0.55" marker-end="url(#theory-arr)"/>
+        <line x1="545" y1="111" x2="345" y2="111" stroke="#e8a020" stroke-width="1" opacity="0.55" marker-end="url(#theory-arr)"/>
+        <line x1="545" y1="161" x2="345" y2="161" stroke="#e8a020" stroke-width="1" opacity="0.55" marker-end="url(#theory-arr)"/>
+        <line x1="545" y1="211" x2="345" y2="211" stroke="#e8a020" stroke-width="1" opacity="0.55" marker-end="url(#theory-arr)"/>
+        <line x1="545" y1="261" x2="345" y2="261" stroke="#e8a020" stroke-width="1" opacity="0.55" marker-end="url(#theory-arr)"/>
+      </svg>
+      <p style="margin-top: 1rem; font-size: clamp(0.85rem, 1.4vw, 1.3rem); color: var(--dim);">
+        The agent is the <em>assembly</em>. Change a slot &mdash; the next turn behaves as if you'd swapped agents.
+      </p>
+    </div>
+  </section>
+
   @ai: it is time for this to become a relationship diagram as well. Probably also SVG, like the recipe. We are going to care a lot about visual control. Use your frontend design skills to give me options - much like I describe for the next slide, below, but here we want to help people see the universe as a whole and how these elements form its bounds. Like the agent's universe is nested in space and time inside of the full project context (the stuff we know), and we can change it on a whim. And here are the only touchpoints it has with underlying reality, and how we can manipulate each to give it a different slice of reality.
   @ai-needs: This is a focused design-exploration turn (frontend-design skill). Confirm: (1) How many distinct alternatives? 2-3 with one cleaned up, or more sketchy options? (2) Should the nested "project context → universe → touchpoints → reality" framing be the spine of every option, or are wildly different framings on the table? (3) Are the seven levers (Memory, Context, Goals, Tooling, Invocation timing, State control, Feedback) fixed labels in the diagram, or can their grouping/labeling shift in service of the visual?
   @ai: 1) All of them cleaned up, at least 3, as many as you can come up with that really are distinct. Go ahead and do them in multiple commits / passes if that would help - generate some good ones, commit, then see if you can add a couple more or if they start becoming redundant. 2) Wildly different are allowed - that was simply one thought off the top of my head. 3) You may alter the levers. Show me different ways to think through all the axes that I can control around the AI agent. Don't just shift labels a little bit - each version should either use these labels or rethink / re-imagine the control surfaces entirely.
