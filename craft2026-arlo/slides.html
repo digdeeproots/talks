@@ -382,8 +382,8 @@
        survey the full design surface (universe).
 
        Order today: formula reveal → goal (s20) → how (s26) →
-       universe (s34) → safety vocabulary (s28) → recipe (s27) →
-       AST callback (s22) → blank pivot → TOC.
+       theory (s35) → universe (s34) → safety vocabulary (s28) →
+       recipe (s27) → blank pivot → TOC.
 
        Archive table (was s24) has moved out of the front-half flow;
        its content now lives only in the State-control beat (s53/s54).
@@ -682,23 +682,9 @@
     </div>
   </section>
 
-  @ai: we don't need a callback. Move this to a tooling case study. If there was already one for tooling, then make a second.
-  @ai-needs: There are already two tooling case studies in the back half — Beat 4 (s47–s49, Tooling/access: "minions never touch git") and Beat 5 (s50–s52, Tooling/operations: "no edit-file tool, only AST transformations"). Beat 5's content already matches s22 (AST tools, accidental behavior change, zero risk within scope). Three options — pick one: (a) delete s22 outright as redundant with Beat 5; (b) merge s22's "you've already done this for yourselves" framing into Beat 5's setup or name-the-experience slide; (c) treat s22 as a NEW third tooling beat with distinct content — if so, what content, since AST refactoring is the obvious candidate and it's taken?
-
-  <!-- 22 AST refactoring — human-side callback: you've done step 2 for yourselves -->
-  <section class="slide img-bg bg-cf-developer" id="s22">
-    <div class="overlay"></div>
-    <div class="slide-content">
-      <p class="kicker">You've already done this — for yourselves</p>
-      <h2>AST refactoring tools</h2>
-      <p style="margin-top: 1.5rem;">
-        Within scope: <span class="accent">zero risk</span> of behavior change.
-      </p>
-      <p style="margin-top: 2rem; font-style: italic; text-decoration: line-through; color: var(--dim);">
-        Vigilance cost: "Did my refactor accidentally change behavior?"
-      </p>
-    </div>
-  </section>
+  <!-- s22 (AST callback) removed: redundant with Beat 5 (s50–s52), which already covers AST tooling
+       as a full 3-slide case study (setup → intervention → name the experience). Callback framing
+       is no longer needed in the upshift; back-half exposure suffices. -->
 
   <!-- 30 BLANK — pivot from upshift to audience-directed back half -->
   <section class="slide blank" id="s30"></section>

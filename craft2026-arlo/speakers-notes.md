@@ -215,7 +215,7 @@ Then pivot:
 
 ## Upshift
 
-The job of this block: rise to the big idea (carelessness as the goal), state *how* (change the universe, raise safety on one class), then walk the design surface (universe + vocabulary + recipe). Order: principle (s20) → how (s26) → theory (s35) → universe (s34) → vocabulary (s28) → recipe (s27) → AST callback (s22) → blank pivot (s30).
+The job of this block: rise to the big idea (carelessness as the goal), state *how* (change the universe, raise safety on one class), then walk the design surface (universe + vocabulary + recipe). Order: principle (s20) → how (s26) → theory (s35) → universe (s34) → vocabulary (s28) → recipe (s27) → blank pivot (s30). (AST callback s22 removed: redundant with Beat 5 in the back half, which covers the same AST-tools case study fully.)
 
 ---
 
@@ -374,18 +374,6 @@ The meta-pattern for engineering carelessness. Point to the diagram as you walk 
 Pause.
 
 > "This is what carelessness engineering looks like in practice. Each pass: name one cost, identify the hole, lock it in, adjust, decide. Loop until you're careless about the thing."
-
----
-
-### 22 — You've already done this
-
-Callback. Quick.
-
-> "You've already done step 2 — for yourselves. AST refactoring tools."
-
-> "Within that tool's scope, there's zero risk of accidentally changing behavior. The recipe ran. Someone named the vigilance — 'did my rename break something?' — built guardians, classified the failures, then locked behavioral safety in with a universe lever called the AST."
-
-> "That cost is gone. For you. The talk is about doing the same thing for the AI."
 
 ---
 
