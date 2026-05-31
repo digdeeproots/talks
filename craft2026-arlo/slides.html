@@ -550,6 +550,8 @@
     </div>
   </section>
 
+  @ai: turn this into a diagram. There is one cycle, a couple fo branches, etc. Make it look pretty - use your frontend design skills to do so. Also think for a bit about whether it should be HTML or SVG. We are going to care a lot about the look, but we are also going to want the look to be a lot like powerpoint charts - simple and clean cycle graph. Also, the elements will need to be clickable when we show this same graph on the TOC.
+
   <!-- 27 The recipe — meta-pattern for engineering carelessness -->
   <section class="slide" id="s27">
     <div class="slide-content">
@@ -557,21 +559,37 @@
       <h2>Engineering <span class="accent">carelessness</span></h2>
       <ol style="text-align: left; max-width: 900px; margin: 2.5rem auto 0; padding-left: 2.5rem; font-size: clamp(1rem, 1.9vw, 2rem); line-height: 1.45;">
         <li style="margin-bottom: 1.2rem;">
+          <strong>Create an empty set of guardians.</strong>
+          <span class="dim">When do you invoke the guardians in your workflow?</span>
+        </li>
+        <li style="margin-bottom: 1.2rem;">
+          <strong>Create an one-step workflow.</strong>
+          <span class="dim">Tell the actor (Agent or human) to "do it."</span>
+        </li>
+        <li style="margin-bottom: 1.2rem;">
+          <strong>Create an explicit, vigilance expectation.</strong>
+          <span class="dim">What are all the concerns you can already see that a human has to watch for, and when?</span>
+        </li>
+        <li style="margin-bottom: 1.2rem;">
           <strong>Name the vigilance.</strong>
-          <span class="dim"> What are you watching for?</span>
+          <span class="dim">What are you watching for?</span>
         </li>
         <li style="margin-bottom: 1.2rem;">
-          <strong>Build a guardian.</strong>
-          <span class="dim"> An AI check for some of it.</span>
+          <strong>Build a probabilistic spot-checker.</strong>
+          <span class="dim">An AI check for some of it.</span>
         </li>
         <li style="margin-bottom: 1.2rem;">
-          <strong>Read its output as signal, not verdict.</strong>
-          <span class="dim"> Pass and fail both classify what was checked: caught, missed, or verified-safe.</span>
+          <strong>Identify a hole in your protection.</strong>
+          <span class="dim">Detections just show a missing universe element. Update your vigilance list</span>
         </li>
         <li>
           <strong>Lock one class in with a <span class="accent">universe lever</span></strong>
-          <span class="dim"> at a chosen safety level.</span>
+          <span class="dim">As a guardian or workflow step.</span>
         </li>
+        <li>
+          <strong>Adjust vigilence expectation</strong>
+          <span class="dim">To incorporate the full change in vigilience expectation</span>
+        </li> @ai: from this step, both cycle back to step 4 and also have an arrow to the next step
         <li>
           <strong>Make a decision</strong>
           <span class="dim">Choose whether to accept the agent's work or to reset and try again with your new safety lever..</span>
