@@ -116,7 +116,9 @@ Lever names are still settling — current canonical names are listed first, wit
 
 ---
 
-## Feedback *(new)*
+## Feedback
+
+@ai: this explicitly includes real-time feedback, not just after-the-fact.
 
 **What it is.** Closing loops for the agent. What of the impact of its actions does the agent see? What signals does it receive about the effects of its work?
 
@@ -141,9 +143,12 @@ The lever is distinct from State Control: State Control governs *what happens to
 
 Not yet promoted to full levers; surfaced here in case they earn it later.
 
+@ai: add identity. Simplify and unify. There areally are 4 axes related to per-turn invocation: 1) what do I tell it to accomplish this turn, 2) when do I invoke it / what workflow is around it, 3) what memory is it working with, and 4) who do I ask to do it (which agent, which llm, what system prompt).
+
 - **Persona / identity.** Who the agent thinks it is. The system prompt's framing affects every downstream decision. May be a sub-aspect of Goals, or distinct.
 - **Adjacency.** What other agents or humans can see the work in progress and react. Different from Feedback in that it's about *parallel* visibility, not loop closure after the fact.
-- **Pacing.** The rhythm at which the agent runs relative to other systems. Probably a sub-aspect of Invocation Timing, but the framing differs (when-each-time vs. how-often).
+
+@ai: consider short-invocation agents. They take one turn, then stop. And we then choose what to do next - deterministic code, another agent with the same memory (identity), or another agent with different memories. Same for teh work product - we could swap the work product out entirely and keep the memory, etc. Personality / system prompt / agent software (claude vs dev.ai vs opencoder.ai vs ...) are all hot-swappable. Memory is truly identity, and all the rest can change instantly between agent turns, in ways that the new agent re-interprets its memories and they all seem consistent. In such a system, what are other levers? Note: agents can also send each other messages, but that's really just a special case of a turn start message. I'm not sure if I want to open up in-turn interactions (interrupts or additional messages), as these all require continual, real-time vigilance by some actor, and I *think* that anything that can be done with them can be done with one of my other levers. If so, we may need to explicitly include it in the model description, then state that it is redundant/irrelevant and explicitly cross it out.
 
 ---
 

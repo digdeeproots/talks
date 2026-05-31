@@ -496,9 +496,12 @@
       </ul>
     </div>
   </section>
+  
+  @ai: add a slide before this: 
 
   @ai: it is time for this to become a relationship diagram as well. Probably also SVG, like the recipe. We are going to care a lot about visual control. Use your frontend design skills to give me options - much like I describe for the next slide, below, but here we want to help people see the universe as a whole and how these elements form its bounds. Like the agent's universe is nested in space and time inside of the full project context (the stuff we know), and we can change it on a whim. And here are the only touchpoints it has with underlying reality, and how we can manipulate each to give it a different slice of reality.
   @ai-needs: This is a focused design-exploration turn (frontend-design skill). Confirm: (1) How many distinct alternatives? 2-3 with one cleaned up, or more sketchy options? (2) Should the nested "project context → universe → touchpoints → reality" framing be the spine of every option, or are wildly different framings on the table? (3) Are the seven levers (Memory, Context, Goals, Tooling, Invocation timing, State control, Feedback) fixed labels in the diagram, or can their grouping/labeling shift in service of the visual?
+  @ai: 1) All of them cleaned up, at least 3, as many as you can come up with that really are distinct. Go ahead and do them in multiple commits / passes if that would help - generate some good ones, commit, then see if you can add a couple more or if they start becoming redundant. 2) Wildly different are allowed - that was simply one thought off the top of my head. 3) You may alter the levers. Show me different ways to think through all the axes that I can control around the AI agent. Don't just shift labels a little bit - each version should either use these labels or rethink / re-imagine the control surfaces entirely.
 
   <!-- 34 Agent's Universe — the "where" of the two-part answer -->
   <section class="slide img-bg bg-cr-developer" id="s34">
@@ -516,6 +519,7 @@
 
   @ai: this slide has too many words, not enough visual. use your frontend design skills to create for me at least 3 alternatives to present this info in a much more scannable form. You are allowed to reduce the info shown, to do multi-slide builds, to use diagrams, or whatever other ideas you have. Feel free to do it in HTML or in SVG. But I need to get into and through this content quickly. Help them get the gist and how it relates to things they know (manual QA is an example of probabilistic if you have a process, or vigilance if you don't, TDD is an example of Deterministic, type systems are prevention as can be other rule-based verifiers, carefree is the automated refactoring tool or version-aware database. You might use examples in one case, definitions in another, both in a third, whatever. Show me some good options that are fairly different from each other and let me choose elements to combine.
   @ai-needs: Dedicated design-exploration turn (frontend-design skill). Confirm: (1) Should the 3 alternatives land in this file as live <section>s I can switch between, or in a side-by-side preview file? (2) Is the cognitive-load column an attribute that must survive every alternative, or is it optional information that some alternatives might drop? (3) Are the level names (Hope / Vigilance / Probabilistic / Deterministic / Prevention / Carefree) fixed labels, or can a more visual rendition rename or compress them?
+  @ai: 1) put them all in here, as separate slides (sections). 2) Cognitive load is crucial, and couple possibly be tightened. 3) Fixed names.
 
   <!-- 28 Safety vocabulary — naming sets of safety; cognitive-load column added -->
   <section class="slide" id="s28">
@@ -534,7 +538,8 @@
 
   @ai: extract the svg out to a file. It will appear in 2 places in this talk, and I want to ensure they are always in sync. Note: in one of those places, we will need the items to be clickable. A click will takeus into a recipe sequence, which will end up coming back to the visual TOC.
   @ai-needs: (1) Confirm the second usage location — is it the TOC hub (s33), or a not-yet-built slide? (2) The click-target recipe slides don't exist yet (TOC "Recipes" section is empty). Should the extracted file include click handlers now (linking to placeholder anchors), or just the visual SVG and we wire clicks when the recipe slides are built? (3) File format — pure .svg, or HTML fragment with <object>/<include> mechanism, or inline-via-fetch?
-
+@ai: 1) it will go on the TOC slide. TOC will have the universe diagram and the recipe diagram and a single item for the closing sequence. Then I'll be able to click on a part of either diagram to go into a mini-talk series on that, finishing back at the TOC. 2) Placeholders. Make up something plausible for each. Each one should be a short sequence where I give a concrete recipe on how to accomplish that step and a worked example showing that recipe in a realistic case. 3) I don't care about the tech. I just care that it will work when hosted by my start script, and optimally if I just open the html file via the file protocol. I also care that we can change it in one place and ensure that each use is always up to date.
+    
   <!-- 27 The recipe — meta-pattern for engineering carelessness -->
   <section class="slide" id="s27">
     <div class="slide-content">
