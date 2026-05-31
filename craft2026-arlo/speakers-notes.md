@@ -308,41 +308,51 @@ Then the part most people miss:
 
 ### 27 — The recipe
 
-The meta-pattern for engineering carelessness. Walk all five steps.
+The meta-pattern for engineering carelessness. Point to the diagram as you walk it.
 
 > "Here's the move. Same shape every time."
 
-**Step 1 — Name the vigilance.**
+**Setup (steps 1–3, done once):**
 
-> "What are you watching for? Not 'is the work good' — what *specifically* keeps making you check? Decision inconsistency. Format drift. Data loss. Name it precisely."
+Step 1: Create an empty guardian set. Define where in your workflow a guardian could run — even if that slot is empty for now.
 
-**Step 2 — Build a guardian.**
+Step 2: Create a one-step workflow. The actor — agent or human — gets one instruction: "do it." No orchestration.
 
-> "Now build an AI check that watches for some of what you've been watching for. Not all of it. Some of it. The first one is always cheap and partial."
+Step 3: Create an explicit vigilance expectation. Write down every concern you can already see that a human has to watch for, and when.
 
-**Step 3 — Read its output as signal, not verdict.**
+**Core loop (steps 4–8, repeating):**
 
-This is the step everyone gets wrong. Slow down.
+**Step 4 — Name the vigilance.**
 
-> "Here's the trap. People treat the guardian as if its pass means 'work is good' and its fail means 'work is bad.' That's the wrong frame. The guardian isn't grading the work. It's revealing the structure of what you've been worrying about."
+> "What specifically keeps making you check? Not 'is the work good' — what *class* of error? Decision inconsistency. Format drift. Data loss. Name it."
 
-> "Every guardian output classifies what was checked into one of three buckets. Things it caught. Things it missed. Things it verified safe. The guardian's real product isn't a pass/fail — it's a classification of your vigilance into addressable buckets."
+**Step 5 — Build a spot-checker.**
 
-**Step 4 — Lock one class in with a universe lever.**
+> "Build an AI check for some of what you've been watching for. Not all of it. The first one is always partial."
 
-> "Pick the bucket you understand best. Then change the universe so that whole class is structurally addressed — at whatever safety level makes sense for it. Some classes you push to Level 5. Some only to Level 3. The recipe doesn't say 'go all the way.' It says 'go one level, on one class, deliberately.'"
+**Step 6 — Identify a hole.**
 
-> "Now the vigilance that class produced is gone. Permanently. Your guardian gets cheaper because it has less to do."
+> "What did it miss or flag? That hole is a missing universe element. Update your vigilance list — some items just moved from 'watching' to 'understood gap'."
 
-**Step 5 — Make a decision.**
+**Step 7 — Lock one class.**
 
-> "Now you decide. Accept the work the agent did, or reset and run it again — this time inside the safer universe you just built. The recipe doesn't tell you which. It just makes the choice clean: you're not choosing between trust and re-check. You're choosing between two paths whose risk profiles you now actually understand."
+> "Pick the gap you understand best. Change the universe — add a guardian or workflow step — so that whole class is structurally addressed at whatever safety level makes sense."
 
-> "Then loop back to step 1 with the next vigilance cost."
+> "Now the vigilance that class produced is gone. Permanently."
+
+**Step 8 — Adjust vigilance.**
+
+> "Remove what's now locked in. The list shrinks. Then: back to step 4 with the next vigilance item — or forward to the decision."
+
+**Exit (step 9):**
+
+**Step 9 — Make a decision.**
+
+> "Accept the work the agent did, or reset and re-run inside your safer universe. The recipe doesn't say which. It makes the risk profile legible so the choice is clean."
 
 Pause.
 
-> "This is what carelessness engineering looks like in practice. Each pass: name one cost, build the guardian, classify, lock in, decide. The talk so far has been two passes of this loop, told as finished stories."
+> "This is what carelessness engineering looks like in practice. Each pass: name one cost, build the checker, identify the hole, lock it in, decide. Loop until you're careless about the thing."
 
 ---
 
