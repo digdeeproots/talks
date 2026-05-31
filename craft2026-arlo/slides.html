@@ -589,6 +589,182 @@
     </div>
   </section>
 
+  <!-- ── s34 ALTERNATIVES — first pass (3 wildly different framings) ────────
+       Forward-nav: s34 → 34-alt-A → 34-alt-B → 34-alt-C.
+       Each reimagines what the universe IS, not just how it's labeled.
+       Pick one; further passes can refine the winner or add more options.
+  ─────────────────────────────────────────────────────────────────────────── -->
+
+  <!-- 34-ALT-A — NESTED SCOPES: project context → agent's universe → this turn.
+       The literal reading of the human's framing: the universe is a curated
+       nesting inside what we know, with the seven touchpoints arranged on
+       the boundary as control points. -->
+  <section class="slide" id="s34-alt-a">
+    <div class="slide-content">
+      <p class="kicker" style="text-align:center;">Nested scopes</p>
+      <svg viewBox="0 0 1000 540" width="100%" style="max-height:64vh; display:block; margin: 0.4rem auto 0;" role="img">
+        <!-- Outer: project context -->
+        <ellipse cx="500" cy="270" rx="470" ry="240" fill="rgba(255,255,255,0.025)" stroke="rgba(240,237,230,0.35)" stroke-width="1" stroke-dasharray="6,4"/>
+        <text x="500" y="40" text-anchor="middle" font-size="12" fill="rgba(240,237,230,0.55)" font-style="italic" letter-spacing="1.4">PROJECT CONTEXT &mdash; the stuff we know</text>
+
+        <!-- Middle: agent's universe -->
+        <ellipse cx="500" cy="280" rx="330" ry="170" fill="rgba(232,160,32,0.06)" stroke="rgba(232,160,32,0.7)" stroke-width="1.5"/>
+        <text x="500" y="135" text-anchor="middle" font-size="13" fill="#e8a020" font-weight="700" letter-spacing="1.4">AGENT'S UNIVERSE</text>
+
+        <!-- Inner: this turn -->
+        <circle cx="500" cy="290" r="78" fill="rgba(232,160,32,0.18)" stroke="#e8a020" stroke-width="1.5"/>
+        <text x="500" y="285" text-anchor="middle" font-size="14" fill="#f0ede6" font-weight="700">this turn</text>
+        <text x="500" y="305" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.65)" font-style="italic">one invocation</text>
+
+        <!-- 7 touchpoints on the universe boundary -->
+        <g font-size="12" fill="#f0ede6" font-weight="600" text-anchor="middle">
+          <!-- top arc -->
+          <circle cx="280" cy="170" r="6" fill="#e8a020"/>
+          <text x="240" y="155">Memory</text>
+          <circle cx="430" cy="125" r="6" fill="#e8a020"/>
+          <text x="430" y="110">Context</text>
+          <circle cx="580" cy="125" r="6" fill="#e8a020"/>
+          <text x="580" y="110">Goal</text>
+          <circle cx="720" cy="170" r="6" fill="#e8a020"/>
+          <text x="760" y="155">Tooling</text>
+          <!-- bottom arc -->
+          <circle cx="720" cy="390" r="6" fill="#e8a020"/>
+          <text x="775" y="406">Invocation</text>
+          <circle cx="500" cy="445" r="6" fill="#e8a020"/>
+          <text x="500" y="465">State control</text>
+          <circle cx="280" cy="390" r="6" fill="#e8a020"/>
+          <text x="225" y="406">Feedback</text>
+        </g>
+
+        <text x="500" y="525" text-anchor="middle" font-size="11" fill="rgba(240,237,230,0.55)" font-style="italic">Each touchpoint is a control surface. Turn a knob, change the slice of reality the agent acts on.</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 34-ALT-B — SENSE / ACT bisection. The universe as I/O around the agent.
+       Half of the levers control what flows IN to the agent (sense); the
+       other half control what flows OUT (act). Two distinct lever families. -->
+  <section class="slide" id="s34-alt-b">
+    <div class="slide-content">
+      <p class="kicker" style="text-align:center;">Sense &amp; act &mdash; the agent's I/O</p>
+      <svg viewBox="0 0 1000 480" width="100%" style="max-height:62vh; display:block; margin: 0.6rem auto 0;" role="img">
+        <defs>
+          <marker id="uni-arr-in" markerWidth="9" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 9 3, 0 6" fill="#e8a020" opacity="0.8"/>
+          </marker>
+          <marker id="uni-arr-out" markerWidth="9" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 9 3, 0 6" fill="#9aa0a8" opacity="0.85"/>
+          </marker>
+        </defs>
+
+        <!-- Agent in center -->
+        <circle cx="500" cy="240" r="80" fill="rgba(232,160,32,0.15)" stroke="#e8a020" stroke-width="1.5"/>
+        <text x="500" y="240" text-anchor="middle" font-size="20" fill="#f0ede6" font-weight="700">Agent</text>
+        <text x="500" y="262" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.6)" font-style="italic">(this turn)</text>
+
+        <!-- Headers -->
+        <text x="180" y="40" text-anchor="middle" font-size="14" fill="#e8a020" font-weight="700" letter-spacing="2">SENSE &nbsp;&rarr;</text>
+        <text x="180" y="58" text-anchor="middle" font-size="11" fill="rgba(240,237,230,0.55)" font-style="italic">what reaches the agent</text>
+        <text x="820" y="40" text-anchor="middle" font-size="14" fill="#9aa0a8" font-weight="700" letter-spacing="2">&rarr; &nbsp;ACT</text>
+        <text x="820" y="58" text-anchor="middle" font-size="11" fill="rgba(240,237,230,0.55)" font-style="italic">what leaves the agent</text>
+
+        <!-- SENSE side: 4 inbound arrows -->
+        <g font-size="13" fill="#f0ede6" text-anchor="end">
+          <line x1="60"  y1="120" x2="418" y2="200" stroke="#e8a020" stroke-width="1.4" opacity="0.75" marker-end="url(#uni-arr-in)"/>
+          <text x="50"  y="118" font-weight="700">Memory</text>
+          <text x="50"  y="135" font-size="10" fill="rgba(240,237,230,0.55)" font-style="italic">what it recalls</text>
+
+          <line x1="60"  y1="200" x2="418" y2="232" stroke="#e8a020" stroke-width="1.4" opacity="0.75" marker-end="url(#uni-arr-in)"/>
+          <text x="50"  y="198" font-weight="700">Context</text>
+          <text x="50"  y="215" font-size="10" fill="rgba(240,237,230,0.55)" font-style="italic">what's reachable</text>
+
+          <line x1="60"  y1="290" x2="418" y2="260" stroke="#e8a020" stroke-width="1.4" opacity="0.75" marker-end="url(#uni-arr-in)"/>
+          <text x="50"  y="288" font-weight="700">Goal</text>
+          <text x="50"  y="305" font-size="10" fill="rgba(240,237,230,0.55)" font-style="italic">what to accomplish</text>
+
+          <line x1="60"  y1="370" x2="418" y2="290" stroke="#e8a020" stroke-width="1.4" opacity="0.75" marker-end="url(#uni-arr-in)"/>
+          <text x="50"  y="368" font-weight="700">Feedback</text>
+          <text x="50"  y="385" font-size="10" fill="rgba(240,237,230,0.55)" font-style="italic">signals from prior actions</text>
+        </g>
+
+        <!-- ACT side: 3 outbound arrows -->
+        <g font-size="13" fill="#f0ede6" text-anchor="start">
+          <line x1="582" y1="200" x2="940" y2="140" stroke="#9aa0a8" stroke-width="1.4" opacity="0.85" marker-end="url(#uni-arr-out)"/>
+          <text x="950" y="138" font-weight="700">Tooling</text>
+          <text x="950" y="155" font-size="10" fill="rgba(240,237,230,0.55)" font-style="italic">what moves it can make</text>
+
+          <line x1="582" y1="240" x2="940" y2="240" stroke="#9aa0a8" stroke-width="1.4" opacity="0.85" marker-end="url(#uni-arr-out)"/>
+          <text x="950" y="238" font-weight="700">State control</text>
+          <text x="950" y="255" font-size="10" fill="rgba(240,237,230,0.55)" font-style="italic">what happens to its output</text>
+
+          <line x1="582" y1="280" x2="940" y2="340" stroke="#9aa0a8" stroke-width="1.4" opacity="0.85" marker-end="url(#uni-arr-out)"/>
+          <text x="950" y="338" font-weight="700">Invocation timing</text>
+          <text x="950" y="355" font-size="10" fill="rgba(240,237,230,0.55)" font-style="italic">when it runs at all</text>
+        </g>
+
+        <text x="500" y="450" text-anchor="middle" font-size="11" fill="rgba(240,237,230,0.55)" font-style="italic">Tighten an inbound channel: change what the agent considers. Tighten an outbound channel: change what its action can affect.</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 34-ALT-C — UNIVERSE AS CURATED SLICE OF REALITY.
+       Reality is vast. The universe is the slice we let through.
+       Each lever is a filter — a knob on what passes between reality and agent.
+       Lever set reimagined as filter pairs (in-filter / out-filter). -->
+  <section class="slide" id="s34-alt-c">
+    <div class="slide-content">
+      <p class="kicker" style="text-align:center;">A curated slice of reality</p>
+      <svg viewBox="0 0 1000 540" width="100%" style="max-height:64vh; display:block; margin: 0.4rem auto 0;" role="img">
+        <!-- Reality: irregular soft cloud -->
+        <path d="M 90,80 C 60,180 40,340 130,440 C 240,520 420,510 540,500 C 700,490 880,470 940,360 C 980,260 960,140 870,80 C 760,30 600,30 460,40 C 320,50 150,30 90,80 Z"
+              fill="rgba(255,255,255,0.022)" stroke="rgba(240,237,230,0.28)" stroke-width="1" stroke-dasharray="5,5"/>
+        <text x="120" y="60" font-size="12" fill="rgba(240,237,230,0.55)" font-style="italic" letter-spacing="1.4">REALITY &mdash; everything that exists</text>
+
+        <!-- The slice: sharper inner shape -->
+        <path d="M 340,160 C 290,180 280,300 320,380 C 380,440 540,440 620,400 C 700,360 720,260 680,200 C 630,150 470,140 340,160 Z"
+              fill="rgba(232,160,32,0.09)" stroke="#e8a020" stroke-width="1.6"/>
+        <text x="500" y="295" text-anchor="middle" font-size="14" fill="#e8a020" font-weight="800" letter-spacing="1.2">AGENT'S UNIVERSE</text>
+        <text x="500" y="315" text-anchor="middle" font-size="11" fill="rgba(240,237,230,0.7)" font-style="italic">the slice we curate, on a whim</text>
+
+        <!-- 7 knobs along the seam — each a filter -->
+        <g font-size="11.5" fill="#f0ede6" font-weight="700">
+          <!-- top -->
+          <circle cx="380" cy="160" r="9" fill="#0c0c0c" stroke="#e8a020" stroke-width="2"/>
+          <text x="380" y="138" text-anchor="middle">recall filter</text>
+          <text x="380" y="124" text-anchor="middle" font-size="9" fill="rgba(192,154,96,0.85)" font-weight="700" letter-spacing="1.2">MEMORY</text>
+
+          <circle cx="500" cy="148" r="9" fill="#0c0c0c" stroke="#e8a020" stroke-width="2"/>
+          <text x="500" y="126" text-anchor="middle">reach filter</text>
+          <text x="500" y="112" text-anchor="middle" font-size="9" fill="rgba(192,154,96,0.85)" font-weight="700" letter-spacing="1.2">CONTEXT</text>
+
+          <circle cx="620" cy="160" r="9" fill="#0c0c0c" stroke="#e8a020" stroke-width="2"/>
+          <text x="620" y="138" text-anchor="middle">scope filter</text>
+          <text x="620" y="124" text-anchor="middle" font-size="9" fill="rgba(192,154,96,0.85)" font-weight="700" letter-spacing="1.2">GOAL</text>
+
+          <!-- sides -->
+          <circle cx="690" cy="280" r="9" fill="#0c0c0c" stroke="#e8a020" stroke-width="2"/>
+          <text x="760" y="284" text-anchor="start">action filter</text>
+          <text x="760" y="270" text-anchor="start" font-size="9" fill="rgba(192,154,96,0.85)" font-weight="700" letter-spacing="1.2">TOOLING</text>
+
+          <circle cx="320" cy="280" r="9" fill="#0c0c0c" stroke="#e8a020" stroke-width="2"/>
+          <text x="240" y="284" text-anchor="end">signal filter</text>
+          <text x="240" y="270" text-anchor="end" font-size="9" fill="rgba(192,154,96,0.85)" font-weight="700" letter-spacing="1.2">FEEDBACK</text>
+
+          <!-- bottom -->
+          <circle cx="430" cy="420" r="9" fill="#0c0c0c" stroke="#e8a020" stroke-width="2"/>
+          <text x="430" y="450" text-anchor="middle">when filter</text>
+          <text x="430" y="466" text-anchor="middle" font-size="9" fill="rgba(192,154,96,0.85)" font-weight="700" letter-spacing="1.2">INVOCATION</text>
+
+          <circle cx="580" cy="420" r="9" fill="#0c0c0c" stroke="#e8a020" stroke-width="2"/>
+          <text x="580" y="450" text-anchor="middle">commit filter</text>
+          <text x="580" y="466" text-anchor="middle" font-size="9" fill="rgba(192,154,96,0.85)" font-weight="700" letter-spacing="1.2">STATE CONTROL</text>
+        </g>
+
+        <text x="500" y="525" text-anchor="middle" font-size="11" fill="rgba(240,237,230,0.55)" font-style="italic">Reality stays huge. Turn any knob &mdash; the slice changes immediately.</text>
+      </svg>
+    </div>
+  </section>
+
   @ai: this slide has too many words, not enough visual. use your frontend design skills to create for me at least 3 alternatives to present this info in a much more scannable form. You are allowed to reduce the info shown, to do multi-slide builds, to use diagrams, or whatever other ideas you have. Feel free to do it in HTML or in SVG. But I need to get into and through this content quickly. Help them get the gist and how it relates to things they know (manual QA is an example of probabilistic if you have a process, or vigilance if you don't, TDD is an example of Deterministic, type systems are prevention as can be other rule-based verifiers, carefree is the automated refactoring tool or version-aware database. You might use examples in one case, definitions in another, both in a third, whatever. Show me some good options that are fairly different from each other and let me choose elements to combine.
   @ai-needs: Dedicated design-exploration turn (frontend-design skill). Confirm: (1) Should the 3 alternatives land in this file as live <section>s I can switch between, or in a side-by-side preview file? (2) Is the cognitive-load column an attribute that must survive every alternative, or is it optional information that some alternatives might drop? (3) Are the level names (Hope / Vigilance / Probabilistic / Deterministic / Prevention / Carefree) fixed labels, or can a more visual rendition rename or compress them?
   @ai: 1) put them all in here, as separate slides (sections). 2) Cognitive load is crucial, and couple possibly be tightened. 3) Fixed names.
