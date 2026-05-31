@@ -118,24 +118,25 @@ Lever names are still settling — current canonical names are listed first, wit
 
 ## Feedback
 
-@ai: this explicitly includes real-time feedback, not just after-the-fact.
+**What it is.** Closing loops for the agent. What signals it receives about the effects of its work — both *within a turn* (tool results, synchronous validators, guardians that fire on each edit) and *across turns* (test outcomes, schema failures, human responses fed back as next-turn context). Real-time feedback shapes the agent's next move inside the current invocation. After-the-fact feedback shapes the next invocation.
 
-**What it is.** Closing loops for the agent. What of the impact of its actions does the agent see? What signals does it receive about the effects of its work?
+**Why it's a lever.** Without feedback, the agent repeats the same mistake — it has no view of what went wrong. With feedback, the agent can self-correct mid-turn, self-correct between turns, or escalate cleanly when self-correction fails. Feedback can be deterministic (schema validation, test results, build errors, structured tool errors) or human (review, text-to-speech notifications, response to a guess). The shape and timing of the feedback determine what the agent learns and when.
 
-**Why it's a lever.** Without feedback, the agent commits the same mistake every time — it has no view of what went wrong. With feedback, the agent can self-correct within its operating loop, or escalate cleanly when self-correction fails. Feedback can be deterministic (schema validation, test results, build errors) or human (review, text-to-speech notifications, response to a guess). The shape of the feedback determines what the agent learns.
-
-The lever is distinct from State Control: State Control governs *what happens to the output*, Feedback governs *what the agent learns about that*. A migration archive table is State Control. A test that runs on the migration and tells the agent "the value map disagrees with reality" is Feedback.
+The lever is distinct from State Control. State Control governs *what happens to the output*; Feedback governs *what the agent learns about that*. A migration archive table is State Control. A test that tells the agent "the value map disagrees with reality" is Feedback.
 
 **Probe questions.**
-- After the agent acts, what does it learn about the result?
+- What does the agent see while a turn is in flight? What only between turns?
 - Is the feedback automatic, or does it depend on someone reviewing?
+- Do tool errors return structured, actionable detail, or generic failure?
 - What does the agent do with a failed-feedback signal — try again? Escalate? Halt?
 - What signals would change the agent's next move, and are they being delivered?
 
 **Examples.**
-- *Schema validation as feedback.* When a transcript analysis fails validation, the agent is re-called with the specific failure as context. It fills the gap rather than the human flagging it.
-- *Guess-and-check rhythm.* The system knows when to have the agent guess and when to surface the guess for human check. The agent stops asking the human to predict things up front; the human responds to a concrete proposal. Text-to-speech notifies only when there's something to respond to.
-- *Test-driven correction loop.* The agent writes code; tests run; failures come back as context. The agent's next iteration is shaped by the specific failure, not by general "be more careful" instructions.
+- *Real-time guardian on edit.* A pre-commit validator runs synchronously on each agent file write; violations surface as a structured tool error inside the same turn, and the agent retries with the failure visible.
+- *Structured tool errors.* A tool returns "expected schema field X, got Y at line Z" rather than a generic 500. The agent corrects in the next step of the same turn, not the next invocation.
+- *Schema validation across turns.* When a transcript analysis fails validation, the agent is re-called with the specific failure as context. It fills the gap rather than the human flagging it.
+- *Guess-and-check rhythm.* The system knows when to have the agent guess and when to surface the guess for human check. The human responds to a concrete proposal; text-to-speech notifies only when there's something to respond to.
+- *Test-driven correction loop.* The agent writes code; tests run; failures come back as next-turn context. The agent's next iteration is shaped by the specific failure, not by general "be more careful" instructions.
 
 ---
 
