@@ -257,25 +257,27 @@ Then bridge:
 
 ---
 
-### 35 — Theory: how a turn is made
+### 35 — Theory: three scopes, three illusions
 
-Quick theory pause before naming the levers. The point is to break the illusion that the agent is a continuous thing.
+Pause before naming the levers. Frame each scope as an illusion the surface presents — and the seam beneath where the orchestrator can intervene.
 
-> "Before we look at where to push, one piece of theory. The agent is not a thing that runs. The LLM is stateless. Each turn is a fresh API call."
+> "Three scopes. Each presents an illusion. Each has a seam where you can intervene."
 
-Point to the left column (prompt sent to the LLM).
+**Panel 1 — Within an LLM call.**
 
-> "What the LLM actually sees, per turn: system prompt, tool definitions, a memory snapshot, conversation history, this turn's input. Concatenated. Sent once. The LLM has no memory of last turn."
+> "Illusion: the agent is thinking. Reality: one stateless API call. The 'thought' is the output token sequence. Swap surface: prompt text, system prompt, tools, model, temperature, the conversation history shown, context fragments injected before the request."
 
-Point to the right column (slots).
+**Panel 2 — Within a turn.**
 
-> "The illusion of an agent is something the orchestrator builds. Between turns, you choose what goes in each slot: identity — which agent software, which LLM, what persona; tooling; memory; workflow context; the goal for this turn."
+> "Illusion: the agent is acting. Reality: a loop of stateless calls glued by tool results re-fed in. Swap surface: which tools are live, what the tool results say (you can edit, redact, reorder them), when the loop halts, whether sub-agents are called and what their replies look like, even 'thoughts' you inject between calls."
 
-> "Each slot maps into a layer of the prompt. The agent is the assembly. Swap a slot, the next turn behaves as if you'd swapped agents — because in effect you have."
+**Panel 3 — Between turns.**
 
-Pause briefly.
+> "Illusion: the same agent persists. Reality: separate invocations. The chain is your doing. Swap surface: identity (the LLM, the agent software, the persona), memory (preserve, edit, wipe), the work product itself, the goal of the next turn, the workflow position — and whether there is a next turn."
 
-> "That's the surface the universe slides on. Every lever we're about to name is a way to manipulate one of these slots."
+Pause.
+
+> "Every lever we're about to name in the universe lives at one of these three scopes."
 
 Transition to s34.
 

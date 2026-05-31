@@ -498,85 +498,150 @@
     </div>
   </section>
 
-  @ai: the llm context is good, but that's not what I'm thinking for agent context. The agent I want to see the loop, the parts of the world it can touch, the things it supplies. It can make multiple LLM calls - show how it maintains the agentic history illusion across independent calls. This isn't about showing a false 1:1 relationship - we want to expose the different parts of the agentic system that can be changed. And then there is a third part: the workflow as a whole, where we control the context around a turn. Here there is the illusion that turns are sequential, done by the same agent, and without changes happening between turns (other than, perhaps, human edits). Show the reality of an agent's cycle within a turn and our choice between turns.
-  
-  <!-- 35 Theory — how a turn is made; the illusion of agentic history -->
+  <!-- 35 Theory — three scopes of agentic illusion: LLM call, turn, workflow.
+       Each panel shows the illusion the surface presents, the mechanism beneath,
+       and the parts we can swap to break / re-shape it. -->
   <section class="slide" id="s35">
     <div class="slide-content">
-      <p class="kicker">Theory — before we walk the universe</p>
-      <h2 style="margin-bottom: 0.4rem;">How a <span class="accent">turn</span> is made</h2>
-      <p style="font-size: clamp(0.9rem, 1.5vw, 1.4rem); color: var(--dim); margin-bottom: 1.4rem;">LLMs are stateless. Each turn rebuilds the agent from parts you choose.</p>
-      <svg viewBox="0 0 900 380" width="100%" style="max-height:50vh; display:block; margin:0 auto;" role="img">
-        <defs>
-          <marker id="theory-arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
-            <polygon points="0 0, 8 3, 0 6" fill="#e8a020" opacity="0.75"/>
-          </marker>
-        </defs>
+      <p class="kicker">Theory &mdash; three scopes, three illusions</p>
+      <h2 style="margin-bottom: 0.4rem;">Where you can <span class="accent">manipulate</span> the agent</h2>
+      <p style="font-size: clamp(0.85rem, 1.4vw, 1.3rem); color: var(--dim); margin-bottom: 1rem;">Each scope hides a seam. Each seam is a place to change behavior.</p>
+      <svg viewBox="0 0 1000 460" width="100%" style="max-height:60vh; display:block; margin:0 auto;" role="img">
 
-        <!-- LEFT: what gets sent to the LLM (the assembled prompt) -->
-        <text x="190" y="20" text-anchor="middle" font-size="11" fill="rgba(192,154,96,0.9)" font-weight="700" letter-spacing="1.6">PROMPT SENT TO THE LLM</text>
+        <!-- ── PANEL 1: WITHIN AN LLM CALL ───────────────────────── -->
         <g>
-          <rect x="40" y="40" width="300" height="42" rx="6" fill="rgba(232,160,32,0.10)" stroke="rgba(232,160,32,0.55)" stroke-width="1"/>
-          <text x="190" y="66" text-anchor="middle" font-size="13.5" fill="#f0ede6">System prompt</text>
-        </g>
-        <g>
-          <rect x="40" y="90" width="300" height="42" rx="6" fill="rgba(232,160,32,0.10)" stroke="rgba(232,160,32,0.55)" stroke-width="1"/>
-          <text x="190" y="116" text-anchor="middle" font-size="13.5" fill="#f0ede6">Tool definitions</text>
-        </g>
-        <g>
-          <rect x="40" y="140" width="300" height="42" rx="6" fill="rgba(232,160,32,0.10)" stroke="rgba(232,160,32,0.55)" stroke-width="1"/>
-          <text x="190" y="166" text-anchor="middle" font-size="13.5" fill="#f0ede6">Memory snapshot</text>
-        </g>
-        <g>
-          <rect x="40" y="190" width="300" height="42" rx="6" fill="rgba(232,160,32,0.10)" stroke="rgba(232,160,32,0.55)" stroke-width="1"/>
-          <text x="190" y="216" text-anchor="middle" font-size="13.5" fill="#f0ede6">Conversation history</text>
-        </g>
-        <g>
-          <rect x="40" y="240" width="300" height="42" rx="6" fill="rgba(232,160,32,0.10)" stroke="rgba(232,160,32,0.55)" stroke-width="1"/>
-          <text x="190" y="266" text-anchor="middle" font-size="13.5" fill="#f0ede6">This turn's input</text>
-        </g>
-        <text x="190" y="312" text-anchor="middle" font-size="11" fill="rgba(240,237,230,0.55)" font-style="italic">Concatenated. One API call. No state.</text>
+          <rect x="10" y="20" width="320" height="430" rx="12" fill="rgba(255,255,255,0.025)" stroke="rgba(232,160,32,0.45)" stroke-width="1"/>
+          <text x="170" y="48" text-anchor="middle" font-size="11" fill="#e8a020" font-weight="700" letter-spacing="2">SCOPE 1 &mdash; AN LLM CALL</text>
+          <text x="170" y="72" text-anchor="middle" font-size="13" fill="rgba(240,237,230,0.85)" font-style="italic">"the agent is thinking"</text>
 
-        <!-- RIGHT: what you control between turns (the slots) -->
-        <text x="700" y="20" text-anchor="middle" font-size="11" fill="rgba(192,154,96,0.9)" font-weight="700" letter-spacing="1.6">SLOTS YOU CONTROL PER TURN</text>
-        <g>
-          <rect x="550" y="40" width="310" height="42" rx="6" fill="rgba(255,255,255,0.05)" stroke="rgba(240,237,230,0.45)" stroke-width="1"/>
-          <text x="705" y="66" text-anchor="middle" font-size="13.5" fill="#f0ede6">Identity &mdash; agent / LLM / persona</text>
-        </g>
-        <g>
-          <rect x="550" y="90" width="310" height="42" rx="6" fill="rgba(255,255,255,0.05)" stroke="rgba(240,237,230,0.45)" stroke-width="1"/>
-          <text x="705" y="116" text-anchor="middle" font-size="13.5" fill="#f0ede6">Tooling</text>
-        </g>
-        <g>
-          <rect x="550" y="140" width="310" height="42" rx="6" fill="rgba(255,255,255,0.05)" stroke="rgba(240,237,230,0.45)" stroke-width="1"/>
-          <text x="705" y="166" text-anchor="middle" font-size="13.5" fill="#f0ede6">Memory</text>
-        </g>
-        <g>
-          <rect x="550" y="190" width="310" height="42" rx="6" fill="rgba(255,255,255,0.05)" stroke="rgba(240,237,230,0.45)" stroke-width="1"/>
-          <text x="705" y="216" text-anchor="middle" font-size="13.5" fill="#f0ede6">Workflow context</text>
-        </g>
-        <g>
-          <rect x="550" y="240" width="310" height="42" rx="6" fill="rgba(255,255,255,0.05)" stroke="rgba(240,237,230,0.45)" stroke-width="1"/>
-          <text x="705" y="266" text-anchor="middle" font-size="13.5" fill="#f0ede6">Goal &mdash; what to accomplish</text>
-        </g>
-        <text x="705" y="312" text-anchor="middle" font-size="11" fill="rgba(240,237,230,0.55)" font-style="italic">Hot-swap any of these between turns.</text>
+          <!-- mini-diagram: prompt stack into LLM, output arrow -->
+          <g>
+            <rect x="40"  y="92"  width="120" height="22" rx="3" fill="rgba(232,160,32,0.10)" stroke="rgba(232,160,32,0.45)"/>
+            <text x="100" y="108" text-anchor="middle" font-size="10" fill="#f0ede6">system prompt</text>
+            <rect x="40"  y="116" width="120" height="22" rx="3" fill="rgba(232,160,32,0.10)" stroke="rgba(232,160,32,0.45)"/>
+            <text x="100" y="132" text-anchor="middle" font-size="10" fill="#f0ede6">tools</text>
+            <rect x="40"  y="140" width="120" height="22" rx="3" fill="rgba(232,160,32,0.10)" stroke="rgba(232,160,32,0.45)"/>
+            <text x="100" y="156" text-anchor="middle" font-size="10" fill="#f0ede6">history</text>
+            <rect x="40"  y="164" width="120" height="22" rx="3" fill="rgba(232,160,32,0.10)" stroke="rgba(232,160,32,0.45)"/>
+            <text x="100" y="180" text-anchor="middle" font-size="10" fill="#f0ede6">input</text>
+            <line x1="165" y1="139" x2="195" y2="139" stroke="#e8a020" stroke-width="1.4"/>
+            <rect x="195" y="118" width="80" height="42" rx="6" fill="rgba(232,160,32,0.18)" stroke="#e8a020"/>
+            <text x="235" y="143" text-anchor="middle" font-size="11" fill="#f0ede6" font-weight="700">LLM</text>
+            <line x1="235" y1="160" x2="235" y2="200" stroke="#e8a020" stroke-width="1.4"/>
+            <text x="235" y="218" text-anchor="middle" font-size="10" fill="rgba(232,160,32,0.85)" font-style="italic">tokens out</text>
+          </g>
 
-        <!-- Mapping arrows: right slot → assembled layer on the left -->
-        <line x1="545" y1="61" x2="345" y2="61" stroke="#e8a020" stroke-width="1" opacity="0.55" marker-end="url(#theory-arr)"/>
-        <line x1="545" y1="111" x2="345" y2="111" stroke="#e8a020" stroke-width="1" opacity="0.55" marker-end="url(#theory-arr)"/>
-        <line x1="545" y1="161" x2="345" y2="161" stroke="#e8a020" stroke-width="1" opacity="0.55" marker-end="url(#theory-arr)"/>
-        <line x1="545" y1="211" x2="345" y2="211" stroke="#e8a020" stroke-width="1" opacity="0.55" marker-end="url(#theory-arr)"/>
-        <line x1="545" y1="261" x2="345" y2="261" stroke="#e8a020" stroke-width="1" opacity="0.55" marker-end="url(#theory-arr)"/>
+          <text x="170" y="252" text-anchor="middle" font-size="10" fill="rgba(192,154,96,0.8)" font-weight="700" letter-spacing="1.6">REALITY</text>
+          <text x="170" y="270" text-anchor="middle" font-size="11" fill="rgba(240,237,230,0.75)">One stateless API call.</text>
+          <text x="170" y="286" text-anchor="middle" font-size="11" fill="rgba(240,237,230,0.75)">The &ldquo;thought&rdquo; is its output.</text>
+
+          <text x="170" y="318" text-anchor="middle" font-size="10" fill="#e8a020" font-weight="700" letter-spacing="1.6">SWAP</text>
+          <g font-size="11" fill="#f0ede6">
+            <text x="30" y="340">&bull; the prompt text</text>
+            <text x="30" y="358">&bull; system prompt / persona</text>
+            <text x="30" y="376">&bull; tools offered this call</text>
+            <text x="30" y="394">&bull; model, temperature</text>
+            <text x="30" y="412">&bull; conversation history shown</text>
+            <text x="30" y="432">&bull; injected context fragments</text>
+          </g>
+        </g>
+
+        <!-- ── PANEL 2: WITHIN A TURN ─────────────────────────────── -->
+        <g>
+          <rect x="340" y="20" width="320" height="430" rx="12" fill="rgba(255,255,255,0.025)" stroke="rgba(232,160,32,0.45)" stroke-width="1"/>
+          <text x="500" y="48" text-anchor="middle" font-size="11" fill="#e8a020" font-weight="700" letter-spacing="2">SCOPE 2 &mdash; A TURN</text>
+          <text x="500" y="72" text-anchor="middle" font-size="13" fill="rgba(240,237,230,0.85)" font-style="italic">"the agent is acting"</text>
+
+          <!-- mini-diagram: chain of LLM calls + tool steps -->
+          <g>
+            <!-- LLM 1 -->
+            <rect x="370" y="100" width="46" height="28" rx="4" fill="rgba(232,160,32,0.18)" stroke="#e8a020"/>
+            <text x="393" y="118" text-anchor="middle" font-size="9" fill="#f0ede6" font-weight="700">LLM</text>
+            <!-- arrow down to tool -->
+            <line x1="393" y1="128" x2="393" y2="146" stroke="#e8a020" stroke-width="1.2"/>
+            <rect x="370" y="146" width="46" height="22" rx="11" fill="rgba(240,237,230,0.08)" stroke="rgba(240,237,230,0.45)"/>
+            <text x="393" y="161" text-anchor="middle" font-size="8" fill="#f0ede6">tool</text>
+            <!-- arrow right to LLM 2 -->
+            <path d="M 416,157 L 444,157 L 444,114 L 460,114" fill="none" stroke="#e8a020" stroke-width="1.2"/>
+            <rect x="460" y="100" width="46" height="28" rx="4" fill="rgba(232,160,32,0.18)" stroke="#e8a020"/>
+            <text x="483" y="118" text-anchor="middle" font-size="9" fill="#f0ede6" font-weight="700">LLM</text>
+            <line x1="483" y1="128" x2="483" y2="146" stroke="#e8a020" stroke-width="1.2"/>
+            <rect x="460" y="146" width="46" height="22" rx="11" fill="rgba(240,237,230,0.08)" stroke="rgba(240,237,230,0.45)"/>
+            <text x="483" y="161" text-anchor="middle" font-size="8" fill="#f0ede6">tool</text>
+            <!-- arrow to LLM 3 -->
+            <path d="M 506,157 L 534,157 L 534,114 L 550,114" fill="none" stroke="#e8a020" stroke-width="1.2"/>
+            <rect x="550" y="100" width="46" height="28" rx="4" fill="rgba(232,160,32,0.18)" stroke="#e8a020"/>
+            <text x="573" y="118" text-anchor="middle" font-size="9" fill="#f0ede6" font-weight="700">LLM</text>
+            <text x="615" y="118" text-anchor="start" font-size="11" fill="rgba(232,160,32,0.65)" font-style="italic">&hellip;</text>
+
+            <text x="500" y="200" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.55)" font-style="italic">N stateless calls, glued by tool results</text>
+          </g>
+
+          <text x="500" y="252" text-anchor="middle" font-size="10" fill="rgba(192,154,96,0.8)" font-weight="700" letter-spacing="1.6">REALITY</text>
+          <text x="500" y="270" text-anchor="middle" font-size="11" fill="rgba(240,237,230,0.75)">A loop. Each call rebuilt from</text>
+          <text x="500" y="286" text-anchor="middle" font-size="11" fill="rgba(240,237,230,0.75)">prior results re-fed in.</text>
+
+          <text x="500" y="318" text-anchor="middle" font-size="10" fill="#e8a020" font-weight="700" letter-spacing="1.6">SWAP</text>
+          <g font-size="11" fill="#f0ede6">
+            <text x="360" y="340">&bull; which tools are live</text>
+            <text x="360" y="358">&bull; what tool results say</text>
+            <text x="360" y="376">&bull; redact / edit / reorder results</text>
+            <text x="360" y="394">&bull; when the loop halts</text>
+            <text x="360" y="412">&bull; sub-agent calls and their replies</text>
+            <text x="360" y="432">&bull; injected "thoughts" between calls</text>
+          </g>
+        </g>
+
+        <!-- ── PANEL 3: BETWEEN TURNS ─────────────────────────────── -->
+        <g>
+          <rect x="670" y="20" width="320" height="430" rx="12" fill="rgba(255,255,255,0.025)" stroke="rgba(232,160,32,0.45)" stroke-width="1"/>
+          <text x="830" y="48" text-anchor="middle" font-size="11" fill="#e8a020" font-weight="700" letter-spacing="2">SCOPE 3 &mdash; BETWEEN TURNS</text>
+          <text x="830" y="72" text-anchor="middle" font-size="13" fill="rgba(240,237,230,0.85)" font-style="italic">"the same agent persists"</text>
+
+          <!-- mini-diagram: 3 turn boxes with control gaps between -->
+          <g>
+            <rect x="700" y="100" width="60" height="80" rx="8" fill="rgba(232,160,32,0.10)" stroke="#e8a020"/>
+            <text x="730" y="128" text-anchor="middle" font-size="10" fill="#f0ede6" font-weight="700">turn 1</text>
+            <text x="730" y="145" text-anchor="middle" font-size="8" fill="rgba(240,237,230,0.55)">agent A</text>
+            <!-- control gap with knob -->
+            <line x1="760" y1="140" x2="800" y2="140" stroke="rgba(232,160,32,0.6)" stroke-width="1.2" stroke-dasharray="3,3"/>
+            <circle cx="780" cy="140" r="6" fill="#0c0c0c" stroke="#e8a020" stroke-width="1.5"/>
+            <text x="780" y="166" text-anchor="middle" font-size="8" fill="rgba(232,160,32,0.85)">swap</text>
+
+            <rect x="800" y="100" width="60" height="80" rx="8" fill="rgba(232,160,32,0.10)" stroke="#e8a020"/>
+            <text x="830" y="128" text-anchor="middle" font-size="10" fill="#f0ede6" font-weight="700">turn 2</text>
+            <text x="830" y="145" text-anchor="middle" font-size="8" fill="rgba(240,237,230,0.55)">agent B</text>
+            <line x1="860" y1="140" x2="900" y2="140" stroke="rgba(232,160,32,0.6)" stroke-width="1.2" stroke-dasharray="3,3"/>
+            <circle cx="880" cy="140" r="6" fill="#0c0c0c" stroke="#e8a020" stroke-width="1.5"/>
+            <text x="880" y="166" text-anchor="middle" font-size="8" fill="rgba(232,160,32,0.85)">swap</text>
+
+            <rect x="900" y="100" width="60" height="80" rx="8" fill="rgba(232,160,32,0.10)" stroke="#e8a020"/>
+            <text x="930" y="128" text-anchor="middle" font-size="10" fill="#f0ede6" font-weight="700">turn 3</text>
+            <text x="930" y="145" text-anchor="middle" font-size="8" fill="rgba(240,237,230,0.55)">agent C</text>
+
+            <text x="830" y="200" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.55)" font-style="italic">distinct invocations &mdash; the chain is your doing</text>
+          </g>
+
+          <text x="830" y="252" text-anchor="middle" font-size="10" fill="rgba(192,154,96,0.8)" font-weight="700" letter-spacing="1.6">REALITY</text>
+          <text x="830" y="270" text-anchor="middle" font-size="11" fill="rgba(240,237,230,0.75)">Separate invocations. You rebuild</text>
+          <text x="830" y="286" text-anchor="middle" font-size="11" fill="rgba(240,237,230,0.75)">the &ldquo;same agent&rdquo; each time.</text>
+
+          <text x="830" y="318" text-anchor="middle" font-size="10" fill="#e8a020" font-weight="700" letter-spacing="1.6">SWAP</text>
+          <g font-size="11" fill="#f0ede6">
+            <text x="690" y="340">&bull; identity (LLM, agent, persona)</text>
+            <text x="690" y="358">&bull; memory (preserve / edit / wipe)</text>
+            <text x="690" y="376">&bull; the work product itself</text>
+            <text x="690" y="394">&bull; goal of the next turn</text>
+            <text x="690" y="412">&bull; workflow position</text>
+            <text x="690" y="432">&bull; whether there <em>is</em> a next turn</text>
+          </g>
+        </g>
       </svg>
-      <p style="margin-top: 1rem; font-size: clamp(0.85rem, 1.4vw, 1.3rem); color: var(--dim);">
-        The agent is the <em>assembly</em>. Change a slot &mdash; the next turn behaves as if you'd swapped agents.
+      <p style="margin-top: 0.8rem; font-size: clamp(0.85rem, 1.4vw, 1.3rem); color: var(--dim); text-align:center;">
+        Three illusions. Three sets of seams. Every lever lives at one of them.
       </p>
     </div>
   </section>
-
-  @ai: it is time for this to become a relationship diagram as well. Probably also SVG, like the recipe. We are going to care a lot about visual control. Use your frontend design skills to give me options - much like I describe for the next slide, below, but here we want to help people see the universe as a whole and how these elements form its bounds. Like the agent's universe is nested in space and time inside of the full project context (the stuff we know), and we can change it on a whim. And here are the only touchpoints it has with underlying reality, and how we can manipulate each to give it a different slice of reality.
-  @ai-needs: This is a focused design-exploration turn (frontend-design skill). Confirm: (1) How many distinct alternatives? 2-3 with one cleaned up, or more sketchy options? (2) Should the nested "project context → universe → touchpoints → reality" framing be the spine of every option, or are wildly different framings on the table? (3) Are the seven levers (Memory, Context, Goals, Tooling, Invocation timing, State control, Feedback) fixed labels in the diagram, or can their grouping/labeling shift in service of the visual?
-  @ai: 1) All of them cleaned up, at least 3, as many as you can come up with that really are distinct. Go ahead and do them in multiple commits / passes if that would help - generate some good ones, commit, then see if you can add a couple more or if they start becoming redundant. 2) Wildly different are allowed - that was simply one thought off the top of my head. 3) You may alter the levers. Show me different ways to think through all the axes that I can control around the AI agent. Don't just shift labels a little bit - each version should either use these labels or rethink / re-imagine the control surfaces entirely.
 
   <!-- 34 Agent's Universe — the "where" of the two-part answer -->
   <section class="slide img-bg bg-cr-developer" id="s34">
@@ -904,32 +969,11 @@
     </div>
   </section>
 
-  @ai: this slide has too many words, not enough visual. use your frontend design skills to create for me at least 3 alternatives to present this info in a much more scannable form. You are allowed to reduce the info shown, to do multi-slide builds, to use diagrams, or whatever other ideas you have. Feel free to do it in HTML or in SVG. But I need to get into and through this content quickly. Help them get the gist and how it relates to things they know (manual QA is an example of probabilistic if you have a process, or vigilance if you don't, TDD is an example of Deterministic, type systems are prevention as can be other rule-based verifiers, carefree is the automated refactoring tool or version-aware database. You might use examples in one case, definitions in another, both in a third, whatever. Show me some good options that are fairly different from each other and let me choose elements to combine.
-  @ai-needs: Dedicated design-exploration turn (frontend-design skill). Confirm: (1) Should the 3 alternatives land in this file as live <section>s I can switch between, or in a side-by-side preview file? (2) Is the cognitive-load column an attribute that must survive every alternative, or is it optional information that some alternatives might drop? (3) Are the level names (Hope / Vigilance / Probabilistic / Deterministic / Prevention / Carefree) fixed labels, or can a more visual rendition rename or compress them?
-  @ai: 1) put them all in here, as separate slides (sections). 2) Cognitive load is crucial, and couple possibly be tightened. 3) Fixed names.
-
-  <!-- 28 Safety vocabulary — naming sets of safety; cognitive-load column added -->
-  <section class="slide" id="s28">
-    <div class="slide-content" style="text-align: left;">
-      <p class="kicker" style="margin-bottom: 0.4rem; text-align: center;">Safety Categories</p>
-      <div class="spectrum spectrum-grid">
-        <div class="great"><strong>Carefree</strong> Right action easy. Wrong action structurally hard.</div><div class="load load-neg"><strong>Negative  toil</strong> Frees nearby attention too.</div>
-        <div class="great"><strong>Prevention</strong> Mistakes can't propagate past the originator.</div><div class="load load-zero"><strong>Zero toil</strong> Safe in scope.</div>
-        <div><strong>Deterministic</strong> Catches foreseen errors and categories.</div><div class="load"><strong>Focused toil</strong> Watch for "test net gaps."</div>
-        <div><strong>Probabilistic</strong> Sometimes caught; unpredictable gaps.</div><div class="load"><strong>Constant, low-grade worry</strong>Accept errors that QA misses.</div>
-        <div><strong>Vigilance</strong> Caught only when someone is paying attention.</div><div class="load"><strong>Constant toil</strong> Watch every action.</div>
-        <div class="poor"><strong>Hope</strong> No mechanism. Errors propagate undetected.</div><div class="load"><strong>Zero toil</strong>  until something fails silently.</div>
-      </div>
-    </div>
-  </section>
-
   <!-- ── s28 ALTERNATIVES ────────────────────────────────────────────────────
        Three distinct ways to present safety levels + cognitive load.
        Forward-nav: s28 → 28-alt-A → 28-alt-B → 28-alt-C.
        Pick one; delete the others. Six fixed level names preserved.
   ─────────────────────────────────────────────────────────────────────────── -->
-
-  @ai: go with alt A. Drop the others.
 
   @ai: add specific examples for each node. This should be small text, in the spectrum box. When possible, include one example of safety around a human process and another around an ai one. Or perhaps an example of an automated and a human version of the safety. Something in that space.
   
@@ -981,88 +1025,6 @@
         </g>
         <text x="83"  y="285" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.4)">+ hidden cost</text>
         <text x="917" y="285" text-anchor="middle" font-size="10" fill="rgba(232,160,32,0.55)">&minus; cost (negative toil)</text>
-      </svg>
-    </div>
-  </section>
-
-  <!-- 28-ALT-B — 3x2 card grid. Each tile carries name + one-line def +
-       cognitive-load badge; border weight reflects safety class.
-       Goal: scannable in any order; parallel reading. -->
-  <section class="slide" id="s28-alt-b">
-    <div class="slide-content">
-      <p class="kicker" style="text-align:center; margin-bottom: 0.6rem;">Safety Categories</p>
-      <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 0.9rem; max-width: 1100px; margin: 0 auto; font-size: clamp(0.78rem, 1.25vw, 1.05rem);">
-        <div style="border:1px solid rgba(180,180,180,0.35); border-left: 4px solid #888; border-radius: 10px; padding: 0.9rem 1rem; background: rgba(255,255,255,0.025);">
-          <div style="font-size:1.4em; font-weight:800; color:#bbb;">Hope</div>
-          <div style="color:#bbb; margin: 0.3rem 0 0.7rem;">No mechanism. Errors propagate undetected.</div>
-          <div style="display:inline-block; background: rgba(255,255,255,0.06); border:1px solid rgba(180,180,180,0.35); border-radius: 999px; padding: 0.1rem 0.7rem; font-size: 0.85em; color:#bbb;">Silent failure</div>
-        </div>
-        <div style="border:1px solid rgba(180,180,180,0.35); border-left: 4px solid #a07050; border-radius: 10px; padding: 0.9rem 1rem; background: rgba(255,255,255,0.025);">
-          <div style="font-size:1.4em; font-weight:800;">Vigilance</div>
-          <div style="margin: 0.3rem 0 0.7rem;">Caught only when someone is paying attention.</div>
-          <div style="display:inline-block; background: rgba(255,255,255,0.06); border:1px solid rgba(180,180,180,0.35); border-radius: 999px; padding: 0.1rem 0.7rem; font-size: 0.85em;">Constant watch</div>
-        </div>
-        <div style="border:1px solid rgba(180,180,180,0.35); border-left: 4px solid #b88838; border-radius: 10px; padding: 0.9rem 1rem; background: rgba(255,255,255,0.025);">
-          <div style="font-size:1.4em; font-weight:800;">Probabilistic</div>
-          <div style="margin: 0.3rem 0 0.7rem;">Sometimes caught; unpredictable gaps.</div>
-          <div style="display:inline-block; background: rgba(255,255,255,0.06); border:1px solid rgba(180,180,180,0.35); border-radius: 999px; padding: 0.1rem 0.7rem; font-size: 0.85em;">Background worry</div>
-        </div>
-        <div style="border:1px solid rgba(232,160,32,0.45); border-left: 4px solid #d99a30; border-radius: 10px; padding: 0.9rem 1rem; background: rgba(232,160,32,0.04);">
-          <div style="font-size:1.4em; font-weight:800;">Deterministic</div>
-          <div style="margin: 0.3rem 0 0.7rem;">Catches foreseen errors and categories.</div>
-          <div style="display:inline-block; background: rgba(232,160,32,0.10); border:1px solid rgba(232,160,32,0.45); border-radius: 999px; padding: 0.1rem 0.7rem; font-size: 0.85em;">Focused watch</div>
-        </div>
-        <div style="border:1px solid rgba(232,160,32,0.6); border-left: 4px solid #e8a020; border-radius: 10px; padding: 0.9rem 1rem; background: rgba(232,160,32,0.08);">
-          <div style="font-size:1.4em; font-weight:800; color:#e8a020;">Prevention</div>
-          <div style="margin: 0.3rem 0 0.7rem;">Mistakes can't propagate past the originator.</div>
-          <div style="display:inline-block; background: rgba(232,160,32,0.18); border:1px solid rgba(232,160,32,0.6); border-radius: 999px; padding: 0.1rem 0.7rem; font-size: 0.85em; color:#e8a020;">Zero (in scope)</div>
-        </div>
-        <div style="border:1px solid rgba(232,160,32,0.85); border-left: 4px solid #e8a020; border-radius: 10px; padding: 0.9rem 1rem; background: rgba(232,160,32,0.13);">
-          <div style="font-size:1.4em; font-weight:800; color:#e8a020;">Carefree</div>
-          <div style="margin: 0.3rem 0 0.7rem;">Right action easy. Wrong action structurally hard.</div>
-          <div style="display:inline-block; background: rgba(232,160,32,0.25); border:1px solid rgba(232,160,32,0.85); border-radius: 999px; padding: 0.1rem 0.7rem; font-size: 0.85em; color:#e8a020; font-weight:700;">Frees attention</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 28-ALT-C — Staircase SVG. Six rising steps; height encodes safety;
-       a dashed counter-curve traces cognitive load decreasing as you climb.
-       Goal: visceral metaphor — climbing the ladder, watching the cost fall. -->
-  <section class="slide" id="s28-alt-c">
-    <div class="slide-content">
-      <p class="kicker" style="text-align:center;">Safety Categories &mdash; climb to be careless</p>
-      <svg viewBox="0 0 1000 460" width="100%" style="max-height:64vh; display:block; margin: 0.6rem auto 0;" role="img">
-        <defs>
-          <linearGradient id="step-grad" x1="0%" y1="100%" x2="0%" y2="0%">
-            <stop offset="0%" stop-color="rgba(232,160,32,0.05)"/>
-            <stop offset="100%" stop-color="rgba(232,160,32,0.32)"/>
-          </linearGradient>
-        </defs>
-        <path d="M 60,80 Q 500,80 940,400" fill="none" stroke="rgba(240,237,230,0.18)" stroke-width="2" stroke-dasharray="6,4"/>
-        <text x="60" y="62" font-size="11" fill="rgba(240,237,230,0.45)" font-style="italic">cognitive load</text>
-        <text x="940" y="425" font-size="11" fill="rgba(232,160,32,0.6)" font-style="italic" text-anchor="end">frees attention</text>
-        <g>
-          <rect x="40"  y="380" width="150" height="50"  fill="rgba(180,180,180,0.10)" stroke="rgba(180,180,180,0.45)" stroke-width="1"/>
-          <text x="115" y="402" text-anchor="middle" font-size="15" fill="#bbb" font-weight="700">Hope</text>
-          <text x="115" y="420" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.5)">silent failure</text>
-          <rect x="190" y="330" width="150" height="100" fill="rgba(160,112,80,0.10)" stroke="rgba(160,112,80,0.55)" stroke-width="1"/>
-          <text x="265" y="352" text-anchor="middle" font-size="15" fill="#f0ede6" font-weight="700">Vigilance</text>
-          <text x="265" y="370" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.6)">constant watch</text>
-          <rect x="340" y="280" width="150" height="150" fill="rgba(184,136,56,0.10)" stroke="rgba(184,136,56,0.6)" stroke-width="1"/>
-          <text x="415" y="302" text-anchor="middle" font-size="15" fill="#f0ede6" font-weight="700">Probabilistic</text>
-          <text x="415" y="320" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.6)">background worry</text>
-          <rect x="490" y="230" width="150" height="200" fill="url(#step-grad)" stroke="rgba(217,154,48,0.7)" stroke-width="1"/>
-          <text x="565" y="252" text-anchor="middle" font-size="15" fill="#f0ede6" font-weight="700">Deterministic</text>
-          <text x="565" y="270" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.6)">focused watch</text>
-          <rect x="640" y="180" width="150" height="250" fill="url(#step-grad)" stroke="rgba(232,160,32,0.8)" stroke-width="1.2"/>
-          <text x="715" y="202" text-anchor="middle" font-size="15" fill="#e8a020" font-weight="700">Prevention</text>
-          <text x="715" y="220" text-anchor="middle" font-size="10" fill="rgba(232,160,32,0.75)">zero (in scope)</text>
-          <rect x="790" y="130" width="150" height="300" fill="url(#step-grad)" stroke="#e8a020" stroke-width="1.5"/>
-          <text x="865" y="152" text-anchor="middle" font-size="15" fill="#e8a020" font-weight="800">Carefree</text>
-          <text x="865" y="170" text-anchor="middle" font-size="10" fill="#e8a020" font-weight="600">frees attention</text>
-        </g>
-        <line x1="20" y1="430" x2="980" y2="430" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
       </svg>
     </div>
   </section>
