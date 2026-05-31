@@ -608,6 +608,144 @@
     </div>
   </section>
 
+  <!-- ── s28 ALTERNATIVES ────────────────────────────────────────────────────
+       Three distinct ways to present safety levels + cognitive load.
+       Forward-nav: s28 → 28-alt-A → 28-alt-B → 28-alt-C.
+       Pick one; delete the others. Six fixed level names preserved.
+  ─────────────────────────────────────────────────────────────────────────── -->
+
+  <!-- 28-ALT-A — Horizontal spectrum bar. Six color-graded segments,
+       level name above, compressed cognitive-load tag below; definitions
+       carried by speaker narration. Goal: instant gestalt of the ladder. -->
+  <section class="slide" id="s28-alt-a">
+    <div class="slide-content">
+      <p class="kicker">Safety Categories &mdash; the ladder</p>
+      <svg viewBox="0 0 1000 320" width="100%" style="max-height:60vh; display:block; margin:1.2rem auto 0;" role="img">
+        <defs>
+          <linearGradient id="lvl-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"  stop-color="#3a3a3a"/>
+            <stop offset="20%" stop-color="#5a4a3a"/>
+            <stop offset="40%" stop-color="#86663a"/>
+            <stop offset="60%" stop-color="#b78a3a"/>
+            <stop offset="80%" stop-color="#d99a30"/>
+            <stop offset="100%" stop-color="#e8a020"/>
+          </linearGradient>
+        </defs>
+        <g font-size="15" fill="#f0ede6" text-anchor="middle" font-weight="700">
+          <text x="83"  y="60">Hope</text>
+          <text x="250" y="60">Vigilance</text>
+          <text x="417" y="60">Probabilistic</text>
+          <text x="583" y="60">Deterministic</text>
+          <text x="750" y="60">Prevention</text>
+          <text x="917" y="60">Carefree</text>
+        </g>
+        <rect x="20" y="90" width="960" height="60" rx="6" fill="url(#lvl-grad)" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+        <g stroke="rgba(0,0,0,0.45)" stroke-width="1.5">
+          <line x1="167" y1="90" x2="167" y2="150"/>
+          <line x1="333" y1="90" x2="333" y2="150"/>
+          <line x1="500" y1="90" x2="500" y2="150"/>
+          <line x1="667" y1="90" x2="667" y2="150"/>
+          <line x1="833" y1="90" x2="833" y2="150"/>
+        </g>
+        <text x="20"  y="180" font-size="11" fill="rgba(240,237,230,0.55)" font-style="italic">errors slip through</text>
+        <text x="980" y="180" font-size="11" fill="rgba(232,160,32,0.75)" text-anchor="end" font-style="italic">errors structurally impossible</text>
+        <text x="500" y="225" text-anchor="middle" font-size="11" fill="rgba(192,154,96,0.85)" font-weight="700" letter-spacing="1.6">COGNITIVE LOAD</text>
+        <g font-size="13" text-anchor="middle">
+          <text x="83"  y="255" fill="rgba(240,237,230,0.6)">Silent failure</text>
+          <text x="250" y="255" fill="#f0ede6">Watch always</text>
+          <text x="417" y="255" fill="#f0ede6">Background worry</text>
+          <text x="583" y="255" fill="#f0ede6">Focused watch</text>
+          <text x="750" y="255" fill="rgba(232,160,32,0.9)">Zero (in scope)</text>
+          <text x="917" y="255" fill="#e8a020" font-weight="700">Frees attention</text>
+        </g>
+        <text x="83"  y="285" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.4)">+ hidden cost</text>
+        <text x="917" y="285" text-anchor="middle" font-size="10" fill="rgba(232,160,32,0.55)">&minus; cost (negative toil)</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 28-ALT-B — 3x2 card grid. Each tile carries name + one-line def +
+       cognitive-load badge; border weight reflects safety class.
+       Goal: scannable in any order; parallel reading. -->
+  <section class="slide" id="s28-alt-b">
+    <div class="slide-content">
+      <p class="kicker" style="text-align:center; margin-bottom: 0.6rem;">Safety Categories</p>
+      <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 0.9rem; max-width: 1100px; margin: 0 auto; font-size: clamp(0.78rem, 1.25vw, 1.05rem);">
+        <div style="border:1px solid rgba(180,180,180,0.35); border-left: 4px solid #888; border-radius: 10px; padding: 0.9rem 1rem; background: rgba(255,255,255,0.025);">
+          <div style="font-size:1.4em; font-weight:800; color:#bbb;">Hope</div>
+          <div style="color:#bbb; margin: 0.3rem 0 0.7rem;">No mechanism. Errors propagate undetected.</div>
+          <div style="display:inline-block; background: rgba(255,255,255,0.06); border:1px solid rgba(180,180,180,0.35); border-radius: 999px; padding: 0.1rem 0.7rem; font-size: 0.85em; color:#bbb;">Silent failure</div>
+        </div>
+        <div style="border:1px solid rgba(180,180,180,0.35); border-left: 4px solid #a07050; border-radius: 10px; padding: 0.9rem 1rem; background: rgba(255,255,255,0.025);">
+          <div style="font-size:1.4em; font-weight:800;">Vigilance</div>
+          <div style="margin: 0.3rem 0 0.7rem;">Caught only when someone is paying attention.</div>
+          <div style="display:inline-block; background: rgba(255,255,255,0.06); border:1px solid rgba(180,180,180,0.35); border-radius: 999px; padding: 0.1rem 0.7rem; font-size: 0.85em;">Constant watch</div>
+        </div>
+        <div style="border:1px solid rgba(180,180,180,0.35); border-left: 4px solid #b88838; border-radius: 10px; padding: 0.9rem 1rem; background: rgba(255,255,255,0.025);">
+          <div style="font-size:1.4em; font-weight:800;">Probabilistic</div>
+          <div style="margin: 0.3rem 0 0.7rem;">Sometimes caught; unpredictable gaps.</div>
+          <div style="display:inline-block; background: rgba(255,255,255,0.06); border:1px solid rgba(180,180,180,0.35); border-radius: 999px; padding: 0.1rem 0.7rem; font-size: 0.85em;">Background worry</div>
+        </div>
+        <div style="border:1px solid rgba(232,160,32,0.45); border-left: 4px solid #d99a30; border-radius: 10px; padding: 0.9rem 1rem; background: rgba(232,160,32,0.04);">
+          <div style="font-size:1.4em; font-weight:800;">Deterministic</div>
+          <div style="margin: 0.3rem 0 0.7rem;">Catches foreseen errors and categories.</div>
+          <div style="display:inline-block; background: rgba(232,160,32,0.10); border:1px solid rgba(232,160,32,0.45); border-radius: 999px; padding: 0.1rem 0.7rem; font-size: 0.85em;">Focused watch</div>
+        </div>
+        <div style="border:1px solid rgba(232,160,32,0.6); border-left: 4px solid #e8a020; border-radius: 10px; padding: 0.9rem 1rem; background: rgba(232,160,32,0.08);">
+          <div style="font-size:1.4em; font-weight:800; color:#e8a020;">Prevention</div>
+          <div style="margin: 0.3rem 0 0.7rem;">Mistakes can't propagate past the originator.</div>
+          <div style="display:inline-block; background: rgba(232,160,32,0.18); border:1px solid rgba(232,160,32,0.6); border-radius: 999px; padding: 0.1rem 0.7rem; font-size: 0.85em; color:#e8a020;">Zero (in scope)</div>
+        </div>
+        <div style="border:1px solid rgba(232,160,32,0.85); border-left: 4px solid #e8a020; border-radius: 10px; padding: 0.9rem 1rem; background: rgba(232,160,32,0.13);">
+          <div style="font-size:1.4em; font-weight:800; color:#e8a020;">Carefree</div>
+          <div style="margin: 0.3rem 0 0.7rem;">Right action easy. Wrong action structurally hard.</div>
+          <div style="display:inline-block; background: rgba(232,160,32,0.25); border:1px solid rgba(232,160,32,0.85); border-radius: 999px; padding: 0.1rem 0.7rem; font-size: 0.85em; color:#e8a020; font-weight:700;">Frees attention</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 28-ALT-C — Staircase SVG. Six rising steps; height encodes safety;
+       a dashed counter-curve traces cognitive load decreasing as you climb.
+       Goal: visceral metaphor — climbing the ladder, watching the cost fall. -->
+  <section class="slide" id="s28-alt-c">
+    <div class="slide-content">
+      <p class="kicker" style="text-align:center;">Safety Categories &mdash; climb to be careless</p>
+      <svg viewBox="0 0 1000 460" width="100%" style="max-height:64vh; display:block; margin: 0.6rem auto 0;" role="img">
+        <defs>
+          <linearGradient id="step-grad" x1="0%" y1="100%" x2="0%" y2="0%">
+            <stop offset="0%" stop-color="rgba(232,160,32,0.05)"/>
+            <stop offset="100%" stop-color="rgba(232,160,32,0.32)"/>
+          </linearGradient>
+        </defs>
+        <path d="M 60,80 Q 500,80 940,400" fill="none" stroke="rgba(240,237,230,0.18)" stroke-width="2" stroke-dasharray="6,4"/>
+        <text x="60" y="62" font-size="11" fill="rgba(240,237,230,0.45)" font-style="italic">cognitive load</text>
+        <text x="940" y="425" font-size="11" fill="rgba(232,160,32,0.6)" font-style="italic" text-anchor="end">frees attention</text>
+        <g>
+          <rect x="40"  y="380" width="150" height="50"  fill="rgba(180,180,180,0.10)" stroke="rgba(180,180,180,0.45)" stroke-width="1"/>
+          <text x="115" y="402" text-anchor="middle" font-size="15" fill="#bbb" font-weight="700">Hope</text>
+          <text x="115" y="420" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.5)">silent failure</text>
+          <rect x="190" y="330" width="150" height="100" fill="rgba(160,112,80,0.10)" stroke="rgba(160,112,80,0.55)" stroke-width="1"/>
+          <text x="265" y="352" text-anchor="middle" font-size="15" fill="#f0ede6" font-weight="700">Vigilance</text>
+          <text x="265" y="370" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.6)">constant watch</text>
+          <rect x="340" y="280" width="150" height="150" fill="rgba(184,136,56,0.10)" stroke="rgba(184,136,56,0.6)" stroke-width="1"/>
+          <text x="415" y="302" text-anchor="middle" font-size="15" fill="#f0ede6" font-weight="700">Probabilistic</text>
+          <text x="415" y="320" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.6)">background worry</text>
+          <rect x="490" y="230" width="150" height="200" fill="url(#step-grad)" stroke="rgba(217,154,48,0.7)" stroke-width="1"/>
+          <text x="565" y="252" text-anchor="middle" font-size="15" fill="#f0ede6" font-weight="700">Deterministic</text>
+          <text x="565" y="270" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.6)">focused watch</text>
+          <rect x="640" y="180" width="150" height="250" fill="url(#step-grad)" stroke="rgba(232,160,32,0.8)" stroke-width="1.2"/>
+          <text x="715" y="202" text-anchor="middle" font-size="15" fill="#e8a020" font-weight="700">Prevention</text>
+          <text x="715" y="220" text-anchor="middle" font-size="10" fill="rgba(232,160,32,0.75)">zero (in scope)</text>
+          <rect x="790" y="130" width="150" height="300" fill="url(#step-grad)" stroke="#e8a020" stroke-width="1.5"/>
+          <text x="865" y="152" text-anchor="middle" font-size="15" fill="#e8a020" font-weight="800">Carefree</text>
+          <text x="865" y="170" text-anchor="middle" font-size="10" fill="#e8a020" font-weight="600">frees attention</text>
+        </g>
+        <line x1="20" y1="430" x2="980" y2="430" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+      </svg>
+    </div>
+  </section>
+
   @ai: extract the svg out to a file. It will appear in 2 places in this talk, and I want to ensure they are always in sync. Note: in one of those places, we will need the items to be clickable. A click will takeus into a recipe sequence, which will end up coming back to the visual TOC.
   @ai-needs: (1) Confirm the second usage location — is it the TOC hub (s33), or a not-yet-built slide? (2) The click-target recipe slides don't exist yet (TOC "Recipes" section is empty). Should the extracted file include click handlers now (linking to placeholder anchors), or just the visual SVG and we wire clicks when the recipe slides are built? (3) File format — pure .svg, or HTML fragment with <object>/<include> mechanism, or inline-via-fetch?
 @ai: 1) it will go on the TOC slide. TOC will have the universe diagram and the recipe diagram and a single item for the closing sequence. Then I'll be able to click on a part of either diagram to go into a mini-talk series on that, finishing back at the TOC. 2) Placeholders. Make up something plausible for each. Each one should be a short sequence where I give a concrete recipe on how to accomplish that step and a worked example showing that recipe in a realistic case. 3) I don't care about the tech. I just care that it will work when hosted by my start script, and optimally if I just open the html file via the file protocol. I also care that we can change it in one place and ensure that each use is always up to date.
@@ -681,10 +819,6 @@
       </svg>
     </div>
   </section>
-
-  <!-- s22 (AST callback) removed: redundant with Beat 5 (s50–s52), which already covers AST tooling
-       as a full 3-slide case study (setup → intervention → name the experience). Callback framing
-       is no longer needed in the upshift; back-half exposure suffices. -->
 
   <!-- 30 BLANK — pivot from upshift to audience-directed back half -->
   <section class="slide blank" id="s30"></section>
