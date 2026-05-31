@@ -54,7 +54,7 @@ These were load-bearing in prior versions and are now out:
      - **Tooling** — what operations are in the toolbox, and what is deliberately not.
      - **Invocation timing** — when the agent runs versus when deterministic code runs.
      - **State control** — what happens to commits, files, MCP tool calls, and other agent outputs before and after the agent runs. Where the agent can directly modify state, and where it modifies a representation that we transform back and forth from real state with checks and determinism. *Was "Result handling" / "Work-product state control"; slides settled on "State control."*
-     - **Feedback** *(new)* — closing loops for the agent: what it learns about the impact of its actions. Schema validation, test results, guess-and-check rhythms. Distinct from State control (which governs *what happens to the output*); Feedback governs *what the agent learns about that*.
+     - **Feedback** — closing loops for the agent: what it learns about the impact of its actions. Schema validation, test results, guess-and-check rhythms. Distinct from State control (which governs *what happens to the output*); Feedback governs *what the agent learns about that*.
 
 Full rubric per lever lives in `universe-levers.md`.
 
