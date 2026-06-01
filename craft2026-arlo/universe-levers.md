@@ -41,12 +41,10 @@ Lever names are still settling — current canonical names are listed first, wit
 - What can the agent find by browsing, that it wouldn't find by reasoning?
 
 **Examples.**
-- *(Dedicated story TBD.)* Wing-based git worktrees isolate per-agent state and prevent cross-agent file access. CLAUDE.md path-routing rules ("prepend `work/local/` to unqualified paths") shape what the agent reaches for by default.
-- Provide a curated dependencies marketplace
-- When working on a platform library in the monorepo, prevent reading or grepping any of the projects that depend on it.
-- Summarize every file in the codebase, then provide a RAG search tool + language server (for references) as a replacement for grep.
-
-@ai: elaborate my examples into stories; make the last more clearly align with reachable context, or move it to tooling.
+- *Wing-based git worktrees.* Each agent runs in its own worktree of the same repo. Files in another wing's directory are physically unreachable. Cross-agent corruption is structurally impossible — no convention to remember, no path discipline to maintain. CLAUDE.md path-routing rules ("prepend `work/local/` to unqualified paths") shape what the agent reaches for *first*; worktrees decide what it can reach *at all*.
+- *Curated dependencies marketplace.* Instead of letting the agent install whatever package looks promising, it sees only a vetted catalog with summaries, version pins, and usage notes. Supply-chain decisions become a pick-from-list operation; the long tail of malicious or unmaintained packages isn't in the search space.
+- *Reverse-dependency blackout in a monorepo.* When the agent works on a platform library, it cannot read or grep any of the projects that depend on it. The library has to be designed against its own contract — no "look at the one caller and overfit." The blast radius of bad assumptions can't include a peek at downstream.
+- *RAG + language server replaces grep.* The codebase is summarized once; the agent's search is mediated by a RAG index for prose and a language server for references. Generic `grep` is not in the toolbox. The agent cannot stumble across an arbitrary string match — it can only reach what the index decided to expose. This is reachability shaping, not tool restriction: tooling decides *which operations*; reachable context decides *what those operations find*.
 
 ---
 
@@ -195,4 +193,4 @@ If a future case appears where an in-turn interaction is genuinely irreducible t
 
 ## Note on naming
 
-Lever names are still settling. Where a name has changed from its earlier form, the prior name is noted in parentheses in the heading. The slides currently use shorter forms ("Context," "State control") for readability; this rubric uses the canonical longer forms.
+Lever names are still settling. Where a name has changed from its earlier form, the prior name is noted in parentheses in the heading. Slides and notes use the canonical names from this rubric.

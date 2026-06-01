@@ -49,7 +49,7 @@ These were load-bearing in prior versions and are now out:
    - **Carelessness is a process** — incremental transitions toward more carelessness. *Placeholder transitions:* vigilance → probabilistic → deterministic → prevention → carefree. The real sequence will be refined later. Each transition has a recipe.
    - **Agent's Universe** — the levers. Each lever has examples on demand.
      - **Memory** — what the agent recalls, for how long, across sessions.
-     - **Reachable Context** — what info the agent can get to. Not session context — *reachability*. Which directories are in its search space, which tools surface other info, what generic search (filesystem grep) will stumble across, what is only findable by probing in a specific way. Slides use the shorter *Context*.
+     - **Reachable Context** — what info the agent can get to. Not session context — *reachability*. Which directories are in its search space, which tools surface other info, what generic search (filesystem grep) will stumble across, what is only findable by probing in a specific way.
      - **Goals** — how narrowly the task is defined.
      - **Tooling** — what operations are in the toolbox, and what is deliberately not.
      - **Invocation timing** — when the agent runs versus when deterministic code runs.
@@ -78,7 +78,7 @@ The closing sequence is a card on the TOC, alongside the six beat examples. Spea
 These shape the plan but are not yet decided.
 
 - **The two TOC diagrams.** Both need a clean visual form. Transition sequence and lever rubric have not been laid out yet. Planned as a later step in this plan.
-- **Lever names.** Slides now use *Context* and *State control*. Long forms in `universe-levers.md`. Probably stable; revisit when scripting demos.
+- **Lever names.** Canonical names in `universe-levers.md` are now used everywhere (slides, notes). *Reachable Context* and *State control* are the current forms; revisit when scripting demos.
 
 ## Doing this work
 

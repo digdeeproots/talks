@@ -288,7 +288,7 @@ This slide answers the "where" question. Where the levers live.
 Point to each as you name it.
 
 > "Memory — what the agent recalls within a session, across sessions, between projects."
-> "Context — what information is reachable, what its filesystem and tools surface."
+> "Reachable Context — what information the agent can actually get to, what its filesystem and tools surface."
 > "Goals — how narrowly the task is defined."
 > "Tooling — what operations are in the toolbox, and what is deliberately not."
 > "Invocation timing — when the agent runs versus when deterministic code runs."
