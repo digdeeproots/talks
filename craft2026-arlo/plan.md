@@ -140,7 +140,7 @@ Concretely:
 
 ## Current deck state (post-restructure)
 
-**Front half** (linear nav): s1, s2 → motorcar s4, s6, s8, s11 → vigilance 2-factor s12, s14, s16, s18, s19 → MBB demo placeholder **s21** → transcript-fetcher placeholder **s23** → **example-1 recap s29** → **example-2 recap s31** → **terms named s32** (lever / safety level / scope / slack) → 3-factor formula s25 → upshift (s20 goal, **s26 how?**, **s35 theory: how a turn is made**, s34 universe, s28 safety vocabulary, s27 recipe) → **s30 blank pivot** → TOC hub **s33**. (Archive table — old s24 — removed from front-half flow; story now lives only in the back-half State-control beat at s53/s54.)
+**Front half** (linear nav): s1, s2 → motorcar s4, s6, s8, s11 → vigilance 2-factor s12, s14, s16, s18, s19 → MBB demo placeholder **s21** → transcript-fetcher placeholder **s23** → **example-1 recap s29** → **example-2 recap s31** → **terms named s32** (scope / cost to protect / lever) → 3-factor formula s25 → upshift (s20 goal, **s26 how?**, **s35 theory: how a turn is made**, s34 universe, s28 safety vocabulary, s27 recipe) → **s30 blank pivot** → TOC hub **s33**. (Archive table — old s24 — removed from front-half flow; story now lives only in the back-half State-control beat at s53/s54.)
 
 **Back half** (audience-directed): TOC is sectioned — **Case studies** (each a 3-slide arc: setup → intervention → name the experience), **Recipes** (none built yet), **Closing** (Synthesis card → s56, s58, s10, s60). Last name-slide of every beat carries `data-return-to-toc`. T-key summons the TOC. Forward keys are disabled on the TOC; only card-clicks advance.
 
@@ -153,7 +153,7 @@ Case-study sequences:
 - State control s53 → s54 → **s55**
 - Feedback — card still greyed out, no slides yet
 
-Each name slide fills in: **Lever** / **Safety level** / **Scope** / **Slack** — the terms introduced at s32 in the upshift.
+Each name slide fills in: **Scope** / **Cost to protect** / **Lever** — the terms introduced at s32 in the upshift.
 
 **Placeholders standing in for later-session work:**
 - TOC cards are flat beat titles; real two-diagram TOC (Carelessness is a process + Agent's Universe) is later.

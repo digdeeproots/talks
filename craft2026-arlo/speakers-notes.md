@@ -181,17 +181,13 @@ Read each:
 
 This slide is the abstraction step. Each term comes out of the walk-through; don't introduce them out of context.
 
-> "Four things keep showing up. Let's name them."
-
-> "**Lever** — a facet of the agent's universe you can engineer. We touched four today: tooling, invocation, goal, feedback. There are more."
-
-> "**Safety level** — how far up the carelessness scale a class of error has been pushed. We haven't named the scale yet; we will in a moment."
+> "Three things keep showing up. Let's name them."
 
 > "**Scope** — the class of error one intervention addresses. Always one at a time. Never 'the whole problem.' Each transition we just walked through was one class."
 
-Pause. Then the bonus:
+> "**Cost to protect** — how much vigilance toil is spent to prevent errors in this scope. Before each intervention it was high; after, near zero. That drop is what we engineered."
 
-> "**Slack** — load shed beyond error prevention. The fetch step *also* disappeared. The TTS notification *also* let me work elsewhere. Those weren't error-prevention moves — they were attention-prevention moves. Bonus on top of the safety shift."
+> "**Lever** — a facet of the agent's universe you can engineer. We touched four today: tooling, invocation, goal, feedback. There are more."
 
 Then bridge to the theory:
 
@@ -205,7 +201,7 @@ Cost to protect is the third factor. The walk-through just gave us the building 
 
 > "Vigilance toil is throughput times amount to protect times *cost to protect*. Throughput we don't lower — that's why we use AI. Amount to protect is what we're trying to grow — that's the business. Cost to protect is the one we engineer."
 
-> "Cost to protect is the price of holding one scope at one safety level. Lower it on one class, lower the total. Lever × level × scope. Plus slack, when you can get it."
+> "Cost to protect is the price of holding one scope safely. Lower it on one error category, lower the total. Lever × scope drives cost."
 
 Then pivot:
 
@@ -231,7 +227,7 @@ Pause.
 
 Then the line that lands the goal:
 
-> "Make it so even crappier AI succeeds."
+> "Make even crappier AI succeed."
 
 Pause.
 
@@ -245,15 +241,15 @@ Then set up what comes next:
 
 ### 26 — How?
 
-> "Two-part answer. Change the universe. Raise safety on one class of error."
+> "Two-part answer. Change the universe. Raise safety on one error category."
 
 Point to each line:
 
-> "Not the agent — the world around it. Not all errors — one class at a time. That's the whole shape of the work."
+> "Not the agent — the world around it. Not all errors — one category at a time. That's the whole shape of the work."
 
 Then bridge:
 
-> "So: where is the universe? And what does 'one class, at some safety level' actually look like?"
+> "So: where is the universe? And what does 'one category, at some safety level' actually look like?"
 
 ---
 
@@ -449,7 +445,7 @@ Pause.
 
 Read the four lines. Don't elaborate.
 
-> "Lever: Memory. Safety level: 4 — Prevention. Scope: cross-session decision inconsistency. Slack: no re-explaining context every session."
+> "Scope: cross-session decision inconsistency. Cost to protect: zero — conflicting decisions are structurally impossible. Lever: Memory."
 
 Then return to the TOC.
 
@@ -483,7 +479,7 @@ Pause.
 
 ### 43 — Beat 2 name the experience
 
-> "Lever: Goals — a structured spec replaced free-form prose. Safety level: 4 — structure, recipients, rendering all become zero-risk zones. Scope: format and structure drift in recurring output. Slack: you only think about the words; everything else assembles itself."
+> "Scope: format and structure drift in recurring output. Cost to protect: zero — structure, recipients, rendering all become zero-risk zones. Lever: Goals (a structured spec replaced free-form prose)."
 
 Then return to the TOC.
 
@@ -513,7 +509,7 @@ Then return to the TOC.
 
 ### 46 — Beat 3 name the experience
 
-> "Lever: Invocation timing. Safety level: 3 going on 4 — deterministic by default, agent only on declared failure. Scope: wrong-data fetching and over-eager step completion. Slack: you don't decide when to trust the agent — the system decides by condition."
+> "Scope: wrong-data fetching and over-eager step completion. Cost to protect: near zero — deterministic by default; the agent runs only on declared failure. Lever: Invocation timing."
 
 Then return to the TOC.
 
@@ -549,7 +545,7 @@ Pause.
 
 ### 49 — Beat 4 name the experience
 
-> "Lever: Tooling. Safety level: 4 — git invariants cannot be violated; there's nothing to route around. Scope: git operations and the risk-notation policy. Slack: risk assessment moves from human to tool."
+> "Scope: git operations and the risk-notation policy. Cost to protect: zero — git invariants cannot be violated; there's nothing to route around. Lever: Tooling."
 
 Then return to the TOC.
 
@@ -583,7 +579,7 @@ Point at the two-up.
 
 ### 52 — Beat 5 name the experience
 
-> "Lever: Tooling — operation semantics, not which tools exist. Safety level: 5 — Carefree within scope. Behavioral safety guaranteed by the tool. Scope: behavior preservation during refactoring. Slack: undo is as easy as do — wrong abstractions are cheap to reverse."
+> "Scope: behavior preservation during refactoring. Cost to protect: zero within scope — behavioral safety guaranteed by the tool. Lever: Tooling (operation semantics, not which tools exist)."
 
 Then return to the TOC.
 
@@ -621,7 +617,7 @@ Point at each bullet as you tell it.
 
 ### 55 — Beat 6 name the experience
 
-> "Lever: State control — the Determinism Sandwich. Safety level: 4 to 5 — data loss is structurally impossible. Scope: schema migrations against live data. Slack: migrations stop being scary."
+> "Scope: schema migrations against live data. Cost to protect: zero — data loss is structurally impossible. Lever: State control (the Determinism Sandwich)."
 
 Then return to the TOC.
 
