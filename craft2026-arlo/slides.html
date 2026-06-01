@@ -101,7 +101,6 @@
       font-size: clamp(1.8rem, 4vw, 4.5rem);
       font-weight: 300;
       line-height: 1.25;
-      max-width: 1100px;
       margin: 0 auto;
       font-style: italic;
     }
@@ -154,7 +153,6 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.4rem;
-      max-width: 1100px;
       margin: 2rem auto 0;
     }
     .toc-card {
@@ -191,7 +189,6 @@
       margin-top: 2rem;
       margin-bottom: 0.2rem;
       text-align: left;
-      max-width: 1100px;
       margin-left: auto;
       margin-right: auto;
       border-bottom: 1px solid rgba(232,160,32,0.25);
@@ -207,10 +204,8 @@
       transform: none;
     }
 
-    @ai: remove max-widths of a fixed pixel size. I'd rather use up the screen space, as this will be projected.' 
-    
     /* ── NAME-THE-EXPERIENCE LIST ─────────────────────── */
-    .name-list { list-style: none; text-align: left; max-width: 920px; margin: 1.8rem auto 0; padding: 0; font-size: clamp(0.95rem, 1.55vw, 1.6rem); line-height: 1.5; }
+    .name-list { list-style: none; text-align: left; margin: 1.8rem auto 0; padding: 0; font-size: clamp(0.95rem, 1.55vw, 1.6rem); line-height: 1.5; }
     .name-list li { margin-bottom: 0.9rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--subtle); }
     .name-list li:last-child { border-bottom: none; margin-bottom: 0; }
     .name-list li strong { display: inline-block; min-width: 9rem; }
@@ -219,8 +214,8 @@
     .story-list { list-style: none; text-align: left; margin: 0 auto; }
     .story-list li {
       position: relative;
-      padding: 0.65rem 0 0.65rem 2.8rem;
-      font-size: clamp(1rem, 1.9vw, 2rem);  @ai: larger font please
+      padding: 0.85rem 0 0.85rem 3.2rem;
+      font-size: clamp(1.5rem, 2.8vw, 3rem);
       line-height: 1.4;
       border-bottom: 1px solid var(--subtle);
     }
@@ -397,7 +392,7 @@
     <div class="slide-content">
       <p class="kicker">Example 1 · risk-aware commit tool</p>
       <h2>One transition.</h2>
-      <div style="text-align: left; max-width: 880px; margin: 2rem auto 0; font-size: clamp(1rem, 1.7vw, 1.8rem); line-height: 1.6;">
+      <div style="text-align: left; margin: 2rem auto 0; font-size: clamp(1rem, 1.7vw, 1.8rem); line-height: 1.6;">
         <p style="margin-bottom: 1.1rem;"><span class="kicker" style="display: inline-block; margin: 0; min-width: 6rem;">Changed</span> <em>tool</em></p>
         <p style="margin-bottom: 1.1rem;"><span style="display: inline-block; min-width: 6rem; font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(240,237,230,0.45);">Stopped</span> Risk mis-categorization. Merge snarls. Unclear history.</p>
         <p><span style="display: inline-block; min-width: 6rem; font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent);">Freed</span> Commit carelessly. Less context-filling. Higher-level moves.</p>
@@ -446,7 +441,7 @@
     <div class="slide-content">
       <p class="kicker">What recurs</p>
       <h2>Four things to name.</h2>
-      <ul style="text-align: left; max-width: 1000px; margin: 2rem auto 0; list-style: none; padding: 0; font-size: clamp(1rem, 1.65vw, 1.7rem); line-height: 1.5;">
+      <ul style="text-align: left; margin: 2rem auto 0; list-style: none; padding: 0; font-size: clamp(1rem, 1.65vw, 1.7rem); line-height: 1.5;">
         <li style="margin-bottom: 1.1rem;">
           <strong class="accent">Lever:</strong> a facet of the agent's universe you can engineer.
         </li>
@@ -483,7 +478,7 @@
       <p class="big-quote">
         Make it so even <em>crappier AI</em> succeeds.
       </p>
-    </div> @ai: the content I deleted here should remain in the notes; I just don't need it also on the slide.
+    </div>
   </section>
   
   <!-- 26 How? — bridge to the universe (the "where") and the safety levels (the "how much") -->
@@ -1148,10 +1143,10 @@
 
       <p class="toc-section-label">Recipes</p>
       <p class="toc-placeholder" style="margin-top: 0.4rem; margin-bottom: 0.8rem;">Click a step to walk its recipe + worked example.</p>
-      <div data-recipe-svg-slot="clickable" style="max-width: 620px; margin: 0 auto;"></div>
+      <div data-recipe-svg-slot="clickable" style="margin: 0 auto;"></div>
 
       <p class="toc-section-label">Closing</p>
-      <div class="toc-grid" style="grid-template-columns: 1fr; max-width: 360px; margin-top: 0.6rem;">
+      <div class="toc-grid" style="grid-template-columns: 1fr; margin-top: 0.6rem;">
         <div class="toc-card" data-jump-to="s56">
           <p class="kicker">Synthesis</p>
           <h3>Closing sequence</h3>
@@ -1387,7 +1382,7 @@
     <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Universe: State control</p>
-      <div style="text-align: left; display: inline-block; max-width: 760px;">
+      <div style="text-align: left; display: inline-block;">
         <p style="margin-bottom: 1.2rem;">1. <span class="accent">Archive table</span> — all rows preserved before migration runs</p>
         <p style="margin-bottom: 1.2rem;">2. <span class="accent">Bidirectional remapping</span> — deterministic verification before execution</p>
         <p>3. <span class="accent">Extracted library</span> — AI writes definition only; library executes</p>
@@ -1477,7 +1472,7 @@
 
   <!-- STEP 1 — Apply the vigilance-as-process template -->
   <section class="slide" id="s-rec-1a">
-    <div class="slide-content" style="text-align:left; max-width: 900px;">
+    <div class="slide-content" style="text-align:left;">
       <p class="kicker">Recipe &mdash; Step 1</p>
       <h2 style="margin-bottom: 1.2rem;">Apply the vigilance-as-process template</h2>
       <ol style="font-size: clamp(1rem, 1.7vw, 1.6rem); line-height: 1.55;">
@@ -1490,7 +1485,7 @@
     </div>
   </section>
   <section class="slide" id="s-rec-1b" data-return-to-toc="true">
-    <div class="slide-content" style="text-align:left; max-width: 900px;">
+    <div class="slide-content" style="text-align:left;">
       <p class="kicker">Worked example &mdash; release notes</p>
       <h2 style="margin-bottom: 1rem;">Setting up the loop</h2>
       <ul style="font-size: clamp(0.95rem, 1.5vw, 1.4rem); line-height: 1.6; list-style: none; padding: 0;">
@@ -1506,7 +1501,7 @@
 
   <!-- STEP 2 — Name the vigilance -->
   <section class="slide" id="s-rec-2a">
-    <div class="slide-content" style="text-align:left; max-width: 900px;">
+    <div class="slide-content" style="text-align:left;">
       <p class="kicker">Recipe &mdash; Step 2</p>
       <h2 style="margin-bottom: 1.2rem;">Name the vigilance</h2>
       <ol style="font-size: clamp(1rem, 1.7vw, 1.6rem); line-height: 1.55;">
@@ -1518,7 +1513,7 @@
     </div>
   </section>
   <section class="slide" id="s-rec-2b" data-return-to-toc="true">
-    <div class="slide-content" style="text-align:left; max-width: 900px;">
+    <div class="slide-content" style="text-align:left;">
       <p class="kicker">Worked example &mdash; release notes</p>
       <h2 style="margin-bottom: 1rem;">From corrections to a category</h2>
       <ul style="font-size: clamp(0.95rem, 1.5vw, 1.4rem); line-height: 1.6; list-style: none; padding: 0;">
@@ -1532,7 +1527,7 @@
 
   <!-- STEP 3 — Identify a hole -->
   <section class="slide" id="s-rec-3a">
-    <div class="slide-content" style="text-align:left; max-width: 900px;">
+    <div class="slide-content" style="text-align:left;">
       <p class="kicker">Recipe &mdash; Step 3</p>
       <h2 style="margin-bottom: 1.2rem;">Identify a hole</h2>
       <ol style="font-size: clamp(1rem, 1.7vw, 1.6rem); line-height: 1.55;">
@@ -1543,7 +1538,7 @@
     </div>
   </section>
   <section class="slide" id="s-rec-3b" data-return-to-toc="true">
-    <div class="slide-content" style="text-align:left; max-width: 900px;">
+    <div class="slide-content" style="text-align:left;">
       <p class="kicker">Worked example &mdash; release notes</p>
       <h2 style="margin-bottom: 1rem;">A hole in the tone check</h2>
       <ul style="font-size: clamp(0.95rem, 1.5vw, 1.4rem); line-height: 1.6; list-style: none; padding: 0;">
@@ -1556,7 +1551,7 @@
 
   <!-- STEP 4 — Lock one error category -->
   <section class="slide" id="s-rec-4a">
-    <div class="slide-content" style="text-align:left; max-width: 900px;">
+    <div class="slide-content" style="text-align:left;">
       <p class="kicker">Recipe &mdash; Step 4</p>
       <h2 style="margin-bottom: 1.2rem;">Lock one error category</h2>
       <ol style="font-size: clamp(1rem, 1.7vw, 1.6rem); line-height: 1.55;">
@@ -1567,7 +1562,7 @@
     </div>
   </section>
   <section class="slide" id="s-rec-4b" data-return-to-toc="true">
-    <div class="slide-content" style="text-align:left; max-width: 900px;">
+    <div class="slide-content" style="text-align:left;">
       <p class="kicker">Worked example &mdash; release notes</p>
       <h2 style="margin-bottom: 1rem;">Locking tone drift with Tooling</h2>
       <ul style="font-size: clamp(0.95rem, 1.5vw, 1.4rem); line-height: 1.6; list-style: none; padding: 0;">
@@ -1580,7 +1575,7 @@
 
   <!-- STEP 5 — Adjust vigilance -->
   <section class="slide" id="s-rec-5a">
-    <div class="slide-content" style="text-align:left; max-width: 900px;">
+    <div class="slide-content" style="text-align:left;">
       <p class="kicker">Recipe &mdash; Step 5</p>
       <h2 style="margin-bottom: 1.2rem;">Adjust vigilance</h2>
       <ol style="font-size: clamp(1rem, 1.7vw, 1.6rem); line-height: 1.55;">
@@ -1591,7 +1586,7 @@
     </div>
   </section>
   <section class="slide" id="s-rec-5b" data-return-to-toc="true">
-    <div class="slide-content" style="text-align:left; max-width: 900px;">
+    <div class="slide-content" style="text-align:left;">
       <p class="kicker">Worked example &mdash; release notes</p>
       <h2 style="margin-bottom: 1rem;">The list shrinks</h2>
       <ul style="font-size: clamp(0.95rem, 1.5vw, 1.4rem); line-height: 1.6; list-style: none; padding: 0;">
@@ -1605,7 +1600,7 @@
 
   <!-- STEP 6 — Make a decision -->
   <section class="slide" id="s-rec-6a">
-    <div class="slide-content" style="text-align:left; max-width: 900px;">
+    <div class="slide-content" style="text-align:left;">
       <p class="kicker">Recipe &mdash; Step 6</p>
       <h2 style="margin-bottom: 1.2rem;">Make a decision</h2>
       <ol style="font-size: clamp(1rem, 1.7vw, 1.6rem); line-height: 1.55;">
@@ -1616,7 +1611,7 @@
     </div>
   </section>
   <section class="slide" id="s-rec-6b" data-return-to-toc="true">
-    <div class="slide-content" style="text-align:left; max-width: 900px;">
+    <div class="slide-content" style="text-align:left;">
       <p class="kicker">Worked example &mdash; release notes</p>
       <h2 style="margin-bottom: 1rem;">Three loops later</h2>
       <ul style="font-size: clamp(0.95rem, 1.5vw, 1.4rem); line-height: 1.6; list-style: none; padding: 0;">
