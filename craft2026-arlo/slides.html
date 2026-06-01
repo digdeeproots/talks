@@ -400,39 +400,41 @@
     </div>
   </section>
   
-  @ai: next slide is unintelligible. Look at it with playwright mcp (file protocol works). Give me a good structure so that I can see the useful info per item. Pull the field labels out to the left, like a table. Decrease type variation. Improve legibility. Make sure you look at it with the browser so that you can specifically see what is wrong and fix it.
-
   <!-- 31 Example 2 recap — four transitions, each a single increment.
-       One column per transition. Title doubles as the goal of the example. -->
+       Table layout: row labels on the left (Changed/Stopped/Freed),
+       one column per transition. Uniform type for legibility. -->
   <section class="slide" id="s31">
     <div class="slide-content">
       <p class="kicker">Example 2</p>
       <h2>Finding key moments in the transcript.</h2>
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin: 2.5rem auto 0; text-align: left; font-size: clamp(0.95rem, 1.4vw, 1.5rem); line-height: 1.55;">
-        <div>
-          <p style="font-size: 1.05em; text-transform: uppercase; letter-spacing: 0.14em; color: var(--kicker); margin-bottom: 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 0.4rem;">Sequencing</p>
-          <p style="margin-bottom: 0.7rem;"><span class="kicker" style="display:block; margin:0 0 0.15rem 0;">Changed</span> <em>invocation</em></p>
-          <p style="margin-bottom: 0.7rem;"><span style="display:block; margin:0 0 0.15rem 0; font-size:0.78em; text-transform:uppercase; letter-spacing:0.12em; color:rgba(240,237,230,0.5);">Stopped</span> shortcuts, mis-sequencing</p>
-          <p><span style="display:block; margin:0 0 0.15rem 0; font-size:0.78em; text-transform:uppercase; letter-spacing:0.12em; color:var(--accent);">Freed</span> sequence is determined</p>
-        </div>
-        <div>
-          <p style="font-size: 1.05em; text-transform: uppercase; letter-spacing: 0.14em; color: var(--kicker); margin-bottom: 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 0.4rem;">Fetch</p>
-          <p style="margin-bottom: 0.7rem;"><span class="kicker" style="display:block; margin:0 0 0.15rem 0;">Changed</span> <em>invocation, goal</em></p>
-          <p style="margin-bottom: 0.7rem;"><span style="display:block; margin:0 0 0.15rem 0; font-size:0.78em; text-transform:uppercase; letter-spacing:0.12em; color:rgba(240,237,230,0.5);">Stopped</span> manual step I had to drive</p>
-          <p><span style="display:block; margin:0 0 0.15rem 0; font-size:0.78em; text-transform:uppercase; letter-spacing:0.12em; color:var(--accent);">Freed</span> less waiting</p>
-        </div>
-        <div>
-          <p style="font-size: 1.05em; text-transform: uppercase; letter-spacing: 0.14em; color: var(--kicker); margin-bottom: 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 0.4rem;">Goal spec</p>
-          <p style="margin-bottom: 0.7rem;"><span class="kicker" style="display:block; margin:0 0 0.15rem 0;">Changed</span> <em>goal</em></p>
-          <p style="margin-bottom: 0.7rem;"><span style="display:block; margin:0 0 0.15rem 0; font-size:0.78em; text-transform:uppercase; letter-spacing:0.12em; color:rgba(240,237,230,0.5);">Stopped</span> vague output spec</p>
-          <p><span style="display:block; margin:0 0 0.15rem 0; font-size:0.78em; text-transform:uppercase; letter-spacing:0.12em; color:var(--accent);">Freed</span> work elsewhere until called</p>
-        </div>
-        <div>
-          <p style="font-size: 1.05em; text-transform: uppercase; letter-spacing: 0.14em; color: var(--kicker); margin-bottom: 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 0.4rem;">Output format</p>
-          <p style="margin-bottom: 0.7rem;"><span class="kicker" style="display:block; margin:0 0 0.15rem 0;">Changed</span> <em>feedback</em></p>
-          <p style="margin-bottom: 0.7rem;"><span style="display:block; margin:0 0 0.15rem 0; font-size:0.78em; text-transform:uppercase; letter-spacing:0.12em; color:rgba(240,237,230,0.5);">Stopped</span> format drift</p>
-          <p><span style="display:block; margin:0 0 0.15rem 0; font-size:0.78em; text-transform:uppercase; letter-spacing:0.12em; color:var(--accent);">Freed</span> careless about structure</p>
-        </div>
+      <div style="display: grid; grid-template-columns: max-content repeat(4, 1fr); column-gap: 2rem; row-gap: 1rem; margin: 2.5rem auto 0; text-align: left; font-size: clamp(0.95rem, 1.4vw, 1.5rem); line-height: 1.45;">
+        <!-- header row: blank corner, then four transition names -->
+        <div></div>
+        <div style="color: var(--kicker); border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 0.4rem;">Sequencing</div>
+        <div style="color: var(--kicker); border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 0.4rem;">Fetch</div>
+        <div style="color: var(--kicker); border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 0.4rem;">Goal spec</div>
+        <div style="color: var(--kicker); border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 0.4rem;">Output format</div>
+
+        <!-- Changed row -->
+        <div style="color: var(--kicker); text-align: right; padding-right: 0.4rem;">Changed</div>
+        <div><em>invocation</em></div>
+        <div><em>invocation, goal</em></div>
+        <div><em>goal</em></div>
+        <div><em>feedback</em></div>
+
+        <!-- Stopped row -->
+        <div style="color: var(--kicker); text-align: right; padding-right: 0.4rem;">Stopped</div>
+        <div>shortcuts, mis-sequencing</div>
+        <div>manual step I had to drive</div>
+        <div>vague output spec</div>
+        <div>format drift</div>
+
+        <!-- Freed row -->
+        <div style="color: var(--kicker); text-align: right; padding-right: 0.4rem;">Freed</div>
+        <div>sequence is determined</div>
+        <div>less waiting</div>
+        <div>work elsewhere until called</div>
+        <div>careless about structure</div>
       </div>
     </div>
   </section>
