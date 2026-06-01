@@ -207,6 +207,8 @@
       transform: none;
     }
 
+    @ai: remove max-widths of a fixed pixel size. I'd rather use up the screen space, as this will be projected.' 
+    
     /* ── NAME-THE-EXPERIENCE LIST ─────────────────────── */
     .name-list { list-style: none; text-align: left; max-width: 920px; margin: 1.8rem auto 0; padding: 0; font-size: clamp(0.95rem, 1.55vw, 1.6rem); line-height: 1.5; }
     .name-list li { margin-bottom: 0.9rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--subtle); }
@@ -214,11 +216,11 @@
     .name-list li strong { display: inline-block; min-width: 9rem; }
 
     /* ── STORY LIST ───────────────────────────────────── */
-    .story-list { list-style: none; text-align: left; max-width: 820px; margin: 0 auto; }
+    .story-list { list-style: none; text-align: left; margin: 0 auto; }
     .story-list li {
       position: relative;
       padding: 0.65rem 0 0.65rem 2.8rem;
-      font-size: clamp(1rem, 1.9vw, 2rem);
+      font-size: clamp(1rem, 1.9vw, 2rem);  @ai: larger font please
       line-height: 1.4;
       border-bottom: 1px solid var(--subtle);
     }
@@ -402,6 +404,8 @@
       </div>
     </div>
   </section>
+  
+  @ai: next slide is unintelligible. Look at it with playwright mcp (file protocol works). Give me a good structure so that I ca see the useful info per item. Perhaps one column per transition? Also, the title should be finding key moments in the transcript - I don't need big text that tells me there are 4 transitions, especially if each transition is visible as a thing with a title.
 
   <!-- 31 Example 2 recap — four transitions, each a single increment -->
   <section class="slide" id="s31">
@@ -479,19 +483,14 @@
       <p class="big-quote">
         Make it so even <em>crappier AI</em> succeeds.
       </p>
-      <div style="margin-top: 2.5rem; display: inline-flex; align-items: center; gap: 2rem; font-size: clamp(1rem, 1.6vw, 1.8rem);">
-        <span style="text-decoration: line-through; opacity: 0.35;">engine</span>
-        <svg width="40" height="18" viewBox="0 0 40 18" style="flex-shrink:0;"><line x1="0" y1="9" x2="32" y2="9" stroke="#e8a020" stroke-width="2"/><polyline points="24,3 32,9 24,15" stroke="#e8a020" stroke-width="2" fill="none" stroke-linejoin="round"/></svg>
-        <em>brakes</em>
-      </div>
-    </div>
+    </div> @ai: the content I deleted here should remain in the notes; I just don't need it also on the slide.
   </section>
-
+  
   <!-- 26 How? — bridge to the universe (the "where") and the safety levels (the "how much") -->
   <section class="slide" id="s26">
     <div class="slide-content">
       <p class="kicker">How?</p>
-      <ul class="story-list" style="margin-top: 2.5rem; max-width: 680px;">
+      <ul class="story-list" style="margin-top: 2.5rem;">
         <li>Change the <em>universe</em>.</li>
         <li>Raise safety on one <em>class</em> of error.</li>
       </ul>
