@@ -402,35 +402,36 @@
   
   @ai: next slide is unintelligible. Look at it with playwright mcp (file protocol works). Give me a good structure so that I ca see the useful info per item. Perhaps one column per transition? Also, the title should be finding key moments in the transcript - I don't need big text that tells me there are 4 transitions, especially if each transition is visible as a thing with a title.
 
-  <!-- 31 Example 2 recap — four transitions, each a single increment -->
+  <!-- 31 Example 2 recap — four transitions, each a single increment.
+       One column per transition. Title doubles as the goal of the example. -->
   <section class="slide" id="s31">
     <div class="slide-content">
-      <p class="kicker">Example 2 · find key moments in a transcript</p>
-      <h2>Four transitions.</h2>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem 3.5rem; max-width: 1100px; margin: 1.5rem auto 0; text-align: left; font-size: clamp(0.85rem, 1.25vw, 1.3rem); line-height: 1.55;">
+      <p class="kicker">Example 2</p>
+      <h2>Finding key moments in the transcript.</h2>
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin: 2.5rem auto 0; text-align: left; font-size: clamp(0.95rem, 1.4vw, 1.5rem); line-height: 1.55;">
         <div>
-          <p style="font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.14em; color: var(--kicker); margin-bottom: 0.6rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.3rem;">Sequencing</p>
-          <p style="margin-bottom: 0.35rem;"><span class="kicker" style="display:inline-block; margin:0; min-width:5rem;">Changed</span> <em>invocation</em></p>
-          <p style="margin-bottom: 0.35rem;"><span style="display:inline-block; min-width:5rem; font-size:0.8em; text-transform:uppercase; letter-spacing:0.12em; color:rgba(240,237,230,0.45);">Stopped</span> shortcuts, mis-sequencing</p>
-          <p><span style="display:inline-block; min-width:5rem; font-size:0.8em; text-transform:uppercase; letter-spacing:0.12em; color:var(--accent);">Freed</span> sequence is determined</p>
+          <p style="font-size: 1.05em; text-transform: uppercase; letter-spacing: 0.14em; color: var(--kicker); margin-bottom: 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 0.4rem;">Sequencing</p>
+          <p style="margin-bottom: 0.7rem;"><span class="kicker" style="display:block; margin:0 0 0.15rem 0;">Changed</span> <em>invocation</em></p>
+          <p style="margin-bottom: 0.7rem;"><span style="display:block; margin:0 0 0.15rem 0; font-size:0.78em; text-transform:uppercase; letter-spacing:0.12em; color:rgba(240,237,230,0.5);">Stopped</span> shortcuts, mis-sequencing</p>
+          <p><span style="display:block; margin:0 0 0.15rem 0; font-size:0.78em; text-transform:uppercase; letter-spacing:0.12em; color:var(--accent);">Freed</span> sequence is determined</p>
         </div>
         <div>
-          <p style="font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.14em; color: var(--kicker); margin-bottom: 0.6rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.3rem;">Fetch</p>
-          <p style="margin-bottom: 0.35rem;"><span class="kicker" style="display:inline-block; margin:0; min-width:5rem;">Changed</span> <em>invocation, goal</em></p>
-          <p style="margin-bottom: 0.35rem;"><span style="display:inline-block; min-width:5rem; font-size:0.8em; text-transform:uppercase; letter-spacing:0.12em; color:rgba(240,237,230,0.45);">Stopped</span> manual step I had to drive</p>
-          <p><span style="display:inline-block; min-width:5rem; font-size:0.8em; text-transform:uppercase; letter-spacing:0.12em; color:var(--accent);">Freed</span> less waiting</p>
+          <p style="font-size: 1.05em; text-transform: uppercase; letter-spacing: 0.14em; color: var(--kicker); margin-bottom: 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 0.4rem;">Fetch</p>
+          <p style="margin-bottom: 0.7rem;"><span class="kicker" style="display:block; margin:0 0 0.15rem 0;">Changed</span> <em>invocation, goal</em></p>
+          <p style="margin-bottom: 0.7rem;"><span style="display:block; margin:0 0 0.15rem 0; font-size:0.78em; text-transform:uppercase; letter-spacing:0.12em; color:rgba(240,237,230,0.5);">Stopped</span> manual step I had to drive</p>
+          <p><span style="display:block; margin:0 0 0.15rem 0; font-size:0.78em; text-transform:uppercase; letter-spacing:0.12em; color:var(--accent);">Freed</span> less waiting</p>
         </div>
         <div>
-          <p style="font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.14em; color: var(--kicker); margin-bottom: 0.6rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.3rem;">Goal spec</p>
-          <p style="margin-bottom: 0.35rem;"><span class="kicker" style="display:inline-block; margin:0; min-width:5rem;">Changed</span> <em>goal</em></p>
-          <p style="margin-bottom: 0.35rem;"><span style="display:inline-block; min-width:5rem; font-size:0.8em; text-transform:uppercase; letter-spacing:0.12em; color:rgba(240,237,230,0.45);">Stopped</span> vague output spec</p>
-          <p><span style="display:inline-block; min-width:5rem; font-size:0.8em; text-transform:uppercase; letter-spacing:0.12em; color:var(--accent);">Freed</span> work elsewhere until called</p>
+          <p style="font-size: 1.05em; text-transform: uppercase; letter-spacing: 0.14em; color: var(--kicker); margin-bottom: 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 0.4rem;">Goal spec</p>
+          <p style="margin-bottom: 0.7rem;"><span class="kicker" style="display:block; margin:0 0 0.15rem 0;">Changed</span> <em>goal</em></p>
+          <p style="margin-bottom: 0.7rem;"><span style="display:block; margin:0 0 0.15rem 0; font-size:0.78em; text-transform:uppercase; letter-spacing:0.12em; color:rgba(240,237,230,0.5);">Stopped</span> vague output spec</p>
+          <p><span style="display:block; margin:0 0 0.15rem 0; font-size:0.78em; text-transform:uppercase; letter-spacing:0.12em; color:var(--accent);">Freed</span> work elsewhere until called</p>
         </div>
         <div>
-          <p style="font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.14em; color: var(--kicker); margin-bottom: 0.6rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.3rem;">Output format</p>
-          <p style="margin-bottom: 0.35rem;"><span class="kicker" style="display:inline-block; margin:0; min-width:5rem;">Changed</span> <em>feedback</em></p>
-          <p style="margin-bottom: 0.35rem;"><span style="display:inline-block; min-width:5rem; font-size:0.8em; text-transform:uppercase; letter-spacing:0.12em; color:rgba(240,237,230,0.45);">Stopped</span> format drift</p>
-          <p><span style="display:inline-block; min-width:5rem; font-size:0.8em; text-transform:uppercase; letter-spacing:0.12em; color:var(--accent);">Freed</span> careless about structure</p>
+          <p style="font-size: 1.05em; text-transform: uppercase; letter-spacing: 0.14em; color: var(--kicker); margin-bottom: 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 0.4rem;">Output format</p>
+          <p style="margin-bottom: 0.7rem;"><span class="kicker" style="display:block; margin:0 0 0.15rem 0;">Changed</span> <em>feedback</em></p>
+          <p style="margin-bottom: 0.7rem;"><span style="display:block; margin:0 0 0.15rem 0; font-size:0.78em; text-transform:uppercase; letter-spacing:0.12em; color:rgba(240,237,230,0.5);">Stopped</span> format drift</p>
+          <p><span style="display:block; margin:0 0 0.15rem 0; font-size:0.78em; text-transform:uppercase; letter-spacing:0.12em; color:var(--accent);">Freed</span> careless about structure</p>
         </div>
       </div>
     </div>
@@ -963,16 +964,6 @@
     </div>
   </section>
 
-  <!-- s28 safety vocabulary — single visualization (alt-A retained as the
-       chosen design after the other alternatives were pruned). Inline per-level
-       examples (human / AI pair) and a row of cognitive-load sparkline graphs
-       are baked in below.
-  -->
-
-
-  <!-- 28-ALT-A — Horizontal spectrum bar with per-level examples (human + AI)
-       inside the spectrum box, and a row of sparkline graphs for cognitive
-       load (zero lines aligned across all six). -->
   <section class="slide" id="s28-alt-a">
     <div class="slide-content">
       <p class="kicker">Safety Categories &mdash; the ladder</p>
