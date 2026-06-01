@@ -124,7 +124,7 @@ Show the full current document (or the relevant section for large documents). As
 After they say they're done:
 
 1. **Stage and commit everything that changed.** Run `git diff HEAD` to find all modified files — the human may have edited files outside the listed `doc:` paths. Stage all of them together. Use a message that describes what the human did on their turn.
-2. **Propagate normative edits.** Every direct edit is normative. Edits may be partial — they show the direction, not necessarily the complete solution. Apply that direction fully: make the same change everywhere it applies, complete any partially-started changes, and remove anything that contradicts the new direction. No back-compatibility. Make it consistent as if the new direction were always the only direction. Announce: "You changed [X] — I applied the same pattern to [N other places]."
+2. **Propagate normative edits.** Every direct edit is normative. Edits may be partial — they show the direction, not necessarily the complete solution. Apply that direction fully: make the same change everywhere it applies, complete any partially-started changes, clean up errors or partial work, and remove anything that contradicts the new direction. No back-compatibility. Make it consistent as if the new direction were always the only direction. Announce: "You changed [X] — I applied the same pattern to [N other places]."
 3. **Commit your changes.** Use a message that describes what you changed
 4. **Process @ai: commands.** See the `@ai:` resolution protocol below.
 5. **Show a diff summary.** What changed, briefly. Ask: "Anything else?"
@@ -133,19 +133,17 @@ After they say they're done:
 
 #### `@ai:` resolution protocol
 
-Scan all edited documents for `@ai:` directives. Include all of them in your work, not just ones from the human's most recent turn. Each `@ai:` block is a directive from the human. Resolve every one before declaring the turn done. Three legal outcomes per directive:
+Scan all edited documents for `@ai:` directives. Include all of them in your work, not just ones from the human's most recent turn. Each `@ai:` block is a directive from the human. Resolve every one before declaring the turn done.
 
-**(a) Execute it now.** Carry out the instruction. Remove the `@ai:` comment in the same commit.
+**Batch for context safety.** Consider the directives and group them by similar intent. Then pick one set to execute first. Complete them as follows, commit, then iterate: next commit picks the next subset, and so on. Each subset is one commit. This keeps any single commit reviewable and prevents context overload from trying to do everything at once.
 
-**(b) Defer it — needing information from the human.** Leave the entire `@ai:` block in place, verbatim. Append `@ai-needs:` lines listing exactly what you need answered before you can execute. Do not remove or rewrite the directive itself. The unresolved directive comes back to the human in the next doc review as an open question.
+For each directive in the set, either:
+- **(a) Execute it now.** Carry out the instruction. Remove the `@ai:` comment in the same commit. Or,
+- **(b) Defer it — needing information from the human.** Leave the entire `@ai:` block in place, verbatim. Append `@ai-needs:` lines listing exactly what you need answered before you can execute. Do not remove or rewrite the directive itself. The unresolved directive comes back to the human in the next doc review as an open question.
 
-**(c) Defer it — needing nothing from the human.** Leave the entire `@ai:` block in place, verbatim. Append a one-line `@ai-deferral-note:` explaining why this commit is not addressing it (usually: scope of the current commit). You **must** then immediately start a follow-up commit that addresses the directive and removes the block. Do not end your turn with an unresolved (c) directive.
-
-**Batching for context safety.** If a single doc review surfaces many directives, you may pick a coherent subset, execute (option a) those, defer the rest with (b) or (c) notes, commit, then iterate: next commit picks the next subset, and so on. Each subset is one commit. This keeps any single commit reviewable and prevents context overload from trying to do everything at once.
-
-**Never silently drop a directive.** Removing an `@ai:` block without addressing it is a protocol violation. If the directive is wrong or no longer applies, leave it in place and add an `@ai-needs:` line asking the human to confirm before deletion.
-
-**Use when:** you've made substantial changes, the document needs full-context validation, it's the first draft, or you're not sure what's wrong.
+Rules:
+1. **Never silently drop a directive.** Removing an `@ai:` block without addressing it is a protocol violation. If the directive is wrong or no longer applies, leave it in place and add an `@ai-needs:` line asking the human to confirm before deletion.
+2. **When you end your turn, the only @ai directives left are those you deferred stating the info you need from the human.**
 
 ---
 

@@ -400,7 +400,7 @@
     </div>
   </section>
   
-  @ai: next slide is unintelligible. Look at it with playwright mcp (file protocol works). Give me a good structure so that I ca see the useful info per item. Perhaps one column per transition? Also, the title should be finding key moments in the transcript - I don't need big text that tells me there are 4 transitions, especially if each transition is visible as a thing with a title.
+  @ai: next slide is unintelligible. Look at it with playwright mcp (file protocol works). Give me a good structure so that I can see the useful info per item. Pull the field labels out to the left, like a table. Decrease type variation. Improve legibility. Make sure you look at it with the browser so that you can specifically see what is wrong and fix it.
 
   <!-- 31 Example 2 recap — four transitions, each a single increment.
        One column per transition. Title doubles as the goal of the example. -->
@@ -441,19 +441,16 @@
   <section class="slide" id="s32">
     <div class="slide-content">
       <p class="kicker">What recurs</p>
-      <h2>Four things to name.</h2>
+      <h2>Three things to name.</h2>
       <ul style="text-align: left; margin: 2rem auto 0; list-style: none; padding: 0; font-size: clamp(1rem, 1.65vw, 1.7rem); line-height: 1.5;">
-        <li style="margin-bottom: 1.1rem;">
-          <strong class="accent">Lever:</strong> a facet of the agent's universe you can engineer.
-        </li>
-        <li style="margin-bottom: 1.1rem;">
-          <strong class="accent">Safety level:</strong> how far a class of error has been pushed up the carelessness scale.
-        </li>
         <li style="margin-bottom: 1.1rem;">
           <strong class="accent">Scope:</strong> the class of error one intervention addresses.
         </li>
         <li>
-          <strong class="accent">Slack:</strong> load shed beyond error prevention.
+          <strong class="accent">Cost to protect:</strong> how much vigilance toil is spent to prevent errors in this scope.
+        </li>
+        <li style="margin-bottom: 1.1rem;">
+          <strong class="accent">Lever:</strong> a facet of the agent's universe you can engineer.
         </li>
       </ul>
     </div>
@@ -477,7 +474,7 @@
     <div class="overlay"></div>
     <div class="slide-content">
       <p class="big-quote">
-        Make it so even <em>crappier AI</em> succeeds.
+        Make even <em>crappier AI</em> succeed.
       </p>
     </div>
   </section>
@@ -488,7 +485,7 @@
       <p class="kicker">How?</p>
       <ul class="story-list" style="margin-top: 2.5rem;">
         <li>Change the <em>universe</em>.</li>
-        <li>Raise safety on one <em>class</em> of error.</li>
+        <li>Raise safety on one <em>error category</em>.</li>
       </ul>
     </div>
   </section>
@@ -638,6 +635,8 @@
     </div>
   </section>
 
+  @ai: rename context in all files to match what's in the universe-levers.md model file
+  
   <!-- 34 Agent's Universe — the "where" of the two-part answer -->
   <section class="slide img-bg bg-cr-developer" id="s34">
     <div class="overlay"></div>

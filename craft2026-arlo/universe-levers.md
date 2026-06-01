@@ -42,6 +42,11 @@ Lever names are still settling — current canonical names are listed first, wit
 
 **Examples.**
 - *(Dedicated story TBD.)* Wing-based git worktrees isolate per-agent state and prevent cross-agent file access. CLAUDE.md path-routing rules ("prepend `work/local/` to unqualified paths") shape what the agent reaches for by default.
+- Provide a curated dependencies marketplace
+- When working on a platform library in the monorepo, prevent reading or grepping any of the projects that depend on it.
+- Summarize every file in the codebase, then provide a RAG search tool + language server (for references) as a replacement for grep.
+
+@ai: elaborate my examples into stories; make the last more clearly align with reachable context, or move it to tooling.
 
 ---
 
