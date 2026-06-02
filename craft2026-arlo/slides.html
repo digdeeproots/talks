@@ -579,12 +579,15 @@
   </section>
   
   
-  <!-- 37 Understanding the customer — single diagram: the agent's in-turn cycle (center),
-       the things the agent reads/writes through tools (working memory, file system inc.
-       workflow files as a sub-region, external data sources), the tool box split into
-       built-in vs added, and the between-turn outer boundary with the things we can swap.
-       Every lever appears once as a labeled badge on a line or box. -->
-  <section class="slide" id="s37">
+  <!-- 37a Understanding the customer (1/2) — the agent's turn loop.
+       Center: Working Memory (the agent's actual state).
+       Above: a literal thought-cloud showing that "think" is a dispatch out to the LLM,
+              the same shape as a tool call.
+       Right: an "Act (Tool call)" dispatch.
+       Both dispatches return by writing back to Working Memory.
+       Outside: File System (with Workflow files sub-region) and External Data Sources,
+              reachable only via the Act path; each edge labeled with which lever moderates it. -->
+  <section class="slide" id="s37a">
     <div class="slide-content">
       <p class="kicker">Understanding the customer</p>
       <h2>Where the <span class="accent">levers</span> live.</h2>
@@ -1200,6 +1203,8 @@
         <text x="20"  y="175" font-size="11" fill="rgba(240,237,230,0.55)" font-style="italic">errors slip through</text>
         <text x="980" y="175" font-size="11" fill="rgba(232,160,32,0.75)" text-anchor="end" font-style="italic">errors structurally impossible</text>
 
+        @ai: add more vertical space between these, here.
+        
         <!-- Cognitive-load header + compressed labels -->
         <text x="500" y="205" text-anchor="middle" font-size="11" fill="rgba(192,154,96,0.85)" font-weight="700" letter-spacing="1.6">COGNITIVE LOAD &mdash; vigilance toil over time</text>
         <g font-size="12" text-anchor="middle">
@@ -1253,9 +1258,6 @@
             <path d="M 4,48 L 30,48 Q 60,48 75,52 T 120,48 L 146,48" fill="none" stroke="#e8a020" stroke-width="1.8" stroke-linejoin="round"/>
           </g>
         </g>
-
-        <text x="83"  y="368" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.4)">+ hidden cost</text>
-        <text x="917" y="368" text-anchor="middle" font-size="10" fill="rgba(232,160,32,0.55)">&minus; cost (negative toil)</text>
       </svg>
     </div>
   </section>
