@@ -301,7 +301,31 @@ Then bridge:
 
 ---
 
-### 37a — Understanding the customer (1/2): one turn, mechanically
+### 37a-1 — Working memory
+
+State the intent. Don't enumerate the parts; the diagram does that.
+
+> "The heart of any coding agent is its working memory — its model of the world. Everything else exists to move stuff in or out of it."
+
+---
+
+### 37a-2 — The agent loop wraps working memory
+
+State that thinking and acting are both just dispatches that come back to working memory.
+
+> "Around working memory runs the agent loop. Every step is either a *think* — a question dispatched out — or an *act*. Both return by writing to working memory."
+
+---
+
+### 37a-3 — Actions, tools, and feedback
+
+State that the agent's output isn't a memory update; it's an *action*, which is two things at once.
+
+> "Most of what an agent does isn't pure thinking. It picks an *action* — a tool to call, plus a prompt for how to interpret whatever comes back. One half goes to the tool. The other half waits, and meets the tool's result in the interpretation step that updates working memory."
+
+---
+
+### 37a-4 — Understanding the customer (full decomposition)
 
 This diagram says: the agent is deterministic software with non-deterministic thinking steps. Working Memory is the center; every step touches it. There's a cycle in the middle, two steps before it, one step after. The cycle keeps running until the goal is met.
 
