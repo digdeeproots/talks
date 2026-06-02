@@ -148,9 +148,40 @@ Decision inconsistency: structurally impossible.
 
 *Working definition: closing loops for the agent — bringing the impact of its actions into its visible sphere, so it can self-correct or escalate. See `universe-levers.md` for the full rubric.*
 
-@ai: create story here: change the commit tool to give quality problems as results. Now commit gives feedback on what needs to be fixed first (or what could be). AI chooses what to fix, then re-commits.
+### Commit tool as quality reviewer
 
-@ai: another story: required demo & demo prep. At end of each user-visible chunk, system creates a demo and attaches it to the plan, then suspends. I can then walk the demo and make notes. Another system analyzes those notes and decides which to add to the future and which to add to the present. It re-awakens the coder to work on immediates. Also, before giving a demo to me, another system walks through the demo (using a browser) and makes sure everything is working. If not, those errors are fed back into the dev process. So I only see demos of working code.
+*Vigilance cost: "Did the AI sneak in code-quality issues — dead branches, missing tests, smelly abstractions — that I now have to spot in review?"*
+
+*Safety: Level 1 (vigilance) → 4 (prevention) for known issue categories.*
+
+The commit tool used to be a passthrough: stage, write message, done. Quality checks lived in the human's eye during review. The AI could land work that was technically correct but full of issues a reviewer would flag — and often did.
+
+The change: every commit invocation runs a battery of quality checks and returns them *as the tool result*. Lint, type, test, dead-code detection, complexity thresholds, missing-test heuristics — whatever the project cares about. The result is not pass/fail; it is a structured list of problems, each tagged "must-fix before commit" or "could-fix now."
+
+The AI now sees its own code through the same filter the reviewer would. It picks what to address, makes the fixes, and re-invokes commit. The loop closes inside one turn: the tool tells the agent what is wrong; the agent decides what to do about it; the next commit attempt re-runs the checks.
+
+The human never sees the smelly-but-fixed states. They only see commits that passed.
+
+**Key insight for the talk:** the agent's actions used to be evaluated by a human, asynchronously, at review time. Now they are evaluated by deterministic code, synchronously, at the moment of action. The agent's behavior changed not because it became more careful, but because the universe started telling it the truth immediately.
+
+---
+
+### Required demo + demo prep
+
+*Vigilance cost: "Did the AI ship something that looks done but doesn't actually work? Am I about to walk a demo and discover a broken button in front of the audience?"*
+
+*Safety: Level 1 (vigilance) → 4 (prevention) for "is this demo-able."*
+
+A two-stage feedback loop wrapped around every user-visible chunk of work:
+
+1. **Required demo.** At the end of each plan chunk, the coding agent must produce a demo and attach it to the plan, then suspend itself. Without a demo, the chunk is not done. The plan tool will not advance.
+2. **Demo verification.** Before I see the demo, a separate system walks through it in a real browser. If any step fails — broken click target, missing route, console error, wrong state — those failures become structured feedback returned to the coder, which is re-woken to fix them. The cycle repeats until the demo passes its own walkthrough.
+3. **Demo walk + note capture.** I then walk the verified demo and make freeform notes — what I liked, what surprised me, what I want changed.
+4. **Note triage.** A separate system reads my notes and sorts each into *now* (re-wakes the coder for immediate work) or *future* (added to the plan as a downstream item).
+
+The human only ever sees demos of code that demonstrably works. The agent never blocks on "is this finished" — the plan tool answers, by gating on demo verification.
+
+**Key insight for the talk:** feedback here spans three different actors and two different timescales. The browser walker closes a tight loop for the coder; the note triager closes a slower loop between the human and the plan. Both are deterministic infrastructure; neither requires the human to remember to check.
 
 ---
 
