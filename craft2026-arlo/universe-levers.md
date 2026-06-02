@@ -197,7 +197,29 @@ What other agents or humans can see the work in progress and react in real time.
 
 ---
 
-@ai: review this document. Consider which of these levers can impact vigilance toil, not just work toil or token efficiency. Rule out any that don't impact vigilance toil. Give the reasons why each is ruled out, and what it can impact - just not vigilance.
+## Vigilance-toil review
+
+Per the talk's frame, a lever earns its place only if it removes a *worry class* — not just if it reduces work toil, token cost, or runtime. A lever reduces vigilance when, after pulling it, the human stops having to watch for some specific defect.
+
+**The seven main levers all pass.** Each removes worry by construction:
+
+- **Memory** — removes "is the agent building on a contradiction?"
+- **Reachable Context** — removes "did the agent see something it shouldn't have used?"
+- **Goals** — removes "did the agent drift outside the spec?"
+- **Tooling** — removes "did the agent reach for a dangerous operation?"
+- **Workflow** — removes "is the agent doing this step right?" (the agent isn't doing the step)
+- **State Control** — removes "did the agent's output corrupt real state before I could check?"
+- **Feedback** — removes "will the agent notice when it's wrong?" (the system tells it)
+
+**Candidates: ruled out as vigilance levers.**
+
+- **Identity** *(per-turn axis 4)*. Swapping the agent / system prompt / persona changes *which* defect modes appear and *which* tasks the agent is good at. It does not, by itself, remove a worry class — pulling a different identity gives you a different set of worries, not fewer worries. **Impacts:** capability fit, task quality, cost, latency. Useful, but the impact is on work toil and quality, not vigilance.
+
+- **Adjacency**. A peer agent or human watching the work in real time *is doing the vigilance*. It relocates the burden from one actor to another rather than eliminating any worry class. By design, adjacency requires continuous attention by the watcher — the opposite of carelessness. **Impacts:** detection latency for in-flight problems, collaboration patterns. Not a vigilance lever.
+
+**Reinforcement of the already-crossed-out in-turn interactions** (mid-turn interrupts, in-flight messages, mid-turn persona change). Beyond being reducible to existing levers, each of these *requires* continuous real-time vigilance by an external actor to be useful at all. Same rule-out reason as Adjacency: they relocate vigilance rather than removing it.
+
+---
 
 ## In-turn interactions — modeled and ruled out
 
