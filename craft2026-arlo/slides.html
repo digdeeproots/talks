@@ -989,9 +989,10 @@
         <line x1="510" y1="370" x2="560" y2="370" stroke="#7ab8c8" stroke-width="1.3" marker-end="url(#think-arr)"/>
         <line x1="650" y1="370" x2="695" y2="370" stroke="#7ab8c8" stroke-width="1.3" stroke-dasharray="4,3" marker-end="url(#think-arr)"/>
 
-        <!-- Step 4 radius (NW 45°, slope 1): box bottom -> bubble -> WM upper-left -->
+        <!-- Step 4 radius (NW 45°, slope 1): box bottom -> bubble. The bubble
+             does NOT write to WM directly — the chosen action gets executed
+             by step 5, which dispatches to the Tool. -->
         <line x1="550" y1="170" x2="623" y2="243" stroke="#7ab8c8" stroke-width="1.3" marker-end="url(#think-arr)"/>
-        <line x1="673" y1="293" x2="711" y2="331" stroke="#7ab8c8" stroke-width="1.3" stroke-dasharray="4,3" marker-end="url(#think-arr)"/>
 
         <!-- Step 6 radius (NE 45°, slope -1): box bottom -> bubble -> WM upper-right -->
         <line x1="950" y1="170" x2="877" y2="243" stroke="#7ab8c8" stroke-width="1.3" marker-end="url(#think-arr)"/>
@@ -1013,56 +1014,47 @@
           <!-- Step 2 (531,589) — act -->
           <rect x="461" y="570" width="140" height="38" rx="8"
                 fill="rgba(200,150,104,0.14)" stroke="#c89668" stroke-width="1.3"/>
-          <text x="531" y="588">2. User message</text>
-          <text x="531" y="601" font-size="8.5" font-weight="400" fill="rgba(240,237,230,0.65)" font-style="italic">(act)</text>
+          <text x="531" y="593">2. User message</text>
 
           <!-- Step 3 (440,370) — think -->
           <rect x="370" y="351" width="140" height="38" rx="8"
                 fill="rgba(122,184,200,0.12)" stroke="#7ab8c8" stroke-width="1.3"/>
-          <text x="440" y="369">3. Goal &amp; constraints</text>
-          <text x="440" y="382" font-size="8.5" font-weight="400" fill="rgba(240,237,230,0.65)" font-style="italic">(think)</text>
+          <text x="440" y="374">3. Goal &amp; constraints</text>
 
           <!-- Step 4 (531,151) — think -->
           <rect x="461" y="132" width="140" height="38" rx="8"
                 fill="rgba(122,184,200,0.12)" stroke="#7ab8c8" stroke-width="1.3"/>
-          <text x="531" y="150">4. Pick next actions</text>
-          <text x="531" y="163" font-size="8.5" font-weight="400" fill="rgba(240,237,230,0.65)" font-style="italic">(think)</text>
+          <text x="531" y="155">4. Pick next actions</text>
 
           <!-- Step 5 (750,60) — act -->
           <rect x="680" y="41" width="140" height="38" rx="8"
                 fill="rgba(200,150,104,0.14)" stroke="#c89668" stroke-width="1.3"/>
-          <text x="750" y="59">5. Execute actions</text>
-          <text x="750" y="72" font-size="8.5" font-weight="400" fill="rgba(240,237,230,0.65)" font-style="italic">(act — tool calls)</text>
+          <text x="750" y="64">5. Execute actions</text>
 
           <!-- Step 6 (969,151) — think -->
           <rect x="899" y="132" width="140" height="38" rx="8"
                 fill="rgba(122,184,200,0.12)" stroke="#7ab8c8" stroke-width="1.3"/>
-          <text x="969" y="150">6. Interpret response</text>
-          <text x="969" y="163" font-size="8.5" font-weight="400" fill="rgba(240,237,230,0.65)" font-style="italic">(think — feedback)</text>
+          <text x="969" y="155">6. Interpret response</text>
 
           <!-- Step 7 (1060,370) — think -->
           <rect x="990" y="351" width="140" height="38" rx="8"
                 fill="rgba(122,184,200,0.12)" stroke="#7ab8c8" stroke-width="1.3"/>
-          <text x="1060" y="369">7. Prune memory</text>
-          <text x="1060" y="382" font-size="8.5" font-weight="400" fill="rgba(240,237,230,0.65)" font-style="italic">(think)</text>
+          <text x="1060" y="374">7. Prune memory</text>
 
           <!-- Step 8 (969,589) — think -->
           <rect x="899" y="570" width="140" height="38" rx="8"
                 fill="rgba(122,184,200,0.12)" stroke="#7ab8c8" stroke-width="1.3"/>
-          <text x="969" y="588">8. Check the goal</text>
-          <text x="969" y="601" font-size="8.5" font-weight="400" fill="rgba(240,237,230,0.65)" font-style="italic">(think)</text>
+          <text x="969" y="593">8. Check the goal</text>
 
           <!-- Step 1 (act) — outside ring, far left, aligned with step 2 -->
           <rect x="60" y="569" width="220" height="40" rx="8"
                 fill="rgba(200,150,104,0.14)" stroke="#c89668" stroke-width="1.3"/>
-          <text x="170" y="588">1. Hydrate working memory</text>
-          <text x="170" y="602" font-size="8.5" font-weight="400" fill="rgba(240,237,230,0.65)" font-style="italic">(act — reads session file)</text>
+          <text x="170" y="593">1. Hydrate working memory</text>
 
           <!-- Step 9 (act) — outside ring, far right, aligned with step 8 -->
           <rect x="1220" y="569" width="220" height="40" rx="8"
                 fill="rgba(200,150,104,0.14)" stroke="#c89668" stroke-width="1.3"/>
-          <text x="1330" y="588">9. Persist working memory</text>
-          <text x="1330" y="602" font-size="8.5" font-weight="400" fill="rgba(240,237,230,0.65)" font-style="italic">(act — writes session file)</text>
+          <text x="1330" y="593">9. Persist working memory</text>
         </g>
 
         <!-- ====================================================================== -->
@@ -1107,19 +1099,39 @@
         <line x1="223" y1="569" x2="699" y2="389" stroke="#e8a020" stroke-width="1.3" marker-end="url(#wm-arr)"/>
         <text x="430" y="450" text-anchor="middle" font-size="9.5" fill="#e8a020" font-style="italic">write (hydrate)</text>
 
-        <!-- 2 -> WM (write: user message). NW 45° radius from step 2 to WM. -->
-        <line x1="550" y1="570" x2="711" y2="409" stroke="#e8a020" stroke-width="1.3" marker-end="url(#wm-arr)"/>
-        <text x="615" y="455" text-anchor="middle" font-size="9.5" fill="#e8a020" font-style="italic">write (msg)</text>
-
-        <!-- 5 -> WM (write: response). Vertical radius. -->
-        <line x1="750" y1="79" x2="750" y2="315" stroke="#e8a020" stroke-width="1.3" marker-end="url(#wm-arr)"/>
-        <text x="763" y="200" font-size="9.5" fill="#e8a020" font-style="italic">write (response)</text>
-
         <!-- WM -> 9 (read: whole WM). Radius (0.935, 0.353) from WM to step 9.
              Exits WM at lower-right edge (801.4, 389.4), enters step 9 top at
              (1277, 569). -->
         <line x1="801" y1="389" x2="1277" y2="569" stroke="#e8a020" stroke-width="1.3" stroke-dasharray="3,3" marker-end="url(#wm-arr)"/>
         <text x="1070" y="450" text-anchor="middle" font-size="9.5" fill="#e8a020" font-style="italic">read (whole WM)</text>
+
+        <!-- ====================================================================== -->
+        <!-- Tool + Outside info nodes (outside the agent loop, upper-right).        -->
+        <!-- Step 5 (Execute) dispatches an action to the Tool. The Tool talks to    -->
+        <!-- the Outside info source (read/write), then returns a response that      -->
+        <!-- feeds step 6 (Interpret).                                               -->
+        <!-- ====================================================================== -->
+        <!-- Tool (copper border — deterministic code) -->
+        <rect x="1100" y="130" width="160" height="50" rx="10"
+              fill="rgba(200,150,104,0.14)" stroke="#c89668" stroke-width="1.4"/>
+        <text x="1180" y="153" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Tool</text>
+        <text x="1180" y="169" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">deterministic code</text>
+
+        <!-- Outside info source (dashed white — beyond the agent's reach) -->
+        <rect x="1280" y="130" width="150" height="50" rx="10"
+              fill="#181818" stroke="#f0ede6" stroke-width="1.3" stroke-dasharray="4,3"/>
+        <text x="1355" y="160" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Outside info</text>
+
+        <!-- Step 5 -> Tool (action: execute the tool call) -->
+        <line x1="820" y1="60" x2="1100" y2="134" stroke="#c89668" stroke-width="1.5" marker-end="url(#sf-arr)"/>
+        <text x="945" y="80" text-anchor="middle" font-size="10" fill="#c89668" font-style="italic">action</text>
+
+        <!-- Tool <-> Outside info (read / write — bidirectional) -->
+        <line x1="1260" y1="155" x2="1280" y2="155" stroke="#c89668" stroke-width="1.5" marker-start="url(#sf-arr)" marker-end="url(#sf-arr)"/>
+
+        <!-- Tool -> Step 6 (feedback: the response that step 6 will interpret) -->
+        <line x1="1100" y1="165" x2="1039" y2="165" stroke="#7ab8c8" stroke-width="1.4" stroke-dasharray="4,3" marker-end="url(#think-arr)"/>
+        <text x="1070" y="158" text-anchor="middle" font-size="10" fill="#7ab8c8" font-style="italic">feedback</text>
 
       </svg>
     </div>
