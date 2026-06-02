@@ -197,7 +197,7 @@ What other agents or humans can see the work in progress and react in real time.
 
 ---
 
-@ai: review this document. Consider whether any of these levers can 
+@ai: review this document. Consider which of these levers can impact vigilance toil, not just work toil or token efficiency. Rule out any that don't impact vigilance toil. Give the reasons why each is ruled out, and what it can impact - just not vigilance.
 
 ## In-turn interactions — modeled and ruled out
 
