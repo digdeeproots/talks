@@ -381,7 +381,7 @@
        survey the full design surface (universe).
 
        Order today: formula reveal → goal (s20) → how (s26) →
-       customer model (s37a, s37b) → universe (s34) → safety vocabulary (s28) →
+       customer model (s37a-1..4, s37b) → universe (s34) → safety vocabulary (s28) →
        recipe (s27) → blank pivot → TOC.
 
        Archive table (was s24) has moved out of the front-half flow;
@@ -591,15 +591,215 @@
   </section>
   
   
-  <!-- 37a Understanding the customer (1/2) — the agent's turn loop.
-       Center: Working Memory (the agent's actual state).
-       Above: a literal thought-cloud showing that "think" is a dispatch out to the LLM,
-              the same shape as a tool call.
-       Right: an "Act (Tool call)" dispatch.
-       Both dispatches return by writing back to Working Memory.
-       Outside: File System (with Workflow files sub-region) and External Data Sources,
-              reachable only via the Act path; each edge labeled with which lever moderates it. -->
-  <section class="slide" id="s37a">
+  <!-- 37a Build (1/4) — Working Memory in detail.
+       Just WM, in full clarity: the four parts the agent's state is made of. -->
+  <section class="slide" id="s37a-1">
+    <div class="slide-content">
+      <p class="kicker">One Agent Turn</p>
+      <svg viewBox="0 0 1000 600" width="100%" style="max-height:78vh; display:block; margin: 0.2rem auto 0;" role="img">
+        <text x="500" y="60" text-anchor="middle" font-size="26" fill="#f0ede6" font-weight="700">Working Memory</text>
+        <text x="500" y="86" text-anchor="middle" font-size="13" fill="rgba(240,237,230,0.65)" font-style="italic">the agent's actual state &mdash; four named parts</text>
+
+        <circle cx="500" cy="340" r="230" fill="rgba(232,160,32,0.08)" stroke="#e8a020" stroke-width="2"/>
+
+        <!-- Quadrant separators (faint) -->
+        <line x1="500" y1="130" x2="500" y2="550" stroke="rgba(232,160,32,0.22)" stroke-width="1" stroke-dasharray="3,4"/>
+        <line x1="290" y1="340" x2="710" y2="340" stroke="rgba(232,160,32,0.22)" stroke-width="1" stroke-dasharray="3,4"/>
+
+        <g text-anchor="middle">
+          <!-- Top-left: turn goal -->
+          <text x="395" y="245" font-size="18" fill="#f0ede6" font-weight="700">turn goal</text>
+          <text x="395" y="268" font-size="11" fill="rgba(240,237,230,0.7)" font-style="italic">what we're trying</text>
+          <text x="395" y="282" font-size="11" fill="rgba(240,237,230,0.7)" font-style="italic">to do this turn</text>
+
+          <!-- Top-right: task list -->
+          <text x="605" y="245" font-size="18" fill="#f0ede6" font-weight="700">task list</text>
+          <text x="605" y="268" font-size="11" fill="rgba(240,237,230,0.7)" font-style="italic">the plan, with</text>
+          <text x="605" y="282" font-size="11" fill="rgba(240,237,230,0.7)" font-style="italic">what's done so far</text>
+
+          <!-- Bottom-left: documents -->
+          <text x="395" y="402" font-size="18" fill="#f0ede6" font-weight="700">documents</text>
+          <text x="395" y="425" font-size="11" fill="rgba(240,237,230,0.7)" font-style="italic">named text sequences</text>
+          <text x="395" y="439" font-size="11" fill="rgba(240,237,230,0.7)" font-style="italic">(files, notes, drafts)</text>
+
+          <!-- Bottom-right: typed-block DAG -->
+          <text x="605" y="402" font-size="18" fill="#f0ede6" font-weight="700">typed-block DAG</text>
+          <text x="605" y="425" font-size="11" fill="rgba(240,237,230,0.7)" font-style="italic">structured pieces</text>
+          <text x="605" y="439" font-size="11" fill="rgba(240,237,230,0.7)" font-style="italic">and how they relate</text>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+
+  <!-- 37a Build (2/4) — add the agent loop ring + one generic thought bubble.
+       WM compresses to a simple labeled circle; one generic "some question" bubble
+       sits in the annular space; outer dashed ring is the agent loop.
+       Three arrows: loop -> bubble -> WM -> loop. -->
+  <section class="slide" id="s37a-2">
+    <div class="slide-content">
+      <p class="kicker">One Agent Turn</p>
+      <svg viewBox="0 0 1200 700" width="100%" style="max-height:78vh; display:block; margin: 0.2rem auto 0;" role="img">
+        <defs>
+          <marker id="b2-cyc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#9aa0a8"/>
+          </marker>
+          <marker id="b2-think" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#7ab8c8"/>
+          </marker>
+          <marker id="b2-wm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#e8a020"/>
+          </marker>
+        </defs>
+
+        <!-- Outer agent loop ring (dashed) -->
+        <circle cx="600" cy="360" r="290" fill="none" stroke="rgba(154,160,168,0.55)" stroke-width="1.6" stroke-dasharray="6,5"/>
+        <text x="600" y="50" text-anchor="middle" font-size="14" fill="rgba(240,237,230,0.85)" font-weight="700" letter-spacing="2">AGENT LOOP</text>
+
+        <!-- Working Memory (center, compact) -->
+        <circle cx="600" cy="360" r="120" fill="rgba(232,160,32,0.10)" stroke="#e8a020" stroke-width="1.8"/>
+        <text x="600" y="320" text-anchor="middle" font-size="15" fill="#f0ede6" font-weight="700">Working Memory</text>
+        <line x1="520" y1="338" x2="680" y2="338" stroke="rgba(232,160,32,0.4)" stroke-width="0.8"/>
+        <g text-anchor="middle" font-size="11" fill="rgba(240,237,230,0.85)">
+          <text x="600" y="358">turn goal</text>
+          <text x="600" y="374">task list</text>
+          <text x="600" y="390">documents</text>
+          <text x="600" y="406">typed-block DAG</text>
+        </g>
+
+        <!-- One generic thought bubble in the annular space (top) -->
+        <g transform="translate(600,180)">
+          <ellipse cx="0" cy="0" rx="125" ry="40" fill="rgba(122,184,200,0.12)" stroke="#7ab8c8" stroke-width="1.4"/>
+          <circle cx="-58" cy="32" r="7" fill="rgba(122,184,200,0.12)" stroke="#7ab8c8" stroke-width="1.1"/>
+          <circle cx="-72" cy="44" r="3.5" fill="rgba(122,184,200,0.12)" stroke="#7ab8c8" stroke-width="0.9"/>
+          <text x="0" y="-6" text-anchor="middle" font-size="13" fill="#f0ede6" font-style="italic">some question</text>
+          <text x="0" y="14" text-anchor="middle" font-size="10.5" fill="rgba(240,237,230,0.7)" font-style="italic">"how should I update working memory?"</text>
+        </g>
+
+        <!-- Arrow 1: agent loop -> bubble (from top of ring, down to top of bubble) -->
+        <line x1="600" y1="76" x2="600" y2="138" stroke="#7ab8c8" stroke-width="1.6" marker-end="url(#b2-think)"/>
+        <text x="612" y="112" font-size="11" fill="#7ab8c8" font-style="italic">ask</text>
+
+        <!-- Arrow 2: bubble -> WM (from bottom of bubble down to top of WM) -->
+        <line x1="600" y1="222" x2="600" y2="238" stroke="#e8a020" stroke-width="1.6" marker-end="url(#b2-wm)"/>
+        <text x="612" y="234" font-size="11" fill="#e8a020" font-style="italic">write</text>
+
+        <!-- Arrow 3: WM -> agent loop (from right edge of WM, curving out to right edge of ring) -->
+        <path d="M 720,360 Q 800,360 890,360" fill="none" stroke="#9aa0a8" stroke-width="1.6" marker-end="url(#b2-cyc)"/>
+        <text x="800" y="350" text-anchor="middle" font-size="11" fill="rgba(240,237,230,0.75)" font-style="italic">next step</text>
+      </svg>
+    </div>
+  </section>
+
+
+  <!-- 37a Build (3/4) — add tools, outside info source, and the "action" item.
+       Same loop + bubble + WM, but now the loop dispatches an Action (tool / params /
+       interpret-prompt) to a Tool, which reaches an Outside Info Source and returns
+       through the bubble back to WM. -->
+  <section class="slide" id="s37a-3">
+    <div class="slide-content">
+      <p class="kicker">One Agent Turn</p>
+      <svg viewBox="0 0 1400 720" width="100%" style="max-height:78vh; display:block; margin: 0.2rem auto 0;" role="img">
+        <defs>
+          <marker id="b3-cyc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#9aa0a8"/>
+          </marker>
+          <marker id="b3-think" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#7ab8c8"/>
+          </marker>
+          <marker id="b3-wm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#e8a020"/>
+          </marker>
+          <marker id="b3-act" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#c89668"/>
+          </marker>
+        </defs>
+
+        <!-- Outer agent loop ring (dashed) -->
+        <circle cx="500" cy="360" r="280" fill="none" stroke="rgba(154,160,168,0.55)" stroke-width="1.5" stroke-dasharray="6,5"/>
+        <text x="500" y="60" text-anchor="middle" font-size="13" fill="rgba(240,237,230,0.85)" font-weight="700" letter-spacing="2">AGENT LOOP</text>
+
+        <!-- Working Memory -->
+        <circle cx="500" cy="360" r="100" fill="rgba(232,160,32,0.10)" stroke="#e8a020" stroke-width="1.6"/>
+        <text x="500" y="326" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Working Memory</text>
+        <line x1="430" y1="342" x2="570" y2="342" stroke="rgba(232,160,32,0.4)" stroke-width="0.8"/>
+        <g text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.85)">
+          <text x="500" y="360">turn goal</text>
+          <text x="500" y="374">task list</text>
+          <text x="500" y="388">documents</text>
+          <text x="500" y="402">typed-block DAG</text>
+        </g>
+
+        <!-- Thought bubble (top, annular space) -->
+        <g transform="translate(500,190)">
+          <ellipse cx="0" cy="0" rx="110" ry="34" fill="rgba(122,184,200,0.12)" stroke="#7ab8c8" stroke-width="1.3"/>
+          <circle cx="-50" cy="26" r="6" fill="rgba(122,184,200,0.12)" stroke="#7ab8c8" stroke-width="1"/>
+          <circle cx="-62" cy="36" r="3" fill="rgba(122,184,200,0.12)" stroke="#7ab8c8" stroke-width="0.8"/>
+          <text x="0" y="-4" text-anchor="middle" font-size="12" fill="#f0ede6" font-style="italic">some question</text>
+          <text x="0" y="13" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">"how should I update WM?"</text>
+        </g>
+
+        <!-- Arrow A: agent loop -> bubble (think dispatch, retained from slide 2) -->
+        <line x1="500" y1="80" x2="500" y2="150" stroke="#7ab8c8" stroke-width="1.4" marker-end="url(#b3-think)"/>
+        <text x="510" y="120" font-size="10.5" fill="#7ab8c8" font-style="italic">ask</text>
+
+        <!-- Arrow B: bubble -> WM (write) -->
+        <line x1="500" y1="226" x2="500" y2="258" stroke="#e8a020" stroke-width="1.4" marker-end="url(#b3-wm)"/>
+        <text x="510" y="248" font-size="10.5" fill="#e8a020" font-style="italic">write</text>
+
+        <!-- Arrow C: WM -> agent loop (advance) -->
+        <path d="M 500,460 Q 500,520 500,560" fill="none" stroke="#9aa0a8" stroke-width="1.4" marker-end="url(#b3-cyc)"/>
+        <text x="512" y="520" font-size="10.5" fill="rgba(240,237,230,0.75)" font-style="italic">next step</text>
+
+        <!-- ============================================ -->
+        <!-- NEW on this slide: tool path + Action item -->
+        <!-- ============================================ -->
+
+        <!-- Tool box (outside the loop, right side) -->
+        <rect x="940" y="320" width="180" height="80" rx="10" fill="rgba(200,150,104,0.14)" stroke="#c89668" stroke-width="1.6"/>
+        <text x="1030" y="352" text-anchor="middle" font-size="14" fill="#f0ede6" font-weight="700">Tool</text>
+        <text x="1030" y="375" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">deterministic code</text>
+
+        <!-- Outside info source (further right) -->
+        <rect x="1220" y="320" width="160" height="80" rx="10" fill="rgba(255,255,255,0.05)" stroke="#f0ede6" stroke-width="1.4" stroke-dasharray="4,3"/>
+        <text x="1300" y="352" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Outside info</text>
+        <text x="1300" y="372" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.65)" font-style="italic">files, APIs, the world</text>
+
+        <!-- Arrow D: agent loop -> tool (with action item card) -->
+        <line x1="780" y1="340" x2="940" y2="340" stroke="#c89668" stroke-width="1.5" marker-end="url(#b3-act)"/>
+
+        <!-- Action card on arrow D -->
+        <g>
+          <rect x="800" y="232" width="120" height="78" rx="8" fill="rgba(192,154,96,0.10)" stroke="#c09a60" stroke-width="1.3"/>
+          <text x="860" y="248" text-anchor="middle" font-size="10.5" fill="#c09a60" font-weight="700" letter-spacing="1">ACTION</text>
+          <line x1="812" y1="254" x2="908" y2="254" stroke="rgba(192,154,96,0.4)" stroke-width="0.8"/>
+          <text x="860" y="270" text-anchor="middle" font-size="11" fill="#f0ede6">tool</text>
+          <text x="860" y="285" text-anchor="middle" font-size="11" fill="#f0ede6">params</text>
+          <text x="860" y="300" text-anchor="middle" font-size="11" fill="#f0ede6">interpret prompt</text>
+          <!-- connector from card down to arrow -->
+          <line x1="860" y1="310" x2="860" y2="334" stroke="rgba(192,154,96,0.55)" stroke-width="1" stroke-dasharray="2,3"/>
+        </g>
+
+        <!-- Arrow E: tool -> outside info -->
+        <line x1="1120" y1="350" x2="1220" y2="350" stroke="#c89668" stroke-width="1.4" marker-end="url(#b3-act)"/>
+        <text x="1170" y="342" text-anchor="middle" font-size="10" fill="#c89668" font-style="italic">call</text>
+
+        <!-- Arrow F: outside info -> tool (return) -->
+        <line x1="1220" y1="378" x2="1120" y2="378" stroke="#c89668" stroke-width="1.4" stroke-dasharray="4,3" marker-end="url(#b3-act)"/>
+        <text x="1170" y="396" text-anchor="middle" font-size="10" fill="#c89668" font-style="italic">response</text>
+
+        <!-- Arrow G: tool -> thought bubble (interpret via the bubble) -->
+        <path d="M 940,330 Q 800,260 615,194" fill="none" stroke="#7ab8c8" stroke-width="1.4" stroke-dasharray="4,3" marker-end="url(#b3-think)"/>
+        <text x="780" y="240" text-anchor="middle" font-size="10.5" fill="#7ab8c8" font-style="italic">interpret</text>
+      </svg>
+    </div>
+  </section>
+
+
+  <!-- 37a Build (4/4) — Decompose the agent loop into the actual 9 steps,
+       with a specific thought bubble for each thinking moment.
+       (This was the original s37a.) -->
+  <section class="slide" id="s37a-4">
     <div class="slide-content">
       <p class="kicker">One Agent Turn</p>
       <svg viewBox="0 0 1400 720" width="100%" style="max-height:78vh; display:block; margin: 0.2rem auto 0;" role="img">
@@ -821,26 +1021,6 @@
         </g>
         <line x1="900" y1="246" x2="880" y2="270" stroke="#7ab8c8" stroke-width="1.2" marker-end="url(#think-arr)"/>
         <line x1="800" y1="305" x2="770" y2="328" stroke="#7ab8c8" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#think-arr)"/>
-
-        <!-- ====================================================================== -->
-        <!-- Legend (bottom)                                                          -->
-        <!-- ====================================================================== -->
-        <g transform="translate(60,650)" font-size="10">
-          <line x1="0" y1="0" x2="24" y2="0" stroke="#9aa0a8" stroke-width="1.5" marker-end="url(#cyc-arr)"/>
-          <text x="32" y="4" fill="rgba(240,237,230,0.7)">sequence</text>
-
-          <line x1="160" y1="0" x2="184" y2="0" stroke="#7ab8c8" stroke-width="1.2" marker-end="url(#think-arr)"/>
-          <text x="192" y="4" fill="rgba(240,237,230,0.7)">think dispatch (step &rarr; bubble)</text>
-
-          <line x1="460" y1="0" x2="484" y2="0" stroke="#7ab8c8" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#think-arr)"/>
-          <text x="492" y="4" fill="rgba(240,237,230,0.7)">think result (bubble &rarr; WM)</text>
-
-          <line x1="780" y1="0" x2="804" y2="0" stroke="#e8a020" stroke-width="1.3" marker-end="url(#wm-arr)"/>
-          <text x="812" y="4" fill="rgba(240,237,230,0.7)">direct WM read / write</text>
-
-          <line x1="1080" y1="0" x2="1104" y2="0" stroke="#c89668" stroke-width="1.4" marker-end="url(#sf-arr)"/>
-          <text x="1112" y="4" fill="rgba(240,237,230,0.7)">session file read / write</text>
-        </g>
       </svg>
     </div>
   </section>
