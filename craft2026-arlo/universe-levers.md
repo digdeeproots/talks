@@ -197,6 +197,8 @@ What other agents or humans can see the work in progress and react in real time.
 
 ---
 
+@ai: review this document. Consider whether any of these levers can 
+
 ## In-turn interactions — modeled and ruled out
 
 In principle, an agent could be interrupted mid-turn, or receive additional messages between its initial input and its final output. These look like new levers, but every concrete benefit they offer can be obtained via existing levers, and they require continuous real-time vigilance by some external actor — which violates the carelessness goal. They are listed here to be explicitly **crossed out** as redundant.
