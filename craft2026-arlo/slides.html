@@ -1162,8 +1162,8 @@
 
 
   <!-- 37b Understanding the customer (2/2) - between turns.
-       Two turn instances (N and N+1) with the at-rest session file between them:
-       turn-N outputs = turn-(N+1) inputs. Badges grouped by where each lever acts. -->
+       Five sequential operations sit between Turn N and Turn N+1.
+       Each operation is the home of exactly one lever. -->
   <section class="slide" id="s37b">
     <div class="slide-content">
       <p class="kicker">Understanding the customer &middot; 2 of 2</p>
@@ -1176,67 +1176,68 @@
         </defs>
 
         <!-- Turn N (left) -->
-        <circle cx="160" cy="270" r="100" fill="rgba(232,160,32,0.10)" stroke="#e8a020" stroke-width="1.6"/>
-        <text x="160" y="262" text-anchor="middle" font-size="14" fill="#f0ede6" font-weight="700">Turn N</text>
-        <text x="160" y="284" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">runs, finishes,</text>
-        <text x="160" y="298" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">writes session file</text>
+        <circle cx="50" cy="270" r="48" fill="rgba(232,160,32,0.10)" stroke="#e8a020" stroke-width="1.6"/>
+        <text x="50" y="266" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Turn</text>
+        <text x="50" y="284" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">N</text>
 
         <!-- Turn N+1 (right) -->
-        <circle cx="840" cy="270" r="100" fill="rgba(232,160,32,0.10)" stroke="#e8a020" stroke-width="1.6"/>
-        <text x="840" y="262" text-anchor="middle" font-size="14" fill="#f0ede6" font-weight="700">Turn N+1</text>
-        <text x="840" y="284" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">hydrates from</text>
-        <text x="840" y="298" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">session file, runs</text>
+        <circle cx="950" cy="270" r="48" fill="rgba(232,160,32,0.10)" stroke="#e8a020" stroke-width="1.6"/>
+        <text x="950" y="266" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Turn</text>
+        <text x="950" y="284" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">N+1</text>
 
-        <!-- At-rest session file (center) -->
-        <rect x="400" y="218" width="200" height="104" rx="12"
-              fill="rgba(255,255,255,0.05)" stroke="#f0ede6" stroke-width="1.4"/>
-        <text x="500" y="242" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Session File</text>
-        <text x="500" y="262" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">turn-N outputs</text>
-        <text x="500" y="278" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)">=</text>
-        <text x="500" y="294" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">turn-(N+1) inputs</text>
-        <text x="500" y="312" text-anchor="middle" font-size="9" fill="rgba(240,237,230,0.55)" font-style="italic">at rest &middot; editable &middot; forkable</text>
+        <!-- Five operation boxes. Each row: rect + step title + 2-line desc + lever badge.
+             Box geometry: x_left = 120 + i*155, width=125, y=200, height=140. -->
+        <g>
+          <!-- 1. Evaluate -> Feedback -->
+          <rect x="120" y="200" width="125" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
+          <text x="182.5" y="225" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Evaluate</text>
+          <text x="182.5" y="252" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">read commits, files,</text>
+          <text x="182.5" y="266" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">tool outputs</text>
+          <rect x="135" y="300" width="95" height="24" rx="12" fill="#0c0c0c" stroke="#e8a020" stroke-width="1"/>
+          <text x="182.5" y="317" text-anchor="middle" font-size="11" fill="#f0ede6" font-weight="700">Feedback</text>
 
-        <!-- Flow arrows -->
-        <line x1="260" y1="270" x2="398" y2="270" stroke="#9aa0a8" stroke-width="1.6" marker-end="url(#bt-arr)"/>
-        <line x1="602" y1="270" x2="738" y2="270" stroke="#9aa0a8" stroke-width="1.6" marker-end="url(#bt-arr)"/>
+          <!-- 2. Transform -> State control -->
+          <rect x="275" y="200" width="125" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
+          <text x="337.5" y="225" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Transform</text>
+          <text x="337.5" y="252" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">verify, archive, commit</text>
+          <text x="337.5" y="266" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">into the work product</text>
+          <rect x="285" y="300" width="105" height="24" rx="12" fill="#0c0c0c" stroke="#e8a020" stroke-width="1"/>
+          <text x="337.5" y="317" text-anchor="middle" font-size="11" fill="#f0ede6" font-weight="700">State control</text>
 
-        <!-- Badges on the turn-N -> file edge -->
-        <g font-size="11" fill="#f0ede6" font-weight="700" text-anchor="middle">
-          <rect x="270" y="158" width="160" height="24" rx="12" fill="#0c0c0c" stroke="#e8a020" stroke-width="1"/>
-          <text x="350" y="175">State control &middot; Feedback</text>
-          <text x="350" y="198" font-size="9" fill="rgba(240,237,230,0.6)" font-style="italic">evaluate commits, files, outputs</text>
+          <!-- 3. Reframe ask -> Goals -->
+          <rect x="430" y="200" width="125" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
+          <text x="492.5" y="225" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Reframe ask</text>
+          <text x="492.5" y="252" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">narrow or re-shape</text>
+          <text x="492.5" y="266" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">the next prompt</text>
+          <rect x="455" y="300" width="75" height="24" rx="12" fill="#0c0c0c" stroke="#e8a020" stroke-width="1"/>
+          <text x="492.5" y="317" text-anchor="middle" font-size="11" fill="#f0ede6" font-weight="700">Goals</text>
 
-          <rect x="270" y="352" width="160" height="24" rx="12" fill="#0c0c0c" stroke="#e8a020" stroke-width="1"/>
-          <text x="350" y="369">Workflow</text>
-          <text x="350" y="392" font-size="9" fill="rgba(240,237,230,0.6)" font-style="italic">run det. or non-det. software</text>
+          <!-- 4. Curate memory -> Memory -->
+          <rect x="585" y="200" width="125" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
+          <text x="647.5" y="225" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Curate memory</text>
+          <text x="647.5" y="252" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">edit or fork</text>
+          <text x="647.5" y="266" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">the session file</text>
+          <rect x="610" y="300" width="75" height="24" rx="12" fill="#0c0c0c" stroke="#e8a020" stroke-width="1"/>
+          <text x="647.5" y="317" text-anchor="middle" font-size="11" fill="#f0ede6" font-weight="700">Memory</text>
+
+          <!-- 5. Launch -> Workflow -->
+          <rect x="740" y="200" width="125" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
+          <text x="802.5" y="225" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Launch</text>
+          <text x="802.5" y="252" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">invoke (or skip)</text>
+          <text x="802.5" y="266" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">the next turn</text>
+          <rect x="750" y="300" width="105" height="24" rx="12" fill="#0c0c0c" stroke="#e8a020" stroke-width="1"/>
+          <text x="802.5" y="317" text-anchor="middle" font-size="11" fill="#f0ede6" font-weight="700">Workflow</text>
         </g>
 
-        <!-- Badges on the session file itself -->
-        <g font-size="11" fill="#f0ede6" font-weight="700" text-anchor="middle">
-          <rect x="420" y="140" width="160" height="24" rx="12" fill="#0c0c0c" stroke="#e8a020" stroke-width="1"/>
-          <text x="500" y="157">Memory</text>
-          <text x="500" y="178" font-size="9" fill="rgba(240,237,230,0.6)" font-style="italic">edit / fork the session file</text>
-
-          <rect x="420" y="408" width="160" height="24" rx="12" fill="#0c0c0c" stroke="#e8a020" stroke-width="1"/>
-          <text x="500" y="425">Reachable Context</text>
-          <text x="500" y="446" font-size="9" fill="rgba(240,237,230,0.6)" font-style="italic">change what info the next turn can see</text>
+        <!-- Sequence arrows: Turn N -> 1 -> 2 -> 3 -> 4 -> 5 -> Turn N+1 -->
+        <g stroke="#9aa0a8" stroke-width="1.6" fill="none">
+          <line x1="98"  y1="270" x2="118" y2="270" marker-end="url(#bt-arr)"/>
+          <line x1="245" y1="270" x2="273" y2="270" marker-end="url(#bt-arr)"/>
+          <line x1="400" y1="270" x2="428" y2="270" marker-end="url(#bt-arr)"/>
+          <line x1="555" y1="270" x2="583" y2="270" marker-end="url(#bt-arr)"/>
+          <line x1="710" y1="270" x2="738" y2="270" marker-end="url(#bt-arr)"/>
+          <line x1="865" y1="270" x2="900" y2="270" marker-end="url(#bt-arr)"/>
         </g>
-
-        <!-- Badges on the file -> turn-(N+1) edge -->
-        <g font-size="11" fill="#f0ede6" font-weight="700" text-anchor="middle">
-          <rect x="570" y="158" width="160" height="24" rx="12" fill="#0c0c0c" stroke="#e8a020" stroke-width="1"/>
-          <text x="650" y="175">Goals (next prompt)</text>
-          <text x="650" y="198" font-size="9" fill="rgba(240,237,230,0.6)" font-style="italic">narrow / re-shape the ask</text>
-
-          <rect x="570" y="352" width="160" height="24" rx="12" fill="#0c0c0c" stroke="#e8a020" stroke-width="1"/>
-          <text x="650" y="369">Identity</text>
-          <text x="650" y="392" font-size="9" fill="rgba(240,237,230,0.6)" font-style="italic">swap agent / system prompt</text>
-        </g>
-
-        <!-- Tooling across the whole gap -->
-        <rect x="420" y="472" width="160" height="24" rx="12" fill="#0c0c0c" stroke="#e8a020" stroke-width="1"/>
-        <text x="500" y="489" text-anchor="middle" font-size="11" fill="#f0ede6" font-weight="700">Tooling</text>
-        <text x="500" y="510" text-anchor="middle" font-size="9" fill="rgba(240,237,230,0.6)" font-style="italic">add or remove tools available to the next turn</text>
       </svg>
     </div>
   </section>
