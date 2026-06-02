@@ -1312,8 +1312,8 @@
           <text x="-10" y="6" font-size="15" font-weight="800" fill="#1a1a1a" letter-spacing="0.5">Goals</text>
         </g>
 
-        <!-- Vigilance: Memory — on WM circle -->
-        <g transform="translate(750 355) rotate(5)" filter="url(#sticker-shadow)">
+        <!-- Vigilance: Memory — on outgoing session file (the persisted state). -->
+        <g transform="translate(1330 478) rotate(5)" filter="url(#sticker-shadow)">
           <rect x="-58" y="-19" width="116" height="38" rx="19" fill="#e8a020" stroke="#5a3a00" stroke-width="2.2"/>
           <g color="#1a1a1a"><use href="#lever-icon" x="-50" y="-13" width="26" height="26"/></g>
           <text x="-16" y="6" font-size="15" font-weight="800" fill="#1a1a1a" letter-spacing="0.5">Memory</text>
@@ -1333,6 +1333,14 @@
           <text x="-70" y="6" font-size="15" font-weight="800" fill="#1a1a1a" letter-spacing="0.5">Reachable Context</text>
         </g>
 
+        <!-- Vigilance: State control — just below Reachable Context, on the
+             Tool -> outside read/write traffic. -->
+        <g transform="translate(1380 195) rotate(-6)" filter="url(#sticker-shadow)">
+          <rect x="-85" y="-19" width="170" height="38" rx="19" fill="#e8a020" stroke="#5a3a00" stroke-width="2.2"/>
+          <g color="#1a1a1a"><use href="#lever-icon" x="-77" y="-13" width="26" height="26"/></g>
+          <text x="-44" y="6" font-size="15" font-weight="800" fill="#1a1a1a" letter-spacing="0.5">State control</text>
+        </g>
+
         <!-- Vigilance: Feedback — on Tool -> Step 6 edge -->
         <g transform="translate(1070 180) rotate(-4)" filter="url(#sticker-shadow)">
           <rect x="-62" y="-19" width="124" height="38" rx="19" fill="#e8a020" stroke="#5a3a00" stroke-width="2.2"/>
@@ -1340,43 +1348,11 @@
           <text x="-22" y="6" font-size="15" font-weight="800" fill="#1a1a1a" letter-spacing="0.5">Feedback</text>
         </g>
 
-        <!-- Vigilance: State control — on Tool <-> outside read/write fan -->
-        <g transform="translate(1180 290) rotate(6)" filter="url(#sticker-shadow)">
-          <rect x="-85" y="-19" width="170" height="38" rx="19" fill="#e8a020" stroke="#5a3a00" stroke-width="2.2"/>
-          <g color="#1a1a1a"><use href="#lever-icon" x="-77" y="-13" width="26" height="26"/></g>
-          <text x="-44" y="6" font-size="15" font-weight="800" fill="#1a1a1a" letter-spacing="0.5">State control</text>
-        </g>
-
-        <!-- Vigilance: Workflow — on incoming session file / step 1 area -->
-        <g transform="translate(170 478) rotate(-6)" filter="url(#sticker-shadow)">
-          <rect x="-62" y="-19" width="124" height="38" rx="19" fill="#e8a020" stroke="#5a3a00" stroke-width="2.2"/>
-          <g color="#1a1a1a"><use href="#lever-icon" x="-54" y="-13" width="26" height="26"/></g>
-          <text x="-22" y="6" font-size="15" font-weight="800" fill="#1a1a1a" letter-spacing="0.5">Workflow</text>
-        </g>
-
-        <!-- Toil-only: Identity — above the ring -->
-        <g transform="translate(940 30) rotate(4)" filter="url(#sticker-shadow)">
-          <rect x="-58" y="-19" width="116" height="38" rx="19" fill="#556475" stroke="#1f2c38" stroke-width="2.2"/>
-          <g color="#f0ede6"><use href="#lever-icon" x="-50" y="-13" width="26" height="26"/></g>
-          <text x="-18" y="6" font-size="15" font-weight="800" fill="#f0ede6" letter-spacing="0.5">Identity</text>
-        </g>
-
-        <!-- Toil-only: Adjacency — on outgoing session file -->
-        <g transform="translate(1330 478) rotate(6)" filter="url(#sticker-shadow)">
-          <rect x="-65" y="-19" width="130" height="38" rx="19" fill="#556475" stroke="#1f2c38" stroke-width="2.2"/>
-          <g color="#f0ede6"><use href="#lever-icon" x="-57" y="-13" width="26" height="26"/></g>
-          <text x="-24" y="6" font-size="15" font-weight="800" fill="#f0ede6" letter-spacing="0.5">Adjacency</text>
-        </g>
-
         <!-- Legend (top-left), small but matching sticker style -->
         <g transform="translate(80 30)" filter="url(#sticker-shadow)">
           <rect x="0" y="0" width="14" height="14" rx="3" fill="#e8a020" stroke="#5a3a00" stroke-width="1.5"/>
         </g>
         <text x="100" y="42" font-size="11" font-weight="700" fill="#e8a020">vigilance lever</text>
-        <g transform="translate(80 50)" filter="url(#sticker-shadow)">
-          <rect x="0" y="0" width="14" height="14" rx="3" fill="#556475" stroke="#1f2c38" stroke-width="1.5"/>
-        </g>
-        <text x="100" y="62" font-size="11" font-weight="700" fill="#7f8a93">toil-only lever</text>
 
       </svg>
     </div>
@@ -1384,8 +1360,8 @@
 
 
   <!-- 37b Understanding the customer (2/2) - between turns.
-       Four sequential operations sit between Turn N and Turn N+1.
-       Each operation is the home of exactly one lever. -->
+       Five sequential operations sit between Turn N and Turn N+1.
+       Each operation is the home of one lever (Identity is toil-only). -->
   <section class="slide" id="s37b">
     <div class="slide-content">
       <p class="kicker">Understanding the customer &middot; 2 of 2</p>
@@ -1415,28 +1391,34 @@
         <text x="950" y="266" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Turn</text>
         <text x="950" y="284" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">N+1</text>
 
-        <!-- Four operation boxes. Each row: rect + step title + 2-line desc. The
-             lever is shown as a sticker overlay below (see sticker block). -->
+        <!-- Five operation boxes. Each row: rect + step title + 2-line desc. The
+             lever is shown as a sticker overlay below (see sticker block).
+             Box geometry: width=130, gap=30, y=200, height=140. -->
         <g>
-          <rect x="120" y="200" width="150" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
-          <text x="195" y="232" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Transform</text>
-          <text x="195" y="262" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">verify, archive, commit</text>
-          <text x="195" y="276" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">into the work product</text>
+          <rect x="115" y="200" width="130" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
+          <text x="180" y="232" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Transform</text>
+          <text x="180" y="262" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">verify, archive,</text>
+          <text x="180" y="276" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">commit results</text>
 
-          <rect x="320" y="200" width="150" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
-          <text x="395" y="232" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Select next step</text>
-          <text x="395" y="262" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">which workflow runs,</text>
-          <text x="395" y="276" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">and who runs it</text>
+          <rect x="275" y="200" width="130" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
+          <text x="340" y="232" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Select next step</text>
+          <text x="340" y="262" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">choose which</text>
+          <text x="340" y="276" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">workflow runs</text>
 
-          <rect x="520" y="200" width="150" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
-          <text x="595" y="232" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Define request</text>
-          <text x="595" y="262" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">narrow / re-shape</text>
-          <text x="595" y="276" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">the next ask</text>
+          <rect x="435" y="200" width="130" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
+          <text x="500" y="232" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Define request</text>
+          <text x="500" y="262" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">narrow / re-shape</text>
+          <text x="500" y="276" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">the next ask</text>
 
-          <rect x="720" y="200" width="150" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
-          <text x="795" y="232" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Curate memory</text>
-          <text x="795" y="262" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">edit or fork</text>
-          <text x="795" y="276" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">the session file</text>
+          <rect x="595" y="200" width="130" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
+          <text x="660" y="232" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Curate memory</text>
+          <text x="660" y="262" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">edit or fork</text>
+          <text x="660" y="276" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">the session file</text>
+
+          <rect x="755" y="200" width="130" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
+          <text x="820" y="232" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Pick agent</text>
+          <text x="820" y="262" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">swap agent, LLM,</text>
+          <text x="820" y="276" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">or system prompt</text>
         </g>
 
         <!-- ============================================================ -->
@@ -1445,38 +1427,38 @@
         <!-- ============================================================ -->
 
         <!-- State control sticker on Transform -->
-        <g transform="translate(195 330) rotate(-5)" filter="url(#sticker-shadow-b)">
+        <g transform="translate(180 330) rotate(-5)" filter="url(#sticker-shadow-b)">
           <rect x="-85" y="-19" width="170" height="38" rx="19" fill="#e8a020" stroke="#5a3a00" stroke-width="2.2"/>
           <g color="#1a1a1a"><use href="#lever-icon-b" x="-77" y="-13" width="26" height="26"/></g>
           <text x="-44" y="6" font-size="15" font-weight="800" fill="#1a1a1a" letter-spacing="0.5">State control</text>
         </g>
 
         <!-- Workflow sticker on Select next step -->
-        <g transform="translate(380 330) rotate(4)" filter="url(#sticker-shadow-b)">
+        <g transform="translate(340 330) rotate(4)" filter="url(#sticker-shadow-b)">
           <rect x="-62" y="-19" width="124" height="38" rx="19" fill="#e8a020" stroke="#5a3a00" stroke-width="2.2"/>
           <g color="#1a1a1a"><use href="#lever-icon-b" x="-54" y="-13" width="26" height="26"/></g>
           <text x="-22" y="6" font-size="15" font-weight="800" fill="#1a1a1a" letter-spacing="0.5">Workflow</text>
         </g>
 
-        <!-- Identity sticker (toil-only) also on Select next step -->
-        <g transform="translate(430 372) rotate(8)" filter="url(#sticker-shadow-b)">
-          <rect x="-58" y="-19" width="116" height="38" rx="19" fill="#556475" stroke="#1f2c38" stroke-width="2.2"/>
-          <g color="#f0ede6"><use href="#lever-icon-b" x="-50" y="-13" width="26" height="26"/></g>
-          <text x="-18" y="6" font-size="15" font-weight="800" fill="#f0ede6" letter-spacing="0.5">Identity</text>
-        </g>
-
         <!-- Goals sticker on Define request -->
-        <g transform="translate(595 330) rotate(-3)" filter="url(#sticker-shadow-b)">
+        <g transform="translate(500 330) rotate(-3)" filter="url(#sticker-shadow-b)">
           <rect x="-50" y="-19" width="100" height="38" rx="19" fill="#e8a020" stroke="#5a3a00" stroke-width="2.2"/>
           <g color="#1a1a1a"><use href="#lever-icon-b" x="-42" y="-13" width="26" height="26"/></g>
           <text x="-10" y="6" font-size="15" font-weight="800" fill="#1a1a1a" letter-spacing="0.5">Goals</text>
         </g>
 
         <!-- Memory sticker on Curate memory -->
-        <g transform="translate(795 330) rotate(6)" filter="url(#sticker-shadow-b)">
+        <g transform="translate(660 330) rotate(6)" filter="url(#sticker-shadow-b)">
           <rect x="-58" y="-19" width="116" height="38" rx="19" fill="#e8a020" stroke="#5a3a00" stroke-width="2.2"/>
           <g color="#1a1a1a"><use href="#lever-icon-b" x="-50" y="-13" width="26" height="26"/></g>
           <text x="-16" y="6" font-size="15" font-weight="800" fill="#1a1a1a" letter-spacing="0.5">Memory</text>
+        </g>
+
+        <!-- Identity sticker (toil-only) on Pick agent -->
+        <g transform="translate(820 330) rotate(-4)" filter="url(#sticker-shadow-b)">
+          <rect x="-58" y="-19" width="116" height="38" rx="19" fill="#556475" stroke="#1f2c38" stroke-width="2.2"/>
+          <g color="#f0ede6"><use href="#lever-icon-b" x="-50" y="-13" width="26" height="26"/></g>
+          <text x="-18" y="6" font-size="15" font-weight="800" fill="#f0ede6" letter-spacing="0.5">Identity</text>
         </g>
 
         <!-- Legend -->
@@ -1489,13 +1471,14 @@
         </g>
         <text x="60" y="62" font-size="11" font-weight="700" fill="#7f8a93">toil-only lever</text>
 
-        <!-- Sequence arrows: Turn N -> 1 -> 2 -> 3 -> 4 -> Turn N+1 -->
+        <!-- Sequence arrows: Turn N -> 1 -> 2 -> 3 -> 4 -> 5 -> Turn N+1 -->
         <g stroke="#9aa0a8" stroke-width="1.6" fill="none">
-          <line x1="98"  y1="270" x2="118" y2="270" marker-end="url(#bt-arr)"/>
-          <line x1="270" y1="270" x2="318" y2="270" marker-end="url(#bt-arr)"/>
-          <line x1="470" y1="270" x2="518" y2="270" marker-end="url(#bt-arr)"/>
-          <line x1="670" y1="270" x2="718" y2="270" marker-end="url(#bt-arr)"/>
-          <line x1="870" y1="270" x2="900" y2="270" marker-end="url(#bt-arr)"/>
+          <line x1="98"  y1="270" x2="113" y2="270" marker-end="url(#bt-arr)"/>
+          <line x1="245" y1="270" x2="273" y2="270" marker-end="url(#bt-arr)"/>
+          <line x1="405" y1="270" x2="433" y2="270" marker-end="url(#bt-arr)"/>
+          <line x1="565" y1="270" x2="593" y2="270" marker-end="url(#bt-arr)"/>
+          <line x1="725" y1="270" x2="753" y2="270" marker-end="url(#bt-arr)"/>
+          <line x1="885" y1="270" x2="900" y2="270" marker-end="url(#bt-arr)"/>
         </g>
       </svg>
     </div>
