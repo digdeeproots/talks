@@ -29,6 +29,8 @@ Lever names are still settling — current canonical names are listed first, wit
 
 ---
 
+@ai: globally rename all uses of "context" in any file in this talk. They must all use "Reachable Context".
+
 ## Reachable Context *(prior name: Context)*
 
 **What it is.** What information the agent can actually get to. Not "session context" — *reachability*. Which directories are in its search space, which tools surface other info, what generic search will stumble across, what is only findable by probing in a specific way.
