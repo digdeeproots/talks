@@ -578,8 +578,103 @@
     </div>
   </section>
   
-  @ai: introduce a new slide here, showing how we understand our customer (based on content in key-ideas.md). Show me the agent's in-turn cycle + the things we can swap out outside a turn. In the diagram, show working memory, file system, workflow files (special case of file system), and external data sources. Also distinguish built-in tools from added tools. Highlight the lines or boxes where we have levers (give them a label).
-  
+  <!-- 37 Understanding the customer — single diagram: the agent's in-turn cycle (center),
+       the things the agent reads/writes through tools (working memory, file system inc.
+       workflow files as a sub-region, external data sources), the tool box split into
+       built-in vs added, and the between-turn outer boundary with the things we can swap.
+       Every lever appears once as a labeled badge on a line or box. -->
+  <section class="slide" id="s37">
+    <div class="slide-content">
+      <p class="kicker">Understanding the customer</p>
+      <h2>Where the <span class="accent">levers</span> live.</h2>
+      <svg viewBox="0 0 1000 560" width="100%" style="max-height:64vh; display:block; margin: 0.6rem auto 0;" role="img">
+        <defs>
+          <marker id="cust-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#9aa0a8"/>
+          </marker>
+        </defs>
+
+        <!-- ── Between-turn outer boundary ── -->
+        <rect x="20" y="40" width="960" height="500" rx="18"
+              fill="rgba(255,255,255,0.02)"
+              stroke="rgba(240,237,230,0.32)" stroke-width="1.2" stroke-dasharray="8,5"/>
+        <text x="40" y="64" font-size="11" fill="rgba(240,237,230,0.55)" font-weight="700" letter-spacing="1.8">BETWEEN TURNS &mdash; what we can swap before re-invoking</text>
+
+        <!-- Between-turn lever badges along the outer edges -->
+        <g font-size="11" fill="#f0ede6" font-weight="700" text-anchor="middle">
+          <rect x="40" y="100" width="120" height="26" rx="13" fill="#0c0c0c" stroke="#e8a020" stroke-width="1"/>
+          <text x="100" y="118">Workflow</text>
+          <rect x="40" y="138" width="120" height="26" rx="13" fill="#0c0c0c" stroke="#e8a020" stroke-width="1"/>
+          <text x="100" y="156">Identity</text>
+          <rect x="840" y="100" width="120" height="26" rx="13" fill="#0c0c0c" stroke="#e8a020" stroke-width="1"/>
+          <text x="900" y="118">Goals (next prompt)</text>
+          <rect x="840" y="138" width="120" height="26" rx="13" fill="#0c0c0c" stroke="#e8a020" stroke-width="1"/>
+          <text x="900" y="156">Toolbox swap</text>
+        </g>
+
+        <!-- ── Center: the agent's in-turn cycle ── -->
+        <circle cx="500" cy="310" r="118" fill="rgba(232,160,32,0.10)" stroke="#e8a020" stroke-width="1.6"/>
+        <text x="500" y="284" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Agent (one turn)</text>
+        <text x="500" y="306" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">goal → pick action →</text>
+        <text x="500" y="320" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">execute → interpret →</text>
+        <text x="500" y="334" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">prune → check → loop</text>
+        <text x="500" y="358" text-anchor="middle" font-size="10" fill="rgba(232,160,32,0.85)" font-weight="700">Goals lever (turn goal)</text>
+
+        <!-- ── Working Memory (top) ── -->
+        <rect x="400" y="120" width="200" height="60" rx="10"
+              fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
+        <text x="500" y="146" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Working Memory</text>
+        <text x="500" y="166" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.65)" font-style="italic">tasks · documents · typed DAG</text>
+        <line x1="500" y1="180" x2="500" y2="192" stroke="#9aa0a8" stroke-width="1.4"/>
+        <line x1="500" y1="192" x2="500" y2="232" stroke="#9aa0a8" stroke-width="1.4" marker-end="url(#cust-arr)"/>
+        <rect x="540" y="188" width="80" height="22" rx="11" fill="#0c0c0c" stroke="#e8a020" stroke-width="1"/>
+        <text x="580" y="204" text-anchor="middle" font-size="11" fill="#e8a020" font-weight="700">Memory lever</text>
+
+        <!-- ── File System (left), with workflow-files sub-region ── -->
+        <rect x="40" y="220" width="200" height="120" rx="10"
+              fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
+        <text x="140" y="242" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">File System</text>
+        <rect x="60" y="258" width="160" height="60" rx="8"
+              fill="rgba(232,160,32,0.10)" stroke="#e8a020" stroke-width="1" stroke-dasharray="3,3"/>
+        <text x="140" y="278" text-anchor="middle" font-size="11" fill="#f0ede6" font-weight="700">Workflow files</text>
+        <text x="140" y="294" text-anchor="middle" font-size="9" fill="rgba(240,237,230,0.6)" font-style="italic">process docs, skills,</text>
+        <text x="140" y="307" text-anchor="middle" font-size="9" fill="rgba(240,237,230,0.6)" font-style="italic">"read this and follow it"</text>
+        <line x1="240" y1="290" x2="382" y2="305" stroke="#9aa0a8" stroke-width="1.4" marker-end="url(#cust-arr)"/>
+        <rect x="252" y="252" width="120" height="22" rx="11" fill="#0c0c0c" stroke="#e8a020" stroke-width="1"/>
+        <text x="312" y="268" text-anchor="middle" font-size="11" fill="#e8a020" font-weight="700">Reachable Context</text>
+
+        <!-- ── External Data Sources (right) ── -->
+        <rect x="760" y="220" width="200" height="120" rx="10"
+              fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
+        <text x="860" y="244" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">External Data Sources</text>
+        <text x="860" y="278" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.65)" font-style="italic">APIs, MCP servers,</text>
+        <text x="860" y="294" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.65)" font-style="italic">conversation I/O, network</text>
+        <line x1="760" y1="290" x2="618" y2="305" stroke="#9aa0a8" stroke-width="1.4" marker-end="url(#cust-arr)"/>
+        <rect x="628" y="252" width="120" height="22" rx="11" fill="#0c0c0c" stroke="#e8a020" stroke-width="1"/>
+        <text x="688" y="268" text-anchor="middle" font-size="11" fill="#e8a020" font-weight="700">Reachable Context</text>
+
+        <!-- ── Tools (bottom), split: built-in | added ── -->
+        <rect x="320" y="440" width="360" height="80" rx="10"
+              fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
+        <line x1="500" y1="440" x2="500" y2="520" stroke="rgba(240,237,230,0.35)" stroke-width="1" stroke-dasharray="3,3"/>
+        <text x="410" y="464" text-anchor="middle" font-size="12" fill="#f0ede6" font-weight="700">Built-in tools</text>
+        <text x="410" y="486" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.6)" font-style="italic">file ops, grep, edit,</text>
+        <text x="410" y="500" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.6)" font-style="italic">bash, web fetch</text>
+        <text x="590" y="464" text-anchor="middle" font-size="12" fill="#e8a020" font-weight="700">Added tools</text>
+        <text x="590" y="486" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.6)" font-style="italic">MCP servers,</text>
+        <text x="590" y="500" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.6)" font-style="italic">custom wrappers</text>
+        <line x1="500" y1="440" x2="500" y2="428" stroke="#9aa0a8" stroke-width="1.4" marker-end="url(#cust-arr)"/>
+        <rect x="540" y="416" width="100" height="22" rx="11" fill="#0c0c0c" stroke="#e8a020" stroke-width="1"/>
+        <text x="590" y="432" text-anchor="middle" font-size="11" fill="#e8a020" font-weight="700">Tooling lever</text>
+
+        <!-- ── State control + Feedback badge (ride on the agent↔tools edge) ── -->
+        <rect x="350" y="416" width="120" height="22" rx="11" fill="#0c0c0c" stroke="#e8a020" stroke-width="1"/>
+        <text x="410" y="432" text-anchor="middle" font-size="11" fill="#e8a020" font-weight="700">State control · Feedback</text>
+      </svg>
+      <p style="margin-top: 0.8rem; color: var(--dim); font-size: clamp(0.85rem, 1.3vw, 1.3rem); text-align: center;">Six surfaces. Every lever lives on one of them.</p>
+    </div>
+  </section>
+
   <!-- 35 Theory — three scopes of agentic illusion: LLM call, turn, workflow.
        Each panel shows the illusion the surface presents, the mechanism beneath,
        and the parts we can swap to break / re-shape it. -->
