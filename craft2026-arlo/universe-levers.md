@@ -29,11 +29,9 @@ Lever names are still settling — current canonical names are listed first, wit
 
 ---
 
-@ai: globally rename all uses of "context" in any file in this talk. They must all use "Reachable Context". That includes the below, the slides, the speaker notes, the key ideas, the stories, and anything else. Make it so that the word "context" never existed as a universe lever.
+## Reachable Context
 
-## Reachable Context *(prior name: Context)*
-
-**What it is.** What information the agent can actually get to. Not "session context" — *reachability*. Which directories are in its search space, which tools surface other info, what generic search will stumble across, what is only findable by probing in a specific way.
+**What it is.** What information the agent can actually get to. Reachability — not what is loaded into a turn, but what the agent can find. Which directories are in its search space, which tools surface other info, what generic search will stumble across, what is only findable by probing in a specific way.
 
 **Why it's a lever.** Reachability shapes what the agent considers. Hiding information removes it as a basis for decisions; surfacing information makes it salient. Curating reachability is a way of saying — through the structure of the environment, not through prompts — what is and isn't relevant.
 
@@ -150,11 +148,11 @@ The lever is distinct from State Control. State Control governs *what happens to
 A single agent turn is fully parameterized by four things. Three are already full levers; the fourth is a candidate (Identity, below).
 
 1. **Goal** — what the agent is asked to accomplish this turn. *(Goals lever.)*
-2. **Invocation context** — when this turn fires and what workflow surrounds it. *(Workflow lever.)*
+2. **Invocation** — when this turn fires and what workflow surrounds it. *(Workflow lever.)*
 3. **Memory** — what state the agent carries forward. *(Memory lever.)*
 4. **Identity** — who is being asked: agent software (Claude / dev.ai / OpenCoder / ...), LLM, system prompt, persona framing. *(Candidate lever — see below.)*
 
-In a short-invocation model — each agent takes one turn, then stops — three of these can hot-swap between turns: goal, invocation context, identity. Memory is the only thing that persists across turns, so **memory is the agent's identity in the durable sense**. Two consecutive turns with the same memory but different personas, LLMs, or agent software read as one agent reinterpreting its prior state, not two agents in conversation.
+In a short-invocation model — each agent takes one turn, then stops — three of these can hot-swap between turns: goal, invocation, identity. Memory is the only thing that persists across turns, so **memory is the agent's identity in the durable sense**. Two consecutive turns with the same memory but different personas, LLMs, or agent software read as one agent reinterpreting its prior state, not two agents in conversation.
 
 This framing collapses several earlier ideas. Cross-agent messages turn out to be a special case of turn-start input — already covered by Goal + Workflow. Adjacency (parallel visibility between concurrent agents) remains genuinely different; it is about *concurrent* turns, not sequential reinterpretation.
 
