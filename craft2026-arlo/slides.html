@@ -902,7 +902,7 @@
         <!-- Outermost = the AGENT LOOP (cycle of step boxes on a ring at r=310).    -->
         <!-- Faint dashed ring is just a guide; the cycle arcs trace the same circle.-->
         <!-- ====================================================================== -->
-        <circle cx="750" cy="370" r="310" fill="none" stroke="rgba(154,160,168,0.18)" stroke-width="1" stroke-dasharray="3,5"/>
+        <!-- The cycle arcs themselves trace the ring; no separate guide circle. -->
         <text x="750" y="28" text-anchor="middle" font-size="12" fill="rgba(240,237,230,0.6)" font-weight="700" letter-spacing="3">AGENT LOOP</text>
 
         <!-- Working Memory (small, no inner content) -->
@@ -915,22 +915,25 @@
         <!-- adjacent step boxes, trimmed at both ends so the arrowhead sits in      -->
         <!-- the gap between boxes.                                                  -->
         <!-- ====================================================================== -->
+        <!-- Each cycle arc starts at one step's CW-exit box-edge and ends at
+             the next step's CW-entry box-edge (computed as the ring/box
+             intersection points), so arrowheads land exactly on the box. -->
         <!-- 2 -> 3 -->
-        <path d="M 485.6 531.8 A 310 310 0 0 1 448.7 442.9" fill="none" stroke="#9aa0a8" stroke-width="1.7" marker-end="url(#cyc-arr)"/>
+        <path d="M 513.2 570 A 310 310 0 0 1 440.6 389" fill="none" stroke="#9aa0a8" stroke-width="1.7" marker-end="url(#cyc-arr)"/>
         <!-- 3 -> 4 -->
-        <path d="M 448.7 297.1 A 310 310 0 0 1 485.6 208.2" fill="none" stroke="#9aa0a8" stroke-width="1.7" marker-end="url(#cyc-arr)"/>
+        <path d="M 440.6 351 A 310 310 0 0 1 513.1 170" fill="none" stroke="#9aa0a8" stroke-width="1.7" marker-end="url(#cyc-arr)"/>
         <!-- 4 -> 5 -->
-        <path d="M 588.2 105.6 A 310 310 0 0 1 677.1 68.7" fill="none" stroke="#9aa0a8" stroke-width="1.7" marker-end="url(#cyc-arr)"/>
+        <path d="M 551.4 132 A 310 310 0 0 1 679.9 68.1" fill="none" stroke="#9aa0a8" stroke-width="1.7" marker-end="url(#cyc-arr)"/>
         <!-- 5 -> 6 -->
-        <path d="M 822.9 68.7 A 310 310 0 0 1 911.8 105.6" fill="none" stroke="#9aa0a8" stroke-width="1.7" marker-end="url(#cyc-arr)"/>
+        <path d="M 820.1 68.1 A 310 310 0 0 1 948.6 132" fill="none" stroke="#9aa0a8" stroke-width="1.7" marker-end="url(#cyc-arr)"/>
         <!-- 6 -> 7 -->
-        <path d="M 1014.4 208.2 A 310 310 0 0 1 1051.3 297.1" fill="none" stroke="#9aa0a8" stroke-width="1.7" marker-end="url(#cyc-arr)"/>
+        <path d="M 986.9 170 A 310 310 0 0 1 1059.4 351" fill="none" stroke="#9aa0a8" stroke-width="1.7" marker-end="url(#cyc-arr)"/>
         <!-- 7 -> 8 -->
-        <path d="M 1051.3 442.9 A 310 310 0 0 1 1014.4 531.8" fill="none" stroke="#9aa0a8" stroke-width="1.7" marker-end="url(#cyc-arr)"/>
+        <path d="M 1059.4 389 A 310 310 0 0 1 986.9 570" fill="none" stroke="#9aa0a8" stroke-width="1.7" marker-end="url(#cyc-arr)"/>
 
         <!-- "Not met" arc: step 8 -> step 2 clockwise across the bottom -->
-        <path d="M 911.8 634.4 A 310 310 0 0 1 588.2 634.4" fill="none" stroke="#9aa0a8" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#cyc-arr)"/>
-        <text x="750" y="688" text-anchor="middle" font-size="11" fill="rgba(240,237,230,0.7)" font-style="italic">not yet — loop back</text>
+        <path d="M 948.6 608 A 310 310 0 0 1 551.4 608" fill="none" stroke="#9aa0a8" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#cyc-arr)"/>
+        <text x="750" y="700" text-anchor="middle" font-size="11" fill="rgba(240,237,230,0.7)" font-style="italic">not yet — loop back</text>
 
         <!-- ====================================================================== -->
         <!-- Think bubbles (canonical #think-cloud), placed BETWEEN WM and the       -->
@@ -977,28 +980,29 @@
         <!-- Drawn radially: each step's arrow goes inward toward its bubble, and    -->
         <!-- each bubble's arrow continues inward to the WM edge.                    -->
         <!-- ====================================================================== -->
-        <!-- step 3 -> bubble 3 (rightward) -->
-        <line x1="510" y1="370" x2="555" y2="370" stroke="#7ab8c8" stroke-width="1.3" marker-end="url(#think-arr)"/>
-        <!-- bubble 3 -> WM (rightward to WM left edge) -->
-        <line x1="655" y1="370" x2="691" y2="370" stroke="#7ab8c8" stroke-width="1.3" stroke-dasharray="4,3" marker-end="url(#think-arr)"/>
+        <!-- All think arrows lie along the same WM radius as their step.
+             step → bubble → WM are three collinear segments on one radial line.
+             Each segment starts/ends exactly at the box edge / bubble edge /
+             WM edge so the arrowheads land cleanly. -->
 
-        <!-- step 4 -> bubble 4 (down-right) -->
-        <line x1="595" y1="180" x2="630" y2="240" stroke="#7ab8c8" stroke-width="1.3" marker-end="url(#think-arr)"/>
-        <!-- bubble 4 -> WM (down-right) -->
-        <line x1="668" y1="298" x2="716" y2="343" stroke="#7ab8c8" stroke-width="1.3" stroke-dasharray="4,3" marker-end="url(#think-arr)"/>
+        <!-- Step 3 radius (horizontal, y=370): box -> bubble -> WM -->
+        <line x1="510" y1="370" x2="560" y2="370" stroke="#7ab8c8" stroke-width="1.3" marker-end="url(#think-arr)"/>
+        <line x1="650" y1="370" x2="695" y2="370" stroke="#7ab8c8" stroke-width="1.3" stroke-dasharray="4,3" marker-end="url(#think-arr)"/>
 
-        <!-- step 6 -> bubble 6 (down-left) -->
-        <line x1="905" y1="180" x2="870" y2="240" stroke="#7ab8c8" stroke-width="1.3" marker-end="url(#think-arr)"/>
-        <!-- bubble 6 -> WM (down-left) -->
-        <line x1="832" y1="298" x2="784" y2="343" stroke="#7ab8c8" stroke-width="1.3" stroke-dasharray="4,3" marker-end="url(#think-arr)"/>
+        <!-- Step 4 radius (NW 45°, slope 1): box bottom -> bubble -> WM upper-left -->
+        <line x1="550" y1="170" x2="623" y2="243" stroke="#7ab8c8" stroke-width="1.3" marker-end="url(#think-arr)"/>
+        <line x1="673" y1="293" x2="711" y2="331" stroke="#7ab8c8" stroke-width="1.3" stroke-dasharray="4,3" marker-end="url(#think-arr)"/>
 
-        <!-- step 7 -> bubble 7 (leftward) -->
-        <line x1="990" y1="370" x2="945" y2="370" stroke="#7ab8c8" stroke-width="1.3" marker-end="url(#think-arr)"/>
-        <!-- bubble 7 -> WM (leftward to WM right edge) -->
-        <line x1="845" y1="370" x2="809" y2="370" stroke="#7ab8c8" stroke-width="1.3" stroke-dasharray="4,3" marker-end="url(#think-arr)"/>
+        <!-- Step 6 radius (NE 45°, slope -1): box bottom -> bubble -> WM upper-right -->
+        <line x1="950" y1="170" x2="877" y2="243" stroke="#7ab8c8" stroke-width="1.3" marker-end="url(#think-arr)"/>
+        <line x1="827" y1="293" x2="789" y2="331" stroke="#7ab8c8" stroke-width="1.3" stroke-dasharray="4,3" marker-end="url(#think-arr)"/>
 
-        <!-- step 8 -> bubble 8 (up-left) — step 8 has NO WM write (it just decides) -->
-        <line x1="905" y1="560" x2="870" y2="502" stroke="#7ab8c8" stroke-width="1.3" marker-end="url(#think-arr)"/>
+        <!-- Step 7 radius (horizontal, y=370): box -> bubble -> WM -->
+        <line x1="990" y1="370" x2="940" y2="370" stroke="#7ab8c8" stroke-width="1.3" marker-end="url(#think-arr)"/>
+        <line x1="850" y1="370" x2="805" y2="370" stroke="#7ab8c8" stroke-width="1.3" stroke-dasharray="4,3" marker-end="url(#think-arr)"/>
+
+        <!-- Step 8 radius (SE 45°): box top -> bubble. No WM write (step 8 only decides). -->
+        <line x1="950" y1="570" x2="877" y2="497" stroke="#7ab8c8" stroke-width="1.3" marker-end="url(#think-arr)"/>
 
         <!-- ====================================================================== -->
         <!-- Cycle step boxes on the outer ring (r=310 around 750,370).              -->
@@ -1090,26 +1094,32 @@
 
         <!-- 8 -> 9 (goal met) -->
         <line x1="1039" y1="589" x2="1220" y2="589" stroke="#9aa0a8" stroke-width="1.6" stroke-dasharray="6,4" marker-end="url(#cyc-arr)"/>
-        <text x="1130" y="580" text-anchor="middle" font-size="11" fill="rgba(240,237,230,0.85)" font-weight="700" font-style="italic">goal met</text>
+        <text x="1130" y="568" text-anchor="middle" font-size="11" fill="rgba(240,237,230,0.85)" font-weight="700" font-style="italic">goal met</text>
 
         <!-- ====================================================================== -->
-        <!-- Direct WM read/write arrows for the act-only steps (no think bubble).   -->
+        <!-- Direct WM read/write arrows for act steps. All four lie on the WM       -->
+        <!-- radius that passes through the step, so the arrow is one straight line  -->
+        <!-- from box-edge to WM-edge. Labels sit perpendicular-offset off the line. -->
         <!-- ====================================================================== -->
-        <!-- 1 -> WM (write: hydrate) -->
-        <path d="M 280 580 Q 480 500 705 388" fill="none" stroke="#e8a020" stroke-width="1.3" marker-end="url(#wm-arr)"/>
-        <text x="340" y="520" font-size="9.5" fill="#e8a020" font-style="italic">write (hydrate)</text>
+        <!-- 1 -> WM (write: hydrate). Step 1 outside ring; radius direction
+             (0.935, -0.353) from step 1 to WM. Exits step 1 top at (223, 569),
+             enters WM at lower-left edge (698.6, 389.4). -->
+        <line x1="223" y1="569" x2="699" y2="389" stroke="#e8a020" stroke-width="1.3" marker-end="url(#wm-arr)"/>
+        <text x="430" y="450" text-anchor="middle" font-size="9.5" fill="#e8a020" font-style="italic">write (hydrate)</text>
 
-        <!-- 2 -> WM (write: user message) -->
-        <line x1="585" y1="570" x2="712" y2="412" stroke="#e8a020" stroke-width="1.3" marker-end="url(#wm-arr)"/>
-        <text x="608" y="490" font-size="9.5" fill="#e8a020" font-style="italic">write (msg)</text>
+        <!-- 2 -> WM (write: user message). NW 45° radius from step 2 to WM. -->
+        <line x1="550" y1="570" x2="711" y2="409" stroke="#e8a020" stroke-width="1.3" marker-end="url(#wm-arr)"/>
+        <text x="615" y="455" text-anchor="middle" font-size="9.5" fill="#e8a020" font-style="italic">write (msg)</text>
 
-        <!-- 5 -> WM (write: response) -->
-        <line x1="750" y1="79" x2="750" y2="313" stroke="#e8a020" stroke-width="1.3" marker-end="url(#wm-arr)"/>
-        <text x="758" y="200" font-size="9.5" fill="#e8a020" font-style="italic">write (response)</text>
+        <!-- 5 -> WM (write: response). Vertical radius. -->
+        <line x1="750" y1="79" x2="750" y2="315" stroke="#e8a020" stroke-width="1.3" marker-end="url(#wm-arr)"/>
+        <text x="763" y="200" font-size="9.5" fill="#e8a020" font-style="italic">write (response)</text>
 
-        <!-- WM -> 9 (read: whole WM) -->
-        <path d="M 795 388 Q 1020 500 1220 580" fill="none" stroke="#e8a020" stroke-width="1.3" stroke-dasharray="3,3" marker-end="url(#wm-arr)"/>
-        <text x="1100" y="515" font-size="9.5" fill="#e8a020" font-style="italic">read (whole WM)</text>
+        <!-- WM -> 9 (read: whole WM). Radius (0.935, 0.353) from WM to step 9.
+             Exits WM at lower-right edge (801.4, 389.4), enters step 9 top at
+             (1277, 569). -->
+        <line x1="801" y1="389" x2="1277" y2="569" stroke="#e8a020" stroke-width="1.3" stroke-dasharray="3,3" marker-end="url(#wm-arr)"/>
+        <text x="1070" y="450" text-anchor="middle" font-size="9.5" fill="#e8a020" font-style="italic">read (whole WM)</text>
 
       </svg>
     </div>
