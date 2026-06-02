@@ -639,6 +639,671 @@
       </ul>
     </div>
   </section>
+  <!-- 34 Agent's Universe — the "where" of the two-part answer -->
+  <section class="slide img-bg bg-cr-developer" id="s34">
+    <div class="overlay"></div>
+    <div class="slide-content">
+      <p class="kicker">Where to push</p>
+      <h2>The agent's <span class="accent">universe</span></h2>
+      <p style="margin-top: 2.5rem; font-size: clamp(1rem, 1.8vw, 2rem); letter-spacing: 0.03em;">
+        Memory &nbsp;·&nbsp; Reachable Context &nbsp;·&nbsp; Goals &nbsp;·&nbsp; Tooling<br>
+        Workflow &nbsp;·&nbsp; State control &nbsp;·&nbsp; Feedback
+      </p>
+      <p style="margin-top: 1.8rem; color: var(--dim);">Each one a class of error you can address.</p>
+    </div>
+  </section>
+
+  <section class="slide" id="s28-alt-a">
+    <div class="slide-content">
+      <p class="kicker">Safety Categories</p>
+      <svg viewBox="0 0 1000 450" width="100%" style="max-height:66vh; display:block; margin:0.8rem auto 0;" role="img">
+        <defs>
+          <linearGradient id="lvl-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"  stop-color="#3a3a3a"/>
+            <stop offset="20%" stop-color="#5a4a3a"/>
+            <stop offset="40%" stop-color="#86663a"/>
+            <stop offset="60%" stop-color="#b78a3a"/>
+            <stop offset="80%" stop-color="#d99a30"/>
+            <stop offset="100%" stop-color="#e8a020"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Level names -->
+        <g font-size="15" fill="#f0ede6" text-anchor="middle" font-weight="700">
+          <text x="83"  y="38">Hope</text>
+          <text x="250" y="38">Vigilance</text>
+          <text x="417" y="38">Probabilistic</text>
+          <text x="583" y="38">Deterministic</text>
+          <text x="750" y="38">Prevention</text>
+          <text x="917" y="38">Carefree</text>
+        </g>
+
+        <!-- Gradient ladder bar -->
+        <rect x="0" y="90" width="1000" height="56" rx="6" fill="url(#lvl-grad)" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+
+        <!-- Per-level examples (human + AI pair), overlaid inside each gradient cell.
+             Each cell is ~167 wide and 56 tall, centered at y=118. The pair sits at
+             y=112 / y=126 so the two lines straddle that centerline. -->
+        <g font-size="9.5" text-anchor="middle" font-style="italic" fill="#ffffff" style="paint-order: stroke; stroke: rgba(0,0,0,0.55); stroke-width: 2px;">
+          <text x="83"  y="113">ship unreviewed</text>
+          <text x="83"  y="127">accept raw LLM output</text>
+          <text x="250" y="113">watch every keystroke</text>
+          <text x="250" y="127">read every generated line</text>
+          <text x="417" y="113">manual QA + checklist</text>
+          <text x="417" y="127">sampled prompt-evals</text>
+          <text x="583" y="113">unit tests</text>
+          <text x="583" y="127">schema validation</text>
+          <text x="750" y="113">type system</text>
+          <text x="750" y="127">no edit-file (AST only)</text>
+          <text x="917" y="113">IDE rename refactor</text>
+          <text x="917" y="127">version-aware migration</text>
+        </g>
+        <g stroke="rgba(0,0,0,0.45)" stroke-width="1.5">
+          <line x1="167" y1="90" x2="167" y2="146"/>
+          <line x1="333" y1="90" x2="333" y2="146"/>
+          <line x1="500" y1="90" x2="500" y2="146"/>
+          <line x1="667" y1="90" x2="667" y2="146"/>
+          <line x1="833" y1="90" x2="833" y2="146"/>
+        </g>
+        <text x="20"  y="175" font-size="11" fill="rgba(240,237,230,0.55)" font-style="italic">errors slip through</text>
+        <text x="980" y="175" font-size="11" fill="rgba(232,160,32,0.75)" text-anchor="end" font-style="italic">errors structurally impossible</text>
+
+        <!-- Cognitive-load header + compressed labels -->
+        <text x="500" y="270" text-anchor="middle" font-size="11" fill="rgba(192,154,96,0.85)" font-weight="700" letter-spacing="1.6">COGNITIVE LOAD &mdash; vigilance toil over time</text>
+        <g font-size="12" text-anchor="middle">
+          <text x="83"  y="305" fill="rgba(240,237,230,0.6)">Silent failure</text>
+          <text x="250" y="305" fill="#f0ede6">Watch always</text>
+          <text x="417" y="305" fill="#f0ede6">Background worry</text>
+          <text x="583" y="305" fill="#f0ede6">Focused watch</text>
+          <text x="750" y="305" fill="rgba(232,160,32,0.9)">Zero (in scope)</text>
+          <text x="917" y="305" fill="#e8a020" font-weight="700">Frees attention</text>
+        </g>
+
+        <!-- Cognitive-load sparklines. Each chart occupies a 150x52 box centered
+             under its column. Zero line (y_zero) sits 4px above the box bottom
+             at local y=48 (so y=332 in the global coordinate frame at top=284).
+             All zero lines align across the six. Y-axis = vigilance toil. -->
+        <g>
+          <!-- Hope @ x=83: low flat, then late spike (silent failure) -->
+          <g transform="translate(8,334)">
+            <rect x="0" y="0" width="150" height="52" rx="3" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)" stroke-width="0.8"/>
+            <line x1="0" y1="48" x2="150" y2="48" stroke="rgba(240,237,230,0.22)" stroke-width="0.8" stroke-dasharray="2,2"/>
+            <path d="M 4,46 L 110,46 L 115,8 L 120,6 L 146,0" fill="none" stroke="rgba(240,237,230,0.7)" stroke-width="1.6" stroke-linejoin="round"/>
+          </g>
+          <!-- Vigilance @ x=250: high constant -->
+          <g transform="translate(175,334)">
+            <rect x="0" y="0" width="150" height="52" rx="3" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)" stroke-width="0.8"/>
+            <line x1="0" y1="48" x2="150" y2="48" stroke="rgba(240,237,230,0.22)" stroke-width="0.8" stroke-dasharray="2,2"/>
+            <path d="M 4,12 L 146,12" fill="none" stroke="#f0ede6" stroke-width="1.6" stroke-linejoin="round"/>
+          </g>
+          <!-- Probabilistic @ x=417: mid-amplitude wavy -->
+          <g transform="translate(342,334)">
+            <rect x="0" y="0" width="150" height="52" rx="3" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)" stroke-width="0.8"/>
+            <line x1="0" y1="48" x2="150" y2="48" stroke="rgba(240,237,230,0.22)" stroke-width="0.8" stroke-dasharray="2,2"/>
+            <path d="M 4,28 Q 14,16 24,28 T 44,28 T 64,28 T 84,28 T 104,28 T 124,28 T 146,28" fill="none" stroke="#f0ede6" stroke-width="1.6" stroke-linejoin="round"/>
+          </g>
+          <!-- Deterministic @ x=583: low baseline, periodic narrow spikes -->
+          <g transform="translate(508,334)">
+            <rect x="0" y="0" width="150" height="52" rx="3" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)" stroke-width="0.8"/>
+            <line x1="0" y1="48" x2="150" y2="48" stroke="rgba(240,237,230,0.22)" stroke-width="0.8" stroke-dasharray="2,2"/>
+            <path d="M 4,46 L 24,46 L 28,18 L 32,46 L 60,46 L 64,18 L 68,46 L 96,46 L 100,18 L 104,46 L 132,46 L 136,18 L 140,46 L 146,46" fill="none" stroke="#f0ede6" stroke-width="1.6" stroke-linejoin="round"/>
+          </g>
+          <!-- Prevention @ x=750: flat on the zero line -->
+          <g transform="translate(675,334)">
+            <rect x="0" y="0" width="150" height="52" rx="3" fill="rgba(232,160,32,0.04)" stroke="rgba(232,160,32,0.18)" stroke-width="0.8"/>
+            <line x1="0" y1="48" x2="150" y2="48" stroke="rgba(240,237,230,0.22)" stroke-width="0.8" stroke-dasharray="2,2"/>
+            <path d="M 4,48 L 146,48" fill="none" stroke="rgba(232,160,32,0.9)" stroke-width="1.6" stroke-linejoin="round"/>
+          </g>
+          <!-- Carefree @ x=917: line dips below zero (negative toil) -->
+          <g transform="translate(842,334)">
+            <rect x="0" y="0" width="150" height="52" rx="3" fill="rgba(232,160,32,0.08)" stroke="rgba(232,160,32,0.28)" stroke-width="0.8"/>
+            <line x1="0" y1="48" x2="150" y2="48" stroke="rgba(240,237,230,0.22)" stroke-width="0.8" stroke-dasharray="2,2"/>
+            <path d="M 4,48 L 30,48 Q 60,48 75,52 T 120,48 L 146,48" fill="none" stroke="#e8a020" stroke-width="1.8" stroke-linejoin="round"/>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 27 The recipe — meta-pattern for engineering carelessness.
+       SVG is shared with the TOC hub; both call sites pull from recipe-svg.js. -->
+  <section class="slide" id="s27">
+    <div class="slide-content">
+      <p class="kicker">The recipe</p>
+      <h2 style="margin-bottom: 0.8rem;">Engineering <span class="accent">carelessness</span></h2>
+      <div data-recipe-svg-slot="display"></div>
+    </div>
+  </section>
+
+  <!-- 30 BLANK — pivot from upshift to audience-directed back half -->
+  <section class="slide blank" id="s30"></section>
+
+  <!-- ═══════════════════════════════════════════════════
+       SECTION 4: Walking the Universe (audience-directed via TOC)
+  ════════════════════════════════════════════════════ -->
+
+  <!-- 33 TOC HUB — sectioned: Case studies / Recipes / Closing -->
+  <section class="slide" id="s33">
+    <div class="slide-content">
+      <p class="kicker">Pick one to explore</p>
+      <h2>Agent's <span class="accent">Universe</span></h2>
+
+      <p class="toc-section-label">Case studies</p>
+      <div class="toc-grid">
+        <div class="toc-card" data-jump-to="s38">
+          <p class="kicker">Memory</p>
+          <h3>Decision inconsistency</h3>
+        </div>
+        <div class="toc-card" data-jump-to="s41">
+          <p class="kicker">Goals</p>
+          <h3>Consistency violation</h3>
+        </div>
+        <div class="toc-card" data-jump-to="s44">
+          <p class="kicker">Workflow</p>
+          <h3>Oversight gap</h3>
+        </div>
+        <div class="toc-card" data-jump-to="s47">
+          <p class="kicker">Tooling</p>
+          <h3>Scope enforcement</h3>
+        </div>
+        <div class="toc-card" data-jump-to="s50">
+          <p class="kicker">Tooling (operations)</p>
+          <h3>Accidental behavior change</h3>
+        </div>
+        <div class="toc-card" data-jump-to="s53">
+          <p class="kicker">State control</p>
+          <h3>Data loss (archive table)</h3>
+        </div>
+        <div class="toc-card toc-card-pending">
+          <p class="kicker">Feedback</p>
+          <h3>Story TBD</h3>
+        </div>
+      </div>
+
+      <p class="toc-section-label">Recipes</p>
+      <p class="toc-placeholder" style="margin-top: 0.4rem; margin-bottom: 0.8rem;">Click a step to walk its recipe + worked example.</p>
+      <div data-recipe-svg-slot="clickable" style="margin: 0 auto;"></div>
+
+      <p class="toc-section-label">Deep dive</p>
+      <div class="toc-grid" style="grid-template-columns: 1fr; margin-top: 0.6rem;">
+        <div class="toc-card" data-jump-to="s37a-1">
+          <p class="kicker">your customers</p>
+          <h3>Manipulating Coding Agents</h3>
+        </div>
+      </div>
+
+      <p class="toc-section-label">Closing</p>
+      <div class="toc-grid" style="grid-template-columns: 1fr; margin-top: 0.6rem;">
+        <div class="toc-card" data-jump-to="s56">
+          <p class="kicker">Synthesis</p>
+          <h3>Closing sequence</h3>
+        </div>
+      </div>
+
+      <p class="toc-placeholder">Each case study is 3 slides: starting state → intervention → name the experience.</p>
+    </div>
+  </section>
+
+  <!-- ── BEAT 1: Memory / Decision inconsistency ──────── -->
+
+  <!-- 38 Setup -->
+  <section class="slide" id="s38">
+    <div class="slide-content">
+      <p class="kicker">Discovery during demos</p>
+      <h2>Vigilance cost:<br><span class="accent">Decision inconsistency</span></h2>
+      <p style="margin-top: 2rem; color: var(--dim);">"Does this contradict a decision from earlier in the session?<br>Are we building on conflicting assumptions?"</p>
+    </div>
+  </section>
+
+  <!-- 39 Intervention — beat 1 -->
+  <section class="slide" id="s39">
+    <div class="slide-content">
+      <p class="kicker">Universe: Memory</p>
+      <ul class="story-list">
+        <li><em>Delete</em> completed stories entirely (don't mark done)</li>
+        <li>Rewrite all future stories to reflect the current direction</li>
+        <li>Clear agent context or rewrite session history</li>
+      </ul>
+      <p style="margin-top: 2.5rem;">
+        The AI cannot blend old ideas with new ones.<br>
+        It has no access to old ideas.
+      </p>
+      <p style="margin-top: 1rem; color: var(--dim);">This direction was always the plan. It doesn't know otherwise.</p>
+    </div>
+  </section>
+
+  <!-- 40 Name the experience — beat 1; next returns to TOC -->
+  <section class="slide" id="s40" data-return-to-toc="true">
+    <div class="slide-content">
+      <p class="kicker">Name the experience</p>
+      <ul class="name-list">
+        <li><strong class="accent">Scope</strong> Cross-session decision inconsistency.</li>
+        <li><strong class="accent">Cost to protect</strong> Zero — conflicting decisions are structurally impossible.</li>
+        <li><strong class="accent">Lever</strong> Memory.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── BEAT 2: Goals / Consistency violation ─────────── -->
+
+  <!-- 41 Setup -->
+  <section class="slide" id="s41">
+    <div class="slide-content">
+      <p class="kicker">Recurring structured output</p>
+      <h2>Vigilance cost:<br><span class="accent">Consistency violation</span></h2>
+      <p style="margin-top: 2rem; color: var(--dim);">"Does this follow the same structure as last time?<br>Did it invent something that drifts from the template?"</p>
+    </div>
+  </section>
+
+  <!-- 42 Intervention — beat 2 -->
+  <section class="slide img-bg" id="s42">
+    <div class="overlay"></div>
+    <div class="slide-content">
+      <p class="kicker">Universe: Goals</p>
+      <h2>From "write HTML email"<br> to "json → bullet points".</h2>
+      <p style="margin-top: 2rem; color: var(--dim);">Claude writes sentences.<br>Deterministic code assembles everything else.</p>
+      <p style="margin-top: 1.5rem;">
+        Structure, recipients, rendering:<br>
+        <span class="accent">zero-risk zones. Forever.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- 43 Name the experience — beat 2; next returns to TOC -->
+  <section class="slide" id="s43" data-return-to-toc="true">
+    <div class="slide-content">
+      <p class="kicker">Name the experience</p>
+      <ul class="name-list">
+        <li><strong class="accent">Scope</strong> Format and structure drift in recurring output.</li>
+        <li><strong class="accent">Cost to protect</strong> Zero — structure, recipients, rendering each become zero-risk zones.</li>
+        <li><strong class="accent">Lever</strong> Goals (structured spec).</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── BEAT 3: Workflow / Oversight gap ──────── -->
+
+  <!-- 44 Setup -->
+  <section class="slide img-bg" id="s44">
+    <div class="overlay"></div>
+    <div class="slide-content">
+      <p class="kicker">Session data fetching</p>
+      <h2>Vigilance cost:<br><span class="accent">Oversight mechanism gap</span></h2>
+      <p style="margin-top: 2rem; color: var(--dim);">"Did the AI keep going past the point<br>where I should have been consulted?"</p>
+    </div>
+  </section>
+
+  <!-- 45 Intervention — beat 3 -->
+  <section class="slide img-bg" id="s45">
+    <div class="slide-content">
+      <p class="kicker">Universe: Workflow</p>
+      <div class="two-up">
+        <div>
+          <p class="kicker">On success</p>
+          <h3>Claude is<br>never invoked.</h3>
+        </div>
+        <div>
+          <p class="kicker" style="color: var(--accent);">On failure</p>
+          <h3 class="accent">Claude is called<br>with the failure.</h3>
+        </div>
+      </div>
+      <p style="margin-top: 2.5rem; color: var(--dim);">The system only calls Claude<br>when deterministic code admits it can't handle something.</p>
+    </div>
+  </section>
+
+  <!-- 46 Name the experience — beat 3; next returns to TOC -->
+  <section class="slide" id="s46" data-return-to-toc="true">
+    <div class="slide-content">
+      <p class="kicker">Name the experience</p>
+      <ul class="name-list">
+        <li><strong class="accent">Scope</strong> Wrong-data fetching and over-eager step completion.</li>
+        <li><strong class="accent">Cost to protect</strong> Near zero — deterministic by default; the agent runs only on declared failure.</li>
+        <li><strong class="accent">Lever</strong> Workflow.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── BEAT 4: Tooling (access) / Scope enforcement ───── -->
+
+  <!-- 47 Setup -->
+  <section class="slide img-bg" id="s47">
+    <div class="overlay"></div>
+    <div class="slide-content">
+      <p class="kicker">Source control in an agentic codebase</p>
+      <h2>Vigilance cost:<br><span class="accent">Policy enforcement</span></h2>
+      <p style="margin-top: 2rem; color: var(--dim);">"Will the agent correctly follow our risk-aware commit notation policy?</p>
+    </div>
+  </section>
+
+  <!-- 48 Intervention — beat 4 -->
+  <section class="slide img-bg" id="s48">
+    <div class="overlay"></div>
+    <div class="slide-content">
+      <p class="kicker">Universe: Tooling</p>
+      <h2>Minions never touch <span class="accent">git.</span></h2>
+      <p style="margin-top: 2rem; color: var(--dim);">An MCP tool handles all branching.<br>All the right behaviors implemented. None of the wrong ones available.</p>
+      <p style="margin-top: 1.5rem;">
+        The AI cannot violate git invariants.<br>
+        because there's <span class="accent">nothing to route around.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- 49 Name the experience — beat 4; next returns to TOC -->
+  <section class="slide" id="s49" data-return-to-toc="true">
+    <div class="slide-content">
+      <p class="kicker">Name the experience</p>
+      <ul class="name-list">
+        <li><strong class="accent">Scope</strong> Git operations and the risk-notation policy.</li>
+        <li><strong class="accent">Cost to protect</strong> Zero — git invariants cannot be violated; nothing to route around.</li>
+        <li><strong class="accent">Lever</strong> Tooling.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── BEAT 5: Tooling (operations) / Behavior change ─── -->
+
+  <!-- 50 Setup -->
+  <section class="slide img-bg" id="s50">
+    <div class="overlay"></div>
+    <div class="slide-content">
+      <p class="kicker">Structural refactoring in legacy code</p>
+      <h2>Vigilance cost:<br><span class="accent">Accidental behavior change</span></h2>
+      <p style="margin-top: 2rem; color: var(--dim);">"Did my restructuring change what the code actually does?"</p>
+      <p style="margin-top: 1.5rem; font-style: italic; color: var(--dim); font-size: clamp(0.85rem, 1.4vw, 1.5rem);">AST tools solve this for human developers. What about AI?</p>
+    </div>
+  </section>
+
+  <!-- 51 Intervention — beat 5 -->
+  <section class="slide img-bg" id="s51">
+    <div class="overlay"></div>
+    <div class="slide-content">
+      <p class="kicker">Universe: Tooling</p>
+      <h2>No edit-file tool.<br>Only AST transformations.</h2>
+      <div class="two-up" style="margin-top: 2.5rem;">
+        <div>
+          <p class="kicker">Design correctness</p>
+          <p>AI can be wrong.<br>Undo is as easy as do.</p>
+        </div>
+        <div>
+          <p class="kicker" style="color: var(--accent);">Behavioral safety</p>
+          <p class="accent">Guaranteed by the tool.<br>Not possible to violate.</p>
+        </div>
+      </div>
+      <p style="margin-top: 2rem; color: var(--dim);">Only the first failure mode remains possible.</p>
+    </div>
+  </section>
+
+  <!-- 52 Name the experience — beat 5; next returns to TOC -->
+  <section class="slide" id="s52" data-return-to-toc="true">
+    <div class="slide-content">
+      <p class="kicker">Name the experience</p>
+      <ul class="name-list">
+        <li><strong class="accent">Scope</strong> Behavior preservation during refactoring.</li>
+        <li><strong class="accent">Cost to protect</strong> Zero within scope — behavioral safety guaranteed by the tool.</li>
+        <li><strong class="accent">Lever</strong> Tooling (operation semantics).</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── BEAT 6: Result handling / Data loss ────────────── -->
+
+  <!-- 53 Setup -->
+  <section class="slide img-bg" id="s53">
+    <div ></div>
+    <div class="slide-content">
+      <p class="kicker">Database migrations</p>
+      <!-- accent amber conflicts with volcanic orange lava; use --fg for legibility -->
+      <h2>Vigilance cost:<br><span style="color: var(--fg);">Data loss</span></h2>
+      <p style="margin-top: 2rem; color: var(--dim);">"Did the migration change what the data means?<br>Can I recover it if something went wrong?"</p>
+    </div>
+  </section>
+
+  <!-- 54 Intervention — beat 6 -->
+  <section class="slide img-bg" id="s54">
+    <div class="overlay"></div>
+    <div class="slide-content">
+      <p class="kicker">Universe: State control</p>
+      <div style="text-align: left; display: inline-block;">
+        <p style="margin-bottom: 1.2rem;">1. <span class="accent">Archive table</span> — all rows preserved before migration runs</p>
+        <p style="margin-bottom: 1.2rem;">2. <span class="accent">Bidirectional remapping</span> — deterministic verification before execution</p>
+        <p>3. <span class="accent">Extracted library</span> — AI writes definition only; library executes</p>
+      </div>
+      <p style="margin-top: 2rem; color: var(--dim);">Deterministic pre &nbsp;→&nbsp; <em>AI creative decision</em> &nbsp;→&nbsp; deterministic execution.</p>
+    </div>
+  </section>
+
+  <!-- 55 Name the experience — beat 6; next returns to TOC -->
+  <section class="slide" id="s55" data-return-to-toc="true">
+    <div class="slide-content">
+      <p class="kicker">Name the experience</p>
+      <ul class="name-list">
+        <li><strong class="accent">Scope</strong> Schema migrations against live data.</li>
+        <li><strong class="accent">Cost to protect</strong> Zero — data loss is structurally impossible.</li>
+        <li><strong class="accent">Lever</strong> State control (Determinism sandwich).</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       SECTION 5: Back to the Motorcar
+  ════════════════════════════════════════════════════ -->
+
+  <!-- 56 Universe crafting synthesis -->
+  <section class="slide img-bg bg-cr-migration" id="s56">
+    <div class="overlay"></div>
+    <div class="slide-content">
+      <p class="kicker">What we did each time</p>
+      <h2>We didn't ask for more care.<br>We redesigned the world.</h2>
+      <p style="margin-top: 2.5rem; color: var(--dim); font-size: clamp(0.9rem, 1.6vw, 1.8rem);">Memory &nbsp;·&nbsp; Goals &nbsp;·&nbsp; Workflow &nbsp;·&nbsp; Tooling &nbsp;·&nbsp; State control &nbsp;·&nbsp; Feedback</p>
+      <p style="margin-top: 1.5rem; color: var(--dim);">Each choice created a zero-risk zone.<br>Each zone permanently freed vigilance budget for the next thing.</p>
+    </div>
+  </section>
+
+  <!-- 58 Formula callback: vigilance toil is having to worry about stopping -->
+  <section class="slide" id="s58">
+    <div class="slide-content">
+      <p class="kicker">vigilance toil</p>
+      <p class="formula">
+        Vigilance Toil <span class="accent">∝</span>
+        <br>throughput
+        <br><span class="accent">×</span> amt to protect
+        <br><span class="accent">×</span> cost to protect
+      </p>
+      <p style="margin-top: 2.5rem; color: var(--dim);">Vigilance toil is the cost of having to worry<br>about whether you can stop.</p>
+    </div>
+  </section>
+
+  <!-- 10 AI = engine / Safety = brakes -->
+  <section class="slide img-bg bg-s40" id="s10">
+    <div class="overlay"></div>
+    <div class="slide-content">
+      <div class="two-up">
+        <div>
+          <p class="kicker">engine</p>
+          <h2>AI</h2>
+          <p style="margin-top: 1rem; color: var(--dim);">Throughput and skill.</p>
+        </div>
+        <div>
+          <p class="kicker" style="color: var(--accent);">brakes</p>
+          <h2 class="accent">Universe</h2>
+          <p style="margin-top: 1rem; color: var(--dim);">Careless AI still succeeds.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 60 Main quote payoff — last slide of closing sequence; next returns to TOC -->
+  <section class="slide img-bg bg-s36" id="s60" data-return-to-toc="true">
+    <div class="overlay"></div>
+    <div class="slide-content">
+      <p class="big-quote">
+        "Better brakes let you stop <em>caring</em> about stopping."
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       SECTION 5: Recipe mini-sequences (placeholders).
+       One pair per recipe step: 'a' = the concrete recipe,
+       'b' = a worked example. Last slide of each pair returns to TOC.
+       Reached from the clickable recipe diagram on the TOC.
+       Replace placeholder content as real recipes/examples mature.
+  ════════════════════════════════════════════════════ -->
+
+  <!-- STEP 1 — Apply the vigilance-as-process template -->
+  <section class="slide" id="s-rec-1a">
+    <div class="slide-content" style="text-align:left;">
+      <p class="kicker">Recipe &mdash; Step 1</p>
+      <h2 style="margin-bottom: 1.2rem;">Apply the vigilance-as-process template</h2>
+      <ol style="font-size: clamp(1rem, 1.7vw, 1.6rem); line-height: 1.55;">
+        <li>Pick the scope where carelessness will apply.</li>
+        <li>Stand up an <em>empty</em> guardian slot in your workflow.</li>
+        <li>Stand up a one-step workflow: in &rarr; agent &rarr; out.</li>
+        <li>Write down today's vigilance list &mdash; everything you currently watch for.</li>
+        <li>Build a partial spot-checker. Cover only what's easy to catch.</li>
+      </ol>
+    </div>
+  </section>
+  <section class="slide" id="s-rec-1b" data-return-to-toc="true">
+    <div class="slide-content" style="text-align:left;">
+      <p class="kicker">Worked example &mdash; release notes</p>
+      <h2 style="margin-bottom: 1rem;">Setting up the loop</h2>
+      <ul style="font-size: clamp(0.95rem, 1.5vw, 1.4rem); line-height: 1.6; list-style: none; padding: 0;">
+        <li><strong class="accent">Scope:</strong> release notes for the current sprint.</li>
+        <li><strong class="accent">Guardian slot:</strong> empty <code>notes-linter</code> stage in the pipeline.</li>
+        <li><strong class="accent">Workflow:</strong> changelog + ticket list &rarr; agent &rarr; draft.</li>
+        <li><strong class="accent">Vigilance list:</strong> tone drift, missed feature, leaked customer IDs, wrong version number.</li>
+        <li><strong class="accent">Spot-checker:</strong> regex that flags any line containing a customer-ID pattern.</li>
+      </ul>
+      <p style="margin-top: 1.4rem; color: var(--dim); font-size: 0.95em;">The loop is now standing. Time to start naming.</p>
+    </div>
+  </section>
+
+  <!-- STEP 2 — Name the vigilance -->
+  <section class="slide" id="s-rec-2a">
+    <div class="slide-content" style="text-align:left;">
+      <p class="kicker">Recipe &mdash; Step 2</p>
+      <h2 style="margin-bottom: 1.2rem;">Name the vigilance</h2>
+      <ol style="font-size: clamp(1rem, 1.7vw, 1.6rem); line-height: 1.55;">
+        <li>Watch yourself reviewing the agent's output.</li>
+        <li>Each correction: write the <em>why</em> in five words or fewer.</li>
+        <li>Group the why-notes into three to five error categories.</li>
+        <li>Pick the largest category. Give it a name.</li>
+      </ol>
+    </div>
+  </section>
+  <section class="slide" id="s-rec-2b" data-return-to-toc="true">
+    <div class="slide-content" style="text-align:left;">
+      <p class="kicker">Worked example &mdash; release notes</p>
+      <h2 style="margin-bottom: 1rem;">From corrections to a category</h2>
+      <ul style="font-size: clamp(0.95rem, 1.5vw, 1.4rem); line-height: 1.6; list-style: none; padding: 0;">
+        <li><strong class="accent">Tone too internal</strong> &mdash; 4 corrections.</li>
+        <li><strong class="accent">Missed feature</strong> &mdash; 3 corrections.</li>
+        <li><strong class="accent">Wrong version number</strong> &mdash; 2 corrections.</li>
+      </ul>
+      <p style="margin-top: 1.5rem; font-size: clamp(1.1rem, 2vw, 1.8rem);">Named category: <span class="accent">Tone drift</span>.</p>
+    </div>
+  </section>
+
+  <!-- STEP 3 — Identify a hole -->
+  <section class="slide" id="s-rec-3a">
+    <div class="slide-content" style="text-align:left;">
+      <p class="kicker">Recipe &mdash; Step 3</p>
+      <h2 style="margin-bottom: 1.2rem;">Identify a hole</h2>
+      <ol style="font-size: clamp(1rem, 1.7vw, 1.6rem); line-height: 1.55;">
+        <li>Run the current spot-checker on a fresh agent output.</li>
+        <li>Compare its findings against your manual review.</li>
+        <li>What you caught but it missed = a hole. Write it down.</li>
+      </ol>
+    </div>
+  </section>
+  <section class="slide" id="s-rec-3b" data-return-to-toc="true">
+    <div class="slide-content" style="text-align:left;">
+      <p class="kicker">Worked example &mdash; release notes</p>
+      <h2 style="margin-bottom: 1rem;">A hole in the tone check</h2>
+      <ul style="font-size: clamp(0.95rem, 1.5vw, 1.4rem); line-height: 1.6; list-style: none; padding: 0;">
+        <li>Spot-checker flagged tone drift in <strong class="accent">2 of 4</strong> known cases.</li>
+        <li>Common factor in the misses: features written in past tense.</li>
+        <li><strong class="accent">Hole:</strong> past-tense phrasing bypasses the current pattern.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- STEP 4 — Lock one error category -->
+  <section class="slide" id="s-rec-4a">
+    <div class="slide-content" style="text-align:left;">
+      <p class="kicker">Recipe &mdash; Step 4</p>
+      <h2 style="margin-bottom: 1.2rem;">Lock one error category</h2>
+      <ol style="font-size: clamp(1rem, 1.7vw, 1.6rem); line-height: 1.55;">
+        <li>Pick the hole you understand best.</li>
+        <li>Choose a universe lever that structurally prevents that class.</li>
+        <li>Implement the change. Re-run against every prior failure case.</li>
+      </ol>
+    </div>
+  </section>
+  <section class="slide" id="s-rec-4b" data-return-to-toc="true">
+    <div class="slide-content" style="text-align:left;">
+      <p class="kicker">Worked example &mdash; release notes</p>
+      <h2 style="margin-bottom: 1rem;">Locking tone drift with Tooling</h2>
+      <ul style="font-size: clamp(0.95rem, 1.5vw, 1.4rem); line-height: 1.6; list-style: none; padding: 0;">
+        <li><strong class="accent">Lever chosen:</strong> Tooling.</li>
+        <li>Replace the freeform draft tool with a structured template that constrains tone via the schema (verb tense fixed; allowed phrasings whitelisted).</li>
+        <li><strong class="accent">Verification:</strong> 0 of 12 prior tone-drift cases reproduce.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- STEP 5 — Adjust vigilance -->
+  <section class="slide" id="s-rec-5a">
+    <div class="slide-content" style="text-align:left;">
+      <p class="kicker">Recipe &mdash; Step 5</p>
+      <h2 style="margin-bottom: 1.2rem;">Adjust vigilance</h2>
+      <ol style="font-size: clamp(1rem, 1.7vw, 1.6rem); line-height: 1.55;">
+        <li>Remove the locked category from your vigilance list.</li>
+        <li>Re-evaluate the remaining categories &mdash; ordering, severity, frequency.</li>
+        <li>Pick the next one to attack in the next loop.</li>
+      </ol>
+    </div>
+  </section>
+  <section class="slide" id="s-rec-5b" data-return-to-toc="true">
+    <div class="slide-content" style="text-align:left;">
+      <p class="kicker">Worked example &mdash; release notes</p>
+      <h2 style="margin-bottom: 1rem;">The list shrinks</h2>
+      <ul style="font-size: clamp(0.95rem, 1.5vw, 1.4rem); line-height: 1.6; list-style: none; padding: 0;">
+        <li><span style="text-decoration: line-through; color: var(--dim);">Tone drift</span> &mdash; locked.</li>
+        <li><strong class="accent">Missed feature</strong> &mdash; now top of the list.</li>
+        <li>Wrong version number &mdash; small and easy; queue after.</li>
+      </ul>
+      <p style="margin-top: 1.4rem; color: var(--dim); font-size: 0.95em;">Next loop: name the missed-feature pattern.</p>
+    </div>
+  </section>
+
+  <!-- STEP 6 — Make a decision -->
+  <section class="slide" id="s-rec-6a">
+    <div class="slide-content" style="text-align:left;">
+      <p class="kicker">Recipe &mdash; Step 6</p>
+      <h2 style="margin-bottom: 1.2rem;">Make a decision</h2>
+      <ol style="font-size: clamp(1rem, 1.7vw, 1.6rem); line-height: 1.55;">
+        <li>Look at the universe you've built.</li>
+        <li>Decide: accept this run, or re-run inside the safer universe.</li>
+        <li>Note the risk profile of whichever you chose, in writing.</li>
+      </ol>
+    </div>
+  </section>
+  <section class="slide" id="s-rec-6b" data-return-to-toc="true">
+    <div class="slide-content" style="text-align:left;">
+      <p class="kicker">Worked example &mdash; release notes</p>
+      <h2 style="margin-bottom: 1rem;">Three loops later</h2>
+      <ul style="font-size: clamp(0.95rem, 1.5vw, 1.4rem); line-height: 1.6; list-style: none; padding: 0;">
+        <li><strong class="accent">Universe catches:</strong> tone drift, wrong version number.</li>
+        <li><strong class="accent">Residual risk:</strong> missed-feature &mdash; still at Hope level.</li>
+        <li><strong class="accent">Decision:</strong> accept this run. Residual is bounded and visible.</li>
+      </ul>
+      <p style="margin-top: 1.4rem; color: var(--dim); font-size: 0.95em;">The recipe ended. Vigilance about tone and version is gone, permanently.</p>
+    </div>
+  </section>
+
   
   
   <!-- 37a Build (1/4) — Working Memory in detail.
@@ -1356,7 +2021,7 @@
   <!-- 37b Understanding the customer (2/2) - between turns.
        Five sequential operations sit between Turn N and Turn N+1.
        Each operation is the home of one lever (Identity is toil-only). -->
-  <section class="slide" id="s37b">
+  <section class="slide" id="s37b" data-return-to-toc="true">
     <div class="slide-content">
       <p class="kicker">Between agent turns</p>
       <svg viewBox="0 0 1000 540" width="100%" style="max-height:62vh; display:block; margin: 0.6rem auto 0;" role="img">
@@ -1468,663 +2133,6 @@
     </div>
   </section>
   
-  <!-- 34 Agent's Universe — the "where" of the two-part answer -->
-  <section class="slide img-bg bg-cr-developer" id="s34">
-    <div class="overlay"></div>
-    <div class="slide-content">
-      <p class="kicker">Where to push</p>
-      <h2>The agent's <span class="accent">universe</span></h2>
-      <p style="margin-top: 2.5rem; font-size: clamp(1rem, 1.8vw, 2rem); letter-spacing: 0.03em;">
-        Memory &nbsp;·&nbsp; Reachable Context &nbsp;·&nbsp; Goals &nbsp;·&nbsp; Tooling<br>
-        Workflow &nbsp;·&nbsp; State control &nbsp;·&nbsp; Feedback
-      </p>
-      <p style="margin-top: 1.8rem; color: var(--dim);">Each one a class of error you can address.</p>
-    </div>
-  </section>
-
-  <section class="slide" id="s28-alt-a">
-    <div class="slide-content">
-      <p class="kicker">Safety Categories</p>
-      <svg viewBox="0 0 1000 450" width="100%" style="max-height:66vh; display:block; margin:0.8rem auto 0;" role="img">
-        <defs>
-          <linearGradient id="lvl-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%"  stop-color="#3a3a3a"/>
-            <stop offset="20%" stop-color="#5a4a3a"/>
-            <stop offset="40%" stop-color="#86663a"/>
-            <stop offset="60%" stop-color="#b78a3a"/>
-            <stop offset="80%" stop-color="#d99a30"/>
-            <stop offset="100%" stop-color="#e8a020"/>
-          </linearGradient>
-        </defs>
-
-        <!-- Level names -->
-        <g font-size="15" fill="#f0ede6" text-anchor="middle" font-weight="700">
-          <text x="83"  y="38">Hope</text>
-          <text x="250" y="38">Vigilance</text>
-          <text x="417" y="38">Probabilistic</text>
-          <text x="583" y="38">Deterministic</text>
-          <text x="750" y="38">Prevention</text>
-          <text x="917" y="38">Carefree</text>
-        </g>
-
-        <!-- Gradient ladder bar -->
-        <rect x="0" y="90" width="1000" height="56" rx="6" fill="url(#lvl-grad)" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
-
-        <!-- Per-level examples (human + AI pair), overlaid inside each gradient cell.
-             Each cell is ~167 wide and 56 tall, centered at y=118. The pair sits at
-             y=112 / y=126 so the two lines straddle that centerline. -->
-        <g font-size="9.5" text-anchor="middle" font-style="italic" fill="#ffffff" style="paint-order: stroke; stroke: rgba(0,0,0,0.55); stroke-width: 2px;">
-          <text x="83"  y="113">ship unreviewed</text>
-          <text x="83"  y="127">accept raw LLM output</text>
-          <text x="250" y="113">watch every keystroke</text>
-          <text x="250" y="127">read every generated line</text>
-          <text x="417" y="113">manual QA + checklist</text>
-          <text x="417" y="127">sampled prompt-evals</text>
-          <text x="583" y="113">unit tests</text>
-          <text x="583" y="127">schema validation</text>
-          <text x="750" y="113">type system</text>
-          <text x="750" y="127">no edit-file (AST only)</text>
-          <text x="917" y="113">IDE rename refactor</text>
-          <text x="917" y="127">version-aware migration</text>
-        </g>
-        <g stroke="rgba(0,0,0,0.45)" stroke-width="1.5">
-          <line x1="167" y1="90" x2="167" y2="146"/>
-          <line x1="333" y1="90" x2="333" y2="146"/>
-          <line x1="500" y1="90" x2="500" y2="146"/>
-          <line x1="667" y1="90" x2="667" y2="146"/>
-          <line x1="833" y1="90" x2="833" y2="146"/>
-        </g>
-        <text x="20"  y="175" font-size="11" fill="rgba(240,237,230,0.55)" font-style="italic">errors slip through</text>
-        <text x="980" y="175" font-size="11" fill="rgba(232,160,32,0.75)" text-anchor="end" font-style="italic">errors structurally impossible</text>
-
-        <!-- Cognitive-load header + compressed labels -->
-        <text x="500" y="270" text-anchor="middle" font-size="11" fill="rgba(192,154,96,0.85)" font-weight="700" letter-spacing="1.6">COGNITIVE LOAD &mdash; vigilance toil over time</text>
-        <g font-size="12" text-anchor="middle">
-          <text x="83"  y="305" fill="rgba(240,237,230,0.6)">Silent failure</text>
-          <text x="250" y="305" fill="#f0ede6">Watch always</text>
-          <text x="417" y="305" fill="#f0ede6">Background worry</text>
-          <text x="583" y="305" fill="#f0ede6">Focused watch</text>
-          <text x="750" y="305" fill="rgba(232,160,32,0.9)">Zero (in scope)</text>
-          <text x="917" y="305" fill="#e8a020" font-weight="700">Frees attention</text>
-        </g>
-
-        <!-- Cognitive-load sparklines. Each chart occupies a 150x52 box centered
-             under its column. Zero line (y_zero) sits 4px above the box bottom
-             at local y=48 (so y=332 in the global coordinate frame at top=284).
-             All zero lines align across the six. Y-axis = vigilance toil. -->
-        <g>
-          <!-- Hope @ x=83: low flat, then late spike (silent failure) -->
-          <g transform="translate(8,334)">
-            <rect x="0" y="0" width="150" height="52" rx="3" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)" stroke-width="0.8"/>
-            <line x1="0" y1="48" x2="150" y2="48" stroke="rgba(240,237,230,0.22)" stroke-width="0.8" stroke-dasharray="2,2"/>
-            <path d="M 4,46 L 110,46 L 115,8 L 120,6 L 146,0" fill="none" stroke="rgba(240,237,230,0.7)" stroke-width="1.6" stroke-linejoin="round"/>
-          </g>
-          <!-- Vigilance @ x=250: high constant -->
-          <g transform="translate(175,334)">
-            <rect x="0" y="0" width="150" height="52" rx="3" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)" stroke-width="0.8"/>
-            <line x1="0" y1="48" x2="150" y2="48" stroke="rgba(240,237,230,0.22)" stroke-width="0.8" stroke-dasharray="2,2"/>
-            <path d="M 4,12 L 146,12" fill="none" stroke="#f0ede6" stroke-width="1.6" stroke-linejoin="round"/>
-          </g>
-          <!-- Probabilistic @ x=417: mid-amplitude wavy -->
-          <g transform="translate(342,334)">
-            <rect x="0" y="0" width="150" height="52" rx="3" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)" stroke-width="0.8"/>
-            <line x1="0" y1="48" x2="150" y2="48" stroke="rgba(240,237,230,0.22)" stroke-width="0.8" stroke-dasharray="2,2"/>
-            <path d="M 4,28 Q 14,16 24,28 T 44,28 T 64,28 T 84,28 T 104,28 T 124,28 T 146,28" fill="none" stroke="#f0ede6" stroke-width="1.6" stroke-linejoin="round"/>
-          </g>
-          <!-- Deterministic @ x=583: low baseline, periodic narrow spikes -->
-          <g transform="translate(508,334)">
-            <rect x="0" y="0" width="150" height="52" rx="3" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)" stroke-width="0.8"/>
-            <line x1="0" y1="48" x2="150" y2="48" stroke="rgba(240,237,230,0.22)" stroke-width="0.8" stroke-dasharray="2,2"/>
-            <path d="M 4,46 L 24,46 L 28,18 L 32,46 L 60,46 L 64,18 L 68,46 L 96,46 L 100,18 L 104,46 L 132,46 L 136,18 L 140,46 L 146,46" fill="none" stroke="#f0ede6" stroke-width="1.6" stroke-linejoin="round"/>
-          </g>
-          <!-- Prevention @ x=750: flat on the zero line -->
-          <g transform="translate(675,334)">
-            <rect x="0" y="0" width="150" height="52" rx="3" fill="rgba(232,160,32,0.04)" stroke="rgba(232,160,32,0.18)" stroke-width="0.8"/>
-            <line x1="0" y1="48" x2="150" y2="48" stroke="rgba(240,237,230,0.22)" stroke-width="0.8" stroke-dasharray="2,2"/>
-            <path d="M 4,48 L 146,48" fill="none" stroke="rgba(232,160,32,0.9)" stroke-width="1.6" stroke-linejoin="round"/>
-          </g>
-          <!-- Carefree @ x=917: line dips below zero (negative toil) -->
-          <g transform="translate(842,334)">
-            <rect x="0" y="0" width="150" height="52" rx="3" fill="rgba(232,160,32,0.08)" stroke="rgba(232,160,32,0.28)" stroke-width="0.8"/>
-            <line x1="0" y1="48" x2="150" y2="48" stroke="rgba(240,237,230,0.22)" stroke-width="0.8" stroke-dasharray="2,2"/>
-            <path d="M 4,48 L 30,48 Q 60,48 75,52 T 120,48 L 146,48" fill="none" stroke="#e8a020" stroke-width="1.8" stroke-linejoin="round"/>
-          </g>
-        </g>
-      </svg>
-    </div>
-  </section>
-
-  <!-- 27 The recipe — meta-pattern for engineering carelessness.
-       SVG is shared with the TOC hub; both call sites pull from recipe-svg.js. -->
-  <section class="slide" id="s27">
-    <div class="slide-content">
-      <p class="kicker">The recipe</p>
-      <h2 style="margin-bottom: 0.8rem;">Engineering <span class="accent">carelessness</span></h2>
-      <div data-recipe-svg-slot="display"></div>
-    </div>
-  </section>
-
-  <!-- 30 BLANK — pivot from upshift to audience-directed back half -->
-  <section class="slide blank" id="s30"></section>
-
-  <!-- ═══════════════════════════════════════════════════
-       SECTION 4: Walking the Universe (audience-directed via TOC)
-  ════════════════════════════════════════════════════ -->
-
-  <!-- 33 TOC HUB — sectioned: Case studies / Recipes / Closing -->
-  <section class="slide" id="s33">
-    <div class="slide-content">
-      <p class="kicker">Pick one to explore</p>
-      <h2>Agent's <span class="accent">Universe</span></h2>
-
-      <p class="toc-section-label">Case studies</p>
-      <div class="toc-grid">
-        <div class="toc-card" data-jump-to="s38">
-          <p class="kicker">Memory</p>
-          <h3>Decision inconsistency</h3>
-        </div>
-        <div class="toc-card" data-jump-to="s41">
-          <p class="kicker">Goals</p>
-          <h3>Consistency violation</h3>
-        </div>
-        <div class="toc-card" data-jump-to="s44">
-          <p class="kicker">Workflow</p>
-          <h3>Oversight gap</h3>
-        </div>
-        <div class="toc-card" data-jump-to="s47">
-          <p class="kicker">Tooling</p>
-          <h3>Scope enforcement</h3>
-        </div>
-        <div class="toc-card" data-jump-to="s50">
-          <p class="kicker">Tooling (operations)</p>
-          <h3>Accidental behavior change</h3>
-        </div>
-        <div class="toc-card" data-jump-to="s53">
-          <p class="kicker">State control</p>
-          <h3>Data loss (archive table)</h3>
-        </div>
-        <div class="toc-card toc-card-pending">
-          <p class="kicker">Feedback</p>
-          <h3>Story TBD</h3>
-        </div>
-      </div>
-
-      <p class="toc-section-label">Recipes</p>
-      <p class="toc-placeholder" style="margin-top: 0.4rem; margin-bottom: 0.8rem;">Click a step to walk its recipe + worked example.</p>
-      <div data-recipe-svg-slot="clickable" style="margin: 0 auto;"></div>
-
-      <p class="toc-section-label">Closing</p>
-      <div class="toc-grid" style="grid-template-columns: 1fr; margin-top: 0.6rem;">
-        <div class="toc-card" data-jump-to="s56">
-          <p class="kicker">Synthesis</p>
-          <h3>Closing sequence</h3>
-        </div>
-      </div>
-
-      <p class="toc-placeholder">Each case study is 3 slides: starting state → intervention → name the experience.</p>
-    </div>
-  </section>
-
-  <!-- ── BEAT 1: Memory / Decision inconsistency ──────── -->
-
-  <!-- 38 Setup -->
-  <section class="slide" id="s38">
-    <div class="slide-content">
-      <p class="kicker">Discovery during demos</p>
-      <h2>Vigilance cost:<br><span class="accent">Decision inconsistency</span></h2>
-      <p style="margin-top: 2rem; color: var(--dim);">"Does this contradict a decision from earlier in the session?<br>Are we building on conflicting assumptions?"</p>
-    </div>
-  </section>
-
-  <!-- 39 Intervention — beat 1 -->
-  <section class="slide" id="s39">
-    <div class="slide-content">
-      <p class="kicker">Universe: Memory</p>
-      <ul class="story-list">
-        <li><em>Delete</em> completed stories entirely (don't mark done)</li>
-        <li>Rewrite all future stories to reflect the current direction</li>
-        <li>Clear agent context or rewrite session history</li>
-      </ul>
-      <p style="margin-top: 2.5rem;">
-        The AI cannot blend old ideas with new ones.<br>
-        It has no access to old ideas.
-      </p>
-      <p style="margin-top: 1rem; color: var(--dim);">This direction was always the plan. It doesn't know otherwise.</p>
-    </div>
-  </section>
-
-  <!-- 40 Name the experience — beat 1; next returns to TOC -->
-  <section class="slide" id="s40" data-return-to-toc="true">
-    <div class="slide-content">
-      <p class="kicker">Name the experience</p>
-      <ul class="name-list">
-        <li><strong class="accent">Scope</strong> Cross-session decision inconsistency.</li>
-        <li><strong class="accent">Cost to protect</strong> Zero — conflicting decisions are structurally impossible.</li>
-        <li><strong class="accent">Lever</strong> Memory.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ── BEAT 2: Goals / Consistency violation ─────────── -->
-
-  <!-- 41 Setup -->
-  <section class="slide" id="s41">
-    <div class="slide-content">
-      <p class="kicker">Recurring structured output</p>
-      <h2>Vigilance cost:<br><span class="accent">Consistency violation</span></h2>
-      <p style="margin-top: 2rem; color: var(--dim);">"Does this follow the same structure as last time?<br>Did it invent something that drifts from the template?"</p>
-    </div>
-  </section>
-
-  <!-- 42 Intervention — beat 2 -->
-  <section class="slide img-bg" id="s42">
-    <div class="overlay"></div>
-    <div class="slide-content">
-      <p class="kicker">Universe: Goals</p>
-      <h2>From "write HTML email"<br> to "json → bullet points".</h2>
-      <p style="margin-top: 2rem; color: var(--dim);">Claude writes sentences.<br>Deterministic code assembles everything else.</p>
-      <p style="margin-top: 1.5rem;">
-        Structure, recipients, rendering:<br>
-        <span class="accent">zero-risk zones. Forever.</span>
-      </p>
-    </div>
-  </section>
-
-  <!-- 43 Name the experience — beat 2; next returns to TOC -->
-  <section class="slide" id="s43" data-return-to-toc="true">
-    <div class="slide-content">
-      <p class="kicker">Name the experience</p>
-      <ul class="name-list">
-        <li><strong class="accent">Scope</strong> Format and structure drift in recurring output.</li>
-        <li><strong class="accent">Cost to protect</strong> Zero — structure, recipients, rendering each become zero-risk zones.</li>
-        <li><strong class="accent">Lever</strong> Goals (structured spec).</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ── BEAT 3: Workflow / Oversight gap ──────── -->
-
-  <!-- 44 Setup -->
-  <section class="slide img-bg" id="s44">
-    <div class="overlay"></div>
-    <div class="slide-content">
-      <p class="kicker">Session data fetching</p>
-      <h2>Vigilance cost:<br><span class="accent">Oversight mechanism gap</span></h2>
-      <p style="margin-top: 2rem; color: var(--dim);">"Did the AI keep going past the point<br>where I should have been consulted?"</p>
-    </div>
-  </section>
-
-  <!-- 45 Intervention — beat 3 -->
-  <section class="slide img-bg" id="s45">
-    <div class="slide-content">
-      <p class="kicker">Universe: Workflow</p>
-      <div class="two-up">
-        <div>
-          <p class="kicker">On success</p>
-          <h3>Claude is<br>never invoked.</h3>
-        </div>
-        <div>
-          <p class="kicker" style="color: var(--accent);">On failure</p>
-          <h3 class="accent">Claude is called<br>with the failure.</h3>
-        </div>
-      </div>
-      <p style="margin-top: 2.5rem; color: var(--dim);">The system only calls Claude<br>when deterministic code admits it can't handle something.</p>
-    </div>
-  </section>
-
-  <!-- 46 Name the experience — beat 3; next returns to TOC -->
-  <section class="slide" id="s46" data-return-to-toc="true">
-    <div class="slide-content">
-      <p class="kicker">Name the experience</p>
-      <ul class="name-list">
-        <li><strong class="accent">Scope</strong> Wrong-data fetching and over-eager step completion.</li>
-        <li><strong class="accent">Cost to protect</strong> Near zero — deterministic by default; the agent runs only on declared failure.</li>
-        <li><strong class="accent">Lever</strong> Workflow.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ── BEAT 4: Tooling (access) / Scope enforcement ───── -->
-
-  <!-- 47 Setup -->
-  <section class="slide img-bg" id="s47">
-    <div class="overlay"></div>
-    <div class="slide-content">
-      <p class="kicker">Source control in an agentic codebase</p>
-      <h2>Vigilance cost:<br><span class="accent">Policy enforcement</span></h2>
-      <p style="margin-top: 2rem; color: var(--dim);">"Will the agent correctly follow our risk-aware commit notation policy?</p>
-    </div>
-  </section>
-
-  <!-- 48 Intervention — beat 4 -->
-  <section class="slide img-bg" id="s48">
-    <div class="overlay"></div>
-    <div class="slide-content">
-      <p class="kicker">Universe: Tooling</p>
-      <h2>Minions never touch <span class="accent">git.</span></h2>
-      <p style="margin-top: 2rem; color: var(--dim);">An MCP tool handles all branching.<br>All the right behaviors implemented. None of the wrong ones available.</p>
-      <p style="margin-top: 1.5rem;">
-        The AI cannot violate git invariants.<br>
-        because there's <span class="accent">nothing to route around.</span>
-      </p>
-    </div>
-  </section>
-
-  <!-- 49 Name the experience — beat 4; next returns to TOC -->
-  <section class="slide" id="s49" data-return-to-toc="true">
-    <div class="slide-content">
-      <p class="kicker">Name the experience</p>
-      <ul class="name-list">
-        <li><strong class="accent">Scope</strong> Git operations and the risk-notation policy.</li>
-        <li><strong class="accent">Cost to protect</strong> Zero — git invariants cannot be violated; nothing to route around.</li>
-        <li><strong class="accent">Lever</strong> Tooling.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ── BEAT 5: Tooling (operations) / Behavior change ─── -->
-
-  <!-- 50 Setup -->
-  <section class="slide img-bg" id="s50">
-    <div class="overlay"></div>
-    <div class="slide-content">
-      <p class="kicker">Structural refactoring in legacy code</p>
-      <h2>Vigilance cost:<br><span class="accent">Accidental behavior change</span></h2>
-      <p style="margin-top: 2rem; color: var(--dim);">"Did my restructuring change what the code actually does?"</p>
-      <p style="margin-top: 1.5rem; font-style: italic; color: var(--dim); font-size: clamp(0.85rem, 1.4vw, 1.5rem);">AST tools solve this for human developers. What about AI?</p>
-    </div>
-  </section>
-
-  <!-- 51 Intervention — beat 5 -->
-  <section class="slide img-bg" id="s51">
-    <div class="overlay"></div>
-    <div class="slide-content">
-      <p class="kicker">Universe: Tooling</p>
-      <h2>No edit-file tool.<br>Only AST transformations.</h2>
-      <div class="two-up" style="margin-top: 2.5rem;">
-        <div>
-          <p class="kicker">Design correctness</p>
-          <p>AI can be wrong.<br>Undo is as easy as do.</p>
-        </div>
-        <div>
-          <p class="kicker" style="color: var(--accent);">Behavioral safety</p>
-          <p class="accent">Guaranteed by the tool.<br>Not possible to violate.</p>
-        </div>
-      </div>
-      <p style="margin-top: 2rem; color: var(--dim);">Only the first failure mode remains possible.</p>
-    </div>
-  </section>
-
-  <!-- 52 Name the experience — beat 5; next returns to TOC -->
-  <section class="slide" id="s52" data-return-to-toc="true">
-    <div class="slide-content">
-      <p class="kicker">Name the experience</p>
-      <ul class="name-list">
-        <li><strong class="accent">Scope</strong> Behavior preservation during refactoring.</li>
-        <li><strong class="accent">Cost to protect</strong> Zero within scope — behavioral safety guaranteed by the tool.</li>
-        <li><strong class="accent">Lever</strong> Tooling (operation semantics).</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ── BEAT 6: Result handling / Data loss ────────────── -->
-
-  <!-- 53 Setup -->
-  <section class="slide img-bg" id="s53">
-    <div ></div>
-    <div class="slide-content">
-      <p class="kicker">Database migrations</p>
-      <!-- accent amber conflicts with volcanic orange lava; use --fg for legibility -->
-      <h2>Vigilance cost:<br><span style="color: var(--fg);">Data loss</span></h2>
-      <p style="margin-top: 2rem; color: var(--dim);">"Did the migration change what the data means?<br>Can I recover it if something went wrong?"</p>
-    </div>
-  </section>
-
-  <!-- 54 Intervention — beat 6 -->
-  <section class="slide img-bg" id="s54">
-    <div class="overlay"></div>
-    <div class="slide-content">
-      <p class="kicker">Universe: State control</p>
-      <div style="text-align: left; display: inline-block;">
-        <p style="margin-bottom: 1.2rem;">1. <span class="accent">Archive table</span> — all rows preserved before migration runs</p>
-        <p style="margin-bottom: 1.2rem;">2. <span class="accent">Bidirectional remapping</span> — deterministic verification before execution</p>
-        <p>3. <span class="accent">Extracted library</span> — AI writes definition only; library executes</p>
-      </div>
-      <p style="margin-top: 2rem; color: var(--dim);">Deterministic pre &nbsp;→&nbsp; <em>AI creative decision</em> &nbsp;→&nbsp; deterministic execution.</p>
-    </div>
-  </section>
-
-  <!-- 55 Name the experience — beat 6; next returns to TOC -->
-  <section class="slide" id="s55" data-return-to-toc="true">
-    <div class="slide-content">
-      <p class="kicker">Name the experience</p>
-      <ul class="name-list">
-        <li><strong class="accent">Scope</strong> Schema migrations against live data.</li>
-        <li><strong class="accent">Cost to protect</strong> Zero — data loss is structurally impossible.</li>
-        <li><strong class="accent">Lever</strong> State control (Determinism sandwich).</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════
-       SECTION 5: Back to the Motorcar
-  ════════════════════════════════════════════════════ -->
-
-  <!-- 56 Universe crafting synthesis -->
-  <section class="slide img-bg bg-cr-migration" id="s56">
-    <div class="overlay"></div>
-    <div class="slide-content">
-      <p class="kicker">What we did each time</p>
-      <h2>We didn't ask for more care.<br>We redesigned the world.</h2>
-      <p style="margin-top: 2.5rem; color: var(--dim); font-size: clamp(0.9rem, 1.6vw, 1.8rem);">Memory &nbsp;·&nbsp; Goals &nbsp;·&nbsp; Workflow &nbsp;·&nbsp; Tooling &nbsp;·&nbsp; State control &nbsp;·&nbsp; Feedback</p>
-      <p style="margin-top: 1.5rem; color: var(--dim);">Each choice created a zero-risk zone.<br>Each zone permanently freed vigilance budget for the next thing.</p>
-    </div>
-  </section>
-
-  <!-- 58 Formula callback: vigilance toil is having to worry about stopping -->
-  <section class="slide" id="s58">
-    <div class="slide-content">
-      <p class="kicker">vigilance toil</p>
-      <p class="formula">
-        Vigilance Toil <span class="accent">∝</span>
-        <br>throughput
-        <br><span class="accent">×</span> amt to protect
-        <br><span class="accent">×</span> cost to protect
-      </p>
-      <p style="margin-top: 2.5rem; color: var(--dim);">Vigilance toil is the cost of having to worry<br>about whether you can stop.</p>
-    </div>
-  </section>
-
-  <!-- 10 AI = engine / Safety = brakes -->
-  <section class="slide img-bg bg-s40" id="s10">
-    <div class="overlay"></div>
-    <div class="slide-content">
-      <div class="two-up">
-        <div>
-          <p class="kicker">engine</p>
-          <h2>AI</h2>
-          <p style="margin-top: 1rem; color: var(--dim);">Throughput and skill.</p>
-        </div>
-        <div>
-          <p class="kicker" style="color: var(--accent);">brakes</p>
-          <h2 class="accent">Universe</h2>
-          <p style="margin-top: 1rem; color: var(--dim);">Careless AI still succeeds.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 60 Main quote payoff — last slide of closing sequence; next returns to TOC -->
-  <section class="slide img-bg bg-s36" id="s60" data-return-to-toc="true">
-    <div class="overlay"></div>
-    <div class="slide-content">
-      <p class="big-quote">
-        "Better brakes let you stop <em>caring</em> about stopping."
-      </p>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════
-       SECTION 5: Recipe mini-sequences (placeholders).
-       One pair per recipe step: 'a' = the concrete recipe,
-       'b' = a worked example. Last slide of each pair returns to TOC.
-       Reached from the clickable recipe diagram on the TOC.
-       Replace placeholder content as real recipes/examples mature.
-  ════════════════════════════════════════════════════ -->
-
-  <!-- STEP 1 — Apply the vigilance-as-process template -->
-  <section class="slide" id="s-rec-1a">
-    <div class="slide-content" style="text-align:left;">
-      <p class="kicker">Recipe &mdash; Step 1</p>
-      <h2 style="margin-bottom: 1.2rem;">Apply the vigilance-as-process template</h2>
-      <ol style="font-size: clamp(1rem, 1.7vw, 1.6rem); line-height: 1.55;">
-        <li>Pick the scope where carelessness will apply.</li>
-        <li>Stand up an <em>empty</em> guardian slot in your workflow.</li>
-        <li>Stand up a one-step workflow: in &rarr; agent &rarr; out.</li>
-        <li>Write down today's vigilance list &mdash; everything you currently watch for.</li>
-        <li>Build a partial spot-checker. Cover only what's easy to catch.</li>
-      </ol>
-    </div>
-  </section>
-  <section class="slide" id="s-rec-1b" data-return-to-toc="true">
-    <div class="slide-content" style="text-align:left;">
-      <p class="kicker">Worked example &mdash; release notes</p>
-      <h2 style="margin-bottom: 1rem;">Setting up the loop</h2>
-      <ul style="font-size: clamp(0.95rem, 1.5vw, 1.4rem); line-height: 1.6; list-style: none; padding: 0;">
-        <li><strong class="accent">Scope:</strong> release notes for the current sprint.</li>
-        <li><strong class="accent">Guardian slot:</strong> empty <code>notes-linter</code> stage in the pipeline.</li>
-        <li><strong class="accent">Workflow:</strong> changelog + ticket list &rarr; agent &rarr; draft.</li>
-        <li><strong class="accent">Vigilance list:</strong> tone drift, missed feature, leaked customer IDs, wrong version number.</li>
-        <li><strong class="accent">Spot-checker:</strong> regex that flags any line containing a customer-ID pattern.</li>
-      </ul>
-      <p style="margin-top: 1.4rem; color: var(--dim); font-size: 0.95em;">The loop is now standing. Time to start naming.</p>
-    </div>
-  </section>
-
-  <!-- STEP 2 — Name the vigilance -->
-  <section class="slide" id="s-rec-2a">
-    <div class="slide-content" style="text-align:left;">
-      <p class="kicker">Recipe &mdash; Step 2</p>
-      <h2 style="margin-bottom: 1.2rem;">Name the vigilance</h2>
-      <ol style="font-size: clamp(1rem, 1.7vw, 1.6rem); line-height: 1.55;">
-        <li>Watch yourself reviewing the agent's output.</li>
-        <li>Each correction: write the <em>why</em> in five words or fewer.</li>
-        <li>Group the why-notes into three to five error categories.</li>
-        <li>Pick the largest category. Give it a name.</li>
-      </ol>
-    </div>
-  </section>
-  <section class="slide" id="s-rec-2b" data-return-to-toc="true">
-    <div class="slide-content" style="text-align:left;">
-      <p class="kicker">Worked example &mdash; release notes</p>
-      <h2 style="margin-bottom: 1rem;">From corrections to a category</h2>
-      <ul style="font-size: clamp(0.95rem, 1.5vw, 1.4rem); line-height: 1.6; list-style: none; padding: 0;">
-        <li><strong class="accent">Tone too internal</strong> &mdash; 4 corrections.</li>
-        <li><strong class="accent">Missed feature</strong> &mdash; 3 corrections.</li>
-        <li><strong class="accent">Wrong version number</strong> &mdash; 2 corrections.</li>
-      </ul>
-      <p style="margin-top: 1.5rem; font-size: clamp(1.1rem, 2vw, 1.8rem);">Named category: <span class="accent">Tone drift</span>.</p>
-    </div>
-  </section>
-
-  <!-- STEP 3 — Identify a hole -->
-  <section class="slide" id="s-rec-3a">
-    <div class="slide-content" style="text-align:left;">
-      <p class="kicker">Recipe &mdash; Step 3</p>
-      <h2 style="margin-bottom: 1.2rem;">Identify a hole</h2>
-      <ol style="font-size: clamp(1rem, 1.7vw, 1.6rem); line-height: 1.55;">
-        <li>Run the current spot-checker on a fresh agent output.</li>
-        <li>Compare its findings against your manual review.</li>
-        <li>What you caught but it missed = a hole. Write it down.</li>
-      </ol>
-    </div>
-  </section>
-  <section class="slide" id="s-rec-3b" data-return-to-toc="true">
-    <div class="slide-content" style="text-align:left;">
-      <p class="kicker">Worked example &mdash; release notes</p>
-      <h2 style="margin-bottom: 1rem;">A hole in the tone check</h2>
-      <ul style="font-size: clamp(0.95rem, 1.5vw, 1.4rem); line-height: 1.6; list-style: none; padding: 0;">
-        <li>Spot-checker flagged tone drift in <strong class="accent">2 of 4</strong> known cases.</li>
-        <li>Common factor in the misses: features written in past tense.</li>
-        <li><strong class="accent">Hole:</strong> past-tense phrasing bypasses the current pattern.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- STEP 4 — Lock one error category -->
-  <section class="slide" id="s-rec-4a">
-    <div class="slide-content" style="text-align:left;">
-      <p class="kicker">Recipe &mdash; Step 4</p>
-      <h2 style="margin-bottom: 1.2rem;">Lock one error category</h2>
-      <ol style="font-size: clamp(1rem, 1.7vw, 1.6rem); line-height: 1.55;">
-        <li>Pick the hole you understand best.</li>
-        <li>Choose a universe lever that structurally prevents that class.</li>
-        <li>Implement the change. Re-run against every prior failure case.</li>
-      </ol>
-    </div>
-  </section>
-  <section class="slide" id="s-rec-4b" data-return-to-toc="true">
-    <div class="slide-content" style="text-align:left;">
-      <p class="kicker">Worked example &mdash; release notes</p>
-      <h2 style="margin-bottom: 1rem;">Locking tone drift with Tooling</h2>
-      <ul style="font-size: clamp(0.95rem, 1.5vw, 1.4rem); line-height: 1.6; list-style: none; padding: 0;">
-        <li><strong class="accent">Lever chosen:</strong> Tooling.</li>
-        <li>Replace the freeform draft tool with a structured template that constrains tone via the schema (verb tense fixed; allowed phrasings whitelisted).</li>
-        <li><strong class="accent">Verification:</strong> 0 of 12 prior tone-drift cases reproduce.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- STEP 5 — Adjust vigilance -->
-  <section class="slide" id="s-rec-5a">
-    <div class="slide-content" style="text-align:left;">
-      <p class="kicker">Recipe &mdash; Step 5</p>
-      <h2 style="margin-bottom: 1.2rem;">Adjust vigilance</h2>
-      <ol style="font-size: clamp(1rem, 1.7vw, 1.6rem); line-height: 1.55;">
-        <li>Remove the locked category from your vigilance list.</li>
-        <li>Re-evaluate the remaining categories &mdash; ordering, severity, frequency.</li>
-        <li>Pick the next one to attack in the next loop.</li>
-      </ol>
-    </div>
-  </section>
-  <section class="slide" id="s-rec-5b" data-return-to-toc="true">
-    <div class="slide-content" style="text-align:left;">
-      <p class="kicker">Worked example &mdash; release notes</p>
-      <h2 style="margin-bottom: 1rem;">The list shrinks</h2>
-      <ul style="font-size: clamp(0.95rem, 1.5vw, 1.4rem); line-height: 1.6; list-style: none; padding: 0;">
-        <li><span style="text-decoration: line-through; color: var(--dim);">Tone drift</span> &mdash; locked.</li>
-        <li><strong class="accent">Missed feature</strong> &mdash; now top of the list.</li>
-        <li>Wrong version number &mdash; small and easy; queue after.</li>
-      </ul>
-      <p style="margin-top: 1.4rem; color: var(--dim); font-size: 0.95em;">Next loop: name the missed-feature pattern.</p>
-    </div>
-  </section>
-
-  <!-- STEP 6 — Make a decision -->
-  <section class="slide" id="s-rec-6a">
-    <div class="slide-content" style="text-align:left;">
-      <p class="kicker">Recipe &mdash; Step 6</p>
-      <h2 style="margin-bottom: 1.2rem;">Make a decision</h2>
-      <ol style="font-size: clamp(1rem, 1.7vw, 1.6rem); line-height: 1.55;">
-        <li>Look at the universe you've built.</li>
-        <li>Decide: accept this run, or re-run inside the safer universe.</li>
-        <li>Note the risk profile of whichever you chose, in writing.</li>
-      </ol>
-    </div>
-  </section>
-  <section class="slide" id="s-rec-6b" data-return-to-toc="true">
-    <div class="slide-content" style="text-align:left;">
-      <p class="kicker">Worked example &mdash; release notes</p>
-      <h2 style="margin-bottom: 1rem;">Three loops later</h2>
-      <ul style="font-size: clamp(0.95rem, 1.5vw, 1.4rem); line-height: 1.6; list-style: none; padding: 0;">
-        <li><strong class="accent">Universe catches:</strong> tone drift, wrong version number.</li>
-        <li><strong class="accent">Residual risk:</strong> missed-feature &mdash; still at Hope level.</li>
-        <li><strong class="accent">Decision:</strong> accept this run. Residual is bounded and visible.</li>
-      </ul>
-      <p style="margin-top: 1.4rem; color: var(--dim); font-size: 0.95em;">The recipe ended. Vigilance about tone and version is gone, permanently.</p>
-    </div>
-  </section>
-
 </div><!-- /.deck -->
 
 <div id="progress"></div>
