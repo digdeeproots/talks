@@ -29,7 +29,7 @@ Lever names are still settling — current canonical names are listed first, wit
 
 ---
 
-@ai: globally rename all uses of "context" in any file in this talk. They must all use "Reachable Context".
+@ai: globally rename all uses of "context" in any file in this talk. They must all use "Reachable Context". That includes the below, the slides, the speaker notes, the key ideas, the stories, and anything else. Make it so that the word "context" never existed as a universe lever.
 
 ## Reachable Context *(prior name: Context)*
 
