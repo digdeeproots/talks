@@ -168,7 +168,7 @@ The human never sees the smelly-but-fixed states. They only see commits that pas
 
 ### Required demo + demo prep
 
-*Vigilance cost: "Did the AI ship something that looks done but doesn't actually work? Am I about to walk a demo and discover a broken button in front of the audience?"*
+*Vigilance cost: "Did the AI ship something that looks done and passes tests but doesn't actually work?"*
 
 *Safety: Level 1 (vigilance) → 4 (prevention) for "is this demo-able."*
 
