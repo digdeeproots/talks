@@ -287,29 +287,37 @@ Then bridge:
 
 ### 37a — Understanding the customer (1/2): one turn, mechanically
 
-This diagram says: the agent is deterministic software with a non-deterministic core. Every interesting boundary is a designable surface.
+This diagram says: the agent is deterministic software with non-deterministic thinking steps. Working Memory is the center; every step touches it. There's a cycle in the middle, two steps before it, one step after. The cycle keeps running until the goal is met.
 
-> "An agent turn is mechanical. There is a working memory in the middle. Every step ends by writing to that working memory."
+Open with the big picture.
 
-Point to the thought cloud.
+> "An agent turn is mechanical. Eight steps. Two before the cycle, five in the cycle, one after. Working memory in the middle — every step reads or writes it."
 
-> "*Think* is the non-deterministic part. The agent dispatches a prompt to the LLM — 'what's the goal? what do I do next? is it done? is my memory still useful?' — and gets back tokens. Those tokens become the next update to working memory. Think is just a dispatch out, the same shape as a tool call. The agent itself doesn't think; it sends thinking out."
+Walk the pre-cycle.
 
-Point to Act.
+> "Step 1: hydrate. The agent reads its session file off disk and loads working memory — turn goal from last time, task list, documents, the typed DAG. That's an *act*: a real read from outside."
 
-> "*Act* is the deterministic dispatch — a tool call. Read, write, run, fetch. The response comes back, the agent's next think step interprets it, and working memory updates. Tool errors and tool successes look the same: both are response info that gets thought about."
+> "Step 2: set the turn goal from the new user input. That's a *think* — the agent dispatches the input to the LLM. The thought cloud asks: *what is being asked this turn?* The answer comes back as tokens and gets written to working memory as the turn goal."
 
-Point to the side boxes.
+Now walk the cycle, finger-tracing the loop.
 
-> "The agent can't reach anything outside its working memory without going through Act. File system, workflow files — which are just a special case of files — external data sources. Reachability is what's in those boxes. Tools decide *how* the agent reaches them."
+> "Step 3, top of the cycle: pick the next action. Think. *Which action gets me closer to the goal?* The chosen action gets written to working memory."
 
-Read the badges as you point.
+> "Step 4, right side: execute the action. Act. A tool call goes out — read, write, run, fetch. The tool touches the File System or an External Source. The raw response comes back and gets written to working memory."
 
-> "Every edge has a lever. Think edge: Goals and Memory. Act edge: Tooling, State control, Feedback. Outside edges: Reachable Context. These are the surfaces we work on."
+> "Step 5, bottom-right: interpret the response. Think. *What does this response mean?* The interpretation gets written. Notice — tool errors and tool successes look the same to the agent. Both are just response info that gets thought about."
 
-Land it.
+> "Step 6, bottom-left: prune memory. Think. *What in memory is still useful?* The agent decides what to keep and writes that back — replacing working memory with the keep set."
 
-> "Think and Act are both dispatches out. Each one returns by writing to Working Memory. That's the loop. Every choke point is something we can build."
+> "Step 7, left side: check the goal. Think. *Is the goal met?* If not yet — loop back to step 3 and pick the next action. If yes — exit the cycle."
+
+Walk the post-cycle.
+
+> "Step 8: persist. Act. The agent reads its whole working memory and writes it back to the session file. That file is what gets loaded by step 1 next time the agent runs."
+
+Land the universe-levers payoff.
+
+> "Now look at where the levers live. Every think step is a dispatch to the LLM — Goals and Memory shape what gets asked. Every act step is a tool call — Tooling, State Control, and Feedback shape what happens at that boundary. The outside boxes — file system, external sources, session file — those are Reachable Context. Every arrow on this diagram is something we can re-engineer."
 
 ---
 
