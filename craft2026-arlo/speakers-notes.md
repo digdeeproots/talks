@@ -141,17 +141,19 @@ Semi-demo script is out of scope for this movement.
 
 ### 29 — Example 1 recap
 
-Walk back to the first demo. The point of this slide is to *name* what changed; the audience saw it, now we attach words.
+Walk back to the first demo. The point of this slide is to *name* what changed; the audience saw it, now we attach words. The table is shaped exactly like the s31 table — one column per intervention, same four rows — so the audience reads them in parallel.
 
 > "Two demos. Let's look at what they had in common."
 
-> "First one: the commit tool. One transition. We replaced raw git with an MCP tool. The tool owns commits, branches, and risk notation."
+> "First one: one column, because one intervention. Risk-aware commit + branching. What we *changed* is the tool — that's the row marked Changed."
 
-Point to each line:
+Walk the column top to bottom.
 
-> "What stopped happening: risk mis-categorization, merge snarls, unclear history, arbitrary changes to history. All those failure modes — gone."
+> "Metacognition: down. The AI is no longer thinking about commit semantics, branch policy, risk codes — the tool decides."
 
-> "What got easier: committing and sharing carelessly. Less context-filling. Higher-level moves, because the lower-level stuff is no longer your job."
+> "Work toil: empty. We didn't reduce work toil here; the AI still does the same amount of work. This row will be empty on a lot of interventions."
+
+> "Vigilance toil: this is the row that names what stopped being scary. *Did the AI pick the right risk code? Will the branch land cleanly? Is history readable?* Those questions used to live in my head. They don't anymore. The tool answers them by construction."
 
 Don't name the formal terms yet. Hold them for two slides.
 
@@ -159,37 +161,47 @@ Don't name the formal terms yet. Hold them for two slides.
 
 ### 31 — Example 2 recap
 
-Five transitions in sequence. Walk them briefly — one beat each. The audience will pattern-match before you name it.
+Five columns now — five separable interventions. Same four rows as s29 so the audience reads them in parallel. The Vigilance Toil row holds the live questions each intervention silenced.
 
-> "Second one was five moves, not one. Each move was a single, separable change."
+> "Second example: five columns, because five separable interventions. Each one walked the same loop we just walked once."
 
-Read each:
+Walk the columns left to right, reading the Changed and the Vigilance Toil rows.
 
-> "First, the procedure left my head. Free prompting became a workflow file — something I could re-read, edit, iterate on between sessions. Inside a session I was still fully vigilant, but I stopped re-deriving the steps every time."
+> "**Written workflow.** Changed the workflow. The procedure left my head onto disk. Inside a session I was still vigilant — but the question *Am I remembering to gather the right info?* stopped being mine to answer."
 
-> "Then sequencing became deterministic. The agent doesn't decide what step is next; deterministic code does. That alone prevented a whole class of mistakes: shortcuts, mis-sequencing, over-eager completion."
+> "**pnpm do-today.** Changed invocation. Deterministic code drives the loop, decides what step is next, then exits. *Is the AI taking the right next step?* — silenced. Metacognition went down too: the agent doesn't ask itself *what should I do next?* anymore."
 
-> "Then the fetch became deterministic. The agent only sees fetch results when fetch fails. Notice this changed *two* things at once: invocation, *and* the goal of the agent in that step."
+> "**Deterministic fetch.** Changed invocation *and* goal at once. Det code fetches; the AI is only called on failure with the specific error. *Did the AI get the right input?* — silenced. Work toil went down because the AI stopped doing fetch by hand."
 
-> "Then we locked down the analysis goal. From 'work with me to find what matters' to a concrete output spec. We also added text-to-speech so the system pulls me in only when there's something to respond to. I don't have to watch."
+> "**Narrow goal.** Find key moments. Period. *Is the AI over-working or taking shortcuts?* — silenced. Metacognition dropped: the AI stops asking *how much do I tell it now?* Work toil dropped: it stops generating content it could pull straight from the transcript."
 
-> "Then we locked down the analysis format. Schema validation tells the agent when its output doesn't conform; the agent retries. I'm careless about what each key moment includes."
+> "**Structured, iterative analysis.** Changed feedback. Schema validation tells the agent when its output is wrong; the agent retries. *Is the output complete or misleading?* — silenced. I'm careless about structure."
 
-> "Five transitions, five levers touched."
+> "Five interventions, five levers touched. ⬇️ in every row that filled in."
 
 ---
 
-### 32 — Naming the recurring terms
+### 32a / 32b / 32c — Naming the recurring terms (progressive reveal)
 
-This slide is the abstraction step. Each term comes out of the walk-through; don't introduce them out of context.
+Three slides. Same layout, one new term per slide. Don't introduce them out of context; each term comes out of the walk-through you just did.
+
+**32a — Scope only.**
 
 > "Three things keep showing up. Let's name them."
 
-> "**Scope** — the class of error one intervention addresses. Always one at a time. Never 'the whole problem.' Each transition we just walked through was one class."
+> "**Scope** — the class of error one intervention addresses. Always one at a time. Never 'the whole problem.' Each column we just walked through was one class."
+
+Pause. Click forward.
+
+**32b — Scope + Lever.**
+
+> "**Lever** — a facet of the agent's universe you can engineer. We touched five today across the two examples: tooling, workflow, invocation, goal, feedback. There are more."
+
+Pause. Click forward.
+
+**32c — Scope + Lever + Cost to protect.**
 
 > "**Cost to protect** — how much vigilance toil is spent to prevent errors in this scope. Before each intervention it was high; after, near zero. That drop is what we engineered."
-
-> "**Lever** — a facet of the agent's universe you can engineer. We touched four today: tooling, invocation, goal, feedback. There are more."
 
 Then bridge to the theory:
 
@@ -206,6 +218,24 @@ Cost to protect is the third factor. The walk-through just gave us the building 
 > "Cost to protect is the price of holding one scope safely. Lower it on one error category, lower the total. Lever × scope drives cost."
 
 Then pivot:
+
+---
+
+### 24 — Two kinds of engineer
+
+Transition slide. Reframes the audience's role before we tell them how to act in it.
+
+> "Notice what just happened. We didn't make the AI more careful. We changed the world it works in. That's a different question than the one most engineers are trained to ask."
+
+Walk the two columns.
+
+> "An app or library developer asks: *how do I make this code defect-free?* They live at probabilistic and deterministic safety. Tests are something to tend."
+
+> "A tool builder asks: *how do I make sure these developers ship defect-free code?* — where 'these developers' might be humans, might be AI agents. They live at prevention and carefree. Tests are a work product the developers might break."
+
+Land it.
+
+> "If your AI is one of the developers, you are the tool builder. The work isn't writing better AI. The work is engineering the world the AI succeeds in."
 
 > "So what would it look like if cost-to-protect were the design problem?"
 
@@ -243,7 +273,7 @@ Then set up what comes next:
 
 ### 26 — How?
 
-> "Two-part answer. Change the universe. Raise safety on one error category."
+> "Be a tool builder. Two moves: change the *universe*. Raise safety on one *error category*."
 
 Point to each line:
 
@@ -251,7 +281,63 @@ Point to each line:
 
 Then bridge:
 
-> "So: where is the universe? And what does 'one category, at some safety level' actually look like?"
+> "So: what *is* the universe? Let's look at the customer for our tools — the agent itself — and see where the universe actually has joints."
+
+---
+
+### 37a — Understanding the customer (1/2): one turn, mechanically
+
+This diagram says: the agent is deterministic software with a non-deterministic core. Every interesting boundary is a designable surface.
+
+> "An agent turn is mechanical. There is a working memory in the middle. Every step ends by writing to that working memory."
+
+Point to the thought cloud.
+
+> "*Think* is the non-deterministic part. The agent dispatches a prompt to the LLM — 'what's the goal? what do I do next? is it done? is my memory still useful?' — and gets back tokens. Those tokens become the next update to working memory. Think is just a dispatch out, the same shape as a tool call. The agent itself doesn't think; it sends thinking out."
+
+Point to Act.
+
+> "*Act* is the deterministic dispatch — a tool call. Read, write, run, fetch. The response comes back, the agent's next think step interprets it, and working memory updates. Tool errors and tool successes look the same: both are response info that gets thought about."
+
+Point to the side boxes.
+
+> "The agent can't reach anything outside its working memory without going through Act. File system, workflow files — which are just a special case of files — external data sources. Reachability is what's in those boxes. Tools decide *how* the agent reaches them."
+
+Read the badges as you point.
+
+> "Every edge has a lever. Think edge: Goals and Memory. Act edge: Tooling, State control, Feedback. Outside edges: Reachable Context. These are the surfaces we work on."
+
+Land it.
+
+> "Think and Act are both dispatches out. Each one returns by writing to Working Memory. That's the loop. Every choke point is something we can build."
+
+---
+
+### 37b — Understanding the customer (2/2): between turns
+
+This diagram says: an agent does not persist. Two consecutive turns are two separate runs of software with a file in between. Everything we do between turns is operating on that file or on the next invocation.
+
+> "An agent doesn't persist. Turn N runs and finishes. Turn N+1 hydrates from a session file and runs. The chain of 'I' the AI seems to have? That's our doing — we wrote the file."
+
+Point at the session file.
+
+> "The session file is the agent's identity at rest. Turn-N outputs equal turn-(N+1) inputs. It's editable. It's forkable. We can rewrite a turn's memory and re-launch from that point."
+
+Walk the badges by region.
+
+> "On the way *out* of turn N: we can evaluate what it did — state control and feedback. We can run more software on the result — workflow."
+
+> "On the file itself: we edit the memory directly. We change what info the next turn can reach."
+
+> "On the way *into* turn N+1: we choose the next prompt — Goals. We choose the next identity — which agent, which system prompt."
+
+> "And spanning the gap: we change the toolbox."
+
+Land it.
+
+> "Inside a turn, we got six lever attachment points. Between turns we got seven more. Every place we can move."
+
+Then transition into the theory or the safety vocabulary.
 
 ---
 

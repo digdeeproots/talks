@@ -2,7 +2,7 @@ Think like a tool builder, not an app / lib developer
 - App/lib devs have an app or lib to build, and ask themselves "how could I make sure this software is free of important defects?"
 - Tool builders have a set of developers and sk themselves "how can I ensure these developers always create code that is defect free?"
 
-@ai: add a short slide to the upshift sequence stating that vigilance toil comes from defects. Also tie to that when we talk about app dev vs tool dev - the difference is how they vew app defects.
+@ai: add a short slide to the upshift sequence stating that vigilance toil comes from defects. Also tie to that when we talk about app dev vs tool dev - the difference is how they vew app defects. App dev: "the coder will make mistakes; we need to find them and fix them before they pile up", tool dev: "I control the rate at which the coder creates mistakes". (but paraphrase)
 
 vigilance toil comes from defects, fundamentally. If we didn't worry about defects, we'd just operate at the hope level. We only need to go above that level when we worry about what unintended things the code (or coding process) might do.
 
