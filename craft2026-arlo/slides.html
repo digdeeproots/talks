@@ -589,9 +589,8 @@
               reachable only via the Act path; each edge labeled with which lever moderates it. -->
   <section class="slide" id="s37a">
     <div class="slide-content">
-      <p class="kicker">Understanding the customer &middot; 1 of 2</p>
-      <h2>One turn, mechanically.</h2>
-      <svg viewBox="0 0 1200 820" width="100%" style="max-height:74vh; display:block; margin: 0.4rem auto 0;" role="img">
+      <p class="kicker">One Agent Turn</p>
+      <svg viewBox="0 0 1400 720" width="100%" style="max-height:78vh; display:block; margin: 0.2rem auto 0;" role="img">
         <defs>
           <marker id="cyc-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
             <path d="M0,0 L10,5 L0,10 z" fill="#9aa0a8"/>
@@ -599,246 +598,241 @@
           <marker id="think-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
             <path d="M0,0 L10,5 L0,10 z" fill="#7ab8c8"/>
           </marker>
-          <marker id="tool-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 z" fill="#c89668"/>
-          </marker>
           <marker id="wm-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
             <path d="M0,0 L10,5 L0,10 z" fill="#e8a020"/>
           </marker>
+          <marker id="sf-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#c89668"/>
+          </marker>
         </defs>
 
-        <!-- Region labels (very faint) -->
-        <text x="320" y="32" text-anchor="middle" font-size="11" fill="rgba(240,237,230,0.45)" letter-spacing="2.4" font-weight="700">PRE-CYCLE</text>
-        <text x="540" y="180" text-anchor="middle" font-size="11" fill="rgba(240,237,230,0.45)" letter-spacing="2.4" font-weight="700">CYCLE &mdash; repeats until the goal is met</text>
-        <text x="540" y="638" text-anchor="middle" font-size="11" fill="rgba(240,237,230,0.45)" letter-spacing="2.4" font-weight="700">POST-CYCLE</text>
+        <!-- ====================================================================== -->
+        <!-- Ring guides (very faint) — inner WM circle, middle ring (think bubbles), -->
+        <!-- outer ring (cycle steps).                                                -->
+        <!-- ====================================================================== -->
+        <circle cx="700" cy="360" r="260" fill="none" stroke="rgba(240,237,230,0.10)" stroke-width="1" stroke-dasharray="3,5"/>
+        <circle cx="700" cy="360" r="160" fill="none" stroke="rgba(122,184,200,0.18)" stroke-width="1" stroke-dasharray="3,5"/>
 
         <!-- ====================================================================== -->
-        <!-- Working Memory at the center of the cycle -->
+        <!-- Working Memory at center, with its 4 parts.                              -->
         <!-- ====================================================================== -->
-        <rect x="440" y="350" width="200" height="110" rx="14"
-              fill="rgba(232,160,32,0.10)" stroke="#e8a020" stroke-width="1.8"/>
-        <text x="540" y="386" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Working Memory</text>
-        <text x="540" y="406" text-anchor="middle" font-size="9.5" fill="rgba(240,237,230,0.7)" font-style="italic">turn goal &middot; task list</text>
-        <text x="540" y="420" text-anchor="middle" font-size="9.5" fill="rgba(240,237,230,0.7)" font-style="italic">named documents &middot; typed DAG</text>
-        <text x="540" y="442" text-anchor="middle" font-size="9" fill="rgba(232,160,32,0.9)" font-weight="700">read &amp; write by step</text>
+        <circle cx="700" cy="360" r="100"
+                fill="rgba(232,160,32,0.10)" stroke="#e8a020" stroke-width="1.8"/>
+        <text x="700" y="320" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Working Memory</text>
+        <line x1="630" y1="340" x2="770" y2="340" stroke="rgba(232,160,32,0.4)" stroke-width="0.8"/>
+        <text x="700" y="358" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.85)">turn goal</text>
+        <text x="700" y="374" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.85)">task list</text>
+        <text x="700" y="390" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.85)">documents (named)</text>
+        <text x="700" y="406" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.85)">typed-block DAG</text>
 
         <!-- ====================================================================== -->
-        <!-- Step nodes (boxes). Pre-cycle: 1, 2.  Cycle: 3, 4, 5, 6, 7.  Post: 8. -->
+        <!-- Cycle step nodes (outer ring). Counter-clockwise from top:               -->
+        <!-- 3 top, 4 upper-left, 5 lower-left, 6 bottom, 7 lower-right, 8 upper-right -->
         <!-- ====================================================================== -->
-        <g font-family="inherit" font-size="11.5" font-weight="700" fill="#f0ede6" text-anchor="middle">
-          <!-- 1. Hydrate working memory (ACT — reads session file) -->
-          <rect x="40"  y="50" width="200" height="48" rx="10"
+        <g font-size="11.5" font-weight="700" fill="#f0ede6" text-anchor="middle">
+          <!-- 3 Goal &amp; constraints (think) -->
+          <rect x="585" y="78" width="230" height="46" rx="10"
+                fill="rgba(122,184,200,0.12)" stroke="#7ab8c8" stroke-width="1.3"/>
+          <text x="700" y="100">3. Goal &amp; constraints</text>
+          <text x="700" y="116" font-size="9" font-weight="400" fill="rgba(240,237,230,0.6)" font-style="italic">(think)</text>
+
+          <!-- 4 Pick next action (think) -->
+          <rect x="382" y="200" width="210" height="46" rx="10"
+                fill="rgba(122,184,200,0.12)" stroke="#7ab8c8" stroke-width="1.3"/>
+          <text x="487" y="222">4. Pick next action</text>
+          <text x="487" y="238" font-size="9" font-weight="400" fill="rgba(240,237,230,0.6)" font-style="italic">(think)</text>
+
+          <!-- 5 Execute action (act) -->
+          <rect x="382" y="474" width="210" height="46" rx="10"
                 fill="rgba(200,150,104,0.12)" stroke="#c89668" stroke-width="1.3"/>
-          <text x="140" y="74">1. Hydrate working memory</text>
-          <text x="140" y="90" font-size="9" fill="rgba(240,237,230,0.6)" font-style="italic" font-weight="400">(act &mdash; reads session file)</text>
+          <text x="487" y="496">5. Execute action</text>
+          <text x="487" y="512" font-size="9" font-weight="400" fill="rgba(240,237,230,0.6)" font-style="italic">(act &mdash; tool call)</text>
 
-          <!-- 2. Set turn goal (THINK) -->
-          <rect x="280" y="50" width="180" height="48" rx="10"
+          <!-- 6 Interpret response (think) -->
+          <rect x="585" y="596" width="230" height="46" rx="10"
                 fill="rgba(122,184,200,0.12)" stroke="#7ab8c8" stroke-width="1.3"/>
-          <text x="370" y="74">2. Set turn goal</text>
-          <text x="370" y="90" font-size="9" fill="rgba(240,237,230,0.6)" font-style="italic" font-weight="400">(think)</text>
+          <text x="700" y="618">6. Interpret response</text>
+          <text x="700" y="634" font-size="9" font-weight="400" fill="rgba(240,237,230,0.6)" font-style="italic">(think)</text>
 
-          <!-- 3. Update tasks &amp; pick next action (THINK) -->
-          <rect x="460" y="220" width="200" height="48" rx="10"
+          <!-- 7 Prune memory (think) -->
+          <rect x="808" y="474" width="210" height="46" rx="10"
                 fill="rgba(122,184,200,0.12)" stroke="#7ab8c8" stroke-width="1.3"/>
-          <text x="560" y="244">3. Pick next action</text>
-          <text x="560" y="260" font-size="9" fill="rgba(240,237,230,0.6)" font-style="italic" font-weight="400">(think)</text>
+          <text x="913" y="496">7. Prune memory</text>
+          <text x="913" y="512" font-size="9" font-weight="400" fill="rgba(240,237,230,0.6)" font-style="italic">(think)</text>
 
-          <!-- 4. Execute action (ACT — tool call) -->
-          <rect x="760" y="380" width="190" height="48" rx="10"
+          <!-- 8 Check the goal (think) -->
+          <rect x="808" y="200" width="210" height="46" rx="10"
+                fill="rgba(122,184,200,0.12)" stroke="#7ab8c8" stroke-width="1.3"/>
+          <text x="913" y="222">8. Check the goal</text>
+          <text x="913" y="238" font-size="9" font-weight="400" fill="rgba(240,237,230,0.6)" font-style="italic">(think)</text>
+
+          <!-- 1 Hydrate working memory (act) — pre-cycle, LEFT -->
+          <rect x="60"  y="230" width="220" height="46" rx="10"
                 fill="rgba(200,150,104,0.12)" stroke="#c89668" stroke-width="1.3"/>
-          <text x="855" y="404">4. Execute action</text>
-          <text x="855" y="420" font-size="9" fill="rgba(240,237,230,0.6)" font-style="italic" font-weight="400">(act &mdash; tool call)</text>
+          <text x="170" y="252">1. Hydrate working memory</text>
+          <text x="170" y="268" font-size="9" font-weight="400" fill="rgba(240,237,230,0.6)" font-style="italic">(act &mdash; reads session file)</text>
 
-          <!-- 5. Interpret response (THINK) -->
-          <rect x="620" y="540" width="200" height="48" rx="10"
-                fill="rgba(122,184,200,0.12)" stroke="#7ab8c8" stroke-width="1.3"/>
-          <text x="720" y="564">5. Interpret response</text>
-          <text x="720" y="580" font-size="9" fill="rgba(240,237,230,0.6)" font-style="italic" font-weight="400">(think)</text>
-
-          <!-- 6. Prune working memory (THINK) -->
-          <rect x="260" y="540" width="200" height="48" rx="10"
-                fill="rgba(122,184,200,0.12)" stroke="#7ab8c8" stroke-width="1.3"/>
-          <text x="360" y="564">6. Prune memory</text>
-          <text x="360" y="580" font-size="9" fill="rgba(240,237,230,0.6)" font-style="italic" font-weight="400">(think)</text>
-
-          <!-- 7. Check the goal (THINK) -->
-          <rect x="120" y="380" width="180" height="48" rx="10"
-                fill="rgba(122,184,200,0.12)" stroke="#7ab8c8" stroke-width="1.3"/>
-          <text x="210" y="404">7. Check the goal</text>
-          <text x="210" y="420" font-size="9" fill="rgba(240,237,230,0.6)" font-style="italic" font-weight="400">(think)</text>
-
-          <!-- 8. Persist working memory (ACT — writes session file) -->
-          <rect x="450" y="690" width="200" height="48" rx="10"
+          <!-- 2 Look at user message queue (act) — pre-cycle, LEFT below -->
+          <rect x="60"  y="330" width="220" height="46" rx="10"
                 fill="rgba(200,150,104,0.12)" stroke="#c89668" stroke-width="1.3"/>
-          <text x="550" y="714">8. Persist working memory</text>
-          <text x="550" y="730" font-size="9" fill="rgba(240,237,230,0.6)" font-style="italic" font-weight="400">(act &mdash; writes session file)</text>
+          <text x="170" y="352">2. Look at message queue</text>
+          <text x="170" y="368" font-size="9" font-weight="400" fill="rgba(240,237,230,0.6)" font-style="italic">(act &mdash; reads user input)</text>
+
+          <!-- 9 Persist working memory (act) — post-cycle, RIGHT -->
+          <rect x="1120" y="330" width="220" height="46" rx="10"
+                fill="rgba(200,150,104,0.12)" stroke="#c89668" stroke-width="1.3"/>
+          <text x="1230" y="352">9. Persist working memory</text>
+          <text x="1230" y="368" font-size="9" font-weight="400" fill="rgba(240,237,230,0.6)" font-style="italic">(act &mdash; writes session file)</text>
         </g>
 
         <!-- ====================================================================== -->
-        <!-- Cycle flow arrows (gray) -->
+        <!-- Session files: turn N on the LEFT (read by step 1), turn N+1 on the      -->
+        <!-- RIGHT (written by step 9). Different objects — explicit.                 -->
         <!-- ====================================================================== -->
-        <!-- Pre-cycle: 1 -> 2 -> 3 -->
-        <line x1="240" y1="74" x2="280" y2="74" stroke="#9aa0a8" stroke-width="1.5" marker-end="url(#cyc-arr)"/>
-        <path d="M 460,82 Q 560,82 560,220" fill="none" stroke="#9aa0a8" stroke-width="1.5" marker-end="url(#cyc-arr)"/>
+        <rect x="60"  y="120" width="220" height="60" rx="10"
+              fill="rgba(255,255,255,0.05)" stroke="#f0ede6" stroke-width="1.3" stroke-dasharray="4,3"/>
+        <text x="170" y="142" text-anchor="middle" font-size="12" fill="#f0ede6" font-weight="700">Session File</text>
+        <text x="170" y="160" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">turn N (incoming)</text>
 
-        <!-- Cycle: 3 -> 4 (curve around top-right of WM) -->
-        <path d="M 660,250 Q 800,260 805,380" fill="none" stroke="#9aa0a8" stroke-width="1.5" marker-end="url(#cyc-arr)"/>
-        <!-- 4 -> 5 (curve around right of WM, down) -->
-        <path d="M 850,428 Q 850,540 820,560" fill="none" stroke="#9aa0a8" stroke-width="1.5" marker-end="url(#cyc-arr)"/>
-        <!-- 5 -> 6 (straight horizontal, under WM) -->
-        <line x1="620" y1="564" x2="460" y2="564" stroke="#9aa0a8" stroke-width="1.5" marker-end="url(#cyc-arr)"/>
-        <!-- 6 -> 7 (curve around bottom-left of WM, up) -->
-        <path d="M 260,560 Q 230,540 230,428" fill="none" stroke="#9aa0a8" stroke-width="1.5" marker-end="url(#cyc-arr)"/>
-        <!-- 7 -> 3 (curve around top-left of WM, "not yet" branch) -->
-        <path d="M 260,380 Q 260,250 460,250" fill="none" stroke="#9aa0a8" stroke-width="1.5" marker-end="url(#cyc-arr)"/>
-        <text x="345" y="304" font-size="10" fill="rgba(240,237,230,0.65)" font-style="italic">not yet</text>
+        <rect x="1120" y="440" width="220" height="60" rx="10"
+              fill="rgba(255,255,255,0.05)" stroke="#f0ede6" stroke-width="1.3" stroke-dasharray="4,3"/>
+        <text x="1230" y="462" text-anchor="middle" font-size="12" fill="#f0ede6" font-weight="700">Session File</text>
+        <text x="1230" y="480" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">turn N+1 (outgoing)</text>
 
-        <!-- Post-cycle: 7 -> 8 ("goal met" branch) -->
-        <path d="M 210,428 Q 210,710 450,714" fill="none" stroke="#9aa0a8" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#cyc-arr)"/>
-        <text x="220" y="600" font-size="10" fill="rgba(240,237,230,0.75)" font-style="italic" font-weight="700">goal met</text>
+        <!-- Session file arrows (copper) -->
+        <line x1="170" y1="180" x2="170" y2="230" stroke="#c89668" stroke-width="1.4" marker-end="url(#sf-arr)"/>
+        <text x="180" y="208" font-size="9.5" fill="#c89668" font-style="italic">read</text>
+        <line x1="1230" y1="376" x2="1230" y2="440" stroke="#c89668" stroke-width="1.4" marker-end="url(#sf-arr)"/>
+        <text x="1240" y="412" font-size="9.5" fill="#c89668" font-style="italic">write</text>
 
         <!-- ====================================================================== -->
-        <!-- Working Memory read/write arrows (orange) — explicit per step -->
+        <!-- Sequence flow arrows (gray) — temporal order between steps.              -->
         <!-- ====================================================================== -->
-        <!-- 1 writes WM (hydrate from session file) -->
-        <path d="M 200,98 Q 320,250 450,350" fill="none" stroke="#e8a020" stroke-width="1.2" opacity="0.85" marker-end="url(#wm-arr)"/>
-        <text x="270" y="240" font-size="9.5" fill="#e8a020" font-style="italic">write (hydrate)</text>
+        <!-- 1 -> 2 -->
+        <line x1="170" y1="276" x2="170" y2="330" stroke="#9aa0a8" stroke-width="1.5" marker-end="url(#cyc-arr)"/>
+        <!-- 2 -> 3 (long arc up into the cycle, entering at top) -->
+        <path d="M 280,352 Q 460,352 580,124" fill="none" stroke="#9aa0a8" stroke-width="1.5" marker-end="url(#cyc-arr)"/>
 
-        <!-- 3 reads &amp; writes WM (after picking, the chosen action goes into the task list) -->
-        <line x1="540" y1="268" x2="540" y2="350" stroke="#e8a020" stroke-width="1.2" opacity="0.85" marker-end="url(#wm-arr)"/>
-        <text x="548" y="318" font-size="9.5" fill="#e8a020" font-style="italic">write (next action)</text>
+        <!-- Cycle: 3 -> 4 (top to upper-left) -->
+        <path d="M 600,124 Q 510,160 510,200" fill="none" stroke="#9aa0a8" stroke-width="1.5" marker-end="url(#cyc-arr)"/>
+        <!-- 4 -> 5 (upper-left to lower-left) -->
+        <line x1="487" y1="246" x2="487" y2="474" stroke="#9aa0a8" stroke-width="1.5" marker-end="url(#cyc-arr)"/>
+        <!-- 5 -> 6 (lower-left to bottom) -->
+        <path d="M 592,512 Q 600,580 600,596" fill="none" stroke="#9aa0a8" stroke-width="1.5" marker-end="url(#cyc-arr)"/>
+        <!-- 6 -> 7 (bottom to lower-right) -->
+        <path d="M 800,612 Q 870,576 880,520" fill="none" stroke="#9aa0a8" stroke-width="1.5" marker-end="url(#cyc-arr)"/>
+        <!-- 7 -> 8 (lower-right to upper-right) -->
+        <line x1="913" y1="474" x2="913" y2="246" stroke="#9aa0a8" stroke-width="1.5" marker-end="url(#cyc-arr)"/>
+        <!-- 8 -> 3 ("not met" — back to top) -->
+        <path d="M 870,200 Q 850,160 815,124" fill="none" stroke="#9aa0a8" stroke-width="1.5" marker-end="url(#cyc-arr)"/>
+        <text x="800" y="160" font-size="10" fill="rgba(240,237,230,0.65)" font-style="italic">not yet</text>
 
-        <!-- 4 writes WM (raw response gets stored) -->
-        <line x1="760" y1="404" x2="640" y2="404" stroke="#e8a020" stroke-width="1.2" opacity="0.85" marker-end="url(#wm-arr)"/>
-        <text x="680" y="396" font-size="9.5" fill="#e8a020" font-style="italic">write (response)</text>
-
-        <!-- 5 writes WM (interpretation) -->
-        <line x1="720" y1="540" x2="600" y2="460" stroke="#e8a020" stroke-width="1.2" opacity="0.85" marker-end="url(#wm-arr)"/>
-        <text x="650" y="510" font-size="9.5" fill="#e8a020" font-style="italic">write (interpretation)</text>
-
-        <!-- 6 reads &amp; writes WM (replace with pruned set) -->
-        <line x1="380" y1="540" x2="490" y2="460" stroke="#e8a020" stroke-width="1.2" opacity="0.85" marker-end="url(#wm-arr)"/>
-        <text x="382" y="504" font-size="9.5" fill="#e8a020" font-style="italic">replace (keep set)</text>
-
-        <!-- 7 reads WM (to check goal status) -->
-        <line x1="300" y1="404" x2="440" y2="404" stroke="#e8a020" stroke-width="1.2" opacity="0.85" stroke-dasharray="3,3" marker-end="url(#wm-arr)"/>
-        <text x="312" y="396" font-size="9.5" fill="#e8a020" font-style="italic">read (status)</text>
-
-        <!-- 8 reads WM (to persist) -->
-        <path d="M 540,690 Q 540,560 560,460" fill="none" stroke="#e8a020" stroke-width="1.2" opacity="0.85" stroke-dasharray="3,3" marker-end="url(#wm-arr)"/>
-        <text x="556" y="600" font-size="9.5" fill="#e8a020" font-style="italic">read (whole WM)</text>
+        <!-- 8 -> 9 ("goal met") -->
+        <path d="M 1018,228 Q 1090,260 1120,344" fill="none" stroke="#9aa0a8" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#cyc-arr)"/>
+        <text x="1040" y="262" font-size="10" fill="rgba(240,237,230,0.85)" font-weight="700" font-style="italic">goal met</text>
 
         <!-- ====================================================================== -->
-        <!-- Thought clouds — one per think step, with that step's specific thought. -->
-        <!-- Each: step -> cloud (dispatch), cloud -> WM (update). -->
+        <!-- Direct Working Memory read/write arrows for ACT steps (no think bubble). -->
+        <!-- ====================================================================== -->
+        <!-- 1 -> WM (write: hydrate) -->
+        <path d="M 280,254 Q 460,300 600,340" fill="none" stroke="#e8a020" stroke-width="1.3" marker-end="url(#wm-arr)"/>
+        <text x="330" y="294" font-size="9.5" fill="#e8a020" font-style="italic">write (hydrate)</text>
+
+        <!-- 2 -> WM (write: user message into queue) -->
+        <path d="M 280,354 Q 460,376 602,380" fill="none" stroke="#e8a020" stroke-width="1.3" marker-end="url(#wm-arr)"/>
+        <text x="340" y="370" font-size="9.5" fill="#e8a020" font-style="italic">write (user message)</text>
+
+        <!-- 5 -> WM (write: raw response) -->
+        <line x1="592" y1="496" x2="630" y2="430" stroke="#e8a020" stroke-width="1.3" marker-end="url(#wm-arr)"/>
+        <text x="554" y="468" font-size="9.5" fill="#e8a020" font-style="italic">write (response)</text>
+
+        <!-- 9 <- WM (read: whole WM) -->
+        <path d="M 800,360 Q 980,360 1120,348" fill="none" stroke="#e8a020" stroke-width="1.3" stroke-dasharray="3,3" marker-end="url(#wm-arr)"/>
+        <text x="930" y="354" font-size="9.5" fill="#e8a020" font-style="italic">read (whole WM)</text>
+
+        <!-- ====================================================================== -->
+        <!-- Think bubbles in the MIDDLE ring. One per think step.                    -->
+        <!-- Each: step -> bubble (think dispatch) and bubble -> WM (write).          -->
         <!-- ====================================================================== -->
 
-        <!-- Cloud for step 2 (above S2 row) — Set turn goal -->
-        <g transform="translate(370,160)">
-          <ellipse cx="0" cy="0" rx="120" ry="34" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="1.1"/>
-          <circle cx="-30" cy="30" r="6" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="1"/>
-          <circle cx="-40" cy="40" r="3" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="0.8"/>
-          <text x="0" y="-6" text-anchor="middle" font-size="10" fill="#f0ede6" font-style="italic">"What is being asked</text>
-          <text x="0" y="10" text-anchor="middle" font-size="10" fill="#f0ede6" font-style="italic">this turn?"</text>
+        <!-- Bubble for step 3 (top, between S3 and WM) -->
+        <g transform="translate(700,200)">
+          <ellipse cx="0" cy="0" rx="95" ry="28" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="1.1"/>
+          <circle cx="-32" cy="22" r="5" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="1"/>
+          <circle cx="-40" cy="30" r="2.5" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="0.8"/>
+          <text x="0" y="-4" text-anchor="middle" font-size="9.5" fill="#f0ede6" font-style="italic">"What's the goal,</text>
+          <text x="0" y="10" text-anchor="middle" font-size="9.5" fill="#f0ede6" font-style="italic">what constrains it?"</text>
         </g>
-        <line x1="370" y1="98" x2="370" y2="126" stroke="#7ab8c8" stroke-width="1.2" marker-end="url(#think-arr)"/>
-        <!-- Cloud-2 -> WM (write turn goal) -->
-        <path d="M 430,180 Q 470,270 510,350" fill="none" stroke="#7ab8c8" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#think-arr)"/>
-        <text x="438" y="246" font-size="9" fill="#7ab8c8" font-style="italic">write (turn goal)</text>
+        <line x1="700" y1="124" x2="700" y2="172" stroke="#7ab8c8" stroke-width="1.2" marker-end="url(#think-arr)"/>
+        <line x1="700" y1="228" x2="700" y2="262" stroke="#7ab8c8" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#think-arr)"/>
 
-        <!-- Cloud for step 3 (above S3, between S3 and the region label) -->
-        <g transform="translate(800,220)">
-          <ellipse cx="0" cy="0" rx="130" ry="32" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="1.1"/>
-          <circle cx="-78" cy="22" r="6" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="1"/>
-          <circle cx="-88" cy="32" r="3" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="0.8"/>
-          <text x="0" y="-3" text-anchor="middle" font-size="10" fill="#f0ede6" font-style="italic">"Which action gets me</text>
-          <text x="0" y="13" text-anchor="middle" font-size="10" fill="#f0ede6" font-style="italic">closer to the goal?"</text>
+        <!-- Bubble for step 4 (upper-left arc) -->
+        <g transform="translate(548,295)">
+          <ellipse cx="0" cy="0" rx="92" ry="28" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="1.1"/>
+          <circle cx="-46" cy="20" r="5" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="1"/>
+          <circle cx="-54" cy="28" r="2.5" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="0.8"/>
+          <text x="0" y="-4" text-anchor="middle" font-size="9.5" fill="#f0ede6" font-style="italic">"Which action gets</text>
+          <text x="0" y="10" text-anchor="middle" font-size="9.5" fill="#f0ede6" font-style="italic">me closer?"</text>
         </g>
-        <line x1="660" y1="234" x2="676" y2="222" stroke="#7ab8c8" stroke-width="1.2" marker-end="url(#think-arr)"/>
+        <line x1="492" y1="246" x2="525" y2="270" stroke="#7ab8c8" stroke-width="1.2" marker-end="url(#think-arr)"/>
+        <line x1="610" y1="305" x2="630" y2="335" stroke="#7ab8c8" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#think-arr)"/>
 
-        <!-- Cloud for step 5 (right of S5) -->
-        <g transform="translate(990,564)">
-          <ellipse cx="0" cy="0" rx="118" ry="32" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="1.1"/>
-          <circle cx="-66" cy="-22" r="6" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="1"/>
-          <circle cx="-76" cy="-32" r="3" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="0.8"/>
-          <text x="0" y="-3" text-anchor="middle" font-size="10" fill="#f0ede6" font-style="italic">"What does this</text>
-          <text x="0" y="13" text-anchor="middle" font-size="10" fill="#f0ede6" font-style="italic">response mean?"</text>
+        <!-- Bubble for step 6 (bottom, between S6 and WM) -->
+        <g transform="translate(700,520)">
+          <ellipse cx="0" cy="0" rx="92" ry="28" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="1.1"/>
+          <circle cx="32" cy="-22" r="5" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="1"/>
+          <circle cx="40" cy="-30" r="2.5" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="0.8"/>
+          <text x="0" y="-4" text-anchor="middle" font-size="9.5" fill="#f0ede6" font-style="italic">"What does this</text>
+          <text x="0" y="10" text-anchor="middle" font-size="9.5" fill="#f0ede6" font-style="italic">response mean?"</text>
         </g>
-        <line x1="820" y1="564" x2="872" y2="564" stroke="#7ab8c8" stroke-width="1.2" marker-end="url(#think-arr)"/>
+        <line x1="700" y1="596" x2="700" y2="548" stroke="#7ab8c8" stroke-width="1.2" marker-end="url(#think-arr)"/>
+        <line x1="700" y1="492" x2="700" y2="460" stroke="#7ab8c8" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#think-arr)"/>
 
-        <!-- Cloud for step 6 (below S6) -->
-        <g transform="translate(360,654)">
-          <ellipse cx="0" cy="0" rx="118" ry="32" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="1.1"/>
-          <circle cx="40" cy="-28" r="6" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="1"/>
-          <circle cx="50" cy="-38" r="3" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="0.8"/>
-          <text x="0" y="-3" text-anchor="middle" font-size="10" fill="#f0ede6" font-style="italic">"What in memory is</text>
-          <text x="0" y="13" text-anchor="middle" font-size="10" fill="#f0ede6" font-style="italic">still useful?"</text>
+        <!-- Bubble for step 7 (lower-right arc) -->
+        <g transform="translate(852,425)">
+          <ellipse cx="0" cy="0" rx="88" ry="28" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="1.1"/>
+          <circle cx="42" cy="-20" r="5" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="1"/>
+          <circle cx="50" cy="-28" r="2.5" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="0.8"/>
+          <text x="0" y="-4" text-anchor="middle" font-size="9.5" fill="#f0ede6" font-style="italic">"What in memory</text>
+          <text x="0" y="10" text-anchor="middle" font-size="9.5" fill="#f0ede6" font-style="italic">is still useful?"</text>
         </g>
-        <line x1="360" y1="588" x2="360" y2="622" stroke="#7ab8c8" stroke-width="1.2" marker-end="url(#think-arr)"/>
+        <line x1="900" y1="474" x2="880" y2="450" stroke="#7ab8c8" stroke-width="1.2" marker-end="url(#think-arr)"/>
+        <line x1="800" y1="412" x2="770" y2="392" stroke="#7ab8c8" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#think-arr)"/>
 
-        <!-- Cloud for step 7 (left of S7) -->
-        <g transform="translate(60,404)">
-          <ellipse cx="0" cy="0" rx="90" ry="32" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="1.1"/>
-          <circle cx="60" cy="22" r="6" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="1"/>
-          <circle cx="70" cy="32" r="3" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="0.8"/>
-          <text x="0" y="-3" text-anchor="middle" font-size="10" fill="#f0ede6" font-style="italic">"Is the goal</text>
-          <text x="0" y="13" text-anchor="middle" font-size="10" fill="#f0ede6" font-style="italic">met yet?"</text>
+        <!-- Bubble for step 8 (upper-right arc) -->
+        <g transform="translate(852,295)">
+          <ellipse cx="0" cy="0" rx="88" ry="28" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="1.1"/>
+          <circle cx="42" cy="20" r="5" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="1"/>
+          <circle cx="50" cy="28" r="2.5" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="0.8"/>
+          <text x="0" y="-4" text-anchor="middle" font-size="9.5" fill="#f0ede6" font-style="italic">"Is the goal</text>
+          <text x="0" y="10" text-anchor="middle" font-size="9.5" fill="#f0ede6" font-style="italic">met yet?"</text>
         </g>
-        <line x1="120" y1="404" x2="152" y2="404" stroke="#7ab8c8" stroke-width="1.2" marker-end="url(#think-arr)"/>
+        <line x1="900" y1="246" x2="880" y2="270" stroke="#7ab8c8" stroke-width="1.2" marker-end="url(#think-arr)"/>
+        <line x1="800" y1="305" x2="770" y2="328" stroke="#7ab8c8" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#think-arr)"/>
 
         <!-- ====================================================================== -->
-        <!-- External act-connections for step 4: tool call out to FS / External. -->
+        <!-- Legend (bottom)                                                          -->
         <!-- ====================================================================== -->
-        <rect x="1000" y="380" width="170" height="48" rx="10"
-              fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.1"/>
-        <text x="1085" y="404" text-anchor="middle" font-size="11" fill="#f0ede6" font-weight="700">Tools</text>
-        <text x="1085" y="420" text-anchor="middle" font-size="9" fill="rgba(240,237,230,0.6)" font-style="italic">read / write / run / fetch</text>
-        <line x1="950" y1="404" x2="1000" y2="404" stroke="#c89668" stroke-width="1.3" marker-end="url(#tool-arr)"/>
-        <line x1="1000" y1="418" x2="950" y2="418" stroke="#c89668" stroke-width="1.3" marker-end="url(#tool-arr)"/>
+        <g transform="translate(60,650)" font-size="10">
+          <line x1="0" y1="0" x2="24" y2="0" stroke="#9aa0a8" stroke-width="1.5" marker-end="url(#cyc-arr)"/>
+          <text x="32" y="4" fill="rgba(240,237,230,0.7)">sequence</text>
 
-        <rect x="1000" y="460" width="170" height="60" rx="10"
-              fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.1"/>
-        <text x="1085" y="482" text-anchor="middle" font-size="11" fill="#f0ede6" font-weight="700">File System</text>
-        <text x="1085" y="500" text-anchor="middle" font-size="9" fill="rgba(240,237,230,0.6)" font-style="italic">inc. workflow files</text>
-        <line x1="1085" y1="428" x2="1085" y2="460" stroke="#c89668" stroke-width="1.1" marker-end="url(#tool-arr)"/>
+          <line x1="160" y1="0" x2="184" y2="0" stroke="#7ab8c8" stroke-width="1.2" marker-end="url(#think-arr)"/>
+          <text x="192" y="4" fill="rgba(240,237,230,0.7)">think dispatch (step &rarr; bubble)</text>
 
-        <rect x="1000" y="550" width="170" height="60" rx="10"
-              fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.1"/>
-        <text x="1085" y="572" text-anchor="middle" font-size="11" fill="#f0ede6" font-weight="700">External Sources</text>
-        <text x="1085" y="590" text-anchor="middle" font-size="9" fill="rgba(240,237,230,0.6)" font-style="italic">APIs, MCP, conversation</text>
-        <line x1="1085" y1="520" x2="1085" y2="550" stroke="#c89668" stroke-width="1.1" marker-end="url(#tool-arr)"/>
+          <line x1="460" y1="0" x2="484" y2="0" stroke="#7ab8c8" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#think-arr)"/>
+          <text x="492" y="4" fill="rgba(240,237,230,0.7)">think result (bubble &rarr; WM)</text>
 
-        <!-- ====================================================================== -->
-        <!-- Session File: read by step 2, written by step 8. -->
-        <!-- ====================================================================== -->
-        <rect x="40" y="700" width="170" height="60" rx="10"
-              fill="rgba(255,255,255,0.06)" stroke="#f0ede6" stroke-width="1.3"/>
-        <text x="125" y="722" text-anchor="middle" font-size="12" fill="#f0ede6" font-weight="700">Session File</text>
-        <text x="125" y="740" text-anchor="middle" font-size="9" fill="rgba(240,237,230,0.6)" font-style="italic">durable memory at rest</text>
-        <!-- SF -> S1 (read at turn start) — long curve up the left margin -->
-        <path d="M 100,700 Q 30,400 130,98" fill="none" stroke="#c89668" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#tool-arr)"/>
-        <text x="32" y="380" font-size="9.5" fill="#c89668" font-style="italic" transform="rotate(-78 32 380)">read at turn start</text>
-        <!-- S8 -> SF (write) -->
-        <line x1="450" y1="730" x2="210" y2="730" stroke="#c89668" stroke-width="1.3" marker-end="url(#tool-arr)"/>
-        <text x="320" y="722" font-size="9.5" fill="#c89668" font-style="italic">write at turn end</text>
+          <line x1="780" y1="0" x2="804" y2="0" stroke="#e8a020" stroke-width="1.3" marker-end="url(#wm-arr)"/>
+          <text x="812" y="4" fill="rgba(240,237,230,0.7)">direct WM read / write</text>
 
-        <!-- ====================================================================== -->
-        <!-- Legend (bottom-right, compact) -->
-        <!-- ====================================================================== -->
-        <g transform="translate(960,720)" font-size="9.5">
-          <line x1="0" y1="-2" x2="22" y2="-2" stroke="#9aa0a8" stroke-width="1.5" marker-end="url(#cyc-arr)"/>
-          <text x="28" y="2" fill="rgba(240,237,230,0.7)">cycle flow</text>
-          <line x1="0" y1="14" x2="22" y2="14" stroke="#e8a020" stroke-width="1.2" marker-end="url(#wm-arr)"/>
-          <text x="28" y="18" fill="rgba(240,237,230,0.7)">working-memory read / write</text>
-          <line x1="0" y1="30" x2="22" y2="30" stroke="#7ab8c8" stroke-width="1.2" marker-end="url(#think-arr)"/>
-          <text x="28" y="34" fill="rgba(240,237,230,0.7)">think dispatch (LLM)</text>
-          <line x1="0" y1="46" x2="22" y2="46" stroke="#c89668" stroke-width="1.2" marker-end="url(#tool-arr)"/>
-          <text x="28" y="50" fill="rgba(240,237,230,0.7)">act / tool call (outside)</text>
+          <line x1="1080" y1="0" x2="1104" y2="0" stroke="#c89668" stroke-width="1.4" marker-end="url(#sf-arr)"/>
+          <text x="1112" y="4" fill="rgba(240,237,230,0.7)">session file read / write</text>
         </g>
       </svg>
     </div>
   </section>
+
 
   <!-- 37b Understanding the customer (2/2) - between turns.
        Two turn instances (N and N+1) with the at-rest session file between them:
