@@ -204,6 +204,16 @@
       border-color: rgba(232,160,32,0.25);
       transform: none;
     }
+    /* TOC slide: top-align + scroll when content overflows; tighten spacing. */
+    #s33 {
+      align-items: flex-start;
+      overflow-y: auto;
+    }
+    #s33 .slide-content { padding: 3vh 0 4vh; }
+    #s33 .toc-section-label { margin-top: 1.2rem; }
+    #s33 .toc-grid { margin-top: 0.9rem; gap: 1rem; }
+    #s33 .toc-card { padding: 1rem 0.9rem; }
+    #s33 .toc-placeholder { margin-top: 0.8rem; }
 
     /* ── NAME-THE-EXPERIENCE LIST ─────────────────────── */
     .name-list { list-style: none; text-align: left; margin: 1.8rem auto 0; padding: 0; font-size: clamp(0.95rem, 1.55vw, 1.6rem); line-height: 1.5; }
