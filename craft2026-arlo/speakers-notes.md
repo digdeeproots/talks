@@ -243,7 +243,7 @@ Land it.
 
 ## Upshift
 
-The job of this block: rise to the big idea (carelessness as the goal), state *how* (change the universe, raise safety on one class), then walk the design surface (universe + vocabulary + recipe). Order: principle (s20) → how (s26) → theory (s35) → universe (s34) → vocabulary (s28) → recipe (s27) → blank pivot (s30). (AST callback s22 removed: redundant with Beat 5 in the back half, which covers the same AST-tools case study fully.)
+The job of this block: rise to the big idea (carelessness as the goal), state *how* (change the universe, raise safety on one class), then walk the design surface (universe + vocabulary + recipe). Order: principle (s20) → how (s26) → customer model (s37a/s37b) → universe (s34) → vocabulary (s28) → recipe (s27) → blank pivot (s30). (AST callback s22 removed: redundant with Beat 5 in the back half, which covers the same AST-tools case study fully.)
 
 ---
 
@@ -346,32 +346,6 @@ Land it.
 > "Inside a turn, we got six lever attachment points. Between turns we got seven more. Every place we can move."
 
 Then transition into the theory or the safety vocabulary.
-
----
-
-### 35 — Theory: three scopes, three illusions
-
-Pause before naming the levers. Frame each scope as an illusion the surface presents — and the seam beneath where the orchestrator can intervene.
-
-> "Three scopes. Each presents an illusion. Each has a seam where you can intervene."
-
-**Panel 1 — Within an LLM call.**
-
-> "Illusion: the agent is thinking. Reality: one stateless API call. The 'thought' is the output token sequence. Swap surface: prompt text, system prompt, tools, model, temperature, the conversation history shown, context fragments injected before the request."
-
-**Panel 2 — Within a turn.**
-
-> "Illusion: the agent is acting. Reality: a loop of stateless calls glued by tool results re-fed in. Swap surface: which tools are live, what the tool results say (you can edit, redact, reorder them), when the loop halts, whether sub-agents are called and what their replies look like, even 'thoughts' you inject between calls."
-
-**Panel 3 — Between turns.**
-
-> "Illusion: the same agent persists. Reality: separate invocations. The chain is your doing. Swap surface: identity (the LLM, the agent software, the persona), memory (preserve, edit, wipe), the work product itself, the goal of the next turn, the workflow position — and whether there is a next turn."
-
-Pause.
-
-> "Every lever we're about to name in the universe lives at one of these three scopes."
-
-Transition to s34.
 
 ---
 
