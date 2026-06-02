@@ -140,7 +140,7 @@ Concretely:
 
 ## Current deck state (post-restructure)
 
-**Front half** (linear nav): s1, s2 → motorcar s4, s6, s8, s11 → vigilance 2-factor s12, s14, s16, s18, s19 → MBB demo placeholder **s21** → transcript-fetcher placeholder **s23** → **example-1 recap s29** → **example-2 recap s31** → **terms named s32a/s32b/s32c** (progressive reveal: scope → lever → cost to protect) → 3-factor formula s25 → upshift (s20 goal, **s24 two kinds of engineer**, **s26 how?**, **s37a/s37b customer model**, s34 universe, s28 safety vocabulary, s27 recipe) → **s30 blank pivot** → TOC hub **s33**. (s35 theory and s34-alt-a..e exploration alts removed; customer model s37a/s37b replaces them.)
+**Front half** (linear nav): s1, s2 → motorcar s4, s6, s8, s11 → vigilance 2-factor s12, s14, s16, s18, s19 → MBB demo placeholder **s21** → transcript-fetcher placeholder **s23** → **example-1 recap s29** → **example-2 recap s31** → **terms named s32a/s32b/s32c** (progressive reveal: scope → lever → cost to protect) → 3-factor formula s25 → **s17 vigilance toil = defects you worry about** → upshift (**s24 two kinds of engineer**, s20 goal, **s26 how?**, **s37a/s37b customer model**, s34 universe, s28 safety vocabulary, s27 recipe) → **s30 blank pivot** → TOC hub **s33**. (s35 theory and s34-alt-a..e exploration alts removed; customer model s37a/s37b replaces them.)
 
 **Back half** (audience-directed): TOC is sectioned — **Case studies** (each a 3-slide arc: setup → intervention → name the experience), **Recipes** (none built yet), **Closing** (Synthesis card → s56, s58, s10, s60). Last name-slide of every beat carries `data-return-to-toc`. T-key summons the TOC. Forward keys are disabled on the TOC; only card-clicks advance.
 

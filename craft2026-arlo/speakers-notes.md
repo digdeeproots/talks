@@ -221,21 +221,37 @@ Then pivot:
 
 ---
 
+### 17 — Where vigilance toil comes from
+
+Short anchor slide. One claim, said once, and we move on.
+
+> "Where does vigilance toil actually come from? Defects. Specifically: defects we have to worry about."
+
+> "If there were no defects to worry about, we'd just *hope* and never look. Every step above hope on the safety scale is paid for one worry at a time."
+
+Beat. Then set up the next slide:
+
+> "So if vigilance toil is paid per worry — the question becomes: who do you think is *creating* the worries?"
+
+---
+
 ### 24 — Two kinds of engineer
 
-Transition slide. Reframes the audience's role before we tell them how to act in it.
+Transition slide. Reframes the audience's role before we tell them how to act in it. Two columns; same defects, two different jobs.
 
-> "Notice what just happened. We didn't make the AI more careful. We changed the world it works in. That's a different question than the one most engineers are trained to ask."
+> "Two kinds of engineer look at the same defects and see different jobs."
 
-Walk the two columns.
+Walk the left column.
 
-> "An app or library developer asks: *how do I make this code defect-free?* They live at probabilistic and deterministic safety. Tests are something to tend."
+> "An app or library developer asks: *how do I make this code defect-free?* The defects exist; the job is to find and fix them before they pile up. Lives at probabilistic and deterministic safety. Tests are something to tend."
 
-> "A tool builder asks: *how do I make sure these developers ship defect-free code?* — where 'these developers' might be humans, might be AI agents. They live at prevention and carefree. Tests are a work product the developers might break."
+Walk the right column.
+
+> "A tool builder asks: *how do I make sure these developers ship defect-free code?* — where 'these developers' might be humans, might be AI agents. The job isn't catching defects after they happen. The job is controlling the *rate* at which they get created. Lives at prevention and carefree. Tests are a work product the developers might break."
 
 Land it.
 
-> "If your AI is one of the developers, you are the tool builder. The work isn't writing better AI. The work is engineering the world the AI succeeds in."
+> "If your AI is one of the developers, you are the tool builder. The work isn't writing better AI. The work is engineering the world so that the defect rate drops."
 
 > "So what would it look like if cost-to-protect were the design problem?"
 
