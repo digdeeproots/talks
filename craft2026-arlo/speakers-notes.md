@@ -309,19 +309,21 @@ State the intent. Don't enumerate the parts; the diagram does that.
 
 ---
 
-### 37a-2 — The agent loop wraps working memory
+### 37a-2 — Two ways the loop changes working memory
 
-State that thinking and acting are both just dispatches that come back to working memory.
+State that the loop has two routes to updating working memory: thinking, or just doing it directly.
 
-> "Around working memory runs the agent loop. Every step is either a *think* — a question dispatched out — or an *act*. Both return by writing to working memory."
+> "The agent loop has one job: change working memory. Two ways to do it. Something triggers a question — the agent dispatches a call to the LLM, the answer comes back, working memory updates. Or the loop just makes the change directly, no thinking required."
 
 ---
 
-### 37a-3 — Actions, tools, and feedback
+### 37a-3 — Acts, and what makes this "the agent loop"
 
-State that the agent's output isn't a memory update; it's an *action*, which is two things at once.
+Introduce *act* — and show that even an act ends up as a thought-about result that writes to working memory. Then name the pattern and tee up what's missing.
 
-> "Most of what an agent does isn't pure thinking. It picks an *action* — a tool to call, plus a prompt for how to interpret whatever comes back. One half goes to the tool. The other half waits, and meets the tool's result in the interpretation step that updates working memory."
+> "The third move is an *act* — anything that touches the outside world. The agent picks an action: a tool to call, and a prompt for how to interpret whatever comes back. The tool runs. Whatever comes back is a result that gets thought about, and that thought writes to working memory."
+
+> "Think, act, write back. This is what people usually call *the agent loop*. But there's something more to the loop — a consistent workflow."
 
 ---
 
