@@ -400,11 +400,9 @@
     </div>
   </section>
   
-  @ai: add a row above vigilance toil for work toil change. Note that this is not always filled in; use it to fill in steps that alter work toil.
-  
   <!-- 31 Example 2 recap — five transitions, each a single increment.
-       Table layout: row labels on the left (Changed / Vigilance Freed / Extra Load Freed),
-       one column per transition. Uniform type for legibility. -->
+       Table layout: row labels on the left (Changed / Work Toil Change / Vigilance Toil Change / Metacognition Change),
+       one column per transition. Work-toil row is optional — only filled for transitions that alter work toil. Uniform type for legibility. -->
   <section class="slide" id="s31">
     <div class="slide-content">
       <p class="kicker">Example 2</p>
@@ -426,13 +424,21 @@
         <div><em>goal</em></div>
         <div><em>feedback</em></div>
 
-        <!-- Vigilance Freed row -->
+        <!-- Work Toil Change row (optional — only filled where work toil shifts) -->
+        <div style="color: var(--kicker); text-align: right; padding-right: 0.4rem;">Work Toil Change</div>
+        <div>re-deriving steps</div>
+        <div>driving the loop by hand</div>
+        <div>fetching transcripts manually</div>
+        <div></div>
+        <div></div>
+
+        <!-- Vigilance Toil Change row -->
         <div style="color: var(--kicker); text-align: right; padding-right: 0.4rem;">Vigilance Toil Change</div>
         <div>between-session drift</div>
         <div>shortcuts, mis-sequencing</div>
         <div>manual step I had to drive</div>
         <div>vague output spec</div>
-        <div>format drift</div>
+        <div>careless about structure</div>
 
         <!-- Extra Load Freed row -->
         <div style="color: var(--kicker); text-align: right; padding-right: 0.4rem;">Metacognition Change</div>
@@ -440,7 +446,7 @@
         <div>What should I do next?</div>
         <div></div>
         <div></div>
-        <div>careless about structure</div>
+        <div></div>
       </div>
     </div>
   </section>
