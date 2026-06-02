@@ -52,7 +52,7 @@ These were load-bearing in prior versions and are now out:
      - **Reachable Context** — what info the agent can get to. Not session context — *reachability*. Which directories are in its search space, which tools surface other info, what generic search (filesystem grep) will stumble across, what is only findable by probing in a specific way.
      - **Goals** — how narrowly the task is defined.
      - **Tooling** — what operations are in the toolbox, and what is deliberately not.
-     - **Invocation timing** — when the agent runs versus when deterministic code runs.
+     - **Workflow** — when the agent runs versus when deterministic code runs.
      - **State control** — what happens to commits, files, MCP tool calls, and other agent outputs before and after the agent runs. Where the agent can directly modify state, and where it modifies a representation that we transform back and forth from real state with checks and determinism. *Was "Result handling" / "Work-product state control"; slides settled on "State control."*
      - **Feedback** — closing loops for the agent: what it learns about the impact of its actions. Schema validation, test results, guess-and-check rhythms. Distinct from State control (which governs *what happens to the output*); Feedback governs *what the agent learns about that*.
 
@@ -147,7 +147,7 @@ Concretely:
 Case-study sequences:
 - Memory s38 → s39 → **s40** (name)
 - Goals s41 → s42 → **s43**
-- Invocation timing s44 → s45 → **s46**
+- Workflow s44 → s45 → **s46**
 - Tooling (access) s47 → s48 → **s49**
 - Tooling (operations) s50 → s51 → **s52**
 - State control s53 → s54 → **s55**

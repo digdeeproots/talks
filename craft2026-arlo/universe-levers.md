@@ -82,7 +82,7 @@ Lever names are still settling — current canonical names are listed first, wit
 
 ---
 
-## Invocation Timing
+## Workflow
 
 **What it is.** When the agent runs versus when deterministic code runs.
 
@@ -148,13 +148,13 @@ The lever is distinct from State Control. State Control governs *what happens to
 A single agent turn is fully parameterized by four things. Three are already full levers; the fourth is a candidate (Identity, below).
 
 1. **Goal** — what the agent is asked to accomplish this turn. *(Goals lever.)*
-2. **Invocation context** — when this turn fires and what workflow surrounds it. *(Invocation Timing lever.)*
+2. **Invocation context** — when this turn fires and what workflow surrounds it. *(Workflow lever.)*
 3. **Memory** — what state the agent carries forward. *(Memory lever.)*
 4. **Identity** — who is being asked: agent software (Claude / dev.ai / OpenCoder / ...), LLM, system prompt, persona framing. *(Candidate lever — see below.)*
 
-In a short-invocation model — each agent takes one turn, then stops — three of these can hot-swap between turns: goal, workflow, identity. Memory is the only thing that persists across turns, so **memory is the agent's identity in the durable sense**. Two consecutive turns with the same memory but different personas, LLMs, or agent software read as one agent reinterpreting its prior state, not two agents in conversation.
+In a short-invocation model — each agent takes one turn, then stops — three of these can hot-swap between turns: goal, invocation context, identity. Memory is the only thing that persists across turns, so **memory is the agent's identity in the durable sense**. Two consecutive turns with the same memory but different personas, LLMs, or agent software read as one agent reinterpreting its prior state, not two agents in conversation.
 
-This framing collapses several earlier ideas. Cross-agent messages turn out to be a special case of turn-start input — already covered by Goal + Invocation. Adjacency (parallel visibility between concurrent agents) remains genuinely different; it is about *concurrent* turns, not sequential reinterpretation.
+This framing collapses several earlier ideas. Cross-agent messages turn out to be a special case of turn-start input — already covered by Goal + Workflow. Adjacency (parallel visibility between concurrent agents) remains genuinely different; it is about *concurrent* turns, not sequential reinterpretation.
 
 ---
 
@@ -183,8 +183,8 @@ What other agents or humans can see the work in progress and react in real time.
 
 In principle, an agent could be interrupted mid-turn, or receive additional messages between its initial input and its final output. These look like new levers, but every concrete benefit they offer can be obtained via existing levers, and they require continuous real-time vigilance by some external actor — which violates the carelessness goal. They are listed here to be explicitly **crossed out** as redundant.
 
-- ~~**Mid-turn interrupts.**~~ Use Invocation Timing: stop the agent at a turn boundary and start a new turn with the new state.
-- ~~**In-flight messages.**~~ Use Feedback (synchronous tool results, real-time guardians) for signal-during-action, or Invocation Timing for new instructions.
+- ~~**Mid-turn interrupts.**~~ Use Workflow: stop the agent at a turn boundary and start a new turn with the new state.
+- ~~**In-flight messages.**~~ Use Feedback (synchronous tool results, real-time guardians) for signal-during-action, or Workflow for new instructions.
 - ~~**Mid-turn persona change.**~~ Use Identity at the next turn boundary.
 
 If a future case appears where an in-turn interaction is genuinely irreducible to existing levers, it earns promotion. Until then: not a lever.

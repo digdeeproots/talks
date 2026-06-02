@@ -291,7 +291,7 @@ Point to each as you name it.
 > "Reachable Context — what information the agent can actually get to, what its filesystem and tools surface."
 > "Goals — how narrowly the task is defined."
 > "Tooling — what operations are in the toolbox, and what is deliberately not."
-> "Invocation timing — when the agent runs versus when deterministic code runs."
+> "Workflow — when the agent runs versus when deterministic code runs."
 > "State control — what happens to outputs before the world changes."
 > "Feedback — what the agent learns about the impact of its actions."
 
@@ -392,7 +392,7 @@ Sectioned: **Case studies** (existing 6 + a pending Feedback slot), **Recipes** 
 Case-study cards:
 - Memory / Decision inconsistency → s38
 - Goals / Consistency violation → s41
-- Invocation timing / Oversight gap → s44
+- Workflow / Oversight gap → s44
 - Tooling / Scope enforcement → s47
 - Tooling (operations) / Accidental behavior change → s50
 - State control / Data loss (archive table) → s53
@@ -493,9 +493,9 @@ Then return to the TOC.
 
 ---
 
-### 45 — Beat 3 story: Invocation timing
+### 45 — Beat 3 story: Workflow
 
-> "Universe lever: Invocation timing."
+> "Universe lever: Workflow."
 
 > "Deterministic code fetches the transcript. It knows which team, which day, which session. On success: Claude is never invoked. It doesn't even know a fetch happened."
 
@@ -509,7 +509,7 @@ Then return to the TOC.
 
 ### 46 — Beat 3 name the experience
 
-> "Scope: wrong-data fetching and over-eager step completion. Cost to protect: near zero — deterministic by default; the agent runs only on declared failure. Lever: Invocation timing."
+> "Scope: wrong-data fetching and over-eager step completion. Cost to protect: near zero — deterministic by default; the agent runs only on declared failure. Lever: Workflow."
 
 Then return to the TOC.
 
@@ -631,7 +631,7 @@ Then return to the TOC.
 
 Point at the list.
 
-> "Memory. Goals. Invocation timing. Tooling — twice. Result handling."
+> "Memory. Goals. Workflow. Tooling — twice. Result handling."
 
 > "Each choice created a zero-risk zone. Each zone permanently freed vigilance budget for the next thing."
 

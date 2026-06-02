@@ -470,6 +470,8 @@
       <p style="margin-top: 2.5rem; color: var(--dim);">We control the protection cost factor by building systems.</p>
     </div>
   </section>
+  
+  @ai: add a slide here distinguishing how tool builders think vs how app/lib devs think. This slide introduces theory. There is a starting point in key-ideas.md
 
   <!-- 20 Big idea: carelessness as the goal -->
   <section class="slide img-bg bg-cf-motorcar-road" id="s20">
@@ -485,6 +487,7 @@
   <section class="slide" id="s26">
     <div class="slide-content">
       <p class="kicker">How?</p>
+      <h2>Be a Tool Builder</h2>
       <ul class="story-list" style="margin-top: 2.5rem;">
         <li>Change the <em>universe</em>.</li>
         <li>Raise safety on one <em>error category</em>.</li>
@@ -645,7 +648,7 @@
       <h2>The agent's <span class="accent">universe</span></h2>
       <p style="margin-top: 2.5rem; font-size: clamp(1rem, 1.8vw, 2rem); letter-spacing: 0.03em;">
         Memory &nbsp;·&nbsp; Reachable Context &nbsp;·&nbsp; Goals &nbsp;·&nbsp; Tooling<br>
-        Invocation timing &nbsp;·&nbsp; State control &nbsp;·&nbsp; Feedback
+        Workflow &nbsp;·&nbsp; State control &nbsp;·&nbsp; Feedback
       </p>
       <p style="margin-top: 1.8rem; color: var(--dim);">Each one a class of error you can address.</p>
     </div>
@@ -760,7 +763,7 @@
           <text x="950" y="255" font-size="10" fill="rgba(240,237,230,0.55)" font-style="italic">what happens to its output</text>
 
           <line x1="582" y1="280" x2="940" y2="340" stroke="#9aa0a8" stroke-width="1.4" opacity="0.85" marker-end="url(#uni-arr-out)"/>
-          <text x="950" y="338" font-weight="700">Invocation timing</text>
+          <text x="950" y="338" font-weight="700">Workflow</text>
           <text x="950" y="355" font-size="10" fill="rgba(240,237,230,0.55)" font-style="italic">when it runs at all</text>
         </g>
 
@@ -1110,7 +1113,7 @@
           <h3>Consistency violation</h3>
         </div>
         <div class="toc-card" data-jump-to="s44">
-          <p class="kicker">Invocation timing</p>
+          <p class="kicker">Workflow</p>
           <h3>Oversight gap</h3>
         </div>
         <div class="toc-card" data-jump-to="s47">
@@ -1224,7 +1227,7 @@
     </div>
   </section>
 
-  <!-- ── BEAT 3: Invocation timing / Oversight gap ──────── -->
+  <!-- ── BEAT 3: Workflow / Oversight gap ──────── -->
 
   <!-- 44 Setup -->
   <section class="slide img-bg" id="s44">
@@ -1239,7 +1242,7 @@
   <!-- 45 Intervention — beat 3 -->
   <section class="slide img-bg" id="s45">
     <div class="slide-content">
-      <p class="kicker">Universe: Invocation timing</p>
+      <p class="kicker">Universe: Workflow</p>
       <div class="two-up">
         <div>
           <p class="kicker">On success</p>
@@ -1261,7 +1264,7 @@
       <ul class="name-list">
         <li><strong class="accent">Scope</strong> Wrong-data fetching and over-eager step completion.</li>
         <li><strong class="accent">Cost to protect</strong> Near zero — deterministic by default; the agent runs only on declared failure.</li>
-        <li><strong class="accent">Lever</strong> Invocation timing.</li>
+        <li><strong class="accent">Lever</strong> Workflow.</li>
       </ul>
     </div>
   </section>
@@ -1398,7 +1401,7 @@
     <div class="slide-content">
       <p class="kicker">What we did each time</p>
       <h2>We didn't ask for more care.<br>We redesigned the world.</h2>
-      <p style="margin-top: 2.5rem; color: var(--dim); font-size: clamp(0.9rem, 1.6vw, 1.8rem);">Memory &nbsp;·&nbsp; Goals &nbsp;·&nbsp; Invocation timing &nbsp;·&nbsp; Tooling &nbsp;·&nbsp; State control &nbsp;·&nbsp; Feedback</p>
+      <p style="margin-top: 2.5rem; color: var(--dim); font-size: clamp(0.9rem, 1.6vw, 1.8rem);">Memory &nbsp;·&nbsp; Goals &nbsp;·&nbsp; Workflow &nbsp;·&nbsp; Tooling &nbsp;·&nbsp; State control &nbsp;·&nbsp; Feedback</p>
       <p style="margin-top: 1.5rem; color: var(--dim);">Each choice created a zero-risk zone.<br>Each zone permanently freed vigilance budget for the next thing.</p>
     </div>
   </section>

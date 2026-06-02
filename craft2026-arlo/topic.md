@@ -45,7 +45,7 @@ You swapped work-toil for vigilance-toil. Watching AI closely enough that nothin
 
 Speed limits didn't go up when car engines got better. They went up when brakes got better, because good brakes mean you don't have to be careful about your speed. Early drivers were slow not because their engines were weak, but because they had to be. Better brakes made careless driving safe.
 
-This session names what you've been paying — vigilance toil — and the one factor you actually control: the cost to protect. We work through the agent's universe as a design surface: memory, reachable context, goals, tooling, invocation timing, and how the work product itself is handled. Demos and recipes throughout, with the back half driven by audience choice.
+This session names what you've been paying — vigilance toil — and the one factor you actually control: the cost to protect. We work through the agent's universe as a design surface: memory, reachable context, goals, tooling, workflow, and how the work product itself is handled. Demos and recipes throughout, with the back half driven by audience choice.
 
 #ZeroBugs has applied this to human developers for a decade. When someone makes a mistake, don't ask them to be more careful. Redesign the environment so that even more careless behavior still succeeds. Now it applies to agents.
 
