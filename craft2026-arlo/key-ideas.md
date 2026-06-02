@@ -7,32 +7,39 @@ vigilance toil comes from defects, fundamentally. If we didnt't worry about defe
 In the safety scale, app devs focus on probabilistic and deterministic - because that's what you need in order to ensure that this one app is doing what you intended. Tool builders focus on the higher levels, because that's what yuo need in order to ensure that the process of software development creates the results it intends. App/lib developers treat unit tests as a guard; tool-builders treat unit tests as a work product. Thus app developers try to get unit tests to be good, comlete, etc. Tool builders assume all unit tests are inherently flawed, and try to ensure that developers are safe without them or in the presence of harmful ones.
 
 # Understanding your customer
-* Coding agents are determinstic software. That makes them easy to control/guide.
 
-## Each turn
+A coding agent is **deterministic software with a probabilistic core**. Every choke point the agent passes through is a designable surface. Naming the surfaces names the levers.
 
-They do:
-1. Establish a goal for this turn. Read the user's input and decide what to do.
-2. Create a working memory, based on your *session file*. Working memory contains a task list, an unordered set of documents (a map from name to a sequence of text), and a DAG of typed text blocks.
-3. Think about a set of next tasks to do. Tasks are *tool* commands - which tool to use, what arguments to pass it, and how to think about the result. Tools are different ways to read and write to/from either the file system, the working memory, the conversation I/O to the user, or some other info source.
-4. Execute one or more tasks. Each task / tool usage gives a response. It also usually directly alters one info source, based on information in some other set of info soruces plus the arguments given it by the task.
-5. Think about the responses. Use your thoughts to update your working memory.
-6. Examine your working memory. Is it getting too full, so that important info is at risk of being lost? If so, selectively forget some stuff. Think about what is most useful for the task at hand, and then replace your working memory with the result of that thinking.
-6. Think about your turn goal. Has it been met? If so, stop. If not, go back to 3. If so, continue with turn end.
-7. Write down your working memory to a session file, so you can resume or fork from here.
+## A turn, mechanically
 
-Tool "errors" are the same as "successes" - both are just response info which is thought about, and those thoughts are added to working memory.
-One magical action that can be invoked: "read this file and do what it says" causes the agent to read a file and add it to working memory as a sequence of steps to (roughly) follow to accomplish its goal. This significantly impacts selection of the next tasks. Skills are ways we allow the agent to invoke these itself, and we can also invoke this action by direct command (to read any arbitrary file), or from a file that it is already reading as instructions.
+1. **Set the turn goal** from input. *(Goals lever / Goal axis.)*
+2. **Hydrate working memory** from the session file — task list, named documents, typed-block DAG. *(Memory lever.)*
+3. **Pick the next tasks** — each one is a tool call: which tool, which arguments, how to interpret the response. Tools are the only way the agent reads or writes anything outside its own working memory. *(Tooling lever.)*
+4. **Execute the tasks.** Each response carries information; many tool calls also mutate an external info source. *(State control lever — what gets written, where, with what checks.)*
+5. **Interpret responses.** Thoughts about responses become new working-memory entries. *(Feedback lever — what counts as signal back to the agent.)*
+6. **Prune working memory** when it bloats. Decide what's still useful, replace memory with the keep set. *(Memory lever.)*
+7. **Check the goal.** Met → stop. Not met → back to step 3.
+8. **Persist working memory** to the session file. *(Memory + State control.)*
 
-@ai: clean up the above. Make it more precise and concise. Tighten and highlight the key concepts. And then emphasise the universe levers. This defines the levers for the universe - the places where we can alter the agent's behavior. Actually, it gives half the levers. The others are things that we can do between turns.
+Two consequences worth naming:
+
+- **Tool errors and tool successes are the same shape** — both are response info that gets thought about. The agent does not branch on error; it incorporates.
+- **"Read this file and do what it says" is a memory-shaping move, not a tool call.** It injects an ordered sequence of steps into working memory that strongly biases the next-task choice. Skills, slash commands, and instructional includes are all variants of this one move. *(Memory + Goals lever overlap.)*
+
+The in-turn loop names **five levers**: Goals, Memory, Tooling, State control, Feedback. Reachable Context — what info sources the agent can even address — is implicit in step 3.
 
 ## Between turns
 
-We can
-1. Evalueate the commits it did and take action.
-2. Run additional software (deterministic or non-deterministic).
-3. Decide what to ask it to do next.
-4. Decide which agent to invoke (and what system prompt to use).
-5. Modify the session file. And pick where in it to resume / fork from.
-6. Modify any of the other information sources.
-7. Pick which tools to allow.
+Everything that happens while the agent is not running is also a designable surface — and gives the other half of the levers.
+
+1. **Evaluate what it produced** (commits, files, tool outputs); decide whether to act. *(State control + Feedback.)*
+2. **Run additional software** — deterministic or another agent — over the result. *(Workflow lever.)*
+3. **Choose the next prompt.** *(Goals lever.)*
+4. **Choose the next identity** — which agent runtime, which system prompt, which persona. *(Identity, candidate lever.)*
+5. **Edit the session file** and pick the resume / fork point. *(Memory lever.)*
+6. **Change other info sources** the agent can reach. *(Reachable Context lever.)*
+7. **Change the toolbox.** *(Tooling lever.)*
+
+## Why this matters for the talk
+
+Carelessness is not produced by adding more vigilance inside the agent. It is produced by redesigning the surfaces the agent touches — the levers above. The two diagrams in the TOC walk these surfaces directly: the **Agent's Universe** names the levers; the **Recipe** says how to engineer one of them at a time.
