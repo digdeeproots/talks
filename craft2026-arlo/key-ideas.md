@@ -17,12 +17,12 @@ A coding agent is **deterministic software with specific non-deterministic think
 1. **Hydrate *working memory* ** from the session file — turn goal, task list, map of named text sequences ("documents"), typed-block DAG (block is text sequence).
 2. **Look at the user message queue** from input.
 3. Think: **what is the turn goal and constraints** Update working memory (turn *goal* and DAG).
-3. Think: **Update tasks and pick the next actions** — each action is a *tool* call: which tool, which arguments, how to interpret the response. Tools are the only way the agent reads or writes anything outside its own working memory. *(Tooling lever.)*
-4. **Execute the actions.** Each response carries information; many tool calls also *mutate state*.
-5. Think: **Interpret responses (*feedback*).** Thoughts about responses become new working-memory entries.
-6. Think: **Prune working memory** when it bloats. Decide what's still useful, replace memory with the keep set.
-7. Think: **Check the goal.** Met → go to step 8. Not met → back to step 3.
-8. **Persist working memory** to the session file.
+4. Think: **Update tasks and pick the next actions** — each action is a *tool* call: which tool, which arguments, how to interpret the response. Tools are the only way the agent reads or writes anything outside its own working memory. *(Tooling lever.)*
+5. **Execute the actions.** Each response carries information; many tool calls also *mutate state*.
+6. Think: **Interpret responses (*feedback*).** Thoughts about responses become new working-memory entries.
+7. Think: **Prune working memory** when it bloats. Decide what's still useful, replace memory with the keep set.
+8. Think: **Check the goal.** Met → go to step 8. Not met → back to step 2.
+9. **Persist working memory** to the session file.
 
 Two consequences worth naming:
 
