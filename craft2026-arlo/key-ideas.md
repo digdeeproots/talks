@@ -12,7 +12,7 @@ A coding agent is **deterministic software with specific non-deterministic think
 
 ## A turn, mechanically
 
-1. **Hydrate *working memory* ** from the session file — turn goal, task list, map of named text sequences ("documents"), typed-block DAG (block is text sequence).
+1. **Hydrate *working memory* ** from the session file — turn goal, task list, heap (map of named text sequences), typed-block DAG (block is text sequence).
 2. **Look at the user message queue** from input.
 3. Think: **what is the turn goal and constraints** Update working memory (turn *goal* and DAG).
 4. Think: **Update tasks and pick the next actions** — each action is a *tool* call: which tool, which arguments, how to interpret the response. Tools are the only way the agent reads or writes anything outside its own working memory. *(Tooling lever.)*

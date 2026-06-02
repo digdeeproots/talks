@@ -337,7 +337,7 @@ Open with the big picture.
 
 Walk the pre-cycle.
 
-> "Step 1: hydrate. The agent reads its session file off disk and loads working memory — turn goal from last time, task list, documents, the typed DAG. That's an *act*: a real read from outside."
+> "Step 1: hydrate. The agent reads its session file off disk and loads working memory — turn goal from last time, task list, heap, the typed DAG. That's an *act*: a real read from outside."
 
 > "Step 2: set the turn goal from the new user input. That's a *think* — the agent dispatches the input to the LLM. The thought cloud asks: *what is being asked this turn?* The answer comes back as tokens and gets written to working memory as the turn goal."
 
