@@ -578,6 +578,8 @@
     </div>
   </section>
   
+  @ai: Split this into 2 diagrams. One has the agent loop as its central concept, with the various things that loop interacts with around the sides, with connections made showing who moderates that connection to the outside. The other shows what we can affect between turns. It shows 2 separate "turns" in some way and how data is stored at rest - the outputs from turn 1 and the inputs from turn 2, and highlights the levers we can use. For each step, highlight and split "think" from act from update working memory. Show those as clear separate items around the agent's turn loop. Make the "think" part be a bubble / cloud, showing the prompt/question/whatever being thought about. Basically, the loop goes "out" to thinking just like it does to any other tool. Show where that happens (multiple times per loop), and how that always results in an update to working memory.
+  
   <!-- 37 Understanding the customer — single diagram: the agent's in-turn cycle (center),
        the things the agent reads/writes through tools (working memory, file system inc.
        workflow files as a sub-region, external data sources), the tool box split into
