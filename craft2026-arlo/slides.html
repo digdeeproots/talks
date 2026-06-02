@@ -50,6 +50,7 @@
     .accent  { color: var(--accent); }
     .dim     { color: var(--dim); }
     .italic  { font-style: italic; }
+    .de-emphasize     { color: var(--dim); font-size: 70%; }
 
     em { font-style: italic; color: var(--accent); }
 
@@ -387,6 +388,8 @@
        its content now lives only in the State-control beat (s53/s54).
   ════════════════════════════════════════════════════ -->
   
+  @ai: make this slide use the same table and layout as slide 31
+  
   <!-- 29 Example 1 recap — single transition, name what changed -->
   <section class="slide" id="s29">
     <div class="slide-content">
@@ -400,6 +403,8 @@
     </div>
   </section>
   
+  @ai: instead of de-emphasized text for metacognition and work toil improvements, just use a single emoji. Like a checkmark or a green down-arrow or something that clearly shows it got better by reducing.
+  
   <!-- 31 Example 2 recap — five transitions, each a single increment.
        Table layout: row labels on the left (Changed / Work Toil Change / Vigilance Toil Change / Metacognition Change),
        one column per transition. Work-toil row is optional — only filled for transitions that alter work toil. Uniform type for legibility. -->
@@ -410,11 +415,11 @@
       <div style="display: grid; grid-template-columns: max-content repeat(5, 1fr); column-gap: 1.6rem; row-gap: 1rem; margin: 2.5rem auto 0; text-align: left; font-size: clamp(0.9rem, 1.3vw, 1.4rem); line-height: 1.45;">
         <!-- header row: blank corner, then five transition names -->
         <div></div>
-        <div style="color: var(--kicker); border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 0.4rem;">Procedure</div>
-        <div style="color: var(--kicker); border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 0.4rem;">Sequencing</div>
-        <div style="color: var(--kicker); border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 0.4rem;">Fetch</div>
-        <div style="color: var(--kicker); border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 0.4rem;">Goal spec</div>
-        <div style="color: var(--kicker); border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 0.4rem;">Output format</div>
+        <div style="color: var(--kicker); border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 0.4rem;">Written workflow</div>
+        <div style="color: var(--kicker); border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 0.4rem;">pnpm do-today</div>
+        <div style="color: var(--kicker); border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 0.4rem;">Deterministic fetch</div>
+        <div style="color: var(--kicker); border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 0.4rem;">Narrow goal</div>
+        <div style="color: var(--kicker); border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 0.4rem;">Structured, iterative analysis</div>
 
         <!-- Changed row -->
         <div style="color: var(--kicker); text-align: right; padding-right: 0.4rem;">Changed</div>
@@ -424,47 +429,82 @@
         <div><em>goal</em></div>
         <div><em>feedback</em></div>
 
-        <!-- Work Toil Change row (optional — only filled where work toil shifts) -->
+        <!-- Metacognition  row -->
+        <div style="color: var(--kicker); text-align: right; padding-right: 0.4rem;">Metacognition Change</div>
+        <div></div>
+        <div class="de-emphasize">What should I do next?</div>
+        <div></div>
+        <div class="de-emphasize">How much do I need to tell it now?</div>
+        <div class="de-emphasize">Are the moments complete and perfect?</div>
+
+        <!-- Work Toil Change row -->
         <div style="color: var(--kicker); text-align: right; padding-right: 0.4rem;">Work Toil Change</div>
-        <div>re-deriving steps</div>
-        <div>driving the loop by hand</div>
-        <div>fetching transcripts manually</div>
+        <div class="de-emphasize">Stop figuring out how to describe the next action.</div>
         <div></div>
         <div></div>
+        <div class="de-emphasize">Stop generating content it could guess from transcript.</div>
+        <div class="de-emphasize">Stop re-explaining or re-evaluating content.</div>
 
         <!-- Vigilance Toil Change row -->
         <div style="color: var(--kicker); text-align: right; padding-right: 0.4rem;">Vigilance Toil Change</div>
-        <div>between-session drift</div>
-        <div>shortcuts, mis-sequencing</div>
-        <div>manual step I had to drive</div>
-        <div>vague output spec</div>
-        <div>careless about structure</div>
-
-        <!-- Extra Load Freed row -->
-        <div style="color: var(--kicker); text-align: right; padding-right: 0.4rem;">Metacognition Change</div>
-        <div>holding the steps in my head</div>
-        <div>What should I do next?</div>
-        <div></div>
-        <div></div>
-        <div></div>
+        <div>Am I remembering to gather the right info?</div>
+        <div>Is the AI taking the right next step?</div>
+        <div>Did the AI get the right input?</div>
+        <div>Is AI over-working or taking shortcuts?</div>
+        <div>Is the output complete or misleading?</div>
       </div>
     </div>
   </section>
   
   <!-- 32 Name the recurring terms -->
-  <section class="slide" id="s32">
+  <section class="slide" id="s32a">
     <div class="slide-content">
-      <p class="kicker">What recurs</p>
-      <h2>Three things to name.</h2>
+      <p class="kicker">Terms</p>
       <ul style="text-align: left; margin: 2rem auto 0; list-style: none; padding: 0; font-size: clamp(1rem, 1.65vw, 1.7rem); line-height: 1.5;">
         <li style="margin-bottom: 1.1rem;">
           <strong class="accent">Scope:</strong> the class of error one intervention addresses.
         </li>
-        <li>
-          <strong class="accent">Cost to protect:</strong> how much vigilance toil is spent to prevent errors in this scope.
+        <li style="margin-bottom: 1.1rem;">
+          &nbsp;
+        </li>
+        <li style="margin-bottom: 1.1rem;">
+          &nbsp;
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 32 Name the recurring terms -->
+  <section class="slide" id="s32b">
+    <div class="slide-content">
+      <p class="kicker">Terms</p>
+      <ul style="text-align: left; margin: 2rem auto 0; list-style: none; padding: 0; font-size: clamp(1rem, 1.65vw, 1.7rem); line-height: 1.5;">
+        <li style="margin-bottom: 1.1rem;">
+          <strong class="accent">Scope:</strong> the class of error one intervention addresses.
         </li>
         <li style="margin-bottom: 1.1rem;">
           <strong class="accent">Lever:</strong> a facet of the agent's universe you can engineer.
+        </li>
+        <li style="margin-bottom: 1.1rem;">
+          &nbsp;
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 32 Name the recurring terms -->
+  <section class="slide" id="s32c">
+    <div class="slide-content">
+      <p class="kicker">Terms</p>
+      <ul style="text-align: left; margin: 2rem auto 0; list-style: none; padding: 0; font-size: clamp(1rem, 1.65vw, 1.7rem); line-height: 1.5;">
+        <li style="margin-bottom: 1.1rem;">
+          <strong class="accent">Scope:</strong> the class of error one intervention addresses.
+        </li>
+        <li style="margin-bottom: 1.1rem;">
+          <strong class="accent">Lever:</strong> a facet of the agent's universe you can engineer.
+        </li>
+        <li style="margin-bottom: 1.1rem;">
+          <strong class="accent">Cost to protect:</strong> how much vigilance toil is spent to prevent errors in this scope.
         </li>
       </ul>
     </div>
@@ -525,6 +565,8 @@
       </ul>
     </div>
   </section>
+  
+  @ai: introduce a new slide here, showing how we understand our customer (based on content in key-ideas.md). Show me the agent's in-turn cycle + the things we can swap out outside a turn. In the diagram, show working memory, file system, workflow files (special case of file system), and external data sources. Also distinguish built-in tools from added tools. Highlight the lines or boxes where we have levers (give them a label).
   
   <!-- 35 Theory — three scopes of agentic illusion: LLM call, turn, workflow.
        Each panel shows the illusion the surface presents, the mechanism beneath,

@@ -119,7 +119,7 @@ Each row down the table moves more of the workflow into territory where things e
 
 ---
 
-## State Control *(prior name: Result handling / Work-product state control)*
+## State Control
 
 **What it is.** What happens to commits, files, MCP tool calls, and other agent outputs before and after they affect real state. Where the agent modifies state directly versus where it modifies a *representation* that gets verified and transformed before becoming real state.
 

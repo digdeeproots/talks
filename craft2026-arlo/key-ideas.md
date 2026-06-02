@@ -8,31 +8,31 @@ In the safety scale, app devs focus on probabilistic and deterministic - because
 
 # Understanding your customer
 
-A coding agent is **deterministic software with a probabilistic core**. Every choke point the agent passes through is a designable surface. Naming the surfaces names the levers.
+A coding agent is **deterministic software with specific non-deterministic thinking steeps**. Every choke point the agent passes through is a designable surface. Naming the surfaces names the levers.
 
 ## A turn, mechanically
 
 1. **Set the turn goal** from input. *(Goals lever / Goal axis.)*
-2. **Hydrate working memory** from the session file — task list, named documents, typed-block DAG. *(Memory lever.)*
-3. **Pick the next tasks** — each one is a tool call: which tool, which arguments, how to interpret the response. Tools are the only way the agent reads or writes anything outside its own working memory. *(Tooling lever.)*
-4. **Execute the tasks.** Each response carries information; many tool calls also mutate an external info source. *(State control lever — what gets written, where, with what checks.)*
-5. **Interpret responses.** Thoughts about responses become new working-memory entries. *(Feedback lever — what counts as signal back to the agent.)*
-6. **Prune working memory** when it bloats. Decide what's still useful, replace memory with the keep set. *(Memory lever.)*
-7. **Check the goal.** Met → stop. Not met → back to step 3.
-8. **Persist working memory** to the session file. *(Memory + State control.)*
+2. **Hydrate working memory** from the session file — task list, map of named text sequences ("documents"), typed-block DAG (block is text sequence). *(Memory lever.)*
+3. Think: **Update tasks and pick the next actions** — each action is a *tool* call: which tool, which arguments, how to interpret the response. Tools are the only way the agent reads or writes anything outside its own working memory. *(Tooling lever.)*
+4. **Execute the actions.** Each response carries information; many tool calls also *mutate state*.
+5. Think: **Interpret responses (*feedback*).** Thoughts about responses become new working-memory entries.
+6. Think: **Prune working memory** when it bloats. Decide what's still useful, replace memory with the keep set.
+7. Think: **Check the goal.** Met → go to step 8. Not met → back to step 3.
+8. **Persist working memory** to the session file.
 
 Two consequences worth naming:
 
 - **Tool errors and tool successes are the same shape** — both are response info that gets thought about. The agent does not branch on error; it incorporates.
-- **"Read this file and do what it says" is a memory-shaping move, not a tool call.** It injects an ordered sequence of steps into working memory that strongly biases the next-task choice. Skills, slash commands, and instructional includes are all variants of this one move. *(Memory + Goals lever overlap.)*
+- **"Read this file and do what it says" is a memory-shaping move, not a tool call.** It injects an ordered sequence of steps into working memory that strongly biases the next-task choice. Skills, slash commands, and instructional includes are all variants of this one move.
 
-The in-turn loop names **five levers**: Goals, Memory, Tooling, State control, Feedback. Reachable Context — what info sources the agent can even address — is implicit in step 3.
+The in-turn loop names **five levers**: Goals, Memory, Tooling, State control, Feedback. Reachable Context — what info sources the agent can even address — is implicit in step 4
 
 ## Between turns
 
 Everything that happens while the agent is not running is also a designable surface — and gives the other half of the levers.
 
-1. **Evaluate what it produced** (commits, files, tool outputs); decide whether to act. *(State control + Feedback.)*
+1. **Evaluate what it produced** (commits, files, tool outputs); decide whether/how to act. *(State control lever)*
 2. **Run additional software** — deterministic or another agent — over the result. *(Workflow lever.)*
 3. **Choose the next prompt.** *(Goals lever.)*
 4. **Choose the next identity** — which agent runtime, which system prompt, which persona. *(Identity, candidate lever.)*
