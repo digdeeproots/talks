@@ -655,34 +655,37 @@
     <div class="slide-content">
       <p class="kicker">Where to push</p>
       <h2>The agent's <span class="accent">universe</span></h2>
-      <svg viewBox="0 0 1200 640" width="100%" style="max-height:68vh; display:block; margin: 1.2rem auto 0;" role="img">
+      <svg viewBox="0 0 1300 700" width="100%" style="max-height:72vh; display:block; margin: 0.8rem auto 0;" role="img">
         <!-- Two overlapping circles: work toil (left) and vigilance toil (right).
-             Vigilance levers sit in the intersection; work-toil-only levers sit
-             in the left crescent and are crossed out. -->
-        <circle cx="430" cy="350" r="320" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="2"/>
-        <circle cx="770" cy="350" r="320" fill="rgba(232,160,32,0.10)" stroke="#e8a020" stroke-width="2"/>
+             Levers that reduce both sit in the intersection; vigilance-only on
+             the right; work-toil-only on the left, crossed out. -->
+        <circle cx="450" cy="380" r="300" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="2"/>
+        <circle cx="850" cy="380" r="300" fill="rgba(232,160,32,0.10)" stroke="#e8a020" stroke-width="2"/>
 
-        <!-- Circle labels (above each) -->
-        <text x="220" y="60" text-anchor="middle" font-size="22" font-weight="800" fill="#7ab8c8" letter-spacing="0.5">Work toil</text>
-        <text x="980" y="60" text-anchor="middle" font-size="22" font-weight="800" fill="#e8a020" letter-spacing="0.5">Vigilance toil</text>
+        <text x="270"  y="60" text-anchor="middle" font-size="22" font-weight="800" fill="#7ab8c8" letter-spacing="0.5">Work toil</text>
+        <text x="1030" y="60" text-anchor="middle" font-size="22" font-weight="800" fill="#e8a020" letter-spacing="0.5">Vigilance toil</text>
 
-        <!-- Vigilance levers — in the intersection, centered horizontally. -->
+        <!-- Intersection: both reduced. -->
         <g text-anchor="middle" font-weight="700" fill="#f0ede6">
-          <text x="600" y="200" font-size="20">Memory</text>
-          <text x="600" y="240" font-size="20">Reachable Context</text>
-          <text x="600" y="280" font-size="20">Goals</text>
-          <text x="600" y="320" font-size="20">Tooling</text>
-          <text x="600" y="360" font-size="20">Workflow</text>
-          <text x="600" y="400" font-size="20">State control</text>
-          <text x="600" y="440" font-size="20">Feedback</text>
+          <text x="650" y="300" font-size="20">Goals</text>
+          <text x="650" y="355" font-size="20">Tooling</text>
+          <text x="650" y="410" font-size="20">Workflow</text>
+          <text x="650" y="465" font-size="20">Feedback</text>
         </g>
 
-        <!-- Work-toil-only levers — left crescent, crossed out. -->
+        <!-- Vigilance-only (right crescent). -->
+        <g text-anchor="middle" font-weight="700" fill="#f0ede6">
+          <text x="975" y="330" font-size="20">State control</text>
+          <text x="975" y="385" font-size="20">Memory</text>
+          <text x="975" y="440" font-size="18">Reachable Context</text>
+        </g>
+
+        <!-- Work-toil-only (left crescent), crossed out. -->
         <g text-anchor="middle" font-weight="700" fill="rgba(240,237,230,0.55)" text-decoration="line-through">
-          <text x="200" y="320" font-size="20">Identity</text>
-          <text x="200" y="360" font-size="20">Adjacency</text>
-          <text x="200" y="400" font-size="20">Mid-turn interrupts</text>
-          <text x="200" y="440" font-size="20">In-flight messages</text>
+          <text x="290" y="305" font-size="18">Identity</text>
+          <text x="290" y="345" font-size="18">Adjacency</text>
+          <text x="290" y="385" font-size="17">Mid-turn interrupts</text>
+          <text x="290" y="425" font-size="17">In-flight messages</text>
         </g>
       </svg>
     </div>
