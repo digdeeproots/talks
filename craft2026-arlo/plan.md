@@ -5,163 +5,103 @@ status: in-progress
 
 # Plan — Careless by Design (Craft 2026)
 
-This is the working plan for the *Careless by Design* talk at Craft 2026. It reflects the direction we are heading after re-arranging slides and pruning the old framing. Other docs in this folder (topic.md, core-insight.md, status.md, speakers-notes.md) are partially or fully out of date and will be brought into alignment.
+The forward-looking plan for the *Careless by Design* talk. Describes the target shape of the deck and what still needs to land. Reference docs: `topic.md`, `core-insight.md`, `stories.md`, `universe-levers.md`, `key-ideas.md`, `status.md`.
 
 ## Format
 
 - **45 min total**, 15 min reserved for Q&A → **30 min talk proper**.
-- Reach the *visual table of contents* slide within **15-20 min**.
-- Remaining 10-15 min in the talk proper: audience-directed exploration off the TOC slide.
-- Q&A will likely keep cycling in the same style — that's fine.
+- Reach the **TOC slide** within **15–20 min**.
+- Remaining **10–15 min**: audience-directed exploration off the TOC.
+- Q&A keeps cycling through the same TOC.
 
-## What the talk does
+## What the audience leaves with
 
-A talk for engineers using AI (or about to). One core move: **stop being more careful; redesign the world so carelessness still succeeds**.
+- A name for what they've been paying — **vigilance toil**.
+- The three-factor formula and the one factor they actually control — **cost to protect**.
+- A picture of the **customer** (the agent's loop) and the **universe** (the seven levers).
+- The **recipe** for iterative carelessness improvement.
+- One concrete first step they can take Monday.
 
-The audience leaves with:
-- A name for what they've been paying — **vigilance toil**
-- The three-factor formula and the one factor they actually control — **cost to protect**
-- Named terms and the logic underlying iterative carelessness improvement
-- Two diagrams: **Carelessness is a process** (transitions toward carelessness) and the **Agent's Universe** (levers to pull)
-- A first step: how to get started at engineering carelessness (the first transition, the pattern)
-- The recipe for iterative carelessness improvement. Every pass through the workflow makes one vigilance cost more explicit, then makes it go away. Modeled on *automation as a process* — same shape, applied to vigilance toil instead of work toil.
+## Target deck shape
 
-## What has been cut
+### Front half — linear (≈15–20 min)
 
-These were load-bearing in prior versions and are now out:
+```
+Bridge:       s1 · s2 · s4 · s6 · s8 · s11           motorcar opening
+Toil:         s12 · s14 · s16 · s18 · s19            2-factor formula
+Demo 1:       s21                                    MBB tool — live demo
+Story 1:      s23                                    transcript fetcher — semi-demo
+Recap:        s29 (Ex 1) · s31 (Ex 2)                same 4-row table grid
+Terms:        s32a · s32b · s32c                     reveal Scope → Lever → Cost
+Formula:      s25                                    3-factor formula
+Anchor:       s17                                    vigilance toil = defects you worry about
+Upshift:      s24 · s20 · s26 · s37a · s37b · s34 · s28 · s27
+              two kinds of engineer · big idea · how? ·
+              one agent turn · between turns · agent's universe ·
+              safety categories · the recipe
+Pivot:        s30                                    blank
+```
 
-- **The "agency" dimension (A0–A5).** No more 2D model. The talk runs on one axis: vigilance toil and the universe that produces or prevents it.
-- **The agency model entirely.** The AI agency maturity model, the other repo, and the walking of that model — all gone.
-- **"Worry" as a named concept.** The audience does not need a new noun. We talk directly about *vigilance cost* and *safety options*.
-- **The 5-step recipe with "Name the Worry" as step 2.** Replaced by the two-diagram TOC and recipes-on-demand for each transition.
-- **AI = engine / Safety = brakes as opening framing.** The brake metaphor still opens, but the "AI is the engine" frame is held back until the closing payoff, where it re-emerges as "Universe = brakes."
-- **SAS open space talk.** Already given. Not a planning concern.
+### TOC hub — visual menu (s33)
 
-## The new flow
+Two diagrams side-by-side, audience picks:
 
-### Front half: get to the TOC slide fast (15-20 min)
+- **Carelessness is a process** — the recipe loop visualized: name vigilance → build guardian → classify signal → lock with a lever → decide next.
+- **Agent's Universe** — the seven levers as a labelled diagram.
 
-1. **Bridge — motorcar opening.** As fast as possible. Engines didn't raise speed limits; brakes did. "Better brakes let you stop *caring* about stopping." Hold back the AI mapping.
-2. **First demo — movement-based branching with risk-aware commit notation.** As fast as possible. A *tooling* lever. Show, don't yet name. Live demo; needs a scripted walkthrough of exactly what to say and show.
-3. **Quick story — transcript fetcher.** Told as a semi-demo: walk through some of the transition states it went through on its way from vigilance to deterministic. A *result-handling* lever.
-4. **Upshift.** Rise to the big idea (carelessness as goal), then the recipe (how), then the universe (where the levers live). Order: principle (s20) → how (s26) → customer model (s37a/s37b) → universe (s34) → safety vocabulary (s28) → recipe (s27). The recipe is the meta-pattern: name the vigilance → build a guardian → read its output as signal (classifies into caught / missed / verified-safe) → lock one class in with a universe lever at a chosen safety level.
-5. **The TOC slide.** Two diagrams side by side, walked through quickly. Both diagrams are *placeholder content* — to be filled in by a later step in this plan.
-   - **Carelessness is a process** — incremental transitions toward more carelessness. *Placeholder transitions:* vigilance → probabilistic → deterministic → prevention → carefree. The real sequence will be refined later. Each transition has a recipe.
-   - **Agent's Universe** — the levers. Each lever has examples on demand.
-     - **Memory** — what the agent recalls, for how long, across sessions.
-     - **Reachable Context** — what info the agent can get to. Not session context — *reachability*. Which directories are in its search space, which tools surface other info, what generic search (filesystem grep) will stumble across, what is only findable by probing in a specific way.
-     - **Goals** — how narrowly the task is defined.
-     - **Tooling** — what operations are in the toolbox, and what is deliberately not.
-     - **Workflow** — when the agent runs versus when deterministic code runs.
-     - **State control** — what happens to commits, files, MCP tool calls, and other agent outputs before and after the agent runs. Where the agent can directly modify state, and where it modifies a representation that we transform back and forth from real state with checks and determinism. *Was "Result handling" / "Work-product state control"; slides settled on "State control."*
-     - **Feedback** — closing loops for the agent: what it learns about the impact of its actions. Schema validation, test results, guess-and-check rhythms. Distinct from State control (which governs *what happens to the output*); Feedback governs *what the agent learns about that*.
+Cards: closing sequence + per-lever case-study entries + per-recipe-step mini-sequences. Forward keys disabled on TOC; only card-clicks advance. T-key summons TOC. Each beat's last slide carries `data-return-to-toc`.
 
-Full rubric per lever lives in `universe-levers.md`.
+### Back half — audience-directed (≈10–15 min)
 
-### Back half: audience-directed exploration (10-15 min)
+- **Pick a lever card** → 3-slide arc: setup → intervention → name-the-experience.
+- **Pick a recipe-step card** → mini-arc walking that step.
+- Cycle until a natural break.
+- Closing sequence inserted at a clean moment, then return to TOC for Q&A.
 
-The TOC slide is a visual menu. Audience picks; I present.
+Lever case-study sequences (each: setup → intervention → name):
 
-- **Pick a transition** → I present a recipe, maybe with an example.
-- **Pick a lever** → I present an example. Probably no recipe.
+```
+Memory             s38 → s39 → s40
+Goals              s41 → s42 → s43
+Workflow           s44 → s45 → s46
+Tooling (access)   s47 → s48 → s49
+Tooling (ops)      s50 → s51 → s52
+State control      s53 → s54 → s55
+Feedback           — case study TBD —
+```
 
-Keep cycling. At a natural break, insert the closing sequence (see Close), then return to the TOC slide — now augmented with an *other questions* entry — for general Q&A. The audience will likely keep exploring in the same style.
+Each name-slide fills in **Scope / Lever / Cost to protect**.
 
 ### Close
 
-Four-slide closing sequence (already working in current slides.html): synthesis → formula callback → AI/Universe = engine/brakes → "Better brakes let you stop *caring* about stopping."
+Four slides (already working): synthesis → formula callback → AI/Universe = engine/brakes → "Better brakes let you stop *caring* about stopping." Closing is a TOC card; speaker triggers it. Last slide returns to TOC for Q&A.
 
-The closing sequence is a card on the TOC, alongside the six beat examples. Speaker triggers it at a natural moment by clicking the card. After the close's last slide, next-key returns to the TOC for Q&A.
+## What still needs to change
 
-## Open questions
+### Big — content gaps
 
-These shape the plan but are not yet decided.
+- [ ] **TOC hub two diagrams.** Real diagrams for *Carelessness is a process* and *Agent's Universe*. Currently the hub uses flat beat-title cards as placeholder.
+- [ ] **Feedback case study.** No story drafted; card greyed out. Other six levers each have a 3-slide arc. Pull from `stories.md` (commit-tool quality reviewer or required-demo / browser-walker) and build the arc.
+- [ ] **Recipes section in the TOC.** Decide what a back-half recipe artifact looks like vs the meta-recipe on s27 — and build the slides for it.
+- [ ] **Demo 1 script (s21).** Movement-based branching — word-for-word what to say and what to show on screen.
+- [ ] **Demo 2 script (s23).** Transcript fetcher semi-demo — the transition sequence walk in detail.
 
-- **The two TOC diagrams.** Both need a clean visual form. Transition sequence and lever rubric have not been laid out yet. Planned as a later step in this plan.
-- **Lever names.** Canonical names in `universe-levers.md` are now used everywhere (slides, notes). *Reachable Context* and *State control* are the current forms; revisit when scripting demos.
+### Medium — known rough edges
 
-## Doing this work
+- [ ] **s37a (One Agent Turn) iteration.** Diagram is at raw quality; tools/external connections were deliberately deferred and need to land. Speaker notes need to be re-walked once the diagram settles.
+- [ ] **s37b (Between Turns) review.** Has not been touched since the s37a redesign; check it still reads coherently as the right-hand half of the customer model.
+- [ ] **Upshift slide for app-dev vs tool-dev rate framing.** Slide s17 lands the anchor (vigilance = defects you worry about) and s24 carries the rate vs find-and-fix framing; verify the two read as a clean sequence.
+- [ ] **s32a/b/c progressive reveal.** Verify each slide reads cleanly and the reveal lands the three terms in the order the talk uses them.
 
-Plan-shaping and cleanup happen together in this session. The two are coupled — we can't trim the old docs until the new direction is clear.
+### Small — polish, last
 
-### Order of work
+- [ ] Final prose pass on `speakers-notes.md`.
+- [ ] Final prose pass on slide copy in `slides.html`.
+- [ ] Sweep `stories.md` for the still-TBD lines (Feedback section, etc.).
 
-1. **Iterate this plan to clarity.** This file is the source of truth for direction. *(done)*
-2. **Trim the other docs to match.** topic.md, core-insight.md, status.md, stories.md. *(done)*
-3. **Restructure slides.html and speakers-notes.md** to match this plan. *(done)*
-4. **Next movement(s):** any of the "Later sessions" items below.
+## Working principles for the remaining work
 
-### What "restructure" means for this movement
-
-Target quality: **raw-to-internal**. Roughly right order and content. Not final prose.
-
-Concretely:
-
-- Process the embedded `@ai:` directives in slides.html (currently three: s16 brownfield-math addition, upshift placeholder block, recipe rework block).
-- Rip out concepts the plan has cut: the old 5-step Recipe, the Worry noun, the 6-beat A0–A5 model walkthrough framing.
-- Replace the recipe/model block with the two-diagram TOC structure: **Carelessness is a process** + **Agent's Universe**. Diagrams themselves stay as placeholders (real content is a later session) — but the slot and the framing must exist.
-- Reorder slides to match the plan's flow: motorcar → vigilance toil (2-factor → 3-factor) → two examples (movement-based branching demo, transcript-fetcher story) → upshift placeholder → TOC slide → audience-directed back half → close.
-- Rewrite speakers-notes.md sections to match the new deck order and the new conceptual frame. Keep speaker-notes prose workmanlike, not polished.
-- The 6 Beat slides (38–54) are currently structured around Worry/Model. They become the audience-pickable lever examples in the new back half. Reframe their notes (drop "Worry", drop level-shift narration), but keep the underlying examples — they're the material the back half draws from.
-- The Careless Safety Spectrum walk-through is part of the upshift, as are the slides currently in the upshift section.
-- Make sure slide navigation works in the new sequence.
-- Extend slide navigation to allow clidking on things in the visual TOC to jump to something, then so that next from the final slide on an example comes back to the TOC. Use a faked-up TOC with the 6 beat stories as simple cards so that we can verify navigation works.
-
-### Out of scope for this movement
-
-- Final-quality prose on any doc.
-- Filling in the two TOC diagrams (transition sequence, lever rubric).
-- Detailed upshift sequence design.
-- Scripting the first demo (movement-based branching) word-for-word.
-- Scripting the transcript-fetcher semi-demo in detail.
-
-### Later sessions (tracked)
-
-- **Feedback case study.** Build a 3-slide case study for the greyed-out Feedback card. Other levers each have a story now; Feedback only has the transcript-fetcher step-4 reference inside Example 2 — it needs a dedicated lane in the back half.
-- **Recipes section.** No recipe slides exist yet. Decide what a "recipe" looks like inside the back-half TOC versus the meta-recipe on s27 — they may be different artifacts.
-- Fill in the **Carelessness is a process** diagram. (Now means: visualize the recipe loop — name → guardian → classify → lever → decide — not transitions along the spectrum.)
-- Fill in the **Agent's Universe** diagram.
-- Script the **first demo** (movement-based branching).
-- Script the **transcript-fetcher story** as a semi-demo.
-- Final prose pass on slides.html and speakers-notes.md.
-
-## Status
-
-| Doc | Aligned with plan? | Action |
-|-----|--------------------|--------|
-| plan.md (this) | Yes | — |
-| topic.md | Yes, trimmed | — |
-| core-insight.md | Yes, trimmed; formula now 2→3 factor | — |
-| status.md | Yes, trimmed | — |
-| stories.md | Yes, new, gathers all story detail | Feedback section is a stub; stories pending |
-| universe-levers.md | Yes, new, full lever rubric incl. Feedback | — |
-| speakers-notes.md | Yes, structurally aligned | Prose pass later |
-| slides.html | Yes, structurally aligned | Diagram fill + demo scripts later; case studies expand to 3 slides later |
-
-## Current deck state (post-restructure)
-
-**Front half** (linear nav): s1, s2 → motorcar s4, s6, s8, s11 → vigilance 2-factor s12, s14, s16, s18, s19 → MBB demo placeholder **s21** → transcript-fetcher placeholder **s23** → **example-1 recap s29** → **example-2 recap s31** → **terms named s32a/s32b/s32c** (progressive reveal: scope → lever → cost to protect) → 3-factor formula s25 → **s17 vigilance toil = defects you worry about** → upshift (**s24 two kinds of engineer**, s20 goal, **s26 how?**, **s37a/s37b customer model**, s34 universe, s28 safety vocabulary, s27 recipe) → **s30 blank pivot** → TOC hub **s33**. (s35 theory and s34-alt-a..e exploration alts removed; customer model s37a/s37b replaces them.)
-
-**Back half** (audience-directed): TOC is sectioned — **Case studies** (each a 3-slide arc: setup → intervention → name the experience), **Recipes** (none built yet), **Closing** (Synthesis card → s56, s58, s10, s60). Last name-slide of every beat carries `data-return-to-toc`. T-key summons the TOC. Forward keys are disabled on the TOC; only card-clicks advance.
-
-Case-study sequences:
-- Memory s38 → s39 → **s40** (name)
-- Goals s41 → s42 → **s43**
-- Workflow s44 → s45 → **s46**
-- Tooling (access) s47 → s48 → **s49**
-- Tooling (operations) s50 → s51 → **s52**
-- State control s53 → s54 → **s55**
-- Feedback — card still greyed out, no slides yet
-
-Each name slide fills in: **Scope** / **Cost to protect** / **Lever** — the terms introduced at s32 in the upshift.
-
-**Placeholders standing in for later-session work:**
-- TOC cards are flat beat titles; real two-diagram TOC (Carelessness is a process + Agent's Universe) is later.
-- Recipes section in the TOC is empty — no recipe slides exist yet.
-- Feedback case-study card is greyed out — no story has been drafted yet.
-- s21 (MBB demo) and s23 (transcript-fetcher) are scaffolds; demo scripts are later.
-
-**Terminology baked into deck + notes this movement:**
-- "Vigilance cost:" replaced "The Worry:" on all beat setups and the upshift's strike-through callouts.
-- "Universe lever:" replaces "Universe aspect:" in beat speaker notes.
-- A0–A5 level-shift narration ("Level 1 → 4", "Started at level 1", "Currently at level 1") is removed from beat narration. The Spectrum slide (s28) still names the levels as reference.
+- One commit per logical step. Movements close on natural integration points.
+- Diagrams stay at **raw** quality until the content is settled; polish last.
+- Always tie back to **vigilance toil**. If a slide doesn't connect to a worry class, cut or rewrite it.
+- Lever names are canonical per `universe-levers.md`. If a name changes there, propagate everywhere.
