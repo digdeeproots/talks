@@ -84,20 +84,38 @@ Lever names are still settling — current canonical names are listed first, wit
 
 ## Workflow
 
-**What it is.** When the agent runs versus when deterministic code runs.
+**What it is.** When the agent runs versus when deterministic code runs — and what wraps each agent invocation. The full shape of *how a task gets carried out*, from trigger to completion, including which steps are deterministic, which are agentic, and what passes between them.
 
-**Why it's a lever.** Every agent invocation is a place where the agent can be wrong. Pushing work into deterministic code that runs *instead of* the agent eliminates that risk per scope. The agent gets called only when deterministic code can't handle the situation.
+**Why it's a lever.** Every agent invocation is a place where the agent can be wrong. Pushing work into deterministic code that runs *instead of* the agent eliminates that risk per scope. Pushing work into a deterministic *wrapper around* the agent constrains the way the agent can be wrong. The agent is called only when, and only how, the surrounding workflow says.
+
+**The two axes.** A workflow has two independent variables:
+
+1. **Invocation** — how the workflow gets started. *Deterministic* (a script, a hook, a scheduled job, a tool wrapper) or *non-deterministic* (a human types a prompt; another agent decides to invoke; the agent self-elects via skill matching).
+2. **Execution** — what runs inside. Some mix of *deterministic steps* (code) and *non-deterministic steps* (agent turns).
+
+This gives a taxonomy of workflow shapes, ordered roughly by how much carelessness is engineered in:
+
+| Shape | Invocation | Execution | Examples |
+|---|---|---|---|
+| **Free prompt** | non-det | non-det (one agent turn) | Typing into the chat. |
+| **Skill** | non-det (agent self-elects when it matches) | non-det (the skill is a prompt that biases next moves) | A skill the agent invokes when it judges the situation matches. |
+| **Process doc** | non-det (human or agent reads it) | non-det (the doc is interpreted, not run) | "Read this file and follow it." The doc shapes next moves but does not execute them. The transcript-fetcher *workflow file* (step 2) lived here. |
+| **Scripted invocation** | det (script, hook, cron) | non-det (one agent turn) | `do-today` launches Claude; the launch is automation, the turn inside is still agentic. |
+| **Mission** | det | mixed (det steps and agent steps in a fixed sequence, with deterministic glue between) | A pipeline that fetches data, calls the agent, validates, retries on failure — deterministic pipeline with non-deterministic seats. |
+| **Fully deterministic** | det | det (no agent) | The agent has been engineered out of this scope entirely. |
+
+Each row down the table moves more of the workflow into territory where things either can't go wrong or fail deterministically. The lever is *where each piece of the workflow sits in this table* — and the work of carelessness is promoting pieces downward, one at a time.
 
 **Probe questions.**
-- Where in the workflow does the agent run? Why there?
-- What deterministic processing precedes or follows each invocation?
-- What conditions trigger the agent versus skip it?
+- Where in the workflow does the agent run? Why there and not elsewhere?
+- Is invocation deterministic or does it rely on someone remembering?
+- For each non-deterministic step, what is the smallest deterministic wrapper that catches its likely failure modes?
+- Are any steps still non-deterministic only because they have not been promoted yet?
 
 **Examples.**
-- *Transcript fetcher.* Deterministic code fetches; agent runs only on failure, with the specific error as context.
-- *do-today sequencing.* Deterministic code decides what step is needed, runs that step, exits. The agent is never asked to manage its own sequencing.
-
-@expand this to workflow. There are several levels and kinds: skills are an example of non-deterministic workflow. Process docs are non-deterministic; workflows that are invoked deterministically / manually. Scripted invocation is automation and deterministic for invocation, but still non-deterministic after that. Missions are deterministic workflows with individual non-deterministic steps. And then you can also add deterministic steps.
+- *Transcript fetcher.* Deterministic code fetches; the agent runs only on failure, with the specific error as input. Mission-shaped — deterministic invocation, mixed execution.
+- *do-today sequencing.* Deterministic code decides what step is needed, runs that step, exits. The agent is never asked to manage its own sequencing. Scripted invocation around each agent turn.
+- *Workflow file (transcript-fetcher step 2).* Process doc — the first move was to write down the steps so they could be edited between sessions, even though execution was still fully agentic.
 
 ---
 
