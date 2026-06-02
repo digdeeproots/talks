@@ -159,13 +159,15 @@ Don't name the formal terms yet. Hold them for two slides.
 
 ### 31 — Example 2 recap
 
-Four transitions in sequence. Walk them briefly — one beat each. The audience will pattern-match before you name it.
+Five transitions in sequence. Walk them briefly — one beat each. The audience will pattern-match before you name it.
 
-> "Second one was four moves, not one. Each move was a single, separable change."
+> "Second one was five moves, not one. Each move was a single, separable change."
 
 Read each:
 
-> "Sequencing became deterministic. The agent doesn't decide what step is next; deterministic code does. That alone prevented a whole class of mistakes: shortcuts, mis-sequencing, over-eager completion."
+> "First, the procedure left my head. Free prompting became a workflow file — something I could re-read, edit, iterate on between sessions. Inside a session I was still fully vigilant, but I stopped re-deriving the steps every time."
+
+> "Then sequencing became deterministic. The agent doesn't decide what step is next; deterministic code does. That alone prevented a whole class of mistakes: shortcuts, mis-sequencing, over-eager completion."
 
 > "Then the fetch became deterministic. The agent only sees fetch results when fetch fails. Notice this changed *two* things at once: invocation, *and* the goal of the agent in that step."
 
@@ -173,7 +175,7 @@ Read each:
 
 > "Then we locked down the analysis format. Schema validation tells the agent when its output doesn't conform; the agent retries. I'm careless about what each key moment includes."
 
-> "Four transitions, four levers touched."
+> "Five transitions, five levers touched."
 
 ---
 
