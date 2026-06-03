@@ -29,7 +29,7 @@
         <text x="180" y="78" font-size="12.5" fill="rgba(240,237,230,0.7)">&bull; Empty guardian set</text>
         <text x="180" y="100" font-size="12.5" fill="rgba(240,237,230,0.7)">&bull; One-step workflow</text>
         <text x="450" y="78" font-size="12.5" fill="rgba(240,237,230,0.7)">&bull; Vigilance expectation</text>
-        <text x="450" y="100" font-size="12.5" fill="rgba(240,237,230,0.7)">&bull; Spot-checker</text>
+        <text x="450" y="100" font-size="12.5" fill="rgba(240,237,230,0.7)">&bull; Empty spot-checker</text>
       </g>
       <line x1="410" y1="136" x2="410" y2="160" stroke="rgba(240,237,230,0.25)" stroke-width="1.5" marker-end="url(#rec-arr-lt)"/>
 
