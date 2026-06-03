@@ -263,6 +263,7 @@
       opacity: 0.55;
     }
     .lever-pill-out .pill-name { text-decoration: line-through; }
+    @ai: change these to calcs that match the svg, so that it will work at all screen sizes.
     .lever-cluster-intersection { left: 50%; top: 55.6%; transform: translate(-50%, -50%); width: 19%; min-width: 12rem; }
     .lever-cluster-vigilance    { left: 23%; top: 55.6%; transform: translate(-50%, -50%); width: 17%; min-width: 11rem; }
     .lever-cluster-work         { left: 77%; top: 55.6%; transform: translate(-50%, -50%); width: 17%; min-width: 11rem; }
@@ -746,12 +747,11 @@
   <section class="slide img-bg bg-cr-developer" id="s34">
     <div class="overlay"></div>
     <div class="slide-content">
-      <p class="kicker">Where to push</p>
-      <h2>The agent's <span class="accent">universe</span></h2>
+      <p class="kicker">The agent's universe</p>
       <div class="lever-venn">
         <svg viewBox="0 0 1300 720" class="venn-bg" preserveAspectRatio="xMidYMid meet" role="img" aria-hidden="true">
-          <circle cx="540" cy="400" r="320" fill="rgba(232,160,32,0.10)" stroke="#e8a020" stroke-width="2"/>
-          <circle cx="760" cy="400" r="320" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="2"/>
+          <circle cx="530" cy="400" r="320" fill="rgba(232,160,32,0.10)" stroke="#e8a020" stroke-width="2"/>
+          <circle cx="770" cy="400" r="320" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="2"/>
           <text x="220"  y="50" text-anchor="middle" font-size="24" font-weight="800" fill="#e8a020" letter-spacing="0.5">Vigilance toil</text>
           <text x="1080" y="50" text-anchor="middle" font-size="24" font-weight="800" fill="#7ab8c8" letter-spacing="0.5">Work toil</text>
         </svg>
@@ -767,18 +767,18 @@
           </div>
           <div class="lever-pill">
             <span class="pill-name">Workflow</span>
-            <span class="pill-def">When the agent runs.</span>
+            <span class="pill-def">How we interleave deterministic code calls and agent calls.</span>
           </div>
           <div class="lever-pill">
             <span class="pill-name">Feedback</span>
-            <span class="pill-def">What signals it gets back.</span>
+            <span class="pill-def">What signals it gets back about action outcomes.</span>
           </div>
         </div>
 
         <div class="lever-cluster lever-cluster-vigilance">
           <div class="lever-pill">
             <span class="pill-name">Memory</span>
-            <span class="pill-def">What it recalls.</span>
+            <span class="pill-def">What it believes happened in prior turns.</span>
           </div>
           <div class="lever-pill">
             <span class="pill-name">Reachable Context</span>
@@ -786,7 +786,7 @@
           </div>
           <div class="lever-pill">
             <span class="pill-name">State control</span>
-            <span class="pill-def">What happens to outputs before they're real.</span>
+            <span class="pill-def">The map between agent outputs and real objects.</span>
           </div>
         </div>
 
@@ -800,11 +800,7 @@
             <span class="pill-def">Who's watching live.</span>
           </div>
           <div class="lever-pill lever-pill-out">
-            <span class="pill-name">Mid-turn interrupts</span>
-            <span class="pill-def">Stopping a turn in flight.</span>
-          </div>
-          <div class="lever-pill lever-pill-out">
-            <span class="pill-name">In-flight messages</span>
+            <span class="pill-name">In-turn messages</span>
             <span class="pill-def">Talking during a turn.</span>
           </div>
         </div>
