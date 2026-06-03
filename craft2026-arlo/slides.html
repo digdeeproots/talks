@@ -754,8 +754,9 @@
           <text x="220"  y="50" text-anchor="middle" font-size="24" font-weight="800" fill="#e8a020" letter-spacing="0.5">Vigilance toil</text>
           <text x="1080" y="50" text-anchor="middle" font-size="24" font-weight="800" fill="#7ab8c8" letter-spacing="0.5">Work toil</text>
 
-          <!-- Vigilance-only lens: x ∈ [210, 450], constant width 240 at all y. Pills sit centered at cy=400. -->
-          <foreignObject x="220" y="160" width="220" height="480">
+          <!-- Vigilance-only lens: x ∈ [210, 450] at y=400, narrows toward top/bottom (left bound moves right).
+               Pill cluster width is set so the top/bottom rows still fit inside the lens, not just the middle. -->
+          <foreignObject x="240" y="160" width="210" height="480">
             <div xmlns="http://www.w3.org/1999/xhtml" class="lever-cluster lever-cluster-vigilance">
               <div class="lever-pill">
                 <span class="pill-name">Memory</span>
@@ -794,8 +795,8 @@
             </div>
           </foreignObject>
 
-          <!-- Work-only lens: x ∈ [850, 1090], constant width 240 at all y. -->
-          <foreignObject x="860" y="160" width="220" height="480">
+          <!-- Work-only lens: x ∈ [850, 1090] at y=400, narrows toward top/bottom (right bound moves left). -->
+          <foreignObject x="850" y="160" width="210" height="480">
             <div xmlns="http://www.w3.org/1999/xhtml" class="lever-cluster lever-cluster-work">
               <div class="lever-pill lever-pill-out">
                 <span class="pill-name">Identity</span>
@@ -937,8 +938,10 @@
   </section>
 
   @ai: work with me to make this more concrete. The steps need to be directive without abstraction.
-  @ai-needs: this is the shared recipe-svg.js (six steps: Apply the vigilance-as-process template, Name the vigilance, Identify a hole, Lock one error category, Adjust vigilance, Make a decision). Which step do you want to start on? And do you want me to (a) rewrite the step titles, (b) rewrite the sub-bullets (Step 1 has "Empty guardian set / One-step workflow / Vigilance expectation / Spot-checker"), or (c) propose a concrete worked example that I'd thread through the labels? A sentence or two of "what does 'concrete' look like here" would unblock me.
-  @ai: Step 3 should be "run spot checker to get example of a hole". Step 4 is "apply lever to prevent one error category." Step 6 is "manually choose whether to accept or reject this work product."
+  @ai-needs: steps 3, 4, 6 rewritten per your last pass. Three still read as abstract — give me a concrete, directive version for each:
+    - Step 1 ("Apply the vigilance-as-process template") and its four sub-bullets (Empty guardian set / One-step workflow / Vigilance expectation / Empty spot-checker).
+    - Step 2 ("Name the vigilance").
+    - Step 5 ("Adjust vigilance").
   <!-- 27 The recipe — meta-pattern for engineering carelessness.
        SVG is shared with the TOC hub; both call sites pull from recipe-svg.js. -->
   <section class="slide" id="s27">
@@ -961,6 +964,7 @@
     <div class="slide-content">
       <p class="kicker">Pick one to explore</p>
 
+      @ai: change the case studies to be categorized by universe lever, with a pill per story. The pill should have a name for the story and a short description. And make sure that this contains every story in stories.md. If there are any missing stories, then add both the pill and the 3-slide story trajectory that the pill links to.
       <div class="toc-hub">
         <div class="toc-case-studies">
           <p class="toc-section-label">Case studies</p>

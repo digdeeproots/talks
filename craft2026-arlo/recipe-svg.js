@@ -43,13 +43,13 @@
       <g data-step="3">
         <rect x="220" y="232" width="380" height="50" rx="10" fill="rgba(232,160,32,0.09)" stroke="rgba(232,160,32,0.55)" stroke-width="1.5"/>
         <text x="410" y="250" text-anchor="middle" font-size="9.5" fill="#c09a60" font-weight="700" letter-spacing="1.8">STEP 3</text>
-        <text x="410" y="269" text-anchor="middle" font-size="16" fill="#f0ede6" font-weight="600">Identify a hole</text>
+        <text x="410" y="269" text-anchor="middle" font-size="15" fill="#f0ede6" font-weight="600">Run spot-checker to surface an example hole</text>
       </g>
       <line x1="410" y1="282" x2="410" y2="300" stroke="#e8a020" stroke-width="1.5" opacity="0.65" marker-end="url(#rec-arr)"/>
       <g data-step="4">
         <rect x="220" y="302" width="380" height="50" rx="10" fill="rgba(232,160,32,0.09)" stroke="rgba(232,160,32,0.55)" stroke-width="1.5"/>
         <text x="410" y="320" text-anchor="middle" font-size="9.5" fill="#c09a60" font-weight="700" letter-spacing="1.8">STEP 4</text>
-        <text x="410" y="339" text-anchor="middle" font-size="16" fill="#f0ede6" font-weight="600">Lock one error category</text>
+        <text x="410" y="339" text-anchor="middle" font-size="15" fill="#f0ede6" font-weight="600">Apply a lever to prevent one error category</text>
       </g>
       <line x1="410" y1="352" x2="410" y2="370" stroke="#e8a020" stroke-width="1.5" opacity="0.65" marker-end="url(#rec-arr)"/>
       <g data-step="5">
@@ -65,9 +65,10 @@
       <!-- Exit -->
       <line x1="410" y1="422" x2="410" y2="462" stroke="rgba(240,237,230,0.35)" stroke-width="1.5" marker-end="url(#rec-arr-lt)"/>
       <g data-step="6">
-        <rect x="220" y="464" width="380" height="50" rx="10" fill="rgba(255,255,255,0.055)" stroke="rgba(255,255,255,0.32)" stroke-width="1.5"/>
-        <text x="410" y="482" text-anchor="middle" font-size="9.5" fill="rgba(192,154,96,0.65)" font-weight="700" letter-spacing="1.8">STEP 6</text>
-        <text x="410" y="501" text-anchor="middle" font-size="16" fill="#f0ede6" font-weight="600">Make a decision</text>
+        <rect x="220" y="464" width="380" height="66" rx="10" fill="rgba(255,255,255,0.055)" stroke="rgba(255,255,255,0.32)" stroke-width="1.5"/>
+        <text x="410" y="480" text-anchor="middle" font-size="9.5" fill="rgba(192,154,96,0.65)" font-weight="700" letter-spacing="1.8">STEP 6</text>
+        <text x="410" y="499" text-anchor="middle" font-size="14" fill="#f0ede6" font-weight="600">Manually choose whether to accept</text>
+        <text x="410" y="517" text-anchor="middle" font-size="14" fill="#f0ede6" font-weight="600">or reject this work product</text>
       </g>
     </svg>
   `;
