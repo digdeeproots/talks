@@ -740,6 +740,8 @@
   @ai: add a step 0 for the initial condition.
   
   @ai: this must be at external writing quality. No emdashes!
+  
+  @ai: we don't need both kicker headers and big headers. Format as kicker; pick the best content as the title for each slide.
 
   <!-- 23a Step 1 — Written workflow -->
   <section class="slide" id="s23a">
@@ -764,8 +766,8 @@
   <section class="slide" id="s23b">
     <div class="slide-content">
       <p class="kicker">Step 2 — Workflow</p>
-      <h2>Doc iter pattern</h2>
-      <p class="demo-description">Apply the doc-iteration pattern to the workflow file itself. Structured human reviews on each pass; the file improves cumulatively. The work toil of authoring drops.</p>
+      <h2>Document iteration pattern</h2>
+      <p class="demo-description">Extract a doc-iteration pattern and use it for each place in the workflow where we modify a document. Structured human reviews on each pass; the file improves cumulatively. The work toil of authoring drops.</p>
       <div class="demo-step">
         <div class="demo-pane">
           <p class="demo-pane-label">Command</p>
@@ -784,7 +786,7 @@
     <div class="slide-content">
       <p class="kicker">Step 3 — Workflow · invocation</p>
       <h2><code>pnpm do-today</code></h2>
-      <p class="demo-description">Extract sequencing into deterministic code. A script reads state, decides the next step, runs deterministic processing, launches Claude, catches the result, quits. Sequencing leaves Claude's hands. <em>Silences:</em> "Is the AI taking the right next step?"</p>
+      <p class="demo-description">Extract sequencing into deterministic code. A script reads state, decides the next step, runs deterministic processing, launches Claude, catches the result, updates state, quits. Sequencing leaves Claude's hands.</p>
       <div class="demo-step">
         <div class="demo-pane">
           <p class="demo-pane-label">Command</p>
@@ -803,7 +805,7 @@
     <div class="slide-content">
       <p class="kicker">Step 4 — Goal</p>
       <h2>Narrow goal</h2>
-      <p class="demo-description">Refine Claude's goal to "find key moments." It uses the transcript, retro notes, and me as info sources. It doesn't determine what happened — only what is salient and roughly when. <em>Silences:</em> "Is the AI over-working or taking shortcuts?"</p>
+      <p class="demo-description">Refine Claude's goal to "find key moments." It uses the transcript, retro notes, and me as info sources. It doesn't determine what happened — only what is salient and roughly when. Also, it no longer interviews me to understand everything, just to fill in gaps from its understanding of the transcript. We switch to guess and check - it makes a guess and has me evaluate it, rather than asking me to create or remember anything first.</p>
       <div class="demo-step">
         <div class="demo-pane">
           <p class="demo-pane-label">Command</p>
@@ -822,7 +824,7 @@
     <div class="slide-content">
       <p class="kicker">Step 5 — Workflow · invocation + goal</p>
       <h2>Scripted fetch</h2>
-      <p class="demo-description">Replace the probabilistic Fireflies MCP fetch with a deterministic fetcher. On success: Claude is never invoked. On failure: Claude is called with the specific failure as context. <em>Silences:</em> "Did the AI get the right input?"</p>
+      <p class="demo-description">Replace the probabilistic Fireflies MCP fetch with a deterministic fetcher. On success: Claude is never invoked. On failure: Claude is called with the specific failure as context. Either way, once we have a transcript, then we will invoke Claude to find key moments.</p>
       <div class="demo-step">
         <div class="demo-pane">
           <p class="demo-pane-label">Command</p>
@@ -841,7 +843,7 @@
     <div class="slide-content">
       <p class="kicker">Step 6 — Work-product state control + Feedback</p>
       <h2>Iterative analysis</h2>
-      <p class="demo-description">Lock the analysis schema. Structured JSON replaces unstructured markdown; deterministic validation runs on every analysis. Validation failures re-call Claude with the specific gap. The workflow stops being linear: independent re-orderable steps read and write the same analysis. <em>Silences:</em> "Is the output complete or misleading?"</p>
+      <p class="demo-description">Lock the analysis schema. Structured JSON replaces unstructured markdown; deterministic validation runs on every analysis. Validation failures re-call Claude with the specific gap. The workflow stops being linear: independent re-orderable steps read and write the same analysis.</p>
       <div class="demo-step">
         <div class="demo-pane">
           <p class="demo-pane-label">Command</p>
