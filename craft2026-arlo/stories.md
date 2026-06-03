@@ -68,6 +68,8 @@ Works the same for human developers using AST-aware refactoring tools. The lever
 
 ## Workflow + Work-product state control — Transcript fetcher *(quick story, told as semi-demo)*
 
+@ai: update this story based on the additional columns that I added to the slide in the upshift that talks about it.
+
 *This story pulls **two** levers, not one. Sequencing and when-Claude-runs are **workflow** moves. The schema and validation routing — controlling the shape of the analysis itself and what happens when the result doesn't conform — is **work-product state control**. Useful in the talk to show that a single workflow can be improved one lever at a time, on different levers, in sequence.*
 
 *Vigilance cost: "Did the AI keep going past the point where I should have been consulted? Did it fetch the wrong transcript and proceed to build a lesson plan on it — while I'm assuming it got the right one?"*

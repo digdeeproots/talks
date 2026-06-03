@@ -28,7 +28,7 @@
         <text x="410" y="46" text-anchor="middle" font-size="15" fill="rgba(240,237,230,0.85)" font-weight="600">Apply the vigilance-as-process template</text>
         <text x="180" y="78" font-size="12.5" fill="rgba(240,237,230,0.7)">&bull; Empty guardian set</text>
         <text x="180" y="100" font-size="12.5" fill="rgba(240,237,230,0.7)">&bull; One-step workflow</text>
-        <text x="450" y="78" font-size="12.5" fill="rgba(240,237,230,0.7)">&bull; Vigilance expectation</text>
+        <text x="450" y="78" font-size="12.5" fill="rgba(240,237,230,0.7)">&bull; Filled vigilance expectation list</text>
         <text x="450" y="100" font-size="12.5" fill="rgba(240,237,230,0.7)">&bull; Empty spot-checker</text>
       </g>
       <line x1="410" y1="136" x2="410" y2="160" stroke="rgba(240,237,230,0.25)" stroke-width="1.5" marker-end="url(#rec-arr-lt)"/>
@@ -37,7 +37,7 @@
       <g data-step="2">
         <rect x="220" y="162" width="380" height="50" rx="10" fill="rgba(232,160,32,0.09)" stroke="rgba(232,160,32,0.55)" stroke-width="1.5"/>
         <text x="410" y="180" text-anchor="middle" font-size="9.5" fill="#c09a60" font-weight="700" letter-spacing="1.8">STEP 2</text>
-        <text x="410" y="199" text-anchor="middle" font-size="16" fill="#f0ede6" font-weight="600">Name the vigilance</text>
+        <text x="410" y="199" text-anchor="middle" font-size="15" fill="#f0ede6" font-weight="600">Select costly vigilance from expectation list</text>
       </g>
       <line x1="410" y1="212" x2="410" y2="230" stroke="#e8a020" stroke-width="1.5" opacity="0.65" marker-end="url(#rec-arr)"/>
       <g data-step="3">
@@ -55,7 +55,7 @@
       <g data-step="5">
         <rect x="220" y="372" width="380" height="50" rx="10" fill="rgba(232,160,32,0.09)" stroke="rgba(232,160,32,0.55)" stroke-width="1.5"/>
         <text x="410" y="390" text-anchor="middle" font-size="9.5" fill="#c09a60" font-weight="700" letter-spacing="1.8">STEP 5</text>
-        <text x="410" y="409" text-anchor="middle" font-size="16" fill="#f0ede6" font-weight="600">Adjust vigilance</text>
+        <text x="410" y="409" text-anchor="middle" font-size="16" fill="#f0ede6" font-weight="600">Adjust vigilance expectation list</text>
       </g>
 
       <!-- Cycle: 5 -> 2 -->
