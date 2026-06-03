@@ -401,10 +401,34 @@
       color: var(--accent);
     }
 
-    /* ── NAME-THE-EXPERIENCE LIST ─────────────────────── */
-    .name-list { list-style: none; text-align: left; margin: 1.8rem auto 0; padding: 0; font-size: clamp(0.95rem, 1.55vw, 1.6rem); line-height: 1.5; }
-    .name-list li { margin-bottom: 0.9rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--subtle); }
-    .name-list li:last-child { border-bottom: none; margin-bottom: 0; }
+    /* ── NAME-THE-EXPERIENCE GRID ─────────────────────────
+       Label/value pairs (Scope / Cost to protect / Lever) on each case-study
+       closer. Two-column grid: labels left in accent, values right. Border
+       under every row except the last. */
+    .name-grid {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      column-gap: 1.6rem;
+      row-gap: 0;
+      text-align: left;
+      margin: 1.8rem auto 0;
+      max-width: 60rem;
+      font-size: clamp(0.95rem, 1.55vw, 1.6rem);
+      line-height: 1.45;
+    }
+    .name-grid .name-label,
+    .name-grid .name-value {
+      margin: 0;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--subtle);
+    }
+    .name-grid .name-label {
+      color: var(--accent);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .name-grid .name-value { color: var(--fg); }
+    .name-grid > *:nth-last-child(-n+2) { border-bottom: none; }
 
     /* ── RECIPE-ITERATION SLIDE ───────────────────────
        One row per iteration showing: selected vigilance / spot-check /
@@ -503,8 +527,6 @@
       font-size: clamp(0.85rem, 1.2vw, 1.2rem);
       line-height: 1.45;
     }
-    .name-list li strong { display: inline-block; min-width: 9rem; }
-
     /* ── STORY LIST — used in case-study intervention slides ─────── */
     .story-list { list-style: none; text-align: left; margin: 0 auto; }
     .story-list li {
@@ -1383,17 +1405,18 @@
     </div>
   </section>
   
-  @ai: all these name the experience slides should use a clean grid layout
-
   <!-- 40 Name the experience — Delete completed stories; next returns to TOC -->
   <section class="slide" id="s40" data-return-to-toc="true">
     <div class="slide-content">
       <p class="kicker">Name the experience</p>
-      <ul class="name-list">
-        <li><strong class="accent">Scope</strong> Cross-session decision inconsistency.</li>
-        <li><strong class="accent">Cost to protect</strong> Zero: conflicting decisions are structurally impossible.</li>
-        <li><strong class="accent">Lever</strong> Memory + Reachable Context.</li>
-      </ul>
+      <div class="name-grid">
+        <p class="name-label">Scope</p>
+        <p class="name-value">Cross-session decision inconsistency.</p>
+        <p class="name-label">Cost to protect</p>
+        <p class="name-value">Zero: conflicting decisions are structurally impossible.</p>
+        <p class="name-label">Lever</p>
+        <p class="name-value">Memory + Reachable Context.</p>
+      </div>
     </div>
   </section>
 
@@ -1426,11 +1449,14 @@
   <section class="slide" id="s43" data-return-to-toc="true">
     <div class="slide-content">
       <p class="kicker">Name the experience</p>
-      <ul class="name-list">
-        <li><strong class="accent">Scope</strong> Format and structure drift in recurring output.</li>
-        <li><strong class="accent">Cost to protect</strong> Zero. Structure, recipients, and rendering each become zero-risk zones.</li>
-        <li><strong class="accent">Lever</strong> Goals (structured spec).</li>
-      </ul>
+      <div class="name-grid">
+        <p class="name-label">Scope</p>
+        <p class="name-value">Format and structure drift in recurring output.</p>
+        <p class="name-label">Cost to protect</p>
+        <p class="name-value">Zero. Structure, recipients, and rendering each become zero-risk zones.</p>
+        <p class="name-label">Lever</p>
+        <p class="name-value">Goals (structured spec).</p>
+      </div>
     </div>
   </section>
 
@@ -1468,11 +1494,14 @@
   <section class="slide" id="s46" data-return-to-toc="true">
     <div class="slide-content">
       <p class="kicker">Name the experience</p>
-      <ul class="name-list">
-        <li><strong class="accent">Scope</strong> Wrong-data fetching and over-eager step completion.</li>
-        <li><strong class="accent">Cost to protect</strong> Near zero. Deterministic by default; the agent runs only on declared failure.</li>
-        <li><strong class="accent">Lever</strong> Workflow.</li>
-      </ul>
+      <div class="name-grid">
+        <p class="name-label">Scope</p>
+        <p class="name-value">Wrong-data fetching and over-eager step completion.</p>
+        <p class="name-label">Cost to protect</p>
+        <p class="name-value">Near zero. Deterministic by default; the agent runs only on declared failure.</p>
+        <p class="name-label">Lever</p>
+        <p class="name-value">Workflow.</p>
+      </div>
     </div>
   </section>
 
@@ -1506,11 +1535,14 @@
   <section class="slide" id="s49" data-return-to-toc="true">
     <div class="slide-content">
       <p class="kicker">Name the experience</p>
-      <ul class="name-list">
-        <li><strong class="accent">Scope</strong> Git operations and the risk-notation policy.</li>
-        <li><strong class="accent">Cost to protect</strong> Zero. Git invariants cannot be violated; nothing to route around.</li>
-        <li><strong class="accent">Lever</strong> Tooling.</li>
-      </ul>
+      <div class="name-grid">
+        <p class="name-label">Scope</p>
+        <p class="name-value">Git operations and the risk-notation policy.</p>
+        <p class="name-label">Cost to protect</p>
+        <p class="name-value">Zero. Git invariants cannot be violated; nothing to route around.</p>
+        <p class="name-label">Lever</p>
+        <p class="name-value">Tooling.</p>
+      </div>
     </div>
   </section>
 
@@ -1551,11 +1583,14 @@
   <section class="slide" id="s52" data-return-to-toc="true">
     <div class="slide-content">
       <p class="kicker">Name the experience</p>
-      <ul class="name-list">
-        <li><strong class="accent">Scope</strong> Behavior preservation during refactoring.</li>
-        <li><strong class="accent">Cost to protect</strong> Zero within scope. Behavioral safety is guaranteed by the tool.</li>
-        <li><strong class="accent">Lever</strong> Tooling (operation semantics).</li>
-      </ul>
+      <div class="name-grid">
+        <p class="name-label">Scope</p>
+        <p class="name-value">Behavior preservation during refactoring.</p>
+        <p class="name-label">Cost to protect</p>
+        <p class="name-value">Zero within scope. Behavioral safety is guaranteed by the tool.</p>
+        <p class="name-label">Lever</p>
+        <p class="name-value">Tooling (operation semantics).</p>
+      </div>
     </div>
   </section>
 
@@ -1590,11 +1625,14 @@
   <section class="slide" id="s55" data-return-to-toc="true">
     <div class="slide-content">
       <p class="kicker">Name the experience</p>
-      <ul class="name-list">
-        <li><strong class="accent">Scope</strong> Schema migrations against live data.</li>
-        <li><strong class="accent">Cost to protect</strong> Zero. Data loss is structurally impossible.</li>
-        <li><strong class="accent">Lever</strong> State control (Determinism sandwich).</li>
-      </ul>
+      <div class="name-grid">
+        <p class="name-label">Scope</p>
+        <p class="name-value">Schema migrations against live data.</p>
+        <p class="name-label">Cost to protect</p>
+        <p class="name-value">Zero. Data loss is structurally impossible.</p>
+        <p class="name-label">Lever</p>
+        <p class="name-value">State control (Determinism sandwich).</p>
+      </div>
     </div>
   </section>
 
@@ -1624,11 +1662,14 @@
   <section class="slide" id="s56c" data-return-to-toc="true">
     <div class="slide-content">
       <p class="kicker">Name the experience</p>
-      <ul class="name-list">
-        <li><strong class="accent">Scope</strong> Known code-quality categories at commit time.</li>
-        <li><strong class="accent">Cost to protect</strong> Zero on those categories. Deterministic checks fire synchronously at the moment of action.</li>
-        <li><strong class="accent">Lever</strong> Feedback (the tool result <em>is</em> the quality verdict).</li>
-      </ul>
+      <div class="name-grid">
+        <p class="name-label">Scope</p>
+        <p class="name-value">Known code-quality categories at commit time.</p>
+        <p class="name-label">Cost to protect</p>
+        <p class="name-value">Zero on those categories. Deterministic checks fire synchronously at the moment of action.</p>
+        <p class="name-label">Lever</p>
+        <p class="name-value">Feedback (the tool result <em>is</em> the quality verdict).</p>
+      </div>
     </div>
   </section>
 
@@ -1664,11 +1705,14 @@
   <section class="slide" id="s56f" data-return-to-toc="true">
     <div class="slide-content">
       <p class="kicker">Name the experience</p>
-      <ul class="name-list">
-        <li><strong class="accent">Scope</strong> "Is this demo-able?" for every user-visible chunk.</li>
-        <li><strong class="accent">Cost to protect</strong> Zero. The plan tool gates advancement on demo verification.</li>
-        <li><strong class="accent">Lever</strong> Feedback (multi-actor, multi-timescale loops).</li>
-      </ul>
+      <div class="name-grid">
+        <p class="name-label">Scope</p>
+        <p class="name-value">"Is this demo-able?" for every user-visible chunk.</p>
+        <p class="name-label">Cost to protect</p>
+        <p class="name-value">Zero. The plan tool gates advancement on demo verification.</p>
+        <p class="name-label">Lever</p>
+        <p class="name-value">Feedback (multi-actor, multi-timescale loops).</p>
+      </div>
     </div>
   </section>
 
@@ -1706,11 +1750,14 @@
   <section class="slide" id="s57c" data-return-to-toc="true">
     <div class="slide-content">
       <p class="kicker">Name the experience</p>
-      <ul class="name-list">
-        <li><strong class="accent">Scope</strong> TDD discipline across one feature's inner loop.</li>
-        <li><strong class="accent">Cost to protect</strong> Zero. Phase bleed is structurally impossible at each boundary.</li>
-        <li><strong class="accent">Lever</strong> Workflow (phased mission; tools and writable surface change per phase).</li>
-      </ul>
+      <div class="name-grid">
+        <p class="name-label">Scope</p>
+        <p class="name-value">TDD discipline across one feature's inner loop.</p>
+        <p class="name-label">Cost to protect</p>
+        <p class="name-value">Zero. Phase bleed is structurally impossible at each boundary.</p>
+        <p class="name-label">Lever</p>
+        <p class="name-value">Workflow (phased mission; tools and writable surface change per phase).</p>
+      </div>
     </div>
   </section>
 
