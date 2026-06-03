@@ -385,6 +385,21 @@
       border-color: rgba(232,160,32,0.35);
       transform: none;
     }
+    /* Already told in the upshift; included for context, not for jumping. */
+    .toc-pill-told {
+      opacity: 0.5;
+      cursor: default;
+      background: rgba(0,0,0,0.35);
+    }
+    .toc-pill-told:hover {
+      background: rgba(0,0,0,0.35);
+      border-color: rgba(232,160,32,0.35);
+      transform: none;
+    }
+    .toc-pill-told .pill-story::before {
+      content: '✓ ';
+      color: var(--accent);
+    }
 
     /* ── NAME-THE-EXPERIENCE LIST ─────────────────────── */
     .name-list { list-style: none; text-align: left; margin: 1.8rem auto 0; padding: 0; font-size: clamp(0.95rem, 1.55vw, 1.6rem); line-height: 1.5; }
@@ -1223,8 +1238,6 @@
        SECTION 4: Walking the Universe (audience-directed via TOC)
   ════════════════════════════════════════════════════ -->
 
-  @ai: include but disable the stories that we've already told (my 2 initial examples).
-  
   <!-- 33 TOC HUB — sectioned: Case studies / Recipes / Closing -->
   <section class="slide" id="s33">
     <div class="slide-content">
@@ -1244,7 +1257,7 @@
             </div>
             <div class="lever-group">
               <p class="lever-name">Tooling</p>
-              <div class="toc-pill" data-jump-to="s47">
+              <div class="toc-pill toc-pill-told">
                 <span class="pill-story">Movement-based branching</span>
                 <span class="pill-desc">Policy enforcement</span>
               </div>
@@ -1255,7 +1268,7 @@
             </div>
             <div class="lever-group">
               <p class="lever-name">Workflow</p>
-              <div class="toc-pill" data-jump-to="s44">
+              <div class="toc-pill toc-pill-told">
                 <span class="pill-story">Transcript fetcher</span>
                 <span class="pill-desc">Oversight gap</span>
               </div>
