@@ -528,11 +528,11 @@
       line-height: 1.45;
     }
     /* ── STORY LIST — used in case-study intervention slides ─────── */
-    .story-list { list-style: none; text-align: left; margin: 0 auto; }
+    .story-list { list-style: none; text-align: left; margin: 0 auto; max-width: 60rem; }
     .story-list li {
       position: relative;
-      padding: 0.85rem 0 0.85rem 3.2rem;
-      font-size: clamp(1.5rem, 2.8vw, 3rem);
+      padding: 0.55rem 0 0.55rem 2.2rem;
+      font-size: clamp(1rem, 1.7vw, 1.7rem);
       line-height: 1.4;
       border-bottom: 1px solid var(--subtle);
     }
@@ -540,9 +540,27 @@
       content: '→';
       color: var(--accent);
       position: absolute;
-      left: 0;
+      left: 0.2rem;
+      top: 0.55rem;
     }
     .story-list li:last-child { border-bottom: none; }
+
+    /* ── CASE-STUDY LAYOUT ──────────────────────────────
+       Left-align the body of case-study setup / intervention slides so
+       text walls read better and the kicker doesn't float on a centered axis. */
+    #s38 .slide-content, #s39 .slide-content,
+    #s41 .slide-content, #s42 .slide-content,
+    #s44 .slide-content, #s45 .slide-content,
+    #s47 .slide-content, #s48 .slide-content,
+    #s50 .slide-content, #s51 .slide-content,
+    #s53 .slide-content, #s54 .slide-content,
+    #s56a .slide-content, #s56b .slide-content,
+    #s56d .slide-content, #s56e .slide-content,
+    #s57a .slide-content, #s57b .slide-content {
+      text-align: left;
+      max-width: 64rem;
+      margin: 0 auto;
+    }
 
     /* ── HOW LIST — generic three-beat list (e.g. s26 Be a Tool Builder).
        Split from story-list so the two can evolve independently. ─────── */
