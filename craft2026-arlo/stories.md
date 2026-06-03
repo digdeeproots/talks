@@ -102,7 +102,7 @@ Results:
 
 ---
 
-@ai: add a new workflow story as well. This one is about taking control of the dev inner loop. Instead of givng claude skills at test writing, etc plus a workflow document saying what to do, 
+@ai: add a new workflow story as well. This one is about taking control of the dev inner loop. Instead of givng claude skills at test writing, etc plus a workflow document saying what to do, write a node script (a Minions mission) that spins up a claude with read-only tools and asks it how to refactor the code so that the next test would be easy to write, then one with refactoring tools to do that, loop those until done, then one with edit tools but a context in which only test files are writable to write the test, then one where it can code to pass the test. Deterministic tools choose the commits between (asking claude to finish each session by describing what it did, as if for a commit message - which I may or may not use), choose what to run next, and so on. Write this story here, THEN add it to the TOC and include its 3-slide format.
 
 ---
 
