@@ -660,266 +660,6 @@
       </ul>
     </div>
   </section>
-  
-  <!-- 33d-1 Two agents across turns — diagram only (reserves space for the non-useful levers list) -->
-  <section class="slide" id="s33d-1">
-    <div class="slide-content">
-      <p class="kicker">Between agent turns — two different agents</p>
-      <svg viewBox="0 0 1000 620" width="100%" style="max-height:68vh; display:block; margin: 0.6rem auto 0;" role="img">
-        <defs>
-          <marker id="bt-arr-c1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 z" fill="#9aa0a8"/>
-          </marker>
-          <symbol id="lever-icon-c1" viewBox="0 0 24 24" overflow="visible">
-            <polygon points="12,16 6,22 18,22" fill="currentColor"/>
-            <line x1="2" y1="4" x2="22" y2="16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-            <circle cx="2" cy="4" r="2.5" fill="currentColor"/>
-          </symbol>
-          <filter id="sticker-shadow-c1" x="-30%" y="-30%" width="160%" height="160%">
-            <feDropShadow dx="2.5" dy="3.5" stdDeviation="2.2" flood-color="#000" flood-opacity="0.6"/>
-          </filter>
-        </defs>
-
-        <!-- Agent 1 (left) -->
-        <circle cx="50" cy="270" r="48" fill="rgba(232,160,32,0.12)" stroke="#e8a020" stroke-width="1.8"/>
-        <text x="50" y="266" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Agent</text>
-        <text x="50" y="284" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">1</text>
-
-        <!-- Agent 2 (right) -->
-        <circle cx="950" cy="270" r="48" fill="rgba(122,184,200,0.14)" stroke="#7ab8c8" stroke-width="1.8"/>
-        <text x="950" y="266" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Agent</text>
-        <text x="950" y="284" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">2</text>
-
-        <g>
-          <rect x="115" y="200" width="130" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
-          <text x="180" y="232" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Transform</text>
-          <text x="180" y="262" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">verify, archive,</text>
-          <text x="180" y="276" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">commit results</text>
-
-          <rect x="275" y="200" width="130" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
-          <text x="340" y="232" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Select next step</text>
-          <text x="340" y="262" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">any deterministic or</text>
-          <text x="340" y="276" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">non-deterministic</text>
-
-          <rect x="435" y="200" width="130" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
-          <text x="500" y="232" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Define request</text>
-          <text x="500" y="262" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">narrow / re-shape</text>
-          <text x="500" y="276" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">the next request</text>
-
-          <rect x="595" y="200" width="130" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
-          <text x="660" y="232" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Curate memory</text>
-          <text x="660" y="262" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">edit session file, then</text>
-          <text x="660" y="276" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">new, resume, or fork</text>
-
-          <rect x="755" y="200" width="130" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
-          <text x="820" y="232" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Pick agent</text>
-          <text x="820" y="262" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">swap agent, LLM,</text>
-          <text x="820" y="276" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">or system prompt</text>
-        </g>
-
-        <!-- Sequence arrows -->
-        <g stroke="#9aa0a8" stroke-width="1.6" fill="none">
-          <line x1="98"  y1="270" x2="113" y2="270" marker-end="url(#bt-arr-c1)"/>
-          <line x1="245" y1="270" x2="273" y2="270" marker-end="url(#bt-arr-c1)"/>
-          <line x1="405" y1="270" x2="433" y2="270" marker-end="url(#bt-arr-c1)"/>
-          <line x1="565" y1="270" x2="593" y2="270" marker-end="url(#bt-arr-c1)"/>
-          <line x1="725" y1="270" x2="753" y2="270" marker-end="url(#bt-arr-c1)"/>
-          <line x1="885" y1="270" x2="900" y2="270" marker-end="url(#bt-arr-c1)"/>
-        </g>
-
-        <!-- Turn indicators (above the agents) -->
-        <text x="50"  y="208" text-anchor="middle" font-size="11" fill="#e8a020" font-weight="700" letter-spacing="1.2">TURN N</text>
-        <text x="950" y="208" text-anchor="middle" font-size="11" fill="#7ab8c8" font-weight="700" letter-spacing="1.2">TURN N+1</text>
-
-        <!-- Row 2: Tool circle (like an agent), Real world card (like a step box). -->
-        <circle cx="50" cy="450" r="48" fill="rgba(200,150,104,0.16)" stroke="#c89668" stroke-width="1.8"/>
-        <text x="50" y="447" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Tool</text>
-        <text x="50" y="464" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">deterministic</text>
-
-        <line x1="40" y1="320" x2="40" y2="397" stroke="#c89668" stroke-width="1.4" marker-end="url(#bt-arr-c1)"/>
-        <text x="6" y="362" font-size="10" fill="#c89668" font-style="italic">action</text>
-        <line x1="62" y1="397" x2="62" y2="320" stroke="#7ab8c8" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#bt-arr-c1)"/>
-        <text x="68" y="362" font-size="10" fill="#7ab8c8" font-style="italic">feedback</text>
-
-        <rect x="115" y="380" width="160" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
-        <text x="195" y="410" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Real world</text>
-        <g font-size="10.5" fill="rgba(240,237,230,0.85)" text-anchor="middle">
-          <text x="195" y="436">Workflow files</text>
-          <text x="195" y="453">Code files</text>
-          <text x="195" y="470">Other files</text>
-          <text x="195" y="487">Source control</text>
-          <text x="195" y="504">Foreign systems</text>
-        </g>
-        <line x1="98" y1="450" x2="113" y2="450" stroke="#c89668" stroke-width="1.4" marker-start="url(#bt-arr-c1)" marker-end="url(#bt-arr-c1)"/>
-
-        <!-- Reserved space (right side y=400..610) for the non-useful levers list on s33d-2. -->
-      </svg>
-    </div>
-  </section>
-
-  <!-- 33d-2 Two agents across turns — diagram + non-useful levers list -->
-  <section class="slide" id="s33d-2">
-    <div class="slide-content">
-      <p class="kicker">Between agent turns — two different agents</p>
-      <svg viewBox="0 0 1000 620" width="100%" style="max-height:68vh; display:block; margin: 0.6rem auto 0;" role="img">
-        <defs>
-          <marker id="bt-arr-c2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 z" fill="#9aa0a8"/>
-          </marker>
-          <symbol id="lever-icon-c2" viewBox="0 0 24 24" overflow="visible">
-            <polygon points="12,16 6,22 18,22" fill="currentColor"/>
-            <line x1="2" y1="4" x2="22" y2="16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-            <circle cx="2" cy="4" r="2.5" fill="currentColor"/>
-          </symbol>
-          <filter id="sticker-shadow-c2" x="-30%" y="-30%" width="160%" height="160%">
-            <feDropShadow dx="2.5" dy="3.5" stdDeviation="2.2" flood-color="#000" flood-opacity="0.6"/>
-          </filter>
-        </defs>
-
-        <!-- Agent 1 (left) -->
-        <circle cx="50" cy="270" r="48" fill="rgba(232,160,32,0.12)" stroke="#e8a020" stroke-width="1.8"/>
-        <text x="50" y="266" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Agent</text>
-        <text x="50" y="284" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">1</text>
-
-        <!-- Agent 2 (right) -->
-        <circle cx="950" cy="270" r="48" fill="rgba(122,184,200,0.14)" stroke="#7ab8c8" stroke-width="1.8"/>
-        <text x="950" y="266" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Agent</text>
-        <text x="950" y="284" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">2</text>
-
-        <g>
-          <rect x="115" y="200" width="130" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
-          <text x="180" y="232" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Transform</text>
-          <text x="180" y="262" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">verify, archive,</text>
-          <text x="180" y="276" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">commit results</text>
-
-          <rect x="275" y="200" width="130" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
-          <text x="340" y="232" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Select next step</text>
-          <text x="340" y="262" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">any deterministic or</text>
-          <text x="340" y="276" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">non-deterministic</text>
-
-          <rect x="435" y="200" width="130" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
-          <text x="500" y="232" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Define request</text>
-          <text x="500" y="262" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">narrow / re-shape</text>
-          <text x="500" y="276" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">the next request</text>
-
-          <rect x="595" y="200" width="130" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
-          <text x="660" y="232" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Curate memory</text>
-          <text x="660" y="262" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">edit session file, then</text>
-          <text x="660" y="276" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">new, resume, or fork</text>
-
-          <rect x="755" y="200" width="130" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
-          <text x="820" y="232" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Pick agent</text>
-          <text x="820" y="262" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">swap agent, LLM,</text>
-          <text x="820" y="276" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">or system prompt</text>
-        </g>
-
-        <!-- Sequence arrows -->
-        <g stroke="#9aa0a8" stroke-width="1.6" fill="none">
-          <line x1="98"  y1="270" x2="113" y2="270" marker-end="url(#bt-arr-c2)"/>
-          <line x1="245" y1="270" x2="273" y2="270" marker-end="url(#bt-arr-c2)"/>
-          <line x1="405" y1="270" x2="433" y2="270" marker-end="url(#bt-arr-c2)"/>
-          <line x1="565" y1="270" x2="593" y2="270" marker-end="url(#bt-arr-c2)"/>
-          <line x1="725" y1="270" x2="753" y2="270" marker-end="url(#bt-arr-c2)"/>
-          <line x1="885" y1="270" x2="900" y2="270" marker-end="url(#bt-arr-c2)"/>
-        </g>
-
-        <!-- Turn indicators (above the agents) -->
-        <text x="50"  y="208" text-anchor="middle" font-size="11" fill="#e8a020" font-weight="700" letter-spacing="1.2">TURN N</text>
-        <text x="950" y="208" text-anchor="middle" font-size="11" fill="#7ab8c8" font-weight="700" letter-spacing="1.2">TURN N+1</text>
-
-        <!-- Row 2: Tool circle (like an agent), Real world card (like a step box). -->
-        <circle cx="50" cy="450" r="48" fill="rgba(200,150,104,0.16)" stroke="#c89668" stroke-width="1.8"/>
-        <text x="50" y="447" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Tool</text>
-        <text x="50" y="464" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">deterministic</text>
-
-        <line x1="40" y1="320" x2="40" y2="397" stroke="#c89668" stroke-width="1.4" marker-end="url(#bt-arr-c2)"/>
-        <text x="6" y="362" font-size="10" fill="#c89668" font-style="italic">call</text>
-        <line x1="62" y1="397" x2="62" y2="320" stroke="#7ab8c8" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#bt-arr-c2)"/>
-        <text x="68" y="362" font-size="10" fill="#7ab8c8" font-style="italic">result</text>
-
-        <rect x="115" y="380" width="160" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
-        <text x="195" y="410" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Real world</text>
-        <g font-size="10.5" fill="rgba(240,237,230,0.85)" text-anchor="middle">
-          <text x="195" y="436">Workflow files</text>
-          <text x="195" y="453">Code files</text>
-          <text x="195" y="470">Other files</text>
-          <text x="195" y="487">Source control</text>
-          <text x="195" y="504">Foreign systems</text>
-        </g>
-        <line x1="98" y1="450" x2="113" y2="450" stroke="#c89668" stroke-width="1.4" marker-start="url(#bt-arr-c2)" marker-end="url(#bt-arr-c2)"/>
-
-        <!-- Lever stickers -->
-        <g transform="translate(180 330) rotate(-5)" filter="url(#sticker-shadow-c2)" class="lever-sticker">
-          <rect x="-71" y="-15" width="142" height="30" rx="15" fill="#e8a020" stroke="#5a3a00" stroke-width="2"/>
-          <g color="#1a1a1a"><use href="#lever-icon-c2" x="-61" y="-10" width="20" height="20"/></g>
-          <text x="-37" y="5" font-size="13" font-weight="800" fill="#1a1a1a" letter-spacing="0.3">State control</text>
-        </g>
-        <g transform="translate(340 330) rotate(4)" filter="url(#sticker-shadow-c2)" class="lever-sticker">
-          <rect x="-57" y="-15" width="114" height="30" rx="15" fill="#e8a020" stroke="#5a3a00" stroke-width="2"/>
-          <g color="#1a1a1a"><use href="#lever-icon-c2" x="-47" y="-10" width="20" height="20"/></g>
-          <text x="-23" y="5" font-size="13" font-weight="800" fill="#1a1a1a" letter-spacing="0.3">Workflow</text>
-        </g>
-        <g transform="translate(500 330) rotate(-3)" filter="url(#sticker-shadow-c2)" class="lever-sticker">
-          <rect x="-43" y="-15" width="86" height="30" rx="15" fill="#e8a020" stroke="#5a3a00" stroke-width="2"/>
-          <g color="#1a1a1a"><use href="#lever-icon-c2" x="-33" y="-10" width="20" height="20"/></g>
-          <text x="-9" y="5" font-size="13" font-weight="800" fill="#1a1a1a" letter-spacing="0.3">Goals</text>
-        </g>
-        <g transform="translate(660 330) rotate(6)" filter="url(#sticker-shadow-c2)" class="lever-sticker">
-          <rect x="-52" y="-15" width="104" height="30" rx="15" fill="#e8a020" stroke="#5a3a00" stroke-width="2"/>
-          <g color="#1a1a1a"><use href="#lever-icon-c2" x="-42" y="-10" width="20" height="20"/></g>
-          <text x="-18" y="5" font-size="13" font-weight="800" fill="#1a1a1a" letter-spacing="0.3">Memory</text>
-        </g>
-        <g transform="translate(820 330) rotate(-4)" filter="url(#sticker-shadow-c2)" class="lever-sticker">
-          <rect x="-51" y="-15" width="102" height="30" rx="15" fill="#556475" stroke="#1f2c38" stroke-width="2"/>
-          <g color="#f0ede6"><use href="#lever-icon-c2" x="-41" y="-10" width="20" height="20"/></g>
-          <text x="-17" y="5" font-size="13" font-weight="800" fill="#f0ede6" letter-spacing="0.3">Identity</text>
-        </g>
-
-        <!-- Tooling lever — on the action arrow to the Tool -->
-        <g transform="translate(20 355) rotate(-12)" filter="url(#sticker-shadow-c2)" class="lever-sticker">
-          <rect x="-49" y="-15" width="98" height="30" rx="15" fill="#e8a020" stroke="#5a3a00" stroke-width="2"/>
-          <g color="#1a1a1a"><use href="#lever-icon-c2" x="-39" y="-10" width="20" height="20"/></g>
-          <text x="-15" y="5" font-size="13" font-weight="800" fill="#1a1a1a" letter-spacing="0.3">Tooling</text>
-        </g>
-        <!-- Feedback lever — on the feedback arrow from the Tool -->
-        <g transform="translate(85 380) rotate(10)" filter="url(#sticker-shadow-c2)" class="lever-sticker">
-          <rect x="-58" y="-15" width="116" height="30" rx="15" fill="#e8a020" stroke="#5a3a00" stroke-width="2"/>
-          <g color="#1a1a1a"><use href="#lever-icon-c2" x="-48" y="-10" width="20" height="20"/></g>
-          <text x="-24" y="5" font-size="13" font-weight="800" fill="#1a1a1a" letter-spacing="0.3">Feedback</text>
-        </g>
-        <!-- Workflow lever — greyed; work toil only — over Real world card -->
-        <g transform="translate(195 510) rotate(-5)" filter="url(#sticker-shadow-c2)" class="lever-sticker">
-          <rect x="-57" y="-15" width="114" height="30" rx="15" fill="#556475" stroke="#1f2c38" stroke-width="2"/>
-          <g color="#f0ede6"><use href="#lever-icon-c2" x="-47" y="-10" width="20" height="20"/></g>
-          <text x="-23" y="5" font-size="13" font-weight="800" fill="#f0ede6" letter-spacing="0.3">Workflow</text>
-        </g>
-        <!-- Reachable Context lever — over Real world card -->
-        <g transform="translate(220 410) rotate(-4)" filter="url(#sticker-shadow-c2)" class="lever-sticker">
-          <rect x="-93" y="-15" width="186" height="30" rx="15" fill="#e8a020" stroke="#5a3a00" stroke-width="2"/>
-          <g color="#1a1a1a"><use href="#lever-icon-c2" x="-83" y="-10" width="20" height="20"/></g>
-          <text x="-59" y="5" font-size="13" font-weight="800" fill="#1a1a1a" letter-spacing="0.3">Reachable Context</text>
-        </g>
-        <!-- State control lever — over Real world card -->
-        <g transform="translate(255 470) rotate(8)" filter="url(#sticker-shadow-c2)" class="lever-sticker">
-          <rect x="-71" y="-15" width="142" height="30" rx="15" fill="#e8a020" stroke="#5a3a00" stroke-width="2"/>
-          <g color="#1a1a1a"><use href="#lever-icon-c2" x="-61" y="-10" width="20" height="20"/></g>
-          <text x="-37" y="5" font-size="13" font-weight="800" fill="#1a1a1a" letter-spacing="0.3">State control</text>
-        </g>
-
-        <!-- Non-useful levers for vigilance toil — compact list, to the right of Real world card -->
-        <g>
-          <text x="620" y="405" text-anchor="middle" font-size="13" font-weight="700" fill="#c09a60" letter-spacing="0.3">Not useful for vigilance toil</text>
-          <g font-size="11" fill="rgba(240,237,230,0.78)" text-decoration="line-through">
-            <text x="420" y="435">•  System prompt</text>
-            <text x="420" y="457">•  Skills</text>
-            <text x="420" y="479">•  Interrupting mid-turn</text>
-            <text x="680" y="435">•  Agent identity</text>
-            <text x="680" y="457">•  LLM choice</text>
-          </g>
-        </g>
-      </svg>
-    </div>
-  </section>
 
   <!-- 34 Agent's Universe — the "where" of the two-part answer -->
   <section class="slide img-bg bg-cr-developer" id="s34">
@@ -1033,7 +773,7 @@
           <text x="250" y="305" fill="#f0ede6">Watch always</text>
           <text x="417" y="305" fill="#f0ede6">Background worry</text>
           <text x="583" y="305" fill="#f0ede6">Focused watch</text>
-          <text x="750" y="305" fill="rgba(232,160,32,0.9)">Zero (in scope)</text>
+          <text x="750" y="305" fill="rgba(232,160,32,0.9)">Zero</text>
           <text x="917" y="305" fill="#e8a020" font-weight="700">Frees attention</text>
         </g>
 
@@ -1139,26 +879,18 @@
       </div>
 
       <p class="toc-section-label">Recipes</p>
-      <p class="toc-placeholder" style="margin-top: 0.4rem; margin-bottom: 0.8rem;">Click a step to walk its recipe + worked example.</p>
       <div data-recipe-svg-slot="clickable" style="margin: 0 auto;"></div>
 
-      <p class="toc-section-label">Deep dive</p>
-      <div class="toc-grid" style="grid-template-columns: 1fr; margin-top: 0.6rem;">
-        <div class="toc-card" data-jump-to="s37a-1">
+      <div class="toc-grid" style="margin-top: 0.6rem;">
+        <div class="toc-card" data-jump-to="s33d-1">
           <p class="kicker">your customers</p>
           <h3>Manipulating Coding Agents</h3>
         </div>
-      </div>
-
-      <p class="toc-section-label">Closing</p>
-      <div class="toc-grid" style="grid-template-columns: 1fr; margin-top: 0.6rem;">
         <div class="toc-card" data-jump-to="s56">
           <p class="kicker">Synthesis</p>
           <h3>Closing sequence</h3>
         </div>
       </div>
-
-      <p class="toc-placeholder">Each case study is 3 slides: starting state → intervention → name the experience.</p>
     </div>
   </section>
 
@@ -1609,6 +1341,7 @@
       </ol>
     </div>
   </section>
+
   <section class="slide" id="s-rec-6b" data-return-to-toc="true">
     <div class="slide-content" style="text-align:left;">
       <p class="kicker">Worked example &mdash; release notes</p>
@@ -1622,754 +1355,35 @@
     </div>
   </section>
 
-  
-  
-  <!-- 37a Build (1/4) — Working Memory in detail.
-       Just WM, in full clarity: the four parts the agent's state is made of. -->
-  <section class="slide" id="s37a-1">
+  <!-- 33d-1 Two agents across turns — diagram only (reserves space for the non-useful levers list) -->
+  <section class="slide" id="s33d-1">
     <div class="slide-content">
-      <p class="kicker">One Agent Turn</p>
-      <svg viewBox="0 0 1000 600" width="100%" style="max-height:78vh; display:block; margin: 0.2rem auto 0;" role="img">
-        <text x="500" y="60" text-anchor="middle" font-size="26" fill="#f0ede6" font-weight="700">Working Memory</text>
-        <text x="500" y="86" text-anchor="middle" font-size="13" fill="rgba(240,237,230,0.65)" font-style="italic">the agent's actual state &mdash; four named parts</text>
-
-        <circle cx="500" cy="340" r="230" fill="rgba(232,160,32,0.08)" stroke="#e8a020" stroke-width="2"/>
-
-        <!-- Quadrant separators (faint) -->
-        <line x1="500" y1="130" x2="500" y2="550" stroke="rgba(232,160,32,0.22)" stroke-width="1" stroke-dasharray="3,4"/>
-        <line x1="290" y1="340" x2="710" y2="340" stroke="rgba(232,160,32,0.22)" stroke-width="1" stroke-dasharray="3,4"/>
-
-        <g text-anchor="middle">
-          <!-- Top-left: turn goal -->
-          <text x="395" y="245" font-size="18" fill="#f0ede6" font-weight="700">turn goal</text>
-          <text x="395" y="268" font-size="11" fill="rgba(240,237,230,0.7)" font-style="italic">what we're trying</text>
-          <text x="395" y="282" font-size="11" fill="rgba(240,237,230,0.7)" font-style="italic">to do this turn</text>
-
-          <!-- Top-right: task list -->
-          <text x="605" y="245" font-size="18" fill="#f0ede6" font-weight="700">task list</text>
-          <text x="605" y="268" font-size="11" fill="rgba(240,237,230,0.7)" font-style="italic">the plan, with</text>
-          <text x="605" y="282" font-size="11" fill="rgba(240,237,230,0.7)" font-style="italic">what's done so far</text>
-
-          <!-- Bottom-left: heap -->
-          <text x="395" y="402" font-size="18" fill="#f0ede6" font-weight="700">heap</text>
-          <text x="395" y="425" font-size="11" fill="rgba(240,237,230,0.7)" font-style="italic">named text sequences</text>
-          <text x="395" y="439" font-size="11" fill="rgba(240,237,230,0.7)" font-style="italic">(files, notes, drafts)</text>
-
-          <!-- Bottom-right: typed-block DAG -->
-          <text x="605" y="402" font-size="18" fill="#f0ede6" font-weight="700">typed-block DAG</text>
-          <text x="605" y="425" font-size="11" fill="rgba(240,237,230,0.7)" font-style="italic">structured pieces</text>
-          <text x="605" y="439" font-size="11" fill="rgba(240,237,230,0.7)" font-style="italic">and how they relate</text>
-        </g>
-      </svg>
-    </div>
-  </section>
-
-
-  <!-- 37a Build (2/4) — add the agent loop ring + one generic thought bubble.
-       WM compresses to a simple labeled circle; one generic "some question" bubble
-       sits in the annular space; outer dashed ring is the agent loop.
-       Three arrows: loop -> bubble -> WM -> loop. -->
-  <section class="slide" id="s37a-2">
-    <div class="slide-content">
-      <p class="kicker">One Agent Turn</p>
-      <svg viewBox="0 0 1200 700" width="100%" style="max-height:78vh; display:block; margin: 0.2rem auto 0;" role="img">
+      <p class="kicker">Between agent turns — two different agents</p>
+      <svg viewBox="0 0 1000 620" width="100%" style="max-height:68vh; display:block; margin: 0.6rem auto 0;" role="img">
         <defs>
-          <marker id="b2-cyc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <marker id="bt-arr-c1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
             <path d="M0,0 L10,5 L0,10 z" fill="#9aa0a8"/>
           </marker>
-          <marker id="b2-think" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 z" fill="#7ab8c8"/>
-          </marker>
-          <marker id="b2-wm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 z" fill="#e8a020"/>
-          </marker>
-        </defs>
-
-        <!-- Outer agent loop ring (dashed) -->
-        <circle cx="600" cy="360" r="290" fill="none" stroke="rgba(154,160,168,0.55)" stroke-width="1.6" stroke-dasharray="6,5"/>
-        <text x="600" y="50" text-anchor="middle" font-size="14" fill="rgba(240,237,230,0.85)" font-weight="700" letter-spacing="2">AGENT LOOP</text>
-
-        <!-- Working Memory (center) -->
-        <circle cx="600" cy="360" r="120" fill="#221a0e" stroke="#e8a020" stroke-width="1.8"/>
-        <text x="600" y="320" text-anchor="middle" font-size="15" fill="#f0ede6" font-weight="700">Working Memory</text>
-        <line x1="520" y1="338" x2="680" y2="338" stroke="rgba(232,160,32,0.4)" stroke-width="0.8"/>
-        <g text-anchor="middle" font-size="11" fill="rgba(240,237,230,0.85)">
-          <text x="600" y="358">turn goal</text>
-          <text x="600" y="374">task list</text>
-          <text x="600" y="390">heap</text>
-          <text x="600" y="406">typed-block DAG</text>
-        </g>
-
-        <!-- One generic thought bubble in the annular space (top) — canonical #think-cloud -->
-        <g transform="translate(600,170)">
-          <use href="#think-cloud"/>
-          <text x="0" y="-6" text-anchor="middle" font-size="14" fill="#f0ede6" font-style="italic">some question</text>
-          <text x="0" y="15" text-anchor="middle" font-size="11.5" fill="rgba(240,237,230,0.75)" font-style="italic">"how should I update working memory?"</text>
-          <!-- thought trail (toward the loop) -->
-          <circle cx="-140" cy="56" r="7" fill="#152832" stroke="#7ab8c8" stroke-width="1.4"/>
-          <circle cx="-156" cy="74" r="4" fill="#152832" stroke="#7ab8c8" stroke-width="1.1"/>
-        </g>
-
-        <!-- Arrow 1: agent loop -> bubble (top of ring down to top of bubble) -->
-        <line x1="600" y1="76" x2="600" y2="124" stroke="#7ab8c8" stroke-width="1.6" marker-end="url(#b2-think)"/>
-        <text x="612" y="106" font-size="11" fill="#7ab8c8" font-style="italic">ask</text>
-
-        <!-- Arrow 2: bubble -> WM (bottom of bubble down to top of WM) -->
-        <line x1="600" y1="216" x2="600" y2="238" stroke="#e8a020" stroke-width="1.6" marker-end="url(#b2-wm)"/>
-        <text x="612" y="232" font-size="11" fill="#e8a020" font-style="italic">write</text>
-
-        <!-- Arrow 3: WM -> agent loop (from right edge of WM, curving out to right edge of ring) -->
-        <path d="M 720,360 Q 800,360 890,360" fill="none" stroke="#9aa0a8" stroke-width="1.6" marker-end="url(#b2-cyc)"/>
-        <text x="800" y="350" text-anchor="middle" font-size="11" fill="rgba(240,237,230,0.75)" font-style="italic">next step</text>
-
-        <!-- Arrow 4: agent loop -> WM (deterministic write — no thinking, the loop just sets a value) -->
-        <path d="M 310,360 L 478,360" fill="none" stroke="#e8a020" stroke-width="1.6" marker-end="url(#b2-wm)"/>
-        <text x="394" y="350" text-anchor="middle" font-size="11" fill="#e8a020" font-style="italic">direct write</text>
-      </svg>
-    </div>
-  </section>
-
-
-  <!-- 37a Build (3/4) — two distinct thought bubbles + tool + outside info + Action item.
-       Bubble 1 ("what actions?") emits an Action (not a WM write); the Action goes to a
-       Tool, which reaches an Outside Info Source and returns. The tool result feeds
-       back into Bubble 2 ("how should we update WM?"), which writes to WM. -->
-  <section class="slide" id="s37a-3">
-    <div class="slide-content">
-      <p class="kicker">One Agent Turn</p>
-      <svg viewBox="180 40 1240 660" width="100%" style="max-height:78vh; display:block; margin: 0.2rem auto 0;" role="img">
-        <defs>
-          <marker id="b3-cyc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 z" fill="#9aa0a8"/>
-          </marker>
-          <marker id="b3-think" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 z" fill="#7ab8c8"/>
-          </marker>
-          <marker id="b3-wm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 z" fill="#e8a020"/>
-          </marker>
-          <marker id="b3-act" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 z" fill="#c89668"/>
-          </marker>
-          <marker id="b3-act-rev" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-            <path d="M10,0 L0,5 L10,10 z" fill="#c89668"/>
-          </marker>
-        </defs>
-
-        <!-- Outer agent loop ring (dashed) -->
-        <circle cx="500" cy="360" r="280" fill="none" stroke="rgba(154,160,168,0.55)" stroke-width="1.5" stroke-dasharray="6,5"/>
-        <text x="500" y="72" text-anchor="middle" font-size="13" fill="rgba(240,237,230,0.85)" font-weight="700" letter-spacing="2">AGENT LOOP</text>
-
-        <!-- Working Memory -->
-        <circle cx="500" cy="360" r="100" fill="#221a0e" stroke="#e8a020" stroke-width="1.6"/>
-        <text x="500" y="326" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Working Memory</text>
-        <line x1="430" y1="342" x2="570" y2="342" stroke="rgba(232,160,32,0.4)" stroke-width="0.8"/>
-        <g text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.85)">
-          <text x="500" y="360">turn goal</text>
-          <text x="500" y="374">task list</text>
-          <text x="500" y="388">heap</text>
-          <text x="500" y="402">typed-block DAG</text>
-        </g>
-
-        <!-- Bubble 1: "what actions should we take now?" — top of annular space.
-             Uses the canonical #think-cloud symbol. -->
-        <g transform="translate(500,168)">
-          <use href="#think-cloud"/>
-          <text x="0" y="-6" text-anchor="middle" font-size="13" fill="#f0ede6" font-style="italic">what actions</text>
-          <text x="0" y="14" text-anchor="middle" font-size="13" fill="#f0ede6" font-style="italic">should we take now?</text>
-          <!-- thought trail (pointing back toward the loop) -->
-          <circle cx="-140" cy="56" r="7" fill="#152832" stroke="#7ab8c8" stroke-width="1.4"/>
-          <circle cx="-156" cy="74" r="4" fill="#152832" stroke="#7ab8c8" stroke-width="1.1"/>
-        </g>
-
-        <!-- Bubble 2 (cloud): "using <<interpretation>>, how should we update WM
-             in response to <<tool result>>?" — bottom of annular space. -->
-        <!-- Bubble 2: "using <<interpretation>>, how should we update WM
-             in response to <<tool result>>?" — bottom of annular space.
-             Same canonical #think-cloud symbol. -->
-        <g transform="translate(500,552)">
-          <use href="#think-cloud"/>
-          <text x="0" y="-18" text-anchor="middle" font-size="12.5" fill="#f0ede6" font-style="italic">using <tspan fill="#c09a60" font-weight="700">&laquo;interpretation&raquo;</tspan>,</text>
-          <text x="0" y="0"   text-anchor="middle" font-size="12.5" fill="#f0ede6" font-style="italic">how should we update WM</text>
-          <text x="0" y="18"  text-anchor="middle" font-size="12.5" fill="#f0ede6" font-style="italic">in response to <tspan fill="#c09a60" font-weight="700">&laquo;tool result&raquo;</tspan>?</text>
-          <!-- thought trail (pointing up toward the loop) -->
-          <circle cx="140" cy="-56" r="7" fill="#152832" stroke="#7ab8c8" stroke-width="1.4"/>
-          <circle cx="156" cy="-74" r="4" fill="#152832" stroke="#7ab8c8" stroke-width="1.1"/>
-        </g>
-
-        <!-- Arrow R: Working Memory -> Bubble 1 (read — bubble pulls WM state to decide) -->
-        <line x1="500" y1="260" x2="500" y2="216" stroke="#e8a020" stroke-width="1.5" marker-end="url(#b3-wm)"/>
-        <text x="512" y="244" font-size="11" fill="#e8a020" font-style="italic">read</text>
-
-        <!-- Action card: outside ring upper-right, emitted by Bubble 1.
-             Two stacked sub-panels: tool-call (goes to Tool) + interpretation (goes to Bubble 2). -->
-        <g>
-          <rect x="800" y="110" width="140" height="172" rx="8" fill="#1f1810" stroke="#c09a60" stroke-width="1.3"/>
-          <text x="870" y="128" text-anchor="middle" font-size="11" fill="#c09a60" font-weight="700" letter-spacing="1.2">ACTION</text>
-
-          <!-- Tool-call sub-panel -->
-          <rect x="810" y="138" width="120" height="66" rx="4" fill="#27201a" stroke="rgba(200,150,104,0.55)" stroke-width="0.9"/>
-          <text x="870" y="153" text-anchor="middle" font-size="9.5" fill="#c89668" font-style="italic" letter-spacing="0.5">tool call</text>
-          <text x="870" y="174" text-anchor="middle" font-size="11" fill="#f0ede6">tool</text>
-          <text x="870" y="192" text-anchor="middle" font-size="11" fill="#f0ede6">params</text>
-
-          <!-- Interpretation sub-panel -->
-          <rect x="810" y="212" width="120" height="60" rx="4" fill="#152832" stroke="rgba(122,184,200,0.55)" stroke-width="0.9"/>
-          <text x="870" y="227" text-anchor="middle" font-size="9.5" fill="#7ab8c8" font-style="italic" letter-spacing="0.5">interpretation</text>
-          <text x="870" y="252" text-anchor="middle" font-size="11" fill="#f0ede6">prompt</text>
-        </g>
-
-        <!-- Arrow B: Bubble 1 -> Action card (emits — enters left, mid-height) -->
-        <path d="M 645,168 Q 720,184 800,196" fill="none" stroke="#c89668" stroke-width="1.5" marker-end="url(#b3-act)"/>
-        <text x="710" y="160" text-anchor="middle" font-size="11" fill="#c89668" font-style="italic">emits</text>
-
-        <!-- Tool box (outside the loop, right side) -->
-        <rect x="980" y="320" width="180" height="80" rx="10" fill="#27201a" stroke="#c89668" stroke-width="1.6"/>
-        <text x="1070" y="352" text-anchor="middle" font-size="14" fill="#f0ede6" font-weight="700">Tool</text>
-        <text x="1070" y="375" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">deterministic code</text>
-
-        <!-- Outside info source (further right) -->
-        <rect x="1240" y="320" width="160" height="80" rx="10" fill="#181818" stroke="#f0ede6" stroke-width="1.4" stroke-dasharray="4,3"/>
-        <text x="1320" y="365" text-anchor="middle" font-size="14" fill="#f0ede6" font-weight="700">Outside info</text>
-
-        <!-- Arrow C: Tool-call sub-panel -> Tool (execute) -->
-        <path d="M 930,200 Q 1000,260 1040,320" fill="none" stroke="#c89668" stroke-width="1.5" marker-end="url(#b3-act)"/>
-        <text x="1020" y="252" font-size="11" fill="#c89668" font-style="italic">execute</text>
-
-        <!-- Arrow I: Interpretation sub-panel -> Bubble 2 (the prompt that Bubble 2 will use) -->
-        <path d="M 810,260 Q 720,420 645,540" fill="none" stroke="#7ab8c8" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#b3-think)"/>
-        <text x="690" y="410" text-anchor="middle" font-size="11" fill="#7ab8c8" font-style="italic">interpret</text>
-
-        <!-- Arrow D+E: Tool <-> Outside info (read/write — double-ended) -->
-        <line x1="1160" y1="360" x2="1240" y2="360" stroke="#c89668" stroke-width="1.5" marker-start="url(#b3-act-rev)" marker-end="url(#b3-act)"/>
-        <text x="1200" y="350" text-anchor="middle" font-size="11" fill="#c89668" font-style="italic">read / write</text>
-
-        <!-- Arrow F: Tool -> Bubble 2 ("feedback") — sweeps down-left around WM into the bottom bubble -->
-        <path d="M 1000,400 Q 880,560 645,552" fill="none" stroke="#7ab8c8" stroke-width="1.6" stroke-dasharray="4,3" marker-end="url(#b3-think)"/>
-        <text x="855" y="510" text-anchor="middle" font-size="13" fill="#7ab8c8" font-weight="700" font-style="italic">feedback</text>
-
-        <!-- Arrow G: Bubble 2 -> WM (write) -->
-        <line x1="500" y1="508" x2="500" y2="462" stroke="#e8a020" stroke-width="1.6" marker-end="url(#b3-wm)"/>
-        <text x="512" y="490" font-size="11" fill="#e8a020" font-style="italic">write</text>
-
-      </svg>
-    </div>
-  </section>
-
-
-  <!-- 37a Build (4/4) — Decompose the agent loop into the actual 9 steps,
-       with a specific thought bubble for each thinking moment.
-       Cycle is clockwise: step 2 enters at lower-left, steps 3-8 go up over
-       the top and down to lower-right, "not met" arc closes the loop across
-       the bottom. Steps 1 + 9 (and session files) flow left → right. -->
-  <section class="slide" id="s37a-4">
-    <div class="slide-content">
-      <p class="kicker">One Agent Turn</p>
-      <svg viewBox="0 0 1500 720" width="100%" style="max-height:78vh; display:block; margin: 0.2rem auto 0;" role="img">
-        <defs>
-          <marker id="cyc-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 z" fill="#9aa0a8"/>
-          </marker>
-          <marker id="think-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 z" fill="#7ab8c8"/>
-          </marker>
-          <marker id="wm-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 z" fill="#e8a020"/>
-          </marker>
-          <marker id="sf-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 z" fill="#c89668"/>
-          </marker>
-        </defs>
-
-        <!-- ====================================================================== -->
-        <!-- Outermost = the AGENT LOOP (cycle of step boxes on a ring at r=310).    -->
-        <!-- Faint dashed ring is just a guide; the cycle arcs trace the same circle.-->
-        <!-- ====================================================================== -->
-        <!-- The cycle arcs themselves trace the ring; no separate guide circle. -->
-        <text x="750" y="28" text-anchor="middle" font-size="12" fill="rgba(240,237,230,0.6)" font-weight="700" letter-spacing="3">AGENT LOOP</text>
-
-        <!-- Working Memory (small, no inner content) -->
-        <circle cx="750" cy="370" r="55" fill="rgba(232,160,32,0.10)" stroke="#e8a020" stroke-width="1.6"/>
-        <text x="750" y="366" text-anchor="middle" font-size="11" fill="#f0ede6" font-weight="700">Working</text>
-        <text x="750" y="381" text-anchor="middle" font-size="11" fill="#f0ede6" font-weight="700">Memory</text>
-
-        <!-- ====================================================================== -->
-        <!-- Cycle arcs (clockwise) along the outer ring. Each arc connects two      -->
-        <!-- adjacent step boxes, trimmed at both ends so the arrowhead sits in      -->
-        <!-- the gap between boxes.                                                  -->
-        <!-- ====================================================================== -->
-        <!-- Each cycle arc starts at one step's CW-exit box-edge and ends at
-             the next step's CW-entry box-edge (computed as the ring/box
-             intersection points), so arrowheads land exactly on the box. -->
-        <!-- 2 -> 3 -->
-        <path d="M 513.2 570 A 310 310 0 0 1 440.6 389" fill="none" stroke="#9aa0a8" stroke-width="1.7" marker-end="url(#cyc-arr)"/>
-        <!-- 3 -> 4 -->
-        <path d="M 440.6 351 A 310 310 0 0 1 513.1 170" fill="none" stroke="#9aa0a8" stroke-width="1.7" marker-end="url(#cyc-arr)"/>
-        <!-- 4 -> 5 -->
-        <path d="M 551.4 132 A 310 310 0 0 1 679.9 68.1" fill="none" stroke="#9aa0a8" stroke-width="1.7" marker-end="url(#cyc-arr)"/>
-        <!-- 5 -> 6 -->
-        <path d="M 820.1 68.1 A 310 310 0 0 1 948.6 132" fill="none" stroke="#9aa0a8" stroke-width="1.7" marker-end="url(#cyc-arr)"/>
-        <!-- 6 -> 7 -->
-        <path d="M 986.9 170 A 310 310 0 0 1 1059.4 351" fill="none" stroke="#9aa0a8" stroke-width="1.7" marker-end="url(#cyc-arr)"/>
-        <!-- 7 -> 8 -->
-        <path d="M 1059.4 389 A 310 310 0 0 1 986.9 570" fill="none" stroke="#9aa0a8" stroke-width="1.7" marker-end="url(#cyc-arr)"/>
-
-        <!-- "Not met" arc: step 8 -> step 2 clockwise across the bottom -->
-        <path d="M 948.6 608 A 310 310 0 0 1 551.4 608" fill="none" stroke="#9aa0a8" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#cyc-arr)"/>
-        <text x="750" y="700" text-anchor="middle" font-size="11" fill="rgba(240,237,230,0.7)" font-style="italic">not yet — loop back</text>
-
-        <!-- ====================================================================== -->
-        <!-- Think bubbles (canonical #think-cloud), placed BETWEEN WM and the       -->
-        <!-- cycle ring at r=145, scale 0.32. One per think step (3, 4, 6, 7, 8).    -->
-        <!-- ====================================================================== -->
-
-        <!-- Bubble for step 3 (between step 3 and WM, left side) -->
-        <g transform="translate(605,370) scale(0.32)">
-          <use href="#think-cloud"/>
-        </g>
-        <text x="605" y="366" text-anchor="middle" font-size="9" fill="#f0ede6" font-style="italic">What's the</text>
-        <text x="605" y="378" text-anchor="middle" font-size="9" fill="#f0ede6" font-style="italic">goal here?</text>
-
-        <!-- Bubble for step 4 (upper-left annulus) -->
-        <g transform="translate(648,268) scale(0.32)">
-          <use href="#think-cloud"/>
-        </g>
-        <text x="648" y="264" text-anchor="middle" font-size="9" fill="#f0ede6" font-style="italic">Which</text>
-        <text x="648" y="276" text-anchor="middle" font-size="9" fill="#f0ede6" font-style="italic">action?</text>
-
-        <!-- Bubble for step 6 (upper-right annulus) -->
-        <g transform="translate(852,268) scale(0.32)">
-          <use href="#think-cloud"/>
-        </g>
-        <text x="852" y="264" text-anchor="middle" font-size="9" fill="#f0ede6" font-style="italic">Response</text>
-        <text x="852" y="276" text-anchor="middle" font-size="9" fill="#f0ede6" font-style="italic">means what?</text>
-
-        <!-- Bubble for step 7 (right side) -->
-        <g transform="translate(895,370) scale(0.32)">
-          <use href="#think-cloud"/>
-        </g>
-        <text x="895" y="366" text-anchor="middle" font-size="9" fill="#f0ede6" font-style="italic">What's still</text>
-        <text x="895" y="378" text-anchor="middle" font-size="9" fill="#f0ede6" font-style="italic">useful?</text>
-
-        <!-- Bubble for step 8 (lower-right annulus) -->
-        <g transform="translate(852,472) scale(0.32)">
-          <use href="#think-cloud"/>
-        </g>
-        <text x="852" y="468" text-anchor="middle" font-size="9" fill="#f0ede6" font-style="italic">Goal</text>
-        <text x="852" y="480" text-anchor="middle" font-size="9" fill="#f0ede6" font-style="italic">met?</text>
-
-        <!-- ====================================================================== -->
-        <!-- Think arrows: step → bubble (cyan solid) and bubble → WM (cyan dashed). -->
-        <!-- Drawn radially: each step's arrow goes inward toward its bubble, and    -->
-        <!-- each bubble's arrow continues inward to the WM edge.                    -->
-        <!-- ====================================================================== -->
-        <!-- All think arrows lie along the same WM radius as their step.
-             step → bubble → WM are three collinear segments on one radial line.
-             Each segment starts/ends exactly at the box edge / bubble edge /
-             WM edge so the arrowheads land cleanly. -->
-
-        <!-- Step 3 radius (horizontal, y=370): box -> bubble -> WM -->
-        <line x1="510" y1="370" x2="560" y2="370" stroke="#7ab8c8" stroke-width="1.3" marker-end="url(#think-arr)"/>
-        <line x1="650" y1="370" x2="695" y2="370" stroke="#7ab8c8" stroke-width="1.3" stroke-dasharray="4,3" marker-end="url(#think-arr)"/>
-
-        <!-- Step 4 radius (NW 45°, slope 1): box bottom -> bubble. The bubble
-             does NOT write to WM directly — the chosen action gets executed
-             by step 5, which dispatches to the Tool. -->
-        <line x1="550" y1="170" x2="623" y2="243" stroke="#7ab8c8" stroke-width="1.3" marker-end="url(#think-arr)"/>
-
-        <!-- Step 6 radius (NE 45°, slope -1): box bottom -> bubble -> WM upper-right -->
-        <line x1="950" y1="170" x2="877" y2="243" stroke="#7ab8c8" stroke-width="1.3" marker-end="url(#think-arr)"/>
-        <line x1="827" y1="293" x2="789" y2="331" stroke="#7ab8c8" stroke-width="1.3" stroke-dasharray="4,3" marker-end="url(#think-arr)"/>
-
-        <!-- Step 7 radius (horizontal, y=370): box -> bubble -> WM -->
-        <line x1="990" y1="370" x2="940" y2="370" stroke="#7ab8c8" stroke-width="1.3" marker-end="url(#think-arr)"/>
-        <line x1="850" y1="370" x2="805" y2="370" stroke="#7ab8c8" stroke-width="1.3" stroke-dasharray="4,3" marker-end="url(#think-arr)"/>
-
-        <!-- Step 8 radius (SE 45°): box top -> bubble. No WM write (step 8 only decides). -->
-        <line x1="950" y1="570" x2="877" y2="497" stroke="#7ab8c8" stroke-width="1.3" marker-end="url(#think-arr)"/>
-
-        <!-- ====================================================================== -->
-        <!-- Cycle step boxes on the outer ring (r=310 around 750,370).              -->
-        <!-- Copper border = act step; cyan border = think step.                     -->
-        <!-- ====================================================================== -->
-        <g font-size="10.5" font-weight="700" fill="#f0ede6" text-anchor="middle">
-
-          <!-- Step 2 (531,589) — act -->
-          <rect x="461" y="570" width="140" height="38" rx="8"
-                fill="rgba(200,150,104,0.14)" stroke="#c89668" stroke-width="1.3"/>
-          <text x="531" y="593">2. User message</text>
-
-          <!-- Step 3 (440,370) — think -->
-          <rect x="370" y="351" width="140" height="38" rx="8"
-                fill="rgba(122,184,200,0.12)" stroke="#7ab8c8" stroke-width="1.3"/>
-          <text x="440" y="374">3. Goal &amp; constraints</text>
-
-          <!-- Step 4 (531,151) — think -->
-          <rect x="461" y="132" width="140" height="38" rx="8"
-                fill="rgba(122,184,200,0.12)" stroke="#7ab8c8" stroke-width="1.3"/>
-          <text x="531" y="155">4. Pick next actions</text>
-
-          <!-- Step 5 (750,60) — act -->
-          <rect x="680" y="41" width="140" height="38" rx="8"
-                fill="rgba(200,150,104,0.14)" stroke="#c89668" stroke-width="1.3"/>
-          <text x="750" y="64">5. Execute actions</text>
-
-          <!-- Step 6 (969,151) — think -->
-          <rect x="899" y="132" width="140" height="38" rx="8"
-                fill="rgba(122,184,200,0.12)" stroke="#7ab8c8" stroke-width="1.3"/>
-          <text x="969" y="155">6. Interpret response</text>
-
-          <!-- Step 7 (1060,370) — think -->
-          <rect x="990" y="351" width="140" height="38" rx="8"
-                fill="rgba(122,184,200,0.12)" stroke="#7ab8c8" stroke-width="1.3"/>
-          <text x="1060" y="374">7. Prune memory</text>
-
-          <!-- Step 8 (969,589) — think -->
-          <rect x="899" y="570" width="140" height="38" rx="8"
-                fill="rgba(122,184,200,0.12)" stroke="#7ab8c8" stroke-width="1.3"/>
-          <text x="969" y="593">8. Check the goal</text>
-
-          <!-- Step 1 (act) — outside ring, far left, aligned with step 2 -->
-          <rect x="60" y="569" width="220" height="40" rx="8"
-                fill="rgba(200,150,104,0.14)" stroke="#c89668" stroke-width="1.3"/>
-          <text x="170" y="593">1. Hydrate working memory</text>
-
-          <!-- Step 9 (act) — outside ring, far right, aligned with step 8 -->
-          <rect x="1220" y="569" width="220" height="40" rx="8"
-                fill="rgba(200,150,104,0.14)" stroke="#c89668" stroke-width="1.3"/>
-          <text x="1330" y="593">9. Persist working memory</text>
-        </g>
-
-        <!-- ====================================================================== -->
-        <!-- Session files: turn N (incoming) at far left, turn N+1 (outgoing) at    -->
-        <!-- far right. Each sits above its respective act step.                     -->
-        <!-- ====================================================================== -->
-        <rect x="60" y="450" width="220" height="60" rx="10"
-              fill="rgba(255,255,255,0.05)" stroke="#f0ede6" stroke-width="1.3" stroke-dasharray="4,3"/>
-        <text x="170" y="474" text-anchor="middle" font-size="12" fill="#f0ede6" font-weight="700">Session File</text>
-        <text x="170" y="494" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">turn N (incoming)</text>
-
-        <rect x="1220" y="450" width="220" height="60" rx="10"
-              fill="rgba(255,255,255,0.05)" stroke="#f0ede6" stroke-width="1.3" stroke-dasharray="4,3"/>
-        <text x="1330" y="474" text-anchor="middle" font-size="12" fill="#f0ede6" font-weight="700">Session File</text>
-        <text x="1330" y="494" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">turn N+1 (outgoing)</text>
-
-        <!-- Session file flow arrows (copper). -->
-        <line x1="170" y1="510" x2="170" y2="569" stroke="#c89668" stroke-width="1.4" marker-end="url(#sf-arr)"/>
-        <text x="180" y="545" font-size="9.5" fill="#c89668" font-style="italic">read</text>
-        <line x1="1330" y1="569" x2="1330" y2="510" stroke="#c89668" stroke-width="1.4" marker-end="url(#sf-arr)"/>
-        <text x="1340" y="545" font-size="9.5" fill="#c89668" font-style="italic">write</text>
-
-        <!-- ====================================================================== -->
-        <!-- Sequence arrows: step 1 → step 2 (enter cycle) and step 8 → step 9      -->
-        <!-- (exit cycle when goal is met).                                          -->
-        <!-- ====================================================================== -->
-        <!-- 1 -> 2 -->
-        <line x1="280" y1="589" x2="461" y2="589" stroke="#9aa0a8" stroke-width="1.6" marker-end="url(#cyc-arr)"/>
-
-        <!-- 8 -> 9 (goal met) -->
-        <line x1="1039" y1="589" x2="1220" y2="589" stroke="#9aa0a8" stroke-width="1.6" stroke-dasharray="6,4" marker-end="url(#cyc-arr)"/>
-        <text x="1130" y="568" text-anchor="middle" font-size="11" fill="rgba(240,237,230,0.85)" font-weight="700" font-style="italic">goal met</text>
-
-        <!-- ====================================================================== -->
-        <!-- Direct WM read/write arrows for act steps. All four lie on the WM       -->
-        <!-- radius that passes through the step, so the arrow is one straight line  -->
-        <!-- from box-edge to WM-edge. Labels sit perpendicular-offset off the line. -->
-        <!-- ====================================================================== -->
-        <!-- 1 -> WM (write: hydrate). Step 1 outside ring; radius direction
-             (0.935, -0.353) from step 1 to WM. Exits step 1 top at (223, 569),
-             enters WM at lower-left edge (698.6, 389.4). -->
-        <line x1="223" y1="569" x2="699" y2="389" stroke="#e8a020" stroke-width="1.3" marker-end="url(#wm-arr)"/>
-        <text x="430" y="450" text-anchor="middle" font-size="9.5" fill="#e8a020" font-style="italic">write (hydrate)</text>
-
-        <!-- WM -> 9 (read: whole WM). Radius (0.935, 0.353) from WM to step 9.
-             Exits WM at lower-right edge (801.4, 389.4), enters step 9 top at
-             (1277, 569). -->
-        <line x1="801" y1="389" x2="1277" y2="569" stroke="#e8a020" stroke-width="1.3" stroke-dasharray="3,3" marker-end="url(#wm-arr)"/>
-        <text x="1070" y="450" text-anchor="middle" font-size="9.5" fill="#e8a020" font-style="italic">read (whole WM)</text>
-
-        <!-- ====================================================================== -->
-        <!-- Tool + Outside info nodes (outside the agent loop, upper-right).        -->
-        <!-- Step 5 (Execute) dispatches an action to the Tool. The Tool talks to    -->
-        <!-- the Outside info source (read/write), then returns a response that      -->
-        <!-- feeds step 6 (Interpret).                                               -->
-        <!-- ====================================================================== -->
-        <!-- Tool (copper border — deterministic code) -->
-        <rect x="1100" y="130" width="160" height="50" rx="10"
-              fill="rgba(200,150,104,0.14)" stroke="#c89668" stroke-width="1.4"/>
-        <text x="1180" y="153" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Tool</text>
-        <text x="1180" y="169" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">deterministic code</text>
-
-        <!-- Outside info sources (dashed white — beyond the agent's reach).
-             Five options, each with its own read/write arrow to the Tool. -->
-        <g font-size="11" fill="#f0ede6" font-weight="700" text-anchor="middle">
-          <rect x="1300" y="10"  width="160" height="36" rx="8"
-                fill="#181818" stroke="#f0ede6" stroke-width="1.2" stroke-dasharray="4,3"/>
-          <text x="1380" y="33">Workflow files</text>
-
-          <rect x="1300" y="58"  width="160" height="36" rx="8"
-                fill="#181818" stroke="#f0ede6" stroke-width="1.2" stroke-dasharray="4,3"/>
-          <text x="1380" y="81">Code files</text>
-
-          <rect x="1300" y="106" width="160" height="36" rx="8"
-                fill="#181818" stroke="#f0ede6" stroke-width="1.2" stroke-dasharray="4,3"/>
-          <text x="1380" y="129">Other files</text>
-
-          <rect x="1300" y="154" width="160" height="36" rx="8"
-                fill="#181818" stroke="#f0ede6" stroke-width="1.2" stroke-dasharray="4,3"/>
-          <text x="1380" y="177">Source control</text>
-
-          <rect x="1300" y="202" width="160" height="36" rx="8"
-                fill="#181818" stroke="#f0ede6" stroke-width="1.2" stroke-dasharray="4,3"/>
-          <text x="1380" y="225">Foreign systems</text>
-        </g>
-
-        <!-- Step 5 -> Tool (action: execute the tool call) -->
-        <line x1="820" y1="60" x2="1100" y2="134" stroke="#c89668" stroke-width="1.5" marker-end="url(#sf-arr)"/>
-        <text x="945" y="80" text-anchor="middle" font-size="10" fill="#c89668" font-style="italic">action</text>
-
-        <!-- Tool <-> each outside source (read / write — bidirectional). -->
-        <line x1="1260" y1="140" x2="1300" y2="28"  stroke="#c89668" stroke-width="1.3" marker-start="url(#sf-arr)" marker-end="url(#sf-arr)"/>
-        <line x1="1260" y1="145" x2="1300" y2="76"  stroke="#c89668" stroke-width="1.3" marker-start="url(#sf-arr)" marker-end="url(#sf-arr)"/>
-        <line x1="1260" y1="155" x2="1300" y2="124" stroke="#c89668" stroke-width="1.3" marker-start="url(#sf-arr)" marker-end="url(#sf-arr)"/>
-        <line x1="1260" y1="165" x2="1300" y2="172" stroke="#c89668" stroke-width="1.3" marker-start="url(#sf-arr)" marker-end="url(#sf-arr)"/>
-        <line x1="1260" y1="170" x2="1300" y2="220" stroke="#c89668" stroke-width="1.3" marker-start="url(#sf-arr)" marker-end="url(#sf-arr)"/>
-
-        <!-- Tool -> Step 6 (feedback: the response that step 6 will interpret) -->
-        <line x1="1100" y1="165" x2="1039" y2="165" stroke="#7ab8c8" stroke-width="1.4" stroke-dasharray="4,3" marker-end="url(#think-arr)"/>
-        <text x="1070" y="158" text-anchor="middle" font-size="10" fill="#7ab8c8" font-style="italic">feedback</text>
-
-      </svg>
-    </div>
-  </section>
-
-  <!-- 37a-5: same loop as s37a-4, with the levers slapped on as stickers.
-       Sticker style: bright fill, dark border, drop shadow, slight rotation. -->
-  <section class="slide" id="s37a-5">
-    <div class="slide-content">
-      <p class="kicker">One Agent Turn</p>
-      <svg viewBox="0 0 1500 720" width="100%" style="max-height:78vh; display:block; margin: 0.2rem auto 0;" role="img">
-        <defs>
-          <marker id="cyc-arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 z" fill="#9aa0a8"/>
-          </marker>
-          <marker id="think-arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 z" fill="#7ab8c8"/>
-          </marker>
-          <marker id="wm-arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 z" fill="#e8a020"/>
-          </marker>
-          <marker id="sf-arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 z" fill="#c89668"/>
-          </marker>
-          <symbol id="lever-icon" viewBox="0 0 24 24" overflow="visible">
+          <symbol id="lever-icon-c1" viewBox="0 0 24 24" overflow="visible">
             <polygon points="12,16 6,22 18,22" fill="currentColor"/>
             <line x1="2" y1="4" x2="22" y2="16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
             <circle cx="2" cy="4" r="2.5" fill="currentColor"/>
           </symbol>
-          <filter id="sticker-shadow" x="-30%" y="-30%" width="160%" height="160%">
+          <filter id="sticker-shadow-c1" x="-30%" y="-30%" width="160%" height="160%">
             <feDropShadow dx="2.5" dy="3.5" stdDeviation="2.2" flood-color="#000" flood-opacity="0.6"/>
           </filter>
         </defs>
 
-        <text x="750" y="28" text-anchor="middle" font-size="12" fill="rgba(240,237,230,0.6)" font-weight="700" letter-spacing="3">AGENT LOOP</text>
+        <!-- Agent 1 (left) -->
+        <circle cx="50" cy="270" r="48" fill="rgba(232,160,32,0.12)" stroke="#e8a020" stroke-width="1.8"/>
+        <text x="50" y="266" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Agent</text>
+        <text x="50" y="284" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">1</text>
 
-        <circle cx="750" cy="370" r="55" fill="rgba(232,160,32,0.10)" stroke="#e8a020" stroke-width="1.6"/>
-        <text x="750" y="366" text-anchor="middle" font-size="11" fill="#f0ede6" font-weight="700">Working</text>
-        <text x="750" y="381" text-anchor="middle" font-size="11" fill="#f0ede6" font-weight="700">Memory</text>
+        <!-- Agent 2 (right) -->
+        <circle cx="950" cy="270" r="48" fill="rgba(122,184,200,0.14)" stroke="#7ab8c8" stroke-width="1.8"/>
+        <text x="950" y="266" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Agent</text>
+        <text x="950" y="284" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">2</text>
 
-        <path d="M 513.2 570 A 310 310 0 0 1 440.6 389" fill="none" stroke="#9aa0a8" stroke-width="1.7" marker-end="url(#cyc-arr2)"/>
-        <path d="M 440.6 351 A 310 310 0 0 1 513.1 170" fill="none" stroke="#9aa0a8" stroke-width="1.7" marker-end="url(#cyc-arr2)"/>
-        <path d="M 551.4 132 A 310 310 0 0 1 679.9 68.1" fill="none" stroke="#9aa0a8" stroke-width="1.7" marker-end="url(#cyc-arr2)"/>
-        <path d="M 820.1 68.1 A 310 310 0 0 1 948.6 132" fill="none" stroke="#9aa0a8" stroke-width="1.7" marker-end="url(#cyc-arr2)"/>
-        <path d="M 986.9 170 A 310 310 0 0 1 1059.4 351" fill="none" stroke="#9aa0a8" stroke-width="1.7" marker-end="url(#cyc-arr2)"/>
-        <path d="M 1059.4 389 A 310 310 0 0 1 986.9 570" fill="none" stroke="#9aa0a8" stroke-width="1.7" marker-end="url(#cyc-arr2)"/>
-        <path d="M 948.6 608 A 310 310 0 0 1 551.4 608" fill="none" stroke="#9aa0a8" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#cyc-arr2)"/>
-        <text x="750" y="700" text-anchor="middle" font-size="11" fill="rgba(240,237,230,0.7)" font-style="italic">not yet — loop back</text>
-
-        <g transform="translate(605,370) scale(0.32)"><use href="#think-cloud"/></g>
-        <text x="605" y="366" text-anchor="middle" font-size="9" fill="#f0ede6" font-style="italic">What's the</text>
-        <text x="605" y="378" text-anchor="middle" font-size="9" fill="#f0ede6" font-style="italic">goal here?</text>
-        <g transform="translate(648,268) scale(0.32)"><use href="#think-cloud"/></g>
-        <text x="648" y="264" text-anchor="middle" font-size="9" fill="#f0ede6" font-style="italic">Which</text>
-        <text x="648" y="276" text-anchor="middle" font-size="9" fill="#f0ede6" font-style="italic">action?</text>
-        <g transform="translate(852,268) scale(0.32)"><use href="#think-cloud"/></g>
-        <text x="852" y="264" text-anchor="middle" font-size="9" fill="#f0ede6" font-style="italic">Response</text>
-        <text x="852" y="276" text-anchor="middle" font-size="9" fill="#f0ede6" font-style="italic">means what?</text>
-        <g transform="translate(895,370) scale(0.32)"><use href="#think-cloud"/></g>
-        <text x="895" y="366" text-anchor="middle" font-size="9" fill="#f0ede6" font-style="italic">What's still</text>
-        <text x="895" y="378" text-anchor="middle" font-size="9" fill="#f0ede6" font-style="italic">useful?</text>
-        <g transform="translate(852,472) scale(0.32)"><use href="#think-cloud"/></g>
-        <text x="852" y="468" text-anchor="middle" font-size="9" fill="#f0ede6" font-style="italic">Goal</text>
-        <text x="852" y="480" text-anchor="middle" font-size="9" fill="#f0ede6" font-style="italic">met?</text>
-
-        <line x1="510" y1="370" x2="560" y2="370" stroke="#7ab8c8" stroke-width="1.3" marker-end="url(#think-arr2)"/>
-        <line x1="650" y1="370" x2="695" y2="370" stroke="#7ab8c8" stroke-width="1.3" stroke-dasharray="4,3" marker-end="url(#think-arr2)"/>
-        <line x1="550" y1="170" x2="623" y2="243" stroke="#7ab8c8" stroke-width="1.3" marker-end="url(#think-arr2)"/>
-        <line x1="950" y1="170" x2="877" y2="243" stroke="#7ab8c8" stroke-width="1.3" marker-end="url(#think-arr2)"/>
-        <line x1="827" y1="293" x2="789" y2="331" stroke="#7ab8c8" stroke-width="1.3" stroke-dasharray="4,3" marker-end="url(#think-arr2)"/>
-        <line x1="990" y1="370" x2="940" y2="370" stroke="#7ab8c8" stroke-width="1.3" marker-end="url(#think-arr2)"/>
-        <line x1="850" y1="370" x2="805" y2="370" stroke="#7ab8c8" stroke-width="1.3" stroke-dasharray="4,3" marker-end="url(#think-arr2)"/>
-        <line x1="950" y1="570" x2="877" y2="497" stroke="#7ab8c8" stroke-width="1.3" marker-end="url(#think-arr2)"/>
-
-        <g font-size="10.5" font-weight="700" fill="#f0ede6" text-anchor="middle">
-          <rect x="461" y="570" width="140" height="38" rx="8" fill="rgba(200,150,104,0.14)" stroke="#c89668" stroke-width="1.3"/>
-          <text x="531" y="593">2. User message</text>
-          <rect x="370" y="351" width="140" height="38" rx="8" fill="rgba(122,184,200,0.12)" stroke="#7ab8c8" stroke-width="1.3"/>
-          <text x="440" y="374">3. Goal &amp; constraints</text>
-          <rect x="461" y="132" width="140" height="38" rx="8" fill="rgba(122,184,200,0.12)" stroke="#7ab8c8" stroke-width="1.3"/>
-          <text x="531" y="155">4. Pick next actions</text>
-          <rect x="680" y="41" width="140" height="38" rx="8" fill="rgba(200,150,104,0.14)" stroke="#c89668" stroke-width="1.3"/>
-          <text x="750" y="64">5. Execute actions</text>
-          <rect x="899" y="132" width="140" height="38" rx="8" fill="rgba(122,184,200,0.12)" stroke="#7ab8c8" stroke-width="1.3"/>
-          <text x="969" y="155">6. Interpret response</text>
-          <rect x="990" y="351" width="140" height="38" rx="8" fill="rgba(122,184,200,0.12)" stroke="#7ab8c8" stroke-width="1.3"/>
-          <text x="1060" y="374">7. Prune memory</text>
-          <rect x="899" y="570" width="140" height="38" rx="8" fill="rgba(122,184,200,0.12)" stroke="#7ab8c8" stroke-width="1.3"/>
-          <text x="969" y="593">8. Check the goal</text>
-          <rect x="60" y="569" width="220" height="40" rx="8" fill="rgba(200,150,104,0.14)" stroke="#c89668" stroke-width="1.3"/>
-          <text x="170" y="593">1. Hydrate working memory</text>
-          <rect x="1220" y="569" width="220" height="40" rx="8" fill="rgba(200,150,104,0.14)" stroke="#c89668" stroke-width="1.3"/>
-          <text x="1330" y="593">9. Persist working memory</text>
-        </g>
-
-        <rect x="60" y="450" width="220" height="60" rx="10" fill="rgba(255,255,255,0.05)" stroke="#f0ede6" stroke-width="1.3" stroke-dasharray="4,3"/>
-        <text x="170" y="474" text-anchor="middle" font-size="12" fill="#f0ede6" font-weight="700">Session File</text>
-        <text x="170" y="494" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">turn N (incoming)</text>
-        <rect x="1220" y="450" width="220" height="60" rx="10" fill="rgba(255,255,255,0.05)" stroke="#f0ede6" stroke-width="1.3" stroke-dasharray="4,3"/>
-        <text x="1330" y="474" text-anchor="middle" font-size="12" fill="#f0ede6" font-weight="700">Session File</text>
-        <text x="1330" y="494" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">turn N+1 (outgoing)</text>
-        <line x1="170" y1="510" x2="170" y2="569" stroke="#c89668" stroke-width="1.4" marker-end="url(#sf-arr2)"/>
-        <text x="180" y="545" font-size="9.5" fill="#c89668" font-style="italic">read</text>
-        <line x1="1330" y1="569" x2="1330" y2="510" stroke="#c89668" stroke-width="1.4" marker-end="url(#sf-arr2)"/>
-        <text x="1340" y="545" font-size="9.5" fill="#c89668" font-style="italic">write</text>
-
-        <line x1="280" y1="589" x2="461" y2="589" stroke="#9aa0a8" stroke-width="1.6" marker-end="url(#cyc-arr2)"/>
-        <line x1="1039" y1="589" x2="1220" y2="589" stroke="#9aa0a8" stroke-width="1.6" stroke-dasharray="6,4" marker-end="url(#cyc-arr2)"/>
-        <text x="1130" y="568" text-anchor="middle" font-size="11" fill="rgba(240,237,230,0.85)" font-weight="700" font-style="italic">goal met</text>
-
-        <line x1="223" y1="569" x2="699" y2="389" stroke="#e8a020" stroke-width="1.3" marker-end="url(#wm-arr2)"/>
-        <text x="430" y="450" text-anchor="middle" font-size="9.5" fill="#e8a020" font-style="italic">write (hydrate)</text>
-        <line x1="801" y1="389" x2="1277" y2="569" stroke="#e8a020" stroke-width="1.3" stroke-dasharray="3,3" marker-end="url(#wm-arr2)"/>
-        <text x="1070" y="450" text-anchor="middle" font-size="9.5" fill="#e8a020" font-style="italic">read (whole WM)</text>
-
-        <rect x="1100" y="130" width="160" height="50" rx="10" fill="rgba(200,150,104,0.14)" stroke="#c89668" stroke-width="1.4"/>
-        <text x="1180" y="153" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Tool</text>
-        <text x="1180" y="169" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">deterministic code</text>
-
-        <g font-size="11" fill="#f0ede6" font-weight="700" text-anchor="middle">
-          <rect x="1300" y="10"  width="160" height="36" rx="8" fill="#181818" stroke="#f0ede6" stroke-width="1.2" stroke-dasharray="4,3"/>
-          <text x="1380" y="33">Workflow files</text>
-          <rect x="1300" y="58"  width="160" height="36" rx="8" fill="#181818" stroke="#f0ede6" stroke-width="1.2" stroke-dasharray="4,3"/>
-          <text x="1380" y="81">Code files</text>
-          <rect x="1300" y="106" width="160" height="36" rx="8" fill="#181818" stroke="#f0ede6" stroke-width="1.2" stroke-dasharray="4,3"/>
-          <text x="1380" y="129">Other files</text>
-          <rect x="1300" y="154" width="160" height="36" rx="8" fill="#181818" stroke="#f0ede6" stroke-width="1.2" stroke-dasharray="4,3"/>
-          <text x="1380" y="177">Source control</text>
-          <rect x="1300" y="202" width="160" height="36" rx="8" fill="#181818" stroke="#f0ede6" stroke-width="1.2" stroke-dasharray="4,3"/>
-          <text x="1380" y="225">Foreign systems</text>
-        </g>
-
-        <line x1="820" y1="60" x2="1100" y2="134" stroke="#c89668" stroke-width="1.5" marker-end="url(#sf-arr2)"/>
-        <text x="945" y="80" text-anchor="middle" font-size="10" fill="#c89668" font-style="italic">action</text>
-
-        <line x1="1260" y1="140" x2="1300" y2="28"  stroke="#c89668" stroke-width="1.3" marker-start="url(#sf-arr2)" marker-end="url(#sf-arr2)"/>
-        <line x1="1260" y1="145" x2="1300" y2="76"  stroke="#c89668" stroke-width="1.3" marker-start="url(#sf-arr2)" marker-end="url(#sf-arr2)"/>
-        <line x1="1260" y1="155" x2="1300" y2="124" stroke="#c89668" stroke-width="1.3" marker-start="url(#sf-arr2)" marker-end="url(#sf-arr2)"/>
-        <line x1="1260" y1="165" x2="1300" y2="172" stroke="#c89668" stroke-width="1.3" marker-start="url(#sf-arr2)" marker-end="url(#sf-arr2)"/>
-        <line x1="1260" y1="170" x2="1300" y2="220" stroke="#c89668" stroke-width="1.3" marker-start="url(#sf-arr2)" marker-end="url(#sf-arr2)"/>
-
-        <line x1="1100" y1="165" x2="1039" y2="165" stroke="#7ab8c8" stroke-width="1.4" stroke-dasharray="4,3" marker-end="url(#think-arr2)"/>
-        <text x="1070" y="158" text-anchor="middle" font-size="10" fill="#7ab8c8" font-style="italic">feedback</text>
-
-        <!-- ============================================================ -->
-        <!-- LEVER STICKERS — slapped on top of the parts they push.       -->
-        <!-- Amber sticker = vigilance lever (removes a worry class).      -->
-        <!-- Slate sticker = toil-only lever (changes work, not worry).    -->
-        <!-- ============================================================ -->
-
-        <!-- Vigilance: Goals — on Step 3 box -->
-        <g transform="translate(440 370) rotate(-7)" filter="url(#sticker-shadow)">
-          <rect x="-50" y="-19" width="100" height="38" rx="19" fill="#e8a020" stroke="#5a3a00" stroke-width="2.2"/>
-          <g color="#1a1a1a"><use href="#lever-icon" x="-42" y="-13" width="26" height="26"/></g>
-          <text x="-10" y="6" font-size="15" font-weight="800" fill="#1a1a1a" letter-spacing="0.5">Goals</text>
-        </g>
-
-        <!-- Vigilance: Memory — on outgoing session file (the persisted state). -->
-        <g transform="translate(1330 478) rotate(5)" filter="url(#sticker-shadow)">
-          <rect x="-58" y="-19" width="116" height="38" rx="19" fill="#e8a020" stroke="#5a3a00" stroke-width="2.2"/>
-          <g color="#1a1a1a"><use href="#lever-icon" x="-50" y="-13" width="26" height="26"/></g>
-          <text x="-16" y="6" font-size="15" font-weight="800" fill="#1a1a1a" letter-spacing="0.5">Memory</text>
-        </g>
-
-        <!-- Vigilance: Tooling — on Tool box -->
-        <g transform="translate(1180 155) rotate(-5)" filter="url(#sticker-shadow)">
-          <rect x="-58" y="-19" width="116" height="38" rx="19" fill="#e8a020" stroke="#5a3a00" stroke-width="2.2"/>
-          <g color="#1a1a1a"><use href="#lever-icon" x="-50" y="-13" width="26" height="26"/></g>
-          <text x="-18" y="6" font-size="15" font-weight="800" fill="#1a1a1a" letter-spacing="0.5">Tooling</text>
-        </g>
-
-        <!-- Vigilance: Reachable Context — across outside-info options -->
-        <g transform="translate(1380 130) rotate(8)" filter="url(#sticker-shadow)">
-          <rect x="-110" y="-20" width="220" height="40" rx="20" fill="#e8a020" stroke="#5a3a00" stroke-width="2.2"/>
-          <g color="#1a1a1a"><use href="#lever-icon" x="-102" y="-13" width="26" height="26"/></g>
-          <text x="-70" y="6" font-size="15" font-weight="800" fill="#1a1a1a" letter-spacing="0.5">Reachable Context</text>
-        </g>
-
-        <!-- Vigilance: State control — just below Reachable Context, on the
-             Tool -> outside read/write traffic. -->
-        <g transform="translate(1380 195) rotate(-6)" filter="url(#sticker-shadow)">
-          <rect x="-85" y="-19" width="170" height="38" rx="19" fill="#e8a020" stroke="#5a3a00" stroke-width="2.2"/>
-          <g color="#1a1a1a"><use href="#lever-icon" x="-77" y="-13" width="26" height="26"/></g>
-          <text x="-44" y="6" font-size="15" font-weight="800" fill="#1a1a1a" letter-spacing="0.5">State control</text>
-        </g>
-
-        <!-- Vigilance: Feedback — on Tool -> Step 6 edge -->
-        <g transform="translate(1070 180) rotate(-4)" filter="url(#sticker-shadow)">
-          <rect x="-62" y="-19" width="124" height="38" rx="19" fill="#e8a020" stroke="#5a3a00" stroke-width="2.2"/>
-          <g color="#1a1a1a"><use href="#lever-icon" x="-54" y="-13" width="26" height="26"/></g>
-          <text x="-22" y="6" font-size="15" font-weight="800" fill="#1a1a1a" letter-spacing="0.5">Feedback</text>
-        </g>
-
-      </svg>
-    </div>
-  </section>
-
-
-  <!-- 37b Understanding the customer (2/2) - between turns.
-       Five sequential operations sit between Turn N and Turn N+1.
-       Each operation is the home of one lever (Identity is toil-only). -->
-  <section class="slide" id="s37b" data-return-to-toc="true">
-    <div class="slide-content">
-      <p class="kicker">Between agent turns</p>
-      <svg viewBox="0 0 1000 540" width="100%" style="max-height:62vh; display:block; margin: 0.6rem auto 0;" role="img">
-        <defs>
-          <marker id="bt-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 z" fill="#9aa0a8"/>
-          </marker>
-          <symbol id="lever-icon-b" viewBox="0 0 24 24" overflow="visible">
-            <polygon points="12,16 6,22 18,22" fill="currentColor"/>
-            <line x1="2" y1="4" x2="22" y2="16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-            <circle cx="2" cy="4" r="2.5" fill="currentColor"/>
-          </symbol>
-          <filter id="sticker-shadow-b" x="-30%" y="-30%" width="160%" height="160%">
-            <feDropShadow dx="2.5" dy="3.5" stdDeviation="2.2" flood-color="#000" flood-opacity="0.6"/>
-          </filter>
-        </defs>
-
-        <!-- Turn N (left) -->
-        <circle cx="50" cy="270" r="48" fill="rgba(232,160,32,0.10)" stroke="#e8a020" stroke-width="1.6"/>
-        <text x="50" y="266" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Turn</text>
-        <text x="50" y="284" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">N</text>
-
-        <!-- Turn N+1 (right) -->
-        <circle cx="950" cy="270" r="48" fill="rgba(232,160,32,0.10)" stroke="#e8a020" stroke-width="1.6"/>
-        <text x="950" y="266" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Turn</text>
-        <text x="950" y="284" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">N+1</text>
-
-        <!-- Five operation boxes. Each row: rect + step title + 2-line desc. The
-             lever is shown as a sticker overlay below (see sticker block).
-             Box geometry: width=130, gap=30, y=200, height=140. -->
         <g>
           <rect x="115" y="200" width="130" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
           <text x="180" y="232" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Transform</text>
@@ -2397,55 +1411,205 @@
           <text x="820" y="276" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">or system prompt</text>
         </g>
 
-        <!-- ============================================================ -->
-        <!-- LEVER STICKERS — slapped onto the step they push on.          -->
-        <!-- Amber = vigilance lever; slate = toil-only lever.             -->
-        <!-- ============================================================ -->
-
-        <!-- State control sticker on Transform -->
-        <g transform="translate(180 330) rotate(-5)" filter="url(#sticker-shadow-b)">
-          <rect x="-85" y="-19" width="170" height="38" rx="19" fill="#e8a020" stroke="#5a3a00" stroke-width="2.2"/>
-          <g color="#1a1a1a"><use href="#lever-icon-b" x="-77" y="-13" width="26" height="26"/></g>
-          <text x="-44" y="6" font-size="15" font-weight="800" fill="#1a1a1a" letter-spacing="0.5">State control</text>
-        </g>
-
-        <!-- Workflow sticker on Select next step -->
-        <g transform="translate(340 330) rotate(4)" filter="url(#sticker-shadow-b)">
-          <rect x="-62" y="-19" width="124" height="38" rx="19" fill="#e8a020" stroke="#5a3a00" stroke-width="2.2"/>
-          <g color="#1a1a1a"><use href="#lever-icon-b" x="-54" y="-13" width="26" height="26"/></g>
-          <text x="-22" y="6" font-size="15" font-weight="800" fill="#1a1a1a" letter-spacing="0.5">Workflow</text>
-        </g>
-
-        <!-- Goals sticker on Define request -->
-        <g transform="translate(500 330) rotate(-3)" filter="url(#sticker-shadow-b)">
-          <rect x="-50" y="-19" width="100" height="38" rx="19" fill="#e8a020" stroke="#5a3a00" stroke-width="2.2"/>
-          <g color="#1a1a1a"><use href="#lever-icon-b" x="-42" y="-13" width="26" height="26"/></g>
-          <text x="-10" y="6" font-size="15" font-weight="800" fill="#1a1a1a" letter-spacing="0.5">Goals</text>
-        </g>
-
-        <!-- Memory sticker on Curate memory -->
-        <g transform="translate(660 330) rotate(6)" filter="url(#sticker-shadow-b)">
-          <rect x="-58" y="-19" width="116" height="38" rx="19" fill="#e8a020" stroke="#5a3a00" stroke-width="2.2"/>
-          <g color="#1a1a1a"><use href="#lever-icon-b" x="-50" y="-13" width="26" height="26"/></g>
-          <text x="-16" y="6" font-size="15" font-weight="800" fill="#1a1a1a" letter-spacing="0.5">Memory</text>
-        </g>
-
-        <!-- Identity sticker (toil-only) on Pick agent -->
-        <g transform="translate(820 330) rotate(-4)" filter="url(#sticker-shadow-b)">
-          <rect x="-58" y="-19" width="116" height="38" rx="19" fill="#556475" stroke="#1f2c38" stroke-width="2.2"/>
-          <g color="#f0ede6"><use href="#lever-icon-b" x="-50" y="-13" width="26" height="26"/></g>
-          <text x="-18" y="6" font-size="15" font-weight="800" fill="#f0ede6" letter-spacing="0.5">Identity</text>
-        </g>
-
-
-        <!-- Sequence arrows: Turn N -> 1 -> 2 -> 3 -> 4 -> 5 -> Turn N+1 -->
+        <!-- Sequence arrows -->
         <g stroke="#9aa0a8" stroke-width="1.6" fill="none">
-          <line x1="98"  y1="270" x2="113" y2="270" marker-end="url(#bt-arr)"/>
-          <line x1="245" y1="270" x2="273" y2="270" marker-end="url(#bt-arr)"/>
-          <line x1="405" y1="270" x2="433" y2="270" marker-end="url(#bt-arr)"/>
-          <line x1="565" y1="270" x2="593" y2="270" marker-end="url(#bt-arr)"/>
-          <line x1="725" y1="270" x2="753" y2="270" marker-end="url(#bt-arr)"/>
-          <line x1="885" y1="270" x2="900" y2="270" marker-end="url(#bt-arr)"/>
+          <line x1="98"  y1="270" x2="113" y2="270" marker-end="url(#bt-arr-c1)"/>
+          <line x1="245" y1="270" x2="273" y2="270" marker-end="url(#bt-arr-c1)"/>
+          <line x1="405" y1="270" x2="433" y2="270" marker-end="url(#bt-arr-c1)"/>
+          <line x1="565" y1="270" x2="593" y2="270" marker-end="url(#bt-arr-c1)"/>
+          <line x1="725" y1="270" x2="753" y2="270" marker-end="url(#bt-arr-c1)"/>
+          <line x1="885" y1="270" x2="900" y2="270" marker-end="url(#bt-arr-c1)"/>
+        </g>
+
+        <!-- Turn indicators (above the agents) -->
+        <text x="50"  y="208" text-anchor="middle" font-size="11" fill="#e8a020" font-weight="700" letter-spacing="1.2">TURN N</text>
+        <text x="950" y="208" text-anchor="middle" font-size="11" fill="#7ab8c8" font-weight="700" letter-spacing="1.2">TURN N+1</text>
+
+        <!-- Row 2: Tool circle (like an agent), Real world card (like a step box). -->
+        <circle cx="50" cy="450" r="48" fill="rgba(200,150,104,0.16)" stroke="#c89668" stroke-width="1.8"/>
+        <text x="50" y="447" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Tool</text>
+        <text x="50" y="464" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">deterministic</text>
+
+        <line x1="40" y1="320" x2="40" y2="397" stroke="#c89668" stroke-width="1.4" marker-end="url(#bt-arr-c1)"/>
+        <text x="6" y="362" font-size="10" fill="#c89668" font-style="italic">action</text>
+        <line x1="62" y1="397" x2="62" y2="320" stroke="#7ab8c8" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#bt-arr-c1)"/>
+        <text x="68" y="362" font-size="10" fill="#7ab8c8" font-style="italic">feedback</text>
+
+        <rect x="115" y="380" width="160" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
+        <text x="195" y="410" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Real world</text>
+        <g font-size="10.5" fill="rgba(240,237,230,0.85)" text-anchor="middle">
+          <text x="195" y="436">Workflow files</text>
+          <text x="195" y="453">Code files</text>
+          <text x="195" y="470">Other files</text>
+          <text x="195" y="487">Source control</text>
+          <text x="195" y="504">Foreign systems</text>
+        </g>
+        <line x1="98" y1="450" x2="113" y2="450" stroke="#c89668" stroke-width="1.4" marker-start="url(#bt-arr-c1)" marker-end="url(#bt-arr-c1)"/>
+
+        <!-- Reserved space (right side y=400..610) for the non-useful levers list on s33d-2. -->
+      </svg>
+    </div>
+  </section>
+
+  <!-- 33d-2 Two agents across turns — diagram + non-useful levers list -->
+  <section class="slide" id="s33d-2" data-return-to-toc="true">
+    <div class="slide-content">
+      <p class="kicker">Between agent turns — two different agents</p>
+      <svg viewBox="0 0 1000 620" width="100%" style="max-height:68vh; display:block; margin: 0.6rem auto 0;" role="img">
+        <defs>
+          <marker id="bt-arr-c2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#9aa0a8"/>
+          </marker>
+          <symbol id="lever-icon-c2" viewBox="0 0 24 24" overflow="visible">
+            <polygon points="12,16 6,22 18,22" fill="currentColor"/>
+            <line x1="2" y1="4" x2="22" y2="16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="2" cy="4" r="2.5" fill="currentColor"/>
+          </symbol>
+          <filter id="sticker-shadow-c2" x="-30%" y="-30%" width="160%" height="160%">
+            <feDropShadow dx="2.5" dy="3.5" stdDeviation="2.2" flood-color="#000" flood-opacity="0.6"/>
+          </filter>
+        </defs>
+
+        <!-- Agent 1 (left) -->
+        <circle cx="50" cy="270" r="48" fill="rgba(232,160,32,0.12)" stroke="#e8a020" stroke-width="1.8"/>
+        <text x="50" y="266" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Agent</text>
+        <text x="50" y="284" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">1</text>
+
+        <!-- Agent 2 (right) -->
+        <circle cx="950" cy="270" r="48" fill="rgba(122,184,200,0.14)" stroke="#7ab8c8" stroke-width="1.8"/>
+        <text x="950" y="266" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Agent</text>
+        <text x="950" y="284" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">2</text>
+
+        <g>
+          <rect x="115" y="200" width="130" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
+          <text x="180" y="232" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Transform</text>
+          <text x="180" y="262" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">verify, archive,</text>
+          <text x="180" y="276" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">commit results</text>
+
+          <rect x="275" y="200" width="130" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
+          <text x="340" y="232" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Select next step</text>
+          <text x="340" y="262" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">any deterministic or</text>
+          <text x="340" y="276" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">non-deterministic</text>
+
+          <rect x="435" y="200" width="130" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
+          <text x="500" y="232" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Define request</text>
+          <text x="500" y="262" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">narrow / re-shape</text>
+          <text x="500" y="276" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">the next request</text>
+
+          <rect x="595" y="200" width="130" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
+          <text x="660" y="232" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Curate memory</text>
+          <text x="660" y="262" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">edit session file, then</text>
+          <text x="660" y="276" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">new, resume, or fork</text>
+
+          <rect x="755" y="200" width="130" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
+          <text x="820" y="232" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Pick agent</text>
+          <text x="820" y="262" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">swap agent, LLM,</text>
+          <text x="820" y="276" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">or system prompt</text>
+        </g>
+
+        <!-- Sequence arrows -->
+        <g stroke="#9aa0a8" stroke-width="1.6" fill="none">
+          <line x1="98"  y1="270" x2="113" y2="270" marker-end="url(#bt-arr-c2)"/>
+          <line x1="245" y1="270" x2="273" y2="270" marker-end="url(#bt-arr-c2)"/>
+          <line x1="405" y1="270" x2="433" y2="270" marker-end="url(#bt-arr-c2)"/>
+          <line x1="565" y1="270" x2="593" y2="270" marker-end="url(#bt-arr-c2)"/>
+          <line x1="725" y1="270" x2="753" y2="270" marker-end="url(#bt-arr-c2)"/>
+          <line x1="885" y1="270" x2="900" y2="270" marker-end="url(#bt-arr-c2)"/>
+        </g>
+
+        <!-- Turn indicators (above the agents) -->
+        <text x="50"  y="208" text-anchor="middle" font-size="11" fill="#e8a020" font-weight="700" letter-spacing="1.2">TURN N</text>
+        <text x="950" y="208" text-anchor="middle" font-size="11" fill="#7ab8c8" font-weight="700" letter-spacing="1.2">TURN N+1</text>
+
+        <!-- Row 2: Tool circle (like an agent), Real world card (like a step box). -->
+        <circle cx="50" cy="450" r="48" fill="rgba(200,150,104,0.16)" stroke="#c89668" stroke-width="1.8"/>
+        <text x="50" y="447" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Tool</text>
+        <text x="50" y="464" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">deterministic</text>
+
+        <line x1="40" y1="320" x2="40" y2="397" stroke="#c89668" stroke-width="1.4" marker-end="url(#bt-arr-c2)"/>
+        <text x="6" y="362" font-size="10" fill="#c89668" font-style="italic">call</text>
+        <line x1="62" y1="397" x2="62" y2="320" stroke="#7ab8c8" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#bt-arr-c2)"/>
+        <text x="68" y="362" font-size="10" fill="#7ab8c8" font-style="italic">result</text>
+
+        <rect x="115" y="380" width="160" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
+        <text x="195" y="410" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Real world</text>
+        <g font-size="10.5" fill="rgba(240,237,230,0.85)" text-anchor="middle">
+          <text x="195" y="436">Workflow files</text>
+          <text x="195" y="453">Code files</text>
+          <text x="195" y="470">Other files</text>
+          <text x="195" y="487">Source control</text>
+          <text x="195" y="504">Foreign systems</text>
+        </g>
+        <line x1="98" y1="450" x2="113" y2="450" stroke="#c89668" stroke-width="1.4" marker-start="url(#bt-arr-c2)" marker-end="url(#bt-arr-c2)"/>
+
+        <!-- Lever stickers -->
+        <g transform="translate(180 330) rotate(-5)" filter="url(#sticker-shadow-c2)" class="lever-sticker">
+          <rect x="-71" y="-15" width="142" height="30" rx="15" fill="#e8a020" stroke="#5a3a00" stroke-width="2"/>
+          <g color="#1a1a1a"><use href="#lever-icon-c2" x="-61" y="-10" width="20" height="20"/></g>
+          <text x="-37" y="5" font-size="13" font-weight="800" fill="#1a1a1a" letter-spacing="0.3">State control</text>
+        </g>
+        <g transform="translate(340 330) rotate(4)" filter="url(#sticker-shadow-c2)" class="lever-sticker">
+          <rect x="-57" y="-15" width="114" height="30" rx="15" fill="#e8a020" stroke="#5a3a00" stroke-width="2"/>
+          <g color="#1a1a1a"><use href="#lever-icon-c2" x="-47" y="-10" width="20" height="20"/></g>
+          <text x="-23" y="5" font-size="13" font-weight="800" fill="#1a1a1a" letter-spacing="0.3">Workflow</text>
+        </g>
+        <g transform="translate(500 330) rotate(-3)" filter="url(#sticker-shadow-c2)" class="lever-sticker">
+          <rect x="-43" y="-15" width="86" height="30" rx="15" fill="#e8a020" stroke="#5a3a00" stroke-width="2"/>
+          <g color="#1a1a1a"><use href="#lever-icon-c2" x="-33" y="-10" width="20" height="20"/></g>
+          <text x="-9" y="5" font-size="13" font-weight="800" fill="#1a1a1a" letter-spacing="0.3">Goals</text>
+        </g>
+        <g transform="translate(660 330) rotate(6)" filter="url(#sticker-shadow-c2)" class="lever-sticker">
+          <rect x="-52" y="-15" width="104" height="30" rx="15" fill="#e8a020" stroke="#5a3a00" stroke-width="2"/>
+          <g color="#1a1a1a"><use href="#lever-icon-c2" x="-42" y="-10" width="20" height="20"/></g>
+          <text x="-18" y="5" font-size="13" font-weight="800" fill="#1a1a1a" letter-spacing="0.3">Memory</text>
+        </g>
+        <g transform="translate(820 330) rotate(-4)" filter="url(#sticker-shadow-c2)" class="lever-sticker">
+          <rect x="-51" y="-15" width="102" height="30" rx="15" fill="#556475" stroke="#1f2c38" stroke-width="2"/>
+          <g color="#f0ede6"><use href="#lever-icon-c2" x="-41" y="-10" width="20" height="20"/></g>
+          <text x="-17" y="5" font-size="13" font-weight="800" fill="#f0ede6" letter-spacing="0.3">Identity</text>
+        </g>
+
+        <!-- Tooling lever — on the action arrow to the Tool -->
+        <g transform="translate(20 355) rotate(-12)" filter="url(#sticker-shadow-c2)" class="lever-sticker">
+          <rect x="-49" y="-15" width="98" height="30" rx="15" fill="#e8a020" stroke="#5a3a00" stroke-width="2"/>
+          <g color="#1a1a1a"><use href="#lever-icon-c2" x="-39" y="-10" width="20" height="20"/></g>
+          <text x="-15" y="5" font-size="13" font-weight="800" fill="#1a1a1a" letter-spacing="0.3">Tooling</text>
+        </g>
+        <!-- Feedback lever — on the feedback arrow from the Tool -->
+        <g transform="translate(85 380) rotate(10)" filter="url(#sticker-shadow-c2)" class="lever-sticker">
+          <rect x="-58" y="-15" width="116" height="30" rx="15" fill="#e8a020" stroke="#5a3a00" stroke-width="2"/>
+          <g color="#1a1a1a"><use href="#lever-icon-c2" x="-48" y="-10" width="20" height="20"/></g>
+          <text x="-24" y="5" font-size="13" font-weight="800" fill="#1a1a1a" letter-spacing="0.3">Feedback</text>
+        </g>
+        <!-- Workflow lever — greyed; work toil only — over Real world card -->
+        <g transform="translate(195 510) rotate(-5)" filter="url(#sticker-shadow-c2)" class="lever-sticker">
+          <rect x="-57" y="-15" width="114" height="30" rx="15" fill="#556475" stroke="#1f2c38" stroke-width="2"/>
+          <g color="#f0ede6"><use href="#lever-icon-c2" x="-47" y="-10" width="20" height="20"/></g>
+          <text x="-23" y="5" font-size="13" font-weight="800" fill="#f0ede6" letter-spacing="0.3">Workflow</text>
+        </g>
+        <!-- Reachable Context lever — over Real world card -->
+        <g transform="translate(220 410) rotate(-4)" filter="url(#sticker-shadow-c2)" class="lever-sticker">
+          <rect x="-93" y="-15" width="186" height="30" rx="15" fill="#e8a020" stroke="#5a3a00" stroke-width="2"/>
+          <g color="#1a1a1a"><use href="#lever-icon-c2" x="-83" y="-10" width="20" height="20"/></g>
+          <text x="-59" y="5" font-size="13" font-weight="800" fill="#1a1a1a" letter-spacing="0.3">Reachable Context</text>
+        </g>
+        <!-- State control lever — over Real world card -->
+        <g transform="translate(255 470) rotate(8)" filter="url(#sticker-shadow-c2)" class="lever-sticker">
+          <rect x="-71" y="-15" width="142" height="30" rx="15" fill="#e8a020" stroke="#5a3a00" stroke-width="2"/>
+          <g color="#1a1a1a"><use href="#lever-icon-c2" x="-61" y="-10" width="20" height="20"/></g>
+          <text x="-37" y="5" font-size="13" font-weight="800" fill="#1a1a1a" letter-spacing="0.3">State control</text>
+        </g>
+
+        <!-- Non-useful levers for vigilance toil — compact list, to the right of Real world card -->
+        <g>
+          <text x="620" y="405" text-anchor="middle" font-size="13" font-weight="700" fill="#c09a60" letter-spacing="0.3">Not useful for vigilance toil</text>
+          <g font-size="11" fill="rgba(240,237,230,0.78)" text-decoration="line-through">
+            <text x="420" y="435">•  System prompt</text>
+            <text x="420" y="457">•  Skills</text>
+            <text x="420" y="479">•  Interrupting mid-turn</text>
+            <text x="680" y="435">•  Agent identity</text>
+            <text x="680" y="457">•  LLM choice</text>
+          </g>
         </g>
       </svg>
     </div>
