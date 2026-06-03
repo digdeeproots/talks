@@ -216,27 +216,32 @@
     #s33 .toc-grid { margin-top: 0.9rem; gap: 1rem; }
     #s33 .toc-card { padding: 1rem 0.9rem; }
     #s33 .toc-placeholder { margin-top: 0.8rem; }
-    /* Recipe-section cards (Manipulating Coding Agents / Closing sequence) are
-       deliberately subtler than the case studies and recipe steps: pack tight to
-       the left, smaller type, transparent background. */
-    #s33 .toc-recipes .toc-grid {
+    /* Supplementary cards (Manipulating Coding Agents / Closing sequence) sit
+       in a second row of the TOC hub grid, left-aligned to the whole slide.
+       Deliberately subtler than the case studies and recipe steps: smaller,
+       transparent background, packed tight to the left. */
+    #s33 .toc-supplementary {
+      grid-column: 1 / -1;
+      margin-top: 1.4rem;
+    }
+    #s33 .toc-supplementary .toc-grid {
       grid-template-columns: repeat(2, max-content);
       justify-content: start;
       gap: 0.5rem;
-      margin-top: 0.4rem;
+      margin-top: 0;
     }
-    #s33 .toc-recipes .toc-card {
+    #s33 .toc-supplementary .toc-card {
       padding: 0.4rem 0.7rem;
       background: transparent;
       border-color: rgba(232,160,32,0.18);
       border-radius: 10px;
       text-align: left;
     }
-    #s33 .toc-recipes .toc-card .kicker {
+    #s33 .toc-supplementary .toc-card .kicker {
       font-size: clamp(0.55rem, 0.75vw, 0.72rem);
       margin-bottom: 0.15rem;
     }
-    #s33 .toc-recipes .toc-card h3 {
+    #s33 .toc-supplementary .toc-card h3 {
       font-size: clamp(0.78rem, 1.05vw, 0.98rem);
       font-weight: 500;
     }
@@ -1033,6 +1038,9 @@
         <div class="toc-recipes">
           <p class="toc-section-label">Recipe</p>
           <div data-recipe-svg-slot="clickable"></div>
+        </div>
+
+        <div class="toc-supplementary">
           <div class="toc-grid">
             <div class="toc-card" data-jump-to="s33d-1">
               <p class="kicker">your customers</p>
