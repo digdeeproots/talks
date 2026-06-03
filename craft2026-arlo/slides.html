@@ -706,33 +706,6 @@
           <text x="820" y="276" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">or system prompt</text>
         </g>
 
-        <!-- Lever stickers -->
-        <g transform="translate(180 330) rotate(-5)" filter="url(#sticker-shadow-c1)">
-          <rect x="-85" y="-19" width="170" height="38" rx="19" fill="#e8a020" stroke="#5a3a00" stroke-width="2.2"/>
-          <g color="#1a1a1a"><use href="#lever-icon-c1" x="-77" y="-13" width="26" height="26"/></g>
-          <text x="-44" y="6" font-size="15" font-weight="800" fill="#1a1a1a" letter-spacing="0.5">State control</text>
-        </g>
-        <g transform="translate(340 330) rotate(4)" filter="url(#sticker-shadow-c1)">
-          <rect x="-62" y="-19" width="124" height="38" rx="19" fill="#e8a020" stroke="#5a3a00" stroke-width="2.2"/>
-          <g color="#1a1a1a"><use href="#lever-icon-c1" x="-54" y="-13" width="26" height="26"/></g>
-          <text x="-22" y="6" font-size="15" font-weight="800" fill="#1a1a1a" letter-spacing="0.5">Workflow</text>
-        </g>
-        <g transform="translate(500 330) rotate(-3)" filter="url(#sticker-shadow-c1)">
-          <rect x="-50" y="-19" width="100" height="38" rx="19" fill="#e8a020" stroke="#5a3a00" stroke-width="2.2"/>
-          <g color="#1a1a1a"><use href="#lever-icon-c1" x="-42" y="-13" width="26" height="26"/></g>
-          <text x="-10" y="6" font-size="15" font-weight="800" fill="#1a1a1a" letter-spacing="0.5">Goals</text>
-        </g>
-        <g transform="translate(660 330) rotate(6)" filter="url(#sticker-shadow-c1)">
-          <rect x="-58" y="-19" width="116" height="38" rx="19" fill="#e8a020" stroke="#5a3a00" stroke-width="2.2"/>
-          <g color="#1a1a1a"><use href="#lever-icon-c1" x="-50" y="-13" width="26" height="26"/></g>
-          <text x="-16" y="6" font-size="15" font-weight="800" fill="#1a1a1a" letter-spacing="0.5">Memory</text>
-        </g>
-        <g transform="translate(820 330) rotate(-4)" filter="url(#sticker-shadow-c1)">
-          <rect x="-58" y="-19" width="116" height="38" rx="19" fill="#556475" stroke="#1f2c38" stroke-width="2.2"/>
-          <g color="#f0ede6"><use href="#lever-icon-c1" x="-50" y="-13" width="26" height="26"/></g>
-          <text x="-18" y="6" font-size="15" font-weight="800" fill="#f0ede6" letter-spacing="0.5">Identity</text>
-        </g>
-
         <!-- Sequence arrows -->
         <g stroke="#9aa0a8" stroke-width="1.6" fill="none">
           <line x1="98"  y1="270" x2="113" y2="270" marker-end="url(#bt-arr-c1)"/>
@@ -747,36 +720,29 @@
         <text x="50"  y="346" text-anchor="middle" font-size="11" fill="#e8a020" font-weight="700" letter-spacing="1.2">TURN N</text>
         <text x="950" y="346" text-anchor="middle" font-size="11" fill="#7ab8c8" font-weight="700" letter-spacing="1.2">TURN N+1</text>
 
-        <!-- Tool call out of Agent 1 + its targets (matches s37a-5 outside-world set). -->
-        <rect x="135" y="80" width="120" height="42" rx="9" fill="rgba(200,150,104,0.14)" stroke="#c89668" stroke-width="1.4"/>
-        <text x="195" y="100" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Tool</text>
-        <text x="195" y="114" text-anchor="middle" font-size="9" fill="rgba(240,237,230,0.7)" font-style="italic">deterministic code</text>
-        <line x1="80"  y1="232" x2="155" y2="125" stroke="#c89668" stroke-width="1.4" marker-end="url(#bt-arr-c1)"/>
-        <text x="95"  y="180" font-size="9.5" fill="#c89668" font-style="italic">action</text>
-        <line x1="175" y1="125" x2="100" y2="232" stroke="#7ab8c8" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#bt-arr-c1)"/>
-        <text x="140" y="195" font-size="9.5" fill="#7ab8c8" font-style="italic">feedback</text>
+        <!-- Tool bubble directly below Agent 1 -->
+        <ellipse cx="50" cy="388" rx="46" ry="20" fill="rgba(200,150,104,0.14)" stroke="#c89668" stroke-width="1.4"/>
+        <text x="50" y="386" text-anchor="middle" font-size="12" fill="#f0ede6" font-weight="700">Tool</text>
+        <text x="50" y="400" text-anchor="middle" font-size="8.5" fill="rgba(240,237,230,0.7)" font-style="italic">deterministic</text>
+        <line x1="44" y1="320" x2="44" y2="365" stroke="#c89668" stroke-width="1.4" marker-end="url(#bt-arr-c1)"/>
+        <text x="20" y="348" font-size="9.5" fill="#c89668" font-style="italic">action</text>
+        <line x1="58" y1="365" x2="58" y2="320" stroke="#7ab8c8" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#bt-arr-c1)"/>
+        <text x="62" y="348" font-size="9.5" fill="#7ab8c8" font-style="italic">feedback</text>
 
-        <g font-size="11" fill="#f0ede6" font-weight="700" text-anchor="middle">
-          <rect x="320" y="15" width="120" height="32" rx="7" fill="#181818" stroke="#f0ede6" stroke-width="1.1" stroke-dasharray="4,3"/>
-          <text x="380" y="36">Workflow files</text>
-          <rect x="455" y="15" width="120" height="32" rx="7" fill="#181818" stroke="#f0ede6" stroke-width="1.1" stroke-dasharray="4,3"/>
-          <text x="515" y="36">Code files</text>
-          <rect x="590" y="15" width="120" height="32" rx="7" fill="#181818" stroke="#f0ede6" stroke-width="1.1" stroke-dasharray="4,3"/>
-          <text x="650" y="36">Other files</text>
-          <rect x="725" y="15" width="120" height="32" rx="7" fill="#181818" stroke="#f0ede6" stroke-width="1.1" stroke-dasharray="4,3"/>
-          <text x="785" y="36">Source control</text>
-          <rect x="860" y="15" width="120" height="32" rx="7" fill="#181818" stroke="#f0ede6" stroke-width="1.1" stroke-dasharray="4,3"/>
-          <text x="920" y="36">Foreign systems</text>
+        <!-- Real world list (text only) + bidirectional arrow to its header -->
+        <g>
+          <text x="500" y="28" font-size="14" font-weight="800" fill="#c89668" letter-spacing="0.5">Real world</text>
+          <g font-size="11" fill="rgba(240,237,230,0.85)">
+            <text x="510" y="52">Workflow files</text>
+            <text x="510" y="70">Code files</text>
+            <text x="510" y="88">Other files</text>
+            <text x="510" y="106">Source control</text>
+            <text x="510" y="124">Foreign systems</text>
+          </g>
         </g>
-        <g stroke="#c89668" stroke-width="1.2">
-          <line x1="255" y1="95" x2="320" y2="47" marker-start="url(#bt-arr-c1)" marker-end="url(#bt-arr-c1)"/>
-          <line x1="255" y1="98" x2="455" y2="47" marker-start="url(#bt-arr-c1)" marker-end="url(#bt-arr-c1)"/>
-          <line x1="255" y1="101" x2="590" y2="47" marker-start="url(#bt-arr-c1)" marker-end="url(#bt-arr-c1)"/>
-          <line x1="255" y1="104" x2="725" y2="47" marker-start="url(#bt-arr-c1)" marker-end="url(#bt-arr-c1)"/>
-          <line x1="255" y1="107" x2="860" y2="47" marker-start="url(#bt-arr-c1)" marker-end="url(#bt-arr-c1)"/>
-        </g>
+        <line x1="94" y1="378" x2="495" y2="34" stroke="#c89668" stroke-width="1.3" marker-start="url(#bt-arr-c1)" marker-end="url(#bt-arr-c1)"/>
 
-        <!-- Reserved space (y=400..610) for the non-useful levers list on s33d-2. -->
+        <!-- Reserved space (y=425..610) for the non-useful levers list on s33d-2. -->
       </svg>
     </div>
   </section>
@@ -878,34 +844,27 @@
         <text x="50"  y="346" text-anchor="middle" font-size="11" fill="#e8a020" font-weight="700" letter-spacing="1.2">TURN N</text>
         <text x="950" y="346" text-anchor="middle" font-size="11" fill="#7ab8c8" font-weight="700" letter-spacing="1.2">TURN N+1</text>
 
-        <!-- Tool call out of Agent 1 + its targets (matches s37a-5 outside-world set). -->
-        <rect x="135" y="80" width="120" height="42" rx="9" fill="rgba(200,150,104,0.14)" stroke="#c89668" stroke-width="1.4"/>
-        <text x="195" y="100" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Tool</text>
-        <text x="195" y="114" text-anchor="middle" font-size="9" fill="rgba(240,237,230,0.7)" font-style="italic">deterministic code</text>
-        <line x1="80"  y1="232" x2="155" y2="125" stroke="#c89668" stroke-width="1.4" marker-end="url(#bt-arr-c2)"/>
-        <text x="95"  y="180" font-size="9.5" fill="#c89668" font-style="italic">action</text>
-        <line x1="175" y1="125" x2="100" y2="232" stroke="#7ab8c8" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#bt-arr-c2)"/>
-        <text x="140" y="195" font-size="9.5" fill="#7ab8c8" font-style="italic">feedback</text>
+        <!-- Tool bubble directly below Agent 1 -->
+        <ellipse cx="50" cy="388" rx="46" ry="20" fill="rgba(200,150,104,0.14)" stroke="#c89668" stroke-width="1.4"/>
+        <text x="50" y="386" text-anchor="middle" font-size="12" fill="#f0ede6" font-weight="700">Tool</text>
+        <text x="50" y="400" text-anchor="middle" font-size="8.5" fill="rgba(240,237,230,0.7)" font-style="italic">deterministic</text>
+        <line x1="44" y1="320" x2="44" y2="365" stroke="#c89668" stroke-width="1.4" marker-end="url(#bt-arr-c2)"/>
+        <text x="20" y="348" font-size="9.5" fill="#c89668" font-style="italic">action</text>
+        <line x1="58" y1="365" x2="58" y2="320" stroke="#7ab8c8" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#bt-arr-c2)"/>
+        <text x="62" y="348" font-size="9.5" fill="#7ab8c8" font-style="italic">feedback</text>
 
-        <g font-size="11" fill="#f0ede6" font-weight="700" text-anchor="middle">
-          <rect x="320" y="15" width="120" height="32" rx="7" fill="#181818" stroke="#f0ede6" stroke-width="1.1" stroke-dasharray="4,3"/>
-          <text x="380" y="36">Workflow files</text>
-          <rect x="455" y="15" width="120" height="32" rx="7" fill="#181818" stroke="#f0ede6" stroke-width="1.1" stroke-dasharray="4,3"/>
-          <text x="515" y="36">Code files</text>
-          <rect x="590" y="15" width="120" height="32" rx="7" fill="#181818" stroke="#f0ede6" stroke-width="1.1" stroke-dasharray="4,3"/>
-          <text x="650" y="36">Other files</text>
-          <rect x="725" y="15" width="120" height="32" rx="7" fill="#181818" stroke="#f0ede6" stroke-width="1.1" stroke-dasharray="4,3"/>
-          <text x="785" y="36">Source control</text>
-          <rect x="860" y="15" width="120" height="32" rx="7" fill="#181818" stroke="#f0ede6" stroke-width="1.1" stroke-dasharray="4,3"/>
-          <text x="920" y="36">Foreign systems</text>
+        <!-- Real world list (text only) + bidirectional arrow to its header -->
+        <g>
+          <text x="500" y="28" font-size="14" font-weight="800" fill="#c89668" letter-spacing="0.5">Real world</text>
+          <g font-size="11" fill="rgba(240,237,230,0.85)">
+            <text x="510" y="52">Workflow files</text>
+            <text x="510" y="70">Code files</text>
+            <text x="510" y="88">Other files</text>
+            <text x="510" y="106">Source control</text>
+            <text x="510" y="124">Foreign systems</text>
+          </g>
         </g>
-        <g stroke="#c89668" stroke-width="1.2">
-          <line x1="255" y1="95" x2="320" y2="47" marker-start="url(#bt-arr-c2)" marker-end="url(#bt-arr-c2)"/>
-          <line x1="255" y1="98" x2="455" y2="47" marker-start="url(#bt-arr-c2)" marker-end="url(#bt-arr-c2)"/>
-          <line x1="255" y1="101" x2="590" y2="47" marker-start="url(#bt-arr-c2)" marker-end="url(#bt-arr-c2)"/>
-          <line x1="255" y1="104" x2="725" y2="47" marker-start="url(#bt-arr-c2)" marker-end="url(#bt-arr-c2)"/>
-          <line x1="255" y1="107" x2="860" y2="47" marker-start="url(#bt-arr-c2)" marker-end="url(#bt-arr-c2)"/>
-        </g>
+        <line x1="94" y1="378" x2="495" y2="34" stroke="#c89668" stroke-width="1.3" marker-start="url(#bt-arr-c2)" marker-end="url(#bt-arr-c2)"/>
 
         <!-- Non-useful levers for vigilance toil — compact list -->
         <g>
