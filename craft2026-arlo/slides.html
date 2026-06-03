@@ -51,6 +51,8 @@
     .dim     { color: var(--dim); }
     .italic  { font-style: italic; }
     .de-emphasize     { color: var(--dim); font-size: 70%; }
+    .center-text     { text-align: center; }
+    .emoji-subtle { font-size: 0.8em; margin: auto 0; }
 
     em { font-style: italic; color: var(--accent); }
 
@@ -463,15 +465,15 @@
         <div><em>tool</em></div>
 
         <!-- Metacognition row -->
-        <div style="color: var(--kicker); text-align: right; padding-right: 0.4rem;">Metacognition Change</div>
-        <div style="text-align: center; font-size: 1.6em;">⬇️</div>
+        <div style="color: var(--kicker); text-align: right; padding-right: 0.4rem;">Metacognition</div>
+        <div class="emoji-subtle">⬇️</div>
 
         <!-- Work Toil Change row -->
-        <div style="color: var(--kicker); text-align: right; padding-right: 0.4rem;">Work Toil Change</div>
+        <div style="color: var(--kicker); text-align: right; padding-right: 0.4rem;">Work Toil</div>
         <div></div>
 
         <!-- Vigilance Toil Change row — live questions the tool silenced -->
-        <div style="color: var(--kicker); text-align: right; padding-right: 0.4rem;">Vigilance Toil Change</div>
+        <div style="color: var(--kicker); text-align: right; padding-right: 0.4rem;">Vigilance Toil</div>
         <div>Did the AI pick the right risk code? Will the branch land cleanly? Is history readable?</div>
       </div>
     </div>
@@ -483,46 +485,51 @@
   <section class="slide" id="s31">
     <div class="slide-content">
       <p class="kicker">Example 2</p>
-      <h2>Finding key moments in the transcript.</h2>
-      <div style="display: grid; grid-template-columns: max-content repeat(5, 1fr); column-gap: 1.6rem; row-gap: 1rem; margin: 2.5rem auto 0; text-align: left; font-size: clamp(0.9rem, 1.3vw, 1.4rem); line-height: 1.45;">
+      <h2>Find key moments</h2>
+      <div style="display: grid; grid-template-columns: max-content repeat(6, 1fr); column-gap: 1.6rem; row-gap: 1rem; margin: 2.5rem auto 0; text-align: left; font-size: clamp(0.9rem, 1.3vw, 1.4rem); line-height: 1.45;">
         <!-- header row: blank corner, then five transition names -->
         <div></div>
         <div style="color: var(--kicker); border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 0.4rem;">Written workflow</div>
+        <div style="color: var(--kicker); border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 0.4rem;">Doc iter pattern</div>
         <div style="color: var(--kicker); border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 0.4rem;">pnpm do-today</div>
-        <div style="color: var(--kicker); border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 0.4rem;">Deterministic fetch</div>
         <div style="color: var(--kicker); border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 0.4rem;">Narrow goal</div>
-        <div style="color: var(--kicker); border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 0.4rem;">Structured, iterative analysis</div>
+        <div style="color: var(--kicker); border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 0.4rem;">Scripted fetch</div>
+        <div style="color: var(--kicker); border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 0.4rem;">Iterative analysis</div>
 
         <!-- Changed row -->
         <div style="color: var(--kicker); text-align: right; padding-right: 0.4rem;">Changed</div>
         <div><em>workflow</em></div>
+        <div><em>workflow</em></div>
         <div><em>invocation</em></div>
-        <div><em>invocation, goal</em></div>
         <div><em>goal</em></div>
-        <div><em>feedback</em></div>
+        <div><em>invocation, goal</em></div>
+        <div><em>feedback, workflow</em></div>
 
         <!-- Metacognition row — single emoji ⬇️ marks "got better by reducing" -->
-        <div style="color: var(--kicker); text-align: right; padding-right: 0.4rem;">Metacognition Change</div>
+        <div style="color: var(--kicker); text-align: right; padding-right: 0.4rem;">Metacognition</div>
+        <div class="center-text emoji-subtle">⬇️</div>
         <div></div>
-        <div style="text-align: center; font-size: 1.6em;">⬇️</div>
+        <div class="center-text emoji-subtle">⬇️</div>
+        <div class="center-text emoji-subtle">⬇️</div>
         <div></div>
-        <div style="text-align: center; font-size: 1.6em;">⬇️</div>
-        <div style="text-align: center; font-size: 1.6em;">⬇️</div>
+        <div class="center-text emoji-subtle">⬇️</div>
 
         <!-- Work Toil Change row — single emoji ⬇️ marks "got better by reducing" -->
-        <div style="color: var(--kicker); text-align: right; padding-right: 0.4rem;">Work Toil Change</div>
-        <div style="text-align: center; font-size: 1.6em;">⬇️</div>
+        <div style="color: var(--kicker); text-align: right; padding-right: 0.4rem;">Work Toil</div>
+        <div class="center-text emoji-subtle">⬇️</div>
+        <div class="center-text emoji-subtle">⬇️</div>
         <div></div>
+        <div class="center-text emoji-subtle">⬇️</div>
         <div></div>
-        <div style="text-align: center; font-size: 1.6em;">⬇️</div>
-        <div style="text-align: center; font-size: 1.6em;">⬇️</div>
+        <div class="center-text emoji-subtle">⬇️</div>
 
         <!-- Vigilance Toil Change row -->
-        <div style="color: var(--kicker); text-align: right; padding-right: 0.4rem;">Vigilance Toil Change</div>
+        <div style="color: var(--kicker); text-align: right; padding-right: 0.4rem;">Vigilance Toil</div>
         <div>Am I remembering to gather the right info?</div>
+        <div></div>
         <div>Is the AI taking the right next step?</div>
-        <div>Did the AI get the right input?</div>
         <div>Is AI over-working or taking shortcuts?</div>
+        <div>Did the AI get the right input?</div>
         <div>Is the output complete or misleading?</div>
       </div>
     </div>
@@ -600,28 +607,24 @@
     <div class="slide-content">
       <p class="kicker">Where vigilance toil comes from</p>
       <h2>Vigilance toil = <span class="accent">defects you have to worry about.</span></h2>
-      <p style="margin-top: 2rem; color: var(--dim); font-size: clamp(0.95rem, 1.5vw, 1.5rem);">No defects to worry about &rarr; no need to look. You operate at <em>hope</em>.</p>
-      <p style="margin-top: 1.2rem; color: var(--dim); font-size: clamp(0.95rem, 1.5vw, 1.5rem);">Every step above hope is paid for one worry at a time.</p>
     </div>
   </section>
 
   <!-- 24 Theory bridge: which question are you asking? Sets up s20 + s26 "Be a Tool Builder." -->
   <section class="slide" id="s24">
     <div class="slide-content">
-      <p class="kicker">Which question are you asking?</p>
-      <h2>Two kinds of engineer.</h2>
+      <p class="kicker">Two kinds of engineer</p>
       <div class="two-up" style="margin-top: 2.5rem;">
         <div>
-          <p class="kicker">App / library developer</p>
-          <h3>"How do I make <span class="accent">this code</span> defect-free?"</h3>
-          <p style="margin-top: 1.2rem; color: var(--dim); font-size: clamp(0.9rem, 1.4vw, 1.4rem);">Lives at <em>probabilistic</em> and <em>deterministic</em>. Tests are a guard you tend.</p>
-          <p style="margin-top: 0.8rem; color: var(--dim); font-size: clamp(0.85rem, 1.3vw, 1.3rem); font-style: italic;">"The coder will make defects. Find them and fix them before they pile up."</p>
+          @ai: make this part into a grid, so it is easy to scan. 3 rows: scope, goal, and strategy. The kicker paragraphs currently contain the goals and the following paragraphs have the strategies. Make the grid look like the one in slide s31.
+          <h2>App / Lib Dev</h2>
+          <p class="kicker">Make <em>my code</em> defect-free-enough</p>
+          <p style="margin-top: 0.8rem; color: var(--dim); font-size: clamp(0.85rem, 1.3vw, 1.3rem); font-style: italic;">Find them and fix defects before they pile up.</p>
         </div>
         <div>
-          <p class="kicker" style="color: var(--accent);">Tool builder</p>
-          <h3 class="accent">"How do I make sure <em>these developers</em> ship defect-free code?"</h3>
-          <p style="margin-top: 1.2rem; color: var(--dim); font-size: clamp(0.9rem, 1.4vw, 1.4rem);">Lives at <em>prevention</em> and <em>carefree</em>. Tests are a work product that may be flawed; safety can't depend on them.</p>
-          <p style="margin-top: 0.8rem; color: var(--dim); font-size: clamp(0.85rem, 1.3vw, 1.3rem); font-style: italic;">"I control the <em>rate</em> at which defects get created."</p>
+          <h2>Tool Builder</h2>
+          <p class="kicker">Reduce total developer toil</p>
+          <p style="margin-top: 0.8rem; color: var(--dim); font-size: clamp(0.85rem, 1.3vw, 1.3rem); font-style: italic;">Control the <em>rate</em> at which <em>even careless devs</em> create defects.</p>
         </div>
       </div>
       <p style="margin-top: 2rem; color: var(--dim);">If your AI is one of the developers, you are the tool builder.</p>
@@ -896,7 +899,7 @@
           <text x="-34" y="5" font-size="13" font-weight="800" fill="#1a1a1a" letter-spacing="0.3">State control</text>
         </g>
 
-        <!-- Non-useful levers for vigilance toil — compact list, in row 2 to the right of Real world card -->
+        <!-- Non-useful levers for vigilance toil — compact list, to the right of Real world card -->
         <g>
           <text x="620" y="405" text-anchor="middle" font-size="13" font-weight="700" fill="#c09a60" letter-spacing="0.3">Not useful for vigilance toil</text>
           <g font-size="11" fill="rgba(240,237,230,0.78)" text-decoration="line-through">
@@ -1008,8 +1011,10 @@
           <line x1="667" y1="90" x2="667" y2="146"/>
           <line x1="833" y1="90" x2="833" y2="146"/>
         </g>
-        <text x="20"  y="175" font-size="11" fill="rgba(240,237,230,0.55)" font-style="italic">errors slip through</text>
-        <text x="980" y="175" font-size="11" fill="rgba(232,160,32,0.75)" text-anchor="end" font-style="italic">errors structurally impossible</text>
+        <text x="20"  y="75" font-size="11" fill="rgba(240,237,230,0.55)" font-style="italic">errors slip through</text>
+        <text x="980" y="75" font-size="11" fill="rgba(232,160,32,0.75)" text-anchor="end" font-style="italic">errors structurally impossible</text>
+        
+        @ai: add two labeled regions for the bar. Each is a curly brace below the bar identifying the region, and a label. One is "App / lib devs live here" the other is "Tool builders live here". App spans vigilance through deterministic. Tool builder spans prevention and carefree and the top 25% of deterministic.
 
         <!-- Cognitive-load header + compressed labels -->
         <text x="500" y="270" text-anchor="middle" font-size="11" fill="rgba(192,154,96,0.85)" font-weight="700" letter-spacing="1.6">COGNITIVE LOAD &mdash; vigilance toil over time</text>
