@@ -116,6 +116,7 @@ Instead: write a **Minions mission** — a deterministic Node script that orches
 2. **Apply refactor.** Spin up Claude with **AST refactoring** tools, no `edit-file`. Goal: execute the plan. Loop steps 1 and 2 until the refactor plan is empty.
 3. **Write the test.** Spin up Claude with edit tools, but a workspace where **only test files are writable**. Goal: write the next failing test.
 4. **Make it pass.** Spin up Claude with edit tools and the production tree writable, but the test files now read-only. Goal: make the test pass.
+5. **Refactor to remove duplication** Similar loop as above, but with a different refactoring goal.
 
 Between every phase, deterministic code runs:
 
