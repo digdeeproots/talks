@@ -68,7 +68,7 @@ Works the same for human developers using AST-aware refactoring tools. The lever
 
 ## Workflow + Work-product state control — Transcript fetcher *(quick story, told as semi-demo)*
 
-@ai: update this story based on the additional columns that I added to the slide in the upshift that talks about it.
+@ai: update this story based on the additional columns that I added to the slide in the upshift that talks about it. AFTER you have done that, then generate slides and notes for my story telling (the "second demo", right after the movement-based commit tool).
 
 *This story pulls **two** levers, not one. Sequencing and when-Claude-runs are **workflow** moves. The schema and validation routing — controlling the shape of the analysis itself and what happens when the result doesn't conform — is **work-product state control**. Useful in the talk to show that a single workflow can be improved one lever at a time, on different levers, in sequence.*
 
@@ -144,9 +144,7 @@ Decision inconsistency: structurally impossible.
 
 ---
 
-## Feedback — *(stories TBD)*
-
-*This lever is new. The guess-and-check rhythm in the transcript-fetcher story (step 6) is one instance. Schema-validation feedback to the agent (transcript step 4) is another. Dedicated stories for the talk's case-study section are still to be drafted.*
+## Feedback
 
 *Working definition: closing loops for the agent — bringing the impact of its actions into its visible sphere, so it can self-correct or escalate. See `universe-levers.md` for the full rubric.*
 

@@ -1003,8 +1003,6 @@
     <div class="slide-content">
       <p class="kicker">Pick one to explore</p>
 
-      @ai: change the case studies to be categorized by universe lever, with a pill per story. The pill should have a name for the story and a short description. And make sure that this contains every story in stories.md. If there are any missing stories, then add both the pill and the 3-slide story trajectory that the pill links to.
-      @ai-needs: regrouping done and existing 7 stories now keyed to lever / story name / vigilance cost. Still missing the two Feedback stories (Commit tool as quality reviewer; Required demo + verification) — those need 3 new slides each. Do you want me to draft them from stories.md following the s38–s40 pattern (Setup / Intervention / Name the experience), or write the bodies yourself and I just stub the IDs + add the pills? Also confirm: skip Reachable Context (no story in stories.md), or add a TBD pill?
       <div class="toc-hub">
         <div class="toc-case-studies">
           <p class="toc-section-label">Case studies</p>
@@ -1038,11 +1036,11 @@
             <!-- Row 2: vigilance-only levers + Feedback (TBD pending slide content) -->
             <div class="lever-group">
               <p class="lever-name">Feedback</p>
-              <div class="toc-pill toc-pill-pending">
+              <div class="toc-pill" data-jump-to="s56a">
                 <span class="pill-story">Commit tool as quality reviewer</span>
                 <span class="pill-desc">Smelly code slips review</span>
               </div>
-              <div class="toc-pill toc-pill-pending">
+              <div class="toc-pill" data-jump-to="s56d">
                 <span class="pill-story">Required demo + verification</span>
                 <span class="pill-desc">Looks done, isn't</span>
               </div>
@@ -1322,6 +1320,80 @@
         <li><strong class="accent">Scope</strong> Schema migrations against live data.</li>
         <li><strong class="accent">Cost to protect</strong> Zero. Data loss is structurally impossible.</li>
         <li><strong class="accent">Lever</strong> State control (Determinism sandwich).</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── STORY: Commit tool as quality reviewer (Feedback) ────────────── -->
+
+  <!-- 56a Setup -->
+  <section class="slide" id="s56a">
+    <div class="slide-content">
+      <p class="kicker">Code review under agentic load</p>
+      <h2>Vigilance cost:<br><span class="accent">Smelly code slips review</span></h2>
+      <p style="margin-top: 2rem; color: var(--dim);">"Did the AI land code that's technically correct<br>but full of things a reviewer would flag?"</p>
+    </div>
+  </section>
+
+  <!-- 56b Intervention — Commit tool as quality reviewer -->
+  <section class="slide" id="s56b">
+    <div class="slide-content">
+      <p class="kicker">Main Lever: Feedback</p>
+      <h2>Every commit returns<br>a <span class="accent">structured quality report.</span></h2>
+      <p style="margin-top: 2rem; color: var(--dim);">Lint, type, tests, dead code, complexity, missing-test heuristics.<br>Each problem tagged <em>must-fix</em> or <em>could-fix</em>.</p>
+      <p style="margin-top: 1.5rem;">The AI sees its own code through the reviewer's filter<br>and re-invokes commit until the report is clean.</p>
+      <p style="margin-top: 1.5rem; color: var(--dim);">The human only sees commits that already passed.</p>
+    </div>
+  </section>
+
+  <!-- 56c Name the experience — Commit tool as quality reviewer; next returns to TOC -->
+  <section class="slide" id="s56c" data-return-to-toc="true">
+    <div class="slide-content">
+      <p class="kicker">Name the experience</p>
+      <ul class="name-list">
+        <li><strong class="accent">Scope</strong> Known code-quality categories at commit time.</li>
+        <li><strong class="accent">Cost to protect</strong> Zero on those categories. Deterministic checks fire synchronously at the moment of action.</li>
+        <li><strong class="accent">Lever</strong> Feedback (the tool result <em>is</em> the quality verdict).</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── STORY: Required demo + verification (Feedback) ────────────── -->
+
+  <!-- 56d Setup -->
+  <section class="slide" id="s56d">
+    <div class="slide-content">
+      <p class="kicker">User-visible work</p>
+      <h2>Vigilance cost:<br><span class="accent">Looks done, isn't</span></h2>
+      <p style="margin-top: 2rem; color: var(--dim);">"Did the AI ship something that looks done<br>and passes tests but doesn't actually work?"</p>
+    </div>
+  </section>
+
+  <!-- 56e Intervention — Required demo + verification -->
+  <section class="slide" id="s56e">
+    <div class="slide-content">
+      <p class="kicker">Main Lever: Feedback</p>
+      <ul class="story-list">
+        <li><em>Required demo.</em> Without one, the plan tool won't advance.</li>
+        <li><em>Demo verification.</em> A browser walker runs the demo; failures are returned to the coder.</li>
+        <li><em>Demo walk.</em> I record freeform notes against verified demos only.</li>
+        <li><em>Note triage.</em> A separate system splits notes into <em>now</em> work and <em>future</em> plan items.</li>
+      </ul>
+      <p style="margin-top: 2rem;">
+        Two timescales. Three actors.<br>
+        <span class="accent">All deterministic.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- 56f Name the experience — Required demo + verification; next returns to TOC -->
+  <section class="slide" id="s56f" data-return-to-toc="true">
+    <div class="slide-content">
+      <p class="kicker">Name the experience</p>
+      <ul class="name-list">
+        <li><strong class="accent">Scope</strong> "Is this demo-able?" for every user-visible chunk.</li>
+        <li><strong class="accent">Cost to protect</strong> Zero. The plan tool gates advancement on demo verification.</li>
+        <li><strong class="accent">Lever</strong> Feedback (multi-actor, multi-timescale loops).</li>
       </ul>
     </div>
   </section>
