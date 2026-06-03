@@ -171,7 +171,63 @@ The human never sees the smelly-but-fixed states. They only see commits that pas
 
 ---
 
-@ai: add a reachable context section. Please elaborate forms of the following stories. 1) working in a monorepo, when changing functionality in any package, I want to prevent it from altering other packages. So I remove the others from the AI's reachable context. When it searches for them, all it can find is the API types & factories, and no implementation to change. It can also se its adaptors and ports, so it can change thos eif it wants to alter its relationship with another package. Refactoring tools can see both - if the API is internal. 2) Multi-phase re-design. I worked out the endpoint that I wanted to attain. Then I worked out the first phase which leaves me in a good partial-progress state that is all working and happier. Then during execution, I prevent access to the final endpoint. The execution sees the first phase as the final design, so can't be distracted by stuff beyond that phase. I apply this recursively down to some small scope, giving each scope a clear final destination and plan to get there, without worrying about what else may be happening after. 3) Context expansion. Add a tool for vector-based code search. Get a summary for each class & method, throw them all into a vector db, and then provide that as a search context to the agents, to be preferred over grep. 4) Plan optionality. The plan is held in source control (via a plan MCP tool), not an external system. Represent optionality with a node that says to generate options. When the workflow gets to that node, it asks the AI to brainstorm more potential options. Then it takes that set plus the original, and creates one `probably-wrong` branch for each. In each branch, it replaces the plan node with a node for the selected option - as if that were the choice made. Then run them all in parallel. None knows that multiple options are being evaluated or what the other options are. Then we choose, after all terminate (and we filter out failures) what we like from each, then combine that to the final solution.
+## Reachable Context — Monorepo package isolation
+
+*Vigilance cost: "Did my change to package A silently alter package B?"*
+
+*Safety: Level 1 (vigilance) → 4 (prevention) for cross-package edits.*
+
+Working in a monorepo, when changing functionality in any package, the goal is to prevent the AI from altering other packages. So I remove the others from its reachable context. When it searches, all it can find is the API types and factories — the surface contract — and no implementation to change. It can also see its own adapters and ports, so it can choose to alter how this package relates to another. Refactoring tools can see both sides, but only if the API is marked internal to the monorepo.
+
+The AI can read enough to use other packages correctly. It cannot read enough to silently change them. Cross-package contamination becomes structurally impossible within the agent's universe.
+
+Recipe: *shrink what the agent can see down to exactly what its current task should be able to touch.*
+
+---
+
+## Reachable Context — Multi-phase re-design
+
+*Vigilance cost: "Did the AI optimize for the eventual shape and skip past the intermediate state I asked for?"*
+
+*Safety: Level 1 → 4 within the current phase.*
+
+I work out the endpoint I want to reach, then design the first phase: a partial-progress state that is fully working and strictly better than today. During execution of that phase, I hide the eventual endpoint from the AI's reachable context. The execution sees the first-phase design as if it were the final destination and cannot be distracted by anything beyond it.
+
+I apply this recursively. Each scope has a clear destination and a plan to get there; none of them can see further than that scope. The further future does not exist as far as that execution is concerned.
+
+The AI cannot "helpfully" jump ahead, because there is nothing ahead to jump to. Premature optimization for the wrong target becomes structurally impossible.
+
+Recipe: *truncate the agent's horizon to the next durable resting point.*
+
+---
+
+## Reachable Context — Vector code search
+
+*Vigilance cost: "Did the AI miss the relevant code because grep wasn't the right way in?"*
+
+*Safety: Level 1 → 3 (probabilistic improvement on findability).*
+
+Pre-compute a summary for each class and method in the codebase; load all of them into a vector database. Add a search tool to the AI that queries the vector DB and is preferred over `grep`. The agent's reachable context now includes a semantic index, not just lexical match.
+
+This does not make the search deterministic — it changes which probabilistic search wins. The agent can find code by intent ("the part that decides retry backoff") rather than only by literal token. The vigilance question "did it miss anything?" shifts from often-yes to occasionally-yes.
+
+Recipe: *expand the agent's reachable surface in a direction that matches how it asks questions.*
+
+---
+
+## Reachable Context — Plan optionality
+
+*Vigilance cost: "Did the AI lock in on the first plausible option without exploring the space?"*
+
+*Safety: Level 1 → 4 for "option not considered."*
+
+The plan is held in source control via a plan MCP tool, not in an external planning system. Optionality is represented as a node: "generate options here." When the workflow reaches that node, it asks the AI to brainstorm more potential options. It takes that set plus the original and creates one `probably-wrong` branch per option. In each branch, the plan node is replaced with a node that commits to the selected option — as if that option had been the choice all along.
+
+The branches run in parallel. None of them knows that multiple options are being evaluated, or what the other options are. Each one believes its option is *the* plan. After they all terminate, failures are filtered out, the survivors are inspected, and we combine the best of each into a final solution.
+
+The agent in any single branch cannot under- or over-rate an alternative, because alternatives are not in its reachable context. The exploration is structural; the agent's job in each branch is to execute one specific option as well as possible.
+
+Recipe: *hide the comparison from the agents being compared.*
 
 ---
 
