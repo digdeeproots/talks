@@ -649,6 +649,240 @@
       </ul>
     </div>
   </section>
+  
+  <!-- 33d-1 Two agents across turns — diagram only (reserves space for the non-useful levers list) -->
+  <section class="slide" id="s33d-1">
+    <div class="slide-content">
+      <p class="kicker">Between agent turns — two different agents</p>
+      <svg viewBox="0 0 1000 620" width="100%" style="max-height:68vh; display:block; margin: 0.6rem auto 0;" role="img">
+        <defs>
+          <marker id="bt-arr-c1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#9aa0a8"/>
+          </marker>
+          <symbol id="lever-icon-c1" viewBox="0 0 24 24" overflow="visible">
+            <polygon points="12,16 6,22 18,22" fill="currentColor"/>
+            <line x1="2" y1="4" x2="22" y2="16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="2" cy="4" r="2.5" fill="currentColor"/>
+          </symbol>
+          <filter id="sticker-shadow-c1" x="-30%" y="-30%" width="160%" height="160%">
+            <feDropShadow dx="2.5" dy="3.5" stdDeviation="2.2" flood-color="#000" flood-opacity="0.6"/>
+          </filter>
+        </defs>
+
+        <!-- Agent 1 (left) -->
+        <circle cx="50" cy="270" r="48" fill="rgba(232,160,32,0.12)" stroke="#e8a020" stroke-width="1.8"/>
+        <text x="50" y="266" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Agent</text>
+        <text x="50" y="284" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">1</text>
+
+        <!-- Agent 2 (right) -->
+        <circle cx="950" cy="270" r="48" fill="rgba(122,184,200,0.14)" stroke="#7ab8c8" stroke-width="1.8"/>
+        <text x="950" y="266" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Agent</text>
+        <text x="950" y="284" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">2</text>
+
+        <g>
+          <rect x="115" y="200" width="130" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
+          <text x="180" y="232" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Transform</text>
+          <text x="180" y="262" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">verify, archive,</text>
+          <text x="180" y="276" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">commit results</text>
+
+          <rect x="275" y="200" width="130" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
+          <text x="340" y="232" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Select next step</text>
+          <text x="340" y="262" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">choose which</text>
+          <text x="340" y="276" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">workflow runs</text>
+
+          <rect x="435" y="200" width="130" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
+          <text x="500" y="232" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Define request</text>
+          <text x="500" y="262" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">narrow / re-shape</text>
+          <text x="500" y="276" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">the next ask</text>
+
+          <rect x="595" y="200" width="130" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
+          <text x="660" y="232" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Curate memory</text>
+          <text x="660" y="262" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">edit or fork</text>
+          <text x="660" y="276" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">the session file</text>
+
+          <rect x="755" y="200" width="130" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
+          <text x="820" y="232" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Pick agent</text>
+          <text x="820" y="262" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">swap agent, LLM,</text>
+          <text x="820" y="276" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">or system prompt</text>
+        </g>
+
+        <!-- Lever stickers -->
+        <g transform="translate(180 330) rotate(-5)" filter="url(#sticker-shadow-c1)">
+          <rect x="-85" y="-19" width="170" height="38" rx="19" fill="#e8a020" stroke="#5a3a00" stroke-width="2.2"/>
+          <g color="#1a1a1a"><use href="#lever-icon-c1" x="-77" y="-13" width="26" height="26"/></g>
+          <text x="-44" y="6" font-size="15" font-weight="800" fill="#1a1a1a" letter-spacing="0.5">State control</text>
+        </g>
+        <g transform="translate(340 330) rotate(4)" filter="url(#sticker-shadow-c1)">
+          <rect x="-62" y="-19" width="124" height="38" rx="19" fill="#e8a020" stroke="#5a3a00" stroke-width="2.2"/>
+          <g color="#1a1a1a"><use href="#lever-icon-c1" x="-54" y="-13" width="26" height="26"/></g>
+          <text x="-22" y="6" font-size="15" font-weight="800" fill="#1a1a1a" letter-spacing="0.5">Workflow</text>
+        </g>
+        <g transform="translate(500 330) rotate(-3)" filter="url(#sticker-shadow-c1)">
+          <rect x="-50" y="-19" width="100" height="38" rx="19" fill="#e8a020" stroke="#5a3a00" stroke-width="2.2"/>
+          <g color="#1a1a1a"><use href="#lever-icon-c1" x="-42" y="-13" width="26" height="26"/></g>
+          <text x="-10" y="6" font-size="15" font-weight="800" fill="#1a1a1a" letter-spacing="0.5">Goals</text>
+        </g>
+        <g transform="translate(660 330) rotate(6)" filter="url(#sticker-shadow-c1)">
+          <rect x="-58" y="-19" width="116" height="38" rx="19" fill="#e8a020" stroke="#5a3a00" stroke-width="2.2"/>
+          <g color="#1a1a1a"><use href="#lever-icon-c1" x="-50" y="-13" width="26" height="26"/></g>
+          <text x="-16" y="6" font-size="15" font-weight="800" fill="#1a1a1a" letter-spacing="0.5">Memory</text>
+        </g>
+        <g transform="translate(820 330) rotate(-4)" filter="url(#sticker-shadow-c1)">
+          <rect x="-58" y="-19" width="116" height="38" rx="19" fill="#556475" stroke="#1f2c38" stroke-width="2.2"/>
+          <g color="#f0ede6"><use href="#lever-icon-c1" x="-50" y="-13" width="26" height="26"/></g>
+          <text x="-18" y="6" font-size="15" font-weight="800" fill="#f0ede6" letter-spacing="0.5">Identity</text>
+        </g>
+
+        <!-- Sequence arrows -->
+        <g stroke="#9aa0a8" stroke-width="1.6" fill="none">
+          <line x1="98"  y1="270" x2="113" y2="270" marker-end="url(#bt-arr-c1)"/>
+          <line x1="245" y1="270" x2="273" y2="270" marker-end="url(#bt-arr-c1)"/>
+          <line x1="405" y1="270" x2="433" y2="270" marker-end="url(#bt-arr-c1)"/>
+          <line x1="565" y1="270" x2="593" y2="270" marker-end="url(#bt-arr-c1)"/>
+          <line x1="725" y1="270" x2="753" y2="270" marker-end="url(#bt-arr-c1)"/>
+          <line x1="885" y1="270" x2="900" y2="270" marker-end="url(#bt-arr-c1)"/>
+        </g>
+
+        <!-- Reserved space (y=400..610) for the non-useful levers list on s33d-2. -->
+      </svg>
+    </div>
+  </section>
+
+  <!-- 33d-2 Two agents across turns — diagram + non-useful levers list -->
+  <section class="slide" id="s33d-2">
+    <div class="slide-content">
+      <p class="kicker">Between agent turns — two different agents</p>
+      <svg viewBox="0 0 1000 620" width="100%" style="max-height:68vh; display:block; margin: 0.6rem auto 0;" role="img">
+        <defs>
+          <marker id="bt-arr-c2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#9aa0a8"/>
+          </marker>
+          <symbol id="lever-icon-c2" viewBox="0 0 24 24" overflow="visible">
+            <polygon points="12,16 6,22 18,22" fill="currentColor"/>
+            <line x1="2" y1="4" x2="22" y2="16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="2" cy="4" r="2.5" fill="currentColor"/>
+          </symbol>
+          <filter id="sticker-shadow-c2" x="-30%" y="-30%" width="160%" height="160%">
+            <feDropShadow dx="2.5" dy="3.5" stdDeviation="2.2" flood-color="#000" flood-opacity="0.6"/>
+          </filter>
+        </defs>
+
+        <!-- Agent 1 (left) -->
+        <circle cx="50" cy="270" r="48" fill="rgba(232,160,32,0.12)" stroke="#e8a020" stroke-width="1.8"/>
+        <text x="50" y="266" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Agent</text>
+        <text x="50" y="284" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">1</text>
+
+        <!-- Agent 2 (right) -->
+        <circle cx="950" cy="270" r="48" fill="rgba(122,184,200,0.14)" stroke="#7ab8c8" stroke-width="1.8"/>
+        <text x="950" y="266" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Agent</text>
+        <text x="950" y="284" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">2</text>
+
+        <g>
+          <rect x="115" y="200" width="130" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
+          <text x="180" y="232" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Transform</text>
+          <text x="180" y="262" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">verify, archive,</text>
+          <text x="180" y="276" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">commit results</text>
+
+          <rect x="275" y="200" width="130" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
+          <text x="340" y="232" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Select next step</text>
+          <text x="340" y="262" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">choose which</text>
+          <text x="340" y="276" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">workflow runs</text>
+
+          <rect x="435" y="200" width="130" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
+          <text x="500" y="232" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Define request</text>
+          <text x="500" y="262" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">narrow / re-shape</text>
+          <text x="500" y="276" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">the next ask</text>
+
+          <rect x="595" y="200" width="130" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
+          <text x="660" y="232" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Curate memory</text>
+          <text x="660" y="262" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">edit or fork</text>
+          <text x="660" y="276" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">the session file</text>
+
+          <rect x="755" y="200" width="130" height="140" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f0ede6" stroke-width="1.2"/>
+          <text x="820" y="232" text-anchor="middle" font-size="13" fill="#f0ede6" font-weight="700">Pick agent</text>
+          <text x="820" y="262" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">swap agent, LLM,</text>
+          <text x="820" y="276" text-anchor="middle" font-size="10" fill="rgba(240,237,230,0.7)" font-style="italic">or system prompt</text>
+        </g>
+
+        <!-- Lever stickers -->
+        <g transform="translate(180 330) rotate(-5)" filter="url(#sticker-shadow-c2)">
+          <rect x="-85" y="-19" width="170" height="38" rx="19" fill="#e8a020" stroke="#5a3a00" stroke-width="2.2"/>
+          <g color="#1a1a1a"><use href="#lever-icon-c2" x="-77" y="-13" width="26" height="26"/></g>
+          <text x="-44" y="6" font-size="15" font-weight="800" fill="#1a1a1a" letter-spacing="0.5">State control</text>
+        </g>
+        <g transform="translate(340 330) rotate(4)" filter="url(#sticker-shadow-c2)">
+          <rect x="-62" y="-19" width="124" height="38" rx="19" fill="#e8a020" stroke="#5a3a00" stroke-width="2.2"/>
+          <g color="#1a1a1a"><use href="#lever-icon-c2" x="-54" y="-13" width="26" height="26"/></g>
+          <text x="-22" y="6" font-size="15" font-weight="800" fill="#1a1a1a" letter-spacing="0.5">Workflow</text>
+        </g>
+        <g transform="translate(500 330) rotate(-3)" filter="url(#sticker-shadow-c2)">
+          <rect x="-50" y="-19" width="100" height="38" rx="19" fill="#e8a020" stroke="#5a3a00" stroke-width="2.2"/>
+          <g color="#1a1a1a"><use href="#lever-icon-c2" x="-42" y="-13" width="26" height="26"/></g>
+          <text x="-10" y="6" font-size="15" font-weight="800" fill="#1a1a1a" letter-spacing="0.5">Goals</text>
+        </g>
+        <g transform="translate(660 330) rotate(6)" filter="url(#sticker-shadow-c2)">
+          <rect x="-58" y="-19" width="116" height="38" rx="19" fill="#e8a020" stroke="#5a3a00" stroke-width="2.2"/>
+          <g color="#1a1a1a"><use href="#lever-icon-c2" x="-50" y="-13" width="26" height="26"/></g>
+          <text x="-16" y="6" font-size="15" font-weight="800" fill="#1a1a1a" letter-spacing="0.5">Memory</text>
+        </g>
+        <g transform="translate(820 330) rotate(-4)" filter="url(#sticker-shadow-c2)">
+          <rect x="-58" y="-19" width="116" height="38" rx="19" fill="#556475" stroke="#1f2c38" stroke-width="2.2"/>
+          <g color="#f0ede6"><use href="#lever-icon-c2" x="-50" y="-13" width="26" height="26"/></g>
+          <text x="-18" y="6" font-size="15" font-weight="800" fill="#f0ede6" letter-spacing="0.5">Identity</text>
+        </g>
+
+        <!-- Sequence arrows -->
+        <g stroke="#9aa0a8" stroke-width="1.6" fill="none">
+          <line x1="98"  y1="270" x2="113" y2="270" marker-end="url(#bt-arr-c2)"/>
+          <line x1="245" y1="270" x2="273" y2="270" marker-end="url(#bt-arr-c2)"/>
+          <line x1="405" y1="270" x2="433" y2="270" marker-end="url(#bt-arr-c2)"/>
+          <line x1="565" y1="270" x2="593" y2="270" marker-end="url(#bt-arr-c2)"/>
+          <line x1="725" y1="270" x2="753" y2="270" marker-end="url(#bt-arr-c2)"/>
+          <line x1="885" y1="270" x2="900" y2="270" marker-end="url(#bt-arr-c2)"/>
+        </g>
+
+        <!-- Non-useful levers for vigilance toil -->
+        <g>
+          <text x="500" y="420" text-anchor="middle" font-size="17" font-weight="700" fill="#c09a60" letter-spacing="0.3">Not useful for vigilance toil</text>
+          <g font-size="14" font-weight="700" fill="#f0ede6" letter-spacing="0.3">
+            <g transform="translate(140 470)">
+              <rect x="-72" y="-19" width="144" height="38" rx="19" fill="#556475" stroke="#1f2c38" stroke-width="2"/>
+              <text x="0" y="5" text-anchor="middle" text-decoration="line-through">System prompt</text>
+            </g>
+            <g transform="translate(310 470)">
+              <rect x="-72" y="-19" width="144" height="38" rx="19" fill="#556475" stroke="#1f2c38" stroke-width="2"/>
+              <text x="0" y="5" text-anchor="middle" text-decoration="line-through">Agent identity</text>
+            </g>
+            <g transform="translate(465 470)">
+              <rect x="-55" y="-19" width="110" height="38" rx="19" fill="#556475" stroke="#1f2c38" stroke-width="2"/>
+              <text x="0" y="5" text-anchor="middle" text-decoration="line-through">Skills</text>
+            </g>
+            <g transform="translate(595 470)">
+              <rect x="-58" y="-19" width="116" height="38" rx="19" fill="#556475" stroke="#1f2c38" stroke-width="2"/>
+              <text x="0" y="5" text-anchor="middle" text-decoration="line-through">LLM choice</text>
+            </g>
+            <g transform="translate(770 470)">
+              <rect x="-90" y="-19" width="180" height="38" rx="19" fill="#556475" stroke="#1f2c38" stroke-width="2"/>
+              <text x="0" y="5" text-anchor="middle" text-decoration="line-through">Interrupting mid-turn</text>
+            </g>
+            <g transform="translate(240 530)">
+              <rect x="-80" y="-19" width="160" height="38" rx="19" fill="#556475" stroke="#1f2c38" stroke-width="2"/>
+              <text x="0" y="5" text-anchor="middle" text-decoration="line-through">Slash commands</text>
+            </g>
+            <g transform="translate(440 530)">
+              <rect x="-72" y="-19" width="144" height="38" rx="19" fill="#556475" stroke="#1f2c38" stroke-width="2"/>
+              <text x="0" y="5" text-anchor="middle" text-decoration="line-through">Asking nicer</text>
+            </g>
+            <g transform="translate(640 530)">
+              <rect x="-90" y="-19" width="180" height="38" rx="19" fill="#556475" stroke="#1f2c38" stroke-width="2"/>
+              <text x="0" y="5" text-anchor="middle" text-decoration="line-through">Temperature / sampling</text>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </section>
+
   <!-- 34 Agent's Universe — the "where" of the two-part answer -->
   <section class="slide img-bg bg-cr-developer" id="s34">
     <div class="overlay"></div>
@@ -675,17 +909,17 @@
 
         <!-- Vigilance-only (right crescent). -->
         <g text-anchor="middle" font-weight="700" fill="#f0ede6">
-          <text x="975" y="330" font-size="20">State control</text>
-          <text x="975" y="385" font-size="20">Memory</text>
-          <text x="975" y="440" font-size="18">Reachable Context</text>
+          <text x="900" y="300" font-size="20">State control</text>
+          <text x="900" y="355" font-size="20">Memory</text>
+          <text x="900" y="410" font-size="18">Reachable Context</text>
         </g>
 
         <!-- Work-toil-only (left crescent), crossed out. -->
         <g text-anchor="middle" font-weight="700" fill="rgba(240,237,230,0.55)" text-decoration="line-through">
-          <text x="290" y="305" font-size="18">Identity</text>
-          <text x="290" y="345" font-size="18">Adjacency</text>
-          <text x="290" y="385" font-size="17">Mid-turn interrupts</text>
-          <text x="290" y="425" font-size="17">In-flight messages</text>
+          <text x="370" y="300" font-size="18">Identity</text>
+          <text x="370" y="355" font-size="18">Adjacency</text>
+          <text x="370" y="410" font-size="17">Mid-turn interrupts</text>
+          <text x="370" y="465" font-size="17">In-flight messages</text>
         </g>
       </svg>
     </div>
