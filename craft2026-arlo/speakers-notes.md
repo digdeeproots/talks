@@ -3,8 +3,6 @@
 
 ---
 
-@ai: update this file to match the new slides. Leave the notes alone if the slide hasn't changed since it was written (but many slides have changed). Also consider whether we need new connectors, for cases where the slide order has changed or slides were dropped.
-
 ## How to use this file
 
 Open in a second window / monitor. Each slide is numbered to match the ID in `slides.html`.
@@ -146,16 +144,81 @@ Scripted walkthrough is out of scope for this movement.
 
 ---
 
-### 23 — Story: Find key moments in a transcript *(placeholder)*
+### 23 — Find key moments in a transcript (intro)
 
-Semi-demo. Walk through four transitions in sequence:
+Frame the demo. Six transitions, applied one at a time, each silencing one specific vigilance question.
 
-1. **Sequencing → deterministic.** Deterministic code decides what step is next. Agent no longer manages its own sequence.
-2. **Fetch → deterministic.** Code fetches; agent only called on failure. Changed invocation and goal simultaneously.
-3. **Analysis goal locked down.** Concrete output spec replaces open-ended instruction. TTS notification; you work elsewhere until called.
-4. **Analysis format locked down.** Schema validation reprompts on failure. Careless about what each key moment includes.
+> "A daily coaching workflow. Six transitions follow. Each silences one specific vigilance question."
 
-Semi-demo script is out of scope for this movement.
+Don't introduce the lever names yet — the upshift recap (s31) will do that.
+
+---
+
+### 23-0 — Step 0 · Prompt Claude and watch
+
+The starting state. Click open the Output pane if you want to show what raw output looks like.
+
+> "I prompted Claude. I watched every step. I interrupted when something went sideways. Full vigilance, every run."
+
+---
+
+### 23a — Step 1 · Written workflow
+
+Move the prompt into a file.
+
+> "Same vigilance during execution. But now the workflow is an artifact I can improve between runs."
+
+The Output pane shows the file. Click to expand if there's time.
+
+---
+
+### 23b — Step 2 · Document iteration pattern
+
+Apply the doc-iteration pattern to the workflow file itself.
+
+> "I stopped editing by hand. I ran the doc-iteration pattern on the workflow. The workflow got sharper. The work toil of authoring it dropped."
+
+---
+
+### 23c — Step 3 · `pnpm do-today`
+
+Extract sequencing into deterministic code.
+
+> "A script reads state, decides the next step, launches Claude, catches the result, quits. Sequencing leaves Claude's hands."
+
+Name the silenced question: *"Is the AI taking the right next step?"*
+
+---
+
+### 23d — Step 4 · Narrow goal
+
+Refine Claude's goal to "find key moments."
+
+> "It identifies what is salient and roughly when. It doesn't determine what happened. It doesn't write the lesson plan. It stops interviewing me to understand everything — it asks only to fill gaps."
+
+Name the silenced question: *"Is the AI over-working or taking shortcuts?"*
+
+---
+
+### 23e — Step 5 · Scripted fetch
+
+Replace the probabilistic Fireflies fetch with deterministic code.
+
+> "On success, Claude is never invoked. On failure, Claude is called with the specific failure as context."
+
+Name the silenced question: *"Did the AI get the right input?"*
+
+---
+
+### 23f — Step 6 · Iterative analysis
+
+Lock the analysis schema. Structured JSON, deterministic validation, re-call on failure.
+
+> "The workflow stops being linear. Independent re-orderable steps read and write the same analysis."
+
+Name the silenced question: *"Is the output complete or misleading?"*
+
+This is the punch: each transition silenced one specific vigilance cost.
 
 ---
 
@@ -729,6 +792,184 @@ Point at each bullet as you tell it.
 > "Scope: schema migrations against live data. Cost to protect: zero. Data loss is structurally impossible. Lever: State control — the Determinism Sandwich."
 
 Then return to the TOC.
+
+---
+
+### 56a — Setup: Smelly code slips review (Commit tool as quality reviewer)
+
+Name the vigilance cost. Ask the question aloud.
+
+> "Did the AI land code that's technically correct but full of things a reviewer would flag?"
+
+Hold the silence.
+
+---
+
+### 56b — Story: Commit tool as quality reviewer (Feedback)
+
+Main lever: Feedback. Every commit returns a structured quality report.
+
+> "Lint, type, tests, dead code, complexity, missing-test heuristics. Each problem tagged must-fix or could-fix."
+
+> "The AI sees its own code through the reviewer's filter and re-invokes commit until the report is clean. The human only sees commits that already passed."
+
+Punch: *the agent's actions are now evaluated by deterministic code, synchronously, at the moment of action.*
+
+---
+
+### 56c — Name the experience: Commit tool as quality reviewer
+
+Read the three rows. Return to the TOC.
+
+---
+
+### 56d — Setup: Looks done, isn't (Required demo + verification)
+
+> "Did the AI ship something that looks done and passes tests but doesn't actually work?"
+
+---
+
+### 56e — Story: Required demo + verification (Feedback)
+
+Main lever: Feedback, three actors, two timescales.
+
+Walk the four moves: required demo → browser-walker verification → human note capture → note triage.
+
+> "The human only ever sees demos of code that demonstrably works. The agent never blocks on 'is this finished.'"
+
+Punch: *two timescales. Three actors. All deterministic.*
+
+---
+
+### 56f — Name the experience: Required demo + verification
+
+Read. Return to the TOC.
+
+---
+
+### 57a — Setup: Phase bleed in the inner loop (Dev inner loop control)
+
+Vigilance cost is TDD discipline.
+
+> "Did Claude skip the refactor and shove logic into the test? Write the test after the code? Mix test edits and production edits in the same change?"
+
+---
+
+### 57b — Story: Dev inner loop control (Workflow)
+
+Main lever: Workflow. One workflow, five universes.
+
+Walk the five phases: plan refactor (read-only) → apply refactor (AST only) → write the test (only test files writable) → make it pass (production tree writable, tests read-only) → remove duplication (AST again).
+
+> "A Minions mission orchestrates the sequence. Deterministic code handles commits and chooses the next phase."
+
+Punch: *no single Claude call can do TDD wrong, because the wrong move isn't in its toolbox.*
+
+---
+
+### 57c — Name the experience: Dev inner loop control
+
+Read. Return to the TOC.
+
+---
+
+### s-rc-mono-a — Setup: Cross-package contamination (Monorepo isolation)
+
+Brownfield monorepo. Vigilance cost.
+
+> "Did my change to package A silently alter package B?"
+
+---
+
+### s-rc-mono-b — Story: Monorepo isolation (Reachable Context)
+
+Main lever: Reachable Context. Shrink what the agent can see to what its task should touch.
+
+Walk: other packages reduced to API types and factories; adapters and ports stay visible; refactoring tools span both sides when API is internal.
+
+Punch: *cross-package contamination becomes structurally impossible.*
+
+---
+
+### s-rc-mono-c — Name the experience: Monorepo isolation
+
+Read. Return to the TOC.
+
+---
+
+### s-rc-phase-a — Setup: Skip past the intermediate (Multi-phase re-design)
+
+> "Did the AI optimize for the eventual shape and skip the partial-progress state I asked for?"
+
+---
+
+### s-rc-phase-b — Story: Multi-phase re-design (Reachable Context)
+
+Main lever: Reachable Context. Truncate the horizon to the next durable resting point.
+
+Walk: design the endpoint; design Phase 1; hide the endpoint during Phase 1 execution; apply recursively.
+
+Punch: *the further future does not exist for this execution.*
+
+---
+
+### s-rc-phase-c — Name the experience: Multi-phase re-design
+
+Read. Return to the TOC.
+
+---
+
+### s-rc-vector-a — Setup: Findability gap (Vector code search)
+
+> "Did the AI miss the relevant code because grep wasn't the right way in?"
+
+---
+
+### s-rc-vector-b — Story: Vector code search (Reachable Context)
+
+Main lever: Reachable Context. Expand the surface in a direction that matches how the agent asks questions.
+
+Walk: pre-compute summaries; vector DB; search tool preferred over grep.
+
+This is the probabilistic one. Name it: *the agent can find code by intent, not just by literal token.*
+
+---
+
+### s-rc-vector-c — Name the experience: Vector code search
+
+Read. Return to the TOC.
+
+---
+
+### s-rc-plan-a — Setup: Premature option lock-in (Plan optionality)
+
+> "Did the AI lock in on the first plausible option without exploring the space?"
+
+---
+
+### s-rc-plan-b — Story: Plan optionality (Reachable Context)
+
+Main lever: Reachable Context. Hide the comparison from the agents being compared.
+
+Walk: plan MCP tool; options node; one `probably-wrong` branch per option; parallel execution; recombine survivors.
+
+Punch: *each branch executes one option as well as it can, because alternatives are not in its reachable context.*
+
+---
+
+### s-rc-plan-c — Name the experience: Plan optionality
+
+Read. Return to the TOC.
+
+---
+
+### s-rec-iter-0..end — Recipe iteration walkthrough (extract PaymentService)
+
+Reached from the recipe TOC card. Three loops shown side-by-side with a wrap-up.
+
+For each iteration (1, 2, 3): name the selected vigilance, the spot-check, the categories surfaced, the lever applied. Don't go into per-step depth; the per-step recipe slides do that.
+
+End slide: read the struck-through categories, point at what's still on the list, close with *every extraction now ships with three permanently-free categories.*
 
 ---
 
