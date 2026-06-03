@@ -3,6 +3,8 @@
 
 ---
 
+@ai: update this file to match the new slides. Leave the notes alone if the slide hasn't changed since it was written (but many slides have changed). Also consider whether we need new connectors, for cases where the slide order has changed or slides were dropped.
+
 ## How to use this file
 
 Open in a second window / monitor. Each slide is numbered to match the ID in `slides.html`.

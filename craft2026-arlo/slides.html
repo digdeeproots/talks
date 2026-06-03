@@ -556,7 +556,11 @@
     #s53 .slide-content, #s54 .slide-content,
     #s56a .slide-content, #s56b .slide-content,
     #s56d .slide-content, #s56e .slide-content,
-    #s57a .slide-content, #s57b .slide-content {
+    #s57a .slide-content, #s57b .slide-content,
+    #s-rc-mono-a .slide-content, #s-rc-mono-b .slide-content,
+    #s-rc-phase-a .slide-content, #s-rc-phase-b .slide-content,
+    #s-rc-vector-a .slide-content, #s-rc-vector-b .slide-content,
+    #s-rc-plan-a .slide-content, #s-rc-plan-b .slide-content {
       text-align: left;
       max-width: 64rem;
       margin: 0 auto;
@@ -1307,8 +1311,6 @@
     <div class="slide-content">
       <p class="kicker">Pick one to explore</p>
 
-      @ai: missing all the case studies for reachable context. Add the section for that and the 4 stories we have. If you've already created the slides for them, then link to those. If not, then create the slide sequence for each (the same 3-slide sequence as for other case studies).
-      
       <div class="toc-hub">
         <div class="toc-case-studies">
           <p class="toc-section-label">Case studies</p>
@@ -1367,6 +1369,25 @@
               <div class="toc-pill" data-jump-to="s53">
                 <span class="pill-story">Archive table for migrations</span>
                 <span class="pill-desc">Data loss</span>
+              </div>
+            </div>
+            <div class="lever-group">
+              <p class="lever-name">Reachable Context</p>
+              <div class="toc-pill" data-jump-to="s-rc-mono-a">
+                <span class="pill-story">Monorepo isolation</span>
+                <span class="pill-desc">Cross-package contamination</span>
+              </div>
+              <div class="toc-pill" data-jump-to="s-rc-phase-a">
+                <span class="pill-story">Multi-phase re-design</span>
+                <span class="pill-desc">Skip past the intermediate</span>
+              </div>
+              <div class="toc-pill" data-jump-to="s-rc-vector-a">
+                <span class="pill-story">Vector code search</span>
+                <span class="pill-desc">Findability gap</span>
+              </div>
+              <div class="toc-pill" data-jump-to="s-rc-plan-a">
+                <span class="pill-story">Plan optionality</span>
+                <span class="pill-desc">Premature option lock-in</span>
               </div>
             </div>
           </div>
@@ -1775,6 +1796,168 @@
         <p class="name-value">Zero. Phase bleed is structurally impossible at each boundary.</p>
         <p class="name-label">Lever</p>
         <p class="name-value">Workflow (phased mission; tools and writable surface change per phase).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STORY: Monorepo isolation (Reachable Context) ────────────── -->
+
+  <!-- Setup -->
+  <section class="slide" id="s-rc-mono-a">
+    <div class="slide-content">
+      <p class="kicker">Brownfield monorepo</p>
+      <h2>Vigilance cost:<br><span class="accent">Cross-package contamination</span></h2>
+      <p style="margin-top: 2rem; color: var(--dim);">"Did my change to package A silently alter package B?"</p>
+    </div>
+  </section>
+
+  <!-- Intervention -->
+  <section class="slide" id="s-rc-mono-b">
+    <div class="slide-content">
+      <p class="kicker">Main Lever: Reachable Context</p>
+      <p>Shrink what the agent can see <span class="accent">to exactly what its task should touch.</span></p>
+      <ul class="story-list">
+        <li>Other packages: only API types and factories are reachable. No implementation.</li>
+        <li>This package's adapters and ports: reachable. The agent can choose to alter how it relates to others.</li>
+        <li>Refactoring tools span both sides, but only when the API is internal to the monorepo.</li>
+      </ul>
+      <p style="margin-top: 1.5rem;">The agent can use other packages correctly. It cannot silently change them.</p>
+    </div>
+  </section>
+
+  <!-- Name the experience -->
+  <section class="slide" id="s-rc-mono-c" data-return-to-toc="true">
+    <div class="slide-content">
+      <p class="kicker">Name the experience</p>
+      <div class="name-grid">
+        <p class="name-label">Scope</p>
+        <p class="name-value">Cross-package change inside a monorepo.</p>
+        <p class="name-label">Cost to protect</p>
+        <p class="name-value">Zero. Other packages' implementations are not in the agent's reachable surface.</p>
+        <p class="name-label">Lever</p>
+        <p class="name-value">Reachable Context (API-only exposure across the boundary).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STORY: Multi-phase re-design (Reachable Context) ────────────── -->
+
+  <!-- Setup -->
+  <section class="slide" id="s-rc-phase-a">
+    <div class="slide-content">
+      <p class="kicker">Multi-phase migration</p>
+      <h2>Vigilance cost:<br><span class="accent">Skip past the intermediate</span></h2>
+      <p style="margin-top: 2rem; color: var(--dim);">"Did the AI optimize for the eventual shape and skip the partial-progress state I asked for?"</p>
+    </div>
+  </section>
+
+  <!-- Intervention -->
+  <section class="slide" id="s-rc-phase-b">
+    <div class="slide-content">
+      <p class="kicker">Main Lever: Reachable Context</p>
+      <p>Truncate the horizon to <span class="accent">the next durable resting point.</span></p>
+      <ul class="story-list">
+        <li>Design the endpoint, then design Phase 1 as a fully working partial state.</li>
+        <li>During Phase 1 execution, hide the endpoint from reachable context.</li>
+        <li>The agent sees Phase 1 as the final destination. It cannot helpfully jump ahead.</li>
+        <li>Apply recursively. Each scope has its own destination; none can see further.</li>
+      </ul>
+      <p style="margin-top: 1.5rem;">Premature optimization for the wrong target becomes structurally impossible.</p>
+    </div>
+  </section>
+
+  <!-- Name the experience -->
+  <section class="slide" id="s-rc-phase-c" data-return-to-toc="true">
+    <div class="slide-content">
+      <p class="kicker">Name the experience</p>
+      <div class="name-grid">
+        <p class="name-label">Scope</p>
+        <p class="name-value">Multi-phase re-design with intermediate landing states.</p>
+        <p class="name-label">Cost to protect</p>
+        <p class="name-value">Zero within the current phase. Future phases simply do not exist for this execution.</p>
+        <p class="name-label">Lever</p>
+        <p class="name-value">Reachable Context (horizon truncated per phase).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STORY: Vector code search (Reachable Context) ────────────── -->
+
+  <!-- Setup -->
+  <section class="slide" id="s-rc-vector-a">
+    <div class="slide-content">
+      <p class="kicker">Findability in legacy code</p>
+      <h2>Vigilance cost:<br><span class="accent">Findability gap</span></h2>
+      <p style="margin-top: 2rem; color: var(--dim);">"Did the AI miss the relevant code because grep wasn't the right way in?"</p>
+    </div>
+  </section>
+
+  <!-- Intervention -->
+  <section class="slide" id="s-rc-vector-b">
+    <div class="slide-content">
+      <p class="kicker">Main Lever: Reachable Context</p>
+      <p>Expand the reachable surface <span class="accent">in a direction that matches how the agent asks questions.</span></p>
+      <ul class="story-list">
+        <li>Pre-compute a summary for each class and method.</li>
+        <li>Load the summaries into a vector database.</li>
+        <li>Add a search tool that queries the vector DB and is preferred over grep.</li>
+      </ul>
+      <p style="margin-top: 1.5rem;">The agent can find code by intent, not just by literal token. "Did it miss anything?" shifts from often-yes to occasionally-yes.</p>
+    </div>
+  </section>
+
+  <!-- Name the experience -->
+  <section class="slide" id="s-rc-vector-c" data-return-to-toc="true">
+    <div class="slide-content">
+      <p class="kicker">Name the experience</p>
+      <div class="name-grid">
+        <p class="name-label">Scope</p>
+        <p class="name-value">Code findability across a large codebase.</p>
+        <p class="name-label">Cost to protect</p>
+        <p class="name-value">Reduced, not zero. Semantic search complements lexical search; misses get rarer.</p>
+        <p class="name-label">Lever</p>
+        <p class="name-value">Reachable Context (a semantic index added to the agent's reach).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STORY: Plan optionality (Reachable Context) ────────────── -->
+
+  <!-- Setup -->
+  <section class="slide" id="s-rc-plan-a">
+    <div class="slide-content">
+      <p class="kicker">Planning under uncertainty</p>
+      <h2>Vigilance cost:<br><span class="accent">Premature option lock-in</span></h2>
+      <p style="margin-top: 2rem; color: var(--dim);">"Did the AI lock in on the first plausible option without exploring the space?"</p>
+    </div>
+  </section>
+
+  <!-- Intervention -->
+  <section class="slide" id="s-rc-plan-b">
+    <div class="slide-content">
+      <p class="kicker">Main Lever: Reachable Context</p>
+      <p>Hide the comparison <span class="accent">from the agents being compared.</span></p>
+      <ul class="story-list">
+        <li>The plan lives in source control via a plan MCP tool. An "options" node says: brainstorm here.</li>
+        <li>The tool spawns one <code>probably-wrong</code> branch per option, replacing the node with a commitment to that option.</li>
+        <li>The branches run in parallel. None knows it is one of several. Each believes its option is the plan.</li>
+        <li>After they terminate, failures drop out. We combine the best of the survivors.</li>
+      </ul>
+      <p style="margin-top: 1.5rem;">Each branch executes one option as well as it can, because alternatives are not in its reachable context.</p>
+    </div>
+  </section>
+
+  <!-- Name the experience -->
+  <section class="slide" id="s-rc-plan-c" data-return-to-toc="true">
+    <div class="slide-content">
+      <p class="kicker">Name the experience</p>
+      <div class="name-grid">
+        <p class="name-label">Scope</p>
+        <p class="name-value">Plan-time option exploration across uncertain design space.</p>
+        <p class="name-label">Cost to protect</p>
+        <p class="name-value">Zero. Option exploration is structural; per-branch focus is total.</p>
+        <p class="name-label">Lever</p>
+        <p class="name-value">Reachable Context (alternatives hidden per branch).</p>
       </div>
     </div>
   </section>
