@@ -76,14 +76,21 @@ Works the same for human developers using AST-aware refactoring tools. The lever
 
 A daily coaching workflow: pull transcripts from Fireflies, do lesson planning, write the daily status email, extract techniques, build recipes, track against the week's goals.
 
-**Show the transition states.** This is told as a semi-demo so the audience sees the path, not just the destination.
+**Baseline — Prompt Claude + vigilance.** Tell Claude what to do. Watch execution and interrupt when it goes wrong. Full vigilance burden.
 
-1. **Prompt Claude + vigilance.** Tell Claude what to do. Watch eexecution and interrupt when it goes wrong. Full vigilance burden.
-2. **Start: workflow file + vigilance.** *(workflow)* Tell Claude to read the file and follow it. Watch every output. Full vigilance burden during execution, but not between executions and have something I can iteratively improve.
-3. **Extract sequencing into deterministic code.** *(Workflow.)* Claude can't clear its own context or exit itself. Claude wrote a script — `do-today` — that assesses the current state, decides what step is needed next, does deterministic processing, launches Claude, catches the result, and quits. Run again for the next step. Sequencing is no longer in Claude's hands.
-4. **Replace probabilistic fetch with deterministic.** *(Workflow.)* Transcript fetching started via the Fireflies MCP server (probabilistic — the AI sometimes got it wrong). Now a fully debugged deterministic fetcher gets the right transcript for the right day and team. On success: Claude is never invoked, doesn't even know a fetch happened. On failure — wrong date, ambiguous session, network error — Claude is called with the specific failure as context.
-5. **Refine goal - find key moments.** Narrow claude's goal to just be to help me find key moments. It can use the trancript, the retro notes, and me as info sources. It doesn't need to determine what happened or get sufficient info for lesson planning or status email. It just needs to identify what is salient - what were the important things that happened, and spproximately when in the transcript?
-6. **Lock down the analysis schema.** *(Work-product state control.)* Claude initially wrote transcript analyses as unstructured markdown. That looseness was useful — it let us discover what information actually mattered and who would consume it — but it required vigilance. Irrelevant stuff slipped in and confused later Claude calls. Important things sometimes went missing. Once the shape stabilized, we moved to structured JSON with a schema, and deterministic code now validates every analysis. When validation fails, Claude is re-called with the specific failure as context and fills the gap. This also unlocked something else: the workflow stopped being linear. Independent, re-orderable steps now read and write the same analysis, each contributing its own insights.
+**Six transitions follow, in the order the s31 upshift recap uses them.** Each is a single increment that moves one specific vigilance cost from a lower safety level to a higher one.
+
+1. **Written workflow.** *(Workflow.)* Move the prompt into a workflow file. Tell Claude to read it and follow it. The vigilance burden during execution is unchanged — full watch — but the workflow is now an artifact I can iteratively improve between runs.
+   *Vigilance question this transition silences:* "Am I remembering to gather the right info?"
+2. **Doc iter pattern.** *(Workflow.)* Apply the doc-iteration pattern to the workflow file itself: structured human reviews on each pass, batched directives, the file improves cumulatively. The work toil of authoring the workflow drops; the workflow file gets steadily sharper.
+3. **`pnpm do-today`.** *(Workflow — invocation.)* Extract sequencing into deterministic code. Claude wrote a script — `do-today` — that assesses the current state, decides what step is needed next, does deterministic processing, launches Claude, catches the result, and quits. Run again for the next step. Sequencing is no longer in Claude's hands.
+   *Vigilance question this transition silences:* "Is the AI taking the right next step?"
+4. **Narrow goal.** *(Goal.)* Refine Claude's goal to just "find key moments." It uses the transcript, the retro notes, and me as info sources. It doesn't need to determine what happened or gather enough for the lesson plan or status email — only to identify what is salient and approximately when in the transcript.
+   *Vigilance question this transition silences:* "Is the AI over-working or taking shortcuts?"
+5. **Scripted fetch.** *(Workflow — invocation + goal.)* Replace the probabilistic Fireflies MCP fetch with a fully debugged deterministic fetcher. On success: Claude is never invoked, doesn't even know a fetch happened. On failure — wrong date, ambiguous session, network error — Claude is called with the specific failure as context.
+   *Vigilance question this transition silences:* "Did the AI get the right input?"
+6. **Iterative analysis.** *(Work-product state control + Feedback.)* Lock down the analysis schema. Claude initially wrote transcript analyses as unstructured markdown. That looseness was useful — it let us discover what information actually mattered and who would consume it — but it required vigilance. Once the shape stabilized, we moved to structured JSON with a schema, and deterministic code now validates every analysis. When validation fails, Claude is re-called with the specific failure as context and fills the gap. This also unlocked something else: the workflow stopped being linear. Independent, re-orderable steps now read and write the same analysis, each contributing its own insights.
+   *Vigilance question this transition silences:* "Is the output complete or misleading?"
 
 Results:
 - **Result: the system decides when to call Claude.** *(Workflow.)* It calls Claude only when deterministic code admits it can't handle something. You don't have to decide when to trust it. The system decides by condition.
@@ -92,6 +99,36 @@ Results:
 **Key insight for the talk:** each transition was a single increment that moved one specific vigilance cost from a lower safety level to a higher one. Together: the workflow that used to require constant attention now runs itself.
 
 **Meta-pattern worth surfacing:** *unstructured first* to discover what information matters and who uses it; *then iterate on provability within categories* — locking stuff down one worry at a time. The looseness is how you learn the categories. The structure is how you eliminate the vigilance.
+
+---
+
+## Workflow — Dev inner loop control
+
+*Vigilance cost: "Did the AI skip the refactor and shove logic into the test? Write the test after the code? Leave dead helpers? Mix test edits and production edits in the same change?"*
+
+*Safety: Level 1 (vigilance) → 4 (prevention) for phase-bleed across the TDD loop.*
+
+The usual setup: give Claude skills at refactoring, test-writing, and coding, plus a workflow document explaining the order. Then watch every step to make sure it stays in TDD discipline. Full vigilance burden, every loop.
+
+Instead: write a **Minions mission** — a deterministic Node script that orchestrates the inner loop as a sequence of bounded Claude calls. Each call gets a different toolbox and a different writable surface.
+
+1. **Plan refactor.** Spin up Claude with **read-only** tools. Goal: identify how the code should be refactored so the next test is trivial to write. Output: a refactor plan.
+2. **Apply refactor.** Spin up Claude with **AST refactoring** tools, no `edit-file`. Goal: execute the plan. Loop steps 1 and 2 until the refactor plan is empty.
+3. **Write the test.** Spin up Claude with edit tools, but a workspace where **only test files are writable**. Goal: write the next failing test.
+4. **Make it pass.** Spin up Claude with edit tools and the production tree writable, but the test files now read-only. Goal: make the test pass.
+5. **Refactor to remove duplication** Similar loop as above, but with a different refactoring goal.
+
+Between every phase, deterministic code runs:
+
+- Ask the finishing Claude to describe what it did, framed as a commit message. (I may or may not use the message; the framing is the point.)
+- Commit via the movement-based branching tool.
+- Decide what runs next based on declared state — passing tests, refactor backlog, failing tests, dirty working copy.
+
+No single Claude call can do TDD wrong. The phase boundaries are enforced by which tools are in the toolbox and which files are writable. Phase bleed becomes structurally impossible inside the inner loop.
+
+**Key insight for the talk:** *one workflow, four universes.* The same TDD discipline that humans achieve through self-control here is achieved through universe shaping. The mission script doesn't ask Claude to follow TDD; it makes the wrong move unavailable in each phase.
+
+Recipe: *split the workflow into phases and re-shape the agent's universe at each phase boundary.*
 
 ---
 
@@ -142,9 +179,7 @@ Decision inconsistency: structurally impossible.
 
 ---
 
-## Feedback — *(stories TBD)*
-
-*This lever is new. The guess-and-check rhythm in the transcript-fetcher story (step 6) is one instance. Schema-validation feedback to the agent (transcript step 4) is another. Dedicated stories for the talk's case-study section are still to be drafted.*
+## Feedback
 
 *Working definition: closing loops for the agent — bringing the impact of its actions into its visible sphere, so it can self-correct or escalate. See `universe-levers.md` for the full rubric.*
 
@@ -164,8 +199,6 @@ The human never sees the smelly-but-fixed states. They only see commits that pas
 
 **Key insight for the talk:** the agent's actions used to be evaluated by a human, asynchronously, at review time. Now they are evaluated by deterministic code, synchronously, at the moment of action. The agent's behavior changed not because it became more careful, but because the universe started telling it the truth immediately.
 
----
-
 ### Required demo + demo prep
 
 *Vigilance cost: "Did the AI ship something that looks done and passes tests but doesn't actually work?"*
@@ -182,6 +215,66 @@ A two-stage feedback loop wrapped around every user-visible chunk of work:
 The human only ever sees demos of code that demonstrably works. The agent never blocks on "is this finished" — the plan tool answers, by gating on demo verification.
 
 **Key insight for the talk:** feedback here spans three different actors and two different timescales. The browser walker closes a tight loop for the coder; the note triager closes a slower loop between the human and the plan. Both are deterministic infrastructure; neither requires the human to remember to check.
+
+---
+
+## Reachable Context — Monorepo package isolation
+
+*Vigilance cost: "Did my change to package A silently alter package B?"*
+
+*Safety: Level 1 (vigilance) → 4 (prevention) for cross-package edits.*
+
+Working in a monorepo, when changing functionality in any package, the goal is to prevent the AI from altering other packages. So I remove the others from its reachable context. When it searches, all it can find is the API types and factories — the surface contract — and no implementation to change. It can also see its own adapters and ports, so it can choose to alter how this package relates to another. Refactoring tools can see both sides, but only if the API is marked internal to the monorepo.
+
+The AI can read enough to use other packages correctly. It cannot read enough to silently change them. Cross-package contamination becomes structurally impossible within the agent's universe.
+
+Recipe: *shrink what the agent can see down to exactly what its current task should be able to touch.*
+
+---
+
+## Reachable Context — Multi-phase re-design
+
+*Vigilance cost: "Did the AI optimize for the eventual shape and skip past the intermediate state I asked for?"*
+
+*Safety: Level 1 → 4 within the current phase.*
+
+I work out the endpoint I want to reach, then design the first phase: a partial-progress state that is fully working and strictly better than today. During execution of that phase, I hide the eventual endpoint from the AI's reachable context. The execution sees the first-phase design as if it were the final destination and cannot be distracted by anything beyond it.
+
+I apply this recursively. Each scope has a clear destination and a plan to get there; none of them can see further than that scope. The further future does not exist as far as that execution is concerned.
+
+The AI cannot "helpfully" jump ahead, because there is nothing ahead to jump to. Premature optimization for the wrong target becomes structurally impossible.
+
+Recipe: *truncate the agent's horizon to the next durable resting point.*
+
+---
+
+## Reachable Context — Vector code search
+
+*Vigilance cost: "Did the AI miss the relevant code because grep wasn't the right way in?"*
+
+*Safety: Level 1 → 3 (probabilistic improvement on findability).*
+
+Pre-compute a summary for each class and method in the codebase; load all of them into a vector database. Add a search tool to the AI that queries the vector DB and is preferred over `grep`. The agent's reachable context now includes a semantic index, not just lexical match.
+
+This does not make the search deterministic — it changes which probabilistic search wins. The agent can find code by intent ("the part that decides retry backoff") rather than only by literal token. The vigilance question "did it miss anything?" shifts from often-yes to occasionally-yes.
+
+Recipe: *expand the agent's reachable surface in a direction that matches how it asks questions.*
+
+---
+
+## Reachable Context — Plan optionality
+
+*Vigilance cost: "Did the AI lock in on the first plausible option without exploring the space?"*
+
+*Safety: Level 1 → 4 for "option not considered."*
+
+The plan is held in source control via a plan MCP tool, not in an external planning system. Optionality is represented as a node: "generate options here." When the workflow reaches that node, it asks the AI to brainstorm more potential options. It takes that set plus the original and creates one `probably-wrong` branch per option. In each branch, the plan node is replaced with a node that commits to the selected option — as if that option had been the choice all along.
+
+The branches run in parallel. None of them knows that multiple options are being evaluated, or what the other options are. Each one believes its option is *the* plan. After they all terminate, failures are filtered out, the survivors are inspected, and we combine the best of each into a final solution.
+
+The agent in any single branch cannot under- or over-rate an alternative, because alternatives are not in its reachable context. The exploration is structural; the agent's job in each branch is to execute one specific option as well as possible.
+
+Recipe: *hide the comparison from the agents being compared.*
 
 ---
 

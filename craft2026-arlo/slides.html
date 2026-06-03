@@ -216,19 +216,380 @@
     #s33 .toc-grid { margin-top: 0.9rem; gap: 1rem; }
     #s33 .toc-card { padding: 1rem 0.9rem; }
     #s33 .toc-placeholder { margin-top: 0.8rem; }
+    /* Supplementary cards (Manipulating Coding Agents / Closing sequence) sit
+       in a second row of the TOC hub grid, left-aligned to the whole slide.
+       Deliberately subtler than the case studies and recipe steps: smaller,
+       transparent background, packed tight to the left. */
+    #s33 .toc-supplementary {
+      grid-column: 1 / -1;
+      margin-top: 1.4rem;
+    }
+    #s33 .toc-supplementary .toc-grid {
+      grid-template-columns: repeat(2, max-content);
+      justify-content: start;
+      gap: 0.5rem;
+      margin-top: 0;
+    }
+    #s33 .toc-supplementary .toc-card {
+      padding: 0.4rem 0.7rem;
+      background: transparent;
+      border-color: rgba(232,160,32,0.18);
+      border-radius: 10px;
+      text-align: left;
+    }
+    #s33 .toc-supplementary .toc-card .kicker {
+      font-size: clamp(0.55rem, 0.75vw, 0.72rem);
+      margin-bottom: 0.15rem;
+    }
+    #s33 .toc-supplementary .toc-card h3 {
+      font-size: clamp(0.78rem, 1.05vw, 0.98rem);
+      font-weight: 500;
+    }
 
-    /* ── NAME-THE-EXPERIENCE LIST ─────────────────────── */
-    .name-list { list-style: none; text-align: left; margin: 1.8rem auto 0; padding: 0; font-size: clamp(0.95rem, 1.55vw, 1.6rem); line-height: 1.5; }
-    .name-list li { margin-bottom: 0.9rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--subtle); }
-    .name-list li:last-child { border-bottom: none; margin-bottom: 0; }
-    .name-list li strong { display: inline-block; min-width: 9rem; }
+    /* ── LEVER VENN (s34: pills with definitions over a venn backdrop) ── */
+    .lever-venn {
+      position: relative;
+      width: min(1300px, 96%);
+      aspect-ratio: 13 / 7.2;
+      margin: 0.8rem auto 0;
+      max-height: 72vh;
+    }
+    .lever-venn .venn-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+    }
+    /* Pills live inside the SVG via <foreignObject>, so lengths are in viewBox
+       units (1300 x 720). They scale and letterbox with the circles automatically. */
+    .lever-venn .lever-cluster {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      gap: 10px;
+      text-align: left;
+    }
+    .lever-pill {
+      background: rgba(0,0,0,0.55);
+      border: 1px solid rgba(232,160,32,0.35);
+      border-radius: 14px;
+      padding: 8px 14px;
+      backdrop-filter: blur(2px);
+    }
+    .lever-pill .pill-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--fg);
+      line-height: 1.1;
+    }
+    .lever-pill .pill-def {
+      display: block;
+      margin-top: 3px;
+      font-size: 15px;
+      color: var(--dim);
+      line-height: 1.2;
+      font-style: italic;
+    }
+    .lever-pill-out {
+      border-style: dashed;
+      border-color: rgba(240,237,230,0.2);
+      opacity: 0.55;
+    }
+    .lever-pill-out .pill-name { text-decoration: line-through; }
 
-    /* ── STORY LIST ───────────────────────────────────── */
-    .story-list { list-style: none; text-align: left; margin: 0 auto; }
+    /* ── TOC HUB (case studies + recipes side-by-side) ── */
+    .toc-hub {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+      gap: 2.5rem;
+      align-items: start;
+      margin: 0.8rem auto 0;
+      width: min(1300px, 98%);
+      text-align: left;
+    }
+    .toc-hub .toc-section-label {
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+    }
+    /* Case studies are grouped by Agent's Universe lever, one pill per story.
+       3-column grid; intersection levers on row 1, vigilance-only on row 2. */
+    .lever-groups {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.1rem 0.9rem;
+      align-items: start;
+    }
+    .lever-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .lever-group .lever-name {
+      font-size: clamp(0.6rem, 0.95vw, 0.85rem);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--kicker);
+      margin: 0 0 0.15rem 0;
+      opacity: 0.9;
+    }
+    .toc-recipes [data-recipe-svg-slot] { margin: 0 auto; }
+    .toc-pill {
+      background: rgba(0,0,0,0.55);
+      border: 1px solid rgba(232,160,32,0.35);
+      border-radius: 14px;
+      padding: 0.45rem 0.8rem;
+      cursor: pointer;
+      transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+      backdrop-filter: blur(2px);
+    }
+    .toc-pill:hover {
+      background: rgba(232,160,32,0.18);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+    .toc-pill .pill-story {
+      font-size: clamp(0.8rem, 1.05vw, 1rem);
+      color: var(--fg);
+      font-weight: 600;
+      line-height: 1.2;
+    }
+    .toc-pill .pill-desc {
+      font-size: clamp(0.6rem, 0.85vw, 0.78rem);
+      color: var(--dim);
+      font-style: italic;
+      line-height: 1.2;
+    }
+    /* Legacy pill-kicker / pill-title — still used by the supplementary cards. */
+    .toc-pill .pill-kicker {
+      font-size: clamp(0.55rem, 0.85vw, 0.72rem);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--kicker);
+      line-height: 1;
+    }
+    .toc-pill .pill-title {
+      font-size: clamp(0.75rem, 1.05vw, 1rem);
+      color: var(--fg);
+      font-weight: 500;
+      line-height: 1.15;
+    }
+    .toc-pill-pending {
+      opacity: 0.5;
+      cursor: default;
+      border-style: dashed;
+    }
+    .toc-pill-pending:hover {
+      background: rgba(0,0,0,0.55);
+      border-color: rgba(232,160,32,0.35);
+      transform: none;
+    }
+    /* Already told in the upshift; included for context, not for jumping. */
+    .toc-pill-told {
+      opacity: 0.5;
+      cursor: default;
+      background: rgba(0,0,0,0.35);
+    }
+    .toc-pill-told:hover {
+      background: rgba(0,0,0,0.35);
+      border-color: rgba(232,160,32,0.35);
+      transform: none;
+    }
+    .toc-pill-told .pill-story::before {
+      content: '✓ ';
+      color: var(--accent);
+    }
+
+    /* ── NAME-THE-EXPERIENCE GRID ─────────────────────────
+       Label/value pairs (Scope / Cost to protect / Lever) on each case-study
+       closer. Two-column grid: labels left in accent, values right. Border
+       under every row except the last. */
+    .name-grid {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      column-gap: 1.6rem;
+      row-gap: 0;
+      text-align: left;
+      margin: 1.8rem auto 0;
+      max-width: 60rem;
+      font-size: clamp(0.95rem, 1.55vw, 1.6rem);
+      line-height: 1.45;
+    }
+    .name-grid .name-label,
+    .name-grid .name-value {
+      margin: 0;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--subtle);
+    }
+    .name-grid .name-label {
+      color: var(--accent);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .name-grid .name-value { color: var(--fg); }
+    .name-grid > *:nth-last-child(-n+2) { border-bottom: none; }
+
+    /* ── RECIPE-ITERATION SLIDE ───────────────────────
+       One row per iteration showing: selected vigilance / spot-check /
+       error categories surfaced / lever applied. Skimmable, not detailed —
+       the per-step walkthrough covers the how. */
+    .iter-grid {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      column-gap: 1.6rem;
+      row-gap: 0.9rem;
+      margin: 1.4rem auto 0;
+      max-width: 64rem;
+      text-align: left;
+      font-size: clamp(0.9rem, 1.35vw, 1.4rem);
+      line-height: 1.4;
+    }
+    .iter-grid .iter-label {
+      color: var(--kicker);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: clamp(0.62rem, 0.9vw, 0.8rem);
+      padding-top: 0.35rem;
+      white-space: nowrap;
+    }
+    .iter-grid .iter-value { color: var(--fg); }
+    .iter-grid .iter-value em { color: var(--dim); font-style: italic; }
+
+    /* Iteration card under the recipe SVG on s33. Visually a sibling to the
+       recipe steps but slightly subtler — leads into the worked example. */
+    #s33 .recipe-iteration-card {
+      margin-top: 1rem;
+      background: rgba(0,0,0,0.55);
+      border: 1px solid rgba(232,160,32,0.3);
+      border-radius: 12px;
+      padding: 0.7rem 0.9rem;
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+    }
+    #s33 .recipe-iteration-card:hover {
+      background: rgba(232,160,32,0.14);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+    #s33 .recipe-iteration-card .kicker {
+      margin: 0 0 0.2rem 0;
+      font-size: clamp(0.6rem, 0.85vw, 0.78rem);
+    }
+    #s33 .recipe-iteration-card h3 {
+      font-size: clamp(0.85rem, 1.1vw, 1.05rem);
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    /* ── DEMO STEP (transcript-fetcher walkthrough) ───
+       Per-step slide: Command pane on the left, an "I do" ordered list on the right,
+       and a collapsible Output pane below that lazily fetches a long example file
+       (markdown or json) from disk. Files live in demo-files/ as placeholders for now. */
+    .demo-step {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.4rem;
+      margin-top: 1.2rem;
+      text-align: left;
+    }
+    .demo-pane {
+      background: rgba(0,0,0,0.6);
+      border: 1px solid rgba(232,160,32,0.25);
+      border-radius: 12px;
+      padding: 0.9rem 1.1rem;
+      min-height: 8rem;
+    }
+    .demo-pane-label {
+      font-size: clamp(0.6rem, 0.85vw, 0.78rem);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--kicker);
+      margin: 0 0 0.5rem 0;
+    }
+    .demo-pane pre {
+      font-family: ui-monospace, 'Cascadia Mono', Consolas, monospace;
+      font-size: clamp(0.72rem, 0.95vw, 0.95rem);
+      color: var(--fg);
+      white-space: pre-wrap;
+      line-height: 1.4;
+      margin: 0;
+    }
+    .demo-pane.demo-do ol {
+      margin: 0;
+      padding-left: 1.4rem;
+      font-size: clamp(0.85rem, 1.15vw, 1.15rem);
+      color: var(--fg);
+      line-height: 1.45;
+    }
+    .demo-pane.demo-do li { margin-bottom: 0.35rem; }
+    .demo-pane.demo-do li:last-child { margin-bottom: 0; }
+    .demo-placeholder {
+      color: var(--dim);
+      font-style: italic;
+    }
+    .demo-description {
+      margin: 1.2rem auto 0;
+      color: var(--dim);
+      text-align: left;
+      max-width: 56rem;
+      font-size: clamp(0.85rem, 1.2vw, 1.2rem);
+      line-height: 1.45;
+    }
+
+    /* Collapsible Output pane: click summary to expand the example file inline.
+       File is fetched on first open and cached. */
+    .demo-output {
+      margin-top: 1.2rem;
+      background: rgba(0,0,0,0.6);
+      border: 1px solid rgba(232,160,32,0.25);
+      border-radius: 12px;
+      overflow: hidden;
+      text-align: left;
+    }
+    .demo-output > summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 0.7rem 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: var(--kicker);
+      font-size: clamp(0.6rem, 0.85vw, 0.78rem);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      user-select: none;
+    }
+    .demo-output > summary::-webkit-details-marker { display: none; }
+    .demo-output > summary::before {
+      content: '▸';
+      color: var(--accent);
+      font-size: 0.85rem;
+      transition: transform 0.15s ease;
+      width: 0.8rem;
+      display: inline-block;
+    }
+    .demo-output[open] > summary::before { transform: rotate(90deg); }
+    .demo-output > summary:hover { background: rgba(232,160,32,0.08); }
+    .demo-output .demo-output-file {
+      margin: 0;
+      padding: 0.8rem 1.1rem 1rem;
+      max-height: 42vh;
+      overflow-y: auto;
+      border-top: 1px solid rgba(232,160,32,0.15);
+      font-family: ui-monospace, 'Cascadia Mono', Consolas, monospace;
+      font-size: clamp(0.7rem, 0.95vw, 0.92rem);
+      color: var(--fg);
+      white-space: pre-wrap;
+      line-height: 1.4;
+    }
+    /* ── STORY LIST — used in case-study intervention slides ─────── */
+    .story-list { list-style: none; text-align: left; margin: 0 auto; max-width: 60rem; }
     .story-list li {
       position: relative;
-      padding: 0.85rem 0 0.85rem 3.2rem;
-      font-size: clamp(1.5rem, 2.8vw, 3rem);
+      padding: 0.55rem 0 0.55rem 2.2rem;
+      font-size: clamp(1rem, 1.7vw, 1.7rem);
       line-height: 1.4;
       border-bottom: 1px solid var(--subtle);
     }
@@ -236,9 +597,38 @@
       content: '→';
       color: var(--accent);
       position: absolute;
-      left: 0;
+      left: 0.2rem;
+      top: 0.55rem;
     }
     .story-list li:last-child { border-bottom: none; }
+
+    /* ── CASE-STUDY LAYOUT ──────────────────────────────
+       Left-align the body of case-study setup / intervention slides so
+       text walls read better and the kicker doesn't float on a centered axis.
+       Tag the slide with class="case-study" (in addition to "slide") to opt in. */
+    .case-study .slide-content {
+      text-align: left;
+      max-width: 64rem;
+      margin: 0 auto;
+    }
+
+    /* ── HOW LIST — generic three-beat list (e.g. s26 Be a Tool Builder).
+       Split from story-list so the two can evolve independently. ─────── */
+    .how-list { list-style: none; text-align: left; margin: 0 auto; }
+    .how-list li {
+      position: relative;
+      padding: 0.85rem 0 0.85rem 3.2rem;
+      font-size: clamp(1.5rem, 2.8vw, 3rem);
+      line-height: 1.4;
+      border-bottom: 1px solid var(--subtle);
+    }
+    .how-list li::before {
+      content: '→';
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+    }
+    .how-list li:last-child { border-bottom: none; }
 
     /* ── CHROME ───────────────────────────────────────── */
     #progress {
@@ -348,6 +738,15 @@
     </div>
   </section>
 
+  <!-- 07 Better brakes meant braking later -->
+  <section class="slide img-bg bg-s54" id="s7">
+    <div class="overlay"></div>
+    <div class="slide-content">
+      <h2>Better brakes let drivers <span class="accent">brake later</span>.</h2>
+      <p style="margin-top: 2rem; color: var(--dim);">They stopped watching every curve from far away. They could go faster, safely. So they did.</p>
+    </div>
+  </section>
+
   <!-- 08 What brakes really do -->
   <section class="slide img-bg bg-s36" id="s8">
     <div class="overlay"></div>
@@ -372,7 +771,7 @@
     <div class="overlay"></div>
     <div class="slide-content">
       <h2><span class="accent">work-toil</span> became <span class="accent">vigilance-toil</span>.</h2>
-      <p style="margin-top: 2rem; color: var(--dim);">Watching closely enough that nothing goes wrong is still toil.<br>More stressful. Less interesting.</p>
+      <p style="margin-top: 2rem; color: var(--dim);">Watching closely enough that nothing goes wrong is still toil. More stressful. Less interesting.</p>
     </div>
   </section>
 
@@ -428,12 +827,197 @@
     </div>
   </section>
 
-  <!-- 23 PLACEHOLDER — quick story: find key moments in a transcript -->
+  <!-- ═══════════════════════════════════════════════════
+       DEMO 2 — Transcript fetcher (semi-demo)
+       s23 intro + s23a..s23f one slide per transition.
+       Each step slide carries a CLI pane and a result-file pane; both start as
+       placeholders. CLI commands will be filled in later; result-file content
+       comes from working notes the speaker has on hand.
+  ════════════════════════════════════════════════════ -->
+
+  <!-- 23 intro — frame the demo -->
   <section class="slide" id="s23">
     <div class="slide-content">
-      <h2>Find key moments<br>in a transcript</h2>
-      <p class="toc-placeholder">Placeholder. Semi-demo script lands in a later session.</p>
-      <p style="margin-top: 2rem; color: var(--dim);">Semi-demo. Four transitions: sequencing, fetch, goal spec, output format.</p>
+      <p class="kicker">Find key moments in a transcript</p>
+      <p style="margin-top: 1.8rem; color: var(--dim);">A daily coaching workflow. Six transitions follow, each silencing one specific vigilance question.</p>
+    </div>
+  </section>
+
+  <!-- 23-0 Step 0 — Prompt Claude and watch (baseline / initial condition) -->
+  <section class="slide case-study" id="s23-0">
+    <div class="slide-content">
+      <p class="kicker">Step 0 · Prompt Claude and watch</p>
+      <div class="demo-step">
+        <div class="demo-pane demo-cmd">
+          <p class="demo-pane-label">Command</p>
+          <pre class="demo-placeholder">(CLI invocation to be filled in)</pre>
+        </div>
+        <div class="demo-pane demo-do">
+          <p class="demo-pane-label">I do</p>
+          <ol>
+        <li>Run Claude with the prompt.</li>
+        <li>Watch every step and interrupt when something looks wrong.</li>
+        <li>Re-prompt with corrections.</li>
+        <li>Repeat for every run, every day.</li>
+          </ol>
+        </div>
+      </div>
+      <details class="demo-output">
+        <summary>Result · raw conversation</summary>
+        <pre class="demo-output-file" data-file="demo-files/s23-0.md">(click to load)</pre>
+      </details>
+    </div>
+  </section>
+
+  <!-- 23a Step 1 — Written workflow -->
+  <section class="slide case-study" id="s23a">
+    <div class="slide-content">
+      <p class="kicker">Step 1 · Written workflow</p>
+      <div class="demo-step">
+        <div class="demo-pane demo-cmd">
+          <p class="demo-pane-label">Command</p>
+          <pre class="demo-placeholder">(CLI invocation to be filled in)</pre>
+        </div>
+        <div class="demo-pane demo-do">
+          <p class="demo-pane-label">I do</p>
+          <ol>
+        <li>Hand Claude the workflow file.</li>
+        <li>Watch every step it takes.</li>
+        <li>When a gap shows up, edit the workflow file.</li>
+        <li>Re-run on the next day with the improved file.</li>
+          </ol>
+        </div>
+      </div>
+      <details class="demo-output">
+        <summary>Output · workflows/daily.md</summary>
+        <pre class="demo-output-file" data-file="demo-files/s23a.md">(click to load)</pre>
+      </details>
+    </div>
+  </section>
+
+  <!-- 23b Step 2 — Document iteration pattern -->
+  <section class="slide case-study" id="s23b">
+    <div class="slide-content">
+      <p class="kicker">Step 2 · Document iteration pattern</p>
+      <div class="demo-step">
+        <div class="demo-pane demo-cmd">
+          <p class="demo-pane-label">Command</p>
+          <pre class="demo-placeholder">(CLI invocation to be filled in)</pre>
+        </div>
+        <div class="demo-pane demo-do">
+          <p class="demo-pane-label">I do</p>
+          <ol>
+        <li>Run the doc-iteration pattern on the workflow file.</li>
+        <li>Review each pass.</li>
+        <li>Direct edits via the iteration loop.</li>
+        <li>Commit the improved workflow.</li>
+          </ol>
+        </div>
+      </div>
+      <details class="demo-output">
+        <summary>Output · workflows/daily.md (revised)</summary>
+        <pre class="demo-output-file" data-file="demo-files/s23b.md">(click to load)</pre>
+      </details>
+    </div>
+  </section>
+
+  <!-- 23c Step 3 — pnpm do-today -->
+  <section class="slide case-study" id="s23c">
+    <div class="slide-content">
+      <p class="kicker">Step 3 · pnpm do-today</p>
+      <div class="demo-step">
+        <div class="demo-pane demo-cmd">
+          <p class="demo-pane-label">Command</p>
+          <pre class="demo-placeholder">pnpm do-today</pre>
+        </div>
+        <div class="demo-pane demo-do">
+          <p class="demo-pane-label">I do</p>
+          <ol>
+        <li>Run the script.</li>
+        <li>Let deterministic code decide the next step.</li>
+        <li>Approve or reject the proposed action between steps.</li>
+          </ol>
+        </div>
+      </div>
+      <details class="demo-output">
+        <summary>Output · scripts/do-today.ts</summary>
+        <pre class="demo-output-file" data-file="demo-files/s23c.ts.txt">(click to load)</pre>
+      </details>
+    </div>
+  </section>
+
+  <!-- 23d Step 4 — Narrow goal -->
+  <section class="slide case-study" id="s23d">
+    <div class="slide-content">
+      <p class="kicker">Step 4 · Narrow goal</p>
+      <div class="demo-step">
+        <div class="demo-pane demo-cmd">
+          <p class="demo-pane-label">Command</p>
+          <pre class="demo-placeholder">(CLI invocation to be filled in)</pre>
+        </div>
+        <div class="demo-pane demo-do">
+          <p class="demo-pane-label">I do</p>
+          <ol>
+        <li>Hand Claude the narrowed goal: "find key moments."</li>
+        <li>Let it propose; respond with eval.</li>
+        <li>Stop interviewing about everything. Answer only to fill gaps.</li>
+          </ol>
+        </div>
+      </div>
+      <details class="demo-output">
+        <summary>Output · workflows/find-key-moments.md</summary>
+        <pre class="demo-output-file" data-file="demo-files/s23d.md">(click to load)</pre>
+      </details>
+    </div>
+  </section>
+
+  <!-- 23e Step 5 — Scripted fetch -->
+  <section class="slide case-study" id="s23e">
+    <div class="slide-content">
+      <p class="kicker">Step 5 · Scripted fetch</p>
+      <div class="demo-step">
+        <div class="demo-pane demo-cmd">
+          <p class="demo-pane-label">Command</p>
+          <pre class="demo-placeholder">(CLI invocation to be filled in)</pre>
+        </div>
+        <div class="demo-pane demo-do">
+          <p class="demo-pane-label">I do</p>
+          <ol>
+        <li>Run the deterministic fetcher.</li>
+        <li>On success, do nothing; Claude was never invoked.</li>
+        <li>On failure, look at what Claude was handed and what it returned.</li>
+          </ol>
+        </div>
+      </div>
+      <details class="demo-output">
+        <summary>Output · fetch-transcript output</summary>
+        <pre class="demo-output-file" data-file="demo-files/s23e.json">(click to load)</pre>
+      </details>
+    </div>
+  </section>
+
+  <!-- 23f Step 6 — Iterative analysis -->
+  <section class="slide case-study" id="s23f">
+    <div class="slide-content">
+      <p class="kicker">Step 6 · Iterative analysis</p>
+      <div class="demo-step">
+        <div class="demo-pane demo-cmd">
+          <p class="demo-pane-label">Command</p>
+          <pre class="demo-placeholder">(CLI invocation to be filled in)</pre>
+        </div>
+        <div class="demo-pane demo-do">
+          <p class="demo-pane-label">I do</p>
+          <ol>
+        <li>Run analysis with schema validation.</li>
+        <li>On validation failure, Claude is re-called with the specific gap.</li>
+        <li>Compose the final analysis from independent, re-orderable steps.</li>
+          </ol>
+        </div>
+      </div>
+      <details class="demo-output">
+        <summary>Output · analysis.json (schema-validated)</summary>
+        <pre class="demo-output-file" data-file="demo-files/s23f.json">(click to load)</pre>
+      </details>
     </div>
   </section>
 
@@ -534,60 +1118,6 @@
       </div>
     </div>
   </section>
-  
-  <!-- 32 Name the recurring terms -->
-  <section class="slide" id="s32a">
-    <div class="slide-content">
-      <p class="kicker">Terms</p>
-      <ul style="text-align: left; margin: 2rem auto 0; list-style: none; padding: 0; font-size: clamp(1rem, 1.65vw, 1.7rem); line-height: 1.5;">
-        <li style="margin-bottom: 1.1rem;">
-          <strong class="accent">Scope:</strong> the class of error one intervention addresses.
-        </li>
-        <li style="margin-bottom: 1.1rem;">
-          &nbsp;
-        </li>
-        <li style="margin-bottom: 1.1rem;">
-          &nbsp;
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- 32 Name the recurring terms -->
-  <section class="slide" id="s32b">
-    <div class="slide-content">
-      <p class="kicker">Terms</p>
-      <ul style="text-align: left; margin: 2rem auto 0; list-style: none; padding: 0; font-size: clamp(1rem, 1.65vw, 1.7rem); line-height: 1.5;">
-        <li style="margin-bottom: 1.1rem;">
-          <strong class="accent">Scope:</strong> the class of error one intervention addresses.
-        </li>
-        <li style="margin-bottom: 1.1rem;">
-          <strong class="accent">Lever:</strong> a facet of the agent's universe you can engineer.
-        </li>
-        <li style="margin-bottom: 1.1rem;">
-          &nbsp;
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- 32 Name the recurring terms -->
-  <section class="slide" id="s32c">
-    <div class="slide-content">
-      <p class="kicker">Terms</p>
-      <ul style="text-align: left; margin: 2rem auto 0; list-style: none; padding: 0; font-size: clamp(1rem, 1.65vw, 1.7rem); line-height: 1.5;">
-        <li style="margin-bottom: 1.1rem;">
-          <strong class="accent">Scope:</strong> the class of error one intervention addresses.
-        </li>
-        <li style="margin-bottom: 1.1rem;">
-          <strong class="accent">Lever:</strong> a facet of the agent's universe you can engineer.
-        </li>
-        <li style="margin-bottom: 1.1rem;">
-          <strong class="accent">Cost to protect:</strong> how much vigilance toil is spent to prevent errors in this scope.
-        </li>
-      </ul>
-    </div>
-  </section>
 
   <section class="slide" id="s25">
     <div class="slide-content">
@@ -614,7 +1144,7 @@
   <section class="slide" id="s24">
     <div class="slide-content">
       <p class="kicker">Two kinds of engineer</p>
-      <div style="display: grid; grid-template-columns: max-content repeat(2, 1fr); column-gap: 1.6rem; row-gap: 1rem; margin: 2.5rem auto 0; text-align: left; font-size: clamp(0.9rem, 1.3vw, 1.4rem); line-height: 1.45;">
+      <div style="display: grid; grid-template-columns: max-content repeat(2, 1fr); column-gap: 1.8rem; row-gap: 1.1rem; margin: 2.5rem auto 0; text-align: left; font-size: clamp(1.15rem, 1.85vw, 2rem); line-height: 1.4;">
         <!-- Column labels -->
         <div ></div>
         <div style="color: var(--kicker); border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 0.4rem;">App / Lib Dev</div>
@@ -635,7 +1165,7 @@
         <div style="font-style: italic; color: var(--dim);">Find and fix defects before they pile up.</div>
         <div style="font-style: italic; color: var(--dim);">Control the <em>rate</em> at which <em>even careless devs</em> create defects.</div>
       </div>
-      <p style="margin-top: 2rem; color: var(--dim);">If your AI is one of the developers, you are the tool builder.</p>
+      <p style="margin-top: 4.5rem; color: var(--dim); font-style: italic;">If your AI is one of the developers, you are the tool builder.</p>
     </div>
   </section>
 
@@ -654,9 +1184,10 @@
     <div class="slide-content">
       <p class="kicker">How?</p>
       <h2>Be a Tool Builder</h2>
-      <ul class="story-list" style="margin-top: 2.5rem;">
+      <ul class="how-list" style="margin-top: 2.5rem;">
+        <li>Assume a well-intentioned but careless engineer.</li>
         <li>Change the <em>universe</em>.</li>
-        <li>Raise safety on one <em>error category</em>.</li>
+        <li>Reduce <em>creation rate</em> of one error category.</li>
       </ul>
     </div>
   </section>
@@ -665,41 +1196,74 @@
   <section class="slide img-bg bg-cr-developer" id="s34">
     <div class="overlay"></div>
     <div class="slide-content">
-      <p class="kicker">Where to push</p>
-      <h2>The agent's <span class="accent">universe</span></h2>
-      <svg viewBox="0 0 1300 700" width="100%" style="max-height:72vh; display:block; margin: 0.8rem auto 0;" role="img">
-        <!-- Two overlapping circles: work toil (left) and vigilance toil (right).
-             Levers that reduce both sit in the intersection; vigilance-only on
-             the right; work-toil-only on the left, crossed out. -->
-        <circle cx="450" cy="380" r="300" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="2"/>
-        <circle cx="850" cy="380" r="300" fill="rgba(232,160,32,0.10)" stroke="#e8a020" stroke-width="2"/>
+      <p class="kicker">The agent's universe</p>
+      <div class="lever-venn">
+        <svg viewBox="0 0 1300 720" class="venn-bg" preserveAspectRatio="xMidYMid meet" role="img">
+          <circle cx="530" cy="400" r="320" fill="rgba(232,160,32,0.10)" stroke="#e8a020" stroke-width="2"/>
+          <circle cx="770" cy="400" r="320" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="2"/>
+          <text x="220"  y="50" text-anchor="middle" font-size="24" font-weight="800" fill="#e8a020" letter-spacing="0.5">Vigilance toil</text>
+          <text x="1080" y="50" text-anchor="middle" font-size="24" font-weight="800" fill="#7ab8c8" letter-spacing="0.5">Work toil</text>
 
-        <text x="270"  y="60" text-anchor="middle" font-size="22" font-weight="800" fill="#7ab8c8" letter-spacing="0.5">Work toil</text>
-        <text x="1030" y="60" text-anchor="middle" font-size="22" font-weight="800" fill="#e8a020" letter-spacing="0.5">Vigilance toil</text>
+          <!-- Vigilance-only lens: x ∈ [210, 450] at y=400, narrows toward top/bottom (left bound moves right).
+               Pill cluster width is set so the top/bottom rows still fit inside the lens, not just the middle. -->
+          <foreignObject x="240" y="160" width="210" height="480">
+            <div xmlns="http://www.w3.org/1999/xhtml" class="lever-cluster lever-cluster-vigilance">
+              <div class="lever-pill">
+                <span class="pill-name">Memory</span>
+                <span class="pill-def">What it believes happened in prior turns.</span>
+              </div>
+              <div class="lever-pill">
+                <span class="pill-name">Reachable Context</span>
+                <span class="pill-def">What it can find.</span>
+              </div>
+              <div class="lever-pill">
+                <span class="pill-name">State control</span>
+                <span class="pill-def">The map between agent outputs and real objects.</span>
+              </div>
+            </div>
+          </foreignObject>
 
-        <!-- Intersection: both reduced. -->
-        <g text-anchor="middle" font-weight="700" fill="#f0ede6">
-          <text x="650" y="300" font-size="20">Goals</text>
-          <text x="650" y="355" font-size="20">Tooling</text>
-          <text x="650" y="410" font-size="20">Workflow</text>
-          <text x="650" y="465" font-size="20">Feedback</text>
-        </g>
+          <!-- Intersection lens: 400 wide at y=400, narrows toward top/bottom. Pill content height ~275 stays inside the lens. -->
+          <foreignObject x="525" y="160" width="250" height="480">
+            <div xmlns="http://www.w3.org/1999/xhtml" class="lever-cluster lever-cluster-intersection">
+              <div class="lever-pill">
+                <span class="pill-name">Goals</span>
+                <span class="pill-def">How narrowly the task is scoped.</span>
+              </div>
+              <div class="lever-pill">
+                <span class="pill-name">Tooling</span>
+                <span class="pill-def">What's in the toolbox.</span>
+              </div>
+              <div class="lever-pill">
+                <span class="pill-name">Workflow</span>
+                <span class="pill-def">How we interleave deterministic code calls and agent calls.</span>
+              </div>
+              <div class="lever-pill">
+                <span class="pill-name">Feedback</span>
+                <span class="pill-def">What signals it gets back about action outcomes.</span>
+              </div>
+            </div>
+          </foreignObject>
 
-        <!-- Vigilance-only (right crescent). -->
-        <g text-anchor="middle" font-weight="700" fill="#f0ede6">
-          <text x="900" y="300" font-size="20">State control</text>
-          <text x="900" y="355" font-size="20">Memory</text>
-          <text x="900" y="410" font-size="18">Reachable Context</text>
-        </g>
-
-        <!-- Work-toil-only (left crescent), crossed out. -->
-        <g text-anchor="middle" font-weight="700" fill="rgba(240,237,230,0.55)" text-decoration="line-through">
-          <text x="370" y="300" font-size="18">Identity</text>
-          <text x="370" y="355" font-size="18">Adjacency</text>
-          <text x="370" y="410" font-size="17">Mid-turn interrupts</text>
-          <text x="370" y="465" font-size="17">In-flight messages</text>
-        </g>
-      </svg>
+          <!-- Work-only lens: x ∈ [850, 1090] at y=400, narrows toward top/bottom (right bound moves left). -->
+          <foreignObject x="850" y="160" width="210" height="480">
+            <div xmlns="http://www.w3.org/1999/xhtml" class="lever-cluster lever-cluster-work">
+              <div class="lever-pill lever-pill-out">
+                <span class="pill-name">Identity</span>
+                <span class="pill-def">Which agent or persona.</span>
+              </div>
+              <div class="lever-pill lever-pill-out">
+                <span class="pill-name">Adjacency</span>
+                <span class="pill-def">Who's watching live.</span>
+              </div>
+              <div class="lever-pill lever-pill-out">
+                <span class="pill-name">In-turn messages</span>
+                <span class="pill-def">Talking during a turn.</span>
+              </div>
+            </div>
+          </foreignObject>
+        </svg>
+      </div>
     </div>
   </section>
 
@@ -844,71 +1408,129 @@
   <section class="slide" id="s33">
     <div class="slide-content">
       <p class="kicker">Pick one to explore</p>
-      <h2>Agent's <span class="accent">Universe</span></h2>
 
-      <p class="toc-section-label">Case studies</p>
-      <div class="toc-grid">
-        <div class="toc-card" data-jump-to="s38">
-          <p class="kicker">Memory</p>
-          <h3>Decision inconsistency</h3>
+      <div class="toc-hub">
+        <div class="toc-case-studies">
+          <p class="toc-section-label">Case studies</p>
+          <div class="lever-groups">
+            <!-- Row 1: intersection levers (reduce both vigilance and work toil) -->
+            <div class="lever-group">
+              <p class="lever-name">Goals</p>
+              <div class="toc-pill" data-jump-to="s41">
+                <span class="pill-story">Status email as structured spec</span>
+                <span class="pill-desc">Consistency violation</span>
+              </div>
+            </div>
+            <div class="lever-group">
+              <p class="lever-name">Tooling</p>
+              <div class="toc-pill toc-pill-told">
+                <span class="pill-story">Movement-based branching</span>
+                <span class="pill-desc">Policy enforcement</span>
+              </div>
+              <div class="toc-pill" data-jump-to="s50">
+                <span class="pill-story">AST-only refactoring</span>
+                <span class="pill-desc">Accidental behavior change</span>
+              </div>
+            </div>
+            <div class="lever-group">
+              <p class="lever-name">Workflow</p>
+              <div class="toc-pill toc-pill-told">
+                <span class="pill-story">Transcript fetcher</span>
+                <span class="pill-desc">Oversight gap</span>
+              </div>
+              <div class="toc-pill" data-jump-to="s57a">
+                <span class="pill-story">Dev inner loop control</span>
+                <span class="pill-desc">Phase bleed in TDD</span>
+              </div>
+            </div>
+            <!-- Row 2: vigilance-only levers + Feedback (TBD pending slide content) -->
+            <div class="lever-group">
+              <p class="lever-name">Feedback</p>
+              <div class="toc-pill" data-jump-to="s56a">
+                <span class="pill-story">Commit tool as quality reviewer</span>
+                <span class="pill-desc">Smelly code slips review</span>
+              </div>
+              <div class="toc-pill" data-jump-to="s56d">
+                <span class="pill-story">Required demo + verification</span>
+                <span class="pill-desc">Looks done, isn't</span>
+              </div>
+            </div>
+            <div class="lever-group">
+              <p class="lever-name">Memory</p>
+              <div class="toc-pill" data-jump-to="s38">
+                <span class="pill-story">Delete completed stories</span>
+                <span class="pill-desc">Decision inconsistency</span>
+              </div>
+            </div>
+            <div class="lever-group">
+              <p class="lever-name">State control</p>
+              <div class="toc-pill" data-jump-to="s53">
+                <span class="pill-story">Archive table for migrations</span>
+                <span class="pill-desc">Data loss</span>
+              </div>
+            </div>
+            <div class="lever-group">
+              <p class="lever-name">Reachable Context</p>
+              <div class="toc-pill" data-jump-to="s-rc-mono-a">
+                <span class="pill-story">Monorepo isolation</span>
+                <span class="pill-desc">Cross-package contamination</span>
+              </div>
+              <div class="toc-pill" data-jump-to="s-rc-phase-a">
+                <span class="pill-story">Multi-phase re-design</span>
+                <span class="pill-desc">Skip past the intermediate</span>
+              </div>
+              <div class="toc-pill" data-jump-to="s-rc-vector-a">
+                <span class="pill-story">Vector code search</span>
+                <span class="pill-desc">Findability gap</span>
+              </div>
+              <div class="toc-pill" data-jump-to="s-rc-plan-a">
+                <span class="pill-story">Plan optionality</span>
+                <span class="pill-desc">Premature option lock-in</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="toc-card" data-jump-to="s41">
-          <p class="kicker">Goals</p>
-          <h3>Consistency violation</h3>
-        </div>
-        <div class="toc-card" data-jump-to="s44">
-          <p class="kicker">Workflow</p>
-          <h3>Oversight gap</h3>
-        </div>
-        <div class="toc-card" data-jump-to="s47">
-          <p class="kicker">Tooling</p>
-          <h3>Scope enforcement</h3>
-        </div>
-        <div class="toc-card" data-jump-to="s50">
-          <p class="kicker">Tooling (operations)</p>
-          <h3>Accidental behavior change</h3>
-        </div>
-        <div class="toc-card" data-jump-to="s53">
-          <p class="kicker">State control</p>
-          <h3>Data loss (archive table)</h3>
-        </div>
-        <div class="toc-card toc-card-pending">
-          <p class="kicker">Feedback</p>
-          <h3>Story TBD</h3>
-        </div>
-      </div>
 
-      <p class="toc-section-label">Recipes</p>
-      <div data-recipe-svg-slot="clickable" style="margin: 0 auto;"></div>
-
-      <div class="toc-grid" style="margin-top: 0.6rem;">
-        <div class="toc-card" data-jump-to="s33d-1">
-          <p class="kicker">your customers</p>
-          <h3>Manipulating Coding Agents</h3>
+        <div class="toc-recipes">
+          <p class="toc-section-label">Recipe</p>
+          <div data-recipe-svg-slot="clickable"></div>
+          <div class="recipe-iteration-card" data-jump-to="s-rec-iter-0">
+            <p class="kicker">Worked example &mdash; three iterations</p>
+            <h3>Extract <code>PaymentService</code> from <code>OrderProcessor</code></h3>
+          </div>
         </div>
-        <div class="toc-card" data-jump-to="s56">
-          <p class="kicker">Synthesis</p>
-          <h3>Closing sequence</h3>
+
+        <div class="toc-supplementary">
+          <div class="toc-grid">
+            <div class="toc-card" data-jump-to="s33d-1">
+              <p class="kicker">your customers</p>
+              <h3>Manipulating Coding Agents</h3>
+            </div>
+            <div class="toc-card" data-jump-to="s56">
+              <p class="kicker">Synthesis</p>
+              <h3>Closing sequence</h3>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── BEAT 1: Memory / Decision inconsistency ──────── -->
+  <!-- ── STORY: Delete completed stories (Memory + Reachable Context) ──────── -->
 
   <!-- 38 Setup -->
-  <section class="slide" id="s38">
+  <section class="slide case-study" id="s38">
     <div class="slide-content">
       <p class="kicker">Discovery during demos</p>
       <h2>Vigilance cost:<br><span class="accent">Decision inconsistency</span></h2>
-      <p style="margin-top: 2rem; color: var(--dim);">"Does this contradict a decision from earlier in the session?<br>Are we building on conflicting assumptions?"</p>
+      <p style="margin-top: 2rem; color: var(--dim);">"Does this contradict a decision from earlier in the session? Are we building on conflicting assumptions?"</p>
     </div>
   </section>
 
-  <!-- 39 Intervention — beat 1 -->
-  <section class="slide" id="s39">
+  <!-- 39 Intervention — Delete completed stories -->
+  <section class="slide case-study" id="s39">
     <div class="slide-content">
-      <p class="kicker">Universe: Memory</p>
+      <p class="kicker">Main Levers: Memory + Reachable Context</p>
       <ul class="story-list">
         <li><em>Delete</em> completed stories entirely (don't mark done)</li>
         <li>Rewrite all future stories to reflect the current direction</li>
@@ -921,72 +1543,78 @@
       <p style="margin-top: 1rem; color: var(--dim);">This direction was always the plan. It doesn't know otherwise.</p>
     </div>
   </section>
-
-  <!-- 40 Name the experience — beat 1; next returns to TOC -->
+  
+  <!-- 40 Name the experience — Delete completed stories; next returns to TOC -->
   <section class="slide" id="s40" data-return-to-toc="true">
     <div class="slide-content">
       <p class="kicker">Name the experience</p>
-      <ul class="name-list">
-        <li><strong class="accent">Scope</strong> Cross-session decision inconsistency.</li>
-        <li><strong class="accent">Cost to protect</strong> Zero — conflicting decisions are structurally impossible.</li>
-        <li><strong class="accent">Lever</strong> Memory.</li>
-      </ul>
+      <div class="name-grid">
+        <p class="name-label">Scope</p>
+        <p class="name-value">Cross-session decision inconsistency.</p>
+        <p class="name-label">Cost to protect</p>
+        <p class="name-value">Zero: conflicting decisions are structurally impossible.</p>
+        <p class="name-label">Lever</p>
+        <p class="name-value">Memory + Reachable Context.</p>
+      </div>
     </div>
   </section>
 
-  <!-- ── BEAT 2: Goals / Consistency violation ─────────── -->
+  <!-- ── STORY: Status email as structured spec (Goals) ─────────── -->
 
   <!-- 41 Setup -->
-  <section class="slide" id="s41">
+  <section class="slide case-study" id="s41">
     <div class="slide-content">
       <p class="kicker">Recurring structured output</p>
       <h2>Vigilance cost:<br><span class="accent">Consistency violation</span></h2>
-      <p style="margin-top: 2rem; color: var(--dim);">"Does this follow the same structure as last time?<br>Did it invent something that drifts from the template?"</p>
+      <p style="margin-top: 2rem; color: var(--dim);">"Does this email follow the same structure as last time? Did it include the right sections for day N/10?"</p>
     </div>
   </section>
 
-  <!-- 42 Intervention — beat 2 -->
-  <section class="slide img-bg" id="s42">
+  <!-- 42 Intervention — Status email as structured spec -->
+  <section class="slide img-bg case-study" id="s42">
     <div class="overlay"></div>
     <div class="slide-content">
-      <p class="kicker">Universe: Goals</p>
-      <h2>From "write HTML email"<br> to "json → bullet points".</h2>
-      <p style="margin-top: 2rem; color: var(--dim);">Claude writes sentences.<br>Deterministic code assembles everything else.</p>
+      <p class="kicker">Main Lever: Goals</p>
+      <h2>"json → bullet points".</h2>
+      <p style="margin-top: 2rem; color: var(--dim);">Claude writes sentences. Deterministic code assembles everything else.</p>
       <p style="margin-top: 1.5rem;">
-        Structure, recipients, rendering:<br>
+        Structure, recipients, rendering:
         <span class="accent">zero-risk zones. Forever.</span>
       </p>
     </div>
   </section>
 
-  <!-- 43 Name the experience — beat 2; next returns to TOC -->
+  <!-- 43 Name the experience — Status email as structured spec; next returns to TOC -->
   <section class="slide" id="s43" data-return-to-toc="true">
     <div class="slide-content">
       <p class="kicker">Name the experience</p>
-      <ul class="name-list">
-        <li><strong class="accent">Scope</strong> Format and structure drift in recurring output.</li>
-        <li><strong class="accent">Cost to protect</strong> Zero — structure, recipients, rendering each become zero-risk zones.</li>
-        <li><strong class="accent">Lever</strong> Goals (structured spec).</li>
-      </ul>
+      <div class="name-grid">
+        <p class="name-label">Scope</p>
+        <p class="name-value">Format and structure drift in recurring output.</p>
+        <p class="name-label">Cost to protect</p>
+        <p class="name-value">Zero. Structure, recipients, and rendering each become zero-risk zones.</p>
+        <p class="name-label">Lever</p>
+        <p class="name-value">Goals (structured spec).</p>
+      </div>
     </div>
   </section>
 
-  <!-- ── BEAT 3: Workflow / Oversight gap ──────── -->
+  <!-- ── STORY: Transcript fetcher (Workflow) ──────── -->
 
   <!-- 44 Setup -->
-  <section class="slide img-bg" id="s44">
+  <section class="slide img-bg case-study" id="s44">
     <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Session data fetching</p>
       <h2>Vigilance cost:<br><span class="accent">Oversight mechanism gap</span></h2>
-      <p style="margin-top: 2rem; color: var(--dim);">"Did the AI keep going past the point<br>where I should have been consulted?"</p>
+      <p style="margin-top: 2rem; color: var(--dim);">"Did the AI keep going past the point where I should have been consulted?"</p>
     </div>
   </section>
 
-  <!-- 45 Intervention — beat 3 -->
-  <section class="slide img-bg" id="s45">
+  <!-- 45 Intervention — Transcript fetcher -->
+  <section class="slide img-bg case-study" id="s45">
     <div class="slide-content">
-      <p class="kicker">Universe: Workflow</p>
+      <p class="kicker">Main Lever: Workflow</p>
       <div class="two-up">
         <div>
           <p class="kicker">On success</p>
@@ -997,26 +1625,29 @@
           <h3 class="accent">Claude is called<br>with the failure.</h3>
         </div>
       </div>
-      <p style="margin-top: 2.5rem; color: var(--dim);">The system only calls Claude<br>when deterministic code admits it can't handle something.</p>
+      <p style="margin-top: 2.5rem; color: var(--dim);">The system only calls Claude when deterministic code admits it can't handle something.</p>
     </div>
   </section>
 
-  <!-- 46 Name the experience — beat 3; next returns to TOC -->
+  <!-- 46 Name the experience — Transcript fetcher; next returns to TOC -->
   <section class="slide" id="s46" data-return-to-toc="true">
     <div class="slide-content">
       <p class="kicker">Name the experience</p>
-      <ul class="name-list">
-        <li><strong class="accent">Scope</strong> Wrong-data fetching and over-eager step completion.</li>
-        <li><strong class="accent">Cost to protect</strong> Near zero — deterministic by default; the agent runs only on declared failure.</li>
-        <li><strong class="accent">Lever</strong> Workflow.</li>
-      </ul>
+      <div class="name-grid">
+        <p class="name-label">Scope</p>
+        <p class="name-value">Wrong-data fetching and over-eager step completion.</p>
+        <p class="name-label">Cost to protect</p>
+        <p class="name-value">Near zero. Deterministic by default; the agent runs only on declared failure.</p>
+        <p class="name-label">Lever</p>
+        <p class="name-value">Workflow.</p>
+      </div>
     </div>
   </section>
 
-  <!-- ── BEAT 4: Tooling (access) / Scope enforcement ───── -->
+  <!-- ── STORY: Movement-based branching (Tooling) ───── -->
 
   <!-- 47 Setup -->
-  <section class="slide img-bg" id="s47">
+  <section class="slide img-bg case-study" id="s47">
     <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Source control in an agentic codebase</p>
@@ -1025,13 +1656,13 @@
     </div>
   </section>
 
-  <!-- 48 Intervention — beat 4 -->
-  <section class="slide img-bg" id="s48">
+  <!-- 48 Intervention — Movement-based branching -->
+  <section class="slide img-bg case-study" id="s48">
     <div class="overlay"></div>
     <div class="slide-content">
-      <p class="kicker">Universe: Tooling</p>
+      <p class="kicker">Main Lever: Tooling</p>
       <h2>Minions never touch <span class="accent">git.</span></h2>
-      <p style="margin-top: 2rem; color: var(--dim);">An MCP tool handles all branching.<br>All the right behaviors implemented. None of the wrong ones available.</p>
+      <p style="margin-top: 2rem; color: var(--dim);">An MCP tool handles all branching. All the right behaviors implemented. None of the wrong ones available.</p>
       <p style="margin-top: 1.5rem;">
         The AI cannot violate git invariants.<br>
         because there's <span class="accent">nothing to route around.</span>
@@ -1039,22 +1670,25 @@
     </div>
   </section>
 
-  <!-- 49 Name the experience — beat 4; next returns to TOC -->
+  <!-- 49 Name the experience — Movement-based branching; next returns to TOC -->
   <section class="slide" id="s49" data-return-to-toc="true">
     <div class="slide-content">
       <p class="kicker">Name the experience</p>
-      <ul class="name-list">
-        <li><strong class="accent">Scope</strong> Git operations and the risk-notation policy.</li>
-        <li><strong class="accent">Cost to protect</strong> Zero — git invariants cannot be violated; nothing to route around.</li>
-        <li><strong class="accent">Lever</strong> Tooling.</li>
-      </ul>
+      <div class="name-grid">
+        <p class="name-label">Scope</p>
+        <p class="name-value">Git operations and the risk-notation policy.</p>
+        <p class="name-label">Cost to protect</p>
+        <p class="name-value">Zero. Git invariants cannot be violated; nothing to route around.</p>
+        <p class="name-label">Lever</p>
+        <p class="name-value">Tooling.</p>
+      </div>
     </div>
   </section>
 
-  <!-- ── BEAT 5: Tooling (operations) / Behavior change ─── -->
+  <!-- ── STORY: AST-only refactoring (Tooling — operations) ─── -->
 
   <!-- 50 Setup -->
-  <section class="slide img-bg" id="s50">
+  <section class="slide img-bg case-study" id="s50">
     <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Structural refactoring in legacy code</p>
@@ -1064,11 +1698,11 @@
     </div>
   </section>
 
-  <!-- 51 Intervention — beat 5 -->
-  <section class="slide img-bg" id="s51">
+  <!-- 51 Intervention — AST-only refactoring -->
+  <section class="slide img-bg case-study" id="s51">
     <div class="overlay"></div>
     <div class="slide-content">
-      <p class="kicker">Universe: Tooling</p>
+      <p class="kicker">Main Lever: Tooling</p>
       <h2>No edit-file tool.<br>Only AST transformations.</h2>
       <div class="two-up" style="margin-top: 2.5rem;">
         <div>
@@ -1084,54 +1718,345 @@
     </div>
   </section>
 
-  <!-- 52 Name the experience — beat 5; next returns to TOC -->
+  <!-- 52 Name the experience — AST-only refactoring; next returns to TOC -->
   <section class="slide" id="s52" data-return-to-toc="true">
     <div class="slide-content">
       <p class="kicker">Name the experience</p>
-      <ul class="name-list">
-        <li><strong class="accent">Scope</strong> Behavior preservation during refactoring.</li>
-        <li><strong class="accent">Cost to protect</strong> Zero within scope — behavioral safety guaranteed by the tool.</li>
-        <li><strong class="accent">Lever</strong> Tooling (operation semantics).</li>
-      </ul>
+      <div class="name-grid">
+        <p class="name-label">Scope</p>
+        <p class="name-value">Behavior preservation during refactoring.</p>
+        <p class="name-label">Cost to protect</p>
+        <p class="name-value">Zero within scope. Behavioral safety is guaranteed by the tool.</p>
+        <p class="name-label">Lever</p>
+        <p class="name-value">Tooling (operation semantics).</p>
+      </div>
     </div>
   </section>
 
-  <!-- ── BEAT 6: Result handling / Data loss ────────────── -->
+  <!-- ── STORY: Archive table for migrations (State control) ────────────── -->
 
   <!-- 53 Setup -->
-  <section class="slide img-bg" id="s53">
+  <section class="slide img-bg case-study" id="s53">
     <div ></div>
     <div class="slide-content">
       <p class="kicker">Database migrations</p>
       <!-- accent amber conflicts with volcanic orange lava; use --fg for legibility -->
       <h2>Vigilance cost:<br><span style="color: var(--fg);">Data loss</span></h2>
-      <p style="margin-top: 2rem; color: var(--dim);">"Did the migration change what the data means?<br>Can I recover it if something went wrong?"</p>
+      <p style="margin-top: 2rem; color: var(--dim);">"Did the migration change what the data means? Can I recover it if something went wrong?"</p>
     </div>
   </section>
 
-  <!-- 54 Intervention — beat 6 -->
-  <section class="slide img-bg" id="s54">
+  <!-- 54 Intervention — Archive table for migrations -->
+  <section class="slide img-bg case-study" id="s54">
     <div class="overlay"></div>
     <div class="slide-content">
-      <p class="kicker">Universe: State control</p>
+      <p class="kicker">Main Lever: State control</p>
       <div style="text-align: left; display: inline-block;">
-        <p style="margin-bottom: 1.2rem;">1. <span class="accent">Archive table</span> — all rows preserved before migration runs</p>
-        <p style="margin-bottom: 1.2rem;">2. <span class="accent">Bidirectional remapping</span> — deterministic verification before execution</p>
-        <p>3. <span class="accent">Extracted library</span> — AI writes definition only; library executes</p>
+        <p style="margin-bottom: 1.2rem;">1. <span class="accent">Archive table</span>: all rows preserved before migration runs.</p>
+        <p style="margin-bottom: 1.2rem;">2. <span class="accent">Bidirectional remapping</span>: deterministic verification before execution.</p>
+        <p>3. <span class="accent">Extracted library</span>: AI writes the definition; the library executes.</p>
       </div>
       <p style="margin-top: 2rem; color: var(--dim);">Deterministic pre &nbsp;→&nbsp; <em>AI creative decision</em> &nbsp;→&nbsp; deterministic execution.</p>
     </div>
   </section>
 
-  <!-- 55 Name the experience — beat 6; next returns to TOC -->
+  <!-- 55 Name the experience — Archive table for migrations; next returns to TOC -->
   <section class="slide" id="s55" data-return-to-toc="true">
     <div class="slide-content">
       <p class="kicker">Name the experience</p>
-      <ul class="name-list">
-        <li><strong class="accent">Scope</strong> Schema migrations against live data.</li>
-        <li><strong class="accent">Cost to protect</strong> Zero — data loss is structurally impossible.</li>
-        <li><strong class="accent">Lever</strong> State control (Determinism sandwich).</li>
+      <div class="name-grid">
+        <p class="name-label">Scope</p>
+        <p class="name-value">Schema migrations against live data.</p>
+        <p class="name-label">Cost to protect</p>
+        <p class="name-value">Zero. Data loss is structurally impossible.</p>
+        <p class="name-label">Lever</p>
+        <p class="name-value">State control (Determinism sandwich).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STORY: Commit tool as quality reviewer (Feedback) ────────────── -->
+
+  <!-- 56a Setup -->
+  <section class="slide case-study" id="s56a">
+    <div class="slide-content">
+      <p class="kicker">Code review under agentic load</p>
+      <h2>Vigilance cost:<br><span class="accent">Smelly code slips review</span></h2>
+      <p style="margin-top: 2rem; color: var(--dim);">"Did the AI land code that's technically correct but full of things a reviewer would flag?"</p>
+    </div>
+  </section>
+
+  <!-- 56b Intervention — Commit tool as quality reviewer -->
+  <section class="slide case-study" id="s56b">
+    <div class="slide-content">
+      <p class="kicker">Main Lever: Feedback</p>
+      <h2>Every commit returns<br>a <span class="accent">structured quality report.</span></h2>
+      <p style="margin-top: 2rem; color: var(--dim);">Lint, type, tests, dead code, complexity, missing-test heuristics. Each problem tagged <em>must-fix</em> or <em>could-fix</em>.</p>
+      <p style="margin-top: 1.5rem;">The AI sees its own code through the reviewer's filter and re-invokes commit until the report is clean.</p>
+      <p style="margin-top: 1.5rem; color: var(--dim);">The human only sees commits that already passed.</p>
+    </div>
+  </section>
+
+  <!-- 56c Name the experience — Commit tool as quality reviewer; next returns to TOC -->
+  <section class="slide" id="s56c" data-return-to-toc="true">
+    <div class="slide-content">
+      <p class="kicker">Name the experience</p>
+      <div class="name-grid">
+        <p class="name-label">Scope</p>
+        <p class="name-value">Known code-quality categories at commit time.</p>
+        <p class="name-label">Cost to protect</p>
+        <p class="name-value">Zero on those categories. Deterministic checks fire synchronously at the moment of action.</p>
+        <p class="name-label">Lever</p>
+        <p class="name-value">Feedback (the tool result <em>is</em> the quality verdict).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STORY: Required demo + verification (Feedback) ────────────── -->
+
+  <!-- 56d Setup -->
+  <section class="slide case-study" id="s56d">
+    <div class="slide-content">
+      <p class="kicker">User-visible work</p>
+      <h2>Vigilance cost:<br><span class="accent">Looks done, isn't</span></h2>
+      <p style="margin-top: 2rem; color: var(--dim);">"Did the AI ship something that looks done and passes tests but doesn't actually work?"</p>
+    </div>
+  </section>
+
+  <!-- 56e Intervention — Required demo + verification -->
+  <section class="slide case-study" id="s56e">
+    <div class="slide-content">
+      <p class="kicker">Main Lever: Feedback</p>
+      <ul class="story-list">
+        <li><em>Required demo.</em> Without one, the plan tool won't advance.</li>
+        <li><em>Demo verification.</em> A browser walker runs the demo; failures are returned to the coder.</li>
+        <li><em>Demo walk.</em> I record freeform notes against verified demos only.</li>
+        <li><em>Note triage.</em> A separate system splits notes into <em>now</em> work and <em>future</em> plan items.</li>
       </ul>
+      <p style="margin-top: 2rem;">
+        Two timescales. Three actors.<br>
+        <span class="accent">All deterministic.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- 56f Name the experience — Required demo + verification; next returns to TOC -->
+  <section class="slide" id="s56f" data-return-to-toc="true">
+    <div class="slide-content">
+      <p class="kicker">Name the experience</p>
+      <div class="name-grid">
+        <p class="name-label">Scope</p>
+        <p class="name-value">"Is this demo-able?" for every user-visible chunk.</p>
+        <p class="name-label">Cost to protect</p>
+        <p class="name-value">Zero. The plan tool gates advancement on demo verification.</p>
+        <p class="name-label">Lever</p>
+        <p class="name-value">Feedback (multi-actor, multi-timescale loops).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STORY: Dev inner loop control (Workflow) ────────────── -->
+
+  <!-- 57a Setup -->
+  <section class="slide case-study" id="s57a">
+    <div class="slide-content">
+      <p class="kicker">TDD with an agent</p>
+      <h2>Vigilance cost:<br><span class="accent">Phase bleed in the inner loop</span></h2>
+      <p style="margin-top: 2rem; color: var(--dim);">"Did Claude skip the refactor and shove logic into the test? Write the test after the code? Mix test edits and production edits in the same change?"</p>
+    </div>
+  </section>
+  
+  <!-- 57b Intervention — Dev inner loop control -->
+  <section class="slide case-study" id="s57b">
+    <div class="slide-content">
+      <p class="kicker">Main Lever: Workflow</p>
+      <p>One workflow, <span class="accent">five universes.</span></p>
+      <p style="color: var(--dim);">A Minions mission orchestrates the sequence. Deterministic code handles commits and chooses the next phase.</p>
+      <ul class="story-list">
+        <li><em>Plan refactor:</em> read-only tools. Output: a refactor plan.</li>
+        <li><em>Apply refactor:</em> AST tools only. Loop until the plan is empty.</li>
+        <li><em>Write the test:</em> only test files writable.</li>
+        <li><em>Make it pass:</em> production tree writable; test files read-only.</li>
+        <li><em>Remove duplication:</em> AST tools again. Same loop, different refactor goal.</li>
+      </ul>
+      <p style="margin-top: 2rem;">No single Claude call can do TDD wrong<br>because <span class="accent">the wrong move isn't in its toolbox.</span></p>
+    </div>
+  </section>
+
+  <!-- 57c Name the experience — Dev inner loop control; next returns to TOC -->
+  <section class="slide" id="s57c" data-return-to-toc="true">
+    <div class="slide-content">
+      <p class="kicker">Name the experience</p>
+      <div class="name-grid">
+        <p class="name-label">Scope</p>
+        <p class="name-value">TDD discipline across one feature's inner loop.</p>
+        <p class="name-label">Cost to protect</p>
+        <p class="name-value">Zero. Phase bleed is structurally impossible at each boundary.</p>
+        <p class="name-label">Lever</p>
+        <p class="name-value">Workflow (phased mission; tools and writable surface change per phase).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STORY: Monorepo isolation (Reachable Context) ────────────── -->
+
+  <!-- Setup -->
+  <section class="slide case-study" id="s-rc-mono-a">
+    <div class="slide-content">
+      <p class="kicker">Brownfield monorepo</p>
+      <h2>Vigilance cost:<br><span class="accent">Cross-package contamination</span></h2>
+      <p style="margin-top: 2rem; color: var(--dim);">"Did my change to package A silently alter package B?"</p>
+    </div>
+  </section>
+
+  <!-- Intervention -->
+  <section class="slide case-study" id="s-rc-mono-b">
+    <div class="slide-content">
+      <p class="kicker">Main Lever: Reachable Context</p>
+      <p>Shrink what the agent can see <span class="accent">to exactly what its task should touch.</span></p>
+      <ul class="story-list">
+        <li>Other packages: only API types and factories are reachable. No implementation.</li>
+        <li>This package's adapters and ports: reachable. The agent can choose to alter how it relates to others.</li>
+        <li>Refactoring tools span both sides, but only when the API is internal to the monorepo.</li>
+      </ul>
+      <p style="margin-top: 1.5rem;">The agent can use other packages correctly. It cannot silently change them.</p>
+    </div>
+  </section>
+
+  <!-- Name the experience -->
+  <section class="slide" id="s-rc-mono-c" data-return-to-toc="true">
+    <div class="slide-content">
+      <p class="kicker">Name the experience</p>
+      <div class="name-grid">
+        <p class="name-label">Scope</p>
+        <p class="name-value">Cross-package change inside a monorepo.</p>
+        <p class="name-label">Cost to protect</p>
+        <p class="name-value">Zero. Other packages' implementations are not in the agent's reachable surface.</p>
+        <p class="name-label">Lever</p>
+        <p class="name-value">Reachable Context (API-only exposure across the boundary).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STORY: Multi-phase re-design (Reachable Context) ────────────── -->
+
+  <!-- Setup -->
+  <section class="slide case-study" id="s-rc-phase-a">
+    <div class="slide-content">
+      <p class="kicker">Multi-phase migration</p>
+      <h2>Vigilance cost:<br><span class="accent">Skip past the intermediate</span></h2>
+      <p style="margin-top: 2rem; color: var(--dim);">"Did the AI optimize for the eventual shape and skip the partial-progress state I asked for?"</p>
+    </div>
+  </section>
+
+  <!-- Intervention -->
+  <section class="slide case-study" id="s-rc-phase-b">
+    <div class="slide-content">
+      <p class="kicker">Main Lever: Reachable Context</p>
+      <p>Truncate the horizon to <span class="accent">the next durable resting point.</span></p>
+      <ul class="story-list">
+        <li>Design the endpoint, then design Phase 1 as a fully working partial state.</li>
+        <li>During Phase 1 execution, hide the endpoint from reachable context.</li>
+        <li>The agent sees Phase 1 as the final destination. It cannot helpfully jump ahead.</li>
+        <li>Apply recursively. Each scope has its own destination; none can see further.</li>
+      </ul>
+      <p style="margin-top: 1.5rem;">Premature optimization for the wrong target becomes structurally impossible.</p>
+    </div>
+  </section>
+
+  <!-- Name the experience -->
+  <section class="slide" id="s-rc-phase-c" data-return-to-toc="true">
+    <div class="slide-content">
+      <p class="kicker">Name the experience</p>
+      <div class="name-grid">
+        <p class="name-label">Scope</p>
+        <p class="name-value">Multi-phase re-design with intermediate landing states.</p>
+        <p class="name-label">Cost to protect</p>
+        <p class="name-value">Zero within the current phase. Future phases simply do not exist for this execution.</p>
+        <p class="name-label">Lever</p>
+        <p class="name-value">Reachable Context (horizon truncated per phase).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STORY: Vector code search (Reachable Context) ────────────── -->
+
+  <!-- Setup -->
+  <section class="slide case-study" id="s-rc-vector-a">
+    <div class="slide-content">
+      <p class="kicker">Findability in legacy code</p>
+      <h2>Vigilance cost:<br><span class="accent">Findability gap</span></h2>
+      <p style="margin-top: 2rem; color: var(--dim);">"Did the AI miss the relevant code because grep wasn't the right way in?"</p>
+    </div>
+  </section>
+
+  <!-- Intervention -->
+  <section class="slide case-study" id="s-rc-vector-b">
+    <div class="slide-content">
+      <p class="kicker">Main Lever: Reachable Context</p>
+      <p>Expand the reachable surface <span class="accent">in a direction that matches how the agent asks questions.</span></p>
+      <ul class="story-list">
+        <li>Pre-compute a summary for each class and method.</li>
+        <li>Load the summaries into a vector database.</li>
+        <li>Add a search tool that queries the vector DB and is preferred over grep.</li>
+      </ul>
+      <p style="margin-top: 1.5rem;">The agent can find code by intent, not just by literal token. "Did it miss anything?" shifts from often-yes to occasionally-yes.</p>
+    </div>
+  </section>
+
+  <!-- Name the experience -->
+  <section class="slide" id="s-rc-vector-c" data-return-to-toc="true">
+    <div class="slide-content">
+      <p class="kicker">Name the experience</p>
+      <div class="name-grid">
+        <p class="name-label">Scope</p>
+        <p class="name-value">Code findability across a large codebase.</p>
+        <p class="name-label">Cost to protect</p>
+        <p class="name-value">Reduced, not zero. Semantic search complements lexical search; misses get rarer.</p>
+        <p class="name-label">Lever</p>
+        <p class="name-value">Reachable Context (a semantic index added to the agent's reach).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STORY: Plan optionality (Reachable Context) ────────────── -->
+
+  <!-- Setup -->
+  <section class="slide case-study" id="s-rc-plan-a">
+    <div class="slide-content">
+      <p class="kicker">Planning under uncertainty</p>
+      <h2>Vigilance cost:<br><span class="accent">Premature option lock-in</span></h2>
+      <p style="margin-top: 2rem; color: var(--dim);">"Did the AI lock in on the first plausible option without exploring the space?"</p>
+    </div>
+  </section>
+
+  <!-- Intervention -->
+  <section class="slide case-study" id="s-rc-plan-b">
+    <div class="slide-content">
+      <p class="kicker">Main Lever: Reachable Context</p>
+      <p>Hide the comparison <span class="accent">from the agents being compared.</span></p>
+      <ul class="story-list">
+        <li>The plan lives in source control via a plan MCP tool. An "options" node says: brainstorm here.</li>
+        <li>The tool spawns one <code>probably-wrong</code> branch per option, replacing the node with a commitment to that option.</li>
+        <li>The branches run in parallel. None knows it is one of several. Each believes its option is the plan.</li>
+        <li>After they terminate, failures drop out. We combine the best of the survivors.</li>
+      </ul>
+      <p style="margin-top: 1.5rem;">Each branch executes one option as well as it can, because alternatives are not in its reachable context.</p>
+    </div>
+  </section>
+
+  <!-- Name the experience -->
+  <section class="slide" id="s-rc-plan-c" data-return-to-toc="true">
+    <div class="slide-content">
+      <p class="kicker">Name the experience</p>
+      <div class="name-grid">
+        <p class="name-label">Scope</p>
+        <p class="name-value">Plan-time option exploration across uncertain design space.</p>
+        <p class="name-label">Cost to protect</p>
+        <p class="name-value">Zero. Option exploration is structural; per-branch focus is total.</p>
+        <p class="name-label">Lever</p>
+        <p class="name-value">Reachable Context (alternatives hidden per branch).</p>
+      </div>
     </div>
   </section>
 
@@ -1145,8 +2070,8 @@
     <div class="slide-content">
       <p class="kicker">What we did each time</p>
       <h2>We didn't ask for more care.<br>We redesigned the world.</h2>
-      <p style="margin-top: 2.5rem; color: var(--dim); font-size: clamp(0.9rem, 1.6vw, 1.8rem);">Memory &nbsp;·&nbsp; Goals &nbsp;·&nbsp; Workflow &nbsp;·&nbsp; Tooling &nbsp;·&nbsp; State control &nbsp;·&nbsp; Feedback</p>
-      <p style="margin-top: 1.5rem; color: var(--dim);">Each choice created a zero-risk zone.<br>Each zone permanently freed vigilance budget for the next thing.</p>
+      <p style="margin-top: 2.5rem; color: var(--dim); font-size: clamp(0.9rem, 1.6vw, 1.8rem);">Memory &nbsp;·&nbsp; Reachable Context &nbsp;·&nbsp; Goals &nbsp;·&nbsp; Tooling &nbsp;·&nbsp; Workflow &nbsp;·&nbsp; State control &nbsp;·&nbsp; Feedback</p>
+      <p style="margin-top: 1.5rem; color: var(--dim);">Each choice created a zero-risk zone. Each zone permanently freed vigilance budget for the next thing.</p>
     </div>
   </section>
 
@@ -1160,7 +2085,7 @@
         <br><span class="accent">×</span> amt to protect
         <br><span class="accent">×</span> cost to protect
       </p>
-      <p style="margin-top: 2.5rem; color: var(--dim);">Vigilance toil is the cost of having to worry<br>about whether you can stop.</p>
+      <p style="margin-top: 2.5rem; color: var(--dim);">Vigilance toil is the cost of having to worry about whether you can stop.</p>
     </div>
   </section>
 
@@ -1200,6 +2125,9 @@
        Reached from the clickable recipe diagram on the TOC.
        Replace placeholder content as real recipes/examples mature.
   ════════════════════════════════════════════════════ -->
+  
+  <!-- Running example throughout: extracting PaymentService from a 4 000-line
+       OrderProcessor god-class. The brownfield pain audience can taste. -->
 
   <!-- STEP 1 — Apply the vigilance-as-process template -->
   <section class="slide" id="s-rec-1a">
@@ -1210,155 +2138,242 @@
         <li>Pick the scope where carelessness will apply.</li>
         <li>Stand up an <em>empty</em> guardian slot in your workflow.</li>
         <li>Stand up a one-step workflow: in &rarr; agent &rarr; out.</li>
-        <li>Write down today's vigilance list &mdash; everything you currently watch for.</li>
-        <li>Build a partial spot-checker. Cover only what's easy to catch.</li>
+        <li>Write down today's <em>vigilance expectation list</em> &mdash; everything you currently watch for.</li>
+        <li>Stand up an empty spot-checker. Cover nothing yet.</li>
       </ol>
     </div>
   </section>
   <section class="slide" id="s-rec-1b" data-return-to-toc="true">
     <div class="slide-content" style="text-align:left;">
-      <p class="kicker">Worked example &mdash; release notes</p>
+      <p class="kicker">Worked example &mdash; extract <code>PaymentService</code></p>
       <h2 style="margin-bottom: 1rem;">Setting up the loop</h2>
       <ul style="font-size: clamp(0.95rem, 1.5vw, 1.4rem); line-height: 1.6; list-style: none; padding: 0;">
-        <li><strong class="accent">Scope:</strong> release notes for the current sprint.</li>
-        <li><strong class="accent">Guardian slot:</strong> empty <code>notes-linter</code> stage in the pipeline.</li>
-        <li><strong class="accent">Workflow:</strong> changelog + ticket list &rarr; agent &rarr; draft.</li>
-        <li><strong class="accent">Vigilance list:</strong> tone drift, missed feature, leaked customer IDs, wrong version number.</li>
-        <li><strong class="accent">Spot-checker:</strong> regex that flags any line containing a customer-ID pattern.</li>
+        <li><strong class="accent">Scope:</strong> extract <code>PaymentService</code> from a 4&nbsp;000-line <code>OrderProcessor</code>.</li>
+        <li><strong class="accent">Guardian slot:</strong> empty <code>behavior-equiv-check</code> stage in the extract pipeline.</li>
+        <li><strong class="accent">Workflow:</strong> agent extracts &rarr; run guardians &rarr; run spot checker.</li>
+        <li><strong class="accent">Vigilance expectation list:</strong> behavior change, transaction-boundary moved, error path swallowed, observability lost, hidden side effect on inventory, mocked-test fragility, thread-safety change.</li>
+        <li><strong class="accent">Spot-checker:</strong> empty.</li>
       </ul>
-      <p style="margin-top: 1.4rem; color: var(--dim); font-size: 0.95em;">The loop is now standing. Time to start naming.</p>
+      <p style="margin-top: 1.4rem; color: var(--dim); font-size: 0.95em;">The loop is standing. Time to pick what to attack first.</p>
     </div>
   </section>
 
-  <!-- STEP 2 — Name the vigilance -->
+  <!-- STEP 2 — Select costly vigilance from expectation list -->
   <section class="slide" id="s-rec-2a">
     <div class="slide-content" style="text-align:left;">
       <p class="kicker">Recipe &mdash; Step 2</p>
-      <h2 style="margin-bottom: 1.2rem;">Name the vigilance</h2>
+      <h2 style="margin-bottom: 1.2rem;">Select costly vigilance from expectation list</h2>
       <ol style="font-size: clamp(1rem, 1.7vw, 1.6rem); line-height: 1.55;">
-        <li>Watch yourself reviewing the agent's output.</li>
-        <li>Each correction: write the <em>why</em> in five words or fewer.</li>
-        <li>Group the why-notes into three to five error categories.</li>
-        <li>Pick the largest category. Give it a name.</li>
+        <li>Read the vigilance expectation list, and pick the one that happens most often + the one that is hardest to verify.</li>
+        <li>Pick whichever of those causes you the most pain. That is the category you will try to silence this loop.</li>
       </ol>
     </div>
   </section>
   <section class="slide" id="s-rec-2b" data-return-to-toc="true">
     <div class="slide-content" style="text-align:left;">
-      <p class="kicker">Worked example &mdash; release notes</p>
-      <h2 style="margin-bottom: 1rem;">From corrections to a category</h2>
+      <p class="kicker">Worked example &mdash; extract <code>PaymentService</code></p>
+      <h2 style="margin-bottom: 1rem;">What hurts most per extraction run</h2>
       <ul style="font-size: clamp(0.95rem, 1.5vw, 1.4rem); line-height: 1.6; list-style: none; padding: 0;">
-        <li><strong class="accent">Tone too internal</strong> &mdash; 4 corrections.</li>
-        <li><strong class="accent">Missed feature</strong> &mdash; 3 corrections.</li>
-        <li><strong class="accent">Wrong version number</strong> &mdash; 2 corrections.</li>
+        <li><strong class="accent">Behavior change</strong> &mdash; every diff needs full read of moved code <em>and</em> callsites. Highest cost.</li>
+        <li>Transaction-boundary moved &mdash; need to inspect <code>@Transactional</code> spans.</li>
+        <li>Observability lost &mdash; need to scan for vanished log/metric calls.</li>
       </ul>
-      <p style="margin-top: 1.5rem; font-size: clamp(1.1rem, 2vw, 1.8rem);">Named category: <span class="accent">Tone drift</span>.</p>
+      <p style="margin-top: 1.5rem; font-size: clamp(1.1rem, 2vw, 1.8rem);">Selected: <span class="accent">Behavior change</span>.</p>
     </div>
   </section>
 
-  <!-- STEP 3 — Identify a hole -->
+  <!-- STEP 3 — Run spot-checker to surface an example hole -->
   <section class="slide" id="s-rec-3a">
     <div class="slide-content" style="text-align:left;">
       <p class="kicker">Recipe &mdash; Step 3</p>
-      <h2 style="margin-bottom: 1.2rem;">Identify a hole</h2>
+      <h2 style="margin-bottom: 1.2rem;">Run spot-checker to surface an example hole</h2>
       <ol style="font-size: clamp(1rem, 1.7vw, 1.6rem); line-height: 1.55;">
-        <li>Run the current spot-checker on a fresh agent output.</li>
-        <li>Compare its findings against your manual review.</li>
-        <li>What you caught but it missed = a hole. Write it down.</li>
+        <li>Run the current spot-checker on a fresh agent output that passed your guardians.</li>
+        <li>Anything it finds = an example hole. Write it down concretely.</li>
+        <li>If it found nothing, then do a manual review.</li>
+        <li>What you caught but it missed = an example hole. Write it down concretely.</li>
       </ol>
     </div>
   </section>
   <section class="slide" id="s-rec-3b" data-return-to-toc="true">
     <div class="slide-content" style="text-align:left;">
-      <p class="kicker">Worked example &mdash; release notes</p>
-      <h2 style="margin-bottom: 1rem;">A hole in the tone check</h2>
+      <p class="kicker">Worked example &mdash; extract <code>PaymentService</code></p>
+      <h2 style="margin-bottom: 1rem;">A hole in behavior preservation</h2>
       <ul style="font-size: clamp(0.95rem, 1.5vw, 1.4rem); line-height: 1.6; list-style: none; padding: 0;">
-        <li>Spot-checker flagged tone drift in <strong class="accent">2 of 4</strong> known cases.</li>
-        <li>Common factor in the misses: features written in past tense.</li>
-        <li><strong class="accent">Hole:</strong> past-tense phrasing bypasses the current pattern.</li>
+        <li>Spot-checker is empty, so it finds nothing.</li>
+        <li>Manual review caught: a <code>try/catch</code> in <code>OrderProcessor.refund()</code> swallowed a <code>StripeException</code>; the extracted version re-throws it.</li>
+        <li><strong class="accent">Hole:</strong> exception-handling shape changed during extraction. Behavior diverged at the error path.</li>
       </ul>
     </div>
   </section>
 
-  <!-- STEP 4 — Lock one error category -->
+  <!-- STEP 4 — Apply a lever to prevent one error category -->
   <section class="slide" id="s-rec-4a">
     <div class="slide-content" style="text-align:left;">
       <p class="kicker">Recipe &mdash; Step 4</p>
-      <h2 style="margin-bottom: 1.2rem;">Lock one error category</h2>
+      <h2 style="margin-bottom: 1.2rem;">Apply a lever to prevent one error category</h2>
       <ol style="font-size: clamp(1rem, 1.7vw, 1.6rem); line-height: 1.55;">
-        <li>Pick the hole you understand best.</li>
-        <li>Choose a universe lever that structurally prevents that class.</li>
-        <li>Implement the change. Re-run against every prior failure case.</li>
+        <li>Take the example hole and generalise it to its category.</li>
+        <li>Choose a universe lever that structurally prevents that whole category. If you can't, then choose a guardian lever that will guarantee detection.</li>
+        <li>Implement the change. Re-run against every prior failure case to confirm.</li>
       </ol>
     </div>
   </section>
   <section class="slide" id="s-rec-4b" data-return-to-toc="true">
     <div class="slide-content" style="text-align:left;">
-      <p class="kicker">Worked example &mdash; release notes</p>
-      <h2 style="margin-bottom: 1rem;">Locking tone drift with Tooling</h2>
+      <p class="kicker">Worked example &mdash; extract <code>PaymentService</code></p>
+      <h2 style="margin-bottom: 1rem;">Locking behavior change with Tooling</h2>
       <ul style="font-size: clamp(0.95rem, 1.5vw, 1.4rem); line-height: 1.6; list-style: none; padding: 0;">
         <li><strong class="accent">Lever chosen:</strong> Tooling.</li>
-        <li>Replace the freeform draft tool with a structured template that constrains tone via the schema (verb tense fixed; allowed phrasings whitelisted).</li>
-        <li><strong class="accent">Verification:</strong> 0 of 12 prior tone-drift cases reproduce.</li>
+        <li>Pull <code>edit-file</code> out of the toolbox. Hand the agent an AST <em>extract-method-to-class</em> transform instead.</li>
+        <li>Behavior preservation is now guaranteed by the transform &mdash; including exception shape, control flow, side effects.</li>
+        <li><strong class="accent">Verification:</strong> 0 of 12 prior behavior-change cases reproduce.</li>
       </ul>
     </div>
   </section>
 
-  <!-- STEP 5 — Adjust vigilance -->
+  <!-- STEP 5 — Adjust vigilance expectation list -->
   <section class="slide" id="s-rec-5a">
     <div class="slide-content" style="text-align:left;">
       <p class="kicker">Recipe &mdash; Step 5</p>
-      <h2 style="margin-bottom: 1.2rem;">Adjust vigilance</h2>
+      <h2 style="margin-bottom: 1.2rem;">Adjust vigilance expectation list</h2>
       <ol style="font-size: clamp(1rem, 1.7vw, 1.6rem); line-height: 1.55;">
-        <li>Remove the locked category from your vigilance list.</li>
-        <li>Re-evaluate the remaining categories &mdash; ordering, severity, frequency.</li>
-        <li>Pick the next one to attack in the next loop.</li>
+        <li>Strike the locked category off the expectation list, or narrow it to just what you have to be vigilant about now.</li>
+        <li>Add any new categories to the expectation list that this uncovered.</li>
+        <li>Re-cost the remaining categories &mdash; the cheap ones may now dominate.</li>
+        <li>Loop back to step&nbsp;2 with the updated list.</li>
       </ol>
     </div>
   </section>
   <section class="slide" id="s-rec-5b" data-return-to-toc="true">
     <div class="slide-content" style="text-align:left;">
-      <p class="kicker">Worked example &mdash; release notes</p>
-      <h2 style="margin-bottom: 1rem;">The list shrinks</h2>
+      <p class="kicker">Worked example &mdash; extract <code>PaymentService</code></p>
+      <h2 style="margin-bottom: 1rem;">The expectation list shrinks</h2>
       <ul style="font-size: clamp(0.95rem, 1.5vw, 1.4rem); line-height: 1.6; list-style: none; padding: 0;">
-        <li><span style="text-decoration: line-through; color: var(--dim);">Tone drift</span> &mdash; locked.</li>
-        <li><strong class="accent">Missed feature</strong> &mdash; now top of the list.</li>
-        <li>Wrong version number &mdash; small and easy; queue after.</li>
+        <li><span style="text-decoration: line-through; color: var(--dim);">Behavior change</span> &mdash; locked by AST refactor.</li>
+        <li><strong class="accent">Transaction-boundary moved</strong> &mdash; now top of the list.</li>
+        <li>Observability lost &mdash; cheap to attack via a "no orphan log" lint; queue after.</li>
       </ul>
-      <p style="margin-top: 1.4rem; color: var(--dim); font-size: 0.95em;">Next loop: name the missed-feature pattern.</p>
+      <p style="margin-top: 1.4rem; color: var(--dim); font-size: 0.95em;">Next loop: select transaction-boundary preservation.</p>
     </div>
   </section>
 
-  <!-- STEP 6 — Make a decision -->
+  <!-- STEP 6 — Manually choose whether to accept or reject this work product -->
   <section class="slide" id="s-rec-6a">
     <div class="slide-content" style="text-align:left;">
       <p class="kicker">Recipe &mdash; Step 6</p>
-      <h2 style="margin-bottom: 1.2rem;">Make a decision</h2>
+      <h2 style="margin-bottom: 1.2rem;">Manually choose whether to accept or reject this work product</h2>
       <ol style="font-size: clamp(1rem, 1.7vw, 1.6rem); line-height: 1.55;">
-        <li>Look at the universe you've built.</li>
-        <li>Decide: accept this run, or re-run inside the safer universe.</li>
-        <li>Note the risk profile of whichever you chose, in writing.</li>
+        <li>Inspect the actual artifact the agent produced this run.</li>
+        <li>Decide: ship it or revert it and re-run another loop inside the safer universe.</li>
+        <li>Record the residual risk profile of whichever you chose.</li>
       </ol>
     </div>
   </section>
 
   <section class="slide" id="s-rec-6b" data-return-to-toc="true">
     <div class="slide-content" style="text-align:left;">
-      <p class="kicker">Worked example &mdash; release notes</p>
+      <p class="kicker">Worked example &mdash; extract <code>PaymentService</code></p>
       <h2 style="margin-bottom: 1rem;">Three loops later</h2>
       <ul style="font-size: clamp(0.95rem, 1.5vw, 1.4rem); line-height: 1.6; list-style: none; padding: 0;">
-        <li><strong class="accent">Universe catches:</strong> tone drift, wrong version number.</li>
-        <li><strong class="accent">Residual risk:</strong> missed-feature &mdash; still at Hope level.</li>
-        <li><strong class="accent">Decision:</strong> accept this run. Residual is bounded and visible.</li>
+        <li><strong class="accent">Universe catches:</strong> behavior change, transaction-boundary moved, orphan logs.</li>
+        <li><strong class="accent">Residual:</strong> design correctness of the new <code>PaymentService</code> seams &mdash; still at Vigilance level.</li>
+        <li><strong class="accent">Decision:</strong> accept this extraction. Residual is bounded, named, and visible.</li>
       </ul>
-      <p style="margin-top: 1.4rem; color: var(--dim); font-size: 0.95em;">The recipe ended. Vigilance about tone and version is gone, permanently.</p>
+      <p style="margin-top: 1.4rem; color: var(--dim); font-size: 0.95em;">Vigilance about behavior, transactions, and observability is gone, permanently.</p>
+    </div>
+  </section>
+
+  <!-- ── ITERATION WALKTHROUGH — extract PaymentService ──
+       Skimmable view of three loops of the recipe applied to the same example.
+       Each slide names what was selected, the spot-check used, the categories
+       it surfaced, and the lever pulled. The per-step slides above cover the
+       how; this sequence shows the path. -->
+
+  <!-- Iter intro -->
+  <section class="slide" id="s-rec-iter-0">
+    <div class="slide-content">
+      <p class="kicker">Worked example &mdash; extract <code>PaymentService</code></p>
+      <h2>Three loops of the recipe</h2>
+      <p style="margin-top: 1.6rem; color: var(--dim);">Same scope. Same expectation list, shrinking.<br>One category gets locked per loop.</p>
+    </div>
+  </section>
+
+  <!-- Iter 1 — Behavior change -->
+  <section class="slide" id="s-rec-iter-1">
+    <div class="slide-content">
+      <p class="kicker">Iteration 1</p>
+      <h2 style="margin-bottom: 0.4rem;">Selected vigilance: <span class="accent">Behavior change</span></h2>
+      <div class="iter-grid">
+        <p class="iter-label">Spot-check</p>
+        <p class="iter-value">Diff <code>OrderProcessor.refund()</code> against extracted version; trace every exception path.</p>
+        <p class="iter-label">Categories surfaced</p>
+        <p class="iter-value">Exception shape changed. Side-effect order changed. Return type widened.</p>
+        <p class="iter-label">Lever applied</p>
+        <p class="iter-value"><strong class="accent">Tooling.</strong> Remove <code>edit-file</code>; require an AST extract-method-to-class transform.</p>
+        <p class="iter-label">Outcome</p>
+        <p class="iter-value"><em>Behavior change locked &mdash; structurally impossible within the transform's scope.</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Iter 2 — Transaction-boundary moved -->
+  <section class="slide" id="s-rec-iter-2">
+    <div class="slide-content">
+      <p class="kicker">Iteration 2</p>
+      <h2 style="margin-bottom: 0.4rem;">Selected vigilance: <span class="accent">Transaction-boundary moved</span></h2>
+      <div class="iter-grid">
+        <p class="iter-label">Spot-check</p>
+        <p class="iter-value">Diff the call graph reachable under each <code>@Transactional</code> annotation, before vs after.</p>
+        <p class="iter-label">Categories surfaced</p>
+        <p class="iter-value">Transactional method moved out of its enclosing span. Nested transaction created where there was none.</p>
+        <p class="iter-label">Lever applied</p>
+        <p class="iter-value"><strong class="accent">Tooling.</strong> Extend the refactor to refuse moves that break transactional scope; surface the violation as a structured error.</p>
+        <p class="iter-label">Outcome</p>
+        <p class="iter-value"><em>Transactional-scope drift locked at the structural level.</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Iter 3 — Observability lost -->
+  <section class="slide" id="s-rec-iter-3">
+    <div class="slide-content">
+      <p class="kicker">Iteration 3</p>
+      <h2 style="margin-bottom: 0.4rem;">Selected vigilance: <span class="accent">Observability lost</span></h2>
+      <div class="iter-grid">
+        <p class="iter-label">Spot-check</p>
+        <p class="iter-value">Set difference on log statements and metric names; trace-span boundary comparison.</p>
+        <p class="iter-label">Categories surfaced</p>
+        <p class="iter-value">Log lines silently dropped. Metric counter renamed without alias. Trace span collapsed across the seam.</p>
+        <p class="iter-label">Lever applied</p>
+        <p class="iter-value"><strong class="accent">Tooling + Feedback.</strong> Add a "no orphan log / no orphan metric" lint as a commit gate; pipe its result back to the agent before it tries again.</p>
+        <p class="iter-label">Outcome</p>
+        <p class="iter-value"><em>Observability loss locked. The agent self-corrects before commit.</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Iter wrap — what's left -->
+  <section class="slide" id="s-rec-iter-end" data-return-to-toc="true">
+    <div class="slide-content" style="text-align:left;">
+      <p class="kicker">Three loops in</p>
+      <h2 style="margin-bottom: 1rem;">What's still on the list</h2>
+      <ul style="font-size: clamp(0.95rem, 1.5vw, 1.4rem); line-height: 1.6; list-style: none; padding: 0;">
+        <li><span style="text-decoration: line-through; color: var(--dim);">Behavior change</span>. Locked (Tooling).</li>
+        <li><span style="text-decoration: line-through; color: var(--dim);">Transaction-boundary moved</span>. Locked (Tooling).</li>
+        <li><span style="text-decoration: line-through; color: var(--dim);">Observability lost</span>. Locked (Tooling + Feedback).</li>
+        <li><strong class="accent">Hidden side effect on inventory</strong>. Next loop.</li>
+        <li>Mocked-test fragility. Cheap; queue after.</li>
+        <li>Thread-safety change. Defer until cost rises.</li>
+      </ul>
+      <p style="margin-top: 1.4rem; color: var(--dim); font-size: 0.95em;">Every extraction now ships with three permanently-free categories.</p>
     </div>
   </section>
 
   <!-- 33d-1 Two agents across turns — diagram only (reserves space for the non-useful levers list) -->
   <section class="slide" id="s33d-1">
     <div class="slide-content">
-      <p class="kicker">Between agent turns — two different agents</p>
+      <p class="kicker">Between agent turns: two different agents</p>
       <svg viewBox="0 0 1000 620" width="100%" style="max-height:68vh; display:block; margin: 0.6rem auto 0;" role="img">
         <defs>
           <marker id="bt-arr-c1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
@@ -1454,7 +2469,7 @@
   <!-- 33d-2 Two agents across turns — diagram + non-useful levers list -->
   <section class="slide" id="s33d-2" data-return-to-toc="true">
     <div class="slide-content">
-      <p class="kicker">Between agent turns — two different agents</p>
+      <p class="kicker">Between agent turns: two different agents</p>
       <svg viewBox="0 0 1000 620" width="100%" style="max-height:68vh; display:block; margin: 0.6rem auto 0;" role="img">
         <defs>
           <marker id="bt-arr-c2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
@@ -1673,9 +2688,26 @@
     }
   });
 
-  // TOC card clicks
-  document.querySelectorAll('.toc-card[data-jump-to]').forEach(card => {
+  // TOC card / pill clicks
+  document.querySelectorAll('.toc-card[data-jump-to], .toc-pill[data-jump-to], .recipe-iteration-card[data-jump-to]').forEach(card => {
     card.addEventListener('click', () => goToId(card.dataset.jumpTo));
+  });
+
+  // Demo-output panes: lazy-fetch the example file on first open, cache the result.
+  document.querySelectorAll('details.demo-output').forEach(d => {
+    d.addEventListener('toggle', async () => {
+      if (!d.open) return;
+      const pre = d.querySelector('.demo-output-file[data-file]');
+      if (!pre || pre.dataset.loaded) return;
+      pre.dataset.loaded = 'pending';
+      try {
+        const r = await fetch(pre.dataset.file);
+        pre.textContent = r.ok ? await r.text() : `(file not found: ${pre.dataset.file})`;
+      } catch (e) {
+        pre.textContent = `(load error: ${e.message})`;
+      }
+      pre.dataset.loaded = '1';
+    });
   });
 
   // Hydrate shared recipe SVG slots. `display` is read-only; `clickable` wires

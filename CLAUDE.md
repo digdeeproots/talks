@@ -27,7 +27,13 @@ All persistent project context lives in the repo under `.meta/`. This is the sou
 
 Talk-specific state (current phase, next step, log) lives in the talk's own folder, in a `status.md` file (e.g., `craft2026-arlo/status.md`).
 
-When you learn something worth keeping — a preference, a constraint, a decision — write it to the appropriate file here and commit it. Do not rely on memory that lives outside the repo.
+### No external memory — ever
+
+You MUST NOT save anything to the Claude memory system. No new memory files, no edits to existing memory files, no additions to `MEMORY.md`. If you notice something you would normally save as a memory (a preference, correction, project fact, reference), instead write it into source control and commit it. Default target: the workflow file you are currently running (e.g., `.meta/workflows/pattern-iterate.md`). Other valid targets: this `CLAUDE.md`, files under `.meta/context/`, or a talk's `status.md`. Pick whichever scope matches the lesson.
+
+### Commit-first rhythm
+
+Always commit before showing the human anything to review. After any edit that completes a logical step — including a one-shot change requested in chat — run `movement action=commit` immediately, then surface the change. Do not ask "want me to commit, or review first?"
 
 ---
 

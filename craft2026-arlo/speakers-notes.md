@@ -46,6 +46,24 @@ Pause.
 
 ---
 
+### 07 — Better brakes let drivers brake later
+
+The bridge between "they tracked braking" and the thesis. Land the vigilance shift before the quote.
+
+> "Early drivers had to be vigilant. Every curve was dangerous, and they had to scan ahead — far ahead — because their brakes couldn't save them if they waited."
+
+> "When brakes got better, they could brake later. They could slow down closer to the curve. They didn't have to worry as far ahead."
+
+Pause.
+
+> "They could go faster, safely. So they did."
+
+Tee up the next slide:
+
+> "But here's the part most people miss about what brakes really gave them."
+
+---
+
 ### 08 — "Better brakes let you stop caring about stopping"
 
 Read the quote slowly. It's the thesis of the whole talk.
@@ -126,16 +144,81 @@ Scripted walkthrough is out of scope for this movement.
 
 ---
 
-### 23 — Story: Find key moments in a transcript *(placeholder)*
+### 23 — Find key moments in a transcript (intro)
 
-Semi-demo. Walk through four transitions in sequence:
+Frame the demo. Six transitions, applied one at a time, each silencing one specific vigilance question.
 
-1. **Sequencing → deterministic.** Deterministic code decides what step is next. Agent no longer manages its own sequence.
-2. **Fetch → deterministic.** Code fetches; agent only called on failure. Changed invocation and goal simultaneously.
-3. **Analysis goal locked down.** Concrete output spec replaces open-ended instruction. TTS notification; you work elsewhere until called.
-4. **Analysis format locked down.** Schema validation reprompts on failure. Careless about what each key moment includes.
+> "A daily coaching workflow. Six transitions follow. Each silences one specific vigilance question."
 
-Semi-demo script is out of scope for this movement.
+Don't introduce the lever names yet — the upshift recap (s31) will do that.
+
+---
+
+### 23-0 — Step 0 · Prompt Claude and watch
+
+The starting state. Click open the Output pane if you want to show what raw output looks like.
+
+> "I prompted Claude. I watched every step. I interrupted when something went sideways. Full vigilance, every run."
+
+---
+
+### 23a — Step 1 · Written workflow
+
+Move the prompt into a file.
+
+> "Same vigilance during execution. But now the workflow is an artifact I can improve between runs."
+
+The Output pane shows the file. Click to expand if there's time.
+
+---
+
+### 23b — Step 2 · Document iteration pattern
+
+Apply the doc-iteration pattern to the workflow file itself.
+
+> "I stopped editing by hand. I ran the doc-iteration pattern on the workflow. The workflow got sharper. The work toil of authoring it dropped."
+
+---
+
+### 23c — Step 3 · `pnpm do-today`
+
+Extract sequencing into deterministic code.
+
+> "A script reads state, decides the next step, launches Claude, catches the result, quits. Sequencing leaves Claude's hands."
+
+Name the silenced question: *"Is the AI taking the right next step?"*
+
+---
+
+### 23d — Step 4 · Narrow goal
+
+Refine Claude's goal to "find key moments."
+
+> "It identifies what is salient and roughly when. It doesn't determine what happened. It doesn't write the lesson plan. It stops interviewing me to understand everything — it asks only to fill gaps."
+
+Name the silenced question: *"Is the AI over-working or taking shortcuts?"*
+
+---
+
+### 23e — Step 5 · Scripted fetch
+
+Replace the probabilistic Fireflies fetch with deterministic code.
+
+> "On success, Claude is never invoked. On failure, Claude is called with the specific failure as context."
+
+Name the silenced question: *"Did the AI get the right input?"*
+
+---
+
+### 23f — Step 6 · Iterative analysis
+
+Lock the analysis schema. Structured JSON, deterministic validation, re-call on failure.
+
+> "The workflow stops being linear. Independent re-orderable steps read and write the same analysis."
+
+Name the silenced question: *"Is the output complete or misleading?"*
+
+This is the punch: each transition silenced one specific vigilance cost.
 
 ---
 
@@ -178,34 +261,6 @@ Walk the columns left to right, reading the Changed and the Vigilance Toil rows.
 > "**Structured, iterative analysis.** Changed feedback. Schema validation tells the agent when its output is wrong; the agent retries. *Is the output complete or misleading?* — silenced. I'm careless about structure."
 
 > "Five interventions, five levers touched. ⬇️ in every row that filled in."
-
----
-
-### 32a / 32b / 32c — Naming the recurring terms (progressive reveal)
-
-Three slides. Same layout, one new term per slide. Don't introduce them out of context; each term comes out of the walk-through you just did.
-
-**32a — Scope only.**
-
-> "Three things keep showing up. Let's name them."
-
-> "**Scope** — the class of error one intervention addresses. Always one at a time. Never 'the whole problem.' Each column we just walked through was one class."
-
-Pause. Click forward.
-
-**32b — Scope + Lever.**
-
-> "**Lever** — a facet of the agent's universe you can engineer. We touched five today across the two examples: tooling, workflow, invocation, goal, feedback. There are more."
-
-Pause. Click forward.
-
-**32c — Scope + Lever + Cost to protect.**
-
-> "**Cost to protect** — how much vigilance toil is spent to prevent errors in this scope. Before each intervention it was high; after, near zero. That drop is what we engineered."
-
-Then bridge to the theory:
-
-> "Now we can say something general about the math."
 
 ---
 
@@ -259,7 +314,7 @@ Land it.
 
 ## Upshift
 
-The job of this block: rise to the big idea (carelessness as the goal), state *how* (change the universe, raise safety on one class), then walk the design surface (universe + vocabulary + recipe). Order: principle (s20) → how (s26) → customer model (s37a/s37b) → universe (s34) → vocabulary (s28) → recipe (s27) → blank pivot (s30). (AST callback s22 removed: redundant with Beat 5 in the back half, which covers the same AST-tools case study fully.)
+The job of this block: rise to the big idea (carelessness as the goal), state *how* (assume a careless engineer, change the universe, reduce the creation rate of one error class), then walk the design surface (universe + vocabulary + recipe). Order: principle (s20) → how (s26) → customer model (s37a/s37b) → universe (s34) → vocabulary (s28) → recipe (s27) → blank pivot (s30). (AST callback s22 removed: redundant with the AST-only refactoring case study in the back half.)
 
 ---
 
@@ -289,11 +344,11 @@ Then set up what comes next:
 
 ### 26 — How?
 
-> "Be a tool builder. Two moves: change the *universe*. Raise safety on one *error category*."
+> "Be a tool builder. Three moves: assume a well-intentioned but careless engineer. Change the *universe*. Reduce the *creation rate* of one error category."
 
 Point to each line:
 
-> "Not the agent — the world around it. Not all errors — one category at a time. That's the whole shape of the work."
+> "Start by assuming the engineer means well and is sloppy. Then redesign the world around them, not the engineer. And don't try to lower all errors at once. Take one category and drop the rate at which it's created."
 
 Then bridge:
 
@@ -499,29 +554,32 @@ Land here after the upshift. This is the visual menu for the back half.
 
 > "Here's where we go from here. Pick anything. We'll walk it together. Come back here, pick another."
 
-Sectioned: **Case studies** (existing 6 + a pending Feedback slot), **Recipes** (none yet), **Closing**.
+Two columns: **Case studies** on the left, **Recipes** on the right.
 
-Case-study cards:
-- Memory / Decision inconsistency → s38
-- Goals / Consistency violation → s41
-- Workflow / Oversight gap → s44
-- Tooling / Scope enforcement → s47
-- Tooling (operations) / Accidental behavior change → s50
-- State control / Data loss (archive table) → s53
-- Feedback / Story TBD (greyed out — no destination yet)
+**Case studies** are grouped by what they reduce:
 
-Recipes section: empty for now. We haven't built any case-as-recipe slides yet.
+*Reduces both* (work toil and vigilance toil):
+- Goals / Consistency violation → s41 (Status email as structured spec)
+- Workflow / Oversight gap → s44 (Transcript fetcher)
+- Tooling / Scope enforcement → s47 (Movement-based branching)
+- Tooling — ops / Accidental behavior change → s50 (AST-only refactoring)
+- Feedback / Story TBD (pending — no destination yet)
 
-Closing card:
-- Synthesis / Closing sequence → s56
+*Reduces vigilance only*:
+- Memory / Decision inconsistency → s38 (Delete completed stories — Memory + Reachable Context)
+- State control / Data loss → s53 (Archive table for migrations)
+
+**Recipes** column holds the upshift recipe diagram (clickable; each step jumps to its mini-recipe slide) plus two extra cards:
+- Manipulating Coding Agents → s33d-1 (the "your customers" diversion)
+- Closing sequence → s56
 
 Each case study is currently 2 slides (setup → story). The plan is to expand each to 3 (starting state → intervention → name the experience); that expansion is pending. Click a card to enter that sequence. After the sequence's last slide, next-key returns here automatically. Press `T` from anywhere to summon the TOC.
 
-Insert the closing sequence at a natural break — not necessarily after all six beats.
+Insert the closing sequence at a natural break — not necessarily after all six case studies.
 
 ---
 
-### 38 — Beat 1 setup: Decision inconsistency
+### 38 — Setup: Decision inconsistency (Delete completed stories)
 
 > "Discovery during iterative demos."
 
@@ -533,9 +591,9 @@ Insert the closing sequence at a natural break — not necessarily after all six
 
 ---
 
-### 39 — Beat 1 story: Memory
+### 39 — Story: Delete completed stories (Memory + Reachable Context)
 
-> "Universe lever: Memory. This one is delightfully Orwellian."
+> "Main levers: Memory and Reachable Context. This one is delightfully Orwellian."
 
 > "Here's what we do. As part of every story completion, we delete the story entirely. Not mark it done. Delete it."
 
@@ -545,6 +603,8 @@ Insert the closing sequence at a natural break — not necessarily after all six
 
 > "The AI is unaware of any other directions that were considered. It just looks at the code — that's the present — and sees a plan that builds from there in one clear direction. It can't blend old ideas with new ones. It has no access to old ideas."
 
+> "Deleting the stories changes what the AI can reach. Resetting the base state changes what it remembers. Both levers, one move."
+
 > "The plan was always this direction. It just doesn't know otherwise."
 
 Pause.
@@ -553,33 +613,33 @@ Pause.
 
 ---
 
-### 40 — Beat 1 name the experience
+### 40 — Name the experience: Delete completed stories
 
-Read the four lines. Don't elaborate.
+Read the lines. Don't elaborate.
 
-> "Scope: cross-session decision inconsistency. Cost to protect: zero — conflicting decisions are structurally impossible. Lever: Memory."
+> "Scope: cross-session decision inconsistency. Cost to protect: zero, conflicting decisions are structurally impossible. Lever: Memory plus Reachable Context."
 
 Then return to the TOC.
 
 ---
 
-### 41 — Beat 2 setup: Consistency violation
+### 41 — Setup: Consistency violation (Status email as structured spec)
 
 > "Recurring structured output. Specifically: the coaching workflow. Daily — pull transcripts, plan lessons, write the status email, extract techniques."
 
-> "Vigilance cost: consistency violation. Does this email follow the same structure as last time? Did the AI invent sections? Did it change the format?"
+> "Vigilance cost: consistency violation. Does this email follow the same structure as last time? Did it include the right sections for day N out of 10?"
 
 > "First attempt: 'Read this file and follow it.' Watched every output."
 
 ---
 
-### 42 — Beat 2 story: Goals
+### 42 — Story: Status email as structured spec (Goals)
 
-> "Universe lever: Goals."
+> "Main lever: Goals."
 
 > "Instead of 'write the status email,' the AI receives a structured spec. This section gets two sentences of trend analysis. This section gets a named metric. This section gets one recommendation."
 
-> "Claude writes sentences. Deterministic code assembles everything else — structure, recipient list, HTML rendering."
+> "Claude writes sentences. Deterministic code assembles everything else: structure, recipient list, HTML rendering."
 
 > "I gave Claude a goal that is trivial to verify, and used other techniques to create safety for the rest of the task."
 
@@ -589,15 +649,15 @@ Pause.
 
 ---
 
-### 43 — Beat 2 name the experience
+### 43 — Name the experience: Status email as structured spec
 
-> "Scope: format and structure drift in recurring output. Cost to protect: zero — structure, recipients, rendering all become zero-risk zones. Lever: Goals (a structured spec replaced free-form prose)."
+> "Scope: format and structure drift in recurring output. Cost to protect: zero. Structure, recipients, and rendering each become zero-risk zones. Lever: Goals — a structured spec replaced free-form prose."
 
 Then return to the TOC.
 
 ---
 
-### 44 — Beat 3 setup: Oversight mechanism gap
+### 44 — Setup: Oversight mechanism gap (Transcript fetcher)
 
 > "Session data fetching. The coaching workflow starts with: get the right transcript, for the right team, for today."
 
@@ -605,9 +665,9 @@ Then return to the TOC.
 
 ---
 
-### 45 — Beat 3 story: Workflow
+### 45 — Story: Transcript fetcher (Workflow)
 
-> "Universe lever: Workflow."
+> "Main lever: Workflow."
 
 > "Deterministic code fetches the transcript. It knows which team, which day, which session. On success: Claude is never invoked. It doesn't even know a fetch happened."
 
@@ -619,15 +679,15 @@ Then return to the TOC.
 
 ---
 
-### 46 — Beat 3 name the experience
+### 46 — Name the experience: Transcript fetcher
 
-> "Scope: wrong-data fetching and over-eager step completion. Cost to protect: near zero — deterministic by default; the agent runs only on declared failure. Lever: Workflow."
+> "Scope: wrong-data fetching and over-eager step completion. Cost to protect: near zero. Deterministic by default; the agent runs only on declared failure. Lever: Workflow."
 
 Then return to the TOC.
 
 ---
 
-### 47 — Beat 4 setup: Scope enforcement gap
+### 47 — Setup: Scope enforcement gap (Movement-based branching)
 
 > "Source control in an agentic codebase."
 
@@ -637,9 +697,9 @@ Then return to the TOC.
 
 ---
 
-### 48 — Beat 4 story: Tooling
+### 48 — Story: Movement-based branching (Tooling)
 
-> "Universe lever: Tooling."
+> "Main lever: Tooling."
 
 > "Minions never touch git. There's no git tool in their toolbox."
 
@@ -655,15 +715,15 @@ Pause.
 
 ---
 
-### 49 — Beat 4 name the experience
+### 49 — Name the experience: Movement-based branching
 
-> "Scope: git operations and the risk-notation policy. Cost to protect: zero — git invariants cannot be violated; there's nothing to route around. Lever: Tooling."
+> "Scope: git operations and the risk-notation policy. Cost to protect: zero. Git invariants cannot be violated; there's nothing to route around. Lever: Tooling."
 
 Then return to the TOC.
 
 ---
 
-### 50 — Beat 5 setup: Accidental behavior change
+### 50 — Setup: Accidental behavior change (AST-only refactoring)
 
 > "Structural refactoring in legacy code. Renames, extractions, relocations across a large codebase."
 
@@ -673,9 +733,9 @@ Then return to the TOC.
 
 ---
 
-### 51 — Beat 5 story: Tooling (operation semantics)
+### 51 — Story: AST-only refactoring (Tooling — operations)
 
-> "Universe lever: Tooling — but this time it's not about which tools exist. It's about what the available operations can *guarantee*."
+> "Main lever: Tooling — but this time it's not about which tools exist. It's about what the available operations can *guarantee*."
 
 > "No edit-file tool for Minions. Only AST-based transformation tools — provably safe refactorings. The AI makes design choices; the tool executes them with behavioral safety guarantees."
 
@@ -689,15 +749,15 @@ Point at the two-up.
 
 ---
 
-### 52 — Beat 5 name the experience
+### 52 — Name the experience: AST-only refactoring
 
-> "Scope: behavior preservation during refactoring. Cost to protect: zero within scope — behavioral safety guaranteed by the tool. Lever: Tooling (operation semantics, not which tools exist)."
+> "Scope: behavior preservation during refactoring. Cost to protect: zero within scope. Behavioral safety is guaranteed by the tool. Lever: Tooling — operation semantics, not which tools exist."
 
 Then return to the TOC.
 
 ---
 
-### 53 — Beat 6 setup: Data loss
+### 53 — Setup: Data loss (Archive table for migrations)
 
 > "Database migrations. The AI generates a migration; it runs; data changes state."
 
@@ -707,9 +767,9 @@ Then return to the TOC.
 
 ---
 
-### 54 — Beat 6 story: Result handling
+### 54 — Story: Archive table for migrations (State control)
 
-> "Universe lever: Result handling."
+> "Main lever: State control."
 
 > "Three layers. Each intercepts between the AI's output and irreversible effect."
 
@@ -717,7 +777,7 @@ Point at each bullet as you tell it.
 
 > "Archive table: before any migration runs, every pre-migration row is preserved. Always restorable. The AI can be careless about loss."
 
-> "Bidirectional remapping: after the AI writes the migration, another step generates a full value map — source to destination and back — and deterministic code verifies it meets criteria before execution. A test turns the map into a migration check."
+> "Bidirectional remapping: after the AI writes the migration, another step generates a full value map (source to destination and back) and deterministic code verifies it meets criteria before execution. A test turns the map into a migration check."
 
 > "Extracted library: all the migration machinery was debugged once and extracted. The AI writes only the migration definition. Deterministic code handles execution."
 
@@ -727,11 +787,189 @@ Point at each bullet as you tell it.
 
 ---
 
-### 55 — Beat 6 name the experience
+### 55 — Name the experience: Archive table for migrations
 
-> "Scope: schema migrations against live data. Cost to protect: zero — data loss is structurally impossible. Lever: State control (the Determinism Sandwich)."
+> "Scope: schema migrations against live data. Cost to protect: zero. Data loss is structurally impossible. Lever: State control — the Determinism Sandwich."
 
 Then return to the TOC.
+
+---
+
+### 56a — Setup: Smelly code slips review (Commit tool as quality reviewer)
+
+Name the vigilance cost. Ask the question aloud.
+
+> "Did the AI land code that's technically correct but full of things a reviewer would flag?"
+
+Hold the silence.
+
+---
+
+### 56b — Story: Commit tool as quality reviewer (Feedback)
+
+Main lever: Feedback. Every commit returns a structured quality report.
+
+> "Lint, type, tests, dead code, complexity, missing-test heuristics. Each problem tagged must-fix or could-fix."
+
+> "The AI sees its own code through the reviewer's filter and re-invokes commit until the report is clean. The human only sees commits that already passed."
+
+Punch: *the agent's actions are now evaluated by deterministic code, synchronously, at the moment of action.*
+
+---
+
+### 56c — Name the experience: Commit tool as quality reviewer
+
+Read the three rows. Return to the TOC.
+
+---
+
+### 56d — Setup: Looks done, isn't (Required demo + verification)
+
+> "Did the AI ship something that looks done and passes tests but doesn't actually work?"
+
+---
+
+### 56e — Story: Required demo + verification (Feedback)
+
+Main lever: Feedback, three actors, two timescales.
+
+Walk the four moves: required demo → browser-walker verification → human note capture → note triage.
+
+> "The human only ever sees demos of code that demonstrably works. The agent never blocks on 'is this finished.'"
+
+Punch: *two timescales. Three actors. All deterministic.*
+
+---
+
+### 56f — Name the experience: Required demo + verification
+
+Read. Return to the TOC.
+
+---
+
+### 57a — Setup: Phase bleed in the inner loop (Dev inner loop control)
+
+Vigilance cost is TDD discipline.
+
+> "Did Claude skip the refactor and shove logic into the test? Write the test after the code? Mix test edits and production edits in the same change?"
+
+---
+
+### 57b — Story: Dev inner loop control (Workflow)
+
+Main lever: Workflow. One workflow, five universes.
+
+Walk the five phases: plan refactor (read-only) → apply refactor (AST only) → write the test (only test files writable) → make it pass (production tree writable, tests read-only) → remove duplication (AST again).
+
+> "A Minions mission orchestrates the sequence. Deterministic code handles commits and chooses the next phase."
+
+Punch: *no single Claude call can do TDD wrong, because the wrong move isn't in its toolbox.*
+
+---
+
+### 57c — Name the experience: Dev inner loop control
+
+Read. Return to the TOC.
+
+---
+
+### s-rc-mono-a — Setup: Cross-package contamination (Monorepo isolation)
+
+Brownfield monorepo. Vigilance cost.
+
+> "Did my change to package A silently alter package B?"
+
+---
+
+### s-rc-mono-b — Story: Monorepo isolation (Reachable Context)
+
+Main lever: Reachable Context. Shrink what the agent can see to what its task should touch.
+
+Walk: other packages reduced to API types and factories; adapters and ports stay visible; refactoring tools span both sides when API is internal.
+
+Punch: *cross-package contamination becomes structurally impossible.*
+
+---
+
+### s-rc-mono-c — Name the experience: Monorepo isolation
+
+Read. Return to the TOC.
+
+---
+
+### s-rc-phase-a — Setup: Skip past the intermediate (Multi-phase re-design)
+
+> "Did the AI optimize for the eventual shape and skip the partial-progress state I asked for?"
+
+---
+
+### s-rc-phase-b — Story: Multi-phase re-design (Reachable Context)
+
+Main lever: Reachable Context. Truncate the horizon to the next durable resting point.
+
+Walk: design the endpoint; design Phase 1; hide the endpoint during Phase 1 execution; apply recursively.
+
+Punch: *the further future does not exist for this execution.*
+
+---
+
+### s-rc-phase-c — Name the experience: Multi-phase re-design
+
+Read. Return to the TOC.
+
+---
+
+### s-rc-vector-a — Setup: Findability gap (Vector code search)
+
+> "Did the AI miss the relevant code because grep wasn't the right way in?"
+
+---
+
+### s-rc-vector-b — Story: Vector code search (Reachable Context)
+
+Main lever: Reachable Context. Expand the surface in a direction that matches how the agent asks questions.
+
+Walk: pre-compute summaries; vector DB; search tool preferred over grep.
+
+This is the probabilistic one. Name it: *the agent can find code by intent, not just by literal token.*
+
+---
+
+### s-rc-vector-c — Name the experience: Vector code search
+
+Read. Return to the TOC.
+
+---
+
+### s-rc-plan-a — Setup: Premature option lock-in (Plan optionality)
+
+> "Did the AI lock in on the first plausible option without exploring the space?"
+
+---
+
+### s-rc-plan-b — Story: Plan optionality (Reachable Context)
+
+Main lever: Reachable Context. Hide the comparison from the agents being compared.
+
+Walk: plan MCP tool; options node; one `probably-wrong` branch per option; parallel execution; recombine survivors.
+
+Punch: *each branch executes one option as well as it can, because alternatives are not in its reachable context.*
+
+---
+
+### s-rc-plan-c — Name the experience: Plan optionality
+
+Read. Return to the TOC.
+
+---
+
+### s-rec-iter-0..end — Recipe iteration walkthrough (extract PaymentService)
+
+Reached from the recipe TOC card. Three loops shown side-by-side with a wrap-up.
+
+For each iteration (1, 2, 3): name the selected vigilance, the spot-check, the categories surfaced, the lever applied. Don't go into per-step depth; the per-step recipe slides do that.
+
+End slide: read the struck-through categories, point at what's still on the list, close with *every extraction now ships with three permanently-free categories.*
 
 ---
 
@@ -743,7 +981,7 @@ Then return to the TOC.
 
 Point at the list.
 
-> "Memory. Goals. Workflow. Tooling — twice. Result handling."
+> "Memory plus Reachable Context. Goals. Workflow. Tooling, twice. State control."
 
 > "Each choice created a zero-risk zone. Each zone permanently freed vigilance budget for the next thing."
 
@@ -806,7 +1044,7 @@ After the closing sequence's last slide (s60), next-key returns to the TOC. Use 
 | Two examples (tooling demo, result-handling story) | 4–5 min | 24–25, 22 |
 | Upshift → 3-factor formula | 2–3 min | 28, 20, 34 |
 | TOC hub lands | — | 33 |
-| Audience-directed back half | 10–15 min | 38–54 (cycle via TOC) |
+| Audience-directed back half | 10–15 min | 38–55 (cycle via TOC) |
 | Closing sequence | 2–3 min | 56, 58, 10, 60 |
 | **Total talk proper** | **~30 min** | |
 
