@@ -217,6 +217,104 @@
     #s33 .toc-card { padding: 1rem 0.9rem; }
     #s33 .toc-placeholder { margin-top: 0.8rem; }
 
+    /* ── UNIVERSE VENN (TOC case-study organizer) ─────── */
+    .universe-venn {
+      position: relative;
+      width: min(1200px, 96%);
+      aspect-ratio: 12 / 5.2;
+      margin: 0.8rem auto 0;
+    }
+    .universe-venn .venn-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+    }
+    .universe-venn .region {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      text-align: left;
+    }
+    .universe-venn .region-label {
+      font-size: clamp(0.55rem, 0.85vw, 0.78rem);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--kicker);
+      text-align: center;
+      margin-bottom: 0.15rem;
+      opacity: 0.85;
+    }
+    .universe-venn .region-intersection {
+      left: 50%;
+      top: 14%;
+      transform: translateX(-50%);
+      width: 19%;
+      min-width: 11rem;
+      z-index: 2;
+    }
+    .universe-venn .region-vigilance {
+      left: 28%;
+      top: 30%;
+      transform: translateX(-50%);
+      width: 19%;
+      min-width: 10.5rem;
+    }
+    .universe-venn .region-work {
+      left: 72%;
+      top: 22%;
+      transform: translateX(-50%);
+      width: 18%;
+      min-width: 9.5rem;
+      text-align: center;
+    }
+    .universe-venn .region-work .ruled-out {
+      text-decoration: line-through;
+      color: rgba(240,237,230,0.55);
+      font-size: clamp(0.7rem, 1vw, 0.95rem);
+      margin: 0.15rem 0;
+      line-height: 1.2;
+    }
+    .toc-pill {
+      background: rgba(0,0,0,0.55);
+      border: 1px solid rgba(232,160,32,0.35);
+      border-radius: 999px;
+      padding: 0.35rem 0.8rem;
+      cursor: pointer;
+      transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 0.05rem;
+      backdrop-filter: blur(2px);
+    }
+    .toc-pill:hover {
+      background: rgba(232,160,32,0.18);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+    .toc-pill .pill-kicker {
+      font-size: clamp(0.55rem, 0.85vw, 0.72rem);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--kicker);
+      line-height: 1;
+    }
+    .toc-pill .pill-title {
+      font-size: clamp(0.75rem, 1.05vw, 1rem);
+      color: var(--fg);
+      font-weight: 500;
+      line-height: 1.15;
+    }
+    .toc-pill-pending {
+      opacity: 0.5;
+      cursor: default;
+      border-style: dashed;
+    }
+    .toc-pill-pending:hover {
+      background: rgba(0,0,0,0.55);
+      border-color: rgba(232,160,32,0.35);
+      transform: none;
+    }
+
     /* ── NAME-THE-EXPERIENCE LIST ─────────────────────── */
     .name-list { list-style: none; text-align: left; margin: 1.8rem auto 0; padding: 0; font-size: clamp(0.95rem, 1.55vw, 1.6rem); line-height: 1.5; }
     .name-list li { margin-bottom: 0.9rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--subtle); }
@@ -614,7 +712,7 @@
   <section class="slide" id="s24">
     <div class="slide-content">
       <p class="kicker">Two kinds of engineer</p>
-      <div style="display: grid; grid-template-columns: max-content repeat(2, 1fr); column-gap: 1.6rem; row-gap: 1rem; margin: 2.5rem auto 0; text-align: left; font-size: clamp(0.9rem, 1.3vw, 1.4rem); line-height: 1.45;">
+      <div style="display: grid; grid-template-columns: max-content repeat(2, 1fr); column-gap: 1.8rem; row-gap: 1.1rem; margin: 2.5rem auto 0; text-align: left; font-size: clamp(1.15rem, 1.85vw, 2rem); line-height: 1.4;">
         <!-- Column labels -->
         <div ></div>
         <div style="color: var(--kicker); border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 0.4rem;">App / Lib Dev</div>
@@ -635,7 +733,7 @@
         <div style="font-style: italic; color: var(--dim);">Find and fix defects before they pile up.</div>
         <div style="font-style: italic; color: var(--dim);">Control the <em>rate</em> at which <em>even careless devs</em> create defects.</div>
       </div>
-      <p style="margin-top: 2rem; color: var(--dim);">If your AI is one of the developers, you are the tool builder.</p>
+      <p style="margin-top: 4.5rem; color: var(--dim); font-size: clamp(0.85rem, 1.25vw, 1.35rem); font-style: italic;">If your AI is one of the developers, you are the tool builder.</p>
     </div>
   </section>
 
@@ -655,8 +753,9 @@
       <p class="kicker">How?</p>
       <h2>Be a Tool Builder</h2>
       <ul class="story-list" style="margin-top: 2.5rem;">
+        <li>Assume a well-intentioned but careless engineer.</li>
         <li>Change the <em>universe</em>.</li>
-        <li>Raise safety on one <em>error category</em>.</li>
+        <li>Reduce <em>creation rate</em> of one error category.</li>
       </ul>
     </div>
   </section>
@@ -671,11 +770,11 @@
         <!-- Two overlapping circles: work toil (left) and vigilance toil (right).
              Levers that reduce both sit in the intersection; vigilance-only on
              the right; work-toil-only on the left, crossed out. -->
-        <circle cx="450" cy="380" r="300" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="2"/>
-        <circle cx="850" cy="380" r="300" fill="rgba(232,160,32,0.10)" stroke="#e8a020" stroke-width="2"/>
+        <circle cx="450" cy="380" r="300" fill="rgba(232,160,32,0.10)" stroke="#e8a020" stroke-width="2"/>
+        <circle cx="850" cy="380" r="300" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="2"/>
 
-        <text x="270"  y="60" text-anchor="middle" font-size="22" font-weight="800" fill="#7ab8c8" letter-spacing="0.5">Work toil</text>
-        <text x="1030" y="60" text-anchor="middle" font-size="22" font-weight="800" fill="#e8a020" letter-spacing="0.5">Vigilance toil</text>
+        <text x="270"  y="60" text-anchor="middle" font-size="22" font-weight="800" fill="#e8a020" letter-spacing="0.5">Vigilance toil</text>
+        <text x="1030" y="60" text-anchor="middle" font-size="22" font-weight="800" fill="#7ab8c8" letter-spacing="0.5">Work toil</text>
 
         <!-- Intersection: both reduced. -->
         <g text-anchor="middle" font-weight="700" fill="#f0ede6">
@@ -685,19 +784,19 @@
           <text x="650" y="465" font-size="20">Feedback</text>
         </g>
 
-        <!-- Vigilance-only (right crescent). -->
+        <!-- Vigilance-only (left crescent). -->
         <g text-anchor="middle" font-weight="700" fill="#f0ede6">
-          <text x="900" y="300" font-size="20">State control</text>
-          <text x="900" y="355" font-size="20">Memory</text>
-          <text x="900" y="410" font-size="18">Reachable Context</text>
+          <text x="370" y="300" font-size="20">State control</text>
+          <text x="370" y="355" font-size="20">Memory</text>
+          <text x="370" y="410" font-size="18">Reachable Context</text>
         </g>
 
-        <!-- Work-toil-only (left crescent), crossed out. -->
+        <!-- Work-toil-only (right crescent), crossed out. -->
         <g text-anchor="middle" font-weight="700" fill="rgba(240,237,230,0.55)" text-decoration="line-through">
-          <text x="370" y="300" font-size="18">Identity</text>
-          <text x="370" y="355" font-size="18">Adjacency</text>
-          <text x="370" y="410" font-size="17">Mid-turn interrupts</text>
-          <text x="370" y="465" font-size="17">In-flight messages</text>
+          <text x="900" y="300" font-size="18">Identity</text>
+          <text x="900" y="355" font-size="18">Adjacency</text>
+          <text x="900" y="410" font-size="17">Mid-turn interrupts</text>
+          <text x="900" y="465" font-size="17">In-flight messages</text>
         </g>
       </svg>
     </div>
@@ -844,41 +943,52 @@
   <section class="slide" id="s33">
     <div class="slide-content">
       <p class="kicker">Pick one to explore</p>
-      <h2>Agent's <span class="accent">Universe</span></h2>
 
-      <p class="toc-section-label">Case studies</p>
-      <div class="toc-grid">
-        <div class="toc-card" data-jump-to="s38">
-          <p class="kicker">Memory</p>
-          <h3>Decision inconsistency</h3>
+      <div class="universe-venn">
+        <svg viewBox="0 0 1200 520" class="venn-bg" preserveAspectRatio="xMidYMid meet" role="img" aria-hidden="true">
+          <circle cx="490" cy="280" r="235" fill="rgba(232,160,32,0.10)" stroke="#e8a020" stroke-width="2"/>
+          <circle cx="710" cy="280" r="235" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="2"/>
+          <text x="180" y="40" text-anchor="middle" font-size="22" font-weight="800" fill="#e8a020" letter-spacing="0.5">Vigilance toil</text>
+          <text x="1020" y="40" text-anchor="middle" font-size="22" font-weight="800" fill="#7ab8c8" letter-spacing="0.5">Work toil</text>
+        </svg>
+        
+        <div class="region region-intersection">
+          <div class="region-label">Reduces both</div>
+          <div class="toc-pill" data-jump-to="s41">
+            <span class="pill-kicker">Goals</span>
+            <span class="pill-title">Consistency violation</span>
+          </div>
+          <div class="toc-pill" data-jump-to="s44">
+            <span class="pill-kicker">Workflow</span>
+            <span class="pill-title">Oversight gap</span>
+          </div>
+          <div class="toc-pill" data-jump-to="s47">
+            <span class="pill-kicker">Tooling</span>
+            <span class="pill-title">Scope enforcement</span>
+          </div>
+          <div class="toc-pill" data-jump-to="s50">
+            <span class="pill-kicker">Tooling — ops</span>
+            <span class="pill-title">Accidental behavior change</span>
+          </div>
+          <div class="toc-pill toc-pill-pending">
+            <span class="pill-kicker">Feedback</span>
+            <span class="pill-title">Story TBD</span>
+          </div>
         </div>
-        <div class="toc-card" data-jump-to="s41">
-          <p class="kicker">Goals</p>
-          <h3>Consistency violation</h3>
-        </div>
-        <div class="toc-card" data-jump-to="s44">
-          <p class="kicker">Workflow</p>
-          <h3>Oversight gap</h3>
-        </div>
-        <div class="toc-card" data-jump-to="s47">
-          <p class="kicker">Tooling</p>
-          <h3>Scope enforcement</h3>
-        </div>
-        <div class="toc-card" data-jump-to="s50">
-          <p class="kicker">Tooling (operations)</p>
-          <h3>Accidental behavior change</h3>
-        </div>
-        <div class="toc-card" data-jump-to="s53">
-          <p class="kicker">State control</p>
-          <h3>Data loss (archive table)</h3>
-        </div>
-        <div class="toc-card toc-card-pending">
-          <p class="kicker">Feedback</p>
-          <h3>Story TBD</h3>
+
+        <div class="region region-vigilance">
+          <div class="region-label">Reduces vigilance only</div>
+          <div class="toc-pill" data-jump-to="s38">
+            <span class="pill-kicker">Memory</span>
+            <span class="pill-title">Decision inconsistency</span>
+          </div>
+          <div class="toc-pill" data-jump-to="s53">
+            <span class="pill-kicker">State control</span>
+            <span class="pill-title">Data loss (archive table)</span>
+          </div>
         </div>
       </div>
 
-      <p class="toc-section-label">Recipes</p>
       <div data-recipe-svg-slot="clickable" style="margin: 0 auto;"></div>
 
       <div class="toc-grid" style="margin-top: 0.6rem;">
@@ -894,6 +1004,7 @@
     </div>
   </section>
 
+  @ai: replace these "beat" comments. Use the name of the story. Use that for all references, even ones not shown on the slide. If you don't know the name for one of these stories, then ask me (though it's probably in the stories.md file).
   <!-- ── BEAT 1: Memory / Decision inconsistency ──────── -->
 
   <!-- 38 Setup -->
@@ -908,7 +1019,7 @@
   <!-- 39 Intervention — beat 1 -->
   <section class="slide" id="s39">
     <div class="slide-content">
-      <p class="kicker">Universe: Memory</p>
+      <p class="kicker">Main Lever: Memory</p> @ai: this story is actually both memory and reachable context. Figure out how to show it as both.
       <ul class="story-list">
         <li><em>Delete</em> completed stories entirely (don't mark done)</li>
         <li>Rewrite all future stories to reflect the current direction</li>
@@ -928,8 +1039,8 @@
       <p class="kicker">Name the experience</p>
       <ul class="name-list">
         <li><strong class="accent">Scope</strong> Cross-session decision inconsistency.</li>
-        <li><strong class="accent">Cost to protect</strong> Zero — conflicting decisions are structurally impossible.</li>
-        <li><strong class="accent">Lever</strong> Memory.</li>
+        <li><strong class="accent">Cost to protect</strong> Zero: conflicting decisions are structurally impossible.</li>
+        <li><strong class="accent">Lever</strong> Memory + Reachable Context.</li>
       </ul>
     </div>
   </section>
@@ -941,7 +1052,7 @@
     <div class="slide-content">
       <p class="kicker">Recurring structured output</p>
       <h2>Vigilance cost:<br><span class="accent">Consistency violation</span></h2>
-      <p style="margin-top: 2rem; color: var(--dim);">"Does this follow the same structure as last time?<br>Did it invent something that drifts from the template?"</p>
+      <p style="margin-top: 2rem; color: var(--dim);">"Does this email follow the same structure as last time?<br>Did it include the right sections for day N/10?"</p>
     </div>
   </section>
 
@@ -949,7 +1060,7 @@
   <section class="slide img-bg" id="s42">
     <div class="overlay"></div>
     <div class="slide-content">
-      <p class="kicker">Universe: Goals</p>
+      <p class="kicker">Main Lever: Goals</p>
       <h2>From "write HTML email"<br> to "json → bullet points".</h2>
       <p style="margin-top: 2rem; color: var(--dim);">Claude writes sentences.<br>Deterministic code assembles everything else.</p>
       <p style="margin-top: 1.5rem;">
@@ -965,7 +1076,7 @@
       <p class="kicker">Name the experience</p>
       <ul class="name-list">
         <li><strong class="accent">Scope</strong> Format and structure drift in recurring output.</li>
-        <li><strong class="accent">Cost to protect</strong> Zero — structure, recipients, rendering each become zero-risk zones.</li>
+        <li><strong class="accent">Cost to protect</strong> Zero — structure, recipients, rendering each become zero-risk zones.</li> @ai: clear out the emdashes. Target external quality (high quality) writing.
         <li><strong class="accent">Lever</strong> Goals (structured spec).</li>
       </ul>
     </div>
@@ -1673,8 +1784,8 @@
     }
   });
 
-  // TOC card clicks
-  document.querySelectorAll('.toc-card[data-jump-to]').forEach(card => {
+  // TOC card / pill clicks
+  document.querySelectorAll('.toc-card[data-jump-to], .toc-pill[data-jump-to]').forEach(card => {
     card.addEventListener('click', () => goToId(card.dataset.jumpTo));
   });
 
