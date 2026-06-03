@@ -721,6 +721,10 @@
       <p style="margin-top: 1rem; color: var(--dim);">Baseline: prompt Claude + watch. Each transition silences one specific vigilance question.</p>
     </div>
   </section>
+  
+  @ai: add a step 0 for the initial condition.
+  
+  @ai: this must be at external writing quality. No emdashes!
 
   <!-- 23a Step 1 — Written workflow -->
   <section class="slide" id="s23a">
@@ -1255,6 +1259,10 @@
                 <span class="pill-story">Transcript fetcher</span>
                 <span class="pill-desc">Oversight gap</span>
               </div>
+              <div class="toc-pill" data-jump-to="s57a">
+                <span class="pill-story">Dev inner loop control</span>
+                <span class="pill-desc">Phase bleed in TDD</span>
+              </div>
             </div>
             <!-- Row 2: vigilance-only levers + Feedback (TBD pending slide content) -->
             <div class="lever-group">
@@ -1621,6 +1629,45 @@
         <li><strong class="accent">Scope</strong> "Is this demo-able?" for every user-visible chunk.</li>
         <li><strong class="accent">Cost to protect</strong> Zero. The plan tool gates advancement on demo verification.</li>
         <li><strong class="accent">Lever</strong> Feedback (multi-actor, multi-timescale loops).</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── STORY: Dev inner loop control (Workflow) ────────────── -->
+
+  <!-- 57a Setup -->
+  <section class="slide" id="s57a">
+    <div class="slide-content">
+      <p class="kicker">TDD with an agent</p>
+      <h2>Vigilance cost:<br><span class="accent">Phase bleed in the inner loop</span></h2>
+      <p style="margin-top: 2rem; color: var(--dim);">"Did Claude skip the refactor and shove logic into the test?<br>Write the test after the code? Mix test edits and production edits in the same change?"</p>
+    </div>
+  </section>
+
+  <!-- 57b Intervention — Dev inner loop control -->
+  <section class="slide" id="s57b">
+    <div class="slide-content">
+      <p class="kicker">Main Lever: Workflow</p>
+      <h2>One workflow,<br><span class="accent">four universes.</span></h2>
+      <ul class="story-list">
+        <li><em>Plan refactor:</em> read-only tools. Output: a refactor plan.</li>
+        <li><em>Apply refactor:</em> AST tools only. Loop until the plan is empty.</li>
+        <li><em>Write the test:</em> only test files writable.</li>
+        <li><em>Make it pass:</em> production tree writable; test files read-only.</li>
+      </ul>
+      <p style="margin-top: 2rem; color: var(--dim);">A Minions mission orchestrates the sequence.<br>Deterministic code handles commits and chooses the next phase.</p>
+      <p style="margin-top: 1.2rem;">No single Claude call can do TDD wrong<br>because <span class="accent">the wrong move isn't in its toolbox.</span></p>
+    </div>
+  </section>
+
+  <!-- 57c Name the experience — Dev inner loop control; next returns to TOC -->
+  <section class="slide" id="s57c" data-return-to-toc="true">
+    <div class="slide-content">
+      <p class="kicker">Name the experience</p>
+      <ul class="name-list">
+        <li><strong class="accent">Scope</strong> TDD discipline across one feature's inner loop.</li>
+        <li><strong class="accent">Cost to protect</strong> Zero. Phase bleed is structurally impossible at each boundary.</li>
+        <li><strong class="accent">Lever</strong> Workflow (phased mission; tools and writable surface change per phase).</li>
       </ul>
     </div>
   </section>

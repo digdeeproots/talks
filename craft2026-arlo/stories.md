@@ -102,7 +102,32 @@ Results:
 
 ---
 
-@ai: add a new workflow story as well. This one is about taking control of the dev inner loop. Instead of givng claude skills at test writing, etc plus a workflow document saying what to do, write a node script (a Minions mission) that spins up a claude with read-only tools and asks it how to refactor the code so that the next test would be easy to write, then one with refactoring tools to do that, loop those until done, then one with edit tools but a context in which only test files are writable to write the test, then one where it can code to pass the test. Deterministic tools choose the commits between (asking claude to finish each session by describing what it did, as if for a commit message - which I may or may not use), choose what to run next, and so on. Write this story here, THEN add it to the TOC and include its 3-slide format.
+## Workflow — Dev inner loop control
+
+*Vigilance cost: "Did the AI skip the refactor and shove logic into the test? Write the test after the code? Leave dead helpers? Mix test edits and production edits in the same change?"*
+
+*Safety: Level 1 (vigilance) → 4 (prevention) for phase-bleed across the TDD loop.*
+
+The usual setup: give Claude skills at refactoring, test-writing, and coding, plus a workflow document explaining the order. Then watch every step to make sure it stays in TDD discipline. Full vigilance burden, every loop.
+
+Instead: write a **Minions mission** — a deterministic Node script that orchestrates the inner loop as a sequence of bounded Claude calls. Each call gets a different toolbox and a different writable surface.
+
+1. **Plan refactor.** Spin up Claude with **read-only** tools. Goal: identify how the code should be refactored so the next test is trivial to write. Output: a refactor plan.
+2. **Apply refactor.** Spin up Claude with **AST refactoring** tools, no `edit-file`. Goal: execute the plan. Loop steps 1 and 2 until the refactor plan is empty.
+3. **Write the test.** Spin up Claude with edit tools, but a workspace where **only test files are writable**. Goal: write the next failing test.
+4. **Make it pass.** Spin up Claude with edit tools and the production tree writable, but the test files now read-only. Goal: make the test pass.
+
+Between every phase, deterministic code runs:
+
+- Ask the finishing Claude to describe what it did, framed as a commit message. (I may or may not use the message; the framing is the point.)
+- Commit via the movement-based branching tool.
+- Decide what runs next based on declared state — passing tests, refactor backlog, failing tests, dirty working copy.
+
+No single Claude call can do TDD wrong. The phase boundaries are enforced by which tools are in the toolbox and which files are writable. Phase bleed becomes structurally impossible inside the inner loop.
+
+**Key insight for the talk:** *one workflow, four universes.* The same TDD discipline that humans achieve through self-control here is achieved through universe shaping. The mission script doesn't ask Claude to follow TDD; it makes the wrong move unavailable in each phase.
+
+Recipe: *split the workflow into phases and re-shape the agent's universe at each phase boundary.*
 
 ---
 
