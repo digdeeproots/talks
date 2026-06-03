@@ -169,6 +169,23 @@ The human never sees the smelly-but-fixed states. They only see commits that pas
 
 **Key insight for the talk:** the agent's actions used to be evaluated by a human, asynchronously, at review time. Now they are evaluated by deterministic code, synchronously, at the moment of action. The agent's behavior changed not because it became more careful, but because the universe started telling it the truth immediately.
 
+### Required demo + demo prep
+
+*Vigilance cost: "Did the AI ship something that looks done and passes tests but doesn't actually work?"*
+
+*Safety: Level 1 (vigilance) → 4 (prevention) for "is this demo-able."*
+
+A two-stage feedback loop wrapped around every user-visible chunk of work:
+
+1. **Required demo.** At the end of each plan chunk, the coding agent must produce a demo and attach it to the plan, then suspend itself. Without a demo, the chunk is not done. The plan tool will not advance.
+2. **Demo verification.** Before I see the demo, a separate system walks through it in a real browser. If any step fails — broken click target, missing route, console error, wrong state — those failures become structured feedback returned to the coder, which is re-woken to fix them. The cycle repeats until the demo passes its own walkthrough.
+3. **Demo walk + note capture.** I then walk the verified demo and make freeform notes — what I liked, what surprised me, what I want changed.
+4. **Note triage.** A separate system reads my notes and sorts each into *now* (re-wakes the coder for immediate work) or *future* (added to the plan as a downstream item).
+
+The human only ever sees demos of code that demonstrably works. The agent never blocks on "is this finished" — the plan tool answers, by gating on demo verification.
+
+**Key insight for the talk:** feedback here spans three different actors and two different timescales. The browser walker closes a tight loop for the coder; the note triager closes a slower loop between the human and the plan. Both are deterministic infrastructure; neither requires the human to remember to check.
+
 ---
 
 ## Reachable Context — Monorepo package isolation
@@ -228,25 +245,6 @@ The branches run in parallel. None of them knows that multiple options are being
 The agent in any single branch cannot under- or over-rate an alternative, because alternatives are not in its reachable context. The exploration is structural; the agent's job in each branch is to execute one specific option as well as possible.
 
 Recipe: *hide the comparison from the agents being compared.*
-
----
-
-### Required demo + demo prep
-
-*Vigilance cost: "Did the AI ship something that looks done and passes tests but doesn't actually work?"*
-
-*Safety: Level 1 (vigilance) → 4 (prevention) for "is this demo-able."*
-
-A two-stage feedback loop wrapped around every user-visible chunk of work:
-
-1. **Required demo.** At the end of each plan chunk, the coding agent must produce a demo and attach it to the plan, then suspend itself. Without a demo, the chunk is not done. The plan tool will not advance.
-2. **Demo verification.** Before I see the demo, a separate system walks through it in a real browser. If any step fails — broken click target, missing route, console error, wrong state — those failures become structured feedback returned to the coder, which is re-woken to fix them. The cycle repeats until the demo passes its own walkthrough.
-3. **Demo walk + note capture.** I then walk the verified demo and make freeform notes — what I liked, what surprised me, what I want changed.
-4. **Note triage.** A separate system reads my notes and sorts each into *now* (re-wakes the coder for immediate work) or *future* (added to the plan as a downstream item).
-
-The human only ever sees demos of code that demonstrably works. The agent never blocks on "is this finished" — the plan tool answers, by gating on demo verification.
-
-**Key insight for the talk:** feedback here spans three different actors and two different timescales. The browser walker closes a tight loop for the coder; the note triager closes a slower loop between the human and the plan. Both are deterministic infrastructure; neither requires the human to remember to check.
 
 ---
 
