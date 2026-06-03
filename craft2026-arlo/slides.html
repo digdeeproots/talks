@@ -1016,8 +1016,14 @@
         </g>
         <text x="20"  y="75" font-size="11" fill="rgba(240,237,230,0.55)" font-style="italic">errors slip through</text>
         <text x="980" y="75" font-size="11" fill="rgba(232,160,32,0.75)" text-anchor="end" font-style="italic">errors structurally impossible</text>
-        
-        @ai: add two labeled regions for the bar. Each is a curly brace below the bar identifying the region, and a label. One is "App / lib devs live here" the other is "Tool builders live here". App spans vigilance through deterministic. Tool builder spans prevention and carefree and the top 25% of deterministic.
+
+        <!-- Audience regions: App/lib devs live vigilance..deterministic; Tool builders live in the top 25% of deterministic..carefree. Stacked so the overlap (top 25% of deterministic) is visible. -->
+        <path d="M 167 152 Q 167 164 175 164 L 409 164 Q 417 164 417 172 M 417 172 Q 417 164 425 164 L 659 164 Q 667 164 667 152"
+              fill="none" stroke="rgba(240,237,230,0.7)" stroke-width="1.5"/>
+        <text x="417" y="188" text-anchor="middle" font-size="12" fill="rgba(240,237,230,0.85)" font-style="italic">App / lib devs live here</text>
+        <path d="M 625 205 Q 625 217 633 217 L 808 217 Q 813 217 813 225 M 813 225 Q 813 217 818 217 L 992 217 Q 1000 217 1000 205"
+              fill="none" stroke="rgba(232,160,32,0.85)" stroke-width="1.5"/>
+        <text x="813" y="241" text-anchor="middle" font-size="12" fill="rgba(232,160,32,0.95)" font-style="italic">Tool builders live here</text>
 
         <!-- Cognitive-load header + compressed labels -->
         <text x="500" y="270" text-anchor="middle" font-size="11" fill="rgba(192,154,96,0.85)" font-weight="700" letter-spacing="1.6">COGNITIVE LOAD &mdash; vigilance toil over time</text>
