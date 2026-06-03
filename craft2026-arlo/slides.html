@@ -545,23 +545,11 @@
     }
     .story-list li:last-child { border-bottom: none; }
 
-    @ai: use a class to avoid calling out elements by ID. Definitely apply that here, and perhaps on other styles if there are similar messes.
     /* ── CASE-STUDY LAYOUT ──────────────────────────────
        Left-align the body of case-study setup / intervention slides so
-       text walls read better and the kicker doesn't float on a centered axis. */
-    #s38 .slide-content, #s39 .slide-content,
-    #s41 .slide-content, #s42 .slide-content,
-    #s44 .slide-content, #s45 .slide-content,
-    #s47 .slide-content, #s48 .slide-content,
-    #s50 .slide-content, #s51 .slide-content,
-    #s53 .slide-content, #s54 .slide-content,
-    #s56a .slide-content, #s56b .slide-content,
-    #s56d .slide-content, #s56e .slide-content,
-    #s57a .slide-content, #s57b .slide-content,
-    #s-rc-mono-a .slide-content, #s-rc-mono-b .slide-content,
-    #s-rc-phase-a .slide-content, #s-rc-phase-b .slide-content,
-    #s-rc-vector-a .slide-content, #s-rc-vector-b .slide-content,
-    #s-rc-plan-a .slide-content, #s-rc-plan-b .slide-content {
+       text walls read better and the kicker doesn't float on a centered axis.
+       Tag the slide with class="case-study" (in addition to "slide") to opt in. */
+    .case-study .slide-content {
       text-align: left;
       max-width: 64rem;
       margin: 0 auto;
@@ -1422,7 +1410,7 @@
   <!-- ── STORY: Delete completed stories (Memory + Reachable Context) ──────── -->
 
   <!-- 38 Setup -->
-  <section class="slide" id="s38">
+  <section class="slide case-study" id="s38">
     <div class="slide-content">
       <p class="kicker">Discovery during demos</p>
       <h2>Vigilance cost:<br><span class="accent">Decision inconsistency</span></h2>
@@ -1431,7 +1419,7 @@
   </section>
 
   <!-- 39 Intervention — Delete completed stories -->
-  <section class="slide" id="s39">
+  <section class="slide case-study" id="s39">
     <div class="slide-content">
       <p class="kicker">Main Levers: Memory + Reachable Context</p>
       <ul class="story-list">
@@ -1465,7 +1453,7 @@
   <!-- ── STORY: Status email as structured spec (Goals) ─────────── -->
 
   <!-- 41 Setup -->
-  <section class="slide" id="s41">
+  <section class="slide case-study" id="s41">
     <div class="slide-content">
       <p class="kicker">Recurring structured output</p>
       <h2>Vigilance cost:<br><span class="accent">Consistency violation</span></h2>
@@ -1474,7 +1462,7 @@
   </section>
 
   <!-- 42 Intervention — Status email as structured spec -->
-  <section class="slide img-bg" id="s42">
+  <section class="slide img-bg case-study" id="s42">
     <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Main Lever: Goals</p>
@@ -1505,7 +1493,7 @@
   <!-- ── STORY: Transcript fetcher (Workflow) ──────── -->
 
   <!-- 44 Setup -->
-  <section class="slide img-bg" id="s44">
+  <section class="slide img-bg case-study" id="s44">
     <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Session data fetching</p>
@@ -1515,7 +1503,7 @@
   </section>
 
   <!-- 45 Intervention — Transcript fetcher -->
-  <section class="slide img-bg" id="s45">
+  <section class="slide img-bg case-study" id="s45">
     <div class="slide-content">
       <p class="kicker">Main Lever: Workflow</p>
       <div class="two-up">
@@ -1550,7 +1538,7 @@
   <!-- ── STORY: Movement-based branching (Tooling) ───── -->
 
   <!-- 47 Setup -->
-  <section class="slide img-bg" id="s47">
+  <section class="slide img-bg case-study" id="s47">
     <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Source control in an agentic codebase</p>
@@ -1560,7 +1548,7 @@
   </section>
 
   <!-- 48 Intervention — Movement-based branching -->
-  <section class="slide img-bg" id="s48">
+  <section class="slide img-bg case-study" id="s48">
     <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Main Lever: Tooling</p>
@@ -1591,7 +1579,7 @@
   <!-- ── STORY: AST-only refactoring (Tooling — operations) ─── -->
 
   <!-- 50 Setup -->
-  <section class="slide img-bg" id="s50">
+  <section class="slide img-bg case-study" id="s50">
     <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Structural refactoring in legacy code</p>
@@ -1602,7 +1590,7 @@
   </section>
 
   <!-- 51 Intervention — AST-only refactoring -->
-  <section class="slide img-bg" id="s51">
+  <section class="slide img-bg case-study" id="s51">
     <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Main Lever: Tooling</p>
@@ -1639,7 +1627,7 @@
   <!-- ── STORY: Archive table for migrations (State control) ────────────── -->
 
   <!-- 53 Setup -->
-  <section class="slide img-bg" id="s53">
+  <section class="slide img-bg case-study" id="s53">
     <div ></div>
     <div class="slide-content">
       <p class="kicker">Database migrations</p>
@@ -1650,7 +1638,7 @@
   </section>
 
   <!-- 54 Intervention — Archive table for migrations -->
-  <section class="slide img-bg" id="s54">
+  <section class="slide img-bg case-study" id="s54">
     <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Main Lever: State control</p>
@@ -1681,7 +1669,7 @@
   <!-- ── STORY: Commit tool as quality reviewer (Feedback) ────────────── -->
 
   <!-- 56a Setup -->
-  <section class="slide" id="s56a">
+  <section class="slide case-study" id="s56a">
     <div class="slide-content">
       <p class="kicker">Code review under agentic load</p>
       <h2>Vigilance cost:<br><span class="accent">Smelly code slips review</span></h2>
@@ -1690,7 +1678,7 @@
   </section>
 
   <!-- 56b Intervention — Commit tool as quality reviewer -->
-  <section class="slide" id="s56b">
+  <section class="slide case-study" id="s56b">
     <div class="slide-content">
       <p class="kicker">Main Lever: Feedback</p>
       <h2>Every commit returns<br>a <span class="accent">structured quality report.</span></h2>
@@ -1718,7 +1706,7 @@
   <!-- ── STORY: Required demo + verification (Feedback) ────────────── -->
 
   <!-- 56d Setup -->
-  <section class="slide" id="s56d">
+  <section class="slide case-study" id="s56d">
     <div class="slide-content">
       <p class="kicker">User-visible work</p>
       <h2>Vigilance cost:<br><span class="accent">Looks done, isn't</span></h2>
@@ -1727,7 +1715,7 @@
   </section>
 
   <!-- 56e Intervention — Required demo + verification -->
-  <section class="slide" id="s56e">
+  <section class="slide case-study" id="s56e">
     <div class="slide-content">
       <p class="kicker">Main Lever: Feedback</p>
       <ul class="story-list">
@@ -1761,7 +1749,7 @@
   <!-- ── STORY: Dev inner loop control (Workflow) ────────────── -->
 
   <!-- 57a Setup -->
-  <section class="slide" id="s57a">
+  <section class="slide case-study" id="s57a">
     <div class="slide-content">
       <p class="kicker">TDD with an agent</p>
       <h2>Vigilance cost:<br><span class="accent">Phase bleed in the inner loop</span></h2>
@@ -1770,7 +1758,7 @@
   </section>
   
   <!-- 57b Intervention — Dev inner loop control -->
-  <section class="slide" id="s57b">
+  <section class="slide case-study" id="s57b">
     <div class="slide-content">
       <p class="kicker">Main Lever: Workflow</p>
       <p>One workflow, <span class="accent">five universes.</span></p>
@@ -1804,7 +1792,7 @@
   <!-- ── STORY: Monorepo isolation (Reachable Context) ────────────── -->
 
   <!-- Setup -->
-  <section class="slide" id="s-rc-mono-a">
+  <section class="slide case-study" id="s-rc-mono-a">
     <div class="slide-content">
       <p class="kicker">Brownfield monorepo</p>
       <h2>Vigilance cost:<br><span class="accent">Cross-package contamination</span></h2>
@@ -1813,7 +1801,7 @@
   </section>
 
   <!-- Intervention -->
-  <section class="slide" id="s-rc-mono-b">
+  <section class="slide case-study" id="s-rc-mono-b">
     <div class="slide-content">
       <p class="kicker">Main Lever: Reachable Context</p>
       <p>Shrink what the agent can see <span class="accent">to exactly what its task should touch.</span></p>
@@ -1844,7 +1832,7 @@
   <!-- ── STORY: Multi-phase re-design (Reachable Context) ────────────── -->
 
   <!-- Setup -->
-  <section class="slide" id="s-rc-phase-a">
+  <section class="slide case-study" id="s-rc-phase-a">
     <div class="slide-content">
       <p class="kicker">Multi-phase migration</p>
       <h2>Vigilance cost:<br><span class="accent">Skip past the intermediate</span></h2>
@@ -1853,7 +1841,7 @@
   </section>
 
   <!-- Intervention -->
-  <section class="slide" id="s-rc-phase-b">
+  <section class="slide case-study" id="s-rc-phase-b">
     <div class="slide-content">
       <p class="kicker">Main Lever: Reachable Context</p>
       <p>Truncate the horizon to <span class="accent">the next durable resting point.</span></p>
@@ -1885,7 +1873,7 @@
   <!-- ── STORY: Vector code search (Reachable Context) ────────────── -->
 
   <!-- Setup -->
-  <section class="slide" id="s-rc-vector-a">
+  <section class="slide case-study" id="s-rc-vector-a">
     <div class="slide-content">
       <p class="kicker">Findability in legacy code</p>
       <h2>Vigilance cost:<br><span class="accent">Findability gap</span></h2>
@@ -1894,7 +1882,7 @@
   </section>
 
   <!-- Intervention -->
-  <section class="slide" id="s-rc-vector-b">
+  <section class="slide case-study" id="s-rc-vector-b">
     <div class="slide-content">
       <p class="kicker">Main Lever: Reachable Context</p>
       <p>Expand the reachable surface <span class="accent">in a direction that matches how the agent asks questions.</span></p>
@@ -1925,7 +1913,7 @@
   <!-- ── STORY: Plan optionality (Reachable Context) ────────────── -->
 
   <!-- Setup -->
-  <section class="slide" id="s-rc-plan-a">
+  <section class="slide case-study" id="s-rc-plan-a">
     <div class="slide-content">
       <p class="kicker">Planning under uncertainty</p>
       <h2>Vigilance cost:<br><span class="accent">Premature option lock-in</span></h2>
@@ -1934,7 +1922,7 @@
   </section>
 
   <!-- Intervention -->
-  <section class="slide" id="s-rc-plan-b">
+  <section class="slide case-study" id="s-rc-plan-b">
     <div class="slide-content">
       <p class="kicker">Main Lever: Reachable Context</p>
       <p>Hide the comparison <span class="accent">from the agents being compared.</span></p>
