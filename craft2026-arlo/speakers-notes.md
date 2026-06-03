@@ -141,17 +141,19 @@ Semi-demo script is out of scope for this movement.
 
 ### 29 — Example 1 recap
 
-Walk back to the first demo. The point of this slide is to *name* what changed; the audience saw it, now we attach words.
+Walk back to the first demo. The point of this slide is to *name* what changed; the audience saw it, now we attach words. The table is shaped exactly like the s31 table — one column per intervention, same four rows — so the audience reads them in parallel.
 
 > "Two demos. Let's look at what they had in common."
 
-> "First one: the commit tool. One transition. We replaced raw git with an MCP tool. The tool owns commits, branches, and risk notation."
+> "First one: one column, because one intervention. Risk-aware commit + branching. What we *changed* is the tool — that's the row marked Changed."
 
-Point to each line:
+Walk the column top to bottom.
 
-> "What stopped happening: risk mis-categorization, merge snarls, unclear history, arbitrary changes to history. All those failure modes — gone."
+> "Metacognition: down. The AI is no longer thinking about commit semantics, branch policy, risk codes — the tool decides."
 
-> "What got easier: committing and sharing carelessly. Less context-filling. Higher-level moves, because the lower-level stuff is no longer your job."
+> "Work toil: empty. We didn't reduce work toil here; the AI still does the same amount of work. This row will be empty on a lot of interventions."
+
+> "Vigilance toil: this is the row that names what stopped being scary. *Did the AI pick the right risk code? Will the branch land cleanly? Is history readable?* Those questions used to live in my head. They don't anymore. The tool answers them by construction."
 
 Don't name the formal terms yet. Hold them for two slides.
 
@@ -159,39 +161,47 @@ Don't name the formal terms yet. Hold them for two slides.
 
 ### 31 — Example 2 recap
 
-Four transitions in sequence. Walk them briefly — one beat each. The audience will pattern-match before you name it.
+Five columns now — five separable interventions. Same four rows as s29 so the audience reads them in parallel. The Vigilance Toil row holds the live questions each intervention silenced.
 
-> "Second one was four moves, not one. Each move was a single, separable change."
+> "Second example: five columns, because five separable interventions. Each one walked the same loop we just walked once."
 
-Read each:
+Walk the columns left to right, reading the Changed and the Vigilance Toil rows.
 
-> "Sequencing became deterministic. The agent doesn't decide what step is next; deterministic code does. That alone prevented a whole class of mistakes: shortcuts, mis-sequencing, over-eager completion."
+> "**Written workflow.** Changed the workflow. The procedure left my head onto disk. Inside a session I was still vigilant — but the question *Am I remembering to gather the right info?* stopped being mine to answer."
 
-> "Then the fetch became deterministic. The agent only sees fetch results when fetch fails. Notice this changed *two* things at once: invocation, *and* the goal of the agent in that step."
+> "**pnpm do-today.** Changed invocation. Deterministic code drives the loop, decides what step is next, then exits. *Is the AI taking the right next step?* — silenced. Metacognition went down too: the agent doesn't ask itself *what should I do next?* anymore."
 
-> "Then we locked down the analysis goal. From 'work with me to find what matters' to a concrete output spec. We also added text-to-speech so the system pulls me in only when there's something to respond to. I don't have to watch."
+> "**Deterministic fetch.** Changed invocation *and* goal at once. Det code fetches; the AI is only called on failure with the specific error. *Did the AI get the right input?* — silenced. Work toil went down because the AI stopped doing fetch by hand."
 
-> "Then we locked down the analysis format. Schema validation tells the agent when its output doesn't conform; the agent retries. I'm careless about what each key moment includes."
+> "**Narrow goal.** Find key moments. Period. *Is the AI over-working or taking shortcuts?* — silenced. Metacognition dropped: the AI stops asking *how much do I tell it now?* Work toil dropped: it stops generating content it could pull straight from the transcript."
 
-> "Four transitions, four levers touched."
+> "**Structured, iterative analysis.** Changed feedback. Schema validation tells the agent when its output is wrong; the agent retries. *Is the output complete or misleading?* — silenced. I'm careless about structure."
+
+> "Five interventions, five levers touched. ⬇️ in every row that filled in."
 
 ---
 
-### 32 — Naming the recurring terms
+### 32a / 32b / 32c — Naming the recurring terms (progressive reveal)
 
-This slide is the abstraction step. Each term comes out of the walk-through; don't introduce them out of context.
+Three slides. Same layout, one new term per slide. Don't introduce them out of context; each term comes out of the walk-through you just did.
 
-> "Four things keep showing up. Let's name them."
+**32a — Scope only.**
 
-> "**Lever** — a facet of the agent's universe you can engineer. We touched four today: tooling, invocation, goal, feedback. There are more."
+> "Three things keep showing up. Let's name them."
 
-> "**Safety level** — how far up the carelessness scale a class of error has been pushed. We haven't named the scale yet; we will in a moment."
+> "**Scope** — the class of error one intervention addresses. Always one at a time. Never 'the whole problem.' Each column we just walked through was one class."
 
-> "**Scope** — the class of error one intervention addresses. Always one at a time. Never 'the whole problem.' Each transition we just walked through was one class."
+Pause. Click forward.
 
-Pause. Then the bonus:
+**32b — Scope + Lever.**
 
-> "**Slack** — load shed beyond error prevention. The fetch step *also* disappeared. The TTS notification *also* let me work elsewhere. Those weren't error-prevention moves — they were attention-prevention moves. Bonus on top of the safety shift."
+> "**Lever** — a facet of the agent's universe you can engineer. We touched five today across the two examples: tooling, workflow, invocation, goal, feedback. There are more."
+
+Pause. Click forward.
+
+**32c — Scope + Lever + Cost to protect.**
+
+> "**Cost to protect** — how much vigilance toil is spent to prevent errors in this scope. Before each intervention it was high; after, near zero. That drop is what we engineered."
 
 Then bridge to the theory:
 
@@ -205,9 +215,43 @@ Cost to protect is the third factor. The walk-through just gave us the building 
 
 > "Vigilance toil is throughput times amount to protect times *cost to protect*. Throughput we don't lower — that's why we use AI. Amount to protect is what we're trying to grow — that's the business. Cost to protect is the one we engineer."
 
-> "Cost to protect is the price of holding one scope at one safety level. Lower it on one class, lower the total. Lever × level × scope. Plus slack, when you can get it."
+> "Cost to protect is the price of holding one scope safely. Lower it on one error category, lower the total. Lever × scope drives cost."
 
 Then pivot:
+
+---
+
+### 17 — Where vigilance toil comes from
+
+Short anchor slide. One claim, said once, and we move on.
+
+> "Where does vigilance toil actually come from? Defects. Specifically: defects we have to worry about."
+
+> "If there were no defects to worry about, we'd just *hope* and never look. Every step above hope on the safety scale is paid for one worry at a time."
+
+Beat. Then set up the next slide:
+
+> "So if vigilance toil is paid per worry — the question becomes: who do you think is *creating* the worries?"
+
+---
+
+### 24 — Two kinds of engineer
+
+Transition slide. Reframes the audience's role before we tell them how to act in it. Two columns; same defects, two different jobs.
+
+> "Two kinds of engineer look at the same defects and see different jobs."
+
+Walk the left column.
+
+> "An app or library developer asks: *how do I make this code defect-free?* The defects exist; the job is to find and fix them before they pile up. Lives at probabilistic and deterministic safety. Tests are something to tend."
+
+Walk the right column.
+
+> "A tool builder asks: *how do I make sure these developers ship defect-free code?* — where 'these developers' might be humans, might be AI agents. The job isn't catching defects after they happen. The job is controlling the *rate* at which they get created. Lives at prevention and carefree. Tests are a work product the developers might break."
+
+Land it.
+
+> "If your AI is one of the developers, you are the tool builder. The work isn't writing better AI. The work is engineering the world so that the defect rate drops."
 
 > "So what would it look like if cost-to-protect were the design problem?"
 
@@ -215,7 +259,7 @@ Then pivot:
 
 ## Upshift
 
-The job of this block: rise to the big idea (carelessness as the goal), state *how* (change the universe, raise safety on one class), then walk the design surface (universe + vocabulary + recipe). Order: principle (s20) → how (s26) → universe (s34) → vocabulary (s28) → recipe (s27) → AST callback (s22) → blank pivot (s30).
+The job of this block: rise to the big idea (carelessness as the goal), state *how* (change the universe, raise safety on one class), then walk the design surface (universe + vocabulary + recipe). Order: principle (s20) → how (s26) → customer model (s37a/s37b) → universe (s34) → vocabulary (s28) → recipe (s27) → blank pivot (s30). (AST callback s22 removed: redundant with Beat 5 in the back half, which covers the same AST-tools case study fully.)
 
 ---
 
@@ -231,7 +275,7 @@ Pause.
 
 Then the line that lands the goal:
 
-> "Make it so even crappier AI succeeds."
+> "Make even crappier AI succeed."
 
 Pause.
 
@@ -245,15 +289,105 @@ Then set up what comes next:
 
 ### 26 — How?
 
-> "Two-part answer. Change the universe. Raise safety on one class of error."
+> "Be a tool builder. Two moves: change the *universe*. Raise safety on one *error category*."
 
 Point to each line:
 
-> "Not the agent — the world around it. Not all errors — one class at a time. That's the whole shape of the work."
+> "Not the agent — the world around it. Not all errors — one category at a time. That's the whole shape of the work."
 
 Then bridge:
 
-> "So: where is the universe? And what does 'one class, at some safety level' actually look like?"
+> "So: what *is* the universe? Let's look at the customer for our tools — the agent itself — and see where the universe actually has joints."
+
+---
+
+### 37a-1 — Working memory
+
+State the intent. Don't enumerate the parts; the diagram does that.
+
+> "The heart of any coding agent is its working memory — its model of the world. Everything else exists to move stuff in or out of it."
+
+---
+
+### 37a-2 — Two ways the loop changes working memory
+
+State that the loop has two routes to updating working memory: thinking, or just doing it directly.
+
+> "The agent loop has one job: change working memory. Two ways to do it. Something triggers a question — the agent dispatches a call to the LLM, the answer comes back, working memory updates. Or the loop just makes the change directly, no thinking required."
+
+---
+
+### 37a-3 — Acts, and what makes this "the agent loop"
+
+Introduce *act* — and show that even an act ends up as a thought-about result that writes to working memory. Then name the pattern and tee up what's missing.
+
+> "The third move is an *act* — anything that touches the outside world. The agent picks an action: a tool to call, and a prompt for how to interpret whatever comes back. The tool runs. Whatever comes back is a result that gets thought about, and that thought writes to working memory."
+
+> "Think, act, write back. This is what people usually call *the agent loop*. But there's something more to the loop — a consistent workflow."
+
+---
+
+### 37a-4 — Understanding the customer (full decomposition)
+
+This diagram says: the agent is deterministic software with non-deterministic thinking steps. Working Memory is the center; every step touches it. There's a cycle in the middle, two steps before it, one step after. The cycle keeps running until the goal is met.
+
+Open with the big picture.
+
+> "An agent turn is mechanical. Eight steps. Two before the cycle, five in the cycle, one after. Working memory in the middle — every step reads or writes it."
+
+Walk the pre-cycle.
+
+> "Step 1: hydrate. The agent reads its session file off disk and loads working memory — turn goal from last time, task list, heap, the typed DAG. That's an *act*: a real read from outside."
+
+> "Step 2: set the turn goal from the new user input. That's a *think* — the agent dispatches the input to the LLM. The thought cloud asks: *what is being asked this turn?* The answer comes back as tokens and gets written to working memory as the turn goal."
+
+Now walk the cycle, finger-tracing the loop.
+
+> "Step 3, top of the cycle: pick the next action. Think. *Which action gets me closer to the goal?* The chosen action gets written to working memory."
+
+> "Step 4, right side: execute the action. Act. A tool call goes out — read, write, run, fetch. The tool touches the File System or an External Source. The raw response comes back and gets written to working memory."
+
+> "Step 5, bottom-right: interpret the response. Think. *What does this response mean?* The interpretation gets written. Notice — tool errors and tool successes look the same to the agent. Both are just response info that gets thought about."
+
+> "Step 6, bottom-left: prune memory. Think. *What in memory is still useful?* The agent decides what to keep and writes that back — replacing working memory with the keep set."
+
+> "Step 7, left side: check the goal. Think. *Is the goal met?* If not yet — loop back to step 3 and pick the next action. If yes — exit the cycle."
+
+Walk the post-cycle.
+
+> "Step 8: persist. Act. The agent reads its whole working memory and writes it back to the session file. That file is what gets loaded by step 1 next time the agent runs."
+
+Land the universe-levers payoff.
+
+> "Now look at where the levers live. Every think step is a dispatch to the LLM — Goals and Memory shape what gets asked. Every act step is a tool call — Tooling, State Control, and Feedback shape what happens at that boundary. The outside boxes — file system, external sources, session file — those are Reachable Context. Every arrow on this diagram is something we can re-engineer."
+
+---
+
+### 37b — Understanding the customer (2/2): between turns
+
+This diagram says: an agent does not persist. Two consecutive turns are two separate runs of software with a file in between. Everything we do between turns is operating on that file or on the next invocation.
+
+> "An agent doesn't persist. Turn N runs and finishes. Turn N+1 hydrates from a session file and runs. The chain of 'I' the AI seems to have? That's our doing — we wrote the file."
+
+Point at the session file.
+
+> "The session file is the agent's identity at rest. Turn-N outputs equal turn-(N+1) inputs. It's editable. It's forkable. We can rewrite a turn's memory and re-launch from that point."
+
+Walk the badges by region.
+
+> "On the way *out* of turn N: we can evaluate what it did — state control and feedback. We can run more software on the result — workflow."
+
+> "On the file itself: we edit the memory directly. We change what info the next turn can reach."
+
+> "On the way *into* turn N+1: we choose the next prompt — Goals. We choose the next identity — which agent, which system prompt."
+
+> "And spanning the gap: we change the toolbox."
+
+Land it.
+
+> "Inside a turn, we got six lever attachment points. Between turns we got seven more. Every place we can move."
+
+Then transition into the theory or the safety vocabulary.
 
 ---
 
@@ -266,10 +400,10 @@ This slide answers the "where" question. Where the levers live.
 Point to each as you name it.
 
 > "Memory — what the agent recalls within a session, across sessions, between projects."
-> "Context — what information is reachable, what its filesystem and tools surface."
+> "Reachable Context — what information the agent can actually get to, what its filesystem and tools surface."
 > "Goals — how narrowly the task is defined."
 > "Tooling — what operations are in the toolbox, and what is deliberately not."
-> "Invocation timing — when the agent runs versus when deterministic code runs."
+> "Workflow — when the agent runs versus when deterministic code runs."
 > "State control — what happens to outputs before the world changes."
 > "Feedback — what the agent learns about the impact of its actions."
 
@@ -312,59 +446,44 @@ The meta-pattern for engineering carelessness. Point to the diagram as you walk 
 
 > "Here's the move. Same shape every time."
 
-**Setup (steps 1–3, done once):**
+**Step 1 — Apply the vigilance-as-process template.** Done once, up front. Stand up the four scaffolds the loop will refine:
 
-Step 1: Create an empty guardian set. Define where in your workflow a guardian could run — even if that slot is empty for now.
+- **Empty guardian set.** Define where in your workflow a guardian could run — even if that slot is empty for now.
+- **One-step workflow.** The actor — agent or human — gets one instruction: "do it." No orchestration.
+- **Vigilance expectation.** Write down every concern you can already see that a human has to watch for, and when.
+- **Spot-checker.** Stand up the first AI check, partial by design. Catches some of what you've been watching for; not all of it. Subsequent loops fill it in.
 
-Step 2: Create a one-step workflow. The actor — agent or human — gets one instruction: "do it." No orchestration.
+> "That's the template. Four pieces, in place. The rest is the loop."
 
-Step 3: Create an explicit vigilance expectation. Write down every concern you can already see that a human has to watch for, and when.
+**Core loop (steps 2–5, repeating):**
 
-**Core loop (steps 4–8, repeating):**
-
-**Step 4 — Name the vigilance.**
+**Step 2 — Name the vigilance.**
 
 > "What specifically keeps making you check? Not 'is the work good' — what *class* of error? Decision inconsistency. Format drift. Data loss. Name it."
 
-**Step 5 — Build a spot-checker.**
+**Step 3 — Identify a hole.**
 
-> "Build an AI check for some of what you've been watching for. Not all of it. The first one is always partial."
+> "What did the spot-checker miss or flag? That hole is a missing universe element. Update your vigilance list — some items just moved from 'watching' to 'understood gap'."
 
-**Step 6 — Identify a hole.**
-
-> "What did it miss or flag? That hole is a missing universe element. Update your vigilance list — some items just moved from 'watching' to 'understood gap'."
-
-**Step 7 — Lock one class.**
+**Step 4 — Lock one error category.**
 
 > "Pick the gap you understand best. Change the universe — add a guardian or workflow step — so that whole class is structurally addressed at whatever safety level makes sense."
 
 > "Now the vigilance that class produced is gone. Permanently."
 
-**Step 8 — Adjust vigilance.**
+**Step 5 — Adjust vigilance.**
 
-> "Remove what's now locked in. The list shrinks. Then: back to step 4 with the next vigilance item — or forward to the decision."
+> "Remove what's now locked in. The list shrinks. Then: back to step 2 with the next vigilance item — or forward to the decision."
 
-**Exit (step 9):**
+**Exit:**
 
-**Step 9 — Make a decision.**
+**Step 6 — Make a decision.**
 
 > "Accept the work the agent did, or reset and re-run inside your safer universe. The recipe doesn't say which. It makes the risk profile legible so the choice is clean."
 
 Pause.
 
-> "This is what carelessness engineering looks like in practice. Each pass: name one cost, build the checker, identify the hole, lock it in, decide. Loop until you're careless about the thing."
-
----
-
-### 22 — You've already done this
-
-Callback. Quick.
-
-> "You've already done step 4 — for yourselves. AST refactoring tools."
-
-> "Within that tool's scope, there's zero risk of accidentally changing behavior. The recipe ran. Someone named the vigilance — 'did my rename break something?' — built guardians, classified the failures, then locked behavioral safety in with a universe lever called the AST."
-
-> "That cost is gone. For you. The talk is about doing the same thing for the AI."
+> "This is what carelessness engineering looks like in practice. Each pass: name one cost, identify the hole, lock it in, adjust, decide. Loop until you're careless about the thing."
 
 ---
 
@@ -385,7 +504,7 @@ Sectioned: **Case studies** (existing 6 + a pending Feedback slot), **Recipes** 
 Case-study cards:
 - Memory / Decision inconsistency → s38
 - Goals / Consistency violation → s41
-- Invocation timing / Oversight gap → s44
+- Workflow / Oversight gap → s44
 - Tooling / Scope enforcement → s47
 - Tooling (operations) / Accidental behavior change → s50
 - State control / Data loss (archive table) → s53
@@ -438,7 +557,7 @@ Pause.
 
 Read the four lines. Don't elaborate.
 
-> "Lever: Memory. Safety level: 4 — Prevention. Scope: cross-session decision inconsistency. Slack: no re-explaining context every session."
+> "Scope: cross-session decision inconsistency. Cost to protect: zero — conflicting decisions are structurally impossible. Lever: Memory."
 
 Then return to the TOC.
 
@@ -472,7 +591,7 @@ Pause.
 
 ### 43 — Beat 2 name the experience
 
-> "Lever: Goals — a structured spec replaced free-form prose. Safety level: 4 — structure, recipients, rendering all become zero-risk zones. Scope: format and structure drift in recurring output. Slack: you only think about the words; everything else assembles itself."
+> "Scope: format and structure drift in recurring output. Cost to protect: zero — structure, recipients, rendering all become zero-risk zones. Lever: Goals (a structured spec replaced free-form prose)."
 
 Then return to the TOC.
 
@@ -486,9 +605,9 @@ Then return to the TOC.
 
 ---
 
-### 45 — Beat 3 story: Invocation timing
+### 45 — Beat 3 story: Workflow
 
-> "Universe lever: Invocation timing."
+> "Universe lever: Workflow."
 
 > "Deterministic code fetches the transcript. It knows which team, which day, which session. On success: Claude is never invoked. It doesn't even know a fetch happened."
 
@@ -502,7 +621,7 @@ Then return to the TOC.
 
 ### 46 — Beat 3 name the experience
 
-> "Lever: Invocation timing. Safety level: 3 going on 4 — deterministic by default, agent only on declared failure. Scope: wrong-data fetching and over-eager step completion. Slack: you don't decide when to trust the agent — the system decides by condition."
+> "Scope: wrong-data fetching and over-eager step completion. Cost to protect: near zero — deterministic by default; the agent runs only on declared failure. Lever: Workflow."
 
 Then return to the TOC.
 
@@ -538,7 +657,7 @@ Pause.
 
 ### 49 — Beat 4 name the experience
 
-> "Lever: Tooling. Safety level: 4 — git invariants cannot be violated; there's nothing to route around. Scope: git operations and the risk-notation policy. Slack: risk assessment moves from human to tool."
+> "Scope: git operations and the risk-notation policy. Cost to protect: zero — git invariants cannot be violated; there's nothing to route around. Lever: Tooling."
 
 Then return to the TOC.
 
@@ -572,7 +691,7 @@ Point at the two-up.
 
 ### 52 — Beat 5 name the experience
 
-> "Lever: Tooling — operation semantics, not which tools exist. Safety level: 5 — Carefree within scope. Behavioral safety guaranteed by the tool. Scope: behavior preservation during refactoring. Slack: undo is as easy as do — wrong abstractions are cheap to reverse."
+> "Scope: behavior preservation during refactoring. Cost to protect: zero within scope — behavioral safety guaranteed by the tool. Lever: Tooling (operation semantics, not which tools exist)."
 
 Then return to the TOC.
 
@@ -610,7 +729,7 @@ Point at each bullet as you tell it.
 
 ### 55 — Beat 6 name the experience
 
-> "Lever: State control — the Determinism Sandwich. Safety level: 4 to 5 — data loss is structurally impossible. Scope: schema migrations against live data. Slack: migrations stop being scary."
+> "Scope: schema migrations against live data. Cost to protect: zero — data loss is structurally impossible. Lever: State control (the Determinism Sandwich)."
 
 Then return to the TOC.
 
@@ -624,7 +743,7 @@ Then return to the TOC.
 
 Point at the list.
 
-> "Memory. Goals. Invocation timing. Tooling — twice. Result handling."
+> "Memory. Goals. Workflow. Tooling — twice. Result handling."
 
 > "Each choice created a zero-risk zone. Each zone permanently freed vigilance budget for the next thing."
 

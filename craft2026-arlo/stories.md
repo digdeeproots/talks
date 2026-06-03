@@ -66,9 +66,9 @@ Works the same for human developers using AST-aware refactoring tools. The lever
 
 ---
 
-## Invocation timing + Work-product state control — Transcript fetcher *(quick story, told as semi-demo)*
+## Workflow + Work-product state control — Transcript fetcher *(quick story, told as semi-demo)*
 
-*This story pulls **two** levers, not one. Sequencing and when-Claude-runs are **invocation timing** moves. The schema and validation routing — controlling the shape of the analysis itself and what happens when the result doesn't conform — is **work-product state control**. Useful in the talk to show that a single workflow can be improved one lever at a time, on different levers, in sequence.*
+*This story pulls **two** levers, not one. Sequencing and when-Claude-runs are **workflow** moves. The schema and validation routing — controlling the shape of the analysis itself and what happens when the result doesn't conform — is **work-product state control**. Useful in the talk to show that a single workflow can be improved one lever at a time, on different levers, in sequence.*
 
 *Vigilance cost: "Did the AI keep going past the point where I should have been consulted? Did it fetch the wrong transcript and proceed to build a lesson plan on it — while I'm assuming it got the right one?"*
 
@@ -78,12 +78,16 @@ A daily coaching workflow: pull transcripts from Fireflies, do lesson planning, 
 
 **Show the transition states.** This is told as a semi-demo so the audience sees the path, not just the destination.
 
-1. **Start: workflow file + vigilance.** Tell Claude to read the file and follow it. Watch every output. Full vigilance burden.
-2. **Extract sequencing into deterministic code.** *(Invocation timing.)* Claude can't clear its own context or exit itself. Claude wrote a script — `do-today` — that assesses the current state, decides what step is needed next, does deterministic processing, launches Claude, catches the result, and quits. Run again for the next step. Sequencing is no longer in Claude's hands.
-3. **Replace probabilistic fetch with deterministic.** *(Invocation timing.)* Transcript fetching started via the Fireflies MCP server (probabilistic — the AI sometimes got it wrong). Now a fully debugged deterministic fetcher gets the right transcript for the right day and team. On success: Claude is never invoked, doesn't even know a fetch happened. On failure — wrong date, ambiguous session, network error — Claude is called with the specific failure as context.
-4. **Lock down the analysis schema.** *(Work-product state control.)* Claude initially wrote transcript analyses as unstructured markdown. That looseness was useful — it let us discover what information actually mattered and who would consume it — but it required vigilance. Irrelevant stuff slipped in and confused later Claude calls. Important things sometimes went missing. Once the shape stabilized, we moved to structured JSON with a schema, and deterministic code now validates every analysis. When validation fails, Claude is re-called with the specific failure as context and fills the gap. This also unlocked something else: the workflow stopped being linear. Independent, re-orderable steps now read and write the same analysis, each contributing its own insights.
-5. **Result: the system decides when to call Claude.** *(Invocation timing.)* It calls Claude only when deterministic code admits it can't handle something. You don't have to decide when to trust it. The system decides by condition.
-6. **Guess-and-check rhythm.** *(Feedback.)* The system knows when to have Claude guess and when (and how) to surface the result for human check. It stops asking the human to predict or explain things up front and instead lets the human *respond* to a concrete proposal. Text-to-speech notifies the human only when there's something to respond to. The human can do other work in the meantime; the system pulls them back in when needed. This closes the loop for both sides: Claude learns from the response, the human is freed from continuous oversight.
+1. **Prompt Claude + vigilance.** Tell Claude what to do. Watch eexecution and interrupt when it goes wrong. Full vigilance burden.
+2. **Start: workflow file + vigilance.** *(workflow)* Tell Claude to read the file and follow it. Watch every output. Full vigilance burden during execution, but not between executions and have something I can iteratively improve.
+3. **Extract sequencing into deterministic code.** *(Workflow.)* Claude can't clear its own context or exit itself. Claude wrote a script — `do-today` — that assesses the current state, decides what step is needed next, does deterministic processing, launches Claude, catches the result, and quits. Run again for the next step. Sequencing is no longer in Claude's hands.
+4. **Replace probabilistic fetch with deterministic.** *(Workflow.)* Transcript fetching started via the Fireflies MCP server (probabilistic — the AI sometimes got it wrong). Now a fully debugged deterministic fetcher gets the right transcript for the right day and team. On success: Claude is never invoked, doesn't even know a fetch happened. On failure — wrong date, ambiguous session, network error — Claude is called with the specific failure as context.
+5. **Refine goal - find key moments.** Narrow claude's goal to just be to help me find key moments. It can use the trancript, the retro notes, and me as info sources. It doesn't need to determine what happened or get sufficient info for lesson planning or status email. It just needs to identify what is salient - what were the important things that happened, and spproximately when in the transcript?
+6. **Lock down the analysis schema.** *(Work-product state control.)* Claude initially wrote transcript analyses as unstructured markdown. That looseness was useful — it let us discover what information actually mattered and who would consume it — but it required vigilance. Irrelevant stuff slipped in and confused later Claude calls. Important things sometimes went missing. Once the shape stabilized, we moved to structured JSON with a schema, and deterministic code now validates every analysis. When validation fails, Claude is re-called with the specific failure as context and fills the gap. This also unlocked something else: the workflow stopped being linear. Independent, re-orderable steps now read and write the same analysis, each contributing its own insights.
+
+Results:
+- **Result: the system decides when to call Claude.** *(Workflow.)* It calls Claude only when deterministic code admits it can't handle something. You don't have to decide when to trust it. The system decides by condition.
+- **Guess-and-check rhythm.** *(Feedback.)* The system knows when to have Claude guess and when (and how) to surface the result for human check. It stops asking the human to predict or explain things up front and instead lets the human *respond* to a concrete proposal. Text-to-speech notifies the human only when there's something to respond to. The human can do other work in the meantime; the system pulls them back in when needed. This closes the loop for both sides: Claude learns from the response, the human is freed from continuous oversight.
 
 **Key insight for the talk:** each transition was a single increment that moved one specific vigilance cost from a lower safety level to a higher one. Together: the workflow that used to require constant attention now runs itself.
 
@@ -143,6 +147,41 @@ Decision inconsistency: structurally impossible.
 *This lever is new. The guess-and-check rhythm in the transcript-fetcher story (step 6) is one instance. Schema-validation feedback to the agent (transcript step 4) is another. Dedicated stories for the talk's case-study section are still to be drafted.*
 
 *Working definition: closing loops for the agent — bringing the impact of its actions into its visible sphere, so it can self-correct or escalate. See `universe-levers.md` for the full rubric.*
+
+### Commit tool as quality reviewer
+
+*Vigilance cost: "Did the AI sneak in code-quality issues — dead branches, missing tests, smelly abstractions — that I now have to spot in review?"*
+
+*Safety: Level 1 (vigilance) → 4 (prevention) for known issue categories.*
+
+The commit tool used to be a passthrough: stage, write message, done. Quality checks lived in the human's eye during review. The AI could land work that was technically correct but full of issues a reviewer would flag — and often did.
+
+The change: every commit invocation runs a battery of quality checks and returns them *as the tool result*. Lint, type, test, dead-code detection, complexity thresholds, missing-test heuristics — whatever the project cares about. The result is not pass/fail; it is a structured list of problems, each tagged "must-fix before commit" or "could-fix now."
+
+The AI now sees its own code through the same filter the reviewer would. It picks what to address, makes the fixes, and re-invokes commit. The loop closes inside one turn: the tool tells the agent what is wrong; the agent decides what to do about it; the next commit attempt re-runs the checks.
+
+The human never sees the smelly-but-fixed states. They only see commits that passed.
+
+**Key insight for the talk:** the agent's actions used to be evaluated by a human, asynchronously, at review time. Now they are evaluated by deterministic code, synchronously, at the moment of action. The agent's behavior changed not because it became more careful, but because the universe started telling it the truth immediately.
+
+---
+
+### Required demo + demo prep
+
+*Vigilance cost: "Did the AI ship something that looks done and passes tests but doesn't actually work?"*
+
+*Safety: Level 1 (vigilance) → 4 (prevention) for "is this demo-able."*
+
+A two-stage feedback loop wrapped around every user-visible chunk of work:
+
+1. **Required demo.** At the end of each plan chunk, the coding agent must produce a demo and attach it to the plan, then suspend itself. Without a demo, the chunk is not done. The plan tool will not advance.
+2. **Demo verification.** Before I see the demo, a separate system walks through it in a real browser. If any step fails — broken click target, missing route, console error, wrong state — those failures become structured feedback returned to the coder, which is re-woken to fix them. The cycle repeats until the demo passes its own walkthrough.
+3. **Demo walk + note capture.** I then walk the verified demo and make freeform notes — what I liked, what surprised me, what I want changed.
+4. **Note triage.** A separate system reads my notes and sorts each into *now* (re-wakes the coder for immediate work) or *future* (added to the plan as a downstream item).
+
+The human only ever sees demos of code that demonstrably works. The agent never blocks on "is this finished" — the plan tool answers, by gating on demo verification.
+
+**Key insight for the talk:** feedback here spans three different actors and two different timescales. The browser walker closes a tight loop for the coder; the note triager closes a slower loop between the human and the plan. Both are deterministic infrastructure; neither requires the human to remember to check.
 
 ---
 
