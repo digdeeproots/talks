@@ -199,34 +199,6 @@ Walk the columns left to right, reading the Changed and the Vigilance Toil rows.
 
 ---
 
-### 32a / 32b / 32c — Naming the recurring terms (progressive reveal)
-
-Three slides. Same layout, one new term per slide. Don't introduce them out of context; each term comes out of the walk-through you just did.
-
-**32a — Scope only.**
-
-> "Three things keep showing up. Let's name them."
-
-> "**Scope** — the class of error one intervention addresses. Always one at a time. Never 'the whole problem.' Each column we just walked through was one class."
-
-Pause. Click forward.
-
-**32b — Scope + Lever.**
-
-> "**Lever** — a facet of the agent's universe you can engineer. We touched five today across the two examples: tooling, workflow, invocation, goal, feedback. There are more."
-
-Pause. Click forward.
-
-**32c — Scope + Lever + Cost to protect.**
-
-> "**Cost to protect** — how much vigilance toil is spent to prevent errors in this scope. Before each intervention it was high; after, near zero. That drop is what we engineered."
-
-Then bridge to the theory:
-
-> "Now we can say something general about the math."
-
----
-
 ### 25 — Cost to protect
 
 Cost to protect is the third factor. The walk-through just gave us the building blocks; now they assemble.
