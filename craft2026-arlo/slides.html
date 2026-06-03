@@ -217,6 +217,56 @@
     #s33 .toc-card { padding: 1rem 0.9rem; }
     #s33 .toc-placeholder { margin-top: 0.8rem; }
 
+    /* ── LEVER VENN (s34: pills with definitions over a venn backdrop) ── */
+    .lever-venn {
+      position: relative;
+      width: min(1300px, 96%);
+      aspect-ratio: 13 / 7.2;
+      margin: 0.8rem auto 0;
+      max-height: 72vh;
+    }
+    .lever-venn .venn-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+    }
+    .lever-venn .lever-cluster {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: left;
+    }
+    .lever-pill {
+      background: rgba(0,0,0,0.55);
+      border: 1px solid rgba(232,160,32,0.35);
+      border-radius: 14px;
+      padding: 0.5rem 0.9rem;
+      backdrop-filter: blur(2px);
+    }
+    .lever-pill .pill-name {
+      font-size: clamp(0.85rem, 1.25vw, 1.2rem);
+      font-weight: 700;
+      color: var(--fg);
+      line-height: 1.1;
+    }
+    .lever-pill .pill-def {
+      display: block;
+      margin-top: 0.15rem;
+      font-size: clamp(0.62rem, 0.95vw, 0.9rem);
+      color: var(--dim);
+      line-height: 1.2;
+      font-style: italic;
+    }
+    .lever-pill-out {
+      border-style: dashed;
+      border-color: rgba(240,237,230,0.2);
+      opacity: 0.55;
+    }
+    .lever-pill-out .pill-name { text-decoration: line-through; }
+    .lever-cluster-intersection { left: 50%; top: 19%; transform: translateX(-50%); width: 19%; min-width: 12rem; }
+    .lever-cluster-vigilance    { left: 23%; top: 23%; transform: translateX(-50%); width: 17%; min-width: 11rem; }
+    .lever-cluster-work         { left: 77%; top: 23%; transform: translateX(-50%); width: 17%; min-width: 11rem; }
+
     /* ── TOC HUB (case studies + recipes side-by-side) ── */
     .toc-hub {
       display: grid;
@@ -692,46 +742,73 @@
     </div>
   </section>
 
-  @ai: Turn the items here into pills or cards, with a concise definition for each (just a few words). And move the two circles closer together so that we can fit more things into the overlap more easily.
   <!-- 34 Agent's Universe — the "where" of the two-part answer -->
   <section class="slide img-bg bg-cr-developer" id="s34">
     <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Where to push</p>
       <h2>The agent's <span class="accent">universe</span></h2>
-      <svg viewBox="0 0 1300 700" width="100%" style="max-height:72vh; display:block; margin: 0.8rem auto 0;" role="img">
-        <!-- Two overlapping circles: work toil (left) and vigilance toil (right).
-             Levers that reduce both sit in the intersection; vigilance-only on
-             the right; work-toil-only on the left, crossed out. -->
-        <circle cx="450" cy="380" r="300" fill="rgba(232,160,32,0.10)" stroke="#e8a020" stroke-width="2"/>
-        <circle cx="850" cy="380" r="300" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="2"/>
+      <div class="lever-venn">
+        <svg viewBox="0 0 1300 720" class="venn-bg" preserveAspectRatio="xMidYMid meet" role="img" aria-hidden="true">
+          <circle cx="540" cy="400" r="320" fill="rgba(232,160,32,0.10)" stroke="#e8a020" stroke-width="2"/>
+          <circle cx="760" cy="400" r="320" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="2"/>
+          <text x="220"  y="50" text-anchor="middle" font-size="24" font-weight="800" fill="#e8a020" letter-spacing="0.5">Vigilance toil</text>
+          <text x="1080" y="50" text-anchor="middle" font-size="24" font-weight="800" fill="#7ab8c8" letter-spacing="0.5">Work toil</text>
+        </svg>
 
-        <text x="270"  y="60" text-anchor="middle" font-size="22" font-weight="800" fill="#e8a020" letter-spacing="0.5">Vigilance toil</text>
-        <text x="1030" y="60" text-anchor="middle" font-size="22" font-weight="800" fill="#7ab8c8" letter-spacing="0.5">Work toil</text>
+        <div class="lever-cluster lever-cluster-intersection">
+          <div class="lever-pill">
+            <span class="pill-name">Goals</span>
+            <span class="pill-def">How narrowly the task is scoped.</span>
+          </div>
+          <div class="lever-pill">
+            <span class="pill-name">Tooling</span>
+            <span class="pill-def">What's in the toolbox.</span>
+          </div>
+          <div class="lever-pill">
+            <span class="pill-name">Workflow</span>
+            <span class="pill-def">When the agent runs.</span>
+          </div>
+          <div class="lever-pill">
+            <span class="pill-name">Feedback</span>
+            <span class="pill-def">What signals it gets back.</span>
+          </div>
+        </div>
 
-        <!-- Intersection: both reduced. -->
-        <g text-anchor="middle" font-weight="700" fill="#f0ede6">
-          <text x="650" y="300" font-size="20">Goals</text>
-          <text x="650" y="355" font-size="20">Tooling</text>
-          <text x="650" y="410" font-size="20">Workflow</text>
-          <text x="650" y="465" font-size="20">Feedback</text>
-        </g>
+        <div class="lever-cluster lever-cluster-vigilance">
+          <div class="lever-pill">
+            <span class="pill-name">Memory</span>
+            <span class="pill-def">What it recalls.</span>
+          </div>
+          <div class="lever-pill">
+            <span class="pill-name">Reachable Context</span>
+            <span class="pill-def">What it can find.</span>
+          </div>
+          <div class="lever-pill">
+            <span class="pill-name">State control</span>
+            <span class="pill-def">What happens to outputs before they're real.</span>
+          </div>
+        </div>
 
-        <!-- Vigilance-only (left crescent). -->
-        <g text-anchor="middle" font-weight="700" fill="#f0ede6">
-          <text x="370" y="300" font-size="20">State control</text>
-          <text x="370" y="355" font-size="20">Memory</text>
-          <text x="370" y="410" font-size="18">Reachable Context</text>
-        </g>
-
-        <!-- Work-toil-only (right crescent), crossed out. -->
-        <g text-anchor="middle" font-weight="700" fill="rgba(240,237,230,0.55)" text-decoration="line-through">
-          <text x="900" y="300" font-size="18">Identity</text>
-          <text x="900" y="355" font-size="18">Adjacency</text>
-          <text x="900" y="410" font-size="17">Mid-turn interrupts</text>
-          <text x="900" y="465" font-size="17">In-flight messages</text>
-        </g>
-      </svg>
+        <div class="lever-cluster lever-cluster-work">
+          <div class="lever-pill lever-pill-out">
+            <span class="pill-name">Identity</span>
+            <span class="pill-def">Which agent or persona.</span>
+          </div>
+          <div class="lever-pill lever-pill-out">
+            <span class="pill-name">Adjacency</span>
+            <span class="pill-def">Who's watching live.</span>
+          </div>
+          <div class="lever-pill lever-pill-out">
+            <span class="pill-name">Mid-turn interrupts</span>
+            <span class="pill-def">Stopping a turn in flight.</span>
+          </div>
+          <div class="lever-pill lever-pill-out">
+            <span class="pill-name">In-flight messages</span>
+            <span class="pill-def">Talking during a turn.</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -856,6 +933,7 @@
   </section>
 
   @ai: work with me to make this more concrete. The steps need to be directive without abstraction.
+  @ai-needs: this is the shared recipe-svg.js (six steps: Apply the vigilance-as-process template, Name the vigilance, Identify a hole, Lock one error category, Adjust vigilance, Make a decision). Which step do you want to start on? And do you want me to (a) rewrite the step titles, (b) rewrite the sub-bullets (Step 1 has "Empty guardian set / One-step workflow / Vigilance expectation / Spot-checker"), or (c) propose a concrete worked example that I'd thread through the labels? A sentence or two of "what does 'concrete' look like here" would unblock me.
   <!-- 27 The recipe — meta-pattern for engineering carelessness.
        SVG is shared with the TOC hub; both call sites pull from recipe-svg.js. -->
   <section class="slide" id="s27">

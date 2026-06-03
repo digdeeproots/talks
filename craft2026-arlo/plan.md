@@ -32,7 +32,6 @@ Toil:         s12 · s14 · s16 · s18 · s19            2-factor formula
 Demo 1:       s21                                    MBB tool — live demo
 Story 1:      s23                                    transcript fetcher — semi-demo
 Recap:        s29 (Ex 1) · s31 (Ex 2)                same 4-row table grid
-Terms:        s32a · s32b · s32c                     reveal Scope → Lever → Cost
 Formula:      s25                                    3-factor formula
 Anchor:       s17                                    vigilance toil = defects you worry about
 Upshift:      s24 · s20 · s26 · s37a · s37b · s34 · s28 · s27
@@ -91,7 +90,6 @@ Four slides (already working): synthesis → formula callback → AI/Universe = 
 - [ ] **s37a (One Agent Turn) iteration.** Diagram is at raw quality; tools/external connections were deliberately deferred and need to land. Speaker notes need to be re-walked once the diagram settles.
 - [ ] **s37b (Between Turns) review.** Has not been touched since the s37a redesign; check it still reads coherently as the right-hand half of the customer model.
 - [ ] **Upshift slide for app-dev vs tool-dev rate framing.** Slide s17 lands the anchor (vigilance = defects you worry about) and s24 carries the rate vs find-and-fix framing; verify the two read as a clean sequence.
-- [ ] **s32a/b/c progressive reveal.** Verify each slide reads cleanly and the reveal lands the three terms in the order the talk uses them.
 
 ### Small — polish, last
 
