@@ -390,6 +390,51 @@
     .name-list { list-style: none; text-align: left; margin: 1.8rem auto 0; padding: 0; font-size: clamp(0.95rem, 1.55vw, 1.6rem); line-height: 1.5; }
     .name-list li { margin-bottom: 0.9rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--subtle); }
     .name-list li:last-child { border-bottom: none; margin-bottom: 0; }
+
+    /* ── DEMO STEP (transcript-fetcher walkthrough) ───
+       Per-step slide: a CLI pane on the left and a result-file pane on the right,
+       under a brief description. CLI + result are placeholders until filled in. */
+    .demo-step {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.4rem;
+      margin-top: 1.4rem;
+      text-align: left;
+    }
+    .demo-pane {
+      background: rgba(0,0,0,0.6);
+      border: 1px solid rgba(232,160,32,0.25);
+      border-radius: 12px;
+      padding: 0.9rem 1.1rem;
+      min-height: 9rem;
+    }
+    .demo-pane-label {
+      font-size: clamp(0.6rem, 0.85vw, 0.78rem);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--kicker);
+      margin: 0 0 0.5rem 0;
+    }
+    .demo-pane pre {
+      font-family: ui-monospace, 'Cascadia Mono', Consolas, monospace;
+      font-size: clamp(0.72rem, 0.95vw, 0.95rem);
+      color: var(--fg);
+      white-space: pre-wrap;
+      line-height: 1.4;
+      margin: 0;
+    }
+    .demo-placeholder {
+      color: var(--dim);
+      font-style: italic;
+    }
+    .demo-description {
+      margin: 1.2rem auto 0;
+      color: var(--dim);
+      text-align: left;
+      max-width: 56rem;
+      font-size: clamp(0.85rem, 1.2vw, 1.2rem);
+      line-height: 1.45;
+    }
     .name-list li strong { display: inline-block; min-width: 9rem; }
 
     /* ── STORY LIST ───────────────────────────────────── */
@@ -606,12 +651,135 @@
     </div>
   </section>
 
-  <!-- 23 PLACEHOLDER — quick story: find key moments in a transcript -->
+  <!-- ═══════════════════════════════════════════════════
+       DEMO 2 — Transcript fetcher (semi-demo)
+       s23 intro + s23a..s23f one slide per transition.
+       Each step slide carries a CLI pane and a result-file pane; both start as
+       placeholders. CLI commands will be filled in later; result-file content
+       comes from working notes the speaker has on hand.
+  ════════════════════════════════════════════════════ -->
+
+  <!-- 23 intro — frame the demo and call the baseline -->
   <section class="slide" id="s23">
     <div class="slide-content">
+      <p class="kicker">Demo 2 — Semi-demo</p>
       <h2>Find key moments<br>in a transcript</h2>
-      <p class="toc-placeholder">Placeholder. Semi-demo script lands in a later session.</p>
-      <p style="margin-top: 2rem; color: var(--dim);">Semi-demo. Four transitions: sequencing, fetch, goal spec, output format.</p>
+      <p style="margin-top: 1.8rem; color: var(--dim);">A daily coaching workflow. <strong class="accent">Six transitions,</strong> one increment at a time.</p>
+      <p style="margin-top: 1rem; color: var(--dim);">Baseline: prompt Claude + watch. Each transition silences one specific vigilance question.</p>
+    </div>
+  </section>
+
+  <!-- 23a Step 1 — Written workflow -->
+  <section class="slide" id="s23a">
+    <div class="slide-content">
+      <p class="kicker">Step 1 — Workflow</p>
+      <h2>Written workflow</h2>
+      <p class="demo-description">Move the prompt into a workflow file. Vigilance during execution is unchanged, but the workflow is now an artifact I can iteratively improve between runs.</p>
+      <div class="demo-step">
+        <div class="demo-pane">
+          <p class="demo-pane-label">Command</p>
+          <pre class="demo-placeholder">(CLI invocation to be filled in)</pre>
+        </div>
+        <div class="demo-pane">
+          <p class="demo-pane-label">Result — workflows/daily.md</p>
+          <pre class="demo-placeholder">(Workflow file excerpt to be filled in)</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 23b Step 2 — Doc iter pattern -->
+  <section class="slide" id="s23b">
+    <div class="slide-content">
+      <p class="kicker">Step 2 — Workflow</p>
+      <h2>Doc iter pattern</h2>
+      <p class="demo-description">Apply the doc-iteration pattern to the workflow file itself. Structured human reviews on each pass; the file improves cumulatively. The work toil of authoring drops.</p>
+      <div class="demo-step">
+        <div class="demo-pane">
+          <p class="demo-pane-label">Command</p>
+          <pre class="demo-placeholder">(CLI invocation to be filled in)</pre>
+        </div>
+        <div class="demo-pane">
+          <p class="demo-pane-label">Result — workflows/daily.md (revised)</p>
+          <pre class="demo-placeholder">(Diff or revised excerpt to be filled in)</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 23c Step 3 — pnpm do-today -->
+  <section class="slide" id="s23c">
+    <div class="slide-content">
+      <p class="kicker">Step 3 — Workflow · invocation</p>
+      <h2><code>pnpm do-today</code></h2>
+      <p class="demo-description">Extract sequencing into deterministic code. A script reads state, decides the next step, runs deterministic processing, launches Claude, catches the result, quits. Sequencing leaves Claude's hands. <em>Silences:</em> "Is the AI taking the right next step?"</p>
+      <div class="demo-step">
+        <div class="demo-pane">
+          <p class="demo-pane-label">Command</p>
+          <pre class="demo-placeholder">(CLI invocation to be filled in)</pre>
+        </div>
+        <div class="demo-pane">
+          <p class="demo-pane-label">Result — scripts/do-today.ts</p>
+          <pre class="demo-placeholder">(Script excerpt to be filled in)</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 23d Step 4 — Narrow goal -->
+  <section class="slide" id="s23d">
+    <div class="slide-content">
+      <p class="kicker">Step 4 — Goal</p>
+      <h2>Narrow goal</h2>
+      <p class="demo-description">Refine Claude's goal to "find key moments." It uses the transcript, retro notes, and me as info sources. It doesn't determine what happened — only what is salient and roughly when. <em>Silences:</em> "Is the AI over-working or taking shortcuts?"</p>
+      <div class="demo-step">
+        <div class="demo-pane">
+          <p class="demo-pane-label">Command</p>
+          <pre class="demo-placeholder">(CLI invocation to be filled in)</pre>
+        </div>
+        <div class="demo-pane">
+          <p class="demo-pane-label">Result — workflows/find-key-moments.md</p>
+          <pre class="demo-placeholder">(Goal spec excerpt to be filled in)</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 23e Step 5 — Scripted fetch -->
+  <section class="slide" id="s23e">
+    <div class="slide-content">
+      <p class="kicker">Step 5 — Workflow · invocation + goal</p>
+      <h2>Scripted fetch</h2>
+      <p class="demo-description">Replace the probabilistic Fireflies MCP fetch with a deterministic fetcher. On success: Claude is never invoked. On failure: Claude is called with the specific failure as context. <em>Silences:</em> "Did the AI get the right input?"</p>
+      <div class="demo-step">
+        <div class="demo-pane">
+          <p class="demo-pane-label">Command</p>
+          <pre class="demo-placeholder">(CLI invocation to be filled in)</pre>
+        </div>
+        <div class="demo-pane">
+          <p class="demo-pane-label">Result — fetch-transcript output</p>
+          <pre class="demo-placeholder">(Fetch result / failure-handoff excerpt to be filled in)</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 23f Step 6 — Iterative analysis -->
+  <section class="slide" id="s23f">
+    <div class="slide-content">
+      <p class="kicker">Step 6 — Work-product state control + Feedback</p>
+      <h2>Iterative analysis</h2>
+      <p class="demo-description">Lock the analysis schema. Structured JSON replaces unstructured markdown; deterministic validation runs on every analysis. Validation failures re-call Claude with the specific gap. The workflow stops being linear: independent re-orderable steps read and write the same analysis. <em>Silences:</em> "Is the output complete or misleading?"</p>
+      <div class="demo-step">
+        <div class="demo-pane">
+          <p class="demo-pane-label">Command</p>
+          <pre class="demo-placeholder">(CLI invocation to be filled in)</pre>
+        </div>
+        <div class="demo-pane">
+          <p class="demo-pane-label">Result — analysis.json (schema-validated)</p>
+          <pre class="demo-placeholder">(Schema + sample analysis excerpt to be filled in)</pre>
+        </div>
+      </div>
     </div>
   </section>
 

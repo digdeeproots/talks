@@ -68,9 +68,6 @@ Works the same for human developers using AST-aware refactoring tools. The lever
 
 ## Workflow + Work-product state control — Transcript fetcher *(quick story, told as semi-demo)*
 
-@ai: update this story based on the additional columns that I added to the slide in the upshift that talks about it. AFTER you have done that, then generate slides and notes for my story telling (the "second demo", right after the movement-based commit tool). This replaces the placeholder with multiple slides. I will want to show for each step an example of the what I run at the command line and then describe what it does and show a result file. I have that content available (except for the command-line invocations, which I'll fake/create after you make the slides)
-@ai-needs: part (a) — story narrative reordered to match s31's six transitions and a Doc-iter-pattern transition added — is complete. Part (b) — replace the s23 placeholder with one slide per transition, each showing CLI / description / result-file — is what I'll do next; flagging here so the directive isn't silently dropped.
-
 *This story pulls **two** levers, not one. Sequencing and when-Claude-runs are **workflow** moves. The schema and validation routing — controlling the shape of the analysis itself and what happens when the result doesn't conform — is **work-product state control**. Useful in the talk to show that a single workflow can be improved one lever at a time, on different levers, in sequence.*
 
 *Vigilance cost: "Did the AI keep going past the point where I should have been consulted? Did it fetch the wrong transcript and proceed to build a lesson plan on it — while I'm assuming it got the right one?"*
