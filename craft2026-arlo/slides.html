@@ -217,63 +217,40 @@
     #s33 .toc-card { padding: 1rem 0.9rem; }
     #s33 .toc-placeholder { margin-top: 0.8rem; }
 
-    /* ── UNIVERSE VENN (TOC case-study organizer) ─────── */
-    .universe-venn {
-      position: relative;
-      width: min(1200px, 96%);
-      aspect-ratio: 12 / 5.2;
+    /* ── TOC HUB (case studies + recipes side-by-side) ── */
+    .toc-hub {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+      gap: 2.5rem;
+      align-items: start;
       margin: 0.8rem auto 0;
-    }
-    .universe-venn .venn-bg {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
-    }
-    .universe-venn .region {
-      position: absolute;
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
+      width: min(1300px, 98%);
       text-align: left;
     }
-    .universe-venn .region-label {
+    .toc-hub .toc-section-label {
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+    }
+    .case-study-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      align-items: start;
+    }
+    .case-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+    .case-col .region-label {
       font-size: clamp(0.55rem, 0.85vw, 0.78rem);
       text-transform: uppercase;
       letter-spacing: 0.16em;
       color: var(--kicker);
-      text-align: center;
       margin-bottom: 0.15rem;
       opacity: 0.85;
     }
-    .universe-venn .region-intersection {
-      left: 50%;
-      top: 14%;
-      transform: translateX(-50%);
-      width: 19%;
-      min-width: 11rem;
-      z-index: 2;
-    }
-    .universe-venn .region-vigilance {
-      left: 28%;
-      top: 30%;
-      transform: translateX(-50%);
-      width: 19%;
-      min-width: 10.5rem;
-    }
-    .universe-venn .region-work {
-      left: 72%;
-      top: 22%;
-      transform: translateX(-50%);
-      width: 18%;
-      min-width: 9.5rem;
-      text-align: center;
-    }
-    .universe-venn .region-work .ruled-out {
-      text-decoration: line-through;
-      color: rgba(240,237,230,0.55);
-      font-size: clamp(0.7rem, 1vw, 0.95rem);
-      margin: 0.15rem 0;
-      line-height: 1.2;
-    }
+    .toc-recipes [data-recipe-svg-slot] { margin: 0 auto; }
     .toc-pill {
       background: rgba(0,0,0,0.55);
       border: 1px solid rgba(232,160,32,0.35);
@@ -944,61 +921,60 @@
     <div class="slide-content">
       <p class="kicker">Pick one to explore</p>
 
-      <div class="universe-venn">
-        <svg viewBox="0 0 1200 520" class="venn-bg" preserveAspectRatio="xMidYMid meet" role="img" aria-hidden="true">
-          <circle cx="490" cy="280" r="235" fill="rgba(232,160,32,0.10)" stroke="#e8a020" stroke-width="2"/>
-          <circle cx="710" cy="280" r="235" fill="rgba(122,184,200,0.10)" stroke="#7ab8c8" stroke-width="2"/>
-          <text x="180" y="40" text-anchor="middle" font-size="22" font-weight="800" fill="#e8a020" letter-spacing="0.5">Vigilance toil</text>
-          <text x="1020" y="40" text-anchor="middle" font-size="22" font-weight="800" fill="#7ab8c8" letter-spacing="0.5">Work toil</text>
-        </svg>
-        
-        <div class="region region-intersection">
-          <div class="region-label">Reduces both</div>
-          <div class="toc-pill" data-jump-to="s41">
-            <span class="pill-kicker">Goals</span>
-            <span class="pill-title">Consistency violation</span>
-          </div>
-          <div class="toc-pill" data-jump-to="s44">
-            <span class="pill-kicker">Workflow</span>
-            <span class="pill-title">Oversight gap</span>
-          </div>
-          <div class="toc-pill" data-jump-to="s47">
-            <span class="pill-kicker">Tooling</span>
-            <span class="pill-title">Scope enforcement</span>
-          </div>
-          <div class="toc-pill" data-jump-to="s50">
-            <span class="pill-kicker">Tooling — ops</span>
-            <span class="pill-title">Accidental behavior change</span>
-          </div>
-          <div class="toc-pill toc-pill-pending">
-            <span class="pill-kicker">Feedback</span>
-            <span class="pill-title">Story TBD</span>
+      <div class="toc-hub">
+        <div class="toc-case-studies">
+          <p class="toc-section-label">Case studies</p>
+          <div class="case-study-cols">
+            <div class="case-col">
+              <div class="region-label">Reduces both</div>
+              <div class="toc-pill" data-jump-to="s41">
+                <span class="pill-kicker">Goals</span>
+                <span class="pill-title">Consistency violation</span>
+              </div>
+              <div class="toc-pill" data-jump-to="s44">
+                <span class="pill-kicker">Workflow</span>
+                <span class="pill-title">Oversight gap</span>
+              </div>
+              <div class="toc-pill" data-jump-to="s47">
+                <span class="pill-kicker">Tooling</span>
+                <span class="pill-title">Scope enforcement</span>
+              </div>
+              <div class="toc-pill" data-jump-to="s50">
+                <span class="pill-kicker">Tooling — ops</span>
+                <span class="pill-title">Accidental behavior change</span>
+              </div>
+              <div class="toc-pill toc-pill-pending">
+                <span class="pill-kicker">Feedback</span>
+                <span class="pill-title">Story TBD</span>
+              </div>
+            </div>
+            <div class="case-col">
+              <div class="region-label">Reduces vigilance only</div>
+              <div class="toc-pill" data-jump-to="s38">
+                <span class="pill-kicker">Memory</span>
+                <span class="pill-title">Decision inconsistency</span>
+              </div>
+              <div class="toc-pill" data-jump-to="s53">
+                <span class="pill-kicker">State control</span>
+                <span class="pill-title">Data loss (archive table)</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="region region-vigilance">
-          <div class="region-label">Reduces vigilance only</div>
-          <div class="toc-pill" data-jump-to="s38">
-            <span class="pill-kicker">Memory</span>
-            <span class="pill-title">Decision inconsistency</span>
+        <div class="toc-recipes">
+          <p class="toc-section-label">Recipes</p>
+          <div data-recipe-svg-slot="clickable"></div>
+          <div class="toc-grid" style="margin-top: 0.6rem;">
+            <div class="toc-card" data-jump-to="s33d-1">
+              <p class="kicker">your customers</p>
+              <h3>Manipulating Coding Agents</h3>
+            </div>
+            <div class="toc-card" data-jump-to="s56">
+              <p class="kicker">Synthesis</p>
+              <h3>Closing sequence</h3>
+            </div>
           </div>
-          <div class="toc-pill" data-jump-to="s53">
-            <span class="pill-kicker">State control</span>
-            <span class="pill-title">Data loss (archive table)</span>
-          </div>
-        </div>
-      </div>
-
-      <div data-recipe-svg-slot="clickable" style="margin: 0 auto;"></div>
-
-      <div class="toc-grid" style="margin-top: 0.6rem;">
-        <div class="toc-card" data-jump-to="s33d-1">
-          <p class="kicker">your customers</p>
-          <h3>Manipulating Coding Agents</h3>
-        </div>
-        <div class="toc-card" data-jump-to="s56">
-          <p class="kicker">Synthesis</p>
-          <h3>Closing sequence</h3>
         </div>
       </div>
     </div>
