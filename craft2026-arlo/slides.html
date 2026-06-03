@@ -1789,7 +1789,7 @@
     <div class="slide-content">
       <p class="kicker">What we did each time</p>
       <h2>We didn't ask for more care.<br>We redesigned the world.</h2>
-      <p style="margin-top: 2.5rem; color: var(--dim); font-size: clamp(0.9rem, 1.6vw, 1.8rem);">Memory &nbsp;·&nbsp; Goals &nbsp;·&nbsp; Workflow &nbsp;·&nbsp; Tooling &nbsp;·&nbsp; State control &nbsp;·&nbsp; Feedback</p>
+      <p style="margin-top: 2.5rem; color: var(--dim); font-size: clamp(0.9rem, 1.6vw, 1.8rem);">Memory &nbsp;·&nbsp; Goals &nbsp;·&nbsp; Workflow &nbsp;·&nbsp; Tooling &nbsp;·&nbsp; State control &nbsp;·&nbsp; Feedback &nbsp;·&nbsp; Reachable Context</p> @ai: match this to the standard set used elsewhere in the talk.
       <p style="margin-top: 1.5rem; color: var(--dim);">Each choice created a zero-risk zone.<br>Each zone permanently freed vigilance budget for the next thing.</p>
     </div>
   </section>
@@ -1869,7 +1869,7 @@
       <ul style="font-size: clamp(0.95rem, 1.5vw, 1.4rem); line-height: 1.6; list-style: none; padding: 0;">
         <li><strong class="accent">Scope:</strong> extract <code>PaymentService</code> from a 4&nbsp;000-line <code>OrderProcessor</code>.</li>
         <li><strong class="accent">Guardian slot:</strong> empty <code>behavior-equiv-check</code> stage in the extract pipeline.</li>
-        <li><strong class="accent">Workflow:</strong> spec + target callsites &rarr; agent extracts &rarr; diff.</li>
+        <li><strong class="accent">Workflow:</strong> agent extracts &rarr; run guardians &rarr; run spot checker.</li>
         <li><strong class="accent">Vigilance expectation list:</strong> behavior change, transaction-boundary moved, error path swallowed, observability lost, hidden side effect on inventory, mocked-test fragility, thread-safety change.</li>
         <li><strong class="accent">Spot-checker:</strong> empty.</li>
       </ul>
@@ -1883,9 +1883,8 @@
       <p class="kicker">Recipe &mdash; Step 2</p>
       <h2 style="margin-bottom: 1.2rem;">Select costly vigilance from expectation list</h2>
       <ol style="font-size: clamp(1rem, 1.7vw, 1.6rem); line-height: 1.55;">
-        <li>For each item on the expectation list, estimate the attention cost it draws today.</li>
-        <li>Sort by cost. Take the most expensive one.</li>
-        <li>That is the category you will try to silence this loop.</li>
+        <li>Read the vigilance expectation list, and pick the one that happens most often + the one that is hardest to verify.</li>
+        <li>Pick whichever of those causes you the most pain. That is the category you will try to silence this loop.</li>
       </ol>
     </div>
   </section>
@@ -1908,8 +1907,9 @@
       <p class="kicker">Recipe &mdash; Step 3</p>
       <h2 style="margin-bottom: 1.2rem;">Run spot-checker to surface an example hole</h2>
       <ol style="font-size: clamp(1rem, 1.7vw, 1.6rem); line-height: 1.55;">
-        <li>Run the current spot-checker on a fresh agent output.</li>
-        <li>Compare its findings against your manual review.</li>
+        <li>Run the current spot-checker on a fresh agent output that passed your guardians.</li>
+        <li>Anything it finds = an example hole. Write it down concretely.</li>
+        <li>If it found nothing, then do a manual review.</li>
         <li>What you caught but it missed = an example hole. Write it down concretely.</li>
       </ol>
     </div>
@@ -1933,7 +1933,7 @@
       <h2 style="margin-bottom: 1.2rem;">Apply a lever to prevent one error category</h2>
       <ol style="font-size: clamp(1rem, 1.7vw, 1.6rem); line-height: 1.55;">
         <li>Take the example hole and generalise it to its category.</li>
-        <li>Choose a universe lever that structurally prevents that whole category.</li>
+        <li>Choose a universe lever that structurally prevents that whole category. If you can't, then choose a guardian lever that will guarantee detection.</li>
         <li>Implement the change. Re-run against every prior failure case to confirm.</li>
       </ol>
     </div>
@@ -1957,7 +1957,8 @@
       <p class="kicker">Recipe &mdash; Step 5</p>
       <h2 style="margin-bottom: 1.2rem;">Adjust vigilance expectation list</h2>
       <ol style="font-size: clamp(1rem, 1.7vw, 1.6rem); line-height: 1.55;">
-        <li>Strike the locked category off the expectation list.</li>
+        <li>Strike the locked category off the expectation list, or narrow it to just what you have to be vigilant about now.</li>
+        <li>Add any new categories to the expectation list that this uncovered.</li>
         <li>Re-cost the remaining categories &mdash; the cheap ones may now dominate.</li>
         <li>Loop back to step&nbsp;2 with the updated list.</li>
       </ol>
@@ -1983,7 +1984,7 @@
       <h2 style="margin-bottom: 1.2rem;">Manually choose whether to accept or reject this work product</h2>
       <ol style="font-size: clamp(1rem, 1.7vw, 1.6rem); line-height: 1.55;">
         <li>Inspect the actual artifact the agent produced this run.</li>
-        <li>Decide: ship it, send it back, or run another loop inside the safer universe.</li>
+        <li>Decide: ship it or revert it and re-run another loop inside the safer universe.</li>
         <li>Record the residual risk profile of whichever you chose.</li>
       </ol>
     </div>
@@ -2077,12 +2078,12 @@
       <p class="kicker">Three loops in</p>
       <h2 style="margin-bottom: 1rem;">What's still on the list</h2>
       <ul style="font-size: clamp(0.95rem, 1.5vw, 1.4rem); line-height: 1.6; list-style: none; padding: 0;">
-        <li><span style="text-decoration: line-through; color: var(--dim);">Behavior change</span> &mdash; locked (Tooling).</li>
-        <li><span style="text-decoration: line-through; color: var(--dim);">Transaction-boundary moved</span> &mdash; locked (Tooling).</li>
-        <li><span style="text-decoration: line-through; color: var(--dim);">Observability lost</span> &mdash; locked (Tooling + Feedback).</li>
-        <li><strong class="accent">Hidden side effect on inventory</strong> &mdash; next loop.</li>
-        <li>Mocked-test fragility &mdash; cheap; queue after.</li>
-        <li>Thread-safety change &mdash; defer until cost rises.</li>
+        <li><span style="text-decoration: line-through; color: var(--dim);">Behavior change</span>. Locked (Tooling).</li>
+        <li><span style="text-decoration: line-through; color: var(--dim);">Transaction-boundary moved</span>. Locked (Tooling).</li>
+        <li><span style="text-decoration: line-through; color: var(--dim);">Observability lost</span>. Locked (Tooling + Feedback).</li>
+        <li><strong class="accent">Hidden side effect on inventory</strong>. Next loop.</li>
+        <li>Mocked-test fragility. Cheap; queue after.</li>
+        <li>Thread-safety change. Defer until cost rises.</li>
       </ul>
       <p style="margin-top: 1.4rem; color: var(--dim); font-size: 0.95em;">Every extraction now ships with three permanently-free categories.</p>
     </div>
