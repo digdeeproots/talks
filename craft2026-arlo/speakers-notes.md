@@ -46,7 +46,21 @@ Pause.
 
 ---
 
-@ai: need a slide here. Drivers had to be vigilant. Drivers stayed slow because curves were dangerous. but when brakes got better, they could slow down closer to the curve. They didn't have to worry as far ahead. They could go faster safely, and so they did. Make the slide look like others in this section, including having a picture. Either use an image that I already have checked in here, or go find a good one.
+### 07 — Better brakes let drivers brake later
+
+The bridge between "they tracked braking" and the thesis. Land the vigilance shift before the quote.
+
+> "Early drivers had to be vigilant. Every curve was dangerous, and they had to scan ahead — far ahead — because their brakes couldn't save them if they waited."
+
+> "When brakes got better, they could brake later. They could slow down closer to the curve. They didn't have to worry as far ahead."
+
+Pause.
+
+> "They could go faster, safely. So they did."
+
+Tee up the next slide:
+
+> "But here's the part most people miss about what brakes really gave them."
 
 ---
 
