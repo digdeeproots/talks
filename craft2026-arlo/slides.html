@@ -216,6 +216,30 @@
     #s33 .toc-grid { margin-top: 0.9rem; gap: 1rem; }
     #s33 .toc-card { padding: 1rem 0.9rem; }
     #s33 .toc-placeholder { margin-top: 0.8rem; }
+    /* Recipe-section cards (Manipulating Coding Agents / Closing sequence) are
+       deliberately subtler than the case studies and recipe steps: pack tight to
+       the left, smaller type, transparent background. */
+    #s33 .toc-recipes .toc-grid {
+      grid-template-columns: repeat(2, max-content);
+      justify-content: start;
+      gap: 0.5rem;
+      margin-top: 0.4rem;
+    }
+    #s33 .toc-recipes .toc-card {
+      padding: 0.4rem 0.7rem;
+      background: transparent;
+      border-color: rgba(232,160,32,0.18);
+      border-radius: 10px;
+      text-align: left;
+    }
+    #s33 .toc-recipes .toc-card .kicker {
+      font-size: clamp(0.55rem, 0.75vw, 0.72rem);
+      margin-bottom: 0.15rem;
+    }
+    #s33 .toc-recipes .toc-card h3 {
+      font-size: clamp(0.78rem, 1.05vw, 0.98rem);
+      font-weight: 500;
+    }
 
     /* ── LEVER VENN (s34: pills with definitions over a venn backdrop) ── */
     .lever-venn {
@@ -1009,7 +1033,7 @@
         <div class="toc-recipes">
           <p class="toc-section-label">Recipe</p>
           <div data-recipe-svg-slot="clickable"></div>
-          <div class="toc-grid" style="margin-top: 0.6rem;"> @ai: make these cards be smaller than the case studies and recipe steps, and also left-aligned. I want them there, but subtly.
+          <div class="toc-grid">
             <div class="toc-card" data-jump-to="s33d-1">
               <p class="kicker">your customers</p>
               <h3>Manipulating Coding Agents</h3>
