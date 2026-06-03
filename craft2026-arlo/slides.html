@@ -391,6 +391,59 @@
     .name-list li { margin-bottom: 0.9rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--subtle); }
     .name-list li:last-child { border-bottom: none; margin-bottom: 0; }
 
+    /* ── RECIPE-ITERATION SLIDE ───────────────────────
+       One row per iteration showing: selected vigilance / spot-check /
+       error categories surfaced / lever applied. Skimmable, not detailed —
+       the per-step walkthrough covers the how. */
+    .iter-grid {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      column-gap: 1.6rem;
+      row-gap: 0.9rem;
+      margin: 1.4rem auto 0;
+      max-width: 64rem;
+      text-align: left;
+      font-size: clamp(0.9rem, 1.35vw, 1.4rem);
+      line-height: 1.4;
+    }
+    .iter-grid .iter-label {
+      color: var(--kicker);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: clamp(0.62rem, 0.9vw, 0.8rem);
+      padding-top: 0.35rem;
+      white-space: nowrap;
+    }
+    .iter-grid .iter-value { color: var(--fg); }
+    .iter-grid .iter-value em { color: var(--dim); font-style: italic; }
+
+    /* Iteration card under the recipe SVG on s33. Visually a sibling to the
+       recipe steps but slightly subtler — leads into the worked example. */
+    #s33 .recipe-iteration-card {
+      margin-top: 1rem;
+      background: rgba(0,0,0,0.55);
+      border: 1px solid rgba(232,160,32,0.3);
+      border-radius: 12px;
+      padding: 0.7rem 0.9rem;
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+    }
+    #s33 .recipe-iteration-card:hover {
+      background: rgba(232,160,32,0.14);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+    #s33 .recipe-iteration-card .kicker {
+      margin: 0 0 0.2rem 0;
+      font-size: clamp(0.6rem, 0.85vw, 0.78rem);
+    }
+    #s33 .recipe-iteration-card h3 {
+      font-size: clamp(0.85rem, 1.1vw, 1.05rem);
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
     /* ── DEMO STEP (transcript-fetcher walkthrough) ───
        Per-step slide: a CLI pane on the left and a result-file pane on the right,
        under a brief description. CLI + result are placeholders until filled in. */
@@ -1233,6 +1286,10 @@
         <div class="toc-recipes">
           <p class="toc-section-label">Recipe</p>
           <div data-recipe-svg-slot="clickable"></div>
+          <div class="recipe-iteration-card" data-jump-to="s-rec-iter-0">
+            <p class="kicker">Worked example &mdash; three iterations</p>
+            <h3>Extract <code>PaymentService</code> from <code>OrderProcessor</code></h3>
+          </div>
         </div>
 
         <div class="toc-supplementary">
@@ -1789,6 +1846,92 @@
     </div>
   </section>
 
+  <!-- ── ITERATION WALKTHROUGH — extract PaymentService ──
+       Skimmable view of three loops of the recipe applied to the same example.
+       Each slide names what was selected, the spot-check used, the categories
+       it surfaced, and the lever pulled. The per-step slides above cover the
+       how; this sequence shows the path. -->
+
+  <!-- Iter intro -->
+  <section class="slide" id="s-rec-iter-0">
+    <div class="slide-content">
+      <p class="kicker">Worked example &mdash; extract <code>PaymentService</code></p>
+      <h2>Three loops of the recipe</h2>
+      <p style="margin-top: 1.6rem; color: var(--dim);">Same scope. Same expectation list, shrinking.<br>One category gets locked per loop.</p>
+    </div>
+  </section>
+
+  <!-- Iter 1 — Behavior change -->
+  <section class="slide" id="s-rec-iter-1">
+    <div class="slide-content">
+      <p class="kicker">Iteration 1</p>
+      <h2 style="margin-bottom: 0.4rem;">Selected vigilance: <span class="accent">Behavior change</span></h2>
+      <div class="iter-grid">
+        <p class="iter-label">Spot-check</p>
+        <p class="iter-value">Diff <code>OrderProcessor.refund()</code> against extracted version; trace every exception path.</p>
+        <p class="iter-label">Categories surfaced</p>
+        <p class="iter-value">Exception shape changed. Side-effect order changed. Return type widened.</p>
+        <p class="iter-label">Lever applied</p>
+        <p class="iter-value"><strong class="accent">Tooling.</strong> Remove <code>edit-file</code>; require an AST extract-method-to-class transform.</p>
+        <p class="iter-label">Outcome</p>
+        <p class="iter-value"><em>Behavior change locked &mdash; structurally impossible within the transform's scope.</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Iter 2 — Transaction-boundary moved -->
+  <section class="slide" id="s-rec-iter-2">
+    <div class="slide-content">
+      <p class="kicker">Iteration 2</p>
+      <h2 style="margin-bottom: 0.4rem;">Selected vigilance: <span class="accent">Transaction-boundary moved</span></h2>
+      <div class="iter-grid">
+        <p class="iter-label">Spot-check</p>
+        <p class="iter-value">Diff the call graph reachable under each <code>@Transactional</code> annotation, before vs after.</p>
+        <p class="iter-label">Categories surfaced</p>
+        <p class="iter-value">Transactional method moved out of its enclosing span. Nested transaction created where there was none.</p>
+        <p class="iter-label">Lever applied</p>
+        <p class="iter-value"><strong class="accent">Tooling.</strong> Extend the refactor to refuse moves that break transactional scope; surface the violation as a structured error.</p>
+        <p class="iter-label">Outcome</p>
+        <p class="iter-value"><em>Transactional-scope drift locked at the structural level.</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Iter 3 — Observability lost -->
+  <section class="slide" id="s-rec-iter-3">
+    <div class="slide-content">
+      <p class="kicker">Iteration 3</p>
+      <h2 style="margin-bottom: 0.4rem;">Selected vigilance: <span class="accent">Observability lost</span></h2>
+      <div class="iter-grid">
+        <p class="iter-label">Spot-check</p>
+        <p class="iter-value">Set difference on log statements and metric names; trace-span boundary comparison.</p>
+        <p class="iter-label">Categories surfaced</p>
+        <p class="iter-value">Log lines silently dropped. Metric counter renamed without alias. Trace span collapsed across the seam.</p>
+        <p class="iter-label">Lever applied</p>
+        <p class="iter-value"><strong class="accent">Tooling + Feedback.</strong> Add a "no orphan log / no orphan metric" lint as a commit gate; pipe its result back to the agent before it tries again.</p>
+        <p class="iter-label">Outcome</p>
+        <p class="iter-value"><em>Observability loss locked. The agent self-corrects before commit.</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Iter wrap — what's left -->
+  <section class="slide" id="s-rec-iter-end" data-return-to-toc="true">
+    <div class="slide-content" style="text-align:left;">
+      <p class="kicker">Three loops in</p>
+      <h2 style="margin-bottom: 1rem;">What's still on the list</h2>
+      <ul style="font-size: clamp(0.95rem, 1.5vw, 1.4rem); line-height: 1.6; list-style: none; padding: 0;">
+        <li><span style="text-decoration: line-through; color: var(--dim);">Behavior change</span> &mdash; locked (Tooling).</li>
+        <li><span style="text-decoration: line-through; color: var(--dim);">Transaction-boundary moved</span> &mdash; locked (Tooling).</li>
+        <li><span style="text-decoration: line-through; color: var(--dim);">Observability lost</span> &mdash; locked (Tooling + Feedback).</li>
+        <li><strong class="accent">Hidden side effect on inventory</strong> &mdash; next loop.</li>
+        <li>Mocked-test fragility &mdash; cheap; queue after.</li>
+        <li>Thread-safety change &mdash; defer until cost rises.</li>
+      </ul>
+      <p style="margin-top: 1.4rem; color: var(--dim); font-size: 0.95em;">Every extraction now ships with three permanently-free categories.</p>
+    </div>
+  </section>
+
   <!-- 33d-1 Two agents across turns — diagram only (reserves space for the non-useful levers list) -->
   <section class="slide" id="s33d-1">
     <div class="slide-content">
@@ -2108,7 +2251,7 @@
   });
 
   // TOC card / pill clicks
-  document.querySelectorAll('.toc-card[data-jump-to], .toc-pill[data-jump-to]').forEach(card => {
+  document.querySelectorAll('.toc-card[data-jump-to], .toc-pill[data-jump-to], .recipe-iteration-card[data-jump-to]').forEach(card => {
     card.addEventListener('click', () => goToId(card.dataset.jumpTo));
   });
 

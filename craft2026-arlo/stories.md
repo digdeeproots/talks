@@ -102,6 +102,10 @@ Results:
 
 ---
 
+@ai: add a new workflow story as well. This one is about taking control of the dev inner loop. Instead of givng claude skills at test writing, etc plus a workflow document saying what to do, 
+
+---
+
 ## Goals — Status email as structured spec
 
 *Vigilance cost: "Does this email follow the same structure as last time? Did Claude invent sections? Did it change the format?"*
