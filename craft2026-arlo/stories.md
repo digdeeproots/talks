@@ -68,7 +68,7 @@ Works the same for human developers using AST-aware refactoring tools. The lever
 
 ## Workflow + Work-product state control — Transcript fetcher *(quick story, told as semi-demo)*
 
-@ai: update this story based on the additional columns that I added to the slide in the upshift that talks about it. AFTER you have done that, then generate slides and notes for my story telling (the "second demo", right after the movement-based commit tool).
+@ai: update this story based on the additional columns that I added to the slide in the upshift that talks about it. AFTER you have done that, then generate slides and notes for my story telling (the "second demo", right after the movement-based commit tool). This replaces the placeholder with multiple slides. I will want to show for each step an example of the what I run at the command line and then describe what it does and show a result file. I have that content available (except for the command-line invocations, which I'll fake/create after you make the slides)
 
 *This story pulls **two** levers, not one. Sequencing and when-Claude-runs are **workflow** moves. The schema and validation routing — controlling the shape of the analysis itself and what happens when the result doesn't conform — is **work-product state control**. Useful in the talk to show that a single workflow can be improved one lever at a time, on different levers, in sequence.*
 
@@ -163,6 +163,10 @@ The AI now sees its own code through the same filter the reviewer would. It pick
 The human never sees the smelly-but-fixed states. They only see commits that passed.
 
 **Key insight for the talk:** the agent's actions used to be evaluated by a human, asynchronously, at review time. Now they are evaluated by deterministic code, synchronously, at the moment of action. The agent's behavior changed not because it became more careful, but because the universe started telling it the truth immediately.
+
+---
+
+@ai: add a reachable context section. Please elaborate forms of the following stories. 1) working in a monorepo, when changing functionality in any package, I want to prevent it from altering other packages. So I remove the others from the AI's reachable context. When it searches for them, all it can find is the API types & factories, and no implementation to change. It can also se its adaptors and ports, so it can change thos eif it wants to alter its relationship with another package. Refactoring tools can see both - if the API is internal. 2) Multi-phase re-design. I worked out the endpoint that I wanted to attain. Then I worked out the first phase which leaves me in a good partial-progress state that is all working and happier. Then during execution, I prevent access to the final endpoint. The execution sees the first phase as the final design, so can't be distracted by stuff beyond that phase. I apply this recursively down to some small scope, giving each scope a clear final destination and plan to get there, without worrying about what else may be happening after. 3) Context expansion. Add a tool for vector-based code search. Get a summary for each class & method, throw them all into a vector db, and then provide that as a search context to the agents, to be preferred over grep. 4) Plan optionality. The plan is held in source control (via a plan MCP tool), not an external system. Represent optionality with a node that says to generate options. When the workflow gets to that node, it asks the AI to brainstorm more potential options. Then it takes that set plus the original, and creates one `probably-wrong` branch for each. In each branch, it replaces the plan node with a node for the selected option - as if that were the choice made. Then run them all in parallel. None knows that multiple options are being evaluated or what the other options are. Then we choose, after all terminate (and we filter out failures) what we like from each, then combine that to the final solution.
 
 ---
 
