@@ -483,6 +483,32 @@
       line-height: 1.2;
     }
 
+    /* QR code in the bottom-right of the TOC hub. Goes straight to the deck URL. */
+    #s33 .qr-corner {
+      position: absolute;
+      right: 1.6rem;
+      bottom: 1.6rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      z-index: 5;
+    }
+    #s33 .qr-corner img {
+      width: clamp(96px, 11vw, 168px);
+      height: auto;
+      padding: 6px;
+      background: #f0ede6;
+      border-radius: 8px;
+      display: block;
+    }
+    #s33 .qr-corner .qr-caption {
+      font-size: clamp(0.55rem, 0.8vw, 0.72rem);
+      color: var(--dim);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
     /* ── DEMO STEP (transcript-fetcher walkthrough) ───
        Per-step slide: Command pane on the left, an "I do" ordered list on the right,
        and a collapsible Output pane below that lazily fetches a long example file
@@ -1512,6 +1538,14 @@
             </div>
           </div>
         </div>
+      </div>
+
+      <div class="qr-corner">
+        <a href="https://talks.digdeeproots.com/craft2026-arlo/slides.html"
+           title="Open this deck on talks.digdeeproots.com">
+          <img src="qr-talk.png" alt="Scan to open this deck">
+        </a>
+        <span class="qr-caption">scan for the deck</span>
       </div>
     </div>
   </section>
