@@ -484,13 +484,14 @@
     }
 
     /* ── DEMO STEP (transcript-fetcher walkthrough) ───
-       Per-step slide: a CLI pane on the left and a result-file pane on the right,
-       under a brief description. CLI + result are placeholders until filled in. */
+       Per-step slide: Command pane on the left, an "I do" ordered list on the right,
+       and a collapsible Output pane below that lazily fetches a long example file
+       (markdown or json) from disk. Files live in demo-files/ as placeholders for now. */
     .demo-step {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1.4rem;
-      margin-top: 1.4rem;
+      margin-top: 1.2rem;
       text-align: left;
     }
     .demo-pane {
@@ -498,7 +499,7 @@
       border: 1px solid rgba(232,160,32,0.25);
       border-radius: 12px;
       padding: 0.9rem 1.1rem;
-      min-height: 9rem;
+      min-height: 8rem;
     }
     .demo-pane-label {
       font-size: clamp(0.6rem, 0.85vw, 0.78rem);
@@ -515,6 +516,15 @@
       line-height: 1.4;
       margin: 0;
     }
+    .demo-pane.demo-do ol {
+      margin: 0;
+      padding-left: 1.4rem;
+      font-size: clamp(0.85rem, 1.15vw, 1.15rem);
+      color: var(--fg);
+      line-height: 1.45;
+    }
+    .demo-pane.demo-do li { margin-bottom: 0.35rem; }
+    .demo-pane.demo-do li:last-child { margin-bottom: 0; }
     .demo-placeholder {
       color: var(--dim);
       font-style: italic;
@@ -526,6 +536,53 @@
       max-width: 56rem;
       font-size: clamp(0.85rem, 1.2vw, 1.2rem);
       line-height: 1.45;
+    }
+
+    /* Collapsible Output pane: click summary to expand the example file inline.
+       File is fetched on first open and cached. */
+    .demo-output {
+      margin-top: 1.2rem;
+      background: rgba(0,0,0,0.6);
+      border: 1px solid rgba(232,160,32,0.25);
+      border-radius: 12px;
+      overflow: hidden;
+      text-align: left;
+    }
+    .demo-output > summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 0.7rem 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: var(--kicker);
+      font-size: clamp(0.6rem, 0.85vw, 0.78rem);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      user-select: none;
+    }
+    .demo-output > summary::-webkit-details-marker { display: none; }
+    .demo-output > summary::before {
+      content: '▸';
+      color: var(--accent);
+      font-size: 0.85rem;
+      transition: transform 0.15s ease;
+      width: 0.8rem;
+      display: inline-block;
+    }
+    .demo-output[open] > summary::before { transform: rotate(90deg); }
+    .demo-output > summary:hover { background: rgba(232,160,32,0.08); }
+    .demo-output .demo-output-file {
+      margin: 0;
+      padding: 0.8rem 1.1rem 1rem;
+      max-height: 42vh;
+      overflow-y: auto;
+      border-top: 1px solid rgba(232,160,32,0.15);
+      font-family: ui-monospace, 'Cascadia Mono', Consolas, monospace;
+      font-size: clamp(0.7rem, 0.95vw, 0.92rem);
+      color: var(--fg);
+      white-space: pre-wrap;
+      line-height: 1.4;
     }
     /* ── STORY LIST — used in case-study intervention slides ─────── */
     .story-list { list-style: none; text-align: left; margin: 0 auto; max-width: 60rem; }
@@ -785,132 +842,182 @@
       <p style="margin-top: 1.8rem; color: var(--dim);">A daily coaching workflow. Six transitions follow, each silencing one specific vigilance question.</p>
     </div>
   </section>
-  
-  @ai: for each of these, I want to show the command, then an ordered list of the things I generally have to do in response, then an example output that it would generate. I have long example files and will pull them in here. They will be .md files or .json files. Can you create placeholders for me, and then make them displayable? I'd prefer not to have to alt-tab away, so display in browser would be good. I can click on a thing with a mouse to open / close it.
 
   <!-- 23-0 Step 0 — Prompt Claude and watch (baseline / initial condition) -->
-  <section class="slide" id="s23-0">
+  <section class="slide case-study" id="s23-0">
     <div class="slide-content">
       <p class="kicker">Step 0 · Prompt Claude and watch</p>
-      <p class="demo-description">The starting state. Prompt Claude with the goal. Watch every step and interrupt when it goes wrong. Full vigilance burden, every run.</p>
       <div class="demo-step">
-        <div class="demo-pane">
+        <div class="demo-pane demo-cmd">
           <p class="demo-pane-label">Command</p>
           <pre class="demo-placeholder">(CLI invocation to be filled in)</pre>
         </div>
-        <div class="demo-pane">
-          <p class="demo-pane-label">Result · raw conversation</p>
-          <pre class="demo-placeholder">(Transcript excerpt to be filled in)</pre>
+        <div class="demo-pane demo-do">
+          <p class="demo-pane-label">I do</p>
+          <ol>
+        <li>Run Claude with the prompt.</li>
+        <li>Watch every step and interrupt when something looks wrong.</li>
+        <li>Re-prompt with corrections.</li>
+        <li>Repeat for every run, every day.</li>
+          </ol>
         </div>
       </div>
+      <details class="demo-output">
+        <summary>Result · raw conversation</summary>
+        <pre class="demo-output-file" data-file="demo-files/s23-0.md">(click to load)</pre>
+      </details>
     </div>
   </section>
 
   <!-- 23a Step 1 — Written workflow -->
-  <section class="slide" id="s23a">
+  <section class="slide case-study" id="s23a">
     <div class="slide-content">
       <p class="kicker">Step 1 · Written workflow</p>
-      <p class="demo-description">Move the prompt into a workflow file. Vigilance during execution is unchanged, but the workflow is now an artifact I can iteratively improve between runs.</p>
       <div class="demo-step">
-        <div class="demo-pane">
+        <div class="demo-pane demo-cmd">
           <p class="demo-pane-label">Command</p>
           <pre class="demo-placeholder">(CLI invocation to be filled in)</pre>
         </div>
-        <div class="demo-pane">
-          <p class="demo-pane-label">Result · workflows/daily.md</p>
-          <pre class="demo-placeholder">(Workflow file excerpt to be filled in)</pre>
+        <div class="demo-pane demo-do">
+          <p class="demo-pane-label">I do</p>
+          <ol>
+        <li>Hand Claude the workflow file.</li>
+        <li>Watch every step it takes.</li>
+        <li>When a gap shows up, edit the workflow file.</li>
+        <li>Re-run on the next day with the improved file.</li>
+          </ol>
         </div>
       </div>
+      <details class="demo-output">
+        <summary>Output · workflows/daily.md</summary>
+        <pre class="demo-output-file" data-file="demo-files/s23a.md">(click to load)</pre>
+      </details>
     </div>
   </section>
 
   <!-- 23b Step 2 — Document iteration pattern -->
-  <section class="slide" id="s23b">
+  <section class="slide case-study" id="s23b">
     <div class="slide-content">
       <p class="kicker">Step 2 · Document iteration pattern</p>
-      <p class="demo-description">Extract a doc-iteration pattern and use it everywhere the workflow modifies a document. Structured human reviews on each pass; the file improves cumulatively. The work toil of authoring drops.</p>
       <div class="demo-step">
-        <div class="demo-pane">
+        <div class="demo-pane demo-cmd">
           <p class="demo-pane-label">Command</p>
           <pre class="demo-placeholder">(CLI invocation to be filled in)</pre>
         </div>
-        <div class="demo-pane">
-          <p class="demo-pane-label">Result · workflows/daily.md (revised)</p>
-          <pre class="demo-placeholder">(Diff or revised excerpt to be filled in)</pre>
+        <div class="demo-pane demo-do">
+          <p class="demo-pane-label">I do</p>
+          <ol>
+        <li>Run the doc-iteration pattern on the workflow file.</li>
+        <li>Review each pass.</li>
+        <li>Direct edits via the iteration loop.</li>
+        <li>Commit the improved workflow.</li>
+          </ol>
         </div>
       </div>
+      <details class="demo-output">
+        <summary>Output · workflows/daily.md (revised)</summary>
+        <pre class="demo-output-file" data-file="demo-files/s23b.md">(click to load)</pre>
+      </details>
     </div>
   </section>
 
   <!-- 23c Step 3 — pnpm do-today -->
-  <section class="slide" id="s23c">
+  <section class="slide case-study" id="s23c">
     <div class="slide-content">
-      <p class="kicker">Step 3 · <code>pnpm do-today</code></p>
-      <p class="demo-description">Extract sequencing into deterministic code. A script reads state, decides the next step, runs deterministic processing, launches Claude, catches the result, updates state, quits. Sequencing leaves Claude's hands.</p>
+      <p class="kicker">Step 3 · pnpm do-today</p>
       <div class="demo-step">
-        <div class="demo-pane">
+        <div class="demo-pane demo-cmd">
           <p class="demo-pane-label">Command</p>
-          <pre class="demo-placeholder">(CLI invocation to be filled in)</pre>
+          <pre class="demo-placeholder">pnpm do-today</pre>
         </div>
-        <div class="demo-pane">
-          <p class="demo-pane-label">Result · scripts/do-today.ts</p>
-          <pre class="demo-placeholder">(Script excerpt to be filled in)</pre>
+        <div class="demo-pane demo-do">
+          <p class="demo-pane-label">I do</p>
+          <ol>
+        <li>Run the script.</li>
+        <li>Let deterministic code decide the next step.</li>
+        <li>Approve or reject the proposed action between steps.</li>
+          </ol>
         </div>
       </div>
+      <details class="demo-output">
+        <summary>Output · scripts/do-today.ts</summary>
+        <pre class="demo-output-file" data-file="demo-files/s23c.ts.txt">(click to load)</pre>
+      </details>
     </div>
   </section>
 
   <!-- 23d Step 4 — Narrow goal -->
-  <section class="slide" id="s23d">
+  <section class="slide case-study" id="s23d">
     <div class="slide-content">
       <p class="kicker">Step 4 · Narrow goal</p>
-      <p class="demo-description">Refine Claude's goal to "find key moments." It uses the transcript, retro notes, and me as info sources. It surfaces what is salient and roughly when. It no longer interviews me to understand everything; it asks only to fill gaps. The rhythm shifts to guess-and-check: Claude proposes, I evaluate.</p>
       <div class="demo-step">
-        <div class="demo-pane">
+        <div class="demo-pane demo-cmd">
           <p class="demo-pane-label">Command</p>
           <pre class="demo-placeholder">(CLI invocation to be filled in)</pre>
         </div>
-        <div class="demo-pane">
-          <p class="demo-pane-label">Result · workflows/find-key-moments.md</p>
-          <pre class="demo-placeholder">(Goal spec excerpt to be filled in)</pre>
+        <div class="demo-pane demo-do">
+          <p class="demo-pane-label">I do</p>
+          <ol>
+        <li>Hand Claude the narrowed goal: "find key moments."</li>
+        <li>Let it propose; respond with eval.</li>
+        <li>Stop interviewing about everything. Answer only to fill gaps.</li>
+          </ol>
         </div>
       </div>
+      <details class="demo-output">
+        <summary>Output · workflows/find-key-moments.md</summary>
+        <pre class="demo-output-file" data-file="demo-files/s23d.md">(click to load)</pre>
+      </details>
     </div>
   </section>
 
   <!-- 23e Step 5 — Scripted fetch -->
-  <section class="slide" id="s23e">
+  <section class="slide case-study" id="s23e">
     <div class="slide-content">
       <p class="kicker">Step 5 · Scripted fetch</p>
-      <p class="demo-description">Replace the probabilistic Fireflies MCP fetch with a deterministic fetcher. On success, Claude is never invoked. On failure, Claude is called with the specific failure as context. Either way, Claude only enters once the transcript is in hand.</p>
       <div class="demo-step">
-        <div class="demo-pane">
+        <div class="demo-pane demo-cmd">
           <p class="demo-pane-label">Command</p>
           <pre class="demo-placeholder">(CLI invocation to be filled in)</pre>
         </div>
-        <div class="demo-pane">
-          <p class="demo-pane-label">Result · fetch-transcript output</p>
-          <pre class="demo-placeholder">(Fetch result or failure-handoff excerpt to be filled in)</pre>
+        <div class="demo-pane demo-do">
+          <p class="demo-pane-label">I do</p>
+          <ol>
+        <li>Run the deterministic fetcher.</li>
+        <li>On success, do nothing; Claude was never invoked.</li>
+        <li>On failure, look at what Claude was handed and what it returned.</li>
+          </ol>
         </div>
       </div>
+      <details class="demo-output">
+        <summary>Output · fetch-transcript output</summary>
+        <pre class="demo-output-file" data-file="demo-files/s23e.json">(click to load)</pre>
+      </details>
     </div>
   </section>
 
   <!-- 23f Step 6 — Iterative analysis -->
-  <section class="slide" id="s23f">
+  <section class="slide case-study" id="s23f">
     <div class="slide-content">
       <p class="kicker">Step 6 · Iterative analysis</p>
-      <p class="demo-description">Lock the analysis schema. Structured JSON replaces unstructured markdown, and deterministic validation runs on every analysis. Validation failures re-call Claude with the specific gap. The workflow stops being linear: independent re-orderable steps read and write the same analysis.</p>
       <div class="demo-step">
-        <div class="demo-pane">
+        <div class="demo-pane demo-cmd">
           <p class="demo-pane-label">Command</p>
           <pre class="demo-placeholder">(CLI invocation to be filled in)</pre>
         </div>
-        <div class="demo-pane">
-          <p class="demo-pane-label">Result · analysis.json (schema-validated)</p>
-          <pre class="demo-placeholder">(Schema and sample analysis excerpt to be filled in)</pre>
+        <div class="demo-pane demo-do">
+          <p class="demo-pane-label">I do</p>
+          <ol>
+        <li>Run analysis with schema validation.</li>
+        <li>On validation failure, Claude is re-called with the specific gap.</li>
+        <li>Compose the final analysis from independent, re-orderable steps.</li>
+          </ol>
         </div>
       </div>
+      <details class="demo-output">
+        <summary>Output · analysis.json (schema-validated)</summary>
+        <pre class="demo-output-file" data-file="demo-files/s23f.json">(click to load)</pre>
+      </details>
     </div>
   </section>
 
@@ -2584,6 +2691,23 @@
   // TOC card / pill clicks
   document.querySelectorAll('.toc-card[data-jump-to], .toc-pill[data-jump-to], .recipe-iteration-card[data-jump-to]').forEach(card => {
     card.addEventListener('click', () => goToId(card.dataset.jumpTo));
+  });
+
+  // Demo-output panes: lazy-fetch the example file on first open, cache the result.
+  document.querySelectorAll('details.demo-output').forEach(d => {
+    d.addEventListener('toggle', async () => {
+      if (!d.open) return;
+      const pre = d.querySelector('.demo-output-file[data-file]');
+      if (!pre || pre.dataset.loaded) return;
+      pre.dataset.loaded = 'pending';
+      try {
+        const r = await fetch(pre.dataset.file);
+        pre.textContent = r.ok ? await r.text() : `(file not found: ${pre.dataset.file})`;
+      } catch (e) {
+        pre.textContent = `(load error: ${e.message})`;
+      }
+      pre.dataset.loaded = '1';
+    });
   });
 
   // Hydrate shared recipe SVG slots. `display` is read-only; `clickable` wires
