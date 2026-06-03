@@ -614,18 +614,21 @@
   <section class="slide" id="s24">
     <div class="slide-content">
       <p class="kicker">Two kinds of engineer</p>
-      <div class="two-up" style="margin-top: 2.5rem;">
-        <div>
-          @ai: make this part into a grid, so it is easy to scan. 3 rows: scope, goal, and strategy. The kicker paragraphs currently contain the goals and the following paragraphs have the strategies. Make the grid look like the one in slide s31.
-          <h2>App / Lib Dev</h2>
-          <p class="kicker">Make <em>my code</em> defect-free-enough</p>
-          <p style="margin-top: 0.8rem; color: var(--dim); font-size: clamp(0.85rem, 1.3vw, 1.3rem); font-style: italic;">Find them and fix defects before they pile up.</p>
-        </div>
-        <div>
-          <h2>Tool Builder</h2>
-          <p class="kicker">Reduce total developer toil</p>
-          <p style="margin-top: 0.8rem; color: var(--dim); font-size: clamp(0.85rem, 1.3vw, 1.3rem); font-style: italic;">Control the <em>rate</em> at which <em>even careless devs</em> create defects.</p>
-        </div>
+      <div style="display: grid; grid-template-columns: max-content repeat(2, 1fr); column-gap: 1.6rem; row-gap: 1rem; margin: 2.5rem auto 0; text-align: left; font-size: clamp(0.9rem, 1.3vw, 1.4rem); line-height: 1.45;">
+        <!-- Scope row — doubles as the column header -->
+        <div style="color: var(--kicker); text-align: right; padding-right: 0.4rem;">Scope</div>
+        <div style="color: var(--kicker); border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 0.4rem;">App / Lib Dev</div>
+        <div style="color: var(--kicker); border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 0.4rem;">Tool Builder</div>
+
+        <!-- Goal row -->
+        <div style="color: var(--kicker); text-align: right; padding-right: 0.4rem;">Goal</div>
+        <div>Make <em>my code</em> defect-free-enough</div>
+        <div>Reduce total developer toil</div>
+
+        <!-- Strategy row -->
+        <div style="color: var(--kicker); text-align: right; padding-right: 0.4rem;">Strategy</div>
+        <div style="font-style: italic; color: var(--dim);">Find and fix defects before they pile up.</div>
+        <div style="font-style: italic; color: var(--dim);">Control the <em>rate</em> at which <em>even careless devs</em> create defects.</div>
       </div>
       <p style="margin-top: 2rem; color: var(--dim);">If your AI is one of the developers, you are the tool builder.</p>
     </div>
