@@ -1364,6 +1364,8 @@
       <p style="margin-top: 1rem; color: var(--dim);">This direction was always the plan. It doesn't know otherwise.</p>
     </div>
   </section>
+  
+  @ai: all these name the experience slides should use a clean grid layout
 
   <!-- 40 Name the experience — Delete completed stories; next returns to TOC -->
   <section class="slide" id="s40" data-return-to-toc="true">
@@ -1662,12 +1664,15 @@
       <p style="margin-top: 2rem; color: var(--dim);">"Did Claude skip the refactor and shove logic into the test?<br>Write the test after the code? Mix test edits and production edits in the same change?"</p>
     </div>
   </section>
+  
+  @ai: this slide is too large to fit. Also, ugly. Some of the other stories are similar text walls. Condense. And reduce font sizes. Note: there is some other stuff using the story-list class (things that are not actually stories); split that off so that we can reform each independently of the other. Also these slides have way too much centered text. Fix that. This is true for most of the case studies. Some are better - especially those that use their kicker as their header and don't duplicate it with another header.
 
   <!-- 57b Intervention — Dev inner loop control -->
   <section class="slide" id="s57b">
     <div class="slide-content">
       <p class="kicker">Main Lever: Workflow</p>
-      <h2>One workflow,<br><span class="accent">five universes.</span></h2>
+      <p>One workflow, <span class="accent">five universes.</span></p>
+      <p style="color: var(--dim);">A Minions mission orchestrates the sequence.<br>Deterministic code handles commits and chooses the next phase.</p>
       <ul class="story-list">
         <li><em>Plan refactor:</em> read-only tools. Output: a refactor plan.</li>
         <li><em>Apply refactor:</em> AST tools only. Loop until the plan is empty.</li>
@@ -1675,8 +1680,7 @@
         <li><em>Make it pass:</em> production tree writable; test files read-only.</li>
         <li><em>Remove duplication:</em> AST tools again. Same loop, different refactor goal.</li>
       </ul>
-      <p style="margin-top: 2rem; color: var(--dim);">A Minions mission orchestrates the sequence.<br>Deterministic code handles commits and chooses the next phase.</p>
-      <p style="margin-top: 1.2rem;">No single Claude call can do TDD wrong<br>because <span class="accent">the wrong move isn't in its toolbox.</span></p>
+      <p style="margin-top: 2rem;">No single Claude call can do TDD wrong<br>because <span class="accent">the wrong move isn't in its toolbox.</span></p>
     </div>
   </section>
 
