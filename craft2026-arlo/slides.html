@@ -505,7 +505,7 @@
     }
     .name-list li strong { display: inline-block; min-width: 9rem; }
 
-    /* ── STORY LIST ───────────────────────────────────── */
+    /* ── STORY LIST — used in case-study intervention slides ─────── */
     .story-list { list-style: none; text-align: left; margin: 0 auto; }
     .story-list li {
       position: relative;
@@ -521,6 +521,24 @@
       left: 0;
     }
     .story-list li:last-child { border-bottom: none; }
+
+    /* ── HOW LIST — generic three-beat list (e.g. s26 Be a Tool Builder).
+       Split from story-list so the two can evolve independently. ─────── */
+    .how-list { list-style: none; text-align: left; margin: 0 auto; }
+    .how-list li {
+      position: relative;
+      padding: 0.85rem 0 0.85rem 3.2rem;
+      font-size: clamp(1.5rem, 2.8vw, 3rem);
+      line-height: 1.4;
+      border-bottom: 1px solid var(--subtle);
+    }
+    .how-list li::before {
+      content: '→';
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+    }
+    .how-list li:last-child { border-bottom: none; }
 
     /* ── CHROME ───────────────────────────────────────── */
     #progress {
@@ -1024,7 +1042,7 @@
     <div class="slide-content">
       <p class="kicker">How?</p>
       <h2>Be a Tool Builder</h2>
-      <ul class="story-list" style="margin-top: 2.5rem;">
+      <ul class="how-list" style="margin-top: 2.5rem;">
         <li>Assume a well-intentioned but careless engineer.</li>
         <li>Change the <em>universe</em>.</li>
         <li>Reduce <em>creation rate</em> of one error category.</li>
