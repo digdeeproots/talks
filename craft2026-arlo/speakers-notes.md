@@ -46,6 +46,10 @@ Pause.
 
 ---
 
+@ai: need a slide here. Drivers had to be vigilant. Drivers stayed slow because curves were dangerous. but when brakes got better, they could slow down closer to the curve. They didn't have to worry as far ahead. They could go faster safely, and so they did. Make the slide look like others in this section, including having a picture. Either use an image that I already have checked in here, or go find a good one.
+
+---
+
 ### 08 — "Better brakes let you stop caring about stopping"
 
 Read the quote slowly. It's the thesis of the whole talk.
