@@ -82,6 +82,16 @@
     .bg-s40 { background-image: url('./images/s40.jpg'); } /* brake disc rotor */
     .bg-s54 { background-image: url('./images/s54.jpg'); } /* rally car kicking dust */
 
+    /* per-case-study images for back-half lever stories */
+    .bg-cs42 { background-image: url('./images/s42.jpg');           } /* highway through windshield — structured forward path (Goals) */
+    .bg-cs44 { background-image: url('./images-fantasy/s46.jpg');   } /* owl in the dark — watchful gaze that was missing (Workflow setup) */
+    .bg-cs45 { background-image: url('./images-fantasy/s44.jpg');   } /* lit gateway at dusk — deterministic checkpoint (Workflow) */
+    .bg-cs47 { background-image: url('./images-fantasy/s50.jpg');   } /* aerial waterways — branching paths (Tooling/git setup) */
+    .bg-cs48 { background-image: url('./images/s48.jpg');           } /* car-show engines under hood — curated tool access (Tooling/git) */
+    .bg-cs50 { background-image: url('./images/s50.jpg');           } /* old steering wheel + dashboard — legacy controls (AST setup) */
+    .bg-cs51 { background-image: url('./images-fantasy/s52.jpg');   } /* blacksmith at the anvil — precise structured transformation (AST) */
+    .bg-cs54 { background-image: url('./images-fantasy/s54.jpg');   } /* tree door in mossy woods — preserved passage (Archive table) */
+
     /* carefree — human freedom, movement, play */
     .bg-cf-motorcar-road { background-image: url('./images-carefree/s08.jpg'); }
     .bg-cf-developer     { background-image: url('./images-carefree/developer.jpg'); }
@@ -960,8 +970,8 @@
         </div>
       </div>
       <details class="demo-output">
-        <summary>Result · raw conversation</summary>
-        <pre class="demo-output-file" data-file="demo-files/step-1-output.md">(click to load)</pre>
+        <summary>Result · intermediate/raw-data.md</summary>
+        <pre class="demo-output-file" data-file="demo-files/step-0-output.md">(click to load)</pre>
       </details>
     </div>
   </section>
@@ -987,16 +997,40 @@
         </div>
       </div>
       <details class="demo-output">
-        <summary>Output · workflows/daily.md</summary>
-        <pre class="demo-output-file" data-file="demo-files/s23a.md">(click to load)</pre>
+        <summary>Output · workflows/raw-data.md</summary>
+        <pre class="demo-output-file" data-file="demo-files/step-1-output.md">(click to load)</pre>
       </details>
     </div>
   </section>
 
-  <!-- 23b Step 2 — Document iteration pattern -->
+  <!-- 23d Step 2 — Narrow goal -->
+  <section class="slide case-study" id="s23d">
+    <div class="slide-content">
+      <p class="kicker">Step 2 · Narrow goal</p>
+      <div class="demo-step">
+        <div class="demo-pane demo-cmd">
+          <p class="demo-pane-label">Command</p>
+          <pre class="demo-placeholder">Read `workflow/find-insights.md` and follow it.</pre>
+        </div>
+        <div class="demo-pane demo-do">
+          <p class="demo-pane-label">I do</p>
+          <ol>
+            <li>Workflow gives Claude the narrowed goal: "find key moments."</li>
+            <li>Stop interviewing about everything. Answer only to fill gaps.</li>
+          </ol>
+        </div>
+      </div>
+      <details class="demo-output">
+        <summary>Output · intermediate/find-key-moments.md</summary>
+        <pre class="demo-output-file" data-file="demo-files/step-2-output.md">(click to load)</pre>
+      </details>
+    </div>
+  </section>
+
+  <!-- 23b Step 3 — Document iteration pattern -->
   <section class="slide case-study" id="s23b">
     <div class="slide-content">
-      <p class="kicker">Step 2 · Document iteration pattern</p>
+      <p class="kicker">Step 3 · Document iteration pattern</p>
       <div class="demo-step">
         <div class="demo-pane demo-cmd">
           <p class="demo-pane-label">Command</p>
@@ -1015,13 +1049,13 @@
         </div>
       </div>
       <details class="demo-output">
-        <summary>Output · workflows/daily.md (revised)</summary>
+        <summary>Output · intermediate/find-key-moments.md</summary>
         <pre class="demo-output-file" data-file="demo-files/step-3-output.md">(click to load)</pre>
       </details>
     </div>
   </section>
 
-  <!-- 23c Step 3 — pnpm do-today -->
+  <!-- 23c Step 4 — pnpm do-today -->
   <section class="slide case-study" id="s23c">
     <div class="slide-content">
       <p class="kicker">Step 3 · pnpm do-today</p>
@@ -1036,38 +1070,15 @@
             <li>Run the script.</li>
             <li>Let deterministic code decide the next step.</li>
             <li>Answer the AI's questions.</li>
-            <li>Stop the session when I think it is done enough and run the script again.</li>
+            <li>Stop the session when I think it is done enough.</li>
+            <li>Review results.</li>
+            <li>Run pnpm do-today again to start next step.</li>
           </ol>
         </div>
       </div>
       <details class="demo-output">
-        <summary>Output · scripts/do-today.ts</summary>
-        <pre class="demo-output-file" data-file="demo-files/step-4-output.md">(same as before)</pre>
-      </details>
-    </div>
-  </section>
-
-  <!-- 23d Step 4 — Narrow goal -->
-  <section class="slide case-study" id="s23d">
-    <div class="slide-content">
-      <p class="kicker">Step 4 · Narrow goal</p>
-      <div class="demo-step">
-        <div class="demo-pane demo-cmd">
-          <p class="demo-pane-label">Command</p>
-          <pre class="demo-placeholder">(CLI invocation to be filled in)</pre>
-        </div>
-        <div class="demo-pane demo-do">
-          <p class="demo-pane-label">I do</p>
-          <ol>
-        <li>Hand Claude the narrowed goal: "find key moments."</li>
-        <li>Let it propose; respond with eval.</li>
-        <li>Stop interviewing about everything. Answer only to fill gaps.</li>
-          </ol>
-        </div>
-      </div>
-      <details class="demo-output">
-        <summary>Output · workflows/find-key-moments.md</summary>
-        <pre class="demo-output-file" data-file="demo-files/s23d.md">(click to load)</pre>
+        <summary>Output · intermediate/find-key-moments.md</summary>
+        <pre class="demo-output-file" data-file="demo-files/step-3-output.md">(same as before)</pre>
       </details>
     </div>
   </section>
@@ -1079,20 +1090,23 @@
       <div class="demo-step">
         <div class="demo-pane demo-cmd">
           <p class="demo-pane-label">Command</p>
-          <pre class="demo-placeholder">(CLI invocation to be filled in)</pre>
+          <pre class="demo-placeholder">pnpm do-today</pre>
         </div>
         <div class="demo-pane demo-do">
           <p class="demo-pane-label">I do</p>
           <ol>
-        <li>Run the deterministic fetcher.</li>
-        <li>On success, do nothing; Claude was never invoked.</li>
-        <li>On failure, look at what Claude was handed and what it returned.</li>
+            <li>Wait until it calls for my attention verbally.</li>
+            <li>Only visible change: it doesn't ask me to confirm its guess before downloading.</li>
+            <li>On failure, look at what Claude was handed and what it returned.</li>
+            <li>Engage with interview.</li>
+            <li>Review results.</li>
+            <li>Run pnpm do-today again to start next step.</li>
           </ol>
         </div>
       </div>
       <details class="demo-output">
-        <summary>Output · fetch-transcript output</summary>
-        <pre class="demo-output-file" data-file="demo-files/s23e.json">(click to load)</pre>
+        <summary>Output · intermediate/find-key-moments.md</summary>
+        <pre class="demo-output-file" data-file="demo-files/step-3-output.md">(same as before)</pre>
       </details>
     </div>
   </section>
@@ -1104,20 +1118,21 @@
       <div class="demo-step">
         <div class="demo-pane demo-cmd">
           <p class="demo-pane-label">Command</p>
-          <pre class="demo-placeholder">(CLI invocation to be filled in)</pre>
+          <pre class="demo-placeholder">pnpm do-today</pre>
         </div>
         <div class="demo-pane demo-do">
           <p class="demo-pane-label">I do</p>
           <ol>
-        <li>Run analysis with schema validation.</li>
-        <li>On validation failure, Claude is re-called with the specific gap.</li>
-        <li>Compose the final analysis from independent, re-orderable steps.</li>
+            <li>Do something else until it says it has an analysis ready.</li>
+            <li>Answer its refinement questions.</li>
+            <li style="text-decoration: line-through;">Review results.</li>
+            <li>Run pnpm do-today again to start next step.</li>
           </ol>
         </div>
       </div>
       <details class="demo-output">
-        <summary>Output · analysis.json (schema-validated)</summary>
-        <pre class="demo-output-file" data-file="demo-files/s23f.json">(click to load)</pre>
+        <summary>Output · intermediate/analysis.json</summary>
+        <pre class="demo-output-file" data-file="demo-files/step-6-output.json">(click to load)</pre>
       </details>
     </div>
   </section>
@@ -1175,26 +1190,26 @@
         <!-- header row: blank corner, then five transition names -->
         <div></div>
         <div style="color: var(--kicker); border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 0.4rem;">Written workflow</div>
+        <div style="color: var(--kicker); border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 0.4rem;">Narrow goal</div>
         <div style="color: var(--kicker); border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 0.4rem;">Doc iter pattern</div>
         <div style="color: var(--kicker); border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 0.4rem;">pnpm do-today</div>
-        <div style="color: var(--kicker); border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 0.4rem;">Narrow goal</div>
         <div style="color: var(--kicker); border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 0.4rem;">Scripted fetch</div>
         <div style="color: var(--kicker); border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 0.4rem;">Iterative analysis</div>
 
         <!-- Changed row -->
         <div style="color: var(--kicker); text-align: right; padding-right: 0.4rem;">Changed</div>
         <div><em>workflow</em></div>
+        <div><em>goal</em></div>
         <div><em>workflow</em></div>
         <div><em>invocation</em></div>
-        <div><em>goal</em></div>
         <div><em>invocation, goal</em></div>
         <div><em>feedback, workflow</em></div>
 
         <!-- Metacognition row — single emoji ⬇️ marks "got better by reducing" -->
         <div style="color: var(--kicker); text-align: right; padding-right: 0.4rem;">Metacognition</div>
         <div class="center-text emoji-subtle">⬇️</div>
-        <div></div>
         <div class="center-text emoji-subtle">⬇️</div>
+        <div></div>
         <div class="center-text emoji-subtle">⬇️</div>
         <div></div>
         <div class="center-text emoji-subtle">⬇️</div>
@@ -1203,17 +1218,17 @@
         <div style="color: var(--kicker); text-align: right; padding-right: 0.4rem;">Work Toil</div>
         <div class="center-text emoji-subtle">⬇️</div>
         <div class="center-text emoji-subtle">⬇️</div>
-        <div></div>
         <div class="center-text emoji-subtle">⬇️</div>
+        <div></div>
         <div></div>
         <div class="center-text emoji-subtle">⬇️</div>
 
         <!-- Vigilance Toil row -->
         <div style="color: var(--kicker); text-align: right; padding-right: 0.4rem;">Vigilance Toil</div>
         <div>Am I remembering to gather the right info?</div>
+        <div>Is AI over-working or taking shortcuts?</div>
         <div></div>
         <div>Is the AI taking the right next step?</div>
-        <div>Is AI over-working or taking shortcuts?</div>
         <div>Did the AI get the right input?</div>
         <div>Is the output complete or misleading?</div>
       </div>
@@ -1680,7 +1695,7 @@
   </section>
 
   <!-- 42 Intervention — Status email as structured spec -->
-  <section class="slide img-bg case-study" id="s42">
+  <section class="slide img-bg bg-cs42 case-study" id="s42">
     <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Main Lever: Goals</p>
@@ -1711,7 +1726,7 @@
   <!-- ── STORY: Transcript fetcher (Workflow) ──────── -->
 
   <!-- 44 Setup -->
-  <section class="slide img-bg case-study" id="s44">
+  <section class="slide img-bg bg-cs44 case-study" id="s44">
     <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Session data fetching</p>
@@ -1721,7 +1736,7 @@
   </section>
 
   <!-- 45 Intervention — Transcript fetcher -->
-  <section class="slide img-bg case-study" id="s45">
+  <section class="slide img-bg bg-cs45 case-study" id="s45">
     <div class="slide-content">
       <p class="kicker">Main Lever: Workflow</p>
       <div class="two-up">
@@ -1756,7 +1771,7 @@
   <!-- ── STORY: Movement-based branching (Tooling) ───── -->
 
   <!-- 47 Setup -->
-  <section class="slide img-bg case-study" id="s47">
+  <section class="slide img-bg bg-cs47 case-study" id="s47">
     <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Source control in an agentic codebase</p>
@@ -1766,7 +1781,7 @@
   </section>
 
   <!-- 48 Intervention — Movement-based branching -->
-  <section class="slide img-bg case-study" id="s48">
+  <section class="slide img-bg bg-cs48 case-study" id="s48">
     <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Main Lever: Tooling</p>
@@ -1797,7 +1812,7 @@
   <!-- ── STORY: AST-only refactoring (Tooling — operations) ─── -->
 
   <!-- 50 Setup -->
-  <section class="slide img-bg case-study" id="s50">
+  <section class="slide img-bg bg-cs50 case-study" id="s50">
     <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Structural refactoring in legacy code</p>
@@ -1808,7 +1823,7 @@
   </section>
 
   <!-- 51 Intervention — AST-only refactoring -->
-  <section class="slide img-bg case-study" id="s51">
+  <section class="slide img-bg bg-cs51 case-study" id="s51">
     <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Main Lever: Tooling</p>
@@ -1856,7 +1871,7 @@
   </section>
 
   <!-- 54 Intervention — Archive table for migrations -->
-  <section class="slide img-bg case-study" id="s54">
+  <section class="slide img-bg bg-cs54 case-study" id="s54">
     <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Main Lever: State control</p>

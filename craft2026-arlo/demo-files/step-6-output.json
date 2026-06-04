@@ -1,0 +1,41 @@
+{
+  "key_moments": [
+    {
+      "name": "Splash zone recipe built and iterated",
+      "summary": "Team built the recipe, used it the same session, and refined it in practice -- produced a solid splash zone section in the remodeling proposal."
+    },
+    {
+      "name": "Recipe precision still the gap",
+      "summary": "Team does right things but doesn't follow steps; brain's new role (hold coder to recipe marker, one step at a time) is the next concrete fix, with prep needed for the slowing it causes."
+    },
+    {
+      "name": "Canonical bug list clicked",
+      "summary": "Zeke named why it works -- forces outcomes-thinking instead of development-direction-thinking; Jeffrey echoed it in retro."
+    },
+    {
+      "name": "Splash zone risk levels landed after struggle",
+      "summary": "The three rings required significant coaching effort to distinguish; recipe and hook need sharper upfront framing so future teams don't need the same scaffolding."
+    }
+  ],
+  "friction_signals": [
+    {
+      "type": "repeated explanation",
+      "description": "Splash zone risk level distinctions required extensive coaching -- team couldn't cleanly separate 'forget something' from 'make an error' and had no shared calibration for worst-case extremity.",
+      "implication": "Recipe and hook need clearer upfront framing; the current version under-specifies the three rings."
+    }
+  ],
+  "techniques_in_play": [
+    "Splash Zone Prediction",
+    "Remodel Proposal",
+    "Recipe (Making and Using Recipes)",
+    "Ensemble"
+  ],
+  "progress_signal": "on-track",
+  "tomorrow_goal": "Upshifts to land concepts for techniques the team is already performing well, plus continuing to build the remodeling proposal for the proxy remodel while developing the recipe and template for doing these in the future.",
+  "pull_quote": "It forces us to think in terms of outcomes not in terms of the development direction.",
+  "risks": [],
+  "replan_needed": false,
+  "replan_reason": null,
+  "lesson_plan_discoveries_written": true,
+  "planning_notes": "Next session opens with naming brain's new role before any code is touched, then runs three upshifts: recipes (pull from series-01 day where it was introduced), splash zone, and sketching. Team is ready for upshifts on all three. The abstraction skill during splash zone (staying general across all affected code, not drilling into one piece) is not yet in any recipe but is load-bearing for success -- watch for a place to name and capture it."
+}
