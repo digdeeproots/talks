@@ -876,21 +876,47 @@
       <div class="demo-step">
         <div class="demo-pane demo-cmd">
           <p class="demo-pane-label">Command</p>
-          <pre class="demo-placeholder">(CLI invocation to be filled in)</pre>
+          <pre class="demo-placeholder">
+▐▛███▜▌   Claude Code v2.1.117
+▝▜█████▛▘  Sonnet 4.6 with medium effort · Claude Max
+  ▘▘ ▝▝    D:\coaching-clients\
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+❯ I am working with my current client, redacto. We just completed a day's training session. Today with day 03 of
+  series 01. I need to start working on the lesson plan for tomorrow and write a status email for today. To get
+  started, I need you to do the following.
+  1. Use your fireflies MCP tool to get today's transcript. It will be too large to read into context in one step, so
+  it'll get written to a file by the tool. Move that file to
+  `clients/<current-client>/<current-series>/<current-day>/inputs/session-transcript.md`.
+  2. I downloaded the retro notes. They are in my Downloads folder. Move them into inputs as well.
+
+  /clear
+            
+▐▛███▜▌   Claude Code v2.1.117
+▝▜█████▛▘  Sonnet 4.6 with medium effort · Claude Max
+  ▘▘ ▝▝    D:\coaching-clients\
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+❯ I am working with my current client, redacto. We just completed a day's training session. Today with day 03 of
+  series 01. I need to start working on the lesson plan for tomorrow and write a status email for today. Our first step is to understand what happened.
+  1. Read `clients/<current-client>/<current-series>/<current-day>/inputs/session-transcript.md` and `<inputs>/retro.md`.
+  2. Interview me in the style of Arlo Belshee + Tricia Broderick. Ask one question at a time, and use the info you learn to fill in your understanding. Ask until you understand enough to record what happened.
+  3. Write down your insights at `clients/<current-client>/<client-series>/<current-day>/intermediate/key-moments.md`. Gather the information that we need in order to do lesson planning and create the status email.
+</pre>
         </div>
         <div class="demo-pane demo-do">
           <p class="demo-pane-label">I do</p>
           <ol>
         <li>Run Claude with the prompt.</li>
-        <li>Watch every step and interrupt when something looks wrong.</li>
-        <li>Re-prompt with corrections.</li>
-        <li>Repeat for every run, every day.</li>
+        <li>Watch every step and interrupt when something looks wrong. Get the transcript.</li>
+        <li>Remember everything that happened today and answer questions until I think it understands everything important.</li>
+        <li>Check and refine the key-moments.md result.</li>
           </ol>
         </div>
       </div>
       <details class="demo-output">
         <summary>Result · raw conversation</summary>
-        <pre class="demo-output-file" data-file="demo-files/s23-0.md">(click to load)</pre>
+        <pre class="demo-output-file" data-file="demo-files/step-1-output.md">(click to load)</pre>
       </details>
     </div>
   </section>
@@ -902,15 +928,16 @@
       <div class="demo-step">
         <div class="demo-pane demo-cmd">
           <p class="demo-pane-label">Command</p>
-          <pre class="demo-placeholder">(CLI invocation to be filled in)</pre>
+          <pre class="demo-placeholder">Read `workflow/find-insights.md` and follow it.</pre>
         </div>
         <div class="demo-pane demo-do">
           <p class="demo-pane-label">I do</p>
           <ol>
-        <li>Hand Claude the workflow file.</li>
-        <li>Watch every step it takes.</li>
-        <li>When a gap shows up, edit the workflow file.</li>
-        <li>Re-run on the next day with the improved file.</li>
+            <li>Start the workflow. Follow the steps it guides me though.</li>
+            <li>Answer the interview.</li>
+            <li>Analyze the result. Modify the workflow to address problems that I see.</li>
+            <li>Think through how much work it took from me and what as useful. Modify the workflow to address problems that I see.</li>
+            <li>Do the downstream steps and identify the useless info that we generated. Modify the workflow to stop generating it.</li>
           </ol>
         </div>
       </div>
@@ -928,21 +955,23 @@
       <div class="demo-step">
         <div class="demo-pane demo-cmd">
           <p class="demo-pane-label">Command</p>
-          <pre class="demo-placeholder">(CLI invocation to be filled in)</pre>
+          <pre class="demo-placeholder">Read `workflow/find-insights.md` and follow it.</pre>
         </div>
         <div class="demo-pane demo-do">
           <p class="demo-pane-label">I do</p>
           <ol>
-        <li>Run the doc-iteration pattern on the workflow file.</li>
-        <li>Review each pass.</li>
-        <li>Direct edits via the iteration loop.</li>
-        <li>Commit the improved workflow.</li>
+            <li>Start the workflow. Follow the steps it guides me though.</li>
+            <li>Review the guess it gave me.</li>
+            <li>Give a word vomit about my initial response and other stuff that reminded me about.</li>
+            <li>Answer specific questions to target the info we need.</li>
+            <li>Do document review with @ai: commands in the doc.</li>
+            <li>Do the same improvement cycle stuff.</li>
           </ol>
         </div>
       </div>
       <details class="demo-output">
         <summary>Output · workflows/daily.md (revised)</summary>
-        <pre class="demo-output-file" data-file="demo-files/s23b.md">(click to load)</pre>
+        <pre class="demo-output-file" data-file="demo-files/step-3-output.md">(click to load)</pre>
       </details>
     </div>
   </section>
@@ -959,15 +988,16 @@
         <div class="demo-pane demo-do">
           <p class="demo-pane-label">I do</p>
           <ol>
-        <li>Run the script.</li>
-        <li>Let deterministic code decide the next step.</li>
-        <li>Approve or reject the proposed action between steps.</li>
+            <li>Run the script.</li>
+            <li>Let deterministic code decide the next step.</li>
+            <li>Answer the AI's questions.</li>
+            <li>Stop the session when I think it is done enough and run the script again.</li>
           </ol>
         </div>
       </div>
       <details class="demo-output">
         <summary>Output · scripts/do-today.ts</summary>
-        <pre class="demo-output-file" data-file="demo-files/s23c.ts.txt">(click to load)</pre>
+        <pre class="demo-output-file" data-file="demo-files/step-4-output.md">(same as before)</pre>
       </details>
     </div>
   </section>
