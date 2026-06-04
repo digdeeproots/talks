@@ -610,6 +610,48 @@
       white-space: pre-wrap;
       line-height: 1.4;
     }
+    /* Collapsible Command pane — when the invocation itself is long (e.g. Step 0
+       baseline). Same details/summary pattern as demo-output, but lives inside the
+       demo-cmd pane. Closed: shows a one-line teaser. Open: scrolls inside a fixed
+       max-height so the rest of the slide stays put. */
+    .demo-cmd-collapsible { margin: 0; }
+    .demo-cmd-collapsible > summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: var(--dim);
+      font-family: ui-monospace, 'Cascadia Mono', Consolas, monospace;
+      font-size: clamp(0.72rem, 0.95vw, 0.95rem);
+      user-select: none;
+      padding: 0.1rem 0;
+    }
+    .demo-cmd-collapsible > summary::-webkit-details-marker { display: none; }
+    .demo-cmd-collapsible > summary::before {
+      content: '▸';
+      color: var(--accent);
+      font-size: 0.85rem;
+      transition: transform 0.15s ease;
+      width: 0.8rem;
+      flex-shrink: 0;
+    }
+    .demo-cmd-collapsible[open] > summary::before { transform: rotate(90deg); }
+    .demo-cmd-collapsible .cmd-teaser {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-style: italic;
+    }
+    .demo-cmd-collapsible[open] .cmd-teaser { color: var(--kicker); font-style: normal; }
+    .demo-cmd-collapsible > pre {
+      margin: 0.5rem 0 0;
+      max-height: 32vh;
+      overflow-y: auto;
+      border-top: 1px solid rgba(232,160,32,0.15);
+      padding-top: 0.6rem;
+    }
+
     /* ── STORY LIST — used in case-study intervention slides ─────── */
     .story-list { list-style: none; text-align: left; margin: 0 auto; max-width: 60rem; }
     .story-list li {
@@ -876,6 +918,8 @@
       <div class="demo-step">
         <div class="demo-pane demo-cmd">
           <p class="demo-pane-label">Command</p>
+          <details class="demo-cmd-collapsible">
+            <summary><span class="cmd-teaser">claude — full daily prompt (click to expand)</span></summary>
           <pre class="demo-placeholder">
 ▐▛███▜▌   Claude Code v2.1.117
 ▝▜█████▛▘  Sonnet 4.6 with medium effort · Claude Max
@@ -903,6 +947,7 @@
   2. Interview me in the style of Arlo Belshee + Tricia Broderick. Ask one question at a time, and use the info you learn to fill in your understanding. Ask until you understand enough to record what happened.
   3. Write down your insights at `clients/<current-client>/<client-series>/<current-day>/intermediate/key-moments.md`. Gather the information that we need in order to do lesson planning and create the status email.
 </pre>
+          </details>
         </div>
         <div class="demo-pane demo-do">
           <p class="demo-pane-label">I do</p>
