@@ -96,6 +96,51 @@
     .bg-cr-developer     { background-image: url('./images-creation/developer.jpg'); }
     .bg-cr-migration     { background-image: url('./images-creation/migration.jpg'); }
 
+    /* per-slide background images added for upshift, case-study, recipe & supplementary slides */
+    .bg-s17        { background-image: url('./images-fantasy/s46.jpg'); }  /* owl in dark — vigilance/watchfulness */
+    .bg-s21        { background-image: url('./images-fantasy/s50.jpg'); }  /* aerial waterways — branching paths */
+    .bg-s23        { background-image: url('./images-fantasy/s08.jpg'); }  /* lit book stack — finding insights */
+    .bg-s23-0      { background-image: url('./images-fantasy/s28.jpg'); }  /* lab + books — baseline observation */
+    .bg-s23a       { background-image: url('./images-fantasy/s06.jpg'); }  /* stone arched gate — written workflow */
+    .bg-s23d       { background-image: url('./images-fantasy/s16.jpg'); }  /* hieroglyphs lit by shaft — narrow goal */
+    .bg-s23b       { background-image: url('./images-fantasy/s14.jpg'); }  /* vaulted ceiling — iteration structure */
+    .bg-s23c       { background-image: url('./images-carefree/s26.jpg'); } /* paint cans — pnpm tool palette */
+    .bg-s23e       { background-image: url('./images-carefree/s18.jpg'); } /* school speed-sign — scripted/automatic */
+    .bg-s23f       { background-image: url('./images-carefree/s46.jpg'); } /* blackboard formulas — iterative analysis */
+    .bg-s26        { background-image: url('./images-fantasy/s52.jpg'); }  /* blacksmith at anvil — be a tool builder */
+    .bg-s27        { background-image: url('./images-creation/maintenance.jpg'); } /* foundry/maintenance — recipe craft */
+    .bg-s38        { background-image: url('./images-fantasy/s36.jpg'); }  /* black-hole swirl — decision void */
+    .bg-s39        { background-image: url('./images-fantasy/s14.jpg'); }  /* vaulted ceiling — cleared space */
+    .bg-s40        { background-image: url('./images-fantasy/s10.jpg'); }  /* knight statue — guardian remains */
+    .bg-s41        { background-image: url('./images-carefree/s16.jpg'); } /* alphabet blocks — structured pieces */
+    .bg-s43        { background-image: url('./images-fantasy/s06.jpg'); }  /* stone arched gate — structural gateway */
+    .bg-s52        { background-image: url('./images/s48.jpg'); }          /* engines under hood — what tool does inside */
+    .bg-s53        { background-image: url('./images-carefree/s30.jpg'); } /* lightning storm — data loss risk */
+    .bg-s55        { background-image: url('./images-fantasy/s44.jpg'); }  /* neon doorway over water — safe passage */
+    .bg-s56a       { background-image: url('./images-carefree/s46.jpg'); } /* blackboard formulas — review filter */
+    .bg-s56b       { background-image: url('./images-fantasy/s28.jpg'); }  /* chemistry analysis — structured report */
+    .bg-s56c       { background-image: url('./images-fantasy/s16.jpg'); }  /* hieroglyphs — codified quality categories */
+    .bg-s56d       { background-image: url('./images-carefree/s36.jpg'); } /* wall of stuffed toys — looks done */
+    .bg-s56e       { background-image: url('./images-carefree/s38.jpg'); } /* child in foam blocks — building demo */
+    .bg-s56f       { background-image: url('./images-fantasy/s20.jpg'); }  /* antique world map — every chunk surveyed */
+    .bg-s57a       { background-image: url('./images-fantasy/s28.jpg'); }  /* chemistry — phase discipline */
+    .bg-s57b       { background-image: url('./images-fantasy/s22.jpg'); }  /* bottles — multiple labeled phases */
+    .bg-s57c       { background-image: url('./images-carefree/s52.jpg'); } /* amusement ride at night — looping motion */
+    .bg-rc-mono-a  { background-image: url('./images/s26.jpg'); }          /* rusted car in field — brownfield monorepo */
+    .bg-rc-mono-b  { background-image: url('./images-fantasy/s50.jpg'); }  /* aerial waterways — isolated packages */
+    .bg-rc-mono-c  { background-image: url('./images-fantasy/s04.jpg'); }  /* snow-mountain landscape — boundary */
+    .bg-rc-phase-a { background-image: url('./images-fantasy/s04.jpg'); }  /* mountain — distant horizon */
+    .bg-rc-phase-b { background-image: url('./images-fantasy/s42.jpg'); }  /* cave with hiker — next step only */
+    .bg-rc-phase-c { background-image: url('./images-fantasy/s06.jpg'); }  /* stone arched gate — phase boundary */
+    .bg-rc-vector-a{ background-image: url('./images-fantasy/s16.jpg'); }  /* hieroglyphs — search by symbol */
+    .bg-rc-vector-b{ background-image: url('./images-fantasy/s20.jpg'); }  /* antique world map — by-intent navigation */
+    .bg-rc-vector-c{ background-image: url('./images-fantasy/s44.jpg'); }  /* neon doorway — new way in */
+    .bg-rc-plan-a  { background-image: url('./images-fantasy/s50.jpg'); }  /* aerial waterways — option space */
+    .bg-rc-plan-b  { background-image: url('./images-fantasy/s02.jpg'); }  /* red mystical gateway — committed branch */
+    .bg-rc-plan-c  { background-image: url('./images-fantasy/s06.jpg'); }  /* stone arched gate — survivor combination */
+    .bg-s33d-1     { background-image: url('./images-fantasy/s34.jpg'); }  /* botanical taxonomy — diagram complement */
+    .bg-s33d-2     { background-image: url('./images-fantasy/s34.jpg'); }  /* botanical taxonomy — diagram complement */
+
     /* ── LAYOUTS ──────────────────────────────────────── */
     .two-up {
       display: grid;
@@ -893,7 +938,8 @@
   ════════════════════════════════════════════════════ -->
 
   <!-- 21 PLACEHOLDER — first demo: movement-based branching (Tooling lever) -->
-  <section class="slide" id="s21">
+  <section class="slide img-bg bg-s21" id="s21">
+    <div class="overlay"></div>
     <div class="slide-content">
       <h2>Movement-based branching<br><span class="dim">with risk-aware commit notation</span></h2>
     </div>
@@ -908,7 +954,8 @@
   ════════════════════════════════════════════════════ -->
 
   <!-- 23 intro — frame the demo -->
-  <section class="slide" id="s23">
+  <section class="slide img-bg bg-s23" id="s23">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Find key moments in a transcript</p>
       <p style="margin-top: 1.8rem; color: var(--dim);">A daily coaching workflow. Six transitions follow, each silencing one specific vigilance question.</p>
@@ -916,7 +963,8 @@
   </section>
 
   <!-- 23-0 Step 0 — Prompt Claude and watch (baseline / initial condition) -->
-  <section class="slide case-study" id="s23-0">
+  <section class="slide img-bg bg-s23-0 case-study" id="s23-0">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Step 0 · Prompt Claude and watch</p>
       <div class="demo-step">
@@ -971,7 +1019,8 @@
   </section>
 
   <!-- 23a Step 1 — Written workflow -->
-  <section class="slide case-study" id="s23a">
+  <section class="slide img-bg bg-s23a case-study" id="s23a">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Step 1 · Written workflow</p>
       <div class="demo-step">
@@ -998,7 +1047,8 @@
   </section>
 
   <!-- 23d Step 2 — Narrow goal -->
-  <section class="slide case-study" id="s23d">
+  <section class="slide img-bg bg-s23d case-study" id="s23d">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Step 2 · Narrow goal</p>
       <div class="demo-step">
@@ -1022,7 +1072,8 @@
   </section>
 
   <!-- 23b Step 3 — Document iteration pattern -->
-  <section class="slide case-study" id="s23b">
+  <section class="slide img-bg bg-s23b case-study" id="s23b">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Step 3 · Document iteration pattern</p>
       <div class="demo-step">
@@ -1050,7 +1101,8 @@
   </section>
 
   <!-- 23c Step 4 — pnpm do-today -->
-  <section class="slide case-study" id="s23c">
+  <section class="slide img-bg bg-s23c case-study" id="s23c">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Step 3 · pnpm do-today</p>
       <div class="demo-step">
@@ -1078,7 +1130,8 @@
   </section>
 
   <!-- 23e Step 5 — Scripted fetch -->
-  <section class="slide case-study" id="s23e">
+  <section class="slide img-bg bg-s23e case-study" id="s23e">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Step 5 · Scripted fetch</p>
       <div class="demo-step">
@@ -1106,7 +1159,8 @@
   </section>
 
   <!-- 23f Step 6 — Iterative analysis -->
-  <section class="slide case-study" id="s23f">
+  <section class="slide img-bg bg-s23f case-study" id="s23f">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Step 6 · Iterative analysis</p>
       <div class="demo-step">
@@ -1243,7 +1297,8 @@
   </section>
   
   <!-- 17 Anchor claim for the upshift: vigilance toil comes from defects. Sets up s24. -->
-  <section class="slide" id="s17">
+  <section class="slide img-bg bg-s17" id="s17">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Where vigilance toil comes from</p>
       <h2>Vigilance toil = <span class="accent">defects you have to worry about.</span></h2>
@@ -1290,7 +1345,8 @@
   </section>
   
   <!-- 26 How? — bridge to the universe (the "where") and the safety levels (the "how much") -->
-  <section class="slide" id="s26">
+  <section class="slide img-bg bg-s26" id="s26">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">How?</p>
       <h2>Be a Tool Builder</h2>
@@ -1499,7 +1555,8 @@
 
   <!-- 27 The recipe — meta-pattern for engineering carelessness.
        SVG is shared with the TOC hub; both call sites pull from recipe-svg.js. -->
-  <section class="slide" id="s27">
+  <section class="slide img-bg bg-s27" id="s27">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">The recipe</p>
       <h2 style="margin-bottom: 0.8rem;">Engineering <span class="accent">carelessness</span></h2>
@@ -1637,7 +1694,8 @@
   <!-- ── STORY: Delete completed stories (Memory + Reachable Context) ──────── -->
 
   <!-- 38 Setup -->
-  <section class="slide case-study" id="s38">
+  <section class="slide img-bg bg-s38 case-study" id="s38">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Discovery during demos</p>
       <h2>Vigilance cost:<br><span class="accent">Decision inconsistency</span></h2>
@@ -1646,7 +1704,8 @@
   </section>
 
   <!-- 39 Intervention — Delete completed stories -->
-  <section class="slide case-study" id="s39">
+  <section class="slide img-bg bg-s39 case-study" id="s39">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Main Levers: Memory + Reachable Context</p>
       <ul class="story-list">
@@ -1663,7 +1722,8 @@
   </section>
   
   <!-- 40 Name the experience — Delete completed stories; next returns to TOC -->
-  <section class="slide" id="s40" data-return-to-toc="true">
+  <section class="slide img-bg bg-s40 case-study" id="s40" data-return-to-toc="true">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Name the experience</p>
       <div class="name-grid">
@@ -1680,7 +1740,8 @@
   <!-- ── STORY: Status email as structured spec (Goals) ─────────── -->
 
   <!-- 41 Setup -->
-  <section class="slide case-study" id="s41">
+  <section class="slide img-bg bg-s41 case-study" id="s41">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Recurring structured output</p>
       <h2>Vigilance cost:<br><span class="accent">Consistency violation</span></h2>
@@ -1703,7 +1764,8 @@
   </section>
 
   <!-- 43 Name the experience — Status email as structured spec; next returns to TOC -->
-  <section class="slide" id="s43" data-return-to-toc="true">
+  <section class="slide img-bg bg-s43 case-study" id="s43" data-return-to-toc="true">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Name the experience</p>
       <div class="name-grid">
@@ -1751,7 +1813,8 @@
   </section>
 
   <!-- 52 Name the experience — AST-only refactoring; next returns to TOC -->
-  <section class="slide" id="s52" data-return-to-toc="true">
+  <section class="slide img-bg bg-s52 case-study" id="s52" data-return-to-toc="true">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Name the experience</p>
       <div class="name-grid">
@@ -1768,8 +1831,8 @@
   <!-- ── STORY: Archive table for migrations (State control) ────────────── -->
 
   <!-- 53 Setup -->
-  <section class="slide img-bg case-study" id="s53">
-    <div ></div>
+  <section class="slide img-bg bg-s53 case-study" id="s53">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Database migrations</p>
       <!-- accent amber conflicts with volcanic orange lava; use --fg for legibility -->
@@ -1793,7 +1856,8 @@
   </section>
 
   <!-- 55 Name the experience — Archive table for migrations; next returns to TOC -->
-  <section class="slide" id="s55" data-return-to-toc="true">
+  <section class="slide img-bg bg-s55 case-study" id="s55" data-return-to-toc="true">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Name the experience</p>
       <div class="name-grid">
@@ -1810,7 +1874,8 @@
   <!-- ── STORY: Commit tool as quality reviewer (Feedback) ────────────── -->
 
   <!-- 56a Setup -->
-  <section class="slide case-study" id="s56a">
+  <section class="slide img-bg bg-s56a case-study" id="s56a">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Code review under agentic load</p>
       <h2>Vigilance cost:<br><span class="accent">Smelly code slips review</span></h2>
@@ -1819,7 +1884,8 @@
   </section>
 
   <!-- 56b Intervention — Commit tool as quality reviewer -->
-  <section class="slide case-study" id="s56b">
+  <section class="slide img-bg bg-s56b case-study" id="s56b">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Main Lever: Feedback</p>
       <h2>Every commit returns<br>a <span class="accent">structured quality report.</span></h2>
@@ -1830,7 +1896,8 @@
   </section>
 
   <!-- 56c Name the experience — Commit tool as quality reviewer; next returns to TOC -->
-  <section class="slide" id="s56c" data-return-to-toc="true">
+  <section class="slide img-bg bg-s56c case-study" id="s56c" data-return-to-toc="true">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Name the experience</p>
       <div class="name-grid">
@@ -1847,7 +1914,8 @@
   <!-- ── STORY: Required demo + verification (Feedback) ────────────── -->
 
   <!-- 56d Setup -->
-  <section class="slide case-study" id="s56d">
+  <section class="slide img-bg bg-s56d case-study" id="s56d">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">User-visible work</p>
       <h2>Vigilance cost:<br><span class="accent">Looks done, isn't</span></h2>
@@ -1856,7 +1924,8 @@
   </section>
 
   <!-- 56e Intervention — Required demo + verification -->
-  <section class="slide case-study" id="s56e">
+  <section class="slide img-bg bg-s56e case-study" id="s56e">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Main Lever: Feedback</p>
       <ul class="story-list">
@@ -1873,7 +1942,8 @@
   </section>
 
   <!-- 56f Name the experience — Required demo + verification; next returns to TOC -->
-  <section class="slide" id="s56f" data-return-to-toc="true">
+  <section class="slide img-bg bg-s56f case-study" id="s56f" data-return-to-toc="true">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Name the experience</p>
       <div class="name-grid">
@@ -1890,7 +1960,8 @@
   <!-- ── STORY: Dev inner loop control (Workflow) ────────────── -->
 
   <!-- 57a Setup -->
-  <section class="slide case-study" id="s57a">
+  <section class="slide img-bg bg-s57a case-study" id="s57a">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">TDD with an agent</p>
       <h2>Vigilance cost:<br><span class="accent">Phase bleed in the inner loop</span></h2>
@@ -1899,7 +1970,8 @@
   </section>
   
   <!-- 57b Intervention — Dev inner loop control -->
-  <section class="slide case-study" id="s57b">
+  <section class="slide img-bg bg-s57b case-study" id="s57b">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Main Lever: Workflow</p>
       <p>One workflow, <span class="accent">five universes.</span></p>
@@ -1916,7 +1988,8 @@
   </section>
 
   <!-- 57c Name the experience — Dev inner loop control; next returns to TOC -->
-  <section class="slide" id="s57c" data-return-to-toc="true">
+  <section class="slide img-bg bg-s57c case-study" id="s57c" data-return-to-toc="true">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Name the experience</p>
       <div class="name-grid">
@@ -1933,7 +2006,8 @@
   <!-- ── STORY: Monorepo isolation (Reachable Context) ────────────── -->
 
   <!-- Setup -->
-  <section class="slide case-study" id="s-rc-mono-a">
+  <section class="slide img-bg bg-rc-mono-a case-study" id="s-rc-mono-a">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Brownfield monorepo</p>
       <h2>Vigilance cost:<br><span class="accent">Cross-package contamination</span></h2>
@@ -1942,7 +2016,8 @@
   </section>
 
   <!-- Intervention -->
-  <section class="slide case-study" id="s-rc-mono-b">
+  <section class="slide img-bg bg-rc-mono-b case-study" id="s-rc-mono-b">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Main Lever: Reachable Context</p>
       <p>Shrink what the agent can see <span class="accent">to exactly what its task should touch.</span></p>
@@ -1956,7 +2031,8 @@
   </section>
 
   <!-- Name the experience -->
-  <section class="slide" id="s-rc-mono-c" data-return-to-toc="true">
+  <section class="slide img-bg bg-rc-mono-c case-study" id="s-rc-mono-c" data-return-to-toc="true">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Name the experience</p>
       <div class="name-grid">
@@ -1973,7 +2049,8 @@
   <!-- ── STORY: Multi-phase re-design (Reachable Context) ────────────── -->
 
   <!-- Setup -->
-  <section class="slide case-study" id="s-rc-phase-a">
+  <section class="slide img-bg bg-rc-phase-a case-study" id="s-rc-phase-a">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Multi-phase migration</p>
       <h2>Vigilance cost:<br><span class="accent">Skip past the intermediate</span></h2>
@@ -1982,7 +2059,8 @@
   </section>
 
   <!-- Intervention -->
-  <section class="slide case-study" id="s-rc-phase-b">
+  <section class="slide img-bg bg-rc-phase-b case-study" id="s-rc-phase-b">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Main Lever: Reachable Context</p>
       <p>Truncate the horizon to <span class="accent">the next durable resting point.</span></p>
@@ -1997,7 +2075,8 @@
   </section>
 
   <!-- Name the experience -->
-  <section class="slide" id="s-rc-phase-c" data-return-to-toc="true">
+  <section class="slide img-bg bg-rc-phase-c case-study" id="s-rc-phase-c" data-return-to-toc="true">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Name the experience</p>
       <div class="name-grid">
@@ -2014,7 +2093,8 @@
   <!-- ── STORY: Vector code search (Reachable Context) ────────────── -->
 
   <!-- Setup -->
-  <section class="slide case-study" id="s-rc-vector-a">
+  <section class="slide img-bg bg-rc-vector-a case-study" id="s-rc-vector-a">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Findability in legacy code</p>
       <h2>Vigilance cost:<br><span class="accent">Findability gap</span></h2>
@@ -2023,7 +2103,8 @@
   </section>
 
   <!-- Intervention -->
-  <section class="slide case-study" id="s-rc-vector-b">
+  <section class="slide img-bg bg-rc-vector-b case-study" id="s-rc-vector-b">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Main Lever: Reachable Context</p>
       <p>Expand the reachable surface <span class="accent">in a direction that matches how the agent asks questions.</span></p>
@@ -2037,7 +2118,8 @@
   </section>
 
   <!-- Name the experience -->
-  <section class="slide" id="s-rc-vector-c" data-return-to-toc="true">
+  <section class="slide img-bg bg-rc-vector-c case-study" id="s-rc-vector-c" data-return-to-toc="true">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Name the experience</p>
       <div class="name-grid">
@@ -2054,7 +2136,8 @@
   <!-- ── STORY: Plan optionality (Reachable Context) ────────────── -->
 
   <!-- Setup -->
-  <section class="slide case-study" id="s-rc-plan-a">
+  <section class="slide img-bg bg-rc-plan-a case-study" id="s-rc-plan-a">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Planning under uncertainty</p>
       <h2>Vigilance cost:<br><span class="accent">Premature option lock-in</span></h2>
@@ -2063,7 +2146,8 @@
   </section>
 
   <!-- Intervention -->
-  <section class="slide case-study" id="s-rc-plan-b">
+  <section class="slide img-bg bg-rc-plan-b case-study" id="s-rc-plan-b">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Main Lever: Reachable Context</p>
       <p>Hide the comparison <span class="accent">from the agents being compared.</span></p>
@@ -2078,7 +2162,8 @@
   </section>
 
   <!-- Name the experience -->
-  <section class="slide" id="s-rc-plan-c" data-return-to-toc="true">
+  <section class="slide img-bg bg-rc-plan-c case-study" id="s-rc-plan-c" data-return-to-toc="true">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Name the experience</p>
       <div class="name-grid">
@@ -2403,7 +2488,8 @@
   </section>
 
   <!-- 33d-1 Two agents across turns — diagram only (reserves space for the non-useful levers list) -->
-  <section class="slide" id="s33d-1">
+  <section class="slide img-bg bg-s33d-1" id="s33d-1">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Between agent turns: two different agents</p>
       <svg viewBox="0 0 1000 620" width="100%" style="max-height:68vh; display:block; margin: 0.6rem auto 0;" role="img">
@@ -2499,7 +2585,8 @@
   </section>
 
   <!-- 33d-2 Two agents across turns — diagram + non-useful levers list -->
-  <section class="slide" id="s33d-2" data-return-to-toc="true">
+  <section class="slide img-bg bg-s33d-2" id="s33d-2" data-return-to-toc="true">
+    <div class="overlay"></div>
     <div class="slide-content">
       <p class="kicker">Between agent turns: two different agents</p>
       <svg viewBox="0 0 1000 620" width="100%" style="max-height:68vh; display:block; margin: 0.6rem auto 0;" role="img">
