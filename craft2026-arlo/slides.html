@@ -84,10 +84,6 @@
 
     /* per-case-study images for back-half lever stories */
     .bg-cs42 { background-image: url('./images/s42.jpg');           } /* highway through windshield — structured forward path (Goals) */
-    .bg-cs44 { background-image: url('./images-fantasy/s46.jpg');   } /* owl in the dark — watchful gaze that was missing (Workflow setup) */
-    .bg-cs45 { background-image: url('./images-fantasy/s44.jpg');   } /* lit gateway at dusk — deterministic checkpoint (Workflow) */
-    .bg-cs47 { background-image: url('./images-fantasy/s50.jpg');   } /* aerial waterways — branching paths (Tooling/git setup) */
-    .bg-cs48 { background-image: url('./images/s48.jpg');           } /* car-show engines under hood — curated tool access (Tooling/git) */
     .bg-cs50 { background-image: url('./images/s50.jpg');           } /* old steering wheel + dashboard — legacy controls (AST setup) */
     .bg-cs51 { background-image: url('./images-fantasy/s52.jpg');   } /* blacksmith at the anvil — precise structured transformation (AST) */
     .bg-cs54 { background-image: url('./images-fantasy/s54.jpg');   } /* tree door in mossy woods — preserved passage (Archive table) */
@@ -820,8 +816,8 @@
   <section class="slide img-bg bg-s54" id="s7">
     <div class="overlay"></div>
     <div class="slide-content">
-      <h2>Better brakes let drivers <span class="accent">brake later</span>.</h2>
-      <p style="margin-top: 2rem; color: var(--dim);">They stopped watching every curve from far away. They could go faster, safely. So they did.</p>
+      <h2>Curves require vigilance.</h2>
+      <p style="margin-top: 2rem;">Better brakes let drivers <span class="accent">brake later</span>.</p>
     </div>
   </section>
 
@@ -900,8 +896,6 @@
   <section class="slide" id="s21">
     <div class="slide-content">
       <h2>Movement-based branching<br><span class="dim">with risk-aware commit notation</span></h2>
-      <p class="toc-placeholder">Placeholder. Scripted walkthrough lands in a later session.</p>
-      <p style="margin-top: 2rem; color: var(--dim);">Live demo. Show the MCP tool. Don't name the lever yet.</p>
     </div>
   </section>
 
@@ -1719,92 +1713,6 @@
         <p class="name-value">Zero. Structure, recipients, and rendering each become zero-risk zones.</p>
         <p class="name-label">Lever</p>
         <p class="name-value">Goals (structured spec).</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── STORY: Transcript fetcher (Workflow) ──────── -->
-
-  <!-- 44 Setup -->
-  <section class="slide img-bg bg-cs44 case-study" id="s44">
-    <div class="overlay"></div>
-    <div class="slide-content">
-      <p class="kicker">Session data fetching</p>
-      <h2>Vigilance cost:<br><span class="accent">Oversight mechanism gap</span></h2>
-      <p style="margin-top: 2rem; color: var(--dim);">"Did the AI keep going past the point where I should have been consulted?"</p>
-    </div>
-  </section>
-
-  <!-- 45 Intervention — Transcript fetcher -->
-  <section class="slide img-bg bg-cs45 case-study" id="s45">
-    <div class="slide-content">
-      <p class="kicker">Main Lever: Workflow</p>
-      <div class="two-up">
-        <div>
-          <p class="kicker">On success</p>
-          <h3>Claude is<br>never invoked.</h3>
-        </div>
-        <div>
-          <p class="kicker" style="color: var(--accent);">On failure</p>
-          <h3 class="accent">Claude is called<br>with the failure.</h3>
-        </div>
-      </div>
-      <p style="margin-top: 2.5rem; color: var(--dim);">The system only calls Claude when deterministic code admits it can't handle something.</p>
-    </div>
-  </section>
-
-  <!-- 46 Name the experience — Transcript fetcher; next returns to TOC -->
-  <section class="slide" id="s46" data-return-to-toc="true">
-    <div class="slide-content">
-      <p class="kicker">Name the experience</p>
-      <div class="name-grid">
-        <p class="name-label">Scope</p>
-        <p class="name-value">Wrong-data fetching and over-eager step completion.</p>
-        <p class="name-label">Cost to protect</p>
-        <p class="name-value">Near zero. Deterministic by default; the agent runs only on declared failure.</p>
-        <p class="name-label">Lever</p>
-        <p class="name-value">Workflow.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── STORY: Movement-based branching (Tooling) ───── -->
-
-  <!-- 47 Setup -->
-  <section class="slide img-bg bg-cs47 case-study" id="s47">
-    <div class="overlay"></div>
-    <div class="slide-content">
-      <p class="kicker">Source control in an agentic codebase</p>
-      <h2>Vigilance cost:<br><span class="accent">Policy enforcement</span></h2>
-      <p style="margin-top: 2rem; color: var(--dim);">"Will the agent correctly follow our risk-aware commit notation policy?</p>
-    </div>
-  </section>
-
-  <!-- 48 Intervention — Movement-based branching -->
-  <section class="slide img-bg bg-cs48 case-study" id="s48">
-    <div class="overlay"></div>
-    <div class="slide-content">
-      <p class="kicker">Main Lever: Tooling</p>
-      <h2>Minions never touch <span class="accent">git.</span></h2>
-      <p style="margin-top: 2rem; color: var(--dim);">An MCP tool handles all branching. All the right behaviors implemented. None of the wrong ones available.</p>
-      <p style="margin-top: 1.5rem;">
-        The AI cannot violate git invariants.<br>
-        because there's <span class="accent">nothing to route around.</span>
-      </p>
-    </div>
-  </section>
-
-  <!-- 49 Name the experience — Movement-based branching; next returns to TOC -->
-  <section class="slide" id="s49" data-return-to-toc="true">
-    <div class="slide-content">
-      <p class="kicker">Name the experience</p>
-      <div class="name-grid">
-        <p class="name-label">Scope</p>
-        <p class="name-value">Git operations and the risk-notation policy.</p>
-        <p class="name-label">Cost to protect</p>
-        <p class="name-value">Zero. Git invariants cannot be violated; nothing to route around.</p>
-        <p class="name-label">Lever</p>
-        <p class="name-value">Tooling.</p>
       </div>
     </div>
   </section>
